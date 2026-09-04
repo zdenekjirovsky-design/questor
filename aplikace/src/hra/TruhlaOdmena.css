@@ -1,0 +1,230 @@
+/* TruhlaOdmena — otevírání truhly je EVENT. Barvy výhradně z tokenů. */
+
+.truhla {
+  display: flex;
+  justify-content: center;
+}
+
+.truhla--bronzova { --truhla-barva: var(--bronzova); --truhla-zare: rgba(205, 127, 50, 0.45); }
+.truhla--stribrna { --truhla-barva: var(--stribrna); --truhla-zare: rgba(192, 192, 207, 0.45); }
+.truhla--zlata { --truhla-barva: var(--zlata-truhla); --truhla-zare: rgba(255, 215, 0, 0.5); }
+
+.truhla__scena {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90px;
+  min-height: 260px;
+}
+
+.truhla__telo {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  filter: drop-shadow(0 0 14px var(--truhla-zare));
+  transition: transform 0.15s ease;
+}
+
+.truhla__telo:disabled {
+  cursor: default;
+}
+
+.truhla--faze-zavrena .truhla__telo {
+  animation: truhla-houpani 2.2s ease-in-out infinite;
+}
+
+.truhla--faze-zavrena .truhla__telo:hover {
+  transform: scale(1.06);
+  animation-play-state: paused;
+}
+
+.truhla--faze-treses .truhla__telo {
+  animation: zatreseni 0.3s ease-in-out 2;
+}
+
+/* Víko se otevírá dozadu — pant vlevo nahoře spodku. */
+.truhla__viko {
+  transform-origin: 30px 60px;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.truhla__zamek {
+  transform-origin: 80px 60px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.truhla--faze-otevrena .truhla__viko {
+  transform: translate(-2px, -16px) rotate(-26deg);
+}
+
+.truhla--faze-otevrena .truhla__zamek {
+  transform: translateY(14px) rotate(8deg);
+  opacity: 0;
+}
+
+/* Záře z otevřené truhly */
+.truhla__zare {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 180px;
+  height: 140px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center 70%, var(--truhla-zare) 0%, rgba(0, 0, 0, 0) 65%);
+  pointer-events: none;
+  animation: truhla-zar 0.6s ease-out both;
+}
+
+@keyframes truhla-zar {
+  from { opacity: 0; transform: translateX(-50%) scale(0.4); }
+  to { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+@keyframes truhla-houpani {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(-1.2deg); }
+  75% { transform: translateY(-3px) rotate(1.2deg); }
+}
+
+/* Odměna vyskočí nad truhlu */
+.truhla__odmena {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.truhla__odmena.animace-pop {
+  animation: truhla-odmena-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes truhla-odmena-pop {
+  0% { transform: translateX(-50%) translateY(40px) scale(0.4); opacity: 0; }
+  70% { transform: translateX(-50%) translateY(-4px) scale(1.1); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+.truhla__odmena-xp {
+  font-family: var(--pismo-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--zlata);
+  text-shadow: var(--zare-zlata);
+}
+
+.truhla__odmena-zmrazeni {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--pismo-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--info);
+  text-shadow: 0 0 14px rgba(96, 165, 250, 0.5);
+}
+
+.truhla__odmena-emoji {
+  font-size: 2rem;
+}
+
+.truhla__odmena-karta {
+  background: var(--pozadi-panel-2);
+  border: 2px solid var(--barva-vzacnosti);
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  box-shadow: 0 0 18px var(--truhla-zare), var(--stin);
+}
+
+.truhla__odmena-karta-typ {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-tlumeny);
+}
+
+.truhla__odmena-karta-jmeno {
+  font-family: var(--pismo-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.truhla__odmena-karta-titul {
+  font-size: 0.85rem;
+  color: var(--text-tlumeny);
+}
+
+.truhla__odmena-karta-vzacnost {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--barva-vzacnosti);
+}
+
+/* Konfety — čisté CSS částice, žádná knihovna */
+.truhla__konfety {
+  position: absolute;
+  left: 50%;
+  top: 90px;
+  width: 0;
+  height: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.truhla__konfeta {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 2px;
+  opacity: 0;
+  animation: truhla-konfeta 1.15s ease-out var(--zpozdeni) both;
+}
+
+@keyframes truhla-konfeta {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(var(--dx) * 1.15), calc(var(--dy) + 120px))
+      rotate(calc(var(--rot) * 1.4)) scale(0.7);
+    opacity: 0;
+  }
+}
+
+.truhla__popisek {
+  margin-top: 10px;
+  text-align: center;
+  min-height: 44px;
+}
+
+.truhla__nazev {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.truhla__vyzva-klik {
+  font-size: 0.85rem;
+  color: var(--text-tlumeny);
+  animation: truhla-blikani 1.6s ease-in-out infinite;
+}
+
+@keyframes truhla-blikani {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}

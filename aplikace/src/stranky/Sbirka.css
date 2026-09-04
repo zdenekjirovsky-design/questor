@@ -1,0 +1,282 @@
+/* Sbírka — mřížka karet, rám a záře dle vzácnosti, flip animace nových karet. */
+
+.sbirka__hlava {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sbirka__nadpis-sekce {
+  margin-top: 24px;
+  font-size: 1.1rem;
+  color: var(--text-tlumeny);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.sbirka__mrizka {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.sbirka__mrizka--mistrovska {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* --- Karta velikána --- */
+.sbirka__karta {
+  perspective: 900px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  transition: transform 0.15s ease;
+}
+
+.sbirka__karta:hover {
+  transform: translateY(-4px);
+}
+
+.sbirka__karta-vnitrek {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.sbirka__karta--flip .sbirka__karta-vnitrek {
+  animation: sbirka-flip 0.8s cubic-bezier(0.34, 1.3, 0.64, 1) both;
+}
+
+@keyframes sbirka-flip {
+  from { transform: rotateY(180deg); }
+  to { transform: rotateY(0deg); }
+}
+
+.sbirka__karta-lic,
+.sbirka__karta-rub {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+  background: var(--pozadi-panel);
+  border: 2px solid var(--okraj);
+}
+
+.sbirka__karta-rub {
+  transform: rotateY(180deg);
+  background:
+    repeating-linear-gradient(45deg, rgba(139, 92, 246, 0.08) 0 10px, rgba(0, 0, 0, 0) 10px 20px),
+    var(--pozadi-panel-2);
+  border-color: var(--akcent);
+}
+
+.sbirka__karta-erb {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6));
+}
+
+/* Rámy a záře podle vzácnosti */
+.sbirka__karta--obycejna .sbirka__karta-lic { border-color: var(--text-tlumeny); }
+.sbirka__karta--vzacna .sbirka__karta-lic {
+  border-color: var(--info);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.3);
+}
+.sbirka__karta--epicka .sbirka__karta-lic {
+  border-color: var(--akcent);
+  animation: pulz-zare 3s ease-in-out infinite;
+}
+.sbirka__karta--legendarni .sbirka__karta-lic {
+  border-color: var(--zlata);
+  animation: pulz-zare-zlata 3s ease-in-out infinite;
+}
+
+.sbirka__karta--obycejna .sbirka__karta-vzacnost { color: var(--text-tlumeny); }
+.sbirka__karta--vzacna .sbirka__karta-vzacnost { color: var(--info); }
+.sbirka__karta--epicka .sbirka__karta-vzacnost { color: var(--akcent-svetly); }
+.sbirka__karta--legendarni .sbirka__karta-vzacnost { color: var(--zlata); }
+
+/* Silueta nezískané karty */
+.sbirka__karta--silueta .sbirka__karta-lic {
+  background: var(--pozadi);
+  border-style: dashed;
+  opacity: 0.75;
+}
+
+.sbirka__karta--silueta .sbirka__karta-jmeno,
+.sbirka__karta--silueta .sbirka__karta-titul {
+  color: var(--text-tlumeny);
+}
+
+.sbirka__karta-portret {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--pismo-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--akcent) 0%, var(--akcent-tmavy) 100%);
+  box-shadow: var(--zare-akcent);
+}
+
+.sbirka__karta-portret--stin {
+  background: var(--pozadi-panel-2);
+  color: var(--text-tlumeny);
+  box-shadow: none;
+}
+
+.sbirka__karta-jmeno {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  color: var(--text);
+}
+
+.sbirka__karta-titul {
+  font-size: 0.75rem;
+  color: var(--text-tlumeny);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.sbirka__karta-vzacnost {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* --- Mistrovské karty témat --- */
+.sbirka__mistr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  background: var(--pozadi-panel);
+  border: 2px solid var(--okraj);
+}
+
+.sbirka__mistr--bronz { border-color: var(--bronzova); }
+.sbirka__mistr--stribro { border-color: var(--stribrna); }
+.sbirka__mistr--zlato {
+  border-color: var(--zlata);
+  animation: pulz-zare-zlata 3s ease-in-out infinite;
+}
+
+.sbirka__mistr-ikona {
+  font-size: 1.6rem;
+}
+
+.sbirka__mistr-tema {
+  flex: 1;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.sbirka__mistr-stupen {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-tlumeny);
+}
+
+.sbirka__mistr--zlato .sbirka__mistr-stupen { color: var(--zlata); }
+.sbirka__mistr--stribro .sbirka__mistr-stupen { color: var(--stribrna); }
+.sbirka__mistr--bronz .sbirka__mistr-stupen { color: var(--bronzova); }
+
+.sbirka__prazdno {
+  color: var(--text-tlumeny);
+}
+
+/* --- Detail karty --- */
+.sbirka__pozadi-modalu {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 6, 16, 0.75);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  padding: 20px;
+}
+
+.sbirka__detail {
+  width: min(380px, 100%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sbirka__detail--vzacna { border-color: var(--info); }
+.sbirka__detail--epicka { border-color: var(--akcent); box-shadow: var(--zare-akcent), var(--stin); }
+.sbirka__detail--legendarni { border-color: var(--zlata); box-shadow: var(--zare-zlata), var(--stin); }
+
+.sbirka__detail-portret {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--pismo-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--akcent) 0%, var(--akcent-tmavy) 100%);
+  box-shadow: var(--zare-akcent);
+}
+
+.sbirka__detail-portret--stin {
+  background: var(--pozadi-panel-2);
+  color: var(--text-tlumeny);
+  box-shadow: none;
+}
+
+.sbirka__detail-jmeno {
+  margin: 0;
+}
+
+.sbirka__detail-titul {
+  color: var(--akcent-svetly);
+  font-weight: 600;
+}
+
+.sbirka__detail-vzacnost--obycejna { color: var(--text-tlumeny); }
+.sbirka__detail-vzacnost--vzacna { color: var(--info); border-color: var(--info); }
+.sbirka__detail-vzacnost--epicka { color: var(--akcent-svetly); border-color: var(--akcent); }
+.sbirka__detail-vzacnost--legendarni { color: var(--zlata); border-color: var(--zlata); }
+
+.sbirka__detail-popis {
+  color: var(--text-tlumeny);
+  margin: 6px 0 0;
+}
+
+.sbirka__detail-zavrit {
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .sbirka__mrizka {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

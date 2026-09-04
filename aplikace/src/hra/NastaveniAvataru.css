@@ -1,0 +1,58 @@
+/* Nastavení avataru — náhled + paleta barev vlasů. */
+.nastaveni-avataru {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nastaveni-avataru__nahled {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.nastaveni-avataru__pozn {
+  margin: 0;
+  color: var(--text-tlumeny);
+  font-size: 0.85rem;
+  text-align: center;
+  max-width: 200px;
+}
+
+.nastaveni-avataru__barvy {
+  display: grid;
+  grid-template-columns: repeat(6, 44px);
+  gap: 12px;
+}
+
+.nastaveni-avataru__barva {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--okraj);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  padding: 0;
+}
+
+.nastaveni-avataru__barva:hover {
+  transform: scale(1.12);
+}
+
+.nastaveni-avataru__barva--vybrana {
+  border-color: var(--zlata);
+  box-shadow: var(--zare-zlata);
+  animation: pop 0.3s ease-out;
+}
+
+.nastaveni-avataru__fajfka {
+  color: var(--text);
+  font-weight: 800;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}

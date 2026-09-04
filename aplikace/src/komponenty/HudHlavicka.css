@@ -1,0 +1,91 @@
+/* HUD v hlavičce — level, XP bar, streak. */
+.hud-hlavicka {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+}
+
+.hud__level-blok {
+  min-width: 150px;
+}
+
+.hud__level-radek {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 3px;
+}
+
+.hud__level {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--zlata);
+  letter-spacing: 0.06em;
+}
+
+.hud__xp-text {
+  font-size: 0.72rem;
+  color: var(--text-tlumeny);
+  font-variant-numeric: tabular-nums;
+}
+
+.hud__xp-bar {
+  height: 8px;
+}
+
+.hud__xp-bar--pulz {
+  animation: pulz-zare-zlata 0.7s ease-out;
+}
+
+.hud__plaminek {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--pozadi-panel);
+  border: 1px solid var(--okraj);
+  cursor: default;
+  user-select: none;
+}
+
+.hud__plaminek-ikona {
+  font-size: 1.15rem;
+  animation: hud-plapolani 1.8s ease-in-out infinite;
+}
+
+.hud__plaminek-cislo {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  color: var(--zlata);
+  font-size: 1rem;
+}
+
+/* Dnes ještě žádná aktivita → plamínek pohasíná a táhne k návratu. */
+.hud__plaminek--pohasly .hud__plaminek-ikona {
+  filter: grayscale(0.85) brightness(0.7);
+  opacity: 0.6;
+  animation: none;
+}
+
+.hud__plaminek--pohasly .hud__plaminek-cislo {
+  color: var(--text-tlumeny);
+}
+
+/* Streak zachráněný zmrazením → ledová varianta. */
+.hud__plaminek--ledovy {
+  border-color: var(--info);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.35);
+}
+
+.hud__plaminek--ledovy .hud__plaminek-cislo {
+  color: var(--info);
+}
+
+@keyframes hud-plapolani {
+  0%, 100% { transform: scale(1) rotate(-2deg); }
+  50% { transform: scale(1.12) rotate(2deg); }
+}

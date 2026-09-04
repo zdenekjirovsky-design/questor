@@ -1,0 +1,199 @@
+/* Statistiky — rekordy, týdenní XP graf (čisté CSS), témata, historie. */
+
+.statistiky__mrizka {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* --- Rekordy --- */
+.statistiky__rekordy-mrizka {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.statistiky__rekord {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+  padding: 12px 8px;
+  text-align: center;
+}
+
+.statistiky__rekord-ikona {
+  font-size: 1.3rem;
+}
+
+.statistiky__rekord-hodnota {
+  font-family: var(--pismo-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--zlata);
+}
+
+.statistiky__rekord-popis {
+  font-size: 0.72rem;
+  color: var(--text-tlumeny);
+}
+
+/* --- Týdenní XP graf --- */
+.statistiky__graf {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 160px;
+  padding-top: 20px;
+}
+
+.statistiky__sloupec-blok {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 4px;
+}
+
+.statistiky__sloupec {
+  width: 100%;
+  max-width: 42px;
+  border-radius: 6px 6px 2px 2px;
+  background: linear-gradient(180deg, var(--akcent-svetly) 0%, var(--akcent-tmavy) 100%);
+  transition: height 0.4s ease;
+  min-height: 4px;
+}
+
+.statistiky__sloupec--aktualni {
+  background: linear-gradient(180deg, var(--zlata) 0%, var(--bronzova) 100%);
+  box-shadow: var(--zare-zlata);
+}
+
+.statistiky__sloupec-hodnota {
+  font-family: var(--pismo-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-tlumeny);
+  min-height: 1em;
+}
+
+.statistiky__sloupec-popis {
+  font-size: 0.66rem;
+  color: var(--text-tlumeny);
+  white-space: nowrap;
+}
+
+/* --- Témata --- */
+.statistiky__tema {
+  margin-bottom: 14px;
+}
+
+.statistiky__tema-hlava {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.statistiky__tema-nazev {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.statistiky__tema-cisla {
+  font-size: 0.75rem;
+  color: var(--text-tlumeny);
+  white-space: nowrap;
+}
+
+.statistiky__tema-bar {
+  height: 8px;
+  margin-bottom: 4px;
+}
+
+.statistiky__legenda {
+  margin: 10px 0 0;
+  font-size: 0.75rem;
+  color: var(--text-tlumeny);
+}
+
+.statistiky__legenda-fialova,
+.statistiky__legenda-zlata {
+  display: inline-block;
+  width: 22px;
+  height: 8px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.statistiky__legenda-fialova {
+  background: linear-gradient(90deg, var(--akcent) 0%, var(--akcent-svetly) 100%);
+}
+
+.statistiky__legenda-zlata {
+  background: linear-gradient(90deg, var(--bronzova) 0%, var(--zlata) 100%);
+}
+
+/* --- Historie testů --- */
+.statistiky__tabulka {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.statistiky__tabulka th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tlumeny);
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--okraj);
+}
+
+.statistiky__tabulka td {
+  padding: 8px;
+  border-bottom: 1px solid var(--okraj);
+  font-variant-numeric: tabular-nums;
+}
+
+.statistiky__tabulka tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.statistiky__tabulka tbody tr:hover {
+  background: var(--pozadi-panel-2);
+}
+
+.statistiky__uspesnost--dobra {
+  color: var(--uspech);
+  font-weight: 700;
+}
+
+.statistiky__uspesnost--slaba {
+  color: var(--chyba);
+  font-weight: 700;
+}
+
+.statistiky__xp {
+  color: var(--zlata);
+  font-weight: 700;
+}
+
+.statistiky__prazdno {
+  color: var(--text-tlumeny);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .statistiky__mrizka {
+    grid-template-columns: 1fr;
+  }
+}

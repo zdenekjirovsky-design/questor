@@ -1,0 +1,437 @@
+/* Domů — herní dashboard. Dva sloupce, vše bez scrollu na 1080p. */
+.domu {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.domu__sloupec-hlavni,
+.domu__sloupec-vedlejsi {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- Hero + HRÁT --- */
+.domu__hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background:
+    radial-gradient(500px 200px at 85% 20%, rgba(139, 92, 246, 0.18) 0%, rgba(0, 0, 0, 0) 70%),
+    var(--pozadi-panel);
+}
+
+.domu__pozdrav {
+  font-size: 1.6rem;
+  margin-bottom: 0.2em;
+}
+
+.domu__podtitul {
+  margin: 0;
+  color: var(--text-tlumeny);
+}
+
+.domu__hrat {
+  font-family: var(--pismo-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 18px 44px;
+  border-radius: var(--radius);
+  letter-spacing: 0.08em;
+  animation: pulz-zare-zlata 2.4s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+.domu__hrat:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* --- Questy --- */
+.domu__questy-hlava {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.domu__questy-mrizka {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.domu__quest {
+  position: relative;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+  padding: 12px 14px;
+  overflow: hidden;
+}
+
+.domu__quest--splneny {
+  border-color: var(--uspech);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.25);
+}
+
+.domu__quest-radek {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.domu__quest-ikona {
+  font-size: 1.2rem;
+}
+
+.domu__quest--splneny .domu__quest-ikona {
+  animation: pop 0.35s ease-out;
+}
+
+.domu__quest-popis {
+  flex: 1;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.domu__quest-xp {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  color: var(--zlata);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.domu__quest-bar {
+  height: 8px;
+}
+
+.domu__quest--splneny .domu__quest-bar > div {
+  background: linear-gradient(90deg, var(--uspech) 0%, var(--uspech) 100%);
+}
+
+.domu__quest-postup {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--text-tlumeny);
+  font-variant-numeric: tabular-nums;
+}
+
+.domu__quest--splneny .domu__quest-postup {
+  color: var(--uspech);
+  font-weight: 700;
+}
+
+/* Mikrooslava — jiskřičky na splněném questu */
+.domu__quest-jiskry {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.domu__quest-jiskry i {
+  position: absolute;
+  left: calc(10% + var(--i) * 16%);
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--uspech);
+  opacity: 0;
+  animation: domu-jiskra 0.9s ease-out calc(var(--i) * 0.07s) 1;
+}
+
+@keyframes domu-jiskra {
+  0% { transform: translateY(0) scale(0.4); opacity: 1; }
+  100% { transform: translateY(-34px) scale(1); opacity: 0; }
+}
+
+.domu__questy-bonus {
+  margin: 12px 0 0;
+  color: var(--zlata);
+  font-weight: 700;
+  text-align: center;
+}
+
+.domu__prazdno {
+  color: var(--text-tlumeny);
+  margin: 0;
+}
+
+/* --- Výzvy od táty --- */
+.domu__vyzvy {
+  border-color: var(--zlata);
+  animation: pulz-zare-zlata 3s ease-in-out infinite;
+}
+
+.domu__vyzva + .domu__vyzva {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--okraj);
+}
+
+.domu__vyzva-zprava {
+  margin: 0 0 6px;
+  font-style: italic;
+  color: var(--text);
+  font-size: 1.02rem;
+}
+
+.domu__vyzva-detaily {
+  font-size: 0.82rem;
+  color: var(--text-tlumeny);
+  margin-bottom: 10px;
+}
+
+.domu__vyzva-tlacitko {
+  width: 100%;
+}
+
+/* --- Truhly (chipy) --- */
+.domu__truhly-rada {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.domu__truhla-chip {
+  position: relative;
+  width: 56px;
+  height: 46px;
+  border: none;
+  border-radius: 8px 8px 10px 10px;
+  cursor: pointer;
+  background: var(--chip-barva);
+  box-shadow: inset 0 -14px 0 rgba(0, 0, 0, 0.25), 0 0 12px var(--chip-zare);
+  animation: vznaseni 3s ease-in-out infinite;
+  transition: transform 0.15s ease;
+}
+
+.domu__truhla-chip:hover {
+  transform: scale(1.12);
+}
+
+.domu__truhla-chip--bronzova { --chip-barva: var(--bronzova); --chip-zare: rgba(205, 127, 50, 0.4); }
+.domu__truhla-chip--stribrna { --chip-barva: var(--stribrna); --chip-zare: rgba(192, 192, 207, 0.4); }
+.domu__truhla-chip--zlata { --chip-barva: var(--zlata-truhla); --chip-zare: rgba(255, 215, 0, 0.45); }
+
+.domu__truhla-chip-vicko {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.domu__truhla-chip-zamek {
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  width: 12px;
+  height: 14px;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  background: var(--zlata);
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* --- Mini statistiky --- */
+.domu__stat-mrizka {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.domu__stat {
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+  padding: 10px;
+  text-align: center;
+}
+
+.domu__stat-hodnota {
+  font-family: var(--pismo-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--akcent-svetly);
+}
+
+.domu__stat-popis {
+  font-size: 0.78rem;
+  color: var(--text-tlumeny);
+}
+
+/* --- Modaly --- */
+.domu__pozadi-modalu {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 6, 16, 0.75);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  padding: 20px;
+}
+
+.domu__modal {
+  width: min(640px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.domu__modal--truhla {
+  width: min(420px, 100%);
+  text-align: center;
+}
+
+.domu__modal-hlava {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.domu__modal-zavrit {
+  background: none;
+  border: none;
+  color: var(--text-tlumeny);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.domu__modal-zavrit:hover {
+  color: var(--text);
+}
+
+.domu__modal-nadpis {
+  margin: 16px 0 8px;
+  font-size: 0.95rem;
+  color: var(--text-tlumeny);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.domu__modal-pozn {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
+.domu__rezimy {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.domu__rezim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+  cursor: pointer;
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.domu__rezim:hover {
+  transform: translateY(-2px);
+}
+
+.domu__rezim--vybrany {
+  border-color: var(--akcent);
+  box-shadow: var(--zare-akcent);
+}
+
+.domu__rezim-emoji {
+  font-size: 1.4rem;
+}
+
+.domu__rezim-nazev {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.domu__rezim-popis {
+  font-size: 0.66rem;
+  color: var(--text-tlumeny);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.domu__pocty {
+  display: flex;
+  gap: 8px;
+}
+
+.domu__pocet {
+  flex: 1;
+  padding: 10px;
+  font-family: var(--pismo-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.domu__pocet--vybrany {
+  border-color: var(--akcent);
+  box-shadow: var(--zare-akcent);
+}
+
+.domu__temata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.domu__tema {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  color: var(--text-tlumeny);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.domu__tema--vybrane {
+  border-color: var(--akcent);
+  color: var(--text);
+  box-shadow: var(--zare-akcent);
+}
+
+.domu__modal-start {
+  width: 100%;
+  margin-top: 20px;
+  font-family: var(--pismo-display);
+  font-size: 1.1rem;
+  padding: 14px;
+}
+
+/* Menší displeje — sloupce pod sebe (na 1080p se nepoužije) */
+@media (max-width: 900px) {
+  .domu {
+    grid-template-columns: 1fr;
+  }
+
+  .domu__rezimy {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

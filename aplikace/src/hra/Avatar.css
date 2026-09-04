@@ -1,0 +1,9 @@
+/* Avatar — jemné vznášení pro velkou variantu. */
+.avatar {
+  display: block;
+  flex-shrink: 0;
+}
+
+.avatar--vznasejici {
+  animation: vznaseni 4s ease-in-out infinite;
+}

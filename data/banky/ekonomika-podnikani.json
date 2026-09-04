@@ -1,0 +1,1120 @@
+{
+  "predmetId": "ekonomika-podnikani",
+  "nazev": "Ekonomika a podnikání",
+  "verze": 2,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "zakladni-pojmy", "nazev": "Základní ekonomické pojmy", "poradi": 0 },
+    { "id": "trh-a-trzni-mechanismus", "nazev": "Trh a tržní mechanismus", "poradi": 1 },
+    { "id": "podnikani-a-pravni-formy", "nazev": "Podnikání a právní formy", "poradi": 2 },
+    { "id": "podnik-a-hospodareni", "nazev": "Podnik a jeho hospodaření", "poradi": 3 },
+    { "id": "marketing", "nazev": "Marketing", "poradi": 4 },
+    { "id": "management", "nazev": "Management", "poradi": 5 },
+    { "id": "zamestnanci-a-mzdy", "nazev": "Zaměstnanci a mzdy", "poradi": 6 },
+    { "id": "dane-a-pojisteni", "nazev": "Daně a pojištění", "poradi": 7 },
+    { "id": "penize-a-financni-trh", "nazev": "Peníze a finanční trh", "poradi": 8 }
+  ],
+  "otazky": [
+    {
+      "id": "o-zakladni-pojmy-1",
+      "temaId": "zakladni-pojmy",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co v ekonomii označuje pojem vzácnost?",
+      "moznosti": [
+        "Zdroje jsou omezené, zatímco lidské potřeby jsou prakticky neomezené",
+        "Zboží je drahé, protože je luxusní",
+        "V oběhu je málo peněz",
+        "Výrobek se vyrábí jen v malých sériích"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Vzácnost je základní ekonomický problém: omezené zdroje nestačí na uspokojení všech potřeb, a proto musíme volit. S vysokou cenou ani luxusem přímo nesouvisí.",
+      "zdroj": "Základní ekonomické pojmy"
+    },
+    {
+      "id": "o-zakladni-pojmy-2",
+      "temaId": "zakladni-pojmy",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co jsou náklady obětované příležitosti?",
+      "moznosti": [
+        "Hodnota nejlepší varianty, které jsme se rozhodnutím vzdali",
+        "Všechny peníze vydané na nákup",
+        "Náklady na opravu špatného rozhodnutí",
+        "Rozdíl mezi příjmy a výdaji"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Každá volba něco stojí: nákladem obětované příležitosti je užitek z nejlepší nevyužité alternativy, ne jen skutečně vydané peníze.",
+      "zdroj": "Základní ekonomické pojmy"
+    },
+    {
+      "id": "o-zakladni-pojmy-3",
+      "temaId": "zakladni-pojmy",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Vzduch, který dýcháme, je typickým příkladem volného statku.",
+      "spravna": true,
+      "vysvetleni": "Volný statek je dostupný v takovém množství, že ho nemusíme rozdělovat ani za něj platit. Většina statků je ale ekonomických — vzácných.",
+      "zdroj": "Základní ekonomické pojmy"
+    },
+    {
+      "id": "o-zakladni-pojmy-4",
+      "temaId": "zakladni-pojmy",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se odborně nazývá hodnota nejlepší nevyužité alternativy, které se vzdáváme při rozhodnutí? (uveď celý pojem)",
+      "spravneOdpovedi": [
+        "náklady obětované příležitosti",
+        "naklady obetovane prilezitosti",
+        "oportunitní náklady",
+        "oportunitni naklady",
+        "náklady ušlé příležitosti",
+        "naklady usle prilezitosti",
+        "alternativní náklady",
+        "alternativni naklady"
+      ],
+      "vysvetleni": "Náklady obětované příležitosti (oportunitní náklady) vyjadřují, čeho se vzdáváme, když si vybereme jinou možnost.",
+      "zdroj": "Základní ekonomické pojmy"
+    },
+    {
+      "id": "o-zakladni-pojmy-5",
+      "temaId": "zakladni-pojmy",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď k sobě základní ekonomické pojmy a jejich charakteristiky.",
+      "pary": [
+        { "levy": "potřeba", "pravy": "pociťovaný nedostatek, který chceme odstranit" },
+        { "levy": "statek", "pravy": "hmotná věc, která uspokojuje potřebu" },
+        { "levy": "služba", "pravy": "nehmotná činnost uspokojující potřebu" },
+        { "levy": "vzácnost", "pravy": "omezenost zdrojů vzhledem k potřebám" }
+      ],
+      "vysvetleni": "Potřeby uspokojujeme statky (věcmi) a službami (činnostmi); protože zdroje jsou vzácné, musíme mezi potřebami volit.",
+      "zdroj": "Základní ekonomické pojmy"
+    },
+    {
+      "id": "o-zakladni-pojmy-6",
+      "temaId": "zakladni-pojmy",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Která otázka NEPATŘÍ mezi tři základní ekonomické otázky?",
+      "moznosti": [
+        "Co vyrábět?",
+        "Jak vyrábět?",
+        "Pro koho vyrábět?",
+        "Kdy přestat vyrábět?"
+      ],
+      "spravna": 3,
+      "vysvetleni": "Každá ekonomika řeší trojici otázek co, jak a pro koho vyrábět. Otázku „kdy přestat vyrábět“ mezi základní ekonomické otázky teorie neřadí.",
+      "zdroj": "Základní ekonomické pojmy"
+    },
+    {
+      "id": "o-zakladni-pojmy-7",
+      "temaId": "zakladni-pojmy",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které z následujících položek patří mezi výrobní faktory (vstupy výroby)?",
+      "moznosti": [
+        "práce",
+        "půda a přírodní zdroje",
+        "kapitál (stroje, budovy)",
+        "peníze v peněžence",
+        "lidské potřeby",
+        "reklama"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Klasické výrobní faktory jsou práce, půda a kapitál ve smyslu kapitálových statků. Peníze samy o sobě nic nevyrábějí — jsou jen prostředkem směny.",
+      "zdroj": "Základní ekonomické pojmy"
+    },
+    {
+      "id": "o-zakladni-pojmy-8",
+      "temaId": "zakladni-pojmy",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Ondřej se po maturitě rozhoduje: nastoupit do práce s hrubou mzdou 28 000 Kč měsíčně, nebo rok neplaceně cestovat. Letenky a ubytování ho vyjdou na 150 000 Kč. Jaké jsou roční náklady obětované příležitosti rozhodnutí cestovat?",
+      "moznosti": [
+        "336 000 Kč — ušlá roční mzda",
+        "150 000 Kč — výdaje na cestu",
+        "486 000 Kč — součet ušlé mzdy a výdajů na cestu",
+        "0 Kč — cestování je volný čas"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Náklady obětované příležitosti tvoří hodnota nejlepší obětované alternativy — zde ušlý výdělek 12 × 28 000 = 336 000 Kč. Výdaje za letenky jsou explicitní (přímo zaplacené) výdaje, ne obětovaná příležitost.",
+      "zdroj": "Základní ekonomické pojmy"
+    },
+    {
+      "id": "o-trh-a-trzni-mechanismus-1",
+      "temaId": "trh-a-trzni-mechanismus",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co říká zákon poptávky?",
+      "moznosti": [
+        "S rostoucí cenou poptávané množství klesá",
+        "S rostoucí cenou poptávané množství roste",
+        "Cena nemá na poptávané množství vliv",
+        "Poptávka se vždy rovná nabídce"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Při vyšší ceně si lidé mohou a chtějí koupit méně — křivka poptávky proto klesá.",
+      "zdroj": "Trh a tržní mechanismus"
+    },
+    {
+      "id": "o-trh-a-trzni-mechanismus-2",
+      "temaId": "trh-a-trzni-mechanismus",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Zákon nabídky říká, že s rostoucí cenou roste i nabízené množství.",
+      "spravna": true,
+      "vysvetleni": "Vyšší cena znamená vyšší tržbu z každého kusu, výroba se tak vyplatí více výrobcům a nabízené množství roste.",
+      "zdroj": "Trh a tržní mechanismus"
+    },
+    {
+      "id": "o-trh-a-trzni-mechanismus-3",
+      "temaId": "trh-a-trzni-mechanismus",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Rovnovážná cena je cena, při které…",
+      "moznosti": [
+        "se nabízené množství rovná poptávanému",
+        "je zboží pro kupující nejlevnější",
+        "cenu stanovil stát",
+        "prodávající dosahují nejvyššího možného zisku"
+      ],
+      "spravna": 0,
+      "vysvetleni": "V rovnováze se trh „vyčistí“: prodá se přesně tolik, kolik chtějí kupující koupit a prodávající prodat.",
+      "zdroj": "Trh a tržní mechanismus"
+    },
+    {
+      "id": "o-trh-a-trzni-mechanismus-4",
+      "temaId": "trh-a-trzni-mechanismus",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá situace na trhu, kdy je při dané ceně nabízené množství větší než poptávané?",
+      "spravneOdpovedi": [
+        "přebytek",
+        "prebytek",
+        "převis nabídky",
+        "previs nabidky",
+        "nadbytek"
+      ],
+      "vysvetleni": "Při ceně nad rovnováhou vzniká přebytek (převis nabídky) — část zboží se neprodá a neprodané zásoby tlačí cenu dolů.",
+      "zdroj": "Trh a tržní mechanismus"
+    },
+    {
+      "id": "o-trh-a-trzni-mechanismus-5",
+      "temaId": "trh-a-trzni-mechanismus",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď tržní strukturu k její charakteristice.",
+      "pary": [
+        { "levy": "monopol", "pravy": "na trhu je jediný prodávající" },
+        { "levy": "oligopol", "pravy": "trh ovládá několik velkých firem" },
+        { "levy": "dokonalá konkurence", "pravy": "mnoho malých prodejců se stejným produktem" },
+        { "levy": "monopolistická konkurence", "pravy": "mnoho prodejců s mírně odlišenými produkty" }
+      ],
+      "vysvetleni": "Tržní struktury se liší počtem prodávajících a mírou odlišení produktu — od jediné firmy (monopol) po mnoho firem se stejným zbožím (dokonalá konkurence).",
+      "zdroj": "Trh a tržní mechanismus"
+    },
+    {
+      "id": "o-trh-a-trzni-mechanismus-6",
+      "temaId": "trh-a-trzni-mechanismus",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Na trhu s elektrokoly vzrostla poptávka, nabídka se nezměnila. Co se stane s rovnovážnou cenou a množstvím?",
+      "moznosti": [
+        "Cena i prodané množství vzrostou",
+        "Cena vzroste, množství klesne",
+        "Cena klesne, množství vzroste",
+        "Cena i množství klesnou"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Posun poptávky doprava zvedá cenu; vyšší cena zároveň motivuje výrobce nabízet víc, takže roste i prodané množství.",
+      "zdroj": "Trh a tržní mechanismus"
+    },
+    {
+      "id": "o-trh-a-trzni-mechanismus-7",
+      "temaId": "trh-a-trzni-mechanismus",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které události posunou křivku poptávky po zmrzlině doprava (zvýší poptávku při každé ceně)?",
+      "moznosti": [
+        "růst příjmů obyvatel",
+        "mimořádně horké léto",
+        "zdražení ledové tříště (substitutu)",
+        "zlevnění samotné zmrzliny",
+        "růst cen mléka pro výrobce",
+        "pokles počtu turistů ve městě"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Poptávku posouvají faktory mimo cenu daného zboží: příjmy, preference (počasí) a ceny substitutů. Změna vlastní ceny znamená jen posun po křivce a ceny vstupů ovlivňují nabídku.",
+      "zdroj": "Trh a tržní mechanismus"
+    },
+    {
+      "id": "o-trh-a-trzni-mechanismus-8",
+      "temaId": "trh-a-trzni-mechanismus",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Cena jízdného vzrostla o 10 % a počet prodaných jízdenek klesl o 20 %. Jaká je cenová elasticita poptávky (v absolutní hodnotě) a co z ní plyne?",
+      "moznosti": [
+        "2 — poptávka je elastická, tržby po zdražení klesnou",
+        "0,5 — poptávka je neelastická, tržby vzrostou",
+        "2 — poptávka je neelastická, tržby vzrostou",
+        "0,5 — poptávka je elastická, tržby klesnou"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Elasticita = 20 % ÷ 10 % = 2. Hodnota nad 1 znamená elastickou poptávku — množství reaguje silněji než cena, takže tržby po zdražení klesnou.",
+      "zdroj": "Trh a tržní mechanismus"
+    },
+    {
+      "id": "o-podnikani-a-pravni-formy-1",
+      "temaId": "podnikani-a-pravni-formy",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je hlavním cílem podnikání?",
+      "moznosti": [
+        "dosahování zisku",
+        "vytváření pracovních míst",
+        "placení daní státu",
+        "uspokojení všech potřeb společnosti"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Podnikání je soustavná činnost vykonávaná vlastním jménem a na vlastní odpovědnost za účelem dosažení zisku. Pracovní místa a daně jsou jeho vedlejší efekty.",
+      "zdroj": "Podnikání a právní formy"
+    },
+    {
+      "id": "o-podnikani-a-pravni-formy-2",
+      "temaId": "podnikani-a-pravni-formy",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jaký je minimální vklad při založení společnosti s ručením omezeným (s.r.o.)?",
+      "moznosti": [
+        "1 Kč",
+        "20 000 Kč",
+        "200 000 Kč",
+        "2 000 000 Kč"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Od roku 2014 stačí u s.r.o. vklad 1 Kč na společníka. Částka 2 000 000 Kč je minimální základní kapitál akciové společnosti.",
+      "zdroj": "Podnikání a právní formy"
+    },
+    {
+      "id": "o-podnikani-a-pravni-formy-3",
+      "temaId": "podnikani-a-pravni-formy",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Společník s.r.o. ručí za dluhy společnosti celým svým osobním majetkem.",
+      "spravna": false,
+      "vysvetleni": "Společníci ručí jen do výše nesplacených vkladů zapsaných v obchodním rejstříku — proto „ručení omezené“. Celým majetkem odpovídá např. podnikající fyzická osoba.",
+      "zdroj": "Podnikání a právní formy"
+    },
+    {
+      "id": "o-podnikani-a-pravni-formy-4",
+      "temaId": "podnikani-a-pravni-formy",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá nejvyšší orgán akciové společnosti, na kterém hlasují akcionáři?",
+      "spravneOdpovedi": [
+        "valná hromada",
+        "valna hromada"
+      ],
+      "vysvetleni": "Valná hromada je nejvyšším orgánem a.s. i s.r.o. — rozhoduje o zásadních otázkách, například o rozdělení zisku nebo změně stanov.",
+      "zdroj": "Podnikání a právní formy"
+    },
+    {
+      "id": "o-podnikani-a-pravni-formy-5",
+      "temaId": "podnikani-a-pravni-formy",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď právní formu podnikání k její charakteristice.",
+      "pary": [
+        { "levy": "živnost", "pravy": "podnikání fyzické osoby na základě živnostenského oprávnění" },
+        { "levy": "s.r.o.", "pravy": "kapitálová společnost, společníci ručí omezeně" },
+        { "levy": "a.s.", "pravy": "základní kapitál je rozvržen na akcie" },
+        { "levy": "družstvo", "pravy": "společenství neuzavřeného počtu osob, i za účelem vzájemné podpory" }
+      ],
+      "vysvetleni": "Fyzická osoba podniká nejčastěji na živnost; obchodní korporace (s.r.o., a.s., družstvo) jsou právnické osoby zapsané v obchodním rejstříku.",
+      "zdroj": "Podnikání a právní formy"
+    },
+    {
+      "id": "o-podnikani-a-pravni-formy-6",
+      "temaId": "podnikani-a-pravni-formy",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Pro kterou z následujících činností je potřeba koncesovaná živnost?",
+      "moznosti": [
+        "prodej zbraní a střeliva",
+        "maloobchodní prodej oblečení",
+        "zednictví",
+        "vedení účetnictví"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Koncesované živnosti (zbraně, taxislužba, cestovní kancelář…) vyžadují státní povolení — koncesi. Maloobchod je živnost volná, zednictví řemeslná a vedení účetnictví vázaná.",
+      "zdroj": "Podnikání a právní formy"
+    },
+    {
+      "id": "o-podnikani-a-pravni-formy-7",
+      "temaId": "podnikani-a-pravni-formy",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které druhy živností patří mezi živnosti ohlašovací?",
+      "moznosti": [
+        "volná",
+        "řemeslná",
+        "vázaná",
+        "koncesovaná",
+        "akciová",
+        "družstevní"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Ohlašovací živnosti (volná, řemeslná, vázaná) vznikají ohlášením živnostenskému úřadu; koncesovaná vyžaduje udělení koncese. „Akciová“ ani „družstevní“ živnost neexistují.",
+      "zdroj": "Podnikání a právní formy"
+    },
+    {
+      "id": "o-podnikani-a-pravni-formy-8",
+      "temaId": "podnikani-a-pravni-formy",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Start-up plánuje vývoj dronů: potřebuje získat kapitál od desítek investorů a časem vstoupit na burzu. Zakladatelé nechtějí ručit osobním majetkem. Která právní forma se hodí nejlépe?",
+      "moznosti": [
+        "akciová společnost",
+        "živnost",
+        "veřejná obchodní společnost",
+        "družstvo"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Akcie lze prodat mnoha investorům a obchodovat na burze, akcionáři přitom za dluhy společnosti neručí. Živnostník i společníci v.o.s. ručí celým svým majetkem.",
+      "zdroj": "Podnikání a právní formy"
+    },
+    {
+      "id": "o-podnik-a-hospodareni-1",
+      "temaId": "podnik-a-hospodareni",
+      "typ": "anone",
+      "obtiznost": 1,
+      "zadani": "Zisk podniku vypočítáme jako výnosy minus náklady.",
+      "spravna": true,
+      "vysvetleni": "Kladný rozdíl výnosů a nákladů je zisk, záporný je ztráta. Souhrnně mluvíme o výsledku hospodaření.",
+      "zdroj": "Podnik a jeho hospodaření"
+    },
+    {
+      "id": "o-podnik-a-hospodareni-2",
+      "temaId": "podnik-a-hospodareni",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co patří do dlouhodobého majetku podniku?",
+      "moznosti": [
+        "výrobní hala",
+        "materiál na skladě",
+        "peníze v pokladně",
+        "zboží určené k prodeji"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Dlouhodobý majetek slouží podniku déle než rok (budovy, stroje, licence). Materiál, peníze a zboží se rychle spotřebují nebo obrátí — patří do oběžného majetku.",
+      "zdroj": "Podnik a jeho hospodaření"
+    },
+    {
+      "id": "o-podnik-a-hospodareni-3",
+      "temaId": "podnik-a-hospodareni",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Oběžný majetek se v podniku obvykle používá déle než jeden rok.",
+      "spravna": false,
+      "vysvetleni": "Oběžný majetek (materiál, zboží, peníze, pohledávky) neustále mění podobu a spotřebovává se zpravidla do jednoho roku. Déle než rok slouží majetek dlouhodobý.",
+      "zdroj": "Podnik a jeho hospodaření"
+    },
+    {
+      "id": "o-podnik-a-hospodareni-4",
+      "temaId": "podnik-a-hospodareni",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá peněžní vyjádření postupného opotřebení dlouhodobého majetku, které podnik zahrnuje do nákladů?",
+      "spravneOdpovedi": [
+        "odpisy",
+        "odpis",
+        "odpisy majetku",
+        "odpisy dlouhodobého majetku",
+        "odpisy dlouhodobeho majetku"
+      ],
+      "vysvetleni": "Odpisy rozkládají pořizovací cenu dlouhodobého majetku do nákladů více let podle jeho opotřebení.",
+      "zdroj": "Podnik a jeho hospodaření"
+    },
+    {
+      "id": "o-podnik-a-hospodareni-5",
+      "temaId": "podnik-a-hospodareni",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď pojem z hospodaření podniku k jeho významu.",
+      "pary": [
+        { "levy": "fixní náklady", "pravy": "nemění se s objemem výroby (nájem haly)" },
+        { "levy": "variabilní náklady", "pravy": "rostou s každým vyrobeným kusem (materiál)" },
+        { "levy": "výnosy", "pravy": "peněžní vyjádření výkonů podniku (tržby)" },
+        { "levy": "ztráta", "pravy": "náklady převýšily výnosy" }
+      ],
+      "vysvetleni": "Rozlišení fixních a variabilních nákladů je základem kalkulací i výpočtu bodu zvratu; porovnáním výnosů a nákladů zjistíme zisk nebo ztrátu.",
+      "zdroj": "Podnik a jeho hospodaření"
+    },
+    {
+      "id": "o-podnik-a-hospodareni-6",
+      "temaId": "podnik-a-hospodareni",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Truhlářství vyrábí stoly. Který náklad je PŘÍMÝ, tedy přiřaditelný konkrétnímu stolu?",
+      "moznosti": [
+        "spotřebované dubové dřevo",
+        "nájem dílny",
+        "mzda účetní",
+        "pojištění budovy"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Přímé náklady lze změřit na jednotku výkonu (materiál, úkolová mzda dělníka). Nájem, mzda účetní a pojištění jsou režijní (nepřímé) — na výrobky se rozpočítávají.",
+      "zdroj": "Podnik a jeho hospodaření"
+    },
+    {
+      "id": "o-podnik-a-hospodareni-7",
+      "temaId": "podnik-a-hospodareni",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které z následujících nákladů pekárny jsou fixní?",
+      "moznosti": [
+        "nájem výrobních prostor",
+        "odpisy pece",
+        "plat vedoucího provozu",
+        "spotřeba mouky",
+        "obaly na každý prodaný chléb"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Fixní náklady běží bez ohledu na to, kolik chlebů se upeče. Mouka a obaly rostou s každým kusem — jsou variabilní.",
+      "zdroj": "Podnik a jeho hospodaření"
+    },
+    {
+      "id": "o-podnik-a-hospodareni-8",
+      "temaId": "podnik-a-hospodareni",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Firma má fixní náklady 100 000 Kč měsíčně, prodejní cenu výrobku 500 Kč a variabilní náklady 300 Kč na kus. Kolik kusů musí měsíčně prodat, aby dosáhla bodu zvratu?",
+      "moznosti": [
+        "500 kusů",
+        "200 kusů",
+        "334 kusů",
+        "1 000 kusů"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Bod zvratu = fixní náklady ÷ (cena − variabilní náklad na kus) = 100 000 ÷ 200 = 500 kusů. Od 501. kusu firma tvoří zisk.",
+      "zdroj": "Podnik a jeho hospodaření"
+    },
+    {
+      "id": "o-marketing-1",
+      "temaId": "marketing",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co NEPATŘÍ do marketingového mixu 4P?",
+      "moznosti": [
+        "produkt (product)",
+        "cena (price)",
+        "distribuce (place)",
+        "personalistika (personnel)"
+      ],
+      "spravna": 3,
+      "vysvetleni": "4P tvoří produkt, cena, distribuce a propagace (promotion). Personalistika je součást řízení lidských zdrojů; u rozšířeného mixu služeb se přidávají lidé (people), ne personalistika.",
+      "zdroj": "Marketing"
+    },
+    {
+      "id": "o-marketing-2",
+      "temaId": "marketing",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Sekundární marketingový výzkum znamená, že firma sbírá nová data v terénu, například anketou mezi zákazníky.",
+      "spravna": false,
+      "vysvetleni": "Sběr nových dat v terénu je výzkum primární. Sekundární výzkum využívá už existující data — statistiky, studie nebo interní evidenci.",
+      "zdroj": "Marketing"
+    },
+    {
+      "id": "o-marketing-3",
+      "temaId": "marketing",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Dotazníkové šetření mezi vlastními zákazníky je příkladem…",
+      "moznosti": [
+        "primárního výzkumu",
+        "sekundárního výzkumu",
+        "segmentace trhu",
+        "podpory prodeje"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Firma sbírá nová (primární) data přímo od respondentů. Kdyby použila hotové statistiky, šlo by o výzkum sekundární.",
+      "zdroj": "Marketing"
+    },
+    {
+      "id": "o-marketing-4",
+      "temaId": "marketing",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá čtvrté „P“ marketingového mixu — komunikace se zákazníky pomocí reklamy, podpory prodeje a PR?",
+      "spravneOdpovedi": [
+        "propagace",
+        "promotion",
+        "marketingová komunikace",
+        "marketingova komunikace"
+      ],
+      "vysvetleni": "Propagace (promotion) zahrnuje reklamu, podporu prodeje, public relations, osobní prodej a přímý marketing.",
+      "zdroj": "Marketing"
+    },
+    {
+      "id": "o-marketing-5",
+      "temaId": "marketing",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď nástroj ke správnému „P“ marketingového mixu.",
+      "pary": [
+        { "levy": "produkt", "pravy": "design, kvalita a obal výrobku" },
+        { "levy": "cena", "pravy": "slevy a platební podmínky" },
+        { "levy": "distribuce", "pravy": "volba prodejních kanálů a logistika" },
+        { "levy": "propagace", "pravy": "reklamní kampaň v médiích" }
+      ],
+      "vysvetleni": "Každé P odpovídá jedné skupině rozhodnutí: co prodávat, za kolik, jakou cestou k zákazníkovi a jak o tom dát vědět.",
+      "zdroj": "Marketing"
+    },
+    {
+      "id": "o-marketing-6",
+      "temaId": "marketing",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Ve které fázi životního cyklu produktu jsou tržby nejvyšší, ale jejich růst se už zastavuje a sílí konkurenční boj?",
+      "moznosti": [
+        "zralost",
+        "zavedení",
+        "růst",
+        "úpadek"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Ve fázi zralosti je trh nasycen: tržby vrcholí, růst stagnuje a firmy soupeří hlavně cenou, variantami produktu a propagací.",
+      "zdroj": "Marketing"
+    },
+    {
+      "id": "o-marketing-7",
+      "temaId": "marketing",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Která kritéria se běžně používají při segmentaci spotřebitelského trhu?",
+      "moznosti": [
+        "demografická (věk, pohlaví, příjem)",
+        "geografická (region, velikost obce)",
+        "behaviorální (frekvence nákupu, věrnost značce)",
+        "kalkulační (výše režijních nákladů)",
+        "rozvahová (struktura aktiv zákazníka)"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Trh se segmentuje podle demografie, geografie, psychografiky a chování zákazníků. Kalkulace a rozvaha jsou pojmy z podnikové ekonomiky a účetnictví, ne ze segmentace.",
+      "zdroj": "Marketing"
+    },
+    {
+      "id": "o-marketing-8",
+      "temaId": "marketing",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Výrobce uvádí na trh technologicky špičkový telefon. Chce od nadšenců rychle získat zpět náklady na vývoj a teprve později cenu snižovat. Kterou cenovou strategii zvolí?",
+      "moznosti": [
+        "strategii sbírání smetany (skimming)",
+        "penetrační strategii nízké ceny",
+        "nákladovou cenu s pevnou přirážkou",
+        "psychologickou cenu končící na 99"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Skimming nasadí zpočátku vysokou cenu pro zákazníky ochotné za novinku připlatit a postupně ji snižuje. Penetrační strategie je opačná — nízkou cenou rychle získat velký podíl trhu.",
+      "zdroj": "Marketing"
+    },
+    {
+      "id": "o-management-1",
+      "temaId": "management",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Která činnost NEPATŘÍ mezi základní funkce managementu?",
+      "moznosti": [
+        "plánování",
+        "organizování",
+        "kontrola",
+        "účtování"
+      ],
+      "spravna": 3,
+      "vysvetleni": "Základní manažerské funkce jsou plánování, organizování, vedení lidí a kontrola. Účtování je odborná činnost účetních, ne funkce řízení.",
+      "zdroj": "Management"
+    },
+    {
+      "id": "o-management-2",
+      "temaId": "management",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Demokratický styl vedení znamená, že manažer rozhoduje zcela sám a názory podřízených nezjišťuje.",
+      "spravna": false,
+      "vysvetleni": "Popsaný přístup je styl autokratický. Demokratický manažer o řešeních diskutuje s týmem, konečné rozhodnutí a odpovědnost si ale ponechává.",
+      "zdroj": "Management"
+    },
+    {
+      "id": "o-management-3",
+      "temaId": "management",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá styl vedení, při kterém manažer ponechává rozhodování převážně na podřízených a zasahuje jen minimálně?",
+      "spravneOdpovedi": [
+        "liberální",
+        "liberalni",
+        "liberální styl",
+        "liberalni styl",
+        "laissez-faire",
+        "laissez faire",
+        "volný",
+        "volny"
+      ],
+      "vysvetleni": "Liberální (laissez-faire) styl dává týmu maximální volnost — osvědčuje se u zkušených odborníků, u nezkušených týmů vede k chaosu.",
+      "zdroj": "Management"
+    },
+    {
+      "id": "o-management-4",
+      "temaId": "management",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Které potřeby tvoří podle Maslowovy pyramidy její nejnižší patro?",
+      "moznosti": [
+        "fyziologické potřeby (jídlo, spánek)",
+        "potřeba uznání",
+        "potřeba seberealizace",
+        "sociální potřeby (přátelství)"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Maslow řadí potřeby od fyziologických přes bezpečí, sociální potřeby a uznání až po seberealizaci na vrcholu. Vyšší potřeby motivují až po uspokojení nižších.",
+      "zdroj": "Management"
+    },
+    {
+      "id": "o-management-5",
+      "temaId": "management",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které činnosti patří mezi manažerské funkce?",
+      "moznosti": [
+        "plánování cílů",
+        "organizování práce",
+        "kontrola plnění úkolů",
+        "vystavování faktur",
+        "obsluha výrobní linky",
+        "úklid pracoviště"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Manažer plánuje, organizuje, vede lidi a kontroluje. Fakturace, obsluha strojů a úklid jsou výkonné činnosti, které manažer řídí, ale sám je nevykonává.",
+      "zdroj": "Management"
+    },
+    {
+      "id": "o-management-6",
+      "temaId": "management",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které faktory řadí Herzberg mezi motivátory (vedou ke spokojenosti a vyššímu výkonu)?",
+      "moznosti": [
+        "uznání za odvedenou práci",
+        "zajímavá náplň práce",
+        "možnost kariérního růstu",
+        "výše mzdy",
+        "vybavení kanceláře"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Motivátory se týkají práce samotné (uznání, obsah práce, růst). Mzda a pracovní podmínky jsou hygienické faktory — jejich nedostatek vyvolá nespokojenost, ale samy dlouhodobě nemotivují.",
+      "zdroj": "Management"
+    },
+    {
+      "id": "o-management-7",
+      "temaId": "management",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Analýza SWOT hodnotí čtyři oblasti podniku. Co znamená písmeno S?",
+      "spravneOdpovedi": [
+        "silné stránky",
+        "silne stranky",
+        "strengths",
+        "silné stránky podniku",
+        "silne stranky podniku"
+      ],
+      "vysvetleni": "SWOT = silné stránky (strengths), slabé stránky (weaknesses), příležitosti (opportunities) a hrozby (threats). Stránky jsou vnitřní faktory, příležitosti a hrozby vnější.",
+      "zdroj": "Management"
+    },
+    {
+      "id": "o-management-8",
+      "temaId": "management",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Ve výrobní hale vypukl požární poplach a nezkušená směna panikaří. Který styl vedení je v této situaci nejvhodnější?",
+      "moznosti": [
+        "autokratický — jasné příkazy bez diskuse",
+        "liberální — nechat tým, ať si poradí sám",
+        "demokratický — svolat poradu a hlasovat o postupu",
+        "žádný — počkat na vyjádření vedení firmy"
+      ],
+      "spravna": 0,
+      "vysvetleni": "V krizi rozhoduje rychlost a jednoznačnost — direktivní (autokratické) vedení je namístě. Porady a hlasování by stály čas, který ohrožuje bezpečnost lidí.",
+      "zdroj": "Management"
+    },
+    {
+      "id": "o-zamestnanci-a-mzdy-1",
+      "temaId": "zamestnanci-a-mzdy",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Čím nejčastěji vzniká pracovní poměr?",
+      "moznosti": [
+        "uzavřením pracovní smlouvy",
+        "podáním životopisu",
+        "ústní domluvou o mzdě",
+        "zápisem do obchodního rejstříku"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Pracovní poměr vzniká pracovní smlouvou (výjimečně jmenováním). Smlouva musí být písemná.",
+      "zdroj": "Zaměstnanci a mzdy"
+    },
+    {
+      "id": "o-zamestnanci-a-mzdy-2",
+      "temaId": "zamestnanci-a-mzdy",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co NEPATŘÍ mezi tři povinné náležitosti pracovní smlouvy?",
+      "moznosti": [
+        "výše mzdy",
+        "druh práce",
+        "místo výkonu práce",
+        "den nástupu do práce"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zákoník práce vyžaduje druh práce, místo výkonu a den nástupu. Mzda může být sjednána i mimo smlouvu, například mzdovým výměrem.",
+      "zdroj": "Zaměstnanci a mzdy"
+    },
+    {
+      "id": "o-zamestnanci-a-mzdy-3",
+      "temaId": "zamestnanci-a-mzdy",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Hrubá mzda je částka, kterou zaměstnanec skutečně dostane vyplacenou na účet.",
+      "spravna": false,
+      "vysvetleni": "Na účet chodí čistá mzda — hrubá mzda snížená o pojistné a zálohu na daň z příjmů.",
+      "zdroj": "Zaměstnanci a mzdy"
+    },
+    {
+      "id": "o-zamestnanci-a-mzdy-4",
+      "temaId": "zamestnanci-a-mzdy",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se zkráceně nazývá dohoda o provedení práce, oblíbená u studentských brigád?",
+      "spravneOdpovedi": [
+        "dpp",
+        "d.p.p.",
+        "dohoda o provedení práce",
+        "dohoda o provedeni prace"
+      ],
+      "vysvetleni": "DPP je dohoda o práci konané mimo pracovní poměr; druhou je DPČ (dohoda o pracovní činnosti). Do stanoveného měsíčního limitu výdělku se z DPP neplatí pojistné.",
+      "zdroj": "Zaměstnanci a mzdy"
+    },
+    {
+      "id": "o-zamestnanci-a-mzdy-5",
+      "temaId": "zamestnanci-a-mzdy",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď formu odměňování k jejímu principu.",
+      "pary": [
+        { "levy": "časová mzda", "pravy": "podle odpracovaných hodin" },
+        { "levy": "úkolová mzda", "pravy": "podle počtu vyrobených kusů" },
+        { "levy": "podílová mzda", "pravy": "procento z dosažených tržeb" },
+        { "levy": "prémie", "pravy": "pohyblivá odměna za splnění cílů" }
+      ],
+      "vysvetleni": "Forma mzdy má motivovat: časová se hodí tam, kde jde o kvalitu, úkolová a podílová tam, kde lze výkon dobře změřit.",
+      "zdroj": "Zaměstnanci a mzdy"
+    },
+    {
+      "id": "o-zamestnanci-a-mzdy-6",
+      "temaId": "zamestnanci-a-mzdy",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kolik procent z hrubé mzdy se sráží zaměstnanci na zdravotní pojištění?",
+      "moznosti": [
+        "4,5 %",
+        "6,5 %",
+        "9 %",
+        "15 %"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zaměstnanec platí na zdravotní pojištění 4,5 % hrubé mzdy, dalších 9 % za něj odvádí zaměstnavatel. 15 % je sazba daně z příjmů.",
+      "zdroj": "Zaměstnanci a mzdy"
+    },
+    {
+      "id": "o-zamestnanci-a-mzdy-7",
+      "temaId": "zamestnanci-a-mzdy",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které položky se zaměstnanci srážejí z hrubé mzdy?",
+      "moznosti": [
+        "pojistné na sociální pojištění",
+        "pojistné na zdravotní pojištění",
+        "záloha na daň z příjmů",
+        "DPH",
+        "silniční daň",
+        "daň z nemovitých věcí"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Z hrubé mzdy jde sociální pojištění (7,1 %), zdravotní pojištění (4,5 %) a záloha na daň z příjmů. DPH platíme v cenách zboží a silniční daň se týká provozovatelů nákladních vozidel.",
+      "zdroj": "Zaměstnanci a mzdy"
+    },
+    {
+      "id": "o-zamestnanci-a-mzdy-8",
+      "temaId": "zamestnanci-a-mzdy",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Hrubá mzda činí 40 000 Kč. Zaměstnanec odvádí sociální pojištění 7,1 %, zdravotní pojištění 4,5 % a zálohu na daň 15 % sníženou o slevu na poplatníka 2 570 Kč. Jaká je jeho čistá mzda?",
+      "moznosti": [
+        "31 930 Kč",
+        "33 730 Kč",
+        "29 360 Kč",
+        "34 000 Kč"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Pojistné: 2 840 + 1 800 = 4 640 Kč. Daň: 40 000 × 15 % = 6 000 − 2 570 = 3 430 Kč. Čistá mzda = 40 000 − 4 640 − 3 430 = 31 930 Kč.",
+      "zdroj": "Zaměstnanci a mzdy"
+    },
+    {
+      "id": "o-dane-a-pojisteni-1",
+      "temaId": "dane-a-pojisteni",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Která z následujících daní je nepřímá?",
+      "moznosti": [
+        "daň z přidané hodnoty (DPH)",
+        "daň z příjmů fyzických osob",
+        "daň z nemovitých věcí",
+        "silniční daň"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Nepřímé daně jsou skryté v cenách zboží a služeb a odvádí je prodejce. Daně z příjmů a z majetku platí poplatník přímo — jsou přímé.",
+      "zdroj": "Daně a pojištění"
+    },
+    {
+      "id": "o-dane-a-pojisteni-2",
+      "temaId": "dane-a-pojisteni",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Základní sazba DPH v České republice je 21 %.",
+      "spravna": true,
+      "vysvetleni": "Základní sazba DPH je 21 %; vedle ní existuje snížená sazba 12 % (například na potraviny, léky, vodné a stočné).",
+      "zdroj": "Daně a pojištění"
+    },
+    {
+      "id": "o-dane-a-pojisteni-3",
+      "temaId": "dane-a-pojisteni",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jaká je snížená sazba DPH v ČR? (uveď číslo v procentech)",
+      "spravneOdpovedi": [
+        "12",
+        "12 %",
+        "12%",
+        "dvanáct",
+        "dvanact",
+        "dvanáct procent",
+        "dvanact procent"
+      ],
+      "vysvetleni": "Od roku 2024 platí jediná snížená sazba 12 % — vztahuje se například na potraviny, léky nebo ubytovací služby. Knihy mají sazbu 0 %.",
+      "zdroj": "Daně a pojištění"
+    },
+    {
+      "id": "o-dane-a-pojisteni-4",
+      "temaId": "dane-a-pojisteni",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Která daň patří mezi přímé daně?",
+      "moznosti": [
+        "daň z příjmů právnických osob",
+        "daň z přidané hodnoty",
+        "spotřební daň z lihu",
+        "energetické daně"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Přímé daně se vyměřují z příjmů nebo majetku konkrétního poplatníka. DPH, spotřební a energetické daně jsou nepřímé — platíme je v cenách zboží.",
+      "zdroj": "Daně a pojištění"
+    },
+    {
+      "id": "o-dane-a-pojisteni-5",
+      "temaId": "dane-a-pojisteni",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které daně řadíme mezi nepřímé?",
+      "moznosti": [
+        "daň z přidané hodnoty",
+        "spotřební daň z tabákových výrobků",
+        "energetické daně",
+        "daň z příjmů fyzických osob",
+        "daň z nemovitých věcí"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Nepřímé daně zatěžují spotřebu a vybírají se prostřednictvím cen. Daň z příjmů a daň z nemovitých věcí platí poplatník přímo.",
+      "zdroj": "Daně a pojištění"
+    },
+    {
+      "id": "o-dane-a-pojisteni-6",
+      "temaId": "dane-a-pojisteni",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Jaká je základní sazba daně z příjmů fyzických osob v ČR? (uveď číslo v procentech)",
+      "spravneOdpovedi": [
+        "15",
+        "15 %",
+        "15%",
+        "patnáct",
+        "patnact",
+        "patnáct procent",
+        "patnact procent"
+      ],
+      "vysvetleni": "Základní sazba je 15 %; část základu daně nad zákonný limit (36násobek průměrné mzdy ročně) se daní sazbou 23 %.",
+      "zdroj": "Daně a pojištění"
+    },
+    {
+      "id": "o-dane-a-pojisteni-7",
+      "temaId": "dane-a-pojisteni",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Co všechno zahrnuje pojistné na sociální zabezpečení?",
+      "moznosti": [
+        "důchodové pojištění",
+        "nemocenské pojištění",
+        "příspěvek na státní politiku zaměstnanosti",
+        "zdravotní pojištění",
+        "povinné ručení",
+        "životní pojištění"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Sociální pojištění kryje důchody, nemocenskou a politiku zaměstnanosti. Zdravotní pojištění je samostatný odvod zdravotním pojišťovnám; povinné ručení a životní pojištění jsou komerční pojistky.",
+      "zdroj": "Daně a pojištění"
+    },
+    {
+      "id": "o-dane-a-pojisteni-8",
+      "temaId": "dane-a-pojisteni",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Notebook stojí včetně 21 % DPH 6 050 Kč. Kolik z této částky činí DPH?",
+      "moznosti": [
+        "1 050 Kč",
+        "1 270,50 Kč",
+        "605 Kč",
+        "726 Kč"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Cena bez daně = 6 050 ÷ 1,21 = 5 000 Kč, DPH = 6 050 − 5 000 = 1 050 Kč. Častou chybou je počítat 21 % přímo z ceny s daní (1 270,50 Kč).",
+      "zdroj": "Daně a pojištění"
+    },
+    {
+      "id": "o-penize-a-financni-trh-1",
+      "temaId": "penize-a-financni-trh",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co NEPATŘÍ mezi základní funkce peněz?",
+      "moznosti": [
+        "prostředek směny",
+        "měřítko cen (zúčtovací jednotka)",
+        "uchovatel hodnoty",
+        "výrobní faktor"
+      ],
+      "spravna": 3,
+      "vysvetleni": "Peníze slouží ke směně, k vyjadřování cen a k uchování hodnoty. Výrobními faktory jsou práce, půda a kapitálové statky — peníze samy nic nevyrábějí.",
+      "zdroj": "Peníze a finanční trh"
+    },
+    {
+      "id": "o-penize-a-financni-trh-2",
+      "temaId": "penize-a-financni-trh",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Inflace je růst cenové hladiny, při kterém klesá kupní síla peněz.",
+      "spravna": true,
+      "vysvetleni": "Při inflaci si za stejné peníze koupíme méně. Měří se nejčastěji indexem spotřebitelských cen; ČNB cílí inflaci na 2 %.",
+      "zdroj": "Peníze a finanční trh"
+    },
+    {
+      "id": "o-penize-a-financni-trh-3",
+      "temaId": "penize-a-financni-trh",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Kdo má v České republice výhradní právo vydávat bankovky a mince?",
+      "moznosti": [
+        "Česká národní banka",
+        "Ministerstvo financí",
+        "komerční banky",
+        "vláda ČR"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Emise hotovosti je zákonným monopolem ČNB. Ministerstvo financí spravuje státní rozpočet a komerční banky peníze jen zprostředkovávají.",
+      "zdroj": "Peníze a finanční trh"
+    },
+    {
+      "id": "o-penize-a-financni-trh-4",
+      "temaId": "penize-a-financni-trh",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá odměna, kterou dlužník platí věřiteli za půjčení peněz?",
+      "spravneOdpovedi": [
+        "úrok",
+        "urok",
+        "úroky",
+        "uroky"
+      ],
+      "vysvetleni": "Úrok je cena peněz. Jeho roční výše vyjádřená v procentech se nazývá úroková míra (sazba) p.a.",
+      "zdroj": "Peníze a finanční trh"
+    },
+    {
+      "id": "o-penize-a-financni-trh-5",
+      "temaId": "penize-a-financni-trh",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď instituci či pojem finančního trhu k charakteristice.",
+      "pary": [
+        { "levy": "Česká národní banka", "pravy": "určuje měnovou politiku a dohlíží na banky" },
+        { "levy": "komerční banka", "pravy": "přijímá vklady a poskytuje úvěry" },
+        { "levy": "burza", "pravy": "organizovaný trh s cennými papíry" },
+        { "levy": "akcie", "pravy": "cenný papír vyjadřující podíl na společnosti" }
+      ],
+      "vysvetleni": "Centrální banka řídí měnu a dohlíží na trh, komerční banky zprostředkovávají peníze mezi vkladateli a dlužníky, na burze se obchodují cenné papíry.",
+      "zdroj": "Peníze a finanční trh"
+    },
+    {
+      "id": "o-penize-a-financni-trh-6",
+      "temaId": "penize-a-financni-trh",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Když ČNB zvýší základní úrokové sazby, úvěry zpravidla zdraží a inflační tlaky slábnou.",
+      "spravna": true,
+      "vysvetleni": "Vyšší sazby prodraží půjčky, lidé i firmy méně utrácejí a více spoří — poptávka a s ní růst cen se tlumí. Je to hlavní nástroj boje proti inflaci.",
+      "zdroj": "Peníze a finanční trh"
+    },
+    {
+      "id": "o-penize-a-financni-trh-7",
+      "temaId": "penize-a-financni-trh",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které činnosti patří mezi úkoly České národní banky?",
+      "moznosti": [
+        "rozhodovat o základních úrokových sazbách",
+        "vydávat bankovky a mince",
+        "dohlížet na finanční trh",
+        "vybírat daně",
+        "sestavovat státní rozpočet",
+        "poskytovat občanům spotřebitelské úvěry"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "ČNB pečuje o cenovou stabilitu (sazby), emituje hotovost a dohlíží na banky, pojišťovny i kapitálový trh. Daně vybírá finanční správa a státní rozpočet sestavuje Ministerstvo financí.",
+      "zdroj": "Peníze a finanční trh"
+    },
+    {
+      "id": "o-penize-a-financni-trh-8",
+      "temaId": "penize-a-financni-trh",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Uložíš 100 000 Kč na termínovaný vklad s úrokem 4 % ročně a složeným úročením. Kolik na účtu bude (bez daně) po dvou letech?",
+      "moznosti": [
+        "108 160 Kč",
+        "108 000 Kč",
+        "104 000 Kč",
+        "110 000 Kč"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Složené úročení: 100 000 × 1,04² = 108 160 Kč. Úrok se druhý rok počítá i z úroku prvního roku — proto výsledek převyšuje 2 × 4 000 Kč.",
+      "zdroj": "Peníze a finanční trh"
+    }
+  ]
+}

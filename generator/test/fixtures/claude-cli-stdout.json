@@ -1,0 +1,9 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "duration_ms": 12345,
+  "num_turns": 1,
+  "session_id": "test-session",
+  "result": "Tady jsou vygenerované otázky:\n```json\n{\n  \"otazky\": [\n    {\n      \"typ\": \"vyber\",\n      \"obtiznost\": 1,\n      \"zadani\": \"Co je to statek?\",\n      \"vysvetleni\": \"Statek je věc, která slouží k uspokojování potřeb.\",\n      \"zdroj\": \"Potřeby a statky\",\n      \"moznosti\": [\"Věc sloužící k uspokojování potřeb\", \"Pouze peníze\", \"Jen služba\"],\n      \"spravna\": 0\n    },\n    {\n      \"typ\": \"anone\",\n      \"obtiznost\": 2,\n      \"zadani\": \"Je rovnovážná cena cena při rovnosti nabídky a poptávky?\",\n      \"vysvetleni\": \"Rovnovážná cena vzniká při rovnosti nabídky a poptávky.\",\n      \"zdroj\": null,\n      \"spravna\": true\n    }\n  ]\n}\n```\nHotovo."
+}

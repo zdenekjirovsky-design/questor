@@ -1,8 +1,9 @@
-// Statistiky — rekordy, týdenní XP graf, témata a historie testů. VLASTNÍ agent APP-HRA.
-import { useMemo } from 'react';
+// Statistiky — rekordy, týdenní XP graf, témata (per předmět) a historie testů.
+import { useMemo, useState } from 'react';
 import type { RezimTestu } from '@questor/sdilene';
 import { denZData, pondeliTydne, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
+import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import './Statistiky.css';
 
 const NAZVY_REZIMU: Record<RezimTestu, string> = {
@@ -57,34 +58,40 @@ export default function Statistiky() {
   }, [progres.rekordy.tydenniXp]);
   const maxTydenniXp = Math.max(1, ...tydny.map((t) => t.xp));
 
-  // Statistiky po tématech (napříč bankami, dedup podle id tématu).
+  // Sekce Témata je rozdělená podle předmětů (taby) — předměty s bankou,
+  // v pořadí registru (../data/predmety.ts).
+  const predmety = useMemo(() => seradPredmety(Object.keys(banky)), [banky]);
+  const [vybranyTab, setVybranyTab] = useState<string | null>(null);
+  // Dokud se banky nenačtou (async při startu), spadne výběr na první dostupný.
+  const vybranyPredmet =
+    vybranyTab && banky[vybranyTab] ? vybranyTab : (predmety[0] ?? null);
+
+  // Statistiky po tématech vybraného předmětu.
   const temata = useMemo(() => {
+    const banka = vybranyPredmet ? banky[vybranyPredmet] : undefined;
+    if (!banka) return [] as TemaStatistika[];
     const mapa = new Map<string, TemaStatistika & { spravne: number; celkem: number; otazek: number; zvladnuto: number }>();
-    for (const banka of Object.values(banky)) {
-      for (const tema of banka.temata) {
-        if (!mapa.has(tema.id)) {
-          mapa.set(tema.id, {
-            id: tema.id,
-            nazev: tema.nazev,
-            uspesnost: null,
-            zvladnuti: 0,
-            spravne: 0,
-            celkem: 0,
-            otazek: 0,
-            zvladnuto: 0,
-          });
-        }
-      }
-      for (const otazka of banka.otazky) {
-        const t = mapa.get(otazka.temaId);
-        if (!t) continue;
-        t.otazek += 1;
-        const stat = progres.statistikyOtazek[otazka.id];
-        if (stat) {
-          t.spravne += stat.spravneCelkem;
-          t.celkem += stat.spravneCelkem + stat.spatneCelkem;
-          if (stat.box >= 3) t.zvladnuto += 1;
-        }
+    for (const tema of banka.temata) {
+      mapa.set(tema.id, {
+        id: tema.id,
+        nazev: tema.nazev,
+        uspesnost: null,
+        zvladnuti: 0,
+        spravne: 0,
+        celkem: 0,
+        otazek: 0,
+        zvladnuto: 0,
+      });
+    }
+    for (const otazka of banka.otazky) {
+      const t = mapa.get(otazka.temaId);
+      if (!t) continue;
+      t.otazek += 1;
+      const stat = progres.statistikyOtazek[otazka.id];
+      if (stat) {
+        t.spravne += stat.spravneCelkem;
+        t.celkem += stat.spravneCelkem + stat.spatneCelkem;
+        if (stat.box >= 3) t.zvladnuto += 1;
       }
     }
     return [...mapa.values()].map((t) => ({
@@ -93,7 +100,7 @@ export default function Statistiky() {
       uspesnost: t.celkem > 0 ? t.spravne / t.celkem : null,
       zvladnuti: t.otazek > 0 ? t.zvladnuto / t.otazek : 0,
     }));
-  }, [banky, progres.statistikyOtazek]);
+  }, [banky, vybranyPredmet, progres.statistikyOtazek]);
 
   const rekordy: { popis: string; hodnota: string; ikona: string }[] = [
     { popis: 'Nejlepší úspěšnost', hodnota: procenta(progres.rekordy.nejlepsiUspesnost), ikona: '🎯' },
@@ -152,9 +159,36 @@ export default function Statistiky() {
           </div>
         </div>
 
-        {/* Témata */}
+        {/* Témata — rozdělená podle předmětů (taby) */}
         <div className="panel statistiky__temata">
           <h2>Témata</h2>
+          {predmety.length > 1 && (
+            <div className="statistiky__taby" role="tablist" aria-label="Předměty">
+              {predmety.map((id) => (
+                <button
+                  key={id}
+                  type="button"
+                  role="tab"
+                  aria-selected={id === vybranyPredmet}
+                  className={
+                    id === vybranyPredmet
+                      ? 'statistiky__tab statistiky__tab--aktivni'
+                      : 'statistiky__tab'
+                  }
+                  onClick={() => setVybranyTab(id)}
+                >
+                  <span aria-hidden="true">{ikonaPredmetu(id)}</span>{' '}
+                  {nazevPredmetu(id, banky[id]?.nazev)}
+                </button>
+              ))}
+            </div>
+          )}
+          {predmety.length === 1 && vybranyPredmet && (
+            <p className="statistiky__tema-predmet">
+              <span aria-hidden="true">{ikonaPredmetu(vybranyPredmet)}</span>{' '}
+              {nazevPredmetu(vybranyPredmet, banky[vybranyPredmet]?.nazev)}
+            </p>
+          )}
           {temata.length === 0 && (
             <p className="statistiky__prazdno">Zatím žádná data — banka otázek se teprve načte.</p>
           )}

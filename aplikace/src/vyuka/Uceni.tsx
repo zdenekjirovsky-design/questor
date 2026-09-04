@@ -7,6 +7,7 @@ import type { Lekce, VyukaPredmetu } from '@questor/sdilene';
 import { XP_ZA_LEKCI } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import type { PostupLekce } from '../stav/vyukaSlice';
+import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import './vyuka.css';
 
 // ---------------------------------------------------------------------------
@@ -81,18 +82,18 @@ export default function Uceni() {
   const banky = pouzijStav((s) => s.banky);
   const postupLekci = pouzijStav((s) => s.postupLekci);
 
+  // Sekce per předmět (jen předměty, které výuku opravdu mají),
+  // v pořadí registru předmětů (../data/predmety.ts).
   const predmety = useMemo(() => {
-    return Object.values(vyuky)
-      .slice()
-      .sort((a, b) => a.predmetId.localeCompare(b.predmetId, 'cs'))
-      .map((vyuka) => {
-        const nazev = banky[vyuka.predmetId]?.nazev ?? vyuka.predmetId;
-        const lekce = vyuka.lekce
-          .slice()
-          .sort((a, b) => a.poradi - b.poradi)
-          .map((l) => souhrnLekce(vyuka, nazev, l, postupLekci[l.temaId]));
-        return { predmetId: vyuka.predmetId, nazev, lekce };
-      });
+    return seradPredmety(Object.keys(vyuky)).map((predmetId) => {
+      const vyuka = vyuky[predmetId];
+      const nazev = nazevPredmetu(predmetId, banky[predmetId]?.nazev);
+      const lekce = vyuka.lekce
+        .slice()
+        .sort((a, b) => a.poradi - b.poradi)
+        .map((l) => souhrnLekce(vyuka, nazev, l, postupLekci[l.temaId]));
+      return { predmetId, nazev, ikona: ikonaPredmetu(predmetId), lekce };
+    });
   }, [vyuky, banky, postupLekci]);
 
   const vsechnyLekce = predmety.flatMap((p) => p.lekce);
@@ -150,7 +151,9 @@ export default function Uceni() {
       {/* Predmety a lekce */}
       {predmety.map((predmet) => (
         <div key={predmet.predmetId} className="uceni__predmet">
-          <h2 className="uceni__predmet-nazev">{predmet.nazev}</h2>
+          <h2 className="uceni__predmet-nazev">
+            <span aria-hidden="true">{predmet.ikona}</span> {predmet.nazev}
+          </h2>
           <div className="uceni__mrizka">
             {predmet.lekce.map((l) => {
               const obsah = POPISKY_OBSAHU.filter((p) =>

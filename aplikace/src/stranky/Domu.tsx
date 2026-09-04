@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import type { RezimTestu, TestKonfigurace, TruhlaTyp } from '@questor/sdilene';
 import { KARTY_VELIKANI, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
+import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import TruhlaOdmena from '../hra/TruhlaOdmena';
 import './Domu.css';
 import '../vyuka/vyuka.css';
@@ -71,17 +72,62 @@ export default function Domu() {
   }, [obnovDenniQuesty]);
 
   const [volbaOtevrena, setVolbaOtevrena] = useState(false);
+  const [krokVolby, setKrokVolby] = useState<'predmet' | 'volby'>('predmet');
+  const [predmetId, setPredmetId] = useState<string | null>(null);
   const [rezim, setRezim] = useState<RezimTestu>('standard');
   const [pocet, setPocet] = useState<5 | 10 | 20>(10);
   const [vybranaTemata, setVybranaTemata] = useState<string[]>([]);
   const [otviranaTruhla, setOtviranaTruhla] = useState<TruhlaTyp | null>(null);
   const [truhlaOtevrena, setTruhlaOtevrena] = useState(false);
 
-  const predmetId = Object.keys(banky)[0] ?? 'ekonomika-podnikani';
+  // Predmety s reálně přítomnou bankou otázek (bundle/IndexedDB/server),
+  // seřazené podle registru (../data/predmety.ts).
+  const dostupnePredmety = useMemo(() => seradPredmety(Object.keys(banky)), [banky]);
+
+  const otevriVolbu = () => {
+    if (dostupnePredmety.length === 1) {
+      // Jediný předmět — krok volby předmětu nemá co nabídnout, přeskočí se.
+      setPredmetId(dostupnePredmety[0]);
+      setKrokVolby('volby');
+    } else {
+      setKrokVolby('predmet');
+    }
+    setVolbaOtevrena(true);
+  };
+
+  const vyberPredmet = (id: string) => {
+    if (id !== predmetId) setVybranaTemata([]);
+    setPredmetId(id);
+    setKrokVolby('volby');
+  };
+
   const temata = useMemo(
-    () => (banky[predmetId]?.temata ?? []).slice().sort((a, b) => a.poradi - b.poradi),
+    () =>
+      ((predmetId && banky[predmetId]?.temata) || [])
+        .slice()
+        .sort((a, b) => a.poradi - b.poradi),
     [banky, predmetId],
   );
+
+  // Klávesnice modalu: Escape zavře; v kroku předmětu vybírají 1–9.
+  useEffect(() => {
+    if (!volbaOtevrena) return;
+    const zpracuj = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setVolbaOtevrena(false);
+        return;
+      }
+      if (krokVolby !== 'predmet') return;
+      const cislo = Number.parseInt(e.key, 10);
+      if (cislo >= 1 && cislo <= Math.min(9, dostupnePredmety.length)) {
+        e.preventDefault();
+        vyberPredmet(dostupnePredmety[cislo - 1]);
+      }
+    };
+    window.addEventListener('keydown', zpracuj);
+    return () => window.removeEventListener('keydown', zpracuj);
+  }, [volbaOtevrena, krokVolby, dostupnePredmety, predmetId]);
 
   const prepniTema = (id: string) => {
     setVybranaTemata((v) => (v.includes(id) ? v.filter((t) => t !== id) : [...v, id]));
@@ -93,6 +139,7 @@ export default function Domu() {
   };
 
   const zacniZVolby = () => {
+    if (!predmetId) return;
     zacni({
       predmetId,
       rezim,
@@ -144,7 +191,7 @@ export default function Domu() {
           <button
             type="button"
             className="tlacitko tlacitko--zlate domu__hrat"
-            onClick={() => setVolbaOtevrena(true)}
+            onClick={otevriVolbu}
           >
             ▶ HRÁT
           </button>
@@ -315,59 +362,38 @@ export default function Domu() {
               </button>
             </div>
 
-            <h3 className="domu__modal-nadpis">Režim</h3>
-            <div className="domu__rezimy">
-              {REZIMY.map((r) => (
-                <button
-                  key={r.id}
-                  type="button"
-                  className={rezim === r.id ? 'domu__rezim domu__rezim--vybrany' : 'domu__rezim'}
-                  onClick={() => setRezim(r.id)}
-                >
-                  <span className="domu__rezim-emoji" aria-hidden="true">{r.emoji}</span>
-                  <span className="domu__rezim-nazev">{r.nazev}</span>
-                  <span className="domu__rezim-popis">{r.popis}</span>
-                </button>
-              ))}
-            </div>
-
-            <h3 className="domu__modal-nadpis">Počet otázek</h3>
-            <div className="domu__pocty">
-              {POCTY.map((p) => (
-                <button
-                  key={p}
-                  type="button"
-                  className={pocet === p ? 'domu__pocet domu__pocet--vybrany' : 'domu__pocet'}
-                  onClick={() => setPocet(p)}
-                >
-                  {p}
-                </button>
-              ))}
-            </div>
-
-            {temata.length > 0 && (
+            {krokVolby === 'predmet' && (
               <>
                 <h3 className="domu__modal-nadpis">
-                  Témata{' '}
-                  <span className="domu__modal-pozn">
-                    ({vybranaTemata.length === 0 ? 'všechna' : `${vybranaTemata.length} vybráno`})
-                  </span>
+                  Předmět{' '}
+                  <span className="domu__modal-pozn">(klávesy 1–{Math.min(9, Math.max(1, dostupnePredmety.length))})</span>
                 </h3>
-                <div className="domu__temata">
-                  {temata.map((t) => (
+                {dostupnePredmety.length === 0 && (
+                  <p className="domu__prazdno">
+                    Zatím tu není žádná banka otázek. Připoj se k serveru v{' '}
+                    <Link to="/nastaveni">Nastavení</Link>, nebo počkej na aktualizaci aplikace.
+                  </p>
+                )}
+                <div className="domu__predmety">
+                  {dostupnePredmety.map((id, i) => (
                     <button
-                      key={t.id}
+                      key={id}
                       type="button"
                       className={
-                        vybranaTemata.includes(t.id)
-                          ? 'domu__tema domu__tema--vybrane'
-                          : 'domu__tema'
+                        id === predmetId ? 'domu__predmet domu__predmet--vybrany' : 'domu__predmet'
                       }
-                      onClick={() => prepniTema(t.id)}
+                      onClick={() => vyberPredmet(id)}
                     >
-                      {t.nazev}
-                      {temataSLekci.has(t.id) && (
-                        <span title="K tématu je lekce v Učit se" aria-label="(má lekci)"> 📖</span>
+                      <span className="domu__predmet-ikona" aria-hidden="true">
+                        {ikonaPredmetu(id)}
+                      </span>
+                      <span className="domu__predmet-nazev">
+                        {nazevPredmetu(id, banky[id]?.nazev)}
+                      </span>
+                      {i < 9 && (
+                        <span className="domu__predmet-klavesa" aria-hidden="true">
+                          {i + 1}
+                        </span>
                       )}
                     </button>
                   ))}
@@ -375,13 +401,95 @@ export default function Domu() {
               </>
             )}
 
-            <button
-              type="button"
-              className="tlacitko tlacitko--zlate domu__modal-start"
-              onClick={zacniZVolby}
-            >
-              Jdeme na to!
-            </button>
+            {krokVolby === 'volby' && predmetId && (
+              <>
+                <div className="domu__modal-predmet">
+                  <span className="domu__modal-predmet-ikona" aria-hidden="true">
+                    {ikonaPredmetu(predmetId)}
+                  </span>
+                  <span className="domu__modal-predmet-nazev">
+                    {nazevPredmetu(predmetId, banky[predmetId]?.nazev)}
+                  </span>
+                  {dostupnePredmety.length > 1 && (
+                    <button
+                      type="button"
+                      className="tlacitko domu__modal-predmet-zmenit"
+                      onClick={() => setKrokVolby('predmet')}
+                    >
+                      ← Změnit předmět
+                    </button>
+                  )}
+                </div>
+
+                <h3 className="domu__modal-nadpis">Režim</h3>
+                <div className="domu__rezimy">
+                  {REZIMY.map((r) => (
+                    <button
+                      key={r.id}
+                      type="button"
+                      className={rezim === r.id ? 'domu__rezim domu__rezim--vybrany' : 'domu__rezim'}
+                      onClick={() => setRezim(r.id)}
+                    >
+                      <span className="domu__rezim-emoji" aria-hidden="true">{r.emoji}</span>
+                      <span className="domu__rezim-nazev">{r.nazev}</span>
+                      <span className="domu__rezim-popis">{r.popis}</span>
+                    </button>
+                  ))}
+                </div>
+
+                <h3 className="domu__modal-nadpis">Počet otázek</h3>
+                <div className="domu__pocty">
+                  {POCTY.map((p) => (
+                    <button
+                      key={p}
+                      type="button"
+                      className={pocet === p ? 'domu__pocet domu__pocet--vybrany' : 'domu__pocet'}
+                      onClick={() => setPocet(p)}
+                    >
+                      {p}
+                    </button>
+                  ))}
+                </div>
+
+                {temata.length > 0 && (
+                  <>
+                    <h3 className="domu__modal-nadpis">
+                      Témata{' '}
+                      <span className="domu__modal-pozn">
+                        ({vybranaTemata.length === 0 ? 'všechna' : `${vybranaTemata.length} vybráno`})
+                      </span>
+                    </h3>
+                    <div className="domu__temata">
+                      {temata.map((t) => (
+                        <button
+                          key={t.id}
+                          type="button"
+                          className={
+                            vybranaTemata.includes(t.id)
+                              ? 'domu__tema domu__tema--vybrane'
+                              : 'domu__tema'
+                          }
+                          onClick={() => prepniTema(t.id)}
+                        >
+                          {t.nazev}
+                          {temataSLekci.has(t.id) && (
+                            <span title="K tématu je lekce v Učit se" aria-label="(má lekci)"> 📖</span>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                )}
+
+                <button
+                  type="button"
+                  className="tlacitko tlacitko--zlate domu__modal-start"
+                  onClick={zacniZVolby}
+                >
+                  Jdeme na to!
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}

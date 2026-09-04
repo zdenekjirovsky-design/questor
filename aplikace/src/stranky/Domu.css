@@ -425,6 +425,85 @@
   padding: 14px;
 }
 
+/* --- Krok 1: volba předmětu --- */
+.domu__predmety {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.domu__predmet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 8px 12px;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+  cursor: pointer;
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.domu__predmet:hover {
+  transform: translateY(-2px);
+  border-color: var(--akcent);
+}
+
+.domu__predmet--vybrany {
+  border-color: var(--akcent);
+  box-shadow: var(--zare-akcent);
+}
+
+.domu__predmet-ikona {
+  font-size: 1.6rem;
+}
+
+.domu__predmet-nazev {
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.domu__predmet-klavesa {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-family: var(--pismo-display);
+  font-size: 0.65rem;
+  color: var(--text-tlumeny);
+}
+
+/* --- Krok 2: hlavička s vybraným předmětem --- */
+.domu__modal-predmet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+}
+
+.domu__modal-predmet-ikona {
+  font-size: 1.3rem;
+}
+
+.domu__modal-predmet-nazev {
+  flex: 1;
+  font-family: var(--pismo-display);
+  font-weight: 700;
+}
+
+.domu__modal-predmet-zmenit {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+}
+
 /* Menší displeje — sloupce pod sebe (na 1080p se nepoužije) */
 @media (max-width: 900px) {
   .domu {
@@ -432,6 +511,10 @@
   }
 
   .domu__rezimy {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .domu__predmety {
     grid-template-columns: repeat(2, 1fr);
   }
 }

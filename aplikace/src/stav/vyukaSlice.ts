@@ -13,10 +13,8 @@ import {
   aplikujLekciNaQuesty,
   denZData,
   pondeliTydne,
-  validujVyuku,
   XP_ZA_LEKCI,
 } from '@questor/sdilene';
-import { bundlovaneVyuky } from '../data/predmety';
 import type { QUESTORStav } from './store';
 
 // ---------------------------------------------------------------------------
@@ -99,35 +97,13 @@ function pridejTydenniXp(
 // ---------------------------------------------------------------------------
 // Slice
 
+// Vyuky NEJSOU persistovane (localStorage kvota) a neplni se ani pri vzniku
+// slice — obsah se nacita async po startu (../data/nacteniObsahu.ts: bundlovane
+// chunky + IndexedDB, oboji se pri nacteni validuje) a chodi sem pres
+// prijmiVyuku (prijme jen vyssi verzi).
 export const vytvorVyukaSlice: StateCreator<QUESTORStav, [], [], VyukaSlice> = (set, get) => {
-  const bundlovane: Record<string, VyukaPredmetu> = {};
-  for (const vyuka of bundlovaneVyuky()) bundlovane[vyuka.predmetId] = vyuka;
-
-  // Persist pri rehydrataci prepise `vyuky` starym snapshotem — novejsi
-  // bundlovana vyuka z aktualizace aplikace se proto po startu nabidne pres
-  // prijmiVyuku (prijme jen vyssi verzi, idempotentni). Stejny vzor jako banky.
-  // Persistovany snapshot navic muze pochazet z NOVEJSI verze aplikace
-  // (rollback buildu) nebo z rucniho zasahu do localStorage — vyuka s widgetem
-  // neznamym aktualnimu buildu by lekci trvale zasekla (frontier bez obsahu
-  // i tlacitka). Proto se kazda rehydratovana vyuka revaliduje a nevalidni
-  // se zahodi; bundlovana verze se nabidne hned vzapeti.
-  setTimeout(() => {
-    const rehydratovane = get().vyuky;
-    const platne: Record<string, VyukaPredmetu> = {};
-    let zahozena = false;
-    for (const [predmetId, vyuka] of Object.entries(rehydratovane)) {
-      try {
-        platne[predmetId] = validujVyuku(vyuka);
-      } catch {
-        zahozena = true;
-      }
-    }
-    if (zahozena) set({ vyuky: platne });
-    for (const vyuka of Object.values(bundlovane)) get().prijmiVyuku(vyuka);
-  }, 0);
-
   return {
-    vyuky: bundlovane,
+    vyuky: {},
     postupLekci: {},
 
     prijmiVyuku: (vyuka) => {

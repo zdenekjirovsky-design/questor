@@ -8,6 +8,7 @@ import type { TestVysledek } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { nactiSyncNastaveni, vytvorKlienta, vychoziUloziste } from './klient';
 import { SyncFronta } from './fronta';
+import { ulozObsah } from './uloziste';
 
 // ---------------------------------------------------------------------------
 // Stav synchronizace (pro indikátor v UI — useSyncExternalStore)
@@ -90,7 +91,9 @@ async function provedSync(duvod: DuvodSyncu): Promise<void> {
       const lokalni = pouzijStav.getState().banky[zaznam.predmetId];
       if (lokalni && zaznam.verze <= lokalni.verze) continue;
       const banka = validujBanku(await klient.stahniBanku(zaznam.predmetId));
-      pouzijStav.getState().prijmiBanku(banka);
+      // Stazeny obsah do IndexedDB (ne do zustand persist — localStorage
+      // kvota), aby vyssi verze nez bundle prezila restart aplikace.
+      if (pouzijStav.getState().prijmiBanku(banka)) void ulozObsah('banky', banka.predmetId, banka);
     }
 
     // --- pull: výuka (jen vyšší verze) — drží vzor bank ----------------------
@@ -101,7 +104,8 @@ async function provedSync(duvod: DuvodSyncu): Promise<void> {
         const lokalni = pouzijStav.getState().vyuky[zaznam.predmetId];
         if (lokalni && zaznam.verze <= lokalni.verze) continue;
         const vyuka = validujVyuku(await klient.stahniVyuku(zaznam.predmetId));
-        pouzijStav.getState().prijmiVyuku(vyuka);
+        if (pouzijStav.getState().prijmiVyuku(vyuka))
+          void ulozObsah('vyuky', vyuka.predmetId, vyuka);
       }
     } catch {
       // Tiché — výuka je bonus, offline-first základ je bundlovaný.

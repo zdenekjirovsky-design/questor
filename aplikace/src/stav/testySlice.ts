@@ -3,7 +3,6 @@
 // a poslední výsledek. Čistá logika průběhu je v ../testy/engine.ts.
 import type { StateCreator } from 'zustand';
 import type { BankaOtazek, TestKonfigurace, TestVysledek } from '@questor/sdilene';
-import { bundlovaneBanky } from '../data/predmety';
 import {
   dalsiOtazkaVEnginu,
   inicializujTest,
@@ -31,27 +30,12 @@ export interface TestySlice {
   prijmiBanku(banka: BankaOtazek): boolean;
 }
 
-/** Banky vzorových předmětů bundlované v aplikaci (offline-first základ).
- * Validaci a try/catch řeší mapa v ../data/predmety.ts — sem chodí jen platné. */
-function nactiDemoBanky(): Record<string, BankaOtazek> {
-  const banky: Record<string, BankaOtazek> = {};
-  for (const banka of bundlovaneBanky()) banky[banka.predmetId] = banka;
-  return banky;
-}
-
+// Banky NEJSOU persistované (localStorage kvóta) a neplní se ani při vzniku
+// slice — obsah se načítá async po startu (../data/nacteniObsahu.ts: bundlované
+// chunky + IndexedDB) a chodí sem přes prijmiBanku (přijme jen vyšší verzi).
 export const vytvorTestySlice: StateCreator<QUESTORStav, [], [], TestySlice> = (set, get) => {
-  const demoBanky = nactiDemoBanky();
-
-  // Persist při rehydrataci přepíše `banky` starým snapshotem — novější demo
-  // banka z aktualizace aplikace by se jinak k existující instalaci nikdy
-  // nedostala. Po rehydrataci (proběhne synchronně při vytvoření store) ji
-  // proto nabídneme přes prijmiBanku (přijme jen vyšší verzi, idempotentní).
-  setTimeout(() => {
-    for (const banka of Object.values(demoBanky)) get().prijmiBanku(banka);
-  }, 0);
-
   return {
-    banky: demoBanky,
+    banky: {},
     aktualniTest: null,
     posledniVysledek: null,
 

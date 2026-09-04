@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { comboNasobic } from '@questor/sdilene';
 import type { Otazka, RezimTestu, TestKonfigurace } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
+import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import {
   aktualniOtazka,
   fazeTestu,
@@ -41,8 +42,14 @@ function RychlyStart() {
   const zacniTest = pouzijStav((s) => s.zacniTest);
   const [rezim, setRezim] = useState<RezimTestu>('standard');
   const [pocet, setPocet] = useState<5 | 10 | 20>(10);
+  // Predmety s prítomnou bankou, seřazené podle registru (../data/predmety.ts).
+  const dostupnePredmety = seradPredmety(Object.keys(banky));
+  const [vybranyPredmet, setVybranyPredmet] = useState<string | null>(null);
+  // Volba předmětu je PRVNÍ krok; dokud banky nedoběhnou (async načtení při
+  // startu) nebo předmět zmizí, spadne výběr na první dostupný.
+  const predmetId =
+    vybranyPredmet && banky[vybranyPredmet] ? vybranyPredmet : (dostupnePredmety[0] ?? null);
 
-  const predmetId = Object.keys(banky)[0];
   if (!predmetId) {
     return (
       <section>
@@ -65,7 +72,24 @@ function RychlyStart() {
       <h1>Nový test</h1>
       <div className="panel rychly-start">
         <div className="rychly-start__radek">
-          <strong>{banky[predmetId].nazev}</strong>
+          <span>Předmět</span>
+          <div className="rychly-start__volby">
+            {dostupnePredmety.map((id) => (
+              <button
+                key={id}
+                type="button"
+                className={`tlacitko${id === predmetId ? ' tlacitko--primarni' : ''}`}
+                onClick={() => setVybranyPredmet(id)}
+              >
+                {ikonaPredmetu(id)} {nazevPredmetu(id, banky[id]?.nazev)}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="rychly-start__radek">
+          <strong>
+            {ikonaPredmetu(predmetId)} {nazevPredmetu(predmetId, banky[predmetId]?.nazev)}
+          </strong>
           <span className="parovani__napoveda">Všechna témata · {POPISY_REZIMU[rezim]}</span>
         </div>
         <div className="rychly-start__radek">

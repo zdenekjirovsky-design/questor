@@ -171,8 +171,12 @@ Generátor navrhuje jen datové widgety (`tridicka`/`pexeso`/`prubeh-procesu`/
 
 ## Aplikace — architektura
 
-React 19 + Vite, zustand (persist do localStorage, klíč `questor-stav`),
-react-router. Struktura `aplikace/src/`:
+React 19 + Vite, zustand (persist do localStorage, klíč `questor-stav`,
+verze 2), react-router. Obsah předmětů (banky, výuky) se NEpersistuje
+(kvóta localStorage ~5 MB) — drží ho nepersistovaný stav, persist
+`partialize`/`migrate` řeší `stav/migrace.ts` (migrace v1→v2 zahazuje
+banky/výuky ze starých snapshotů, progres a postup lekcí zachovává).
+Struktura `aplikace/src/`:
 
 ```
 stav/       store.ts (ZMRAZENÝ — skládá slices), testySlice.ts, hraSlice.ts, vyukaSlice.ts
@@ -183,14 +187,24 @@ sync/       klient serveru + offline fronta + nastavení připojení
 stranky/    Domu, Test, Vysledek, Sbirka, Statistiky, Nastaveni
 komponenty/ HudHlavicka + sdílené vizuální prvky
 styl/       tokeny.css, global.css (viz DESIGN.md)
-data/       predmety.ts (mapa vzorových předmětů) + demo-banka.json + predmety/
+data/       predmety.ts (registr předmětů) + nacteniObsahu.ts + predmety/*.json
 ```
 
-Bundlovaný obsah: `data/predmety.ts` skládá mapu `VZOROVE_PREDMETY`
-(predmetId → { banka?, vyuka? }) z `demo-banka.json` (ekonomika, fáze 1)
-a souborů `data/predmety/<predmetId>.banka.json` / `<predmetId>.vyuka.json`
-(kopie z kořenového `data/`; konvence viz README ve složce). Vadný soubor se
-jen zaloguje a přeskočí. Výukové widgety (6 obecných komponent) žijí ve
+Registr předmětů: `data/predmety.ts` drží ručně psaná metadata VŠECH
+očekávaných předmětů (`PREDMETY`: id, nazev, ikona — určují názvy, ikony
+a pořadí v UI) a lazy načítání obsahu ze souborů
+`data/predmety/<predmetId>.banka.json` / `<predmetId>.vyuka.json` přes
+`import.meta.glob` BEZ eager (každý JSON = samostatný async chunk, počáteční
+bundle se obsahem nenafukuje; kopie z kořenového `data/`, konvence viz README
+ve složce). Předmět se v UI ukáže, jen když jeho banka reálně existuje
+(bundle/IndexedDB/server); chybějící soubor je normální stav, vadný se jen
+zaloguje a přeskočí. Obsah do store nabízí při startu `data/nacteniObsahu.ts`
+(bundle → IndexedDB, verze hlídají `prijmiBanku`/`prijmiVyuku`); obsah
+stažený ze serveru cachuje `sync/uloziste.ts` (IndexedDB `questor-obsah`,
+bez závislostí, fail-safe). Volba předmětu je první krok modalu „Nová
+výprava“ na Domů i rychlého startu na /test; Učit se a sekce Témata ve
+Statistikách jsou členěné per předmět. HUD a gamifikace zůstávají globální.
+Výukové widgety (6 obecných komponent) žijí ve
 `vyuka/widgety/`, UI je bere výhradně přes `vyuka/registr.ts`. Postup lekcí
 drží `vyukaSlice` klíčovaný `temaId` — temaId proto NESMÍ kolidovat napříč
 předměty a id mini-kvízů (`mk-…`) nesmí kolidovat s id otázek bank (`o-…`);
@@ -244,9 +258,9 @@ verze; pull výuky má vlastní tichý try/catch kvůli starším serverům bez
 nenápadný indikátor stavu připojení v Nastavení a na Domů). Fronta odesílá
 at-least-once s exponenciálním odkladem; položku, kterou server trvale odmítá
 (4xx mimo 408/429, např. výsledek smazané výzvy), zahodí, aby neblokovala
-zbytek fronty. Bundlovaná demo banka se po startu nabízí přes `prijmiBanku`
-i proti persistovanému stavu (novější verze z aktualizace aplikace se tak
-prosadí i bez serveru).
+zbytek fronty. Banky a výuky stažené ze serveru (jen vyšší verze) se navíc
+ukládají do IndexedDB (`sync/uloziste.ts`), takže přežijí restart aplikace
+a při startu přeplácnou bundlovaný obsah, když mají vyšší verzi.
 
 ### Gamifikace — pravidla (implementace ve `sdilene`, UI v `hra/`)
 

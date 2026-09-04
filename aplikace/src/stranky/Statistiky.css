@@ -90,6 +90,41 @@
 }
 
 /* --- Témata --- */
+.statistiky__taby {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.statistiky__tab {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  color: var(--text-tlumeny);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.statistiky__tab:hover {
+  color: var(--text);
+}
+
+.statistiky__tab--aktivni {
+  border-color: var(--akcent);
+  color: var(--text);
+  box-shadow: var(--zare-akcent);
+}
+
+.statistiky__tema-predmet {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  color: var(--text-tlumeny);
+}
+
 .statistiky__tema {
   margin-bottom: 14px;
 }

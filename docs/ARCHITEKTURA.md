@@ -106,6 +106,10 @@ poskytovatel `api`.
 ## Generátor — pipeline
 
 Knihovna + CLI (`npm run generuj -- --vstup <soubor> --predmet <id> --nazev "…" [--poskytovatel api|claude-cli|mock] [--vystup data/banky/<id>.json]`).
+Pozor: root skript deleguje do workspace, takže CLI běží s cwd
+`generator/` — relativní `--vstup`/`--vystup` se vyhodnocují odtud
+(zadávat absolutně, viz docs/NAVOD.md); výchozí výstup bez `--vystup`
+míří správně do kořenového `data/banky/`.
 
 1. **Ingest**: `.md`/`.txt` přímo, `.pdf` přes `unpdf` (`extractText`),
    `.docx` přes `mammoth.extractRawText`.

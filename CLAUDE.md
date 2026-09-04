@@ -40,8 +40,44 @@ v obtížnostech 1–5 a drží studenta herními psychologickými hooky.
    questor-server :8787).
 7. API klíče a tokeny jen v env / `.env` (v .gitignore), nikdy v kódu.
 
-## Stav (2026-09-04)
+## Stav (2026-09-04 večer)
 
-Zakládací den: monorepo, sdílené jádro, spec, design manuál; zbytek staví
-workflow (server, generátor, testový engine, gamifikační UI, demo banka
-Ekonomika a podnikání, Tauri + CI, návody).
+**Hotové a ověřené** (typecheck 4/4 workspaces, testy 146/146 — sdílené 46,
+generátor 23, server 30, aplikace 47; build aplikace OK; E2E serveru 12/12):
+
+- sdílené jádro: typy, zod schémata, gamifikace (čisté funkce) vč. testů;
+- generátor: ingest `.md/.txt/.pdf/.docx` → témata → otázky → verifikační
+  průchod → validovaná banka; poskytovatelé `api`/`claude-cli`/`mock`
+  s autodetekcí, CLI vč. `--server` uploadu;
+- server: kompletní API dle kontraktu (CORS, limity těla, idempotentní
+  události, výzvy, admin mini-web `/admin`);
+- aplikace: testový engine (5 režimů vč. adaptivního a zkoušky), gamifikace
+  (XP/levely, streak se zmrazením, denní questy, truhly s ochranou proti
+  farmení, sbírka karet, avatar, rekordy), offline-first sync s frontou;
+- demo banka „Ekonomika a podnikání“ (verze 2, 9 témat, 72 otázek)
+  bundlovaná v aplikaci = plný provoz bez serveru;
+- opravná dávka z adversariálního review — 18 nálezů (commit `75c0994`).
+
+**Připravené, ale neověřené:**
+
+- Tauri/Windows build — staví se jen v GitHub Actions (na Macu se Rust část
+  nekompiluje); první běh CI je nutné zkontrolovat; v `tauri.conf.json`
+  zbývá doplnit updater pubkey a URL repa (postup `docs/NASAZENI.md`);
+- dogenerování otázek — serverová půlka hotová (bez `ANTHROPIC_API_KEY`
+  vrací 503 = „vypnuto“), proti skutečnému Claude API neověřeno; klientská
+  část v aplikaci není (fáze 2);
+- poskytovatelé `api` a `claude-cli` generátoru neověřeny ostrým během
+  (testy jedou na `mock`).
+
+**Známé nedostatky:**
+
+- aplikace pracuje jen s první bankou — přepínač předmětů v UI chybí;
+- `docs/VYUKA.md` je jen spec fáze 2 (výuková část), neimplementováno;
+- ve zmrazeném `sdilene/src/gamifikace.ts` dvě nahlášené vady (z review,
+  neopraveno kvůli zmrazení): `prahLevelu` ceil vs. `levelZXp` může dát
+  záporné `xpVLevelu` na hranici levelu; při plné sbírce se pásmo karty
+  v `otevriTruhlu` přelévá do zmrazení místo XP.
+
+**Další krok:** založit GitHub repo, doplnit updater klíče a vydat první
+release přes CI (`docs/NASAZENI.md`); pak ostré vygenerování banky přes
+API nebo `claude-cli` a nasazení serveru.

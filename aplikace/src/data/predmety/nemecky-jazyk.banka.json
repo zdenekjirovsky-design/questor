@@ -1,0 +1,555 @@
+{
+  "predmetId": "nemecky-jazyk",
+  "nazev": "Německý jazyk",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "nj-pozdravy", "nazev": "Pozdravy a představování", "poradi": 0 },
+    { "id": "nj-rodina-cisla", "nazev": "Rodina a čísla", "poradi": 1 },
+    { "id": "nj-skola-tyden", "nazev": "Škola a týden", "poradi": 2 },
+    { "id": "nj-jidlo-nakupy", "nazev": "Jídlo a nakupování", "poradi": 3 },
+    { "id": "nj-volny-cas", "nazev": "Volný čas", "poradi": 4 }
+  ],
+  "otazky": [
+    {
+      "id": "o-nj-pozdravy-1",
+      "temaId": "nj-pozdravy",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Je 19 hodin a potkáš souseda. Jak ho pozdravíš?",
+      "moznosti": ["Guten Morgen!", "Guten Tag!", "Guten Abend!", "Gute Nacht!"],
+      "spravna": 2,
+      "vysvetleni": "Večer se zdraví Guten Abend! Guten Morgen patří ránu, Guten Tag přes den. Gute Nacht není pozdrav při setkání — říká se jen na dobrou noc před spaním."
+    },
+    {
+      "id": "o-nj-pozdravy-2",
+      "temaId": "nj-pozdravy",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Doplň otázku: „___ heißt du?“ (Jak se jmenuješ?)",
+      "moznosti": ["Wie", "Wer", "Wo", "Woher"],
+      "spravna": 0,
+      "vysvetleni": "Na jméno se ptáme Wie heißt du? — doslova „Jak se jmenuješ?“. Wer znamená kdo (Wer bist du?), wo je kde a woher odkud — láká čeština, ale němčina se ptá na jméno pomocí „jak“."
+    },
+    {
+      "id": "o-nj-pozdravy-3",
+      "temaId": "nj-pozdravy",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň správný tvar slovesa sein: Ich ___ aus Prag.",
+      "spravneOdpovedi": ["bin"],
+      "vysvetleni": "Sein je nepravidelné: ich bin, du bist, er ist. K zájmenu ich patří vždy tvar bin — Ich bin aus Prag (Jsem z Prahy)."
+    },
+    {
+      "id": "o-nj-pozdravy-4",
+      "temaId": "nj-pozdravy",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Vyber správný tvar: Er ___ aus Österreich.",
+      "moznosti": ["bin", "bist", "ist", "sind"],
+      "spravna": 2,
+      "vysvetleni": "K er (on) patří tvar ist: Er ist aus Österreich (Je z Rakouska). Bin patří k ich, bist k du a sind k wir/sie — sein se časuje nepravidelně a tvary se nesmí míchat."
+    },
+    {
+      "id": "o-nj-pozdravy-5",
+      "temaId": "nj-pozdravy",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď k zájmenům správný tvar slovesa sein.",
+      "pary": [
+        { "levy": "ich", "pravy": "bin" },
+        { "levy": "du", "pravy": "bist" },
+        { "levy": "wir", "pravy": "sind" },
+        { "levy": "ihr", "pravy": "seid" }
+      ],
+      "vysvetleni": "Sein je nepravidelné, tvary je nutné umět zpaměti: ich bin, du bist, wir sind, ihr seid. Nejčastěji se plete ihr seid (vy jste) se sie sind (oni jsou)."
+    },
+    {
+      "id": "o-nj-pozdravy-6",
+      "temaId": "nj-pozdravy",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Otázka „Woher kommst du?“ znamená „Kde bydlíš?“.",
+      "spravna": false,
+      "vysvetleni": "Woher kommst du? znamená „Odkud pocházíš?“ (woher = odkud). Na bydliště se ptáme Wo wohnst du? (wo = kde). Ta dvě tázací slova se začátečníkům pletou nejčastěji."
+    },
+    {
+      "id": "o-nj-pozdravy-7",
+      "temaId": "nj-pozdravy",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které výrazy se používají při LOUČENÍ? Označ všechny správné.",
+      "moznosti": ["Tschüss!", "Guten Tag!", "Auf Wiedersehen!", "Hallo!", "Gute Nacht!"],
+      "spravne": [0, 2, 4],
+      "vysvetleni": "Při loučení se říká Tschüss (neformálně), Auf Wiedersehen (zdvořile) a Gute Nacht (na dobrou noc před spaním). Guten Tag a Hallo jsou naopak pozdravy při setkání."
+    },
+    {
+      "id": "o-nj-pozdravy-8",
+      "temaId": "nj-pozdravy",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Na veletrhu oslovuješ ředitele německé firmy, kterého vidíš poprvé. Co je správně?",
+      "moznosti": [
+        "Guten Tag, wie heißen Sie?",
+        "Hallo, wie heißt du?",
+        "Tschüss, wer sind Sie?",
+        "Gute Nacht, wie heißen Sie?"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Neznámému dospělému se vyká: Guten Tag + wie heißen Sie? Tykání (wie heißt du?) je jen pro kamarády a vrstevníky. Tschüss je loučení a Gute Nacht se říká jen před spaním."
+    },
+    {
+      "id": "o-nj-pozdravy-9",
+      "temaId": "nj-pozdravy",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Přelož s pomocí slovesa sein: My jsme z Česka. — Wir ___ aus Tschechien.",
+      "spravneOdpovedi": ["sind"],
+      "vysvetleni": "K wir (my) patří tvar sind: Wir sind aus Tschechien. Stejný tvar sind mají i sie (oni) a Sie (vykání) — jen ihr (vy) má vlastní tvar seid."
+    },
+    {
+      "id": "o-nj-pozdravy-10",
+      "temaId": "nj-pozdravy",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Rozhovor na recepci: „Guten Tag, ich heiße Anna Berger.“ — „___?“ — „Ich komme aus Wien.“ Která otázka patří do mezery?",
+      "moznosti": ["Woher kommen Sie?", "Wie heißen Sie?", "Wo wohnst du?", "Wer ist das?"],
+      "spravna": 0,
+      "vysvetleni": "Odpověď „Ich komme aus Wien“ (Pocházím z Vídně) odpovídá na otázku odkud — Woher kommen Sie? Na jméno už odpověděla, takže wie heißen Sie nedává smysl; wo wohnst du navíc tyká, což se na recepci nehodí."
+    },
+    {
+      "id": "o-nj-rodina-cisla-1",
+      "temaId": "nj-rodina-cisla",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jaký člen má slovo Mutter (matka)?",
+      "moznosti": ["der", "die", "das"],
+      "spravna": 1,
+      "vysvetleni": "Matka je ženského rodu i v němčině: die Mutter. Der patří mužskému rodu (der Vater) a das střednímu (das Kind) — každé podstatné jméno se učíme rovnou se členem."
+    },
+    {
+      "id": "o-nj-rodina-cisla-2",
+      "temaId": "nj-rodina-cisla",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň tvar slovesa haben: Ich ___ zwei Brüder.",
+      "spravneOdpovedi": ["habe"],
+      "vysvetleni": "K ich patří tvar habe: Ich habe zwei Brüder (Mám dva bratry). Zkrácené tvary bez -b- má jen du hast a er hat."
+    },
+    {
+      "id": "o-nj-rodina-cisla-3",
+      "temaId": "nj-rodina-cisla",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Kolik je einundzwanzig?",
+      "moznosti": ["12", "21", "31", "20"],
+      "spravna": 1,
+      "vysvetleni": "Einundzwanzig = ein + und + zwanzig, doslova „jedna-a-dvacet“ = 21. Německá složená čísla se čtou obráceně než česká — kdo čte popořadě, splete si 21 s 12."
+    },
+    {
+      "id": "o-nj-rodina-cisla-4",
+      "temaId": "nj-rodina-cisla",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď německá čísla k číslicím.",
+      "pary": [
+        { "levy": "siebzehn", "pravy": "17" },
+        { "levy": "dreißig", "pravy": "30" },
+        { "levy": "vierzig", "pravy": "40" },
+        { "levy": "fünfzehn", "pravy": "15" }
+      ],
+      "vysvetleni": "Čísla 13–19 končí na -zehn (siebzehn 17, fünfzehn 15), desítky na -zig (vierzig 40). Dreißig (30) je výjimka — píše se s ß místo -zig."
+    },
+    {
+      "id": "o-nj-rodina-cisla-5",
+      "temaId": "nj-rodina-cisla",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Vyber správný tvar: Du ___ eine Schwester.",
+      "moznosti": ["habe", "hast", "hat", "haben"],
+      "spravna": 1,
+      "vysvetleni": "K du patří hast: Du hast eine Schwester (Máš sestru). Habe patří k ich, hat k er/sie/es a haben k wir/sie. U haben pozor na zkrácené tvary hast a hat bez -b-."
+    },
+    {
+      "id": "o-nj-rodina-cisla-6",
+      "temaId": "nj-rodina-cisla",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Správný člen slova Schwester (sestra) je der.",
+      "spravna": false,
+      "vysvetleni": "Schwester je ženského rodu: die Schwester. Der je člen mužského rodu (der Bruder, der Vater). U rodinných slov rod většinou odpovídá skutečnému pohlaví."
+    },
+    {
+      "id": "o-nj-rodina-cisla-7",
+      "temaId": "nj-rodina-cisla",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Která slova mají člen der? Označ všechna správná.",
+      "moznosti": ["Vater", "Mutter", "Bruder", "Kind", "Opa"],
+      "spravne": [0, 2, 4],
+      "vysvetleni": "Der mají mužské osoby: der Vater, der Bruder, der Opa. Mutter je die (ženský rod) a Kind je das (střední rod) — dítě je v němčině stejně jako v češtině rodu středního."
+    },
+    {
+      "id": "o-nj-rodina-cisla-8",
+      "temaId": "nj-rodina-cisla",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Napiš číslo 66 německy slovem.",
+      "spravneOdpovedi": ["sechsundsechzig", "Sechsundsechzig"],
+      "vysvetleni": "66 = sechs + und + sechzig = sechsundsechzig (jednotky před desítkami). Pozor: desítka je sechzig bez -s- uprostřed, ale v jednotkách zůstává plné sechs."
+    },
+    {
+      "id": "o-nj-rodina-cisla-9",
+      "temaId": "nj-rodina-cisla",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Německý kamarád se ptá: „Wie alt bist du?“ Jak správně odpovíš, že je ti 16?",
+      "moznosti": [
+        "Ich bin sechzehn Jahre alt.",
+        "Ich habe sechzehn Jahre.",
+        "Ich bin sechzig Jahre alt.",
+        "Es ist sechzehn Uhr."
+      ],
+      "spravna": 0,
+      "vysvetleni": "Věk se v němčině vyjadřuje slovesem sein: Ich bin sechzehn (Jahre alt). „Ich habe sechzehn Jahre“ je doslovný překlad z češtiny (mám 16 let) — v němčině chyba. Sechzig je 60, ne 16, a Es ist sechzehn Uhr říká, kolik je hodin."
+    },
+    {
+      "id": "o-nj-rodina-cisla-10",
+      "temaId": "nj-rodina-cisla",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Kamarád píše: „Meine Schwester ist elf, mein Bruder ist dreizehn und ich bin sechzehn.“ Kolik let mají všichni tři dohromady?",
+      "moznosti": ["38", "40", "42", "30"],
+      "spravna": 1,
+      "vysvetleni": "Elf = 11, dreizehn = 13, sechzehn = 16; 11 + 13 + 16 = 40. Kdo si splete dreizehn (13) s dreißig (30) nebo sechzehn (16) se sechzig (60), dojde k jinému součtu."
+    },
+    {
+      "id": "o-nj-skola-tyden-1",
+      "temaId": "nj-skola-tyden",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jak se řekne německy pondělí?",
+      "moznosti": ["Montag", "Mittwoch", "Sonntag", "Dienstag"],
+      "spravna": 0,
+      "vysvetleni": "Pondělí je Montag (den Měsíce — Mond). Mittwoch je středa, Sonntag neděle a Dienstag úterý."
+    },
+    {
+      "id": "o-nj-skola-tyden-2",
+      "temaId": "nj-skola-tyden",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň tvar slovesa lernen: Du ___ Deutsch.",
+      "spravneOdpovedi": ["lernst"],
+      "vysvetleni": "Pravidelná slovesa mají u du koncovku -st: kmen lern- + st = lernst. Du lernst Deutsch (Učíš se němčinu)."
+    },
+    {
+      "id": "o-nj-skola-tyden-3",
+      "temaId": "nj-skola-tyden",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Vyber správný tvar: Er ___ Fußball.",
+      "moznosti": ["spiele", "spielst", "spielt", "spielen"],
+      "spravna": 2,
+      "vysvetleni": "K er patří koncovka -t: Er spielt Fußball (Hraje fotbal). Spiele patří k ich, spielst k du a spielen k wir/sie — koncovky pravidelných sloves jsou vždy -e, -st, -t, -en, -t, -en."
+    },
+    {
+      "id": "o-nj-skola-tyden-4",
+      "temaId": "nj-skola-tyden",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď německé dny k českým.",
+      "pary": [
+        { "levy": "Mittwoch", "pravy": "středa" },
+        { "levy": "Freitag", "pravy": "pátek" },
+        { "levy": "Samstag", "pravy": "sobota" },
+        { "levy": "Sonntag", "pravy": "neděle" }
+      ],
+      "vysvetleni": "Mittwoch = středa (doslova „střed týdne“), Freitag = pátek, Samstag = sobota, Sonntag = neděle (den Slunce — Sonne)."
+    },
+    {
+      "id": "o-nj-skola-tyden-5",
+      "temaId": "nj-skola-tyden",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Mittwoch znamená čtvrtek.",
+      "spravna": false,
+      "vysvetleni": "Mittwoch je středa — doslova „střed týdne“ (Mitte = střed, Woche = týden). Čtvrtek je Donnerstag."
+    },
+    {
+      "id": "o-nj-skola-tyden-6",
+      "temaId": "nj-skola-tyden",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které tvary sloves jsou správně? Označ všechny správné.",
+      "moznosti": ["wir lernen", "er lernst", "ihr lernt", "du spielst", "ich spiele"],
+      "spravne": [0, 2, 3, 4],
+      "vysvetleni": "Správně je wir lernen (-en), ihr lernt (-t), du spielst (-st) a ich spiele (-e). Chybný je „er lernst“ — k er patří koncovka -t (er lernt); koncovka -st se plete, protože patří jen k du."
+    },
+    {
+      "id": "o-nj-skola-tyden-7",
+      "temaId": "nj-skola-tyden",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Kamarád se ptá: „Wann hast du Mathe?“ Chceš říct, že v úterý. Co odpovíš?",
+      "moznosti": ["Am Dienstag.", "Der Dienstag.", "In Dienstag.", "Um Dienstag."],
+      "spravna": 0,
+      "vysvetleni": "Před dnem v týdnu stojí předložka am: am Dienstag = v úterý. „In“ láká jako doslovný převod českého „v úterý“, „um“ se používá u hodin (um acht Uhr) — u dnů je ale vždy am."
+    },
+    {
+      "id": "o-nj-skola-tyden-8",
+      "temaId": "nj-skola-tyden",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Jak se správně zeptáš, kolik hodin němčiny má kamarád?",
+      "moznosti": [
+        "Wie viele Stunden Deutsch hast du?",
+        "Wie viele Stunden Deutsch du hast?",
+        "Du hast wie viele Stunden Deutsch?",
+        "Hast du wie viele Stunden Deutsch?"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Ve W-otázce stojí tázací výraz (wie viele Stunden Deutsch) na začátku a hned za ním časované sloveso, pak podmět: … hast du? Pořadí „du hast“ za tázacím výrazem je český slovosled — v němčině chyba."
+    },
+    {
+      "id": "o-nj-skola-tyden-9",
+      "temaId": "nj-skola-tyden",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Doplň tvar slovesa machen: Ihr ___ Hausaufgaben.",
+      "spravneOdpovedi": ["macht"],
+      "vysvetleni": "K ihr (vy) patří koncovka -t: mach- + t = macht. Ihr macht Hausaufgaben (Děláte úkoly). Pozor — stejný tvar má i er/sie/es (er macht), liší se jen zájmenem."
+    },
+    {
+      "id": "o-nj-skola-tyden-10",
+      "temaId": "nj-skola-tyden",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Tvůj rozvrh: Montag — Mathe, Deutsch; Dienstag — Englisch, Sport; Mittwoch — Wirtschaft. Kamarád se ptá: „Wann hast du Sport?“ Co odpovíš?",
+      "moznosti": ["Am Montag.", "Am Dienstag.", "Am Mittwoch.", "Am Sonntag."],
+      "spravna": 1,
+      "vysvetleni": "Sport je v rozvrhu v úterý — Am Dienstag. Otázka Wann? znamená kdy; stačí najít Sport v rozvrhu a den pojmenovat německy. Dienstag se nejčastěji plete s Donnerstag (čtvrtek)."
+    },
+    {
+      "id": "o-nj-jidlo-nakupy-1",
+      "temaId": "nj-jidlo-nakupy",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co znamená das Brot?",
+      "moznosti": ["chléb", "mléko", "máslo", "sýr"],
+      "spravna": 0,
+      "vysvetleni": "Das Brot je chléb. Mléko je die Milch, máslo die Butter a sýr der Käse."
+    },
+    {
+      "id": "o-nj-jidlo-nakupy-2",
+      "temaId": "nj-jidlo-nakupy",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď německá slova k českým překladům.",
+      "pary": [
+        { "levy": "die Milch", "pravy": "mléko" },
+        { "levy": "der Käse", "pravy": "sýr" },
+        { "levy": "der Saft", "pravy": "džus" },
+        { "levy": "das Ei", "pravy": "vejce" }
+      ],
+      "vysvetleni": "Die Milch = mléko, der Käse = sýr, der Saft = džus/šťáva, das Ei = vejce. Potraviny se učíme vždy i se členem — v akuzativu se totiž der mění na den."
+    },
+    {
+      "id": "o-nj-jidlo-nakupy-3",
+      "temaId": "nj-jidlo-nakupy",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň zdvořilé „chtěl bych“: Ich ___ einen Tee, bitte.",
+      "spravneOdpovedi": ["möchte", "mochte", "moechte"],
+      "vysvetleni": "Zdvořilé přání vyjadřuje ich möchte (chtěl bych): Ich möchte einen Tee, bitte. Je to nejdůležitější fráze pro objednávání v obchodě i kavárně."
+    },
+    {
+      "id": "o-nj-jidlo-nakupy-4",
+      "temaId": "nj-jidlo-nakupy",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Vyber správný člen: Ich kaufe ___ Apfel.",
+      "moznosti": ["der", "den", "das", "die"],
+      "spravna": 1,
+      "vysvetleni": "Po slovese kaufen stojí předmět ve 4. pádě (akuzativu) a mužský člen der se mění na den: Ich kaufe den Apfel. Der je tvar 1. pádu (Der Apfel ist rot) — v akuzativu se mění JEN mužský rod."
+    },
+    {
+      "id": "o-nj-jidlo-nakupy-5",
+      "temaId": "nj-jidlo-nakupy",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jak se německy zeptáš, kolik něco stojí?",
+      "moznosti": ["Was kostet das?", "Wie alt ist das?", "Wo ist das?", "Wer ist das?"],
+      "spravna": 0,
+      "vysvetleni": "Na cenu se ptáme Was kostet das? (Kolik to stojí?). Wie alt ist das? se ptá na stáří, wo na místo a wer na osobu."
+    },
+    {
+      "id": "o-nj-jidlo-nakupy-6",
+      "temaId": "nj-jidlo-nakupy",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "V akuzativu (4. pádě) se mění jen mužský člen der na den; die a das zůstávají stejné.",
+      "spravna": true,
+      "vysvetleni": "Přesně tak — akuzativ mění pouze mužský rod: der → den, ein → einen. Ženský rod (die, eine) a střední rod (das, ein) mají v 1. a 4. pádě stejné tvary, proto je mužský rod jediné, na co si musíš dát pozor."
+    },
+    {
+      "id": "o-nj-jidlo-nakupy-7",
+      "temaId": "nj-jidlo-nakupy",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co z nabídky jsou NÁPOJE? Označ všechny správné.",
+      "moznosti": ["der Saft", "das Wasser", "der Käse", "der Tee", "das Brötchen"],
+      "spravne": [0, 1, 3],
+      "vysvetleni": "Nápoje jsou der Saft (džus), das Wasser (voda) a der Tee (čaj). Der Käse je sýr a das Brötchen rohlík — obojí jídlo, ne pití."
+    },
+    {
+      "id": "o-nj-jidlo-nakupy-8",
+      "temaId": "nj-jidlo-nakupy",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Přelož člen: Chtěl bych jednu kávu. — Ich möchte ___ Kaffee. (káva = der Kaffee)",
+      "spravneOdpovedi": ["einen"],
+      "vysvetleni": "Kaffee je mužského rodu (der), po möchte stojí akuzativ, a v něm se ein mění na einen: Ich möchte einen Kaffee. Tvar „ein Kaffee“ je 1. pád — po möchte/kaufen je to chyba."
+    },
+    {
+      "id": "o-nj-jidlo-nakupy-9",
+      "temaId": "nj-jidlo-nakupy",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Jsi v pekárně a chceš dva rohlíky. Co řekneš?",
+      "moznosti": [
+        "Ich möchte zwei Brötchen, bitte.",
+        "Ich bin zwei Brötchen, bitte.",
+        "Zwei Brötchen kostet das?",
+        "Wo ist zwei Brötchen?"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Objednávka = ich möchte + co chci: Ich möchte zwei Brötchen, bitte. „Ich bin zwei Brötchen“ říká „jsem dva rohlíky“ (záměna sein a möchten), zbylé věty jsou otázky, které objednávku nevyjádří."
+    },
+    {
+      "id": "o-nj-jidlo-nakupy-10",
+      "temaId": "nj-jidlo-nakupy",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "V pekárně: „Zwei Brötchen kosten einen Euro zwanzig.“ Kolik zaplatíš za ČTYŘI rohlíky?",
+      "moznosti": ["1 euro 20 centů", "2 eura 40 centů", "2 eura 20 centů", "4 eura 80 centů"],
+      "spravna": 1,
+      "vysvetleni": "Dva rohlíky stojí 1,20 €, čtyři rohlíky jsou dvojnásobek: 2,40 €. Klíč je rozumět číslům: ein Euro zwanzig = 1,20 €. Kdo jen zdvojnásobí eura bez centů, dojde k 2,20 €."
+    },
+    {
+      "id": "o-nj-volny-cas-1",
+      "temaId": "nj-volny-cas",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co znamená Musik hören?",
+      "moznosti": ["poslouchat hudbu", "hrát hudbu", "zpívat", "tancovat"],
+      "spravna": 0,
+      "vysvetleni": "Musik hören = poslouchat hudbu (hören = slyšet, poslouchat). Hrát je spielen, tancovat tanzen."
+    },
+    {
+      "id": "o-nj-volny-cas-2",
+      "temaId": "nj-volny-cas",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň tvar slovesa können: Ich ___ gut schwimmen.",
+      "spravneOdpovedi": ["kann"],
+      "vysvetleni": "Können je způsobové sloveso: ich kann, du kannst, er kann. Ich kann gut schwimmen = Umím dobře plavat. Pozor — tvar ich kann je bez koncovky -e."
+    },
+    {
+      "id": "o-nj-volny-cas-3",
+      "temaId": "nj-volny-cas",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Doplň návrh: „___ wir ins Kino gehen?“ (Půjdeme do kina?)",
+      "moznosti": ["Wollen", "Wollt", "Bin", "Möchtet"],
+      "spravna": 0,
+      "vysvetleni": "Návrh se dělá otázkou Wollen wir…? (doslova „Chceme…?“): Wollen wir ins Kino gehen? K wir patří tvar wollen — wollt patří k ihr a möchtet taky."
+    },
+    {
+      "id": "o-nj-volny-cas-4",
+      "temaId": "nj-volny-cas",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď koníčky k českým překladům.",
+      "pary": [
+        { "levy": "schwimmen", "pravy": "plavat" },
+        { "levy": "lesen", "pravy": "číst" },
+        { "levy": "tanzen", "pravy": "tancovat" },
+        { "levy": "Rad fahren", "pravy": "jezdit na kole" }
+      ],
+      "vysvetleni": "Schwimmen = plavat, lesen = číst, tanzen = tancovat, Rad fahren = jezdit na kole (das Rad = kolo, fahren = jet)."
+    },
+    {
+      "id": "o-nj-volny-cas-5",
+      "temaId": "nj-volny-cas",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Ve větě se slovesem können stojí druhé sloveso v infinitivu na konci věty.",
+      "spravna": true,
+      "vysvetleni": "Ano — způsobové sloveso stojí na 2. místě a významové sloveso v infinitivu na úplném konci: Ich kann gut Tennis spielen. Tomu se říká větný rámec a je to jeden z největších rozdílů proti češtině."
+    },
+    {
+      "id": "o-nj-volny-cas-6",
+      "temaId": "nj-volny-cas",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Která věta má správný pořádek slov?",
+      "moznosti": [
+        "Ich kann gut Tennis spielen.",
+        "Ich kann spielen gut Tennis.",
+        "Ich gut Tennis spielen kann.",
+        "Ich spielen kann gut Tennis."
+      ],
+      "spravna": 0,
+      "vysvetleni": "Können stojí na 2. místě a infinitiv spielen na konci věty: Ich kann gut Tennis spielen. Věta „Ich kann spielen gut Tennis“ kopíruje český slovosled (umím hrát tenis) — v němčině musí infinitiv až na konec."
+    },
+    {
+      "id": "o-nj-volny-cas-7",
+      "temaId": "nj-volny-cas",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které věty jsou gramaticky správně? Označ všechny správné.",
+      "moznosti": [
+        "Ich mag Musik.",
+        "Ich mag hören Musik.",
+        "Am Montag spiele ich Fußball.",
+        "Am Montag ich spiele Fußball."
+      ],
+      "spravne": [0, 2],
+      "vysvetleni": "Ich mag Musik — mögen se pojí přímo s podstatným jménem. Am Montag spiele ich Fußball — když věta začíná časovým údajem, sloveso zůstává na 2. místě a podmět jde až za něj. Věty 2 a 4 kopírují český slovosled, v němčině jsou chybně."
+    },
+    {
+      "id": "o-nj-volny-cas-8",
+      "temaId": "nj-volny-cas",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Přelož tvar slovesa können: Umíme tancovat. — Wir ___ tanzen.",
+      "spravneOdpovedi": ["können", "konnen", "koennen"],
+      "vysvetleni": "K wir patří tvar können (s přehláskou ö): Wir können tanzen. Jednotné číslo přehlásku ztrácí (ich kann, du kannst), množné si ji nechává (wir können, ihr könnt, sie können)."
+    },
+    {
+      "id": "o-nj-volny-cas-9",
+      "temaId": "nj-volny-cas",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Kamarád navrhuje: „Wollen wir am Samstag schwimmen gehen?“ Chceš nadšeně souhlasit. Co odpovíš?",
+      "moznosti": ["Ja, gerne!", "Nein, leider nicht.", "Ich bin sechzehn.", "Das macht zwei Euro."],
+      "spravna": 0,
+      "vysvetleni": "Souhlas s návrhem = Ja, gerne! (Ano, rád!) nebo Gute Idee! Nein, leider nicht je odmítnutí; zbylé dvě odpovědi patří do úplně jiných situací (věk, placení)."
+    },
+    {
+      "id": "o-nj-volny-cas-10",
+      "temaId": "nj-volny-cas",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Poskládej větu ze slov: am Sonntag / ich / Computerspiele / spielen / kann. Která varianta je správně?",
+      "moznosti": [
+        "Am Sonntag kann ich Computerspiele spielen.",
+        "Am Sonntag ich kann Computerspiele spielen.",
+        "Am Sonntag kann ich spielen Computerspiele.",
+        "Ich am Sonntag kann Computerspiele spielen."
+      ],
+      "spravna": 0,
+      "vysvetleni": "Věta začíná časovým údajem (Am Sonntag), takže hned na 2. místě stojí kann, podmět ich jde až za něj a infinitiv spielen patří na úplný konec. Varianty 2 a 4 nechávají podmět před slovesem (český zvyk), varianta 3 nedává infinitiv na konec."
+    }
+  ]
+}

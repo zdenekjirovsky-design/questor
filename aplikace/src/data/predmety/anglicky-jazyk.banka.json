@@ -1,0 +1,649 @@
+{
+  "predmetId": "anglicky-jazyk",
+  "nazev": "Anglický jazyk",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "aj-osobni-udaje", "nazev": "Osobní údaje a rodina", "poradi": 0 },
+    { "id": "aj-denni-rezim", "nazev": "Denní režim a škola", "poradi": 1 },
+    { "id": "aj-volny-cas", "nazev": "Volný čas a koníčky", "poradi": 2 },
+    { "id": "aj-minulost", "nazev": "Minulý čas", "poradi": 3 },
+    { "id": "aj-jidlo-nakupovani", "nazev": "Jídlo a nakupování", "poradi": 4 },
+    { "id": "aj-cestovani-mesto", "nazev": "Cestování a město", "poradi": 5 },
+    { "id": "aj-budoucnost", "nazev": "Plány a budoucnost", "poradi": 6 }
+  ],
+  "otazky": [
+    {
+      "id": "o-aj-osobni-udaje-1",
+      "temaId": "aj-osobni-udaje",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Doplň větu: My sister ___ sixteen years old.",
+      "moznosti": ["is", "are", "am", "be"],
+      "spravna": 0,
+      "vysvetleni": "Sloveso be má ve 3. osobě jednotného čísla (he/she/it) tvar „is“: My sister is sixteen. „Are“ patří k you/we/they, „am“ jen k I a holé „be“ se v přítomné větě samo nepoužívá."
+    },
+    {
+      "id": "o-aj-osobni-udaje-2",
+      "temaId": "aj-osobni-udaje",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Doplň větu: They ___ got a big house.",
+      "moznosti": ["has", "have", "are", "haves"],
+      "spravna": 1,
+      "vysvetleni": "S podmětem they patří „have got“. Tvar „has got“ je jen pro he/she/it — to je nejčastější chyba. „Are got“ neexistuje a „haves“ není tvar slovesa have."
+    },
+    {
+      "id": "o-aj-osobni-udaje-3",
+      "temaId": "aj-osobni-udaje",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Věta „He have got two brothers.“ je gramaticky správně.",
+      "spravna": false,
+      "vysvetleni": "Není. Ve 3. osobě jednotného čísla (he/she/it) má have tvar has: He has got two brothers. „He have“ je typická chyba, kterou rodilý mluvčí okamžitě zaznamená."
+    },
+    {
+      "id": "o-aj-osobni-udaje-4",
+      "temaId": "aj-osobni-udaje",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Doplň správný tvar slovesa be: We ___ from Prague.",
+      "spravneOdpovedi": ["are", "Are", "'re"],
+      "vysvetleni": "S podmětem we má be tvar „are“: We are from Prague. Tvary am/is patří jiným osobám (I am, he/she/it is)."
+    },
+    {
+      "id": "o-aj-osobni-udaje-5",
+      "temaId": "aj-osobni-udaje",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď anglické názvy členů rodiny k českým překladům.",
+      "pary": [
+        { "levy": "uncle", "pravy": "strýc" },
+        { "levy": "cousin", "pravy": "bratranec / sestřenice" },
+        { "levy": "niece", "pravy": "neteř" },
+        { "levy": "grandmother", "pravy": "babička" }
+      ],
+      "vysvetleni": "Uncle = strýc, cousin = bratranec i sestřenice (angličtina nerozlišuje pohlaví), niece = neteř (synovec je nephew), grandmother = babička. Pozor: uncle × aunt (teta) se pletou."
+    },
+    {
+      "id": "o-aj-osobni-udaje-6",
+      "temaId": "aj-osobni-udaje",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Jak řekneš anglicky „auto mého táty“?",
+      "moznosti": ["my fathers car", "my father car", "my father's car", "the my father's car"],
+      "spravna": 2,
+      "vysvetleni": "Přivlastnění osobě tvoříme pádem 's: my father's car. „My fathers car“ bez apostrofu znamená množné číslo (otcové), „my father car“ přivlastnění vůbec nevyjadřuje a před přivlastňovacím zájmenem (my) nikdy nestojí člen the."
+    },
+    {
+      "id": "o-aj-osobni-udaje-7",
+      "temaId": "aj-osobni-udaje",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Doplň členy: I've got ___ uncle. ___ uncle lives in Brno.",
+      "moznosti": ["a / The", "an / The", "an / A", "the / An"],
+      "spravna": 1,
+      "vysvetleni": "Uncle začíná samohláskovou výslovností /ʌ/, proto „an uncle“. Když o něm mluvíme podruhé, je už určitý — proto „The uncle“. Varianta „an / A“ by znamenala, že mluvíme pokaždé o jiném strýci."
+    },
+    {
+      "id": "o-aj-osobni-udaje-8",
+      "temaId": "aj-osobni-udaje",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Vyber VŠECHNY gramaticky správné věty.",
+      "moznosti": [
+        "She's got blue eyes.",
+        "I am agree with you.",
+        "My parents are teachers.",
+        "He is an university student."
+      ],
+      "spravne": [0, 2],
+      "vysvetleni": "„She's got blue eyes“ a „My parents are teachers“ jsou správně. „Agree“ je sloveso, takže správně je „I agree with you“ (bez am). „University“ se čte /ju:/ — souhlásková výslovnost, proto „a university student“."
+    },
+    {
+      "id": "o-aj-denni-rezim-1",
+      "temaId": "aj-denni-rezim",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Doplň větu: She ___ up at 7 o'clock every day.",
+      "moznosti": ["get", "is getting", "gets", "getting"],
+      "spravna": 2,
+      "vysvetleni": "„Every day“ signalizuje pravidelnost → present simple, a she je 3. osoba → koncovka -s: gets. „Is getting“ by znamenalo, že vstává právě teď, což s „every day“ nedává smysl."
+    },
+    {
+      "id": "o-aj-denni-rezim-2",
+      "temaId": "aj-denni-rezim",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Doplň větu: Look! Tom ___ football in the garden.",
+      "moznosti": ["plays", "is playing", "play", "playing"],
+      "spravna": 1,
+      "vysvetleni": "„Look!“ ukazuje na děj probíhající právě teď → present continuous: is playing. „Plays“ by popisovalo zvyk (hraje pravidelně), samotné „playing“ bez pomocného be větu netvoří."
+    },
+    {
+      "id": "o-aj-denni-rezim-3",
+      "temaId": "aj-denni-rezim",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň zápor v přítomném prostém čase: He ___ like Mondays.",
+      "spravneOdpovedi": ["doesn't", "does not", "doesnt"],
+      "vysvetleni": "Zápor present simple ve 3. osobě tvoří doesn't (does not) + základní tvar slovesa: He doesn't like Mondays. „Don't“ patří k I/you/we/they."
+    },
+    {
+      "id": "o-aj-denni-rezim-4",
+      "temaId": "aj-denni-rezim",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Příslovce četnosti (always, usually, never…) stojí před významovým slovesem: „I always walk to school.“",
+      "spravna": true,
+      "vysvetleni": "Ano — před významovým slovesem: I always walk… Výjimkou je sloveso be, za kterým příslovce stojí: She is always late."
+    },
+    {
+      "id": "o-aj-denni-rezim-5",
+      "temaId": "aj-denni-rezim",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Vyber větu se správným slovosledem.",
+      "moznosti": [
+        "I go usually to bed at ten.",
+        "Usually I go at ten to bed.",
+        "I usually go to bed at ten.",
+        "I go to bed usually at ten."
+      ],
+      "spravna": 2,
+      "vysvetleni": "Příslovce četnosti stojí před významovým slovesem: I usually go to bed at ten. Umístění za sloveso („go usually“) je doslovný překlad z češtiny — v angličtině zní špatně."
+    },
+    {
+      "id": "o-aj-denni-rezim-6",
+      "temaId": "aj-denni-rezim",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď časy k anglickým výrazům.",
+      "pary": [
+        { "levy": "7:45", "pravy": "quarter to eight" },
+        { "levy": "8:15", "pravy": "quarter past eight" },
+        { "levy": "8:30", "pravy": "half past eight" },
+        { "levy": "8:00", "pravy": "eight o'clock" }
+      ],
+      "vysvetleni": "Past = po celé hodině (8:15 = quarter past eight), to = před celou hodinou (7:45 = quarter to eight, čtvrt hodiny DO osmi). Half past eight = půl deváté česky, ale anglicky se počítá „půl hodiny PO osmé“ — nejčastější zdroj zmatku."
+    },
+    {
+      "id": "o-aj-denni-rezim-7",
+      "temaId": "aj-denni-rezim",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Doplň sloveso sleep ve správném tvaru: Be quiet! The baby ___.",
+      "spravneOdpovedi": ["is sleeping", "'s sleeping", "is sleeping now"],
+      "vysvetleni": "„Be quiet!“ ukazuje na právě probíhající děj → present continuous: The baby is sleeping. Samotné „sleeps“ by znamenalo, že dítě spí obvykle — ale nás zajímá teď."
+    },
+    {
+      "id": "o-aj-denni-rezim-8",
+      "temaId": "aj-denni-rezim",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Vyber VŠECHNY gramaticky správné věty.",
+      "moznosti": [
+        "She never drinks coffee.",
+        "I am knowing the answer.",
+        "We're having lunch right now.",
+        "He plays now computer games."
+      ],
+      "spravne": [0, 2],
+      "vysvetleni": "„She never drinks coffee“ (příslovce před slovesem, -s u she) a „We're having lunch right now“ (probíhající děj) jsou správně. „Know“ je stavové sloveso — průběhový čas netvoří (správně I know the answer). Poslední věta má špatný slovosled i čas: He is playing computer games now."
+    },
+    {
+      "id": "o-aj-volny-cas-1",
+      "temaId": "aj-volny-cas",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Doplň větu: I love ___ to music.",
+      "moznosti": ["listen", "listening", "to listening", "listens"],
+      "spravna": 1,
+      "vysvetleni": "Po slovesech like/love/hate/enjoy následuje sloveso s -ing: I love listening to music. „To listening“ kombinuje dvě vazby dohromady a holé „listen“ po love stát nemůže."
+    },
+    {
+      "id": "o-aj-volny-cas-2",
+      "temaId": "aj-volny-cas",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Doplň větu: She can ___ very well.",
+      "moznosti": ["swims", "swimming", "to swim", "swim"],
+      "spravna": 3,
+      "vysvetleni": "Po can následuje základní tvar slovesa bez to: She can swim. Koncovka -s se po can nepřidává ani ve 3. osobě — can je stejné pro všechny osoby."
+    },
+    {
+      "id": "o-aj-volny-cas-3",
+      "temaId": "aj-volny-cas",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Po slovese can následuje sloveso bez „to“: „I can play the guitar.“",
+      "spravna": true,
+      "vysvetleni": "Ano. Can patří mezi způsobová slovesa — pojí se s holým infinitivem: I can play, she can dance. „I can to play“ je častá chyba z češtiny (umím hrát)."
+    },
+    {
+      "id": "o-aj-volny-cas-4",
+      "temaId": "aj-volny-cas",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Doplň správné sloveso (play / go / do): We ___ swimming every summer.",
+      "spravneOdpovedi": ["go", "Go"],
+      "vysvetleni": "Aktivity na -ing se pojí se slovesem go: go swimming, go cycling, go hiking. Play patří ke hrám a míčovým sportům, do ke cvičením typu karate či gymnastics."
+    },
+    {
+      "id": "o-aj-volny-cas-5",
+      "temaId": "aj-volny-cas",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď anglické koníčky k českým překladům.",
+      "pary": [
+        { "levy": "play chess", "pravy": "hrát šachy" },
+        { "levy": "go hiking", "pravy": "chodit na túry" },
+        { "levy": "do karate", "pravy": "dělat karate" },
+        { "levy": "take photos", "pravy": "fotit" }
+      ],
+      "vysvetleni": "Šachy jsou hra → play chess, túry jsou aktivita „na cestě“ → go hiking, karate je cvičení → do karate. Fotit = take photos (doslova „brát fotky“, ne „make photos“)."
+    },
+    {
+      "id": "o-aj-volny-cas-6",
+      "temaId": "aj-volny-cas",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Doplň větu: My brother ___ athletics at school.",
+      "moznosti": ["plays", "goes", "does", "makes"],
+      "spravna": 2,
+      "vysvetleni": "Athletics (stejně jako karate, gymnastics, yoga) se pojí se slovesem do: He does athletics. „Play“ láká, ale patří jen hrám a míčovým sportům; „make“ znamená vyrábět."
+    },
+    {
+      "id": "o-aj-volny-cas-7",
+      "temaId": "aj-volny-cas",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Doplň obě mezery: He hates ___ up early, but he doesn't mind ___ to school on foot.",
+      "moznosti": ["get / walk", "getting / walking", "to get / to walk", "getting / walk"],
+      "spravna": 1,
+      "vysvetleni": "Hate i don't mind se pojí se slovesem s -ing: hates getting up, doesn't mind walking. Vazba s to po těchto slovesech na úrovni A2/B1 nepatří a míchat obě formy v jedné větě nelze."
+    },
+    {
+      "id": "o-aj-volny-cas-8",
+      "temaId": "aj-volny-cas",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Vyber VŠECHNY gramaticky správné věty.",
+      "moznosti": [
+        "I can to dance.",
+        "She loves riding her bike.",
+        "They can't ski.",
+        "He likes play video games."
+      ],
+      "spravne": [1, 2],
+      "vysvetleni": "Správně: „She loves riding her bike“ (love + -ing) a „They can't ski“ (can't + holý infinitiv). „I can to dance“ je chybné — po can nikdy to. „He likes play“ je chybné — po like patří playing."
+    },
+    {
+      "id": "o-aj-minulost-1",
+      "temaId": "aj-minulost",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Doplň větu: I ___ at home yesterday.",
+      "moznosti": ["were", "was", "am", "be"],
+      "spravna": 1,
+      "vysvetleni": "Yesterday ukazuje na minulost a be má pro I tvar was: I was at home. „Were“ patří k you/we/they, „am“ je přítomný čas."
+    },
+    {
+      "id": "o-aj-minulost-2",
+      "temaId": "aj-minulost",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Napiš minulý tvar slovesa go.",
+      "spravneOdpovedi": ["went", "Went"],
+      "vysvetleni": "Go je nepravidelné sloveso: go → went. „Goed“ neexistuje — nepravidelné tvary se je potřeba naučit zpaměti."
+    },
+    {
+      "id": "o-aj-minulost-3",
+      "temaId": "aj-minulost",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Minulý čas pravidelných sloves tvoříme koncovkou -ed: watch → watched.",
+      "spravna": true,
+      "vysvetleni": "Ano, pravidelná slovesa přidávají -ed (watch → watched, play → played). Pozor jen na pravopis: stop → stopped (zdvojení), study → studied (y → i)."
+    },
+    {
+      "id": "o-aj-minulost-4",
+      "temaId": "aj-minulost",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Doplň zápor: She ___ to the party.",
+      "moznosti": ["didn't came", "doesn't came", "didn't come", "not came"],
+      "spravna": 2,
+      "vysvetleni": "Zápor minulého času tvoří didn't + základní tvar: didn't come. „Didn't came“ je nejčastější chyba — minulost už vyjadřuje didn't, druhé sloveso ji neopakuje. „Doesn't“ je přítomný čas."
+    },
+    {
+      "id": "o-aj-minulost-5",
+      "temaId": "aj-minulost",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď k nepravidelným slovesům jejich minulé tvary.",
+      "pary": [
+        { "levy": "see", "pravy": "saw" },
+        { "levy": "buy", "pravy": "bought" },
+        { "levy": "take", "pravy": "took" },
+        { "levy": "have", "pravy": "had" }
+      ],
+      "vysvetleni": "See → saw, buy → bought, take → took, have → had. Všechna čtyři patří k nejpoužívanějším nepravidelným slovesům — bez nich se o minulosti mluvit nedá."
+    },
+    {
+      "id": "o-aj-minulost-6",
+      "temaId": "aj-minulost",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Doplň větu: We moved here two years ___.",
+      "moznosti": ["last", "before", "ago", "since"],
+      "spravna": 2,
+      "vysvetleni": "„Před dvěma lety“ = two years ago — ago stojí ZA časovým údajem. „Last“ stojí před podstatným jménem (last year), „since“ znamená „od“ (since 2024) a pojí se s jiným časem."
+    },
+    {
+      "id": "o-aj-minulost-7",
+      "temaId": "aj-minulost",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Doplň pomocné sloveso do otázky: ___ you see the film yesterday?",
+      "spravneOdpovedi": ["Did", "did"],
+      "vysvetleni": "Otázku v minulém čase tvoří Did + podmět + základní tvar slovesa: Did you see…? Sloveso see zůstává v základním tvaru — minulost nese did."
+    },
+    {
+      "id": "o-aj-minulost-8",
+      "temaId": "aj-minulost",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Vyber VŠECHNY gramaticky správné věty.",
+      "moznosti": [
+        "I didn't have breakfast.",
+        "Did she went home?",
+        "He falled off his bike.",
+        "Where were you last weekend?"
+      ],
+      "spravne": [0, 3],
+      "vysvetleni": "Správně: „I didn't have breakfast“ (didn't + základní tvar) a „Where were you last weekend?“ (was/were se v otázce jen přehazuje). „Did she went“ je chybné — po did patří go. „Falled“ neexistuje — fall je nepravidelné: fell."
+    },
+    {
+      "id": "o-aj-jidlo-nakupovani-1",
+      "temaId": "aj-jidlo-nakupovani",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Doplň otázku: Is there ___ milk in the fridge?",
+      "moznosti": ["some", "any", "a", "many"],
+      "spravna": 1,
+      "vysvetleni": "V otázkách používáme any: Is there any milk? Some patří do kladných vět a nabídek, „a“ nelze — milk je nepočitatelné, „many“ se pojí jen s počitatelnými v množném čísle."
+    },
+    {
+      "id": "o-aj-jidlo-nakupovani-2",
+      "temaId": "aj-jidlo-nakupovani",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Doplň otázku: How ___ apples do we need?",
+      "moznosti": ["much", "many", "some", "any"],
+      "spravna": 1,
+      "vysvetleni": "Apples jsou počitatelné (dají se počítat po kusech) → How many apples? „How much“ patří nepočitatelným (How much milk?) — záměna much/many je nejčastější chyba tohoto tématu."
+    },
+    {
+      "id": "o-aj-jidlo-nakupovani-3",
+      "temaId": "aj-jidlo-nakupovani",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Podstatné jméno „money“ je v angličtině nepočitatelné.",
+      "spravna": true,
+      "vysvetleni": "Ano — money se chová jako nepočitatelné: How much money? Money is… (jednotné číslo). Česky „peníze“ jsou množné, proto tahle záludnost mate."
+    },
+    {
+      "id": "o-aj-jidlo-nakupovani-4",
+      "temaId": "aj-jidlo-nakupovani",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Doplň some, nebo any: We haven't got ___ bread.",
+      "spravneOdpovedi": ["any", "Any"],
+      "vysvetleni": "V záporných větách patří any: We haven't got any bread. Some by stálo v kladné větě (We've got some bread) nebo ve zdvořilé nabídce."
+    },
+    {
+      "id": "o-aj-jidlo-nakupovani-5",
+      "temaId": "aj-jidlo-nakupovani",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď anglické potraviny k českým překladům.",
+      "pary": [
+        { "levy": "cucumber", "pravy": "okurka" },
+        { "levy": "flour", "pravy": "mouka" },
+        { "levy": "chicken", "pravy": "kuře" },
+        { "levy": "grapes", "pravy": "hroznové víno" }
+      ],
+      "vysvetleni": "Cucumber = okurka, flour = mouka (pozor na záměnu s flower = květina — vyslovují se stejně!), chicken = kuře, grapes = hroznové víno (wine je nápoj)."
+    },
+    {
+      "id": "o-aj-jidlo-nakupovani-6",
+      "temaId": "aj-jidlo-nakupovani",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Číšník se ptá: „Are you ready to order?“ Jak zdvořile objednáš polévku?",
+      "moznosti": [
+        "Give me the tomato soup.",
+        "I want soup.",
+        "Yes, I'd like the tomato soup, please.",
+        "I am order the tomato soup."
+      ],
+      "spravna": 2,
+      "vysvetleni": "Zdvořilá objednávka = I'd like… + please (případně Can I have…, please?). „Give me“ a „I want“ jsou gramaticky možné, ale v restauraci působí hrubě; „I am order“ je gramaticky špatně."
+    },
+    {
+      "id": "o-aj-jidlo-nakupovani-7",
+      "temaId": "aj-jidlo-nakupovani",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "V bufetu stojí sendvič £2.20 a džus £1.60. Kupuješ dva sendviče a jeden džus. Kolik zaplatíš?",
+      "moznosti": ["£5.40", "£6.00", "£3.80", "£6.40"],
+      "spravna": 1,
+      "vysvetleni": "2 × £2.20 = £4.40, plus £1.60 za džus = £6.00. Částka £3.80 by byla za jeden sendvič a jeden džus, £5.40 za jeden sendvič a dva džusy — pozor na počty kusů."
+    },
+    {
+      "id": "o-aj-jidlo-nakupovani-8",
+      "temaId": "aj-jidlo-nakupovani",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Vyber VŠECHNY gramaticky správné věty.",
+      "moznosti": [
+        "There is much cars in the street.",
+        "I'd like some water.",
+        "How much sugar do you want?",
+        "She bought three breads."
+      ],
+      "spravne": [1, 2],
+      "vysvetleni": "Správně: „I'd like some water“ (some ve zdvořilé žádosti) a „How much sugar“ (sugar je nepočitatelné). „Much cars“ je dvojitá chyba — cars jsou počitatelné množné (many cars, there ARE). Bread je nepočitatelné: three loaves of bread, ne „three breads“."
+    },
+    {
+      "id": "o-aj-cestovani-mesto-1",
+      "temaId": "aj-cestovani-mesto",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Doplň otázku: ___ a bank near here?",
+      "moznosti": ["Are there", "There is", "Is there", "Is it"],
+      "spravna": 2,
+      "vysvetleni": "Ptáme se na jednu banku → Is there a bank…? „Are there“ patří množnému číslu, „There is“ je oznamovací slovosled, ne otázka, a „Is it“ se neváže s vazbou there."
+    },
+    {
+      "id": "o-aj-cestovani-mesto-2",
+      "temaId": "aj-cestovani-mesto",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Doplň větu: There ___ two hotels in our town.",
+      "moznosti": ["is", "are", "be", "have"],
+      "spravna": 1,
+      "vysvetleni": "Two hotels je množné číslo → There are. „There is“ patří jednotnému číslu (There is a hotel). Čeština tu má „jsou“ — stejná logika."
+    },
+    {
+      "id": "o-aj-cestovani-mesto-3",
+      "temaId": "aj-cestovani-mesto",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď anglické předložky místa k českým překladům.",
+      "pary": [
+        { "levy": "next to", "pravy": "vedle" },
+        { "levy": "opposite", "pravy": "naproti" },
+        { "levy": "between", "pravy": "mezi" },
+        { "levy": "behind", "pravy": "za" }
+      ],
+      "vysvetleni": "Next to = vedle (hned u), opposite = naproti (přes ulici), between = mezi (dvěma věcmi), behind = za. Next to a opposite se pletou nejvíc — vedle je na stejné straně, naproti přes cestu."
+    },
+    {
+      "id": "o-aj-cestovani-mesto-4",
+      "temaId": "aj-cestovani-mesto",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Doplň sloveso: Excuse me, how do I ___ to the station?",
+      "spravneOdpovedi": ["get", "Get"],
+      "vysvetleni": "Ustálená fráze pro ptaní na cestu je How do I get to…? (Jak se dostanu k…?). Sloveso get tady znamená „dostat se“ — doslovný překlad přes go by zněl nepřirozeně."
+    },
+    {
+      "id": "o-aj-cestovani-mesto-5",
+      "temaId": "aj-cestovani-mesto",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Pokyn „Go straight on.“ znamená „Jděte rovně.“",
+      "spravna": true,
+      "vysvetleni": "Ano, go straight on = jděte rovně (pokračujte přímo). Nezaměňovat s turn left/right (zabočte doleva/doprava) — to jsou tři základní pokyny při navigaci."
+    },
+    {
+      "id": "o-aj-cestovani-mesto-6",
+      "temaId": "aj-cestovani-mesto",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Turista se ptá: „Excuse me, where's the museum?“ Vyber odpověď, která mu skutečně poradí cestu.",
+      "moznosti": [
+        "The museum is very beautiful.",
+        "Turn left at the traffic lights. It's on the right.",
+        "Yes, there is.",
+        "I go to the museum by bus."
+      ],
+      "spravna": 1,
+      "vysvetleni": "Jedině „Turn left at the traffic lights. It's on the right“ obsahuje směr a polohu. „Yes, there is“ odpovídá na otázku Is there…?, ostatní věty jsou gramaticky správné, ale na cestu neodpovídají."
+    },
+    {
+      "id": "o-aj-cestovani-mesto-7",
+      "temaId": "aj-cestovani-mesto",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Doplň obě předložky: I go to school ___ bus, but my dad goes to work ___ foot.",
+      "moznosti": ["on / by", "by / by", "by / on", "with / on"],
+      "spravna": 2,
+      "vysvetleni": "Dopravní prostředky se pojí s by (by bus, by train, by car), ale pěšky je výjimka: on foot. „With bus“ je doslovný překlad z češtiny (autobusem = s autobusem) — v angličtině chyba."
+    },
+    {
+      "id": "o-aj-cestovani-mesto-8",
+      "temaId": "aj-cestovani-mesto",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Vyber VŠECHNY gramaticky správné věty.",
+      "moznosti": [
+        "The chemist's is opposite the bank.",
+        "There are a cinema in the centre.",
+        "I travel with train.",
+        "Take the second street on the left."
+      ],
+      "spravne": [0, 3],
+      "vysvetleni": "Správně: „The chemist's is opposite the bank“ a „Take the second street on the left“. „There are a cinema“ míchá množné are s jednotným a cinema (správně There is a cinema). Vlakem = by train, ne „with train“."
+    },
+    {
+      "id": "o-aj-budoucnost-1",
+      "temaId": "aj-budoucnost",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Doplň větu: She ___ be sixteen next month.",
+      "moznosti": ["will", "is", "does", "has"],
+      "spravna": 0,
+      "vysvetleni": "Next month ukazuje do budoucnosti a jistý budoucí fakt vyjadřuje will: She will be sixteen. Tvary is/does/has jsou přítomný čas — s be se navíc takhle nepojí."
+    },
+    {
+      "id": "o-aj-budoucnost-2",
+      "temaId": "aj-budoucnost",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Doplň větu: Look at those black clouds! It ___ rain.",
+      "moznosti": ["rains", "is going to", "is rain", "does"],
+      "spravna": 1,
+      "vysvetleni": "Vidíme důkaz (černé mraky) → předpověď s going to: It's going to rain. „It rains“ by popisovalo obecný zvyk (např. It often rains here), „is rain“ není platný tvar."
+    },
+    {
+      "id": "o-aj-budoucnost-3",
+      "temaId": "aj-budoucnost",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň krátkou odpověď: Will you help me? — Yes, I ___.",
+      "spravneOdpovedi": ["will", "Will"],
+      "vysvetleni": "Krátká odpověď opakuje pomocné sloveso z otázky: Will you…? — Yes, I will. / No, I won't. Dlouhá odpověď (Yes, I will help you) není nutná."
+    },
+    {
+      "id": "o-aj-budoucnost-4",
+      "temaId": "aj-budoucnost",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď anglické fráze pro domluvu schůzky k českým překladům.",
+      "pary": [
+        { "levy": "What about Friday?", "pravy": "Co takhle v pátek?" },
+        { "levy": "See you at six.", "pravy": "Uvidíme se v šest." },
+        { "levy": "I'm afraid I can't.", "pravy": "Bohužel nemůžu." },
+        { "levy": "Let's meet at the cinema.", "pravy": "Sejdeme se u kina." }
+      ],
+      "vysvetleni": "What about…? navrhuje termín, Let's meet… místo, See you at… potvrzuje čas a I'm afraid I can't zdvořile odmítá. „I'm afraid“ tu neznamená strach, ale zdvořilé „bohužel“."
+    },
+    {
+      "id": "o-aj-budoucnost-5",
+      "temaId": "aj-budoucnost",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "„Going to“ používáme pro plány, které jsme si rozmysleli už PŘED okamžikem mluvení.",
+      "spravna": true,
+      "vysvetleni": "Ano — going to = plán existující předem (We're going to visit Brno on Saturday — už je domluveno). Rozhodnutí učiněné právě teď vyjadřuje will (OK, I'll answer it)."
+    },
+    {
+      "id": "o-aj-budoucnost-6",
+      "temaId": "aj-budoucnost",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Zvoní telefon a ty se PRÁVĚ TEĎ rozhodneš, že ho vezmeš. Co řekneš?",
+      "moznosti": [
+        "OK, I'm going to answer it.",
+        "OK, I'll answer it.",
+        "OK, I answer it.",
+        "OK, I answering it."
+      ],
+      "spravna": 1,
+      "vysvetleni": "Rozhodnutí v okamžiku mluvení = will: I'll answer it. „I'm going to“ by znamenalo plán rozmyšlený předem — jenže telefon začal zvonit teprve teď. Present simple ani holé -ing budoucí rozhodnutí nevyjádří."
+    },
+    {
+      "id": "o-aj-budoucnost-7",
+      "temaId": "aj-budoucnost",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kamarád: „Are you free on Saturday?“ Nemůžeš, ale chceš se sejít jindy. Co odpovíš?",
+      "moznosti": [
+        "No.",
+        "Saturday is bad day.",
+        "I'm sorry, I can't. What about Sunday?",
+        "I will can't come."
+      ],
+      "spravna": 2,
+      "vysvetleni": "Zdvořilé odmítnutí + protinávrh: I'm sorry, I can't. What about Sunday? Holé „No“ je nezdvořilé, „Saturday is bad day“ má chybu (a bad day) a nic nenavrhuje, „will can't“ kombinuje dvě způsobová slovesa — to angličtina nedovoluje."
+    },
+    {
+      "id": "o-aj-budoucnost-8",
+      "temaId": "aj-budoucnost",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Vyber VŠECHNY gramaticky správné věty.",
+      "moznosti": [
+        "We're going to travel to Spain in July.",
+        "I'll to call you tonight.",
+        "He will goes home at five.",
+        "I think it will snow tomorrow."
+      ],
+      "spravne": [0, 3],
+      "vysvetleni": "Správně: „We're going to travel…“ (plán) a „I think it will snow…“ (odhad s I think). Po will je vždy základní tvar bez to — „I'll to call“ i „will goes“ jsou proto chybné."
+    }
+  ]
+}

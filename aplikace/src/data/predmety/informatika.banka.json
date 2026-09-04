@@ -1,0 +1,627 @@
+{
+  "predmetId": "informatika",
+  "nazev": "Informatika",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "inf-hardware", "nazev": "Hardware", "poradi": 0 },
+    { "id": "inf-software-os", "nazev": "Software a operační systémy", "poradi": 1 },
+    { "id": "inf-textovy-procesor", "nazev": "Textový procesor", "poradi": 2 },
+    { "id": "inf-tabulkovy-procesor", "nazev": "Tabulkový procesor", "poradi": 3 },
+    { "id": "inf-internet-bezpecnost", "nazev": "Internet a bezpečnost", "poradi": 4 },
+    { "id": "inf-prezentace", "nazev": "Prezentace", "poradi": 5 }
+  ],
+  "otazky": [
+    {
+      "id": "o-inf-hardware-1",
+      "temaId": "inf-hardware",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Která součástka je „mozkem“ počítače a vykonává instrukce programů?",
+      "moznosti": ["Procesor (CPU)", "Operační paměť (RAM)", "Disk SSD", "Zdroj"],
+      "spravna": 0,
+      "vysvetleni": "CPU (procesor) vykonává výpočty a instrukce všech programů — proto se mu říká mozek počítače. RAM data jen krátkodobě drží, SSD je trvale ukládá a zdroj počítač napájí elektřinou."
+    },
+    {
+      "id": "o-inf-hardware-2",
+      "temaId": "inf-hardware",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Data v operační paměti RAM zůstanou uložená i po vypnutí počítače.",
+      "spravna": false,
+      "vysvetleni": "RAM je volatilní — po vypnutí se její obsah smaže. Proto se rozdělaná práce musí ukládat na disk (SSD/HDD), který data drží trvale. To je taky důvod, proč tě programy před vypnutím vyzývají k uložení."
+    },
+    {
+      "id": "o-inf-hardware-3",
+      "temaId": "inf-hardware",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se zkráceně nazývá rychlý disk bez pohyblivých částí, který dnes patří do každého nového počítače? (zkratka)",
+      "spravneOdpovedi": ["SSD", "ssd", "SSD disk", "ssd disk"],
+      "vysvetleni": "SSD (Solid State Drive) nemá pohyblivé části, takže je mnohonásobně rychlejší a odolnější než plotnový HDD. Nejrychlejší SSD se připojují přes rozhraní NVMe."
+    },
+    {
+      "id": "o-inf-hardware-4",
+      "temaId": "inf-hardware",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď komponentu k její hlavní funkci.",
+      "pary": [
+        { "levy": "CPU", "pravy": "vykonává výpočty a instrukce programů" },
+        { "levy": "RAM", "pravy": "rychlá pracovní paměť běžících programů" },
+        { "levy": "SSD", "pravy": "trvalé úložiště dat" },
+        { "levy": "GPU", "pravy": "vykresluje obraz" }
+      ],
+      "vysvetleni": "Každá komponenta má svou roli: CPU počítá, RAM krátkodobě drží data běžících programů (po vypnutí se smaže), SSD data trvale ukládá a GPU se stará o vykreslování obrazu."
+    },
+    {
+      "id": "o-inf-hardware-5",
+      "temaId": "inf-hardware",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z následujících periferií jsou VSTUPNÍ (posílají data do počítače)?",
+      "moznosti": ["klávesnice", "mikrofon", "skener", "monitor", "tiskárna"],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Vstupní periferie data do počítače přivádějí: klávesnice znaky, mikrofon zvuk, skener obraz papíru. Monitor a tiskárna jsou výstupní — data z počítače zobrazují nebo tisknou."
+    },
+    {
+      "id": "o-inf-hardware-6",
+      "temaId": "inf-hardware",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kamarádův počítač startuje několik minut a programy se otevírají pomalu. Má procesor Core i5, 16 GB RAM a plotnový disk HDD. Který upgrade pomůže nejvíc?",
+      "moznosti": ["Výměna HDD za SSD", "Přidání dedikované grafické karty", "Větší monitor", "Výkonnější procesor"],
+      "spravna": 0,
+      "vysvetleni": "Procesor i RAM jsou v pořádku — úzkým hrdlem je pomalý HDD, ze kterého se systém i programy načítají. SSD načítání mnohonásobně zrychlí. Grafická karta pomůže hrám, ne startu systému; monitor rychlost neovlivní vůbec."
+    },
+    {
+      "id": "o-inf-hardware-7",
+      "temaId": "inf-hardware",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Vybíráš notebook na školu a kancelářskou práci (dokumenty, web, tabulky) do 20 000 Kč. Který parametr je pro tebe NEJMÉNĚ důležitý?",
+      "moznosti": ["Dedikovaná grafická karta", "16 GB RAM", "SSD disk", "Moderní úsporný procesor"],
+      "spravna": 0,
+      "vysvetleni": "Na kancelářskou práci bohatě stačí grafika integrovaná v procesoru — dedikovaná karta jen zvedá cenu a spotřebu. RAM, SSD a slušný procesor naopak rozhodují o tom, jak svižně půjde běžná práce."
+    },
+    {
+      "id": "o-inf-hardware-8",
+      "temaId": "inf-hardware",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Bratranec stříhá videa ve 4K a renderování mu trvá hodiny. Počítač: 4jádrové CPU, 8 GB RAM, integrovaná grafika, SSD 1 TB. Které DVĚ věci má smysl vylepšit nejdřív?",
+      "moznosti": ["Přidat RAM a pořídit dedikovanou grafickou kartu", "Koupit větší SSD a lepší monitor", "Vyměnit klávesnici a myš za herní", "Přidat druhý zdroj a větší skříň"],
+      "spravna": 0,
+      "vysvetleni": "Střih 4K videa je náročný na paměť (8 GB je málo) a render výrazně zrychlí dedikovaná GPU. Kapacita SSD ani monitor rychlost renderování neovlivní — 1 TB místa má dost; periferie a skříň s výkonem nesouvisí."
+    },
+    {
+      "id": "o-inf-software-os-1",
+      "temaId": "inf-software-os",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je operační systém?",
+      "moznosti": [
+        "Základní program, který řídí hardware a běh všech aplikací",
+        "Program na ochranu před viry",
+        "Balík kancelářských aplikací",
+        "Program na prohlížení webových stránek"
+      ],
+      "spravna": 0,
+      "vysvetleni": "OS (Windows 11, macOS, Linux) je základní vrstva mezi hardwarem a aplikacemi: přiděluje paměť, spravuje soubory a zařízení. Antivirus, kancelářský balík i prohlížeč jsou jen aplikace, které na OS běží."
+    },
+    {
+      "id": "o-inf-software-os-2",
+      "temaId": "inf-software-os",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Napiš název operačního systému od Microsoftu, který v roce 2026 běží na většině školních a firemních počítačů.",
+      "spravneOdpovedi": ["Windows 11", "windows 11", "Windows", "windows", "win 11", "win11", "MS Windows 11", "ms windows 11"],
+      "vysvetleni": "Windows 11 je aktuální desktopový systém Microsoftu a na počítačích je nejrozšířenější. Alternativy jsou macOS (Apple) a open source Linux."
+    },
+    {
+      "id": "o-inf-software-os-3",
+      "temaId": "inf-software-os",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Open source program smíš zdarma používat, a dokonce i upravovat jeho zdrojový kód.",
+      "spravna": true,
+      "vysvetleni": "Přesně to open source licence dovoluje: používat, studovat, upravovat i šířit. Tím se liší od freewaru (zdarma, ale kód je zavřený) i od proprietárního softwaru (kód je tajemstvím výrobce)."
+    },
+    {
+      "id": "o-inf-software-os-4",
+      "temaId": "inf-software-os",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Microsoft 365 je typický příklad softwaru…",
+      "moznosti": [
+        "na předplatné — platíš pravidelně a funguje, jen dokud platíš",
+        "open source — kdokoli může upravovat jeho kód",
+        "s jednorázovou trvalou licencí — zaplatíš jednou a máš ho navždy",
+        "freeware — je celý zdarma"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Microsoft 365 se platí měsíčně či ročně; za to dostáváš aktualizace a cloud. Jakmile přestaneš platit, přestane fungovat — v tom je rozdíl proti jednorázové licenci (např. krabicový Office). Open source ani freeware to není, kód je zavřený a služba placená."
+    },
+    {
+      "id": "o-inf-software-os-5",
+      "temaId": "inf-software-os",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď příponu souboru k jeho typu.",
+      "pary": [
+        { "levy": ".docx", "pravy": "textový dokument" },
+        { "levy": ".xlsx", "pravy": "tabulka" },
+        { "levy": ".jpg", "pravy": "obrázek" },
+        { "levy": ".mp4", "pravy": "video" },
+        { "levy": ".zip", "pravy": "komprimovaný archiv" }
+      ],
+      "vysvetleni": "Přípona říká systému, o jaký typ souboru jde a kterým programem ho otevřít: .docx patří Wordu/Writeru, .xlsx Excelu/Calcu, .jpg je fotka, .mp4 video a .zip archiv více souborů stlačených do jednoho."
+    },
+    {
+      "id": "o-inf-software-os-6",
+      "temaId": "inf-software-os",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které z nabídek můžeš legálně a dlouhodobě používat ZDARMA?",
+      "moznosti": [
+        "LibreOffice (open source)",
+        "GIMP (open source)",
+        "30denní zkušební verze placeného programu",
+        "„crack“ placeného programu stažený z fóra",
+        "Microsoft 365 bez placení předplatného"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "Open source programy (LibreOffice, GIMP) jsou zdarma trvale a legálně. Zkušební verze po 30 dnech vyprší, crack je nelegální (a častý zdroj malwaru) a Microsoft 365 bez placení předplatného nefunguje."
+    },
+    {
+      "id": "o-inf-software-os-7",
+      "temaId": "inf-software-os",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kamarádka ti poslala soubor fotka.heic a tobě ho počítač neumí otevřít. Jaká je nejpravděpodobnější příčina?",
+      "moznosti": [
+        "Chybí ti program, který tento formát souboru podporuje",
+        "Soubor je určitě virus",
+        "Počítač má málo operační paměti",
+        "Soubor je příliš velký na otevření"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Když soubor nejde otevřít, nejčastěji schází aplikace (nebo kodek), která daný formát zná — HEIC je novější formát fotek z iPhonu. Virus se projevuje jinak a běžná fotka není pro RAM ani velikostně žádný problém."
+    },
+    {
+      "id": "o-inf-software-os-8",
+      "temaId": "inf-software-os",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Firma se rozhoduje: program koupit jednorázově za 12 000 Kč, nebo platit předplatné 300 Kč měsíčně. Po kolika měsících začne být předplatné dražší než jednorázový nákup?",
+      "moznosti": ["Po 40 měsících", "Po 12 měsících", "Po 30 měsících", "Po 60 měsících"],
+      "spravna": 0,
+      "vysvetleni": "12 000 ÷ 300 = 40 — po 40 měsících (víc než 3 letech) zaplatí firma na předplatném stejně jako za jednorázovou licenci, dál už platí navíc. V praxi se ale zvažuje i to, že předplatné zahrnuje aktualizace a nové verze."
+    },
+    {
+      "id": "o-inf-textovy-procesor-1",
+      "temaId": "inf-textovy-procesor",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "K čemu slouží styly (Nadpis 1, Nadpis 2, Normální) v textovém procesoru?",
+      "moznosti": [
+        "K jednotnému formátování celého dokumentu a automatické tvorbě obsahu",
+        "Ke kontrole pravopisu v textu",
+        "Ke vkládání obrázků do dokumentu",
+        "K počítání slov a znaků"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Styl je pojmenovaná sada formátování: nadpisy vypadají všude stejně, změna stylu se propíše do celého dokumentu a z nadpisů se stylem jde vygenerovat automatický obsah. Pravopis, obrázky ani statistika slov se styly nesouvisí."
+    },
+    {
+      "id": "o-inf-textovy-procesor-2",
+      "temaId": "inf-textovy-procesor",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Odsazení prvního řádku odstavce se správně dělá opakovaným mačkáním mezerníku.",
+      "spravna": false,
+      "vysvetleni": "Mezerami se text nikdy nezarovnává — při každé změně písma či okrajů se rozsype. Odsazení prvního řádku je vlastnost formátování odstavce (nastavuje se v odstavcových volbách nebo stylem)."
+    },
+    {
+      "id": "o-inf-textovy-procesor-3",
+      "temaId": "inf-textovy-procesor",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď klávesovou zkratku k její funkci.",
+      "pary": [
+        { "levy": "Ctrl+C", "pravy": "kopírovat" },
+        { "levy": "Ctrl+V", "pravy": "vložit" },
+        { "levy": "Ctrl+Z", "pravy": "zpět (vrátit poslední akci)" },
+        { "levy": "Ctrl+B", "pravy": "tučné písmo" }
+      ],
+      "vysvetleni": "Základní zkratky fungují skoro ve všech programech: C jako copy (kopírovat), V vloží, Z vrátí poslední krok a B (bold) přepíná tučné písmo. Kdo je používá, pracuje výrazně rychleji než s myší."
+    },
+    {
+      "id": "o-inf-textovy-procesor-4",
+      "temaId": "inf-textovy-procesor",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co patří do formátování ODSTAVCE (ne znaku)?",
+      "moznosti": ["zarovnání do bloku", "řádkování", "odsazení prvního řádku", "velikost písma", "barva písma"],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Zarovnání, řádkování a odsazení se týkají celého odstavce. Velikost a barva písma jsou formátování znaku — můžeš je změnit i jedinému písmenu uvnitř odstavce."
+    },
+    {
+      "id": "o-inf-textovy-procesor-5",
+      "temaId": "inf-textovy-procesor",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Když projde text kontrolou pravopisu bez podtržení, je zaručeně bez chyb.",
+      "spravna": false,
+      "vysvetleni": "Kontrola pravopisu odhalí překlepy a neznámá slova, ale správně napsané slovo ve špatném významu (být/bít, správa/zpráva) nepozná a s čárkami ve větách si vždy neporadí. Finální text je potřeba po sobě přečíst."
+    },
+    {
+      "id": "o-inf-textovy-procesor-6",
+      "temaId": "inf-textovy-procesor",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Píšeš referát na 10 stran a učitel chce na začátku automatický obsah. Co musíš udělat, aby ho program vygeneroval?",
+      "moznosti": [
+        "Označit všechny nadpisy styly Nadpis 1 a Nadpis 2",
+        "Nadpisy ručně zvětšit a ztučnit",
+        "Napsat obsah ručně a průběžně přepisovat čísla stránek",
+        "Vložit tabulku se dvěma sloupci: názvy kapitol a čísla stránek"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Automatický obsah se skládá z odstavců označených styly nadpisů. Ručně ztučněný nadpis je pro program obyčejný text — do obsahu nespadne. Ruční obsah funguje, ale při každé změně dokumentu ho musíš přepisovat."
+    },
+    {
+      "id": "o-inf-textovy-procesor-7",
+      "temaId": "inf-textovy-procesor",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Chceš v odstavci zalomit řádek, ale NEZAKLÁDAT nový odstavec (třeba v adrese). Jakou kombinaci kláves stiskneš?",
+      "spravneOdpovedi": ["Shift+Enter", "shift+enter", "Shift + Enter", "shift + enter", "SHIFT+ENTER", "Shift-Enter", "Shift - Enter", "Shift a Enter", "Shift Enter"],
+      "vysvetleni": "Shift+Enter vloží měkké zalomení řádku — text pokračuje na novém řádku, ale pořád je to jeden odstavec se společným formátováním. Samotný Enter založí odstavec nový."
+    },
+    {
+      "id": "o-inf-textovy-procesor-8",
+      "temaId": "inf-textovy-procesor",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Dostal jsi ke sjednocení 30stránkový dokument, kde je každý nadpis naformátovaný ručně a jinak (různá písma i velikosti). Jaký je NEJRYCHLEJŠÍ správný postup?",
+      "moznosti": [
+        "Přiřadit nadpisům styly a vzhled upravit jednou v definici stylu",
+        "Projít dokument a každý nadpis ručně přeformátovat",
+        "Zkopírovat text do nového prázdného dokumentu — formátování se sjednotí samo",
+        "Nastavit celému dokumentu stejné písmo přes Vybrat vše"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Styly jsou přesně na tohle: nadpisům přiřadíš Nadpis 1/2 a vzhled ladíš na jediném místě — v definici stylu. Ruční přeformátování 30 stran je pomalé a děravé, kopírování formát nesjednotí a jedno písmo pro vše smaže rozdíl mezi nadpisy a textem."
+    },
+    {
+      "id": "o-inf-tabulkovy-procesor-1",
+      "temaId": "inf-tabulkovy-procesor",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jakým znakem začíná každý vzorec v tabulkovém procesoru?",
+      "moznosti": ["= (rovná se)", ": (dvojtečka)", "' (apostrof)", "( (závorka)"],
+      "spravna": 0,
+      "vysvetleni": "Znak = říká programu „tohle spočítej“. Bez něj se zápis uloží jako obyčejný text — v buňce by zůstalo doslova „B2*B3“. Dvojtečka odděluje oblast (B2:B6) a apostrof naopak vynutí text."
+    },
+    {
+      "id": "o-inf-tabulkovy-procesor-2",
+      "temaId": "inf-tabulkovy-procesor",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Napiš vzorec s funkcí, který sečte hodnoty v buňkách B2 až B6.",
+      "spravneOdpovedi": ["=SUMA(B2:B6)", "=suma(b2:b6)", "SUMA(B2:B6)", "suma(b2:b6)", "=SUMA(B2;B3;B4;B5;B6)", "= SUMA(B2:B6)", "=SUMA (B2:B6)", "= SUMA (B2:B6)"],
+      "vysvetleni": "=SUMA(B2:B6) sečte celou oblast — dvojtečka znamená „od B2 do B6“. Funkce je rychlejší a bezpečnější než ruční =B2+B3+B4+B5+B6, hlavně u dlouhých sloupců."
+    },
+    {
+      "id": "o-inf-tabulkovy-procesor-3",
+      "temaId": "inf-tabulkovy-procesor",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Adresa buňky C3 znamená: sloupec C, řádek 3.",
+      "spravna": true,
+      "vysvetleni": "Adresa se vždy skládá z písmene sloupce a čísla řádku — nejdřív sloupec, pak řádek. Díky adresám se na buňky dá odkazovat ve vzorcích."
+    },
+    {
+      "id": "o-inf-tabulkovy-procesor-4",
+      "temaId": "inf-tabulkovy-procesor",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Napiš vzorec s funkcí, který spočítá aritmetický průměr hodnot v buňkách C2 až C11.",
+      "spravneOdpovedi": ["=PRŮMĚR(C2:C11)", "=průměr(c2:c11)", "PRŮMĚR(C2:C11)", "=PRUMER(C2:C11)", "=prumer(c2:c11)", "PRUMER(C2:C11)", "prumer(c2:c11)", "= PRŮMĚR(C2:C11)", "=PRŮMĚR (C2:C11)", "= PRŮMĚR (C2:C11)"],
+      "vysvetleni": "=PRŮMĚR(C2:C11) sečte hodnoty v oblasti a vydělí je jejich počtem. V české verzi Excelu mají funkce česká jména (PRŮMĚR, SUMA, KDYŽ); anglicky by to bylo AVERAGE."
+    },
+    {
+      "id": "o-inf-tabulkovy-procesor-5",
+      "temaId": "inf-tabulkovy-procesor",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Ve vzorci je adresa $B$1. Co znamenají znaky dolaru?",
+      "moznosti": [
+        "Adresa je absolutní — při kopírování vzorce se nemění",
+        "Hodnota v buňce je v dolarech (měna)",
+        "Buňka je zamčená proti přepsání",
+        "Vzorec počítá jen s celými čísly"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Dolary „přibijí“ sloupec i řádek: vzorec zkopírovaný kamkoli se pořád odkazuje na B1. Hodí se pro společné hodnoty (sazba DPH, hodinová mzda). S měnou to nesouvisí — formát měny se nastavuje jinde, zámek buňky taky."
+    },
+    {
+      "id": "o-inf-tabulkovy-procesor-6",
+      "temaId": "inf-tabulkovy-procesor",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Chceš ukázat, jak se vyvíjela tvoje útrata za svačiny během 12 měsíců (trend v čase). Který typ grafu je nejvhodnější?",
+      "moznosti": ["Spojnicový", "Výsečový (koláčový)", "Pruhový", "Prstencový"],
+      "spravna": 0,
+      "vysvetleni": "Vývoj v čase nejlépe ukáže spojnicový graf — čára okamžitě prozradí růst či pokles. Výsečový a prstencový zobrazují podíly na celku, pruhový porovnává kategorie mezi sebou."
+    },
+    {
+      "id": "o-inf-tabulkovy-procesor-7",
+      "temaId": "inf-tabulkovy-procesor",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "V buňce je vzorec =KDYŽ(B2>=50;\"uspěl\";\"neuspěl\"). Co se zobrazí, když je v B2 hodnota 47?",
+      "moznosti": ["neuspěl", "uspěl", "PRAVDA", "chyba #HODNOTA!"],
+      "spravna": 0,
+      "vysvetleni": "Podmínka B2>=50 pro hodnotu 47 splněná není, takže KDYŽ vrátí druhou (nepravdivou) větev: „neuspěl“. PRAVDA by vrátilo samotné porovnání bez funkce KDYŽ; chyba nenastane, vzorec je v pořádku."
+    },
+    {
+      "id": "o-inf-tabulkovy-procesor-8",
+      "temaId": "inf-tabulkovy-procesor",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "V B2 je počet odpracovaných hodin, v B3 hodinová mzda. Které vzorce správně spočítají výdělek?",
+      "moznosti": ["=B2*B3", "=SOUČIN(B2;B3)", "=B2+B3", "=SUMA(B2:B3)", "B2*B3"],
+      "spravne": [0, 1],
+      "vysvetleni": "Výdělek = hodiny × sazba, tedy násobení: =B2*B3 nebo funkce =SOUČIN(B2;B3). Sčítání (=B2+B3 i =SUMA) dává nesmysl — hodiny plus koruny. Zápis bez = na začátku zůstane v buňce jako text a nic nespočítá."
+    },
+    {
+      "id": "o-inf-tabulkovy-procesor-9",
+      "temaId": "inf-tabulkovy-procesor",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "V buňce C2 je vzorec =B2*$E$1 a zkopíruješ ho o řádek níž, do C3. Jak bude vzorec v C3 vypadat?",
+      "moznosti": ["=B3*$E$1", "=B2*$E$1", "=B3*$E$2", "=B2*$E$2"],
+      "spravna": 0,
+      "vysvetleni": "Relativní adresa B2 se posune s kopií na B3, absolutní $E$1 zůstane přibitá. Přesně tak se počítá celý sloupec (např. mzdy) s jednou společnou sazbou v E1 — vzorec napíšeš jednou a zkopíruješ dolů."
+    },
+    {
+      "id": "o-inf-internet-bezpecnost-1",
+      "temaId": "inf-internet-bezpecnost",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jak se nazývá program, ve kterém si zobrazuješ webové stránky (např. Chrome, Edge, Firefox)?",
+      "moznosti": ["Prohlížeč", "Vyhledávač", "Operační systém", "Antivirus"],
+      "spravna": 0,
+      "vysvetleni": "Prohlížeč je program v počítači, který stránky stahuje a vykresluje. Vyhledávač (Google, Seznam) je naopak webová služba, která stránky hledá — často se to plete, protože vyhledávač používáš uvnitř prohlížeče."
+    },
+    {
+      "id": "o-inf-internet-bezpecnost-2",
+      "temaId": "inf-internet-bezpecnost",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co je phishing?",
+      "moznosti": [
+        "Podvodná zpráva, která se vydává za důvěryhodnou instituci a láká hesla či platby",
+        "Virus, který maže soubory na disku",
+        "Program, který za tebe hledá slevy v e-shopech",
+        "Útok, při kterém útočník zašifruje tvůj disk a chce výkupné"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Phishing útočí na člověka, ne na počítač: e-mail či SMS „od banky“ tě žene na falešnou stránku, kde vyplníš heslo nebo kartu. Šifrování disku a výkupné je ransomware — jiný typ útoku."
+    },
+    {
+      "id": "o-inf-internet-bezpecnost-3",
+      "temaId": "inf-internet-bezpecnost",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá ověření, při kterém kromě hesla potvrzuješ přihlášení ještě druhým krokem (kódem z mobilu)? Stačí zkratka.",
+      "spravneOdpovedi": ["2FA", "2fa", "dvoufaktor", "dvoufaktorové ověření", "dvoufaktorove overeni", "dvoufaktorová autentizace", "dvoufaktorova autentizace", "dvoufázové ověření", "dvoufazove overeni", "MFA", "mfa"],
+      "vysvetleni": "Dvoufaktorové ověření (2FA) kombinuje něco, co znáš (heslo), s něčím, co máš (mobil s kódem). Ukradené heslo pak útočníkovi samo o sobě nestačí."
+    },
+    {
+      "id": "o-inf-internet-bezpecnost-4",
+      "temaId": "inf-internet-bezpecnost",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Když je heslo opravdu dlouhé a silné, je v pořádku používat ho na všech webech stejné.",
+      "spravna": false,
+      "vysvetleni": "Weby občas o databáze hesel přijdou. Uteče-li tvé heslo z jediné služby, útočník ho vyzkouší všude — na e-mailu i bankovnictví. Proto platí: každá služba jiné heslo; pamatování vyřeší správce hesel."
+    },
+    {
+      "id": "o-inf-internet-bezpecnost-5",
+      "temaId": "inf-internet-bezpecnost",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co ve skutečnosti znamená zámeček (HTTPS) vedle adresy stránky?",
+      "moznosti": [
+        "Komunikace mezi tebou a serverem je šifrovaná",
+        "Stránka je ověřená a nemůže být podvodná",
+        "Stránka neobsahuje žádné viry",
+        "Stránku zkontroloval provozovatel prohlížeče"
+      ],
+      "spravna": 0,
+      "vysvetleni": "HTTPS šifruje přenos — nikdo po cestě data nepřečte. Neříká ale nic o poctivosti webu: i phishingová stránka může mít zámeček. „Zámeček = bezpečný web“ je proto nebezpečný omyl."
+    },
+    {
+      "id": "o-inf-internet-bezpecnost-6",
+      "temaId": "inf-internet-bezpecnost",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Zadáš do prohlížeče www.skola.cz. Co udělá systém DNS?",
+      "moznosti": [
+        "Přeloží doménové jméno na IP adresu serveru",
+        "Zašifruje spojení se serverem",
+        "Stáhne stránku do počítače",
+        "Zkontroluje, jestli stránka neobsahuje viry"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Počítače se na síti hledají podle číselných IP adres — DNS je „telefonní seznam“, který jméno www.skola.cz převede na IP. Šifrování zajišťuje HTTPS, stahování a vykreslení stránky prohlížeč."
+    },
+    {
+      "id": "o-inf-internet-bezpecnost-7",
+      "temaId": "inf-internet-bezpecnost",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď druh malwaru k jeho chování.",
+      "pary": [
+        { "levy": "virus", "pravy": "šíří se v napadených souborech" },
+        { "levy": "trojský kůň", "pravy": "tváří se jako užitečný program" },
+        { "levy": "ransomware", "pravy": "zašifruje data a žádá výkupné" },
+        { "levy": "spyware", "pravy": "potají sleduje, co děláš" }
+      ],
+      "vysvetleni": "Každý typ škodí jinak: virus se množí přes soubory, trojský kůň se do počítače dostane převlečený za užitečný program, ransomware ti data „unese“ a chce výkupné, spyware tě špehuje. Obrana je společná: aktualizace, antivirus, zálohy a zdravá nedůvěra."
+    },
+    {
+      "id": "o-inf-internet-bezpecnost-8",
+      "temaId": "inf-internet-bezpecnost",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Přijde ti e-mail: „Váš balík nebyl doručen, zaplaťte 30 Kč do 2 hodin“ s odkazem na platbu. Které signály svědčí pro podvod?",
+      "moznosti": [
+        "Časový nátlak („do 2 hodin“)",
+        "Žádost o platbu přes odkaz ve zprávě",
+        "Adresa odesílatele ceska-posta-doruceni.xyz",
+        "E-mail je napsaný česky",
+        "Zpráva přišla v pracovní době"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Nátlak na čas, platba přes odkaz a podivná doména odesílatele jsou klasické znaky phishingu — dopravci takhle drobné doplatky nevymáhají. Čeština ani čas doručení o podvodu nic neříkají; podvodné zprávy dnes bývají česky bezchybně."
+    },
+    {
+      "id": "o-inf-internet-bezpecnost-9",
+      "temaId": "inf-internet-bezpecnost",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které postupy skutečně zvyšují bezpečnost tvých účtů?",
+      "moznosti": [
+        "Unikátní heslo pro každou službu",
+        "Správce hesel (např. Bitwarden, KeePassXC)",
+        "Zapnuté dvoufaktorové ověření",
+        "Heslo ze jména psa a roku narození",
+        "Hesla napsaná na lístečku u monitoru"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Unikátní hesla omezí škodu při úniku, správce hesel je umí bezpečně uchovat a generovat, 2FA zastaví útočníka i s ukradeným heslem. Jméno psa a rok narození útočník uhodne z tvých sociálních sítí; lísteček u monitoru vidí každý, kdo projde kolem."
+    },
+    {
+      "id": "o-inf-internet-bezpecnost-10",
+      "temaId": "inf-internet-bezpecnost",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Kamarádka před rokem veřejně sdílela trapnou fotku a teď ji smazala. Co platí o její digitální stopě?",
+      "moznosti": [
+        "Kopie, které si mezitím kdokoli stáhl nebo nasdílel, smazáním z profilu nezmizí",
+        "Smazáním z profilu fotka zmizela z internetu úplně",
+        "Fotky se na sociálních sítích po roce mažou automaticky",
+        "Nic se neděje — veřejné fotky si nikdo cizí ukládat nesmí, takže kopie neexistují"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Smazání odstraní jen originál na profilu. Za rok veřejné viditelnosti si fotku mohl kdokoli stáhnout, přeposlat nebo screenshotnout — tyhle kopie kamarádka nekontroluje. Proto se digitální stopa řeší PŘED zveřejněním, ne po něm."
+    },
+    {
+      "id": "o-inf-prezentace-1",
+      "temaId": "inf-prezentace",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Kolik hlavních myšlenek patří na jeden slajd?",
+      "moznosti": ["Jedna", "Tři až pět", "Co nejvíc — ušetří se slajdy", "Záleží jen na velikosti písma"],
+      "spravna": 0,
+      "vysvetleni": "Jeden slajd = jedna myšlenka. Divák nedokáže současně číst hodně textu a poslouchat tebe. Víc myšlenek na slajdu se pere o pozornost — raději přidej další slajd."
+    },
+    {
+      "id": "o-inf-prezentace-2",
+      "temaId": "inf-prezentace",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Při prezentování se má mluvit k lidem, ne číst text ze slajdu.",
+      "spravna": true,
+      "vysvetleni": "Diváci čtou rychleji, než mluvíš — když čteš slajd, přestanou tě poslouchat. Slajd je opora s hesly, mluvené slovo nese obsah. Oční kontakt navíc drží pozornost publika."
+    },
+    {
+      "id": "o-inf-prezentace-3",
+      "temaId": "inf-prezentace",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jaká je doporučená MINIMÁLNÍ velikost písma na slajdu (v bodech), aby text přečetli i diváci vzadu? Napiš číslo.",
+      "spravneOdpovedi": ["24", "24 bodů", "24 b", "24b", "dvacet čtyři", "dvacet ctyri"],
+      "vysvetleni": "Písmo pod 24 bodů je z posledních lavic nečitelné. Když se ti text do 24bodového písma nevejde, není chyba v písmu, ale v množství textu — slajd je potřeba zkrátit."
+    },
+    {
+      "id": "o-inf-prezentace-4",
+      "temaId": "inf-prezentace",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co patří na závěr prezentace?",
+      "moznosti": [
+        "Krátké shrnutí hlavních myšlenek a co si mají diváci odnést",
+        "Úplně nové informace, které se nevešly do jádra",
+        "Rychlé přečtení všech použitých zdrojů nahlas",
+        "Nic — stačí slajd „Děkuji za pozornost“"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Závěr zopakuje to podstatné — poslední slova si diváci pamatují nejvíc. Nové informace na závěr nepatří (nikdo je nestihne vstřebat) a samotné „Děkuji za pozornost“ shrnutí nenahradí; zdroje stačí ukázat, ne předčítat."
+    },
+    {
+      "id": "o-inf-prezentace-5",
+      "temaId": "inf-prezentace",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď část prezentace k jejímu úkolu.",
+      "pary": [
+        { "levy": "úvod", "pravy": "získat pozornost a říct, o čem to bude" },
+        { "levy": "jádro", "pravy": "vysvětlit hlavní myšlenky s příklady" },
+        { "levy": "závěr", "pravy": "shrnout podstatné" },
+        { "levy": "poznámky řečníka", "pravy": "text jen pro tebe, diváci ho nevidí" }
+      ],
+      "vysvetleni": "Úvod otevírá a motivuje, jádro nese obsah, závěr shrnuje. Poznámky řečníka jsou tvůj tahák na vlastním displeji — detaily patří tam, ne na slajd."
+    },
+    {
+      "id": "o-inf-prezentace-6",
+      "temaId": "inf-prezentace",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které úpravy slajd skutečně zlepší?",
+      "moznosti": [
+        "Zkrátit text na hesla",
+        "Jedna šablona a jednotný vzhled pro celou prezentaci",
+        "Kontrastní barvy písma a pozadí",
+        "Na každém slajdu jiné písmo pro oživení",
+        "Dlouhé souvislé věty, aby tam bylo úplně všechno"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Hesla, jednotný vzhled a kontrast dělají slajd čitelným na první pohled. Různá písma působí chaoticky a dlouhé věty nutí diváky číst místo poslouchání — obojí slajd zhoršuje."
+    },
+    {
+      "id": "o-inf-prezentace-7",
+      "temaId": "inf-prezentace",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Spolužák má na slajdu 15 řádků textu drobným písmem a při prezentování ho doslova čte. Co mu poradit NEJDŘÍV?",
+      "moznosti": [
+        "Zkrátit text na hesla a mluvit vlastními slovy",
+        "Zmenšit písmo, ať se toho vejde ještě víc",
+        "Přidat animace, aby to nebyla nuda",
+        "Číst rychleji, ať se to stihne"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kořen problému je stěna textu — dokud tam je, spolužák ji bude číst a publikum se nudit. Hesla ho donutí mluvit vlastními slovy. Menší písmo a rychlejší čtení problém prohloubí, animace ho jen zamaskují."
+    },
+    {
+      "id": "o-inf-prezentace-8",
+      "temaId": "inf-prezentace",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Den před soutěží zjistíš, že na 5minutovou prezentaci máš 25 slajdů plných textu. Jaké je nejlepší řešení?",
+      "moznosti": [
+        "Vybrat pár klíčových myšlenek, zredukovat slajdy a nacvičit přednes se stopkami",
+        "Nechat slajdy beze změny a mluvit rychleji",
+        "Slajdy jen rychle proklikat, ať se stihnou všechny",
+        "Prezentaci smazat a improvizovat bez ní"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Na 5 minut je rozumných 5–7 slajdů — méně obsahu podaného pořádně vždy porazí všechno odemleté rychle. Rychlá řeč i proklikávání diváky ztratí a improvizace bez opory je den před soutěží zbytečný hazard. Nácvik s časomírou ověří, že se vejdeš."
+    }
+  ]
+}

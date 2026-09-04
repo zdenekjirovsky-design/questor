@@ -1,0 +1,643 @@
+{
+  "predmetId": "fyzika",
+  "nazev": "Fyzika",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "fyz-veliciny-jednotky", "nazev": "Fyzikální veličiny a jednotky", "poradi": 0 },
+    { "id": "fyz-kinematika", "nazev": "Kinematika", "poradi": 1 },
+    { "id": "fyz-dynamika", "nazev": "Dynamika", "poradi": 2 },
+    { "id": "fyz-prace-energie", "nazev": "Práce, výkon, energie", "poradi": 3 },
+    { "id": "fyz-kapaliny", "nazev": "Mechanika kapalin", "poradi": 4 }
+  ],
+  "otazky": [
+    {
+      "id": "o-fyz-veliciny-jednotky-1",
+      "temaId": "fyz-veliciny-jednotky",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jaká je základní jednotka délky v soustavě SI?",
+      "moznosti": ["metr", "kilometr", "centimetr", "míle"],
+      "spravna": 0,
+      "vysvetleni": "Základní jednotkou délky v SI je metr. Kilometr a centimetr jsou jen jeho násobky s předponou (kilo-, centi-), míle do SI vůbec nepatří.",
+      "zdroj": "Fyzikální veličiny a jednotky"
+    },
+    {
+      "id": "o-fyz-veliciny-jednotky-2",
+      "temaId": "fyz-veliciny-jednotky",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Předpona kilo- znamená tisícinásobek jednotky (1 km = 1000 m).",
+      "spravna": true,
+      "vysvetleni": "Kilo- (k) opravdu znamená tisíckrát víc: 1 km = 1000 m, 1 kg = 1000 g. Pozor, neplést s mili- (m), které naopak znamená tisícinu.",
+      "zdroj": "Fyzikální veličiny a jednotky"
+    },
+    {
+      "id": "o-fyz-veliciny-jednotky-3",
+      "temaId": "fyz-veliciny-jednotky",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Která z následujících veličin patří mezi sedm ZÁKLADNÍCH veličin soustavy SI?",
+      "moznosti": ["čas", "rychlost", "síla", "objem"],
+      "spravna": 0,
+      "vysvetleni": "Základních veličin SI je sedm: délka, hmotnost, čas, elektrický proud, teplota, látkové množství a svítivost. Rychlost (m/s), síla (N) i objem (m³) jsou veličiny odvozené — jejich jednotky se skládají ze základních.",
+      "zdroj": "Fyzikální veličiny a jednotky"
+    },
+    {
+      "id": "o-fyz-veliciny-jednotky-4",
+      "temaId": "fyz-veliciny-jednotky",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď k veličině její jednotku SI.",
+      "pary": [
+        { "levy": "hmotnost", "pravy": "kilogram" },
+        { "levy": "čas", "pravy": "sekunda" },
+        { "levy": "elektrický proud", "pravy": "ampér" },
+        { "levy": "teplota", "pravy": "kelvin" }
+      ],
+      "vysvetleni": "Čtyři ze sedmi základních dvojic SI: hmotnost–kilogram, čas–sekunda, proud–ampér, teplota–kelvin. Zbývají délka–metr, látkové množství–mol a svítivost–kandela.",
+      "zdroj": "Fyzikální veličiny a jednotky"
+    },
+    {
+      "id": "o-fyz-veliciny-jednotky-5",
+      "temaId": "fyz-veliciny-jednotky",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Kolik gramů je 2,5 kg?",
+      "moznosti": ["2500 g", "250 g", "25 g", "25 000 g"],
+      "spravna": 0,
+      "vysvetleni": "Kilo- znamená tisíckrát víc, takže kilogramy převedeme na gramy násobením 1000: 2,5 · 1000 = 2500 g. Odpověď 250 g je chyba o jeden řád (násobení jen stem).",
+      "zdroj": "Fyzikální veličiny a jednotky"
+    },
+    {
+      "id": "o-fyz-veliciny-jednotky-6",
+      "temaId": "fyz-veliciny-jednotky",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z těchto jednotek jsou ZÁKLADNÍ jednotky SI? (více správných)",
+      "moznosti": ["metr", "sekunda", "kilogram", "newton", "litr"],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Metr, sekunda a kilogram jsou základní jednotky SI. Newton je odvozený (kg·m/s²) a litr není jednotka SI vůbec — objem má v SI m³. Pozor: základní jednotkou hmotnosti je kilogram, ne gram.",
+      "zdroj": "Fyzikální veličiny a jednotky"
+    },
+    {
+      "id": "o-fyz-veliciny-jednotky-7",
+      "temaId": "fyz-veliciny-jednotky",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Auto jede rychlostí 72 km/h. Vyjádři tuto rychlost v m/s (napiš i jednotku).",
+      "spravneOdpovedi": ["20 m/s", "20m/s", "20 m·s⁻¹", "20"],
+      "vysvetleni": "Z km/h na m/s se dělí číslem 3,6: v = 72 : 3,6 = 20 m/s. Pomůcka: 1 km = 1000 m a 1 h = 3600 s, takže 72 km/h = 72 000 m / 3600 s = 20 m/s.",
+      "zdroj": "Fyzikální veličiny a jednotky"
+    },
+    {
+      "id": "o-fyz-veliciny-jednotky-8",
+      "temaId": "fyz-veliciny-jednotky",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Třikrát jsi změřil délku stolu: 1,21 m; 1,19 m; 1,20 m. Co je nejlepší odhad skutečné délky?",
+      "moznosti": [
+        "Aritmetický průměr 1,20 m",
+        "Největší naměřená hodnota 1,21 m",
+        "První naměřená hodnota 1,21 m",
+        "Nelze určit, měření se liší, takže je celé špatně"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Každé měření má chybu, proto se opakuje a jako nejlepší odhad se bere aritmetický průměr: (1,21 + 1,19 + 1,20) : 3 = 1,20 m. Malé rozdíly mezi měřeními jsou normální, nejsou důvod měření zahazovat.",
+      "zdroj": "Fyzikální veličiny a jednotky"
+    },
+    {
+      "id": "o-fyz-veliciny-jednotky-9",
+      "temaId": "fyz-veliciny-jednotky",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Sprinter běží rychlostí 15 m/s. Kolik je to km/h? (napiš i jednotku)",
+      "spravneOdpovedi": ["54 km/h", "54km/h", "54"],
+      "vysvetleni": "Z m/s na km/h se násobí číslem 3,6: v = 15 · 3,6 = 54 km/h. Směr převodu si pamatuj takto: v km/h vychází vždy větší číslo než v m/s.",
+      "zdroj": "Fyzikální veličiny a jednotky"
+    },
+    {
+      "id": "o-fyz-veliciny-jednotky-10",
+      "temaId": "fyz-veliciny-jednotky",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Lidský vlas má tloušťku asi 70 µm. Kolik je to milimetrů?",
+      "moznosti": ["0,07 mm", "0,7 mm", "7 mm", "0,007 mm"],
+      "spravna": 0,
+      "vysvetleni": "Mikrometr je tisícina milimetru (1 mm = 1000 µm), takže 70 µm = 70 : 1000 = 0,07 mm. Odpovědi 0,7 a 0,007 mm jsou chyby o jeden řád — při posouvání desetinné čárky si vždy napiš převodní vztah.",
+      "zdroj": "Fyzikální veličiny a jednotky"
+    },
+    {
+      "id": "o-fyz-kinematika-1",
+      "temaId": "fyz-kinematika",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co platí pro rovnoměrný přímočarý pohyb?",
+      "moznosti": [
+        "Rychlost se nemění",
+        "Rychlost rovnoměrně roste",
+        "Zrychlení rovnoměrně roste",
+        "Dráha se nemění"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rovnoměrný pohyb má stálou (konstantní) rychlost — za každou sekundu urazí stejný kus dráhy. Rostoucí rychlost je znak pohybu zrychleného; dráha se u pohybu samozřejmě mění, roste.",
+      "zdroj": "Kinematika"
+    },
+    {
+      "id": "o-fyz-kinematika-2",
+      "temaId": "fyz-kinematika",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Volný pád je rovnoměrně zrychlený pohyb s tíhovým zrychlením g ≈ 9,81 m/s².",
+      "spravna": true,
+      "vysvetleni": "Ano — při volném pádu (bez odporu vzduchu) rychlost tělesa roste každou sekundu o ~9,81 m/s, a to u všech těles stejně, bez ohledu na hmotnost. Peříčko padá pomaleji jen kvůli odporu vzduchu.",
+      "zdroj": "Kinematika"
+    },
+    {
+      "id": "o-fyz-kinematika-3",
+      "temaId": "fyz-kinematika",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Auto ujede 180 km za 2 hodiny (včetně zastávek). Jaká je jeho průměrná rychlost?",
+      "moznosti": ["90 km/h", "180 km/h", "360 km/h", "45 km/h"],
+      "spravna": 0,
+      "vysvetleni": "Průměrná rychlost = celková dráha : celkový čas = 180 km : 2 h = 90 km/h. Zastávky se z času neodečítají — proto je průměrná rychlost nižší než rychlost během jízdy.",
+      "zdroj": "Kinematika"
+    },
+    {
+      "id": "o-fyz-kinematika-4",
+      "temaId": "fyz-kinematika",
+      "typ": "multi",
+      "obtiznost": 2,
+      "zadani": "Co platí pro rovnoměrně zrychlený pohyb z klidu? (více správných)",
+      "moznosti": [
+        "Rychlost roste každou sekundu o stejnou hodnotu",
+        "Dráha roste s druhou mocninou času",
+        "Rychlost je po celou dobu stejná",
+        "Zrychlení se každou sekundu zvětšuje"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "Při stálém zrychlení roste rychlost rovnoměrně (v = a·t) a dráha kvadraticky (s = ½·a·t²). Stálá rychlost je znak pohybu rovnoměrného; zrychlení se u rovnoměrně zrychleného pohybu NEmění — to je právě jeho definice.",
+      "zdroj": "Kinematika"
+    },
+    {
+      "id": "o-fyz-kinematika-5",
+      "temaId": "fyz-kinematika",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Cyklista jede stálou rychlostí 36 km/h. Vyjádři jeho rychlost v m/s (napiš i jednotku).",
+      "spravneOdpovedi": ["10 m/s", "10m/s", "10"],
+      "vysvetleni": "36 : 3,6 = 10 m/s. Převod dělením 3,6 plyne z toho, že kilometr má 1000 m a hodina 3600 s.",
+      "zdroj": "Kinematika"
+    },
+    {
+      "id": "o-fyz-kinematika-6",
+      "temaId": "fyz-kinematika",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "V grafu rychlost–čas (v–t) je pohyb zakreslen jako vodorovná přímka. O jaký pohyb jde?",
+      "moznosti": [
+        "Rovnoměrný pohyb",
+        "Rovnoměrně zrychlený pohyb",
+        "Těleso v klidu kdekoli na ose",
+        "Rovnoměrně zpomalený pohyb"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Vodorovná přímka ve v–t grafu znamená stále stejnou rychlost — pohyb rovnoměrný. Pozor na záměnu s grafem s–t: tam vodorovná přímka znamená klid. Zrychlený pohyb by byl rostoucí přímka, zpomalený klesající.",
+      "zdroj": "Kinematika"
+    },
+    {
+      "id": "o-fyz-kinematika-7",
+      "temaId": "fyz-kinematika",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď vzorec k situaci.",
+      "pary": [
+        { "levy": "dráha rovnoměrného pohybu", "pravy": "s = v · t" },
+        { "levy": "rychlost volného pádu", "pravy": "v = g · t" },
+        { "levy": "zrychlení", "pravy": "a = Δv / t" },
+        { "levy": "průměrná rychlost", "pravy": "v = s / t" }
+      ],
+      "vysvetleni": "Rovnoměrný pohyb: dráha je rychlost krát čas. Volný pád: rychlost roste s časem podle v = g·t. Zrychlení říká, o kolik se změní rychlost za sekundu. Průměrná rychlost je vždy celková dráha dělená celkovým časem.",
+      "zdroj": "Kinematika"
+    },
+    {
+      "id": "o-fyz-kinematika-8",
+      "temaId": "fyz-kinematika",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Auto jede rychlostí 20 m/s a začne brzdit se zpomalením 5 m/s². Za jak dlouho zastaví?",
+      "moznosti": ["4 s", "5 s", "100 s", "15 s"],
+      "spravna": 0,
+      "vysvetleni": "Každou sekundu ubude 5 m/s, takže t = v : a = 20 : 5 = 4 s. Odpověď 100 s vznikne chybným násobením místo dělení, 15 s chybným odčítáním 20 − 5.",
+      "zdroj": "Kinematika"
+    },
+    {
+      "id": "o-fyz-kinematika-9",
+      "temaId": "fyz-kinematika",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Kámen padá volným pádem 2 sekundy (g = 10 m/s²). Jakou rychlostí dopadne? (napiš i jednotku)",
+      "spravneOdpovedi": ["20 m/s", "20m/s", "72 km/h", "72km/h", "20"],
+      "vysvetleni": "v = g · t = 10 m/s² · 2 s = 20 m/s, což je 72 km/h. Rychlost při volném pádu roste každou sekundu o 10 m/s — po první sekundě 10 m/s, po druhé 20 m/s.",
+      "zdroj": "Kinematika"
+    },
+    {
+      "id": "o-fyz-kinematika-10",
+      "temaId": "fyz-kinematika",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Řidič zdvojnásobí rychlost z 50 km/h na 100 km/h. Jak se změní jeho brzdná dráha (při stejném zpomalení)?",
+      "moznosti": [
+        "Bude čtyřnásobná",
+        "Bude dvojnásobná",
+        "Zůstane stejná, brzdy brzdí stejně",
+        "Bude osminásobná"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Brzdná dráha s = v² / (2a) obsahuje rychlost NA DRUHOU: 2× rychlost → 2² = 4× delší dráha. Intuice „dvakrát rychleji = dvakrát delší brzdění“ je nejčastější (a nebezpečný) omyl — proto se ve městě jezdí padesátkou.",
+      "zdroj": "Kinematika"
+    },
+    {
+      "id": "o-fyz-dynamika-1",
+      "temaId": "fyz-dynamika",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jaká je jednotka síly?",
+      "moznosti": ["newton (N)", "joule (J)", "kilogram (kg)", "watt (W)"],
+      "spravna": 0,
+      "vysvetleni": "Síla se měří v newtonech. Joule je jednotka práce a energie, watt výkonu. Kilogram je jednotka hmotnosti — hmotnost a síla (tíha) nejsou totéž, i když se v běžné řeči pletou.",
+      "zdroj": "Dynamika"
+    },
+    {
+      "id": "o-fyz-dynamika-2",
+      "temaId": "fyz-dynamika",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Autobus prudce zabrzdí a cestující „letí“ dopředu. Který zákon to vysvětluje?",
+      "moznosti": [
+        "První Newtonův zákon (setrvačnosti)",
+        "Druhý Newtonův zákon (síly)",
+        "Třetí Newtonův zákon (akce a reakce)",
+        "Archimédův zákon"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Tělo cestujícího si podle zákona setrvačnosti zachovává původní rychlost — autobus zpomalí, cestující ne. Žádná síla ho dopředu „nehodila“; naopak chybí síla, která by ho zpomalila. Proto jsou v autech pásy.",
+      "zdroj": "Dynamika"
+    },
+    {
+      "id": "o-fyz-dynamika-3",
+      "temaId": "fyz-dynamika",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Síly akce a reakce se navzájem vyruší, protože jsou stejně velké a opačného směru.",
+      "spravna": false,
+      "vysvetleni": "Nevyruší — každá působí na JINÉ těleso. Když odstrčíš loďku (akce na loďku), loďka odstrčí tebe (reakce na tebe). Vyrušit se mohou jen síly působící na totéž těleso.",
+      "zdroj": "Dynamika"
+    },
+    {
+      "id": "o-fyz-dynamika-4",
+      "temaId": "fyz-dynamika",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď situaci k Newtonovu zákonu, který ji vysvětluje.",
+      "pary": [
+        { "levy": "puk klouže po ledě dál i bez strkání", "pravy": "1. zákon — setrvačnost" },
+        { "levy": "plný vozík zrychlíš hůř než prázdný", "pravy": "2. zákon — F = m·a" },
+        { "levy": "při výskoku odstrčíš Zemi a ona tebe", "pravy": "3. zákon — akce a reakce" }
+      ],
+      "vysvetleni": "Setrvačnost = těleso drží svůj pohybový stav. Druhý zákon spojuje sílu, hmotnost a zrychlení: čím větší hmotnost, tím menší zrychlení při stejné síle. Akce a reakce = síly vždy vznikají ve dvojicích na dvou tělesech.",
+      "zdroj": "Dynamika"
+    },
+    {
+      "id": "o-fyz-dynamika-5",
+      "temaId": "fyz-dynamika",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Auto o hmotnosti 1000 kg zrychluje se zrychlením 2 m/s². Jak velká výsledná síla na něj působí? (F = m · a, napiš i jednotku)",
+      "spravneOdpovedi": ["2000 N", "2000N", "2 kN", "2kN", "2000"],
+      "vysvetleni": "F = m · a = 1000 kg · 2 m/s² = 2000 N = 2 kN. Jednotka newton je přesně kg·m/s² — proto vychází ze součinu hmotnosti a zrychlení.",
+      "zdroj": "Dynamika"
+    },
+    {
+      "id": "o-fyz-dynamika-6",
+      "temaId": "fyz-dynamika",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Na čem závisí velikost smykové třecí síly?",
+      "moznosti": [
+        "Na drsnosti povrchů a velikosti přítlačné síly",
+        "Na velikosti styčné plochy těles",
+        "Jen na hmotnosti tělesa, povrch nehraje roli",
+        "Jen na rychlosti pohybu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Třecí síla roste s drsností povrchů a s přítlačnou silou. Na velikosti styčné plochy překvapivě NEzávisí — širší pneumatiky nebrzdí líp kvůli větší ploše, ale kvůli jiné směsi gumy. Hmotnost působí jen nepřímo (zvětšuje přítlak).",
+      "zdroj": "Dynamika"
+    },
+    {
+      "id": "o-fyz-dynamika-7",
+      "temaId": "fyz-dynamika",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co platí o hybnosti tělesa? (více správných)",
+      "moznosti": [
+        "Vypočítá se jako p = m · v",
+        "Její jednotka je kg·m/s",
+        "Závisí jen na hmotnosti tělesa",
+        "Těleso v klidu má nulovou hybnost"
+      ],
+      "spravne": [0, 1, 3],
+      "vysvetleni": "Hybnost p = m·v má jednotku kg·m/s a měří „množství pohybu“. Závisí na hmotnosti I rychlosti — proto má lehká střela velkou hybnost díky rychlosti. V klidu je v = 0, takže i p = 0.",
+      "zdroj": "Dynamika"
+    },
+    {
+      "id": "o-fyz-dynamika-8",
+      "temaId": "fyz-dynamika",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Dva hráči přetahují bednu: jeden táhne doleva silou 300 N, druhý doprava silou 100 N. Jaká je výslednice sil?",
+      "moznosti": [
+        "200 N směrem doleva",
+        "400 N směrem doleva",
+        "200 N směrem doprava",
+        "0 N — síly se vyruší"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Síly opačného směru se odčítají: 300 − 100 = 200 N, výslednice má směr větší síly (doleva). Sčítání (400 N) platí jen pro síly stejného směru; vyrušily by se jen stejně velké síly.",
+      "zdroj": "Dynamika"
+    },
+    {
+      "id": "o-fyz-dynamika-9",
+      "temaId": "fyz-dynamika",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Proč se puk klouzající po ledě nakonec zastaví?",
+      "moznosti": [
+        "Brzdí ho třecí síla a odpor vzduchu",
+        "Dojde mu síla, kterou mu dal hokejista",
+        "Ztrácí postupně hmotnost",
+        "Zastaví ho setrvačnost"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Puk nezastavuje „vyčerpání síly“ — síla se v tělese neskladuje. Zastaví ho vnější síly proti pohybu: tření o led a odpor vzduchu. Bez nich by podle zákona setrvačnosti klouzal věčně. Setrvačnost pohyb udržuje, nezastavuje.",
+      "zdroj": "Dynamika"
+    },
+    {
+      "id": "o-fyz-dynamika-10",
+      "temaId": "fyz-dynamika",
+      "typ": "doplneni",
+      "obtiznost": 5,
+      "zadani": "Motokára s jezdcem má hmotnost 200 kg a zrychlí z klidu na 10 m/s za 4 s. Jak velká výsledná síla ji urychluje? (napiš i jednotku)",
+      "spravneOdpovedi": ["500 N", "500N", "0,5 kN", "0.5 kN", "500"],
+      "vysvetleni": "Nejdřív zrychlení: a = Δv / t = 10 : 4 = 2,5 m/s². Pak druhý Newtonův zákon: F = m · a = 200 kg · 2,5 m/s² = 500 N. Dvoukrokové úlohy řeš vždy popořadě: ze změny rychlosti zrychlení, ze zrychlení sílu.",
+      "zdroj": "Dynamika"
+    },
+    {
+      "id": "o-fyz-prace-energie-1",
+      "temaId": "fyz-prace-energie",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jaká je jednotka mechanické práce a energie?",
+      "moznosti": ["joule (J)", "watt (W)", "newton (N)", "kilogram (kg)"],
+      "spravna": 0,
+      "vysvetleni": "Práce i energie se měří v joulech — energie je totiž schopnost konat práci, proto sdílejí jednotku. Watt je jednotka výkonu (joule za sekundu), newton síly.",
+      "zdroj": "Práce, výkon, energie"
+    },
+    {
+      "id": "o-fyz-prace-energie-2",
+      "temaId": "fyz-prace-energie",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Když držíš minutu těžkou činku nad hlavou bez pohybu, konáš z pohledu fyziky mechanickou práci.",
+      "spravna": false,
+      "vysvetleni": "Mechanická práce W = F · s vyžaduje posunutí po dráze. Činka se nehýbe, s = 0, takže W = 0 — i když svaly bolí (ty spotřebovávají energii biologicky, ne konáním mechanické práce na čince).",
+      "zdroj": "Práce, výkon, energie"
+    },
+    {
+      "id": "o-fyz-prace-energie-3",
+      "temaId": "fyz-prace-energie",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Táhneš sáně silou 50 N po dráze 4 m (síla působí ve směru pohybu). Jakou práci vykonáš?",
+      "moznosti": ["200 J", "12,5 J", "54 J", "200 W"],
+      "spravna": 0,
+      "vysvetleni": "W = F · s = 50 N · 4 m = 200 J. Dělení (12,5) ani sčítání (54) tu nemá co dělat — práce je vždy součin síly a dráhy. Pozor i na jednotku: watty měří výkon, ne práci.",
+      "zdroj": "Práce, výkon, energie"
+    },
+    {
+      "id": "o-fyz-prace-energie-4",
+      "temaId": "fyz-prace-energie",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď veličinu k jejímu vzorci.",
+      "pary": [
+        { "levy": "mechanická práce", "pravy": "W = F · s" },
+        { "levy": "výkon", "pravy": "P = W / t" },
+        { "levy": "kinetická energie", "pravy": "Ek = ½ · m · v²" },
+        { "levy": "potenciální energie", "pravy": "Ep = m · g · h" }
+      ],
+      "vysvetleni": "Práce = síla krát dráha. Výkon = práce za čas. Kinetická energie roste s druhou mocninou rychlosti, potenciální s výškou nad zemí. Tyhle čtyři vzorce jsou základ celé kapitoly.",
+      "zdroj": "Práce, výkon, energie"
+    },
+    {
+      "id": "o-fyz-prace-energie-5",
+      "temaId": "fyz-prace-energie",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Vyneseš batoh do schodů a vykonáš práci 3000 J za 10 sekund. Jaký je tvůj výkon? (napiš i jednotku)",
+      "spravneOdpovedi": ["300 W", "300W", "0,3 kW", "0.3 kW", "300"],
+      "vysvetleni": "P = W / t = 3000 J : 10 s = 300 W. Výkon říká, jak rychle práci konáš — kdybys šel dvakrát pomaleji, práce zůstane 3000 J, ale výkon klesne na polovinu.",
+      "zdroj": "Práce, výkon, energie"
+    },
+    {
+      "id": "o-fyz-prace-energie-6",
+      "temaId": "fyz-prace-energie",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Kterým vzorcem se počítá kinetická energie tělesa?",
+      "moznosti": ["Ek = ½ · m · v²", "Ek = m · g · h", "Ek = m · v", "Ek = F · s"],
+      "spravna": 0,
+      "vysvetleni": "Kinetická (pohybová) energie je ½·m·v². Vzorec m·g·h patří potenciální energii, m·v je hybnost a F·s práce. Klíčový rozdíl mezi hybností a Ek: v hybnosti je rychlost jednou, v energii na druhou.",
+      "zdroj": "Práce, výkon, energie"
+    },
+    {
+      "id": "o-fyz-prace-energie-7",
+      "temaId": "fyz-prace-energie",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co platí podle zákona zachování mechanické energie (bez tření)? (více správných)",
+      "moznosti": [
+        "Energie se neztrácí, jen se přeměňuje mezi podobami",
+        "Součet Ek + Ep zůstává stálý",
+        "Kinetická energie se postupně sama vytrácí",
+        "Energii lze vyrobit z ničeho vhodným strojem"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "V soustavě bez tření se mechanická energie jen přelévá mezi kinetickou a potenciální, součet je stálý. „Sama od sebe“ se energie nevytrácí (ve skutečnosti ji odvádí tření jako teplo) a vyrobit ji z ničeho nejde — perpetuum mobile neexistuje.",
+      "zdroj": "Práce, výkon, energie"
+    },
+    {
+      "id": "o-fyz-prace-energie-8",
+      "temaId": "fyz-prace-energie",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Auto zdvojnásobí rychlost. Jak se změní jeho kinetická energie?",
+      "moznosti": ["Vzroste čtyřikrát", "Vzroste dvakrát", "Nezmění se", "Vzroste osmkrát"],
+      "spravna": 0,
+      "vysvetleni": "Ek = ½·m·v² — rychlost je na druhou, takže 2× rychlost = 4× energie. Proto je náraz ve 100 km/h čtyřikrát ničivější než v 50 km/h, ne dvakrát. Dvojnásobek by platil pro hybnost (m·v), ne pro energii.",
+      "zdroj": "Práce, výkon, energie"
+    },
+    {
+      "id": "o-fyz-prace-energie-9",
+      "temaId": "fyz-prace-energie",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Parkourista o hmotnosti 60 kg stojí na zídce vysoké 5 m. Jakou má potenciální energii vzhledem k zemi? (g = 10 m/s², napiš i jednotku)",
+      "spravneOdpovedi": ["3000 J", "3000J", "3 kJ", "3kJ", "3000"],
+      "vysvetleni": "Ep = m · g · h = 60 kg · 10 m/s² · 5 m = 3000 J = 3 kJ. Při seskoku se celá tato energie přemění na kinetickou — proto se dopad z 5 m musí umět ztlumit.",
+      "zdroj": "Práce, výkon, energie"
+    },
+    {
+      "id": "o-fyz-prace-energie-10",
+      "temaId": "fyz-prace-energie",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Motor přijme z paliva energii 500 J a vykoná užitečnou práci 350 J. Jaká je jeho účinnost?",
+      "moznosti": ["70 %", "35 %", "143 %", "150 J"],
+      "spravna": 0,
+      "vysvetleni": "η = W užitečná / W dodaná = 350 : 500 = 0,7 = 70 %. Zbylých 150 J se ztratí hlavně jako teplo. Účinnost přes 100 % (143 %) je fyzikálně nemožná — vznikla by dělením naopak. 150 J je ztráta, ne účinnost.",
+      "zdroj": "Práce, výkon, energie"
+    },
+    {
+      "id": "o-fyz-kapaliny-1",
+      "temaId": "fyz-kapaliny",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jaká je jednotka tlaku?",
+      "moznosti": ["pascal (Pa)", "newton (N)", "joule (J)", "kilogram (kg)"],
+      "spravna": 0,
+      "vysvetleni": "Tlak se měří v pascalech; 1 Pa = 1 N na 1 m². Newton je jednotka síly — tlak ale říká, jak je síla rozložená na plochu, proto má vlastní jednotku.",
+      "zdroj": "Mechanika kapalin"
+    },
+    {
+      "id": "o-fyz-kapaliny-2",
+      "temaId": "fyz-kapaliny",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Proč naostřený nůž krájí lépe než tupý, i když tlačíš stejnou silou?",
+      "moznosti": [
+        "Ostří má menší plochu, takže stejná síla vyvolá větší tlak",
+        "Ostří zvětší sílu, kterou na nůž působíš",
+        "Naostřením se zmenší tření uvnitř krájené potraviny",
+        "Ostrý nůž je lehčí"
+      ],
+      "spravna": 0,
+      "vysvetleni": "p = F / S — zmenšíš-li plochu S, tlak p roste, i když síla F zůstává stejná. Nůž sílu nezvětšuje (to neumí žádný nástroj bez převodu), jen ji soustředí na menší plochu.",
+      "zdroj": "Mechanika kapalin"
+    },
+    {
+      "id": "o-fyz-kapaliny-3",
+      "temaId": "fyz-kapaliny",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Podle Pascalova zákona se tlak vyvolaný vnější silou šíří v kapalině do všech směrů stejně.",
+      "spravna": true,
+      "vysvetleni": "Přesně to Pascalův zákon říká — kapalina tlak „rozvede“ všemi směry beze změny. Díky tomu fungují hydraulické brzdy: sešlápnutí pedálu se přenese ke všem čtyřem kolům stejně.",
+      "zdroj": "Mechanika kapalin"
+    },
+    {
+      "id": "o-fyz-kapaliny-4",
+      "temaId": "fyz-kapaliny",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď chování tělesa v kapalině k porovnání hustot (ρt = hustota tělesa, ρk = hustota kapaliny).",
+      "pary": [
+        { "levy": "těleso plove na hladině", "pravy": "ρt < ρk" },
+        { "levy": "těleso se volně vznáší", "pravy": "ρt = ρk" },
+        { "levy": "těleso klesá ke dnu", "pravy": "ρt > ρk" }
+      ],
+      "vysvetleni": "Rozhoduje souboj tíhy a vztlaku, který se dá převést na porovnání hustot: řidší než kapalina = plove (dřevo), stejně husté = vznáší se (ryba), hustší = klesá (kámen).",
+      "zdroj": "Mechanika kapalin"
+    },
+    {
+      "id": "o-fyz-kapaliny-5",
+      "temaId": "fyz-kapaliny",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Jak hydraulický zvedák zvedne auto, když na malý píst tlačíš jen malou silou?",
+      "moznosti": [
+        "Tlak je na obou pístech stejný, takže na větším pístu vzniká větší síla v poměru obsahů pístů",
+        "Kapalina sílu zesílí tím, že se stlačí jako pružina",
+        "Velký píst je lehčí než malý",
+        "Tlak se u velkého pístu sám zvětší"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Podle Pascalova zákona je tlak v celé kapalině stejný: p = F₁/S₁ = F₂/S₂, takže F₂ = F₁ · S₂/S₁. Kapalina se přitom prakticky nestlačuje — nefunguje jako pružina, jen přenáší tlak.",
+      "zdroj": "Mechanika kapalin"
+    },
+    {
+      "id": "o-fyz-kapaliny-6",
+      "temaId": "fyz-kapaliny",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co platí o hydrostatickém tlaku? (více správných)",
+      "moznosti": [
+        "Roste s hloubkou pod hladinou",
+        "Závisí na hustotě kapaliny",
+        "Závisí na tvaru nádoby",
+        "Závisí na celkovém objemu kapaliny v nádrži"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "p = h·ρ·g — rozhoduje jen hloubka, hustota kapaliny a g. Tvar ani objem nádoby nehrají roli: v 10 m hloubky úzké studny je stejný tlak jako v 10 m hloubky přehrady. To je tzv. hydrostatické paradoxon.",
+      "zdroj": "Mechanika kapalin"
+    },
+    {
+      "id": "o-fyz-kapaliny-7",
+      "temaId": "fyz-kapaliny",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Potápěč je v hloubce 10 m pod hladinou (ρ vody = 1000 kg/m³, g = 10 m/s²). Jak velký je tam hydrostatický tlak? (napiš i jednotku)",
+      "spravneOdpovedi": ["100 kPa", "100kPa", "100 000 Pa", "100000 Pa", "100000Pa", "100000", "0,1 MPa", "0.1 MPa"],
+      "vysvetleni": "p = h · ρ · g = 10 m · 1000 kg/m³ · 10 m/s² = 100 000 Pa = 100 kPa. To je zhruba stejně jako celý atmosférický tlak — už v 10 metrech na potápěče „leží“ druhá atmosféra.",
+      "zdroj": "Mechanika kapalin"
+    },
+    {
+      "id": "o-fyz-kapaliny-8",
+      "temaId": "fyz-kapaliny",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Na čem závisí velikost vztlakové síly působící na těleso ponořené v kapalině?",
+      "moznosti": [
+        "Na objemu ponořené části tělesa a hustotě kapaliny",
+        "Na hmotnosti tělesa",
+        "Na hustotě tělesa",
+        "Na hloubce, ve které se těleso nachází"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Fvz = V · ρk · g — rozhoduje objem ponořené části a hustota KAPALINY. Hmotnost a hustota tělesa určují jen tíhu, tedy druhou stranu souboje o plování. Hloubka vztlak nemění (kapalina je nestlačitelná).",
+      "zdroj": "Mechanika kapalin"
+    },
+    {
+      "id": "o-fyz-kapaliny-9",
+      "temaId": "fyz-kapaliny",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Do vody ponoříš celé těleso o objemu 2 litry (0,002 m³). Jak velká vztlaková síla na něj působí? (ρ vody = 1000 kg/m³, g = 10 m/s², napiš i jednotku)",
+      "spravneOdpovedi": ["20 N", "20N", "20"],
+      "vysvetleni": "Fvz = V · ρk · g = 0,002 m³ · 1000 kg/m³ · 10 m/s² = 20 N. Pozor na jednotky: litry je nutné převést na m³ (1 l = 0,001 m³), jinak vyjde tisíckrát víc.",
+      "zdroj": "Mechanika kapalin"
+    },
+    {
+      "id": "o-fyz-kapaliny-10",
+      "temaId": "fyz-kapaliny",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Led má hustotu asi 900 kg/m³, voda 1000 kg/m³. Jak velká část plovoucí kry je pod hladinou?",
+      "moznosti": ["Asi 90 %", "Asi 10 %", "Asi 50 %", "Celá kra je pod hladinou"],
+      "spravna": 0,
+      "vysvetleni": "Plovoucí těleso vytlačí tolik vody, kolik samo váží. Poměr ponořené části = ρ ledu / ρ vody = 900/1000 = 90 %. Nad hladinou kouká jen desetina — proto je ledovec pro lodě zrádný (viz Titanic).",
+      "zdroj": "Mechanika kapalin"
+    }
+  ]
+}

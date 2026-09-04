@@ -1,0 +1,650 @@
+{
+  "predmetId": "biologie-ekologie",
+  "nazev": "Biologie a ekologie",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "bio-bunka-zivot", "nazev": "Život a buňka", "poradi": 0 },
+    { "id": "bio-viry-bakterie", "nazev": "Viry a bakterie", "poradi": 1 },
+    { "id": "bio-rostliny-houby", "nazev": "Rostliny a houby", "poradi": 2 },
+    { "id": "bio-zivocichove", "nazev": "Živočichové", "poradi": 3 },
+    { "id": "bio-ekologie", "nazev": "Ekologie", "poradi": 4 }
+  ],
+  "otazky": [
+    {
+      "id": "o-bio-bunka-zivot-1",
+      "temaId": "bio-bunka-zivot",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Základní stavební a funkční jednotkou všech živých organismů je:",
+      "moznosti": ["buňka", "tkáň", "orgán", "molekula"],
+      "spravna": 0,
+      "vysvetleni": "Buněčná stavba je jednou ze základních vlastností živých soustav — každý organismus se skládá z buněk. Tkáně a orgány jsou až vyšší celky složené z buněk; molekuly jsou stavebními kameny i neživé hmoty."
+    },
+    {
+      "id": "o-bio-bunka-zivot-2",
+      "temaId": "bio-bunka-zivot",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Která organela zajišťuje buněčné dýchání a uvolňuje z cukrů energii?",
+      "moznosti": ["mitochondrie", "chloroplast", "ribozom", "vakuola"],
+      "spravna": 0,
+      "vysvetleni": "Mitochondrie jsou „elektrárny buňky“ — buněčným dýcháním uvolňují energii z cukrů. Chloroplast energii naopak ukládá do cukrů (fotosyntéza), ribozom vyrábí bílkoviny a vakuola je zásobárna látek."
+    },
+    {
+      "id": "o-bio-bunka-zivot-3",
+      "temaId": "bio-bunka-zivot",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se jmenuje zelené barvivo v chloroplastech, které zachycuje světelnou energii pro fotosyntézu?",
+      "spravneOdpovedi": ["chlorofyl", "Chlorofyl", "chlorofyl a"],
+      "vysvetleni": "Chlorofyl dává rostlinám zelenou barvu a zachycuje světlo — bez něj by fotosyntéza neproběhla. Sídlí v chloroplastech, které proto najdeš jen v buňkách fotosyntetizujících organismů."
+    },
+    {
+      "id": "o-bio-bunka-zivot-4",
+      "temaId": "bio-bunka-zivot",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Vyber všechno, co najdeš JEN v rostlinné buňce (živočišná to nemá):",
+      "moznosti": ["buněčná stěna z celulózy", "chloroplasty", "velká centrální vakuola", "jádro", "mitochondrie"],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Buněčná stěna, chloroplasty a velká vakuola jsou tři poznávací znaky rostlinné buňky. Jádro a mitochondrie mají obě buňky — i živočich potřebuje řídit buňku a uvolňovat energii."
+    },
+    {
+      "id": "o-bio-bunka-zivot-5",
+      "temaId": "bio-bunka-zivot",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Živočišná buňka má pevnou buněčnou stěnu.",
+      "spravna": false,
+      "vysvetleni": "Živočišná buňka je ohraničená jen pružnou cytoplazmatickou membránou — proto mění tvar. Pevnou stěnu mají buňky rostlin (celulóza), hub (chitin) a bakterií."
+    },
+    {
+      "id": "o-bio-bunka-zivot-6",
+      "temaId": "bio-bunka-zivot",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co vznikne mitotickým dělením jedné buňky?",
+      "moznosti": [
+        "dvě buňky se stejnou genetickou výbavou jako buňka mateřská",
+        "čtyři pohlavní buňky s poloviční sadou chromozomů",
+        "dvě buňky s poloviční sadou chromozomů",
+        "jedna větší buňka s dvojnásobkem chromozomů"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Mitóza je „kopírka“ — dvě buňky se stejnou DNA slouží růstu a opravě tkání. Poloviční sada chromozomů vzniká jen meiózou při tvorbě pohlavních buněk; to je nejčastější záměna."
+    },
+    {
+      "id": "o-bio-bunka-zivot-7",
+      "temaId": "bio-bunka-zivot",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Proč pohlavní buňky vznikají meiózou, tedy s poloviční sadou chromozomů?",
+      "moznosti": [
+        "aby po splynutí vajíčka a spermie měl potomek správný (plný) počet chromozomů",
+        "aby byly pohlavní buňky menší a pohyblivější",
+        "aby se pohlavní buňky mohly rychleji dělit",
+        "aby pohlavní buňky nepotřebovaly jádro"
+      ],
+      "spravna": 0,
+      "vysvetleni": "23 chromozomů z vajíčka + 23 ze spermie = 46, plná lidská sada. Kdyby pohlavní buňky vznikaly mitózou, měl by potomek chromozomů dvojnásobek — a každou generací víc. Velikost ani rychlost dělení s polovinou sady nesouvisí."
+    },
+    {
+      "id": "o-bio-bunka-zivot-8",
+      "temaId": "bio-bunka-zivot",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď organelu k její funkci:",
+      "pary": [
+        { "levy": "jádro", "pravy": "řídí buňku, nese DNA" },
+        { "levy": "mitochondrie", "pravy": "uvolňuje energii buněčným dýcháním" },
+        { "levy": "chloroplast", "pravy": "místo fotosyntézy" },
+        { "levy": "ribozom", "pravy": "vyrábí bílkoviny" },
+        { "levy": "vakuola", "pravy": "zásobárna vody a látek" }
+      ],
+      "vysvetleni": "Každá organela má svou práci jako oddělení ve firmě: jádro je ředitelna s dokumentací (DNA), mitochondrie elektrárna, chloroplast solární továrna na cukr, ribozom výrobní linka bílkovin a vakuola sklad."
+    },
+    {
+      "id": "o-bio-bunka-zivot-9",
+      "temaId": "bio-bunka-zivot",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Kolik chromozomů má tělní (nepohlavní) buňka člověka? Napiš číslo.",
+      "spravneOdpovedi": ["46", "čtyřicet šest", "ctyricet sest"],
+      "vysvetleni": "Tělní buňky mají 46 chromozomů ve 23 párech — polovina od mámy, polovina od táty. Číslo 23 platí jen pro pohlavní buňky (vajíčko, spermie) po meióze."
+    },
+    {
+      "id": "o-bio-bunka-zivot-10",
+      "temaId": "bio-bunka-zivot",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Svalové buňky vytrvalostního běžce spotřebují obrovské množství energie. Kterých organel v nich čekáš výrazně víc než v běžné buňce?",
+      "moznosti": ["mitochondrií", "chloroplastů", "vakuol", "buněčných stěn"],
+      "spravna": 0,
+      "vysvetleni": "Energii uvolňují mitochondrie — trénované svaly jich mají násobně víc. Chloroplasty jsou jen v rostlinách (člověk nefotosyntetizuje), vakuoly jsou sklad, ne zdroj energie, a buněčnou stěnu živočišné buňky nemají vůbec."
+    },
+    {
+      "id": "o-bio-bunka-zivot-11",
+      "temaId": "bio-bunka-zivot",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "V laboratoři napočítali v jedné lidské buňce 23 chromozomů. Laborant tvrdí, že jde o běžnou tělní buňku, třeba z kůže. Může mít pravdu?",
+      "spravna": false,
+      "vysvetleni": "Tělní buňky člověka mají 46 chromozomů (23 párů) — vznikají mitózou, která počet zachovává. Přesně 23 chromozomů má jen pohlavní buňka (vajíčko nebo spermie) po meióze. Musí tedy jít o pohlavní buňku, ne o buňku kůže."
+    },
+
+    {
+      "id": "o-bio-viry-bakterie-1",
+      "temaId": "bio-viry-bakterie",
+      "typ": "anone",
+      "obtiznost": 1,
+      "zadani": "Antibiotika spolehlivě vyléčí chřipku.",
+      "spravna": false,
+      "vysvetleni": "Chřipku způsobuje virus a antibiotika působí jen na bakterie — virům neublíží. Na chřipku pomáhá klid, tekutiny, případně léky na příznaky; antibiotika by jen zbytečně zatížila tělo a podpořila rezistenci."
+    },
+    {
+      "id": "o-bio-viry-bakterie-2",
+      "temaId": "bio-viry-bakterie",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jak se rozmnožují viry?",
+      "moznosti": [
+        "jen uvnitř hostitelské buňky, kterou donutí vyrábět nové viry",
+        "příčným dělením jako bakterie",
+        "pučením jako kvasinky",
+        "pohlavně, splynutím dvou virů"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Virus není buňka a nemá vlastní metabolismus — sám se nerozmnoží. Vnikne do buňky a vnutí jí svou genetickou informaci; buňka pak vyrábí kopie viru. Dělení a pučení jsou způsoby množení buněk, ne virů."
+    },
+    {
+      "id": "o-bio-viry-bakterie-3",
+      "temaId": "bio-viry-bakterie",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Bakterie je:",
+      "moznosti": [
+        "jednobuněčný prokaryotický organismus bez pravého jádra",
+        "nebuněčná částice z bílkovin a nukleové kyseliny",
+        "jednobuněčný organismus s jádrem a chloroplasty",
+        "mnohobuněčný organismus viditelný pouhým okem"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Bakterie je buňka, ale jednoduchá — DNA má volně v cytoplazmě (nukleoid), pravé jádro chybí. Nebuněčná částice je popis viru; jádro a chloroplasty mají až eukaryota (např. řasy)."
+    },
+    {
+      "id": "o-bio-viry-bakterie-4",
+      "temaId": "bio-viry-bakterie",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z těchto nemocí způsobují BAKTERIE?",
+      "moznosti": ["borelióza", "angína", "tetanus", "chřipka", "opar", "covid-19"],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Borelióza (od klíštěte), streptokoková angína a tetanus jsou bakteriální — proto na ně fungují antibiotika. Chřipka, opar i covid-19 jsou virové; to, že se u nich antibiotika nepředepisují, není lakota lékaře, ale biologie."
+    },
+    {
+      "id": "o-bio-viry-bakterie-5",
+      "temaId": "bio-viry-bakterie",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se jmenuje první objevené antibiotikum, které Alexander Fleming získal z plísně?",
+      "spravneOdpovedi": ["penicilin", "Penicilin", "penicilín", "penicillin"],
+      "vysvetleni": "Fleming si roku 1928 všiml, že kolem plísně Penicillium bakterie nerostou — plíseň vylučuje látku, která je zabíjí. Penicilin pak zachránil miliony životů a odstartoval éru antibiotik."
+    },
+    {
+      "id": "o-bio-viry-bakterie-6",
+      "temaId": "bio-viry-bakterie",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co znamená antibiotická rezistence?",
+      "moznosti": [
+        "bakterie se stanou vůči antibiotiku odolné a lék na ně přestane působit",
+        "člověk si na antibiotika zvykne a přestanou mu pomáhat",
+        "virus zmutuje tak, že ho antibiotikum nezabije",
+        "imunitní systém po antibiotikách zeslábne"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rezistence je vlastnost BAKTERIÍ, ne člověka — odolné kmeny přežijí léčbu a šíří se dál. Varianta s virem je chyták: na viry antibiotika nepůsobí nikdy, takže u nich nemá rezistence na antibiotika smysl."
+    },
+    {
+      "id": "o-bio-viry-bakterie-7",
+      "temaId": "bio-viry-bakterie",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Očkování naučí imunitní systém rozpoznat původce nemoci dřív, než se s ním tělo potká doopravdy.",
+      "spravna": true,
+      "vysvetleni": "Přesně tak — vakcína je cvičný trénink: tělo si na neškodné ukázce původce vytvoří protilátky a paměťové buňky. Při skutečné nákaze pak imunita zasáhne rychle a nemoc neproběhne, nebo jen mírně."
+    },
+    {
+      "id": "o-bio-viry-bakterie-8",
+      "temaId": "bio-viry-bakterie",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Proč je nutné dobrat celou kúru antibiotik, i když se po třech dnech cítíš zdravý?",
+      "moznosti": [
+        "nedobraná kúra nechá přežít nejodolnější bakterie, které se pomnoží a příště už lék nemusí zabrat",
+        "nedobrané antibiotikum se v těle změní na jed",
+        "tělo by jinak přestalo tvořit vlastní protilátky",
+        "je to jen doporučení výrobce, aby se prodalo celé balení"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Úleva znamená, že uhynuly citlivé bakterie — ty odolnější ale ještě žijí. Když léčbu utneš, pomnoží se právě ony a vznikne rezistentní kmen. Antibiotikum se na jed nemění a s tvorbou protilátek nesouvisí."
+    },
+    {
+      "id": "o-bio-viry-bakterie-9",
+      "temaId": "bio-viry-bakterie",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď pojem k jeho významu:",
+      "pary": [
+        { "levy": "kapsid", "pravy": "bílkovinný obal viru" },
+        { "levy": "bičík", "pravy": "orgán pohybu bakterie" },
+        { "levy": "vakcína", "pravy": "cvičná ukázka původce pro imunitu" },
+        { "levy": "rezistence", "pravy": "odolnost bakterií vůči antibiotiku" }
+      ],
+      "vysvetleni": "Kapsid chrání genetickou informaci viru, bičíkem se bakterie pohání vpřed, vakcína imunitu trénuje dopředu a rezistence je důvod, proč se antibiotiky nesmí plýtvat."
+    },
+    {
+      "id": "o-bio-viry-bakterie-10",
+      "temaId": "bio-viry-bakterie",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Kamarád má rýmu a chce po lékaři antibiotika „pro jistotu“. Vyber všechny SPRÁVNÉ argumenty, proč to je nesmysl:",
+      "moznosti": [
+        "rýma je virová a antibiotika na viry nepůsobí",
+        "zbytečné užívání antibiotik podporuje vznik rezistentních bakterií",
+        "antibiotika zabíjejí i užitečné bakterie ve střevech",
+        "antibiotika srazí horečku rychleji než paracetamol",
+        "antibiotika pomůžou, jen když se nasadí první den rýmy"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "První tři argumenty jsou přesně důvody, proč lékaři antibiotika na virózy nedávají. Antibiotika nejsou léky na horečku a na virus nezaberou ani „včas nasazená“ — obě poslední tvrzení jsou rozšířené omyly."
+    },
+
+    {
+      "id": "o-bio-rostliny-houby-1",
+      "temaId": "bio-rostliny-houby",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Který orgán rostliny je hlavním místem fotosyntézy?",
+      "moznosti": ["list", "kořen", "květ", "plod"],
+      "spravna": 0,
+      "vysvetleni": "List je na fotosyntézu stavěný: plochý tvar nastavuje světlu velkou plochu, uvnitř má chloroplasty a průduchy pro výměnu plynů. Kořen je v tmavé půdě — přijímá vodu; květ a plod slouží rozmnožování."
+    },
+    {
+      "id": "o-bio-rostliny-houby-2",
+      "temaId": "bio-rostliny-houby",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Který plyn rostliny při fotosyntéze uvolňují do vzduchu?",
+      "spravneOdpovedi": ["kyslík", "kyslik", "O2", "O₂"],
+      "vysvetleni": "Při fotosyntéze rostlina spotřebuje oxid uhličitý a vodu, vyrobí cukr a uvolní kyslík. Prakticky všechen kyslík v atmosféře pochází z fotosyntézy rostlin, řas a sinic."
+    },
+    {
+      "id": "o-bio-rostliny-houby-3",
+      "temaId": "bio-rostliny-houby",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co rostlina potřebuje k fotosyntéze?",
+      "moznosti": [
+        "světlo, vodu a oxid uhličitý",
+        "kyslík a glukózu",
+        "teplo a dusík z půdy",
+        "kyslík, vodu a minerály"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Vstupy fotosyntézy jsou CO₂ + voda + světelná energie; kyslík a glukóza jsou naopak VÝSTUPY — to je nejčastější záměna. Dusík a minerály rostlina potřebuje k růstu, ale samotnou fotosyntézu nepohání."
+    },
+    {
+      "id": "o-bio-rostliny-houby-4",
+      "temaId": "bio-rostliny-houby",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Voda s minerálními látkami putuje od kořenů k listům lýkovou částí cévních svazků.",
+      "spravna": false,
+      "vysvetleni": "Je to obráceně: voda s minerály stoupá DŘEVNÍ částí, lýková část rozvádí cukry vyrobené v listech. Pomůcka: dřevo = voda vzhůru, lýko = „líto sladkého“ dolů."
+    },
+    {
+      "id": "o-bio-rostliny-houby-5",
+      "temaId": "bio-rostliny-houby",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Houby patří mezi rostliny.",
+      "spravna": false,
+      "vysvetleni": "Houby tvoří samostatnou říši: nemají chlorofyl, takže nefotosyntetizují — živiny získávají rozkladem, parazitismem nebo symbiózou. Buněčnou stěnu mají z chitinu, ne z celulózy jako rostliny."
+    },
+    {
+      "id": "o-bio-rostliny-houby-6",
+      "temaId": "bio-rostliny-houby",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Lišejník je:",
+      "moznosti": [
+        "podvojný organismus — symbióza houby a řasy (či sinice)",
+        "parazitická houba na kůře stromů",
+        "druh mechu rostoucí na kamenech",
+        "mladé stadium houby před vytvořením plodnice"
+      ],
+      "spravna": 0,
+      "vysvetleni": "V lišejníku houba dodává vodu, úkryt a minerály, řasa fotosyntézou cukry — oba na spolupráci vydělávají, o parazitismus nejde. S mechem se lišejník jen podobně tváří; příbuzný není."
+    },
+    {
+      "id": "o-bio-rostliny-houby-7",
+      "temaId": "bio-rostliny-houby",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Vyber příklady VEGETATIVNÍHO (nepohlavního) rozmnožování rostlin:",
+      "moznosti": [
+        "nová muškátová rostlina z řízku",
+        "nové rostliny brambor z hlíz",
+        "jahodník šířící se šlahouny",
+        "vznik semene po opylení včelou",
+        "vyklíčení žaludu v mladý dub"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Řízek, hlíza i šlahoun jsou části těla rodičovské rostliny — potomek je její genetická kopie. Opylení a klíčení semene patří k rozmnožování pohlavnímu: semeno vzniká oplozením a kombinuje vlastnosti dvou rodičů."
+    },
+    {
+      "id": "o-bio-rostliny-houby-8",
+      "temaId": "bio-rostliny-houby",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď orgán rostliny k jeho hlavní funkci:",
+      "pary": [
+        { "levy": "kořen", "pravy": "přijímá vodu s minerály a kotví rostlinu" },
+        { "levy": "stonek", "pravy": "vede látky a nese listy i květy" },
+        { "levy": "list", "pravy": "fotosyntéza a výměna plynů" },
+        { "levy": "květ", "pravy": "pohlavní rozmnožování" },
+        { "levy": "plod", "pravy": "chrání semena a pomáhá je šířit" }
+      ],
+      "vysvetleni": "Rostlina funguje jako sehraný podnik: kořen zásobování, stonek doprava, list výroba, květ a plod péče o další generaci. Když jeden orgán selže, strádá celek."
+    },
+    {
+      "id": "o-bio-rostliny-houby-9",
+      "temaId": "bio-rostliny-houby",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Která smrtelně jedovatá houba se nejčastěji plete se žampionem?",
+      "moznosti": ["muchomůrka zelená", "muchomůrka červená", "bedla vysoká", "hřib smrkový"],
+      "spravna": 0,
+      "vysvetleni": "Muchomůrka zelená má na rozdíl od žampionu BÍLÉ lupeny (žampion růžové až hnědé) a pochvu na bázi třeně; i kousek může být smrtelný. Muchomůrku červenou s bílými tečkami pozná každý, bedla a hřib jsou jedlé."
+    },
+    {
+      "id": "o-bio-rostliny-houby-10",
+      "temaId": "bio-rostliny-houby",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Pokojová rostlina v tmavém koutě chřadne, přestože ji pravidelně zaléváš a přihnojuješ. Co je nejpravděpodobnější příčina?",
+      "moznosti": [
+        "bez dostatku světla neprobíhá fotosyntéza — rostlina si nevyrábí cukry, tedy energii",
+        "potřebuje ještě častější zálivku",
+        "potřebuje víc hnojiva s dusíkem",
+        "vadí jí, že se u ní večer svítí lampou"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Voda a živiny jsou jen suroviny — energii rostlina získává výhradně fotosyntézou, a ta bez světla neběží. Přidávat zálivku či hnojivo nepomůže (přelití spíš uškodí); řešením je přesun ke světlu."
+    },
+
+    {
+      "id": "o-bio-zivocichove-1",
+      "temaId": "bio-zivocichove",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Čím se obratlovci liší od bezobratlých?",
+      "moznosti": [
+        "mají páteř a vnitřní kostru",
+        "umějí létat",
+        "žijí pouze na souši",
+        "jsou vždy větší než bezobratlí"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rozhoduje páteř z obratlů a vnitřní kostra — nic jiného. Létají i hmyz a netopýři, obratlovci žijí i ve vodě (ryby) a obří chobotnice je větší než většina obratlovců."
+    },
+    {
+      "id": "o-bio-zivocichove-2",
+      "temaId": "bio-zivocichove",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Kolik nohou má dospělý hmyz? Napiš číslo.",
+      "spravneOdpovedi": ["6", "šest", "sest"],
+      "vysvetleni": "Hmyz má vždy 3 páry nohou, tedy 6 — je to jeho poznávací znak. Osm nohou mají pavoukovci; podle počtu nohou tedy rychle rozlišíš mravence od pavouka."
+    },
+    {
+      "id": "o-bio-zivocichove-3",
+      "temaId": "bio-zivocichove",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Pavouk křižák patří mezi:",
+      "moznosti": ["pavoukovce", "hmyz", "korýše", "kroužkovce"],
+      "spravna": 0,
+      "vysvetleni": "Pavoukovci mají 8 nohou a tělo ze dvou částí — pavouci, sekáči i klíšťata. Hmyz má nohou 6; korýši (rak) mají krunýř a kroužkovci (žížala) článkované měkké tělo. „Pavouk je hmyz“ je klasický omyl."
+    },
+    {
+      "id": "o-bio-zivocichove-4",
+      "temaId": "bio-zivocichove",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Netopýr je pták, protože létá.",
+      "spravna": false,
+      "vysvetleni": "Netopýr je SAVEC: má srst, rodí živá mláďata a kojí je mlékem. Let není poznávací znak ptáků — ptáky poznáš podle peří a zobáku. Schopnost létat se ve vývoji objevila u hmyzu, ptáků i savců nezávisle."
+    },
+    {
+      "id": "o-bio-zivocichove-5",
+      "temaId": "bio-zivocichove",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď třídu obratlovců k jejímu typickému znaku:",
+      "pary": [
+        { "levy": "ryby", "pravy": "dýchají žábrami, tělo kryjí šupiny s hlenem" },
+        { "levy": "obojživelníci", "pravy": "larvy se vyvíjejí ve vodě, kůže holá a vlhká" },
+        { "levy": "plazi", "pravy": "suchá kůže se šupinami, vejce s pevnými obaly" },
+        { "levy": "ptáci", "pravy": "peří, zobák a duté kosti" },
+        { "levy": "savci", "pravy": "srst a kojení mláďat mlékem" }
+      ],
+      "vysvetleni": "Každá třída má jeden až dva „poznávací“ znaky — podle povrchu těla, dýchání a péče o mláďata zařadíš skoro každého obratlovce. Pozor: kůže a vejce odlišují obojživelníky (vázané na vodu) od plazů (nezávislých na ní)."
+    },
+    {
+      "id": "o-bio-zivocichove-6",
+      "temaId": "bio-zivocichove",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Kteří živočichové jsou teplokrevní (udržují stálou tělesnou teplotu)?",
+      "moznosti": ["ptáci a savci", "ryby a plazi", "všichni obratlovci", "hmyz a pavoukovci"],
+      "spravna": 0,
+      "vysvetleni": "Stálou teplotu si topením „zevnitř“ drží jen ptáci a savci — proto zvládnou i polární zimu, ale platí za to velkou spotřebou energie. Ryby, obojživelníci a plazi jsou studenokrevní, o bezobratlých nemluvě."
+    },
+    {
+      "id": "o-bio-zivocichove-7",
+      "temaId": "bio-zivocichove",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Vyber všechny BEZOBRATLÉ živočichy:",
+      "moznosti": ["žížala", "včela", "hlemýžď", "mlok", "kapr", "slepýš"],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Žížala (kroužkovec), včela (hmyz) a hlemýžď (měkkýš) páteř nemají. Mlok je obojživelník, kapr ryba — a slepýš je chyták: vypadá jako had bez nohou, ale je to ještěrka, tedy plaz s páteří."
+    },
+    {
+      "id": "o-bio-zivocichove-8",
+      "temaId": "bio-zivocichove",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Proč se ještěrka ráno „sluní“ na kameni?",
+      "moznosti": [
+        "je studenokrevná — teplo získává z okolí a sluněním se zahřeje na provozní teplotu",
+        "vysušuje si kůži po noční rose",
+        "číhá na kameni na kořist",
+        "doplňuje sluněním vitamín D jako člověk"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Studenokrevný živočich má teplotu těla podle okolí — studená ještěrka je pomalá, a proto se před lovem musí „nabít“ sluncem. Ostatní vysvětlení znějí lidsky, ale míjejí podstatu: řízení tělesné teploty."
+    },
+    {
+      "id": "o-bio-zivocichove-9",
+      "temaId": "bio-zivocichove",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá vodní larva žáby?",
+      "spravneOdpovedi": ["pulec", "Pulec"],
+      "vysvetleni": "Pulec dýchá žábrami a žije ve vodě; proměnou (metamorfózou) mu narostou nohy, plíce a vstřebá se ocásek. Právě vývoj larvy ve vodě je znak, který obojživelníky odlišuje od plazů."
+    },
+    {
+      "id": "o-bio-zivocichove-10",
+      "temaId": "bio-zivocichove",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Sýkora přilétá v mrazivém dni ke krmítku každých pár minut. Proč musí malý teplokrevný pták v zimě téměř neustále jíst?",
+      "moznosti": [
+        "udržuje stálou tělesnou teplotu — malé tělo rychle ztrácí teplo a energii musí pořád doplňovat potravou",
+        "v zimě jí víc, aby si udělala tukové zásoby na jarní hnízdění",
+        "je studenokrevná a jídlo ji zahřívá zvenku",
+        "u krmítka si hlídá teritorium před ostatními sýkorami"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Teplokrevnost je drahá: čím menší tělo, tím větší povrch vůči objemu a tím rychlejší ztráty tepla. Sýkora v mrazu spálí přes noc velkou část zásob a bez častého jídla by nepřežila. Zásoby „na jaro“ si ptáci nedělají a studenokrevný pták neexistuje."
+    },
+    {
+      "id": "o-bio-zivocichove-11",
+      "temaId": "bio-zivocichove",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Kamarád nabral u rybníka do kelímku tvorečka: oválné tělíčko s ocáskem, bez nohou, dýchá žábrami. Tvrdí, že chytil malou rybu. Za tři týdny ale tvorovi narostly zadní nohy. Měl kamarád pravdu?",
+      "spravna": false,
+      "vysvetleni": "Ryba zůstává rybou celý život — nohy jí nikdy nenarostou. Tvor, kterému rostou končetiny a později se vstřebá ocásek, prochází proměnou: je to pulec, larva žáby. Právě vývoj přes vodní larvu odlišuje obojživelníky od ryb i plazů."
+    },
+
+    {
+      "id": "o-bio-ekologie-1",
+      "temaId": "bio-ekologie",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Kdo jsou v ekosystému producenti?",
+      "moznosti": [
+        "zelené rostliny — fotosyntézou vyrábějí organické látky",
+        "býložravci, kteří produkují trus",
+        "masožravci na vrcholu potravní pyramidy",
+        "houby a bakterie rozkládající odumřelou hmotu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Producenti „produkují“ organické látky z neživých surovin (CO₂, voda, světlo) — to umí jen fotosyntetizující organismy. Býložravci a masožravci jsou konzumenti, houby a bakterie rozkladači."
+    },
+    {
+      "id": "o-bio-ekologie-2",
+      "temaId": "bio-ekologie",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď organismus k jeho roli v ekosystému louky a pole:",
+      "pary": [
+        { "levy": "obilí", "pravy": "producent" },
+        { "levy": "hraboš", "pravy": "konzument 1. řádu (býložravec)" },
+        { "levy": "poštolka", "pravy": "konzument 2. řádu (dravec)" },
+        { "levy": "půdní bakterie", "pravy": "rozkladač" }
+      ],
+      "vysvetleni": "Role určuje, čím se organismus živí: obilí si vyrábí látky samo, hraboš jí rostliny, poštolka hraboše a bakterie vracejí živiny z odumřelé hmoty do půdy — tím kruh uzavírají."
+    },
+    {
+      "id": "o-bio-ekologie-3",
+      "temaId": "bio-ekologie",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Který potravní řetězec je seřazený správně?",
+      "moznosti": [
+        "obilí → hraboš → poštolka",
+        "poštolka → hraboš → obilí",
+        "hraboš → obilí → poštolka",
+        "obilí → poštolka → hraboš"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Řetězec vede od producenta ke konzumentům: šipka znamená „je sežrán kým“. Začíná vždy rostlinou (zdroj energie) a končí vrcholovým predátorem — poštolka obilí nežere a hraboš neloví poštolky."
+    },
+    {
+      "id": "o-bio-ekologie-4",
+      "temaId": "bio-ekologie",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Rozbité zrcadlo patří do zeleného kontejneru na sklo.",
+      "spravna": false,
+      "vysvetleni": "Zrcadlo má pokovenou vrstvu a jiné složení než obalové sklo — v recyklaci by dělalo neplechu. Patří do směsného odpadu, větší kusy do sběrného dvora. Totéž platí pro keramiku, porcelán a drátosklo."
+    },
+    {
+      "id": "o-bio-ekologie-5",
+      "temaId": "bio-ekologie",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se odborně nazývá rozmanitost druhů, genů a ekosystémů na Zemi?",
+      "spravneOdpovedi": ["biodiverzita", "Biodiverzita", "biologická rozmanitost"],
+      "vysvetleni": "Biodiverzita je „pojistka“ přírody: čím pestřejší ekosystém, tím líp se vyrovná se suchem, škůdci nebo změnou klimatu. Její úbytek patří k největším ekologickým problémům současnosti."
+    },
+    {
+      "id": "o-bio-ekologie-6",
+      "temaId": "bio-ekologie",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co patří do ŽLUTÉHO kontejneru na plast?",
+      "moznosti": [
+        "sešlápnutá PET lahev",
+        "vypláchnutý kelímek od jogurtu",
+        "igelitová taška",
+        "pneumatika z kola",
+        "hračka s elektronikou na baterky"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Obalové plasty (PET, kelímky, fólie) do žlutého patří — sešlápnuté, aby nezabíraly místo. Pneumatika jde do sběrného dvora či pneuservisu a hračka s elektronikou k elektroodpadu; obojí by recyklační linku zaneslo."
+    },
+    {
+      "id": "o-bio-ekologie-7",
+      "temaId": "bio-ekologie",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Kterým procesem se uhlík z atmosféry (CO₂) dostává do těl rostlin?",
+      "moznosti": ["fotosyntézou", "dýcháním", "spalováním", "vypařováním"],
+      "spravna": 0,
+      "vysvetleni": "Fotosyntéza CO₂ z atmosféry ODČERPÁVÁ a zabudovává uhlík do cukrů. Dýchání a spalování běží opačně — uhlík do atmosféry vracejí. Vypařování patří do koloběhu vody, ne uhlíku."
+    },
+    {
+      "id": "o-bio-ekologie-8",
+      "temaId": "bio-ekologie",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Proč je v potravní pyramidě na vrcholu (dravci) mnohem méně jedinců než u základny (rostliny)?",
+      "moznosti": [
+        "při každém přenosu potravou se většina energie ztratí — na vrchol jí zbývá jen zlomek",
+        "dravci se rozmnožují pomaleji, a proto jich je málo",
+        "dravce loví člověk, takže jejich počty klesají",
+        "na vrcholu pyramidy je málo životního prostoru"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Z energie snědené potravy se do těla uloží jen zhruba desetina — zbytek padne na pohyb a teplo. Po několika patrech pyramidy zbývá energie jen pro hrstku dravců. Rychlost rozmnožování je důsledek, ne příčina."
+    },
+    {
+      "id": "o-bio-ekologie-9",
+      "temaId": "bio-ekologie",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Která opatření ti reálně sníží uhlíkovou stopu?",
+      "moznosti": [
+        "jezdit do školy na kole nebo MHD místo autem",
+        "nevyhazovat jídlo — nakupovat s rozmyslem",
+        "nosit oblečení déle nebo nakupovat z druhé ruky",
+        "kupovat balenou vodu místo kohoutkové",
+        "nechat o prázdninách běžet klimatizaci naprázdno"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Doprava, jídlo a spotřeba věcí jsou největší položky osobní uhlíkové stopy — první tři kroky je přímo zmenšují. Balená voda má kvůli výrobě lahví a rozvozu stopu mnohonásobně větší než kohoutková a zbytečně běžící klimatizace stopu jen zvyšuje."
+    },
+    {
+      "id": "o-bio-ekologie-10",
+      "temaId": "bio-ekologie",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Smrkové monokultury v ČR podlehly kůrovci a suchu mnohem hůř než smíšené lesy. Proč?",
+      "moznosti": [
+        "monokultura má nízkou biodiverzitu — kůrovec všude nachází svou dřevinu a šíří se lavinovitě, pestrý les ho brzdí a lépe snáší i sucho",
+        "listnaté stromy jsou pro kůrovce jedovaté, takže smíšený les nenapadá",
+        "smrky jsou od přírody nejslabší dřevinou a hynou vždy jako první",
+        "ve smíšených lesích je chladněji, a kůrovec se tam proto nemnoží"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Klíč je biodiverzita: v pestrém lese kůrovec naráží na dřeviny, které nenapadá, a jeho šíření se láme; různé kořeny navíc les stabilizují za sucha. Listnáče nejsou jedovaté a smrk v horách roste zdravě — problém byl v pěstování monokultur v nížinách."
+    }
+  ]
+}

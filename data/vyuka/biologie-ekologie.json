@@ -1,0 +1,527 @@
+{
+  "predmetId": "biologie-ekologie",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "bio-bunka-zivot",
+      "nazev": "Život a buňka",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Odřeš si koleno na skejtu. Za týden po ráně není ani památky — a ty ses o to nijak nestaral. Kdo to opravil? Miliony tvých buněk, které se rozdělily a poškozené místo prostě dostavěly. Ten stavební tým máš v sobě pořád: asi 37 bilionů dělníků, každý menší než tečka za větou."
+        },
+        {
+          "typ": "text",
+          "obsah": "Co je vlastně život? Krystal soli roste, řeka „se pohybuje“ — a živé nejsou. Živé soustavy poznáš podle **souhrnu vlastností**, které mají všechny najednou:\n\n- **metabolismus** — přijímají látky a energii a přeměňují je,\n- **růst a vývoj**,\n- **rozmnožování** a **dědičnost** (předávání znaků přes DNA),\n- **dráždivost** — reagují na podněty,\n- **buněčná stavba** — skládají se z buněk,\n- schopnost **vyvíjet se** (evoluce).\n\n**Buňka** je základní stavební a funkční jednotka všech organismů. Uvnitř má **organely** — „oddělení firmy“, každé se svou prací:\n\n- **jádro** — ředitelna: řídí buňku a nese DNA,\n- **mitochondrie** — elektrárna: buněčným dýcháním uvolňuje z cukrů energii,\n- **ribozomy** — výrobní linka bílkovin,\n- **cytoplazmatická membrána** — vrátnice: pouští dovnitř jen to, co buňka chce,\n- **cytoplazma** — vnitřní prostředí, ve kterém vše plave."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Až ti lékárnice řekne, že antibiotika ničí bakteriální buňku, ale tvým buňkám neublíží, budeš vědět proč — bakterie má buněčnou stěnu, tvoje buňky ne. Pochopíš, proč svaly po tréninku rostou (svalové buňky se zvětšují a přibývají v nich mitochondrie), proč spálená kůže od sluníčka „sleze“ a naroste nová, i co znamená, když se v biologii nebo ve zprávách mluví o kmenových buňkách a DNA testech."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Srovnání rostlinné a živočišné buňky\"><text x=\"160\" y=\"30\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">ROSTLINNÁ</text><text x=\"480\" y=\"30\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">ŽIVOČIŠNÁ</text><rect x=\"35\" y=\"45\" width=\"250\" height=\"215\" rx=\"16\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"5\" /><rect x=\"47\" y=\"57\" width=\"226\" height=\"191\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><ellipse cx=\"125\" cy=\"165\" rx=\"58\" ry=\"52\" fill=\"var(--info)\" fill-opacity=\"0.25\" stroke=\"var(--info)\" stroke-width=\"2\" /><circle cx=\"222\" cy=\"110\" r=\"27\" fill=\"var(--akcent)\" fill-opacity=\"0.2\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><ellipse cx=\"95\" cy=\"85\" rx=\"20\" ry=\"11\" fill=\"var(--uspech)\" fill-opacity=\"0.4\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" /><ellipse cx=\"225\" cy=\"200\" rx=\"20\" ry=\"11\" fill=\"var(--uspech)\" fill-opacity=\"0.4\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" /><ellipse cx=\"155\" cy=\"235\" rx=\"17\" ry=\"9\" fill=\"var(--zlata)\" fill-opacity=\"0.35\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><ellipse cx=\"480\" cy=\"155\" rx=\"125\" ry=\"105\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><circle cx=\"478\" cy=\"140\" r=\"30\" fill=\"var(--akcent)\" fill-opacity=\"0.2\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><ellipse cx=\"420\" cy=\"205\" rx=\"18\" ry=\"9\" fill=\"var(--zlata)\" fill-opacity=\"0.35\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><ellipse cx=\"540\" cy=\"200\" rx=\"18\" ry=\"9\" fill=\"var(--zlata)\" fill-opacity=\"0.35\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"125\" y=\"170\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">vakuola</text><text x=\"222\" y=\"114\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">jádro</text><text x=\"478\" y=\"144\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">jádro</text><text x=\"95\" y=\"68\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">chloroplast</text><text x=\"155\" y=\"258\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">mitochondrie</text><text x=\"480\" y=\"228\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">mitochondrie</text><text x=\"320\" y=\"290\" text-anchor=\"middle\" font-size=\"13\" fill=\"var(--uspech)\" font-weight=\"bold\">jen rostlinná: stěna + chloroplasty + velká vakuola</text><text x=\"320\" y=\"312\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">obě mají: membránu, jádro, mitochondrie, ribozomy</text></svg>",
+          "popisek": "Rostlinná buňka (vlevo) má navíc pevnou buněčnou stěnu (zelený rámeček), chloroplasty a velkou vakuolu. Živočišná buňka (vpravo) je ohraničená jen pružnou membránou — proto má oblý, proměnlivý tvar. Jádro a mitochondrie najdeš v obou."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-bio-bunka-zivot-1",
+            "temaId": "bio-bunka-zivot",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Krystal soli v roztoku roste. Je tedy živý.",
+            "spravna": false,
+            "vysvetleni": "Růst je jen jedna vlastnost — život je souhrn všech: metabolismus, rozmnožování, dráždivost, dědičnost, buněčná stavba. Krystal nemá buňky, nereaguje na podněty a nerozmnožuje se, jen na něj nasedají další částice."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Rostlinná vs. živočišná buňka** — tři rozdíly, které rozhodují o všem:\n\n- **buněčná stěna z celulózy** — dává rostlinné buňce pevný, hranatý tvar,\n- **chloroplasty** s chlorofylem — solární továrna: tady běží fotosyntéza,\n- **velká centrální vakuola** — zásobárna vody, která buňku „nafukuje“ (proto zvadlá kytka po zalití zase stojí).\n\nŽivočišná buňka nic z toho nemá — energii získává jen z potravy.\n\n**Jak buňky vznikají?** Dělením:\n\n- **Mitóza** — kopírka: dvě buňky se **stejnou** DNA. Takhle rosteš a hojíš rány.\n- **Meióza** — jen pro pohlavní buňky: počet chromozomů se **zmenší na polovinu** (u člověka ze 46 na 23), aby po splynutí vajíčka a spermie měl potomek zase plných 46. Půlku výbavy máš od mámy, půlku od táty."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "popisovacka",
+          "parametry": {
+            "svg": "<svg viewBox=\"0 0 520 360\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rostlinná buňka s organelami\"><rect x=\"20\" y=\"20\" width=\"480\" height=\"320\" rx=\"24\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"6\" /><rect x=\"34\" y=\"34\" width=\"452\" height=\"292\" rx=\"18\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><ellipse cx=\"210\" cy=\"190\" rx=\"115\" ry=\"92\" fill=\"var(--info)\" fill-opacity=\"0.22\" stroke=\"var(--info)\" stroke-width=\"2\" /><circle cx=\"400\" cy=\"120\" r=\"46\" fill=\"var(--akcent)\" fill-opacity=\"0.18\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><circle cx=\"412\" cy=\"110\" r=\"12\" fill=\"var(--akcent)\" fill-opacity=\"0.5\" /><ellipse cx=\"120\" cy=\"72\" rx=\"30\" ry=\"16\" fill=\"var(--uspech)\" fill-opacity=\"0.4\" stroke=\"var(--uspech)\" stroke-width=\"2\" /><line x1=\"100\" y1=\"72\" x2=\"140\" y2=\"72\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" /><ellipse cx=\"300\" cy=\"305\" rx=\"30\" ry=\"14\" fill=\"var(--uspech)\" fill-opacity=\"0.4\" stroke=\"var(--uspech)\" stroke-width=\"2\" /><ellipse cx=\"440\" cy=\"250\" rx=\"16\" ry=\"30\" fill=\"var(--uspech)\" fill-opacity=\"0.4\" stroke=\"var(--uspech)\" stroke-width=\"2\" /><ellipse cx=\"90\" cy=\"280\" rx=\"26\" ry=\"14\" fill=\"var(--zlata)\" fill-opacity=\"0.35\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><path d=\"M72,280 q9,-8 18,0 t18,0\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><ellipse cx=\"340\" cy=\"62\" rx=\"24\" ry=\"13\" fill=\"var(--zlata)\" fill-opacity=\"0.35\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><circle cx=\"62\" cy=\"180\" r=\"3\" fill=\"currentColor\" /><circle cx=\"70\" cy=\"210\" r=\"3\" fill=\"currentColor\" /><circle cx=\"55\" cy=\"235\" r=\"3\" fill=\"currentColor\" /></svg>",
+            "body": [
+              { "x": 260, "y": 23, "nazev": "Buněčná stěna", "popis": "Pevný obal z celulózy — drží tvar buňky a chrání ji. Mají ji jen rostliny, houby (z chitinu) a bakterie, živočišná buňka ne." },
+              { "x": 37, "y": 100, "nazev": "Cytoplazmatická membrána", "popis": "Pružná „vrátnice“ hned pod stěnou — rozhoduje, které látky smí dovnitř a které ven. Tuhle vrstvu mají všechny buňky na světě." },
+              { "x": 400, "y": 120, "nazev": "Jádro", "popis": "Řídicí centrum buňky. Nese DNA — kompletní návod na stavbu celého organismu. Tmavší tečka uvnitř je jadérko." },
+              { "x": 210, "y": 190, "nazev": "Vakuola", "popis": "Velká zásobárna vody a rozpuštěných látek. Tlakem „nafukuje“ buňku — proto zalitá rostlina stojí zpříma a zvadlá po zalití zase ožije." },
+              { "x": 120, "y": 72, "nazev": "Chloroplast", "popis": "Zelená solární továrna se zachytávačem světla — chlorofylem. Tady běží fotosyntéza: z CO₂ a vody vzniká cukr a kyslík." },
+              { "x": 90, "y": 280, "nazev": "Mitochondrie", "popis": "Elektrárna buňky — buněčným dýcháním uvolňuje z cukrů energii. Čím víc práce buňka odvádí (sval!), tím víc mitochondrií má." },
+              { "x": 62, "y": 208, "nazev": "Cytoplazma s ribozomy", "popis": "Vnitřní tekuté prostředí buňky. Tečky jsou ribozomy — miniaturní linky na výrobu bílkovin." }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-bio-bunka-zivot-2",
+            "temaId": "bio-bunka-zivot",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Čím se rostlinná buňka liší od živočišné?",
+            "moznosti": [
+              "má navíc buněčnou stěnu, chloroplasty a velkou vakuolu",
+              "nemá jádro",
+              "nemá mitochondrie, energii bere jen ze slunce",
+              "je vždy menší než živočišná"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Stěna, chloroplasty a velká vakuola jsou tři poznávací znaky rostlinné buňky. Jádro i mitochondrie mají obě — i rostlina musí v noci a v kořenech dýchat, fotosyntéza jí energii jen vyrábí do zásoby."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Ve školní laborce pozoruješ pod mikroskopem neznámou buňku: má hranatý tvar, u okraje zelená tělíska a uprostřed velkou světlou „bublinu“. Rostlinná, nebo živočišná? A co jsou ta zelená tělíska?",
+          "reseni": "Postupuj po poznávacích znacích:\n\n1. **Hranatý tvar** → buňku drží pevná buněčná stěna. Živočišná buňka ji nemá, bývá oblá.\n2. **Zelená tělíska** → chloroplasty s chlorofylem — místo fotosyntézy. Ty živočišná buňka nemá nikdy.\n3. **Velká „bublina“ uprostřed** → centrální vakuola se zásobou vody.\n\nVšechny tři znaky ukazují stejným směrem: je to **rostlinná buňka** (nejspíš z listu mechu nebo vodní rostliny, třeba vodního moru kanadského — klasika školních mikroskopů)."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "buňka", "zadni": "základní stavební a funkční jednotka všech organismů" },
+            { "predni": "jádro", "zadni": "řídí buňku, nese DNA" },
+            { "predni": "mitochondrie", "zadni": "elektrárna buňky — uvolňuje energii buněčným dýcháním" },
+            { "predni": "chloroplast", "zadni": "organela s chlorofylem, místo fotosyntézy (jen rostliny)" },
+            { "predni": "vakuola", "zadni": "zásobárna vody a látek, „nafukuje“ rostlinnou buňku" },
+            { "predni": "buněčná stěna", "zadni": "pevný celulózový obal rostlinné buňky (živočišná ji nemá)" },
+            { "predni": "mitóza", "zadni": "dělení: 2 buňky se stejnou DNA — růst a oprava tkání" },
+            { "predni": "meióza", "zadni": "dělení pro pohlavní buňky — poloviční sada chromozomů (23)" },
+            { "predni": "počet chromozomů člověka", "zadni": "46 v tělní buňce (23 párů), 23 v pohlavní" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Život = souhrn vlastností: metabolismus, růst, rozmnožování, dráždivost, dědičnost, buněčná stavba.\n- Buňka je základní jednotka života; organely mají rozdělené role (jádro řídí, mitochondrie dodávají energii, ribozomy staví bílkoviny).\n- Rostlinná buňka má navíc stěnu, chloroplasty a velkou vakuolu — živočišná bere energii jen z potravy.\n- Mitóza kopíruje buňky pro růst a opravy; meióza tvoří pohlavní buňky s poloviční sadou chromozomů (23 + 23 = 46)."
+        }
+      ]
+    },
+    {
+      "temaId": "bio-viry-bakterie",
+      "nazev": "Viry a bakterie",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Pondělí: bolest v krku. Úterý: horečka, hlava jak balón. Máma velí k lékaři — a ty čekáš recept na antibiotika, ať je klid. Jenže doktorka mrkne do krku, udělá výtěr a řekne: „Viróza. Antibiotika nedostanete.“ Zdrť, nebo profi rozhodnutí? Po téhle lekci budeš vědět, že to druhé."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Viry** — piráti na hranici života:\n\n- **nejsou buňky**: jen nukleová kyselina (**DNA nebo RNA**) zabalená v bílkovinném obalu (**kapsidu**),\n- nemají vlastní metabolismus → **množí se jen uvnitř hostitelské buňky**: vniknou dovnitř, vnutí jí svůj „program“ a buňka vyrábí nové viry, dokud se nezničí,\n- jsou nepatrné — 10–100× menší než bakterie, vidí je až elektronový mikroskop.\n\nVirové nemoci: **chřipka, rýma, covid-19, opary, spalničky, vzteklina, klíšťová encefalitida, HIV/AIDS**.\n\n**Bakterie** — jednobuněční všeumělové:\n\n- **prokaryotická buňka**: DNA volně v cytoplazmě (nukleoid), buněčná stěna, někdy bičík,\n- tvary: kulovité **koky**, tyčinky **bacily**, zakřivené **spirily**,\n- množí se **příčným dělením** — klidně každých 20 minut,\n- většina je užitečná: střevní mikrobiom, jogurt a kysané zelí, rozklad odumřelé hmoty, čističky vod.\n\nBakteriální nemoci: **angína, borelióza, tetanus, salmonelóza, černý kašel, tuberkulóza**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Přestaneš se divit, proč na chřipku nedostaneš antibiotika a proč se má kúra vždycky dobrat — a umíš to vysvětlit i doma. Pochopíš, proč se před jídlem myjí ruce, proč se maso propéká (salmonela), proč po klíštěti hlídáš červenou skvrnu (borelióza) a co ti vlastně píchli při očkování. Antibiotická rezistence je navíc jedno z velkých témat medicíny — a brzdí ji každý, kdo antibiotika užívá správně."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 320\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Stavba viru a bakterie\"><text x=\"150\" y=\"34\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">VIRUS</text><text x=\"470\" y=\"34\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">BAKTERIE</text><circle cx=\"150\" cy=\"150\" r=\"55\" fill=\"none\" stroke=\"var(--chyba)\" stroke-width=\"3\" /><line x1=\"150\" y1=\"95\" x2=\"150\" y2=\"75\" stroke=\"var(--chyba)\" stroke-width=\"3\" /><line x1=\"150\" y1=\"205\" x2=\"150\" y2=\"225\" stroke=\"var(--chyba)\" stroke-width=\"3\" /><line x1=\"95\" y1=\"150\" x2=\"75\" y2=\"150\" stroke=\"var(--chyba)\" stroke-width=\"3\" /><line x1=\"205\" y1=\"150\" x2=\"225\" y2=\"150\" stroke=\"var(--chyba)\" stroke-width=\"3\" /><line x1=\"111\" y1=\"111\" x2=\"97\" y2=\"97\" stroke=\"var(--chyba)\" stroke-width=\"3\" /><line x1=\"189\" y1=\"111\" x2=\"203\" y2=\"97\" stroke=\"var(--chyba)\" stroke-width=\"3\" /><line x1=\"111\" y1=\"189\" x2=\"97\" y2=\"203\" stroke=\"var(--chyba)\" stroke-width=\"3\" /><line x1=\"189\" y1=\"189\" x2=\"203\" y2=\"203\" stroke=\"var(--chyba)\" stroke-width=\"3\" /><path d=\"M118,150 q16,-28 32,0 t32,0\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"3\" /><text x=\"150\" y=\"250\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">kapsid (obal) + DNA/RNA uvnitř</text><text x=\"150\" y=\"270\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">není buňka — sám se nerozmnoží</text><rect x=\"360\" y=\"105\" width=\"200\" height=\"95\" rx=\"47\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"5\" /><rect x=\"372\" y=\"117\" width=\"176\" height=\"71\" rx=\"35\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><path d=\"M425,152 q14,-20 28,0 t28,0\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"3\" /><circle cx=\"400\" cy=\"140\" r=\"3\" fill=\"currentColor\" /><circle cx=\"405\" cy=\"168\" r=\"3\" fill=\"currentColor\" /><circle cx=\"520\" cy=\"135\" r=\"3\" fill=\"currentColor\" /><circle cx=\"528\" cy=\"165\" r=\"3\" fill=\"currentColor\" /><path d=\"M560,152 q20,-14 34,0 q14,14 30,0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" /><text x=\"470\" y=\"250\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">stěna + membrána, DNA volně (nukleoid), bičík</text><text x=\"470\" y=\"270\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">živá buňka — dělí se každých ~20 minut</text><text x=\"320\" y=\"305\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--info)\">virus je 10–100× menší než bakterie</text></svg>",
+          "popisek": "Virus (vlevo): jen bílkovinný obal s výběžky a genetická informace uvnitř — žádná buňka. Bakterie (vpravo): skutečná buňka s buněčnou stěnou (zeleně), membránou, volnou DNA (nukleoid), ribozomy (tečky) a bičíkem k pohybu."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-bio-viry-bakterie-1",
+            "temaId": "bio-viry-bakterie",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Proč se virus nedokáže rozmnožit sám?",
+            "moznosti": [
+              "není buňka a nemá vlastní metabolismus — musí zneužít hostitelskou buňku",
+              "je příliš malý na to, aby se rozdělil",
+              "nemá žádnou genetickou informaci",
+              "dokáže to, ale jen velmi pomalu"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Virus je jen „program v obalu“ — DNA či RNA má, ale chybí mu mašinérie na výrobu čehokoli. Proto unese cizí buňku a nechá ji vyrábět své kopie. Velikost s tím nesouvisí a sám se nerozmnoží nikdy, ani pomalu."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Antibiotika** ničí bakterie nebo brzdí jejich množení. První — **penicilin** — objevil Alexander Fleming (1928) v plísni. Dvě železná pravidla:\n\n- **Na viry nepůsobí.** Chřipka, rýma ani covid se jimi léčit nedají.\n- **Kúra se vždy dobírá celá.** Úleva po pár dnech znamená, že padly citlivé bakterie — ty nejodolnější ještě žijí. Když léčbu utneš, pomnoží se právě ony → vzniká **antibiotická rezistence** a příště už lék nemusí zabrat. Rezistentní kmeny jsou celosvětový zdravotní problém.\n\n**Očkování** je cvičná srážka imunity s nepřítelem: tělo dostane oslabeného či usmrceného původce, jeho část, nebo „návod“ (mRNA). Imunita si vyrobí **protilátky a paměťové buňky** — skutečná nákaza pak neproběhne, nebo jen mírně. Když je očkovaných dost, **kolektivní imunita** chrání i ty, kdo očkovaní být nemohou."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď nemoci podle původce. Pomůcka: na bakteriální fungují antibiotika, na virové ne.",
+            "kategorie": [
+              { "id": "virove", "nazev": "Způsobují VIRY" },
+              { "id": "bakterialni", "nazev": "Způsobují BAKTERIE" }
+            ],
+            "polozky": [
+              { "text": "chřipka", "kategorieId": "virove" },
+              { "text": "covid-19", "kategorieId": "virove" },
+              { "text": "opar na rtu", "kategorieId": "virove" },
+              { "text": "vzteklina", "kategorieId": "virove" },
+              { "text": "spalničky", "kategorieId": "virove" },
+              { "text": "streptokoková angína", "kategorieId": "bakterialni" },
+              { "text": "borelióza", "kategorieId": "bakterialni" },
+              { "text": "tetanus", "kategorieId": "bakterialni" },
+              { "text": "salmonelóza", "kategorieId": "bakterialni" },
+              { "text": "černý kašel", "kategorieId": "bakterialni" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-bio-viry-bakterie-2",
+            "temaId": "bio-viry-bakterie",
+            "typ": "anone",
+            "obtiznost": 3,
+            "zadani": "Když ti je po třech dnech užívání antibiotik výrazně líp, můžeš zbytek balení vysadit.",
+            "spravna": false,
+            "vysvetleni": "Právě naopak — dobrat celou kúru je klíčové. Po třech dnech přežívají ty nejodolnější bakterie; bez léku se pomnoží a vznikne rezistentní kmen, na který antibiotikum příště nezabere. Úleva ≠ vyléčení."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Kamarádka má třetí den rýmu a kašel bez horečky. Píše ti: „Jdu si říct doktorce o antibiotika, ať to mám z krku do víkendu.“ Co jí odpovíš — a proč?",
+          "reseni": "Rozlož to na fakta:\n\n1. Rýma a běžné nachlazení jsou **virové** nemoci. Antibiotika působí **jen na bakterie** — viróze neublíží ani o den ji nezkrátí.\n2. Zbytečná antibiotika ale škodí: vybijí i **užitečné střevní bakterie** a hlavně trénují **rezistenci** — příště, až je bude opravdu potřebovat (třeba na angínu), nemusí zabrat.\n3. Co pomůže: klid, tekutiny, případně léky na příznaky (nos, teplota). K lékaři, pokud se stav horší nebo přijde vysoká horečka — pak se rozhodne podle vyšetření (např. CRP test rozliší virový a bakteriální zánět).\n\nOdpověď: „Antibiotika ti na rýmu nepomůžou — je virová. Doktorka ti je nedá, a dobře udělá.“"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "virus", "zadni": "nebuněčná částice: DNA/RNA + kapsid; množí se jen v hostitelské buňce" },
+            { "predni": "bakterie", "zadni": "jednobuněčný prokaryot bez pravého jádra; dělí se půlením" },
+            { "predni": "kapsid", "zadni": "bílkovinný obal viru" },
+            { "predni": "antibiotika", "zadni": "léky na bakterie; na viry NEPŮSOBÍ" },
+            { "predni": "penicilin", "zadni": "první antibiotikum — objevil ho Fleming v plísni (1928)" },
+            { "predni": "antibiotická rezistence", "zadni": "odolnost bakterií vůči antibiotiku; roste nedobíráním a nadužíváním" },
+            { "predni": "očkování", "zadni": "cvičná srážka imunity: protilátky + paměťové buňky předem" },
+            { "predni": "kolektivní imunita", "zadni": "dost očkovaných chrání i ty, kdo očkovaní být nemohou" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Virus není buňka — množí se jen zneužitím hostitelské buňky; bakterie je živá prokaryotická buňka.\n- Většina bakterií je užitečná (mikrobiom, potraviny, rozklad); nemoci působí jen některé.\n- Antibiotika = jen na bakterie; kúru vždy dobrat, jinak roste rezistence.\n- Očkování trénuje imunitu předem — protilátky a paměťové buňky; kolektivní imunita chrání i neočkované."
+        }
+      ]
+    },
+    {
+      "temaId": "bio-rostliny-houby",
+      "nazev": "Rostliny a houby",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Každý tvůj nádech má sponzora. Kyslík, který právě proudí do tvých plic, vyrobil nějaký list, řasa nebo sinice — možná bříza před školou, možná plankton v oceánu na druhém konci světa. Rostliny jsou jediné továrny na Zemi, které běží na sluneční pohon a jako odpad vypouštějí přesně to, co potřebuješ k životu."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Tělo rostliny** — sehraný podnik:\n\n- **kořen** — kotví rostlinu a přijímá **vodu s minerály**,\n- **stonek** — doprava: **dřevní částí** cévních svazků stoupá voda vzhůru, **lýkovou částí** putují cukry z listů ke kořenům (pomůcka: dřevo = voda, lýko = „sladké“),\n- **list** — továrna na fotosyntézu; **průduchy** na spodní straně nasávají a vypouštějí plyny,\n- **květ** → opylení a oplození → **plod se semeny**.\n\n**Fotosyntéza** — nejdůležitější chemický děj na Zemi. V chloroplastech zachytí **chlorofyl** světlo a rostlina vyrobí z vody a oxidu uhličitého cukr, přičemž uvolní kyslík:\n\n**6 CO₂ + 6 H₂O → (světlo + chlorofyl) → cukr + 6 O₂**\n\nOpačným směrem běží **dýchání**: cukry se za spotřeby kyslíku „spalují“ na energii. Dýchají všechny buňky — i rostlinné, ve dne v noci."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Přestaneš zalévat k smrti kytku, která ve skutečnosti umírá tmou — bez světla si nevyrobí energii, ať liješ, co liješ. Na houbách budeš vědět, proč se sbírá jen to, co bezpečně znáš, a podle čeho se pozná smrtelně jedovatá muchomůrka zelená. A až babička na podzim zapíchne řízky muškátů do květináče, poznáš v tom vegetativní rozmnožování — výrobu geneticky identických kopií zadarmo."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 360\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Fotosyntéza: toky látek v rostlině\"><defs><marker id=\"fs-a\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker><marker id=\"fs-i\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"var(--info)\" /></marker><marker id=\"fs-z\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"var(--zlata)\" /></marker><marker id=\"fs-u\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"var(--uspech)\" /></marker></defs><circle cx=\"80\" cy=\"60\" r=\"26\" fill=\"var(--zlata)\" fill-opacity=\"0.5\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><line x1=\"80\" y1=\"18\" x2=\"80\" y2=\"30\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><line x1=\"115\" y1=\"25\" x2=\"107\" y2=\"34\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><line x1=\"122\" y1=\"60\" x2=\"110\" y2=\"60\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><text x=\"80\" y=\"104\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">světlo</text><line x1=\"320\" y1=\"300\" x2=\"320\" y2=\"140\" stroke=\"var(--uspech)\" stroke-width=\"6\" /><ellipse cx=\"258\" cy=\"128\" rx=\"56\" ry=\"24\" fill=\"var(--uspech)\" fill-opacity=\"0.35\" stroke=\"var(--uspech)\" stroke-width=\"2\" /><ellipse cx=\"384\" cy=\"170\" rx=\"50\" ry=\"21\" fill=\"var(--uspech)\" fill-opacity=\"0.35\" stroke=\"var(--uspech)\" stroke-width=\"2\" /><line x1=\"120\" y1=\"300\" x2=\"540\" y2=\"300\" stroke=\"currentColor\" stroke-width=\"2\" /><path d=\"M320,300 q-30,25 -60,35\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"3\" /><path d=\"M320,300 q30,25 60,35\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"3\" /><path d=\"M320,300 q-5,30 0,45\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"3\" /><line x1=\"150\" y1=\"170\" x2=\"215\" y2=\"140\" stroke=\"currentColor\" stroke-width=\"2.5\" marker-end=\"url(#fs-a)\" /><text x=\"150\" y=\"192\" font-size=\"13\" fill=\"currentColor\">CO₂ dovnitř</text><line x1=\"250\" y1=\"98\" x2=\"200\" y2=\"58\" stroke=\"var(--uspech)\" stroke-width=\"2.5\" marker-end=\"url(#fs-u)\" /><text x=\"215\" y=\"44\" font-size=\"13\" fill=\"var(--uspech)\">O₂ ven</text><line x1=\"338\" y1=\"290\" x2=\"338\" y2=\"165\" stroke=\"var(--info)\" stroke-width=\"3\" marker-end=\"url(#fs-i)\" /><text x=\"352\" y=\"240\" font-size=\"13\" fill=\"var(--info)\">voda + minerály</text><text x=\"352\" y=\"258\" font-size=\"12\" fill=\"var(--info)\">(dřevní část)</text><line x1=\"302\" y1=\"165\" x2=\"302\" y2=\"290\" stroke=\"var(--zlata)\" stroke-width=\"3\" marker-end=\"url(#fs-z)\" /><text x=\"178\" y=\"240\" font-size=\"13\" fill=\"var(--zlata)\">cukry do těla</text><text x=\"192\" y=\"258\" font-size=\"12\" fill=\"var(--zlata)\">(lýková část)</text><text x=\"320\" y=\"340\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">6 CO₂ + 6 H₂O →(světlo + chlorofyl)→ cukr + 6 O₂</text><text x=\"480\" y=\"120\" font-size=\"12\" fill=\"currentColor\">v listech: chloroplasty</text><text x=\"480\" y=\"138\" font-size=\"12\" fill=\"currentColor\">s chlorofylem</text></svg>",
+          "popisek": "Fotosyntéza v akci: list nasává průduchy CO₂ a chloroplasty v něm zachycují světlo. Dřevní částí cévních svazků (modrá šipka) stoupá voda s minerály z kořenů, lýkovou částí (zlatá šipka) putují vyrobené cukry do celé rostliny. Kyslík odchází jako „odpad“ ven."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-bio-rostliny-houby-1",
+            "temaId": "bio-rostliny-houby",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Co vzniká při fotosyntéze?",
+            "moznosti": [
+              "cukr (glukóza) a kyslík",
+              "oxid uhličitý a voda",
+              "jen kyslík, nic dalšího",
+              "chlorofyl"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Výstupy fotosyntézy jsou cukr a kyslík; CO₂ a voda jsou naopak VSTUPY — to je nejčastější prohození. Chlorofyl nevzniká, ten je „nástroj“ — barvivo, které světlo zachycuje."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Rozmnožování rostlin** jede dvěma cestami:\n\n- **pohlavní**: opylení → oplození → semeno; potomek kombinuje vlastnosti obou rodičů,\n- **vegetativní (nepohlavní)**: nová rostlina z části těla — hlízy (brambor), cibule, oddenky, **šlahouny** (jahodník), **řízky**. Potomek = genetická kopie rodiče; pěstitelé to milují.\n\n**Houby nejsou rostliny.** Nemají chlorofyl → nefotosyntetizují; živí se **heterotrofně**: rozkladem odumřelé hmoty, parazitismem, nebo v symbióze s kořeny stromů (**mykorhiza** — proto rostou hřiby pod smrky). Tělo tvoří vláknité **podhoubí** v půdě; to, co sbíráš do košíku, je jen **plodnice**. K houbám patří i **kvasinky** (kynuté těsto) a **plísně** (zdroj penicilinu).\n\nSběr hub = jen druhy, které **bezpečně znáš**. Smrtelně jedovatá **muchomůrka zelená** se plete se žampionem: má **bílé lupeny** (žampion růžové až hnědé) a **pochvu** na spodku třeně.\n\n**Lišejníky** = symbióza houby a řasy či sinice. Přežijí na holé skále (průkopníci života) a jsou **bioindikátory** — kde je vzduch špinavý, nerostou."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Projdi si fotosyntézu krok za krokem — od slunečního paprsku po cukr v kořenech.",
+            "kroky": [
+              { "nazev": "Světlo dopadá na list", "popis": "Chlorofyl v chloroplastech zachytí energii slunečního záření — solární panel rostliny se nabíjí.", "ikona": "☀️" },
+              { "nazev": "Kořeny nasávají vodu", "popis": "Voda s minerály stoupá dřevní částí cévních svazků ze země až do listů.", "ikona": "💧" },
+              { "nazev": "Průduchy nasávají CO₂", "popis": "Drobné „větrací otvory“ na spodní straně listu pouštějí dovnitř oxid uhličitý ze vzduchu.", "ikona": "🌬️" },
+              { "nazev": "V chloroplastu vzniká cukr", "popis": "Ze světelné energie, vody a CO₂ rostlina sestaví glukózu — svou potravu i stavební materiál.", "ikona": "🏭" },
+              { "nazev": "Kyslík odchází ven", "popis": "„Odpad“ výroby — kyslík — uniká průduchy do vzduchu. Přesně ten teď dýcháš.", "ikona": "🫧" },
+              { "nazev": "Cukry putují lýkem", "popis": "Lýková část cévních svazků rozveze cukry do celé rostliny — do květů, plodů i kořenů na zásobu.", "ikona": "🚚" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-bio-rostliny-houby-2",
+            "temaId": "bio-rostliny-houby",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Proč houby nemohou fotosyntetizovat?",
+            "moznosti": [
+              "nemají chlorofyl ani chloroplasty — živiny získávají rozkladem, parazitismem nebo symbiózou",
+              "rostou ve stínu, kde je málo světla, jinak by to zvládly",
+              "jejich podhoubí je schované pod zemí",
+              "mají příliš malé plodnice na zachycení světla"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Chybí jim samotné vybavení — chloroplasty s chlorofylem. Ani na přímém slunci houba fotosyntetizovat nezačne; je heterotrofní jako živočichové. Stín a podzemní růst jsou důsledek jejich způsobu obživy, ne příčina."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Na houbách najdeš krásnou „bílou pečárku“: bílý klobouk, ale lupeny pod kloboukem taky čistě bílé a na spodku třeně blanitý kalíšek. Vezmeš ji do košíku?",
+          "reseni": "V žádném případě. Projdi znaky:\n\n1. **Bílé lupeny** — žampion (pečárka) má lupeny růžové, později hnědé. Čistě bílé lupeny u „žampionu“ = poplach.\n2. **Pochva (kalíšek) na bázi třeně** — typický znak muchomůrek; žampion pochvu nemá.\n3. Závěr: znaky odpovídají **muchomůrce zelené** — nejjedovatější houbě u nás. Její jed (amanitin) ničí játra a projeví se až po mnoha hodinách; i kousek může zabít.\n\nPravidlo zkušených hub: **sbírám jen to, co stoprocentně poznám** — a u „žampionů“ vždy kontroluju barvu lupenů a spodek třeně. Při nejistotě houbu nechám stát, případně vyfotím pro atlas i s celým třenem."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "fotosyntéza", "zadni": "6 CO₂ + 6 H₂O → (světlo, chlorofyl) → cukr + 6 O₂; probíhá v chloroplastech" },
+            { "predni": "chlorofyl", "zadni": "zelené barvivo zachycující světelnou energii" },
+            { "predni": "dřevní část cévních svazků", "zadni": "vede vodu s minerály od kořenů vzhůru" },
+            { "predni": "lýková část cévních svazků", "zadni": "rozvádí cukry z listů do celé rostliny" },
+            { "predni": "průduchy", "zadni": "otvory na spodní straně listu — výměna plynů a odpar vody" },
+            { "predni": "vegetativní rozmnožování", "zadni": "nová rostlina z části těla (řízek, hlíza, šlahoun) — genetická kopie" },
+            { "predni": "podhoubí (mycelium)", "zadni": "vláknité tělo houby v půdě; plodnice je jen „ovoce“ na sběr" },
+            { "predni": "muchomůrka zelená", "zadni": "smrtelně jedovatá; bílé lupeny + pochva na třeni, plete se se žampionem" },
+            { "predni": "lišejník", "zadni": "symbióza houby a řasy/sinice; bioindikátor čistoty ovzduší" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Kořen bere vodu, stonek ji vede (dřevo nahoru, lýko cukry dolů), list fotosyntetizuje, květ a plod se starají o potomstvo.\n- Fotosyntéza: z CO₂, vody a světla vzniká cukr a kyslík — zdroj energie i kyslíku pro celou planetu.\n- Rostliny se množí pohlavně (semena) i vegetativně (řízky, hlízy — genetické kopie).\n- Houby nejsou rostliny: bez chlorofylu, živí se heterotrofně; sbírej jen, co bezpečně znáš.\n- Lišejník = houba + řasa v symbióze; ukazatel čistého vzduchu."
+        }
+      ]
+    },
+    {
+      "temaId": "bio-zivocichove",
+      "nazev": "Živočichové",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Hádka u rybníka: „Netopýr je pták, vždyť lítá!“ tvrdí kámoš. „A velryba je ryba, žije přece v moři.“ Zní to logicky — a obojí je špatně. Netopýr i velryba jsou savci jako ty. V téhle lekci dostaneš jednoduchý systém, díky kterému už tě podobné chytáky nenachytají."
+        },
+        {
+          "typ": "text",
+          "obsah": "První dělení živočichů je podle opory těla:\n\n- **obratlovci** — mají **páteř** a vnitřní kostru,\n- **bezobratlí** — páteř nemají; oporou je vnější kostra (krunýř, schránka) nebo jen svaly. Je jich naprostá většina druhů.\n\n**Hlavní skupiny bezobratlých:**\n\n- **žahavci** — medúzy, sasanky (žahavé buňky),\n- **měkkýši** — plži (hlemýžď s ulitou), mlži (škeble s lasturou), hlavonožci (chobotnice),\n- **kroužkovci** — žížala: tělo z článků,\n- **členovci** — rekordmani v počtu druhů, článkované tělo a vnější kostra:\n  - **hmyz** — **6 nohou**, tělo hlava–hruď–zadeček, často křídla,\n  - **pavoukovci** — **8 nohou** (pavouci, klíšťata),\n  - **korýši** — rak, krab."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Poznáš podle počtu nohou, jestli ti po stanu leze neškodný hmyz, nebo klíště, které je potřeba po výletu hledat a vytáhnout (pavoukovec, 8 nohou — a přenáší boreliózu). Pochopíš, proč pes v létě funí místo pocení, proč se ještěrka vyhřívá na zídce a proč krmítko v zimě sýkorám fakt pomáhá. A chytáky typu „velryba = ryba“ už u tebe neprojdou — hodí se v testech i v hospodské sázce."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 660 350\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Přehled skupin živočichů\"><rect x=\"250\" y=\"14\" width=\"160\" height=\"34\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><text x=\"330\" y=\"36\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">ŽIVOČICHOVÉ</text><line x1=\"290\" y1=\"48\" x2=\"165\" y2=\"84\" stroke=\"currentColor\" stroke-width=\"2\" /><line x1=\"370\" y1=\"48\" x2=\"495\" y2=\"84\" stroke=\"currentColor\" stroke-width=\"2\" /><rect x=\"55\" y=\"86\" width=\"220\" height=\"34\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"165\" y=\"108\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">BEZOBRATLÍ — bez páteře</text><rect x=\"385\" y=\"86\" width=\"220\" height=\"34\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2.5\" /><text x=\"495\" y=\"108\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">OBRATLOVCI — mají páteř</text><line x1=\"165\" y1=\"120\" x2=\"165\" y2=\"136\" stroke=\"currentColor\" stroke-width=\"1.5\" /><line x1=\"495\" y1=\"120\" x2=\"495\" y2=\"136\" stroke=\"currentColor\" stroke-width=\"1.5\" /><rect x=\"75\" y=\"138\" width=\"180\" height=\"28\" rx=\"6\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"165\" y=\"157\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">žahavci (medúza)</text><rect x=\"75\" y=\"172\" width=\"180\" height=\"28\" rx=\"6\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"165\" y=\"191\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">měkkýši (hlemýžď)</text><rect x=\"75\" y=\"206\" width=\"180\" height=\"28\" rx=\"6\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"165\" y=\"225\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">kroužkovci (žížala)</text><rect x=\"75\" y=\"240\" width=\"180\" height=\"42\" rx=\"6\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"165\" y=\"257\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">členovci:</text><text x=\"165\" y=\"274\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">hmyz (6 noh) • pavoukovci (8) • korýši</text><rect x=\"405\" y=\"138\" width=\"180\" height=\"28\" rx=\"6\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" /><text x=\"495\" y=\"157\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">ryby ❄</text><rect x=\"405\" y=\"172\" width=\"180\" height=\"28\" rx=\"6\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" /><text x=\"495\" y=\"191\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">obojživelníci ❄ (pulec!)</text><rect x=\"405\" y=\"206\" width=\"180\" height=\"28\" rx=\"6\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" /><text x=\"495\" y=\"225\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">plazi ❄ (suchá kůže)</text><rect x=\"405\" y=\"240\" width=\"180\" height=\"28\" rx=\"6\" fill=\"none\" stroke=\"var(--chyba)\" stroke-width=\"1.5\" /><text x=\"495\" y=\"259\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">ptáci ☀ (peří, zobák)</text><rect x=\"405\" y=\"274\" width=\"180\" height=\"28\" rx=\"6\" fill=\"none\" stroke=\"var(--chyba)\" stroke-width=\"1.5\" /><text x=\"495\" y=\"293\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">savci ☀ (srst, kojení)</text><text x=\"330\" y=\"334\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">❄ modře = studenokrevní • ☀ červeně = teplokrevní (stálá teplota těla)</text></svg>",
+          "popisek": "Strom třídění živočichů: nejprve podle páteře (bezobratlí vs. obratlovci), obratlovci dál do pěti tříd. Ryby, obojživelníci a plazi (modré rámečky) jsou studenokrevní, ptáci a savci (červené) teplokrevní — udržují stálou tělesnou teplotu."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-bio-zivocichove-1",
+            "temaId": "bio-zivocichove",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Po ruce ti leze tvor s osmi nohama. Kam patří?",
+            "moznosti": ["mezi pavoukovce", "mezi hmyz", "mezi korýše", "mezi kroužkovce"],
+            "spravna": 0,
+            "vysvetleni": "Osm nohou = pavoukovci (pavouci, sekáči, klíšťata). Hmyz má vždy šest nohou — počítání nohou je nejrychlejší určovací pomůcka. Korýši mají krunýř a kroužkovci žádné nohy, jen článkované tělo."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Pět tříd obratlovců** a jejich poznávací znaky:\n\n- **ryby** — žábry, šupiny, ploutve,\n- **obojživelníci** — larvy ve vodě (u žab **pulec**), dospělí s holou vlhkou kůží,\n- **plazi** — suchá kůže se šupinami, vejce s pevnými obaly → nezávislí na vodě,\n- **ptáci** — peří, zobák, duté kosti,\n- **savci** — srst, živá mláďata, **kojení mlékem**.\n\nKlíčové dělení: **studenokrevní** (ryby, obojživelníci, plazi — teplota těla podle okolí, proto se ještěrka „sluní“) vs. **teplokrevní** (ptáci, savci — stálá teplota, ale obrovská spotřeba energie: malý pták musí v mrazu skoro pořád jíst).\n\n**Přizpůsobení prostředí:** proudnicové tělo ryb a delfínů, hustá srst a tuk v chladu, velké uši pouštních lišek (chladič), zimní spánek ježka, tah vlaštovek na jih, ochranné zbarvení a **mimikry** — pestřenka se vydává za vosu, ač je neškodná.\n\nPozor na chytáky: **netopýr** (létá, ale kojí — savec), **velryba a delfín** (moře, ale plíce a mléko — savci), **slepýš** (vypadá jako had, je to beznohá ještěrka)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď živočichy do správných skupin. Bacha na chytáky — rozhodují znaky, ne to, kde zvíře žije nebo jestli létá!",
+            "kategorie": [
+              { "id": "hmyz", "nazev": "Hmyz" },
+              { "id": "pavoukovci", "nazev": "Pavoukovci" },
+              { "id": "ryby", "nazev": "Ryby" },
+              { "id": "ptaci", "nazev": "Ptáci" },
+              { "id": "savci", "nazev": "Savci" }
+            ],
+            "polozky": [
+              { "text": "včela", "kategorieId": "hmyz" },
+              { "text": "mravenec", "kategorieId": "hmyz" },
+              { "text": "křižák", "kategorieId": "pavoukovci" },
+              { "text": "klíště", "kategorieId": "pavoukovci" },
+              { "text": "kapr", "kategorieId": "ryby" },
+              { "text": "štika", "kategorieId": "ryby" },
+              { "text": "sýkora", "kategorieId": "ptaci" },
+              { "text": "pštros", "kategorieId": "ptaci" },
+              { "text": "tučňák", "kategorieId": "ptaci" },
+              { "text": "netopýr", "kategorieId": "savci" },
+              { "text": "delfín", "kategorieId": "savci" },
+              { "text": "ježek", "kategorieId": "savci" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-bio-zivocichove-2",
+            "temaId": "bio-zivocichove",
+            "typ": "anone",
+            "obtiznost": 3,
+            "zadani": "Plazi jsou teplokrevní živočichové.",
+            "spravna": false,
+            "vysvetleni": "Plazi jsou studenokrevní — teplotu těla mají podle okolí, proto se hadi a ještěrky vyhřívají na slunci. Teplokrevní (se stálou tělesnou teplotou) jsou jen ptáci a savci."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Kamarád tvrdí: „Delfín je ryba. Žije v moři, má ploutve a umí skvěle plavat.“ Rozhodni a zdůvodni jako biolog.",
+          "reseni": "Posuzuj znaky, ne prostředí:\n\n1. **Dýchání**: delfín nemá žábry — dýchá **plícemi** a musí se vynořovat pro vzduch. Ryba by se pod hladinou obešla bez vynořování celý život.\n2. **Rozmnožování**: delfín **rodí živá mláďata a kojí je mlékem** — to je definiční znak savců. Ryby se většinou třou (jikry).\n3. **Teplota těla**: delfín je **teplokrevný**, ryby studenokrevné.\n4. Ploutve a tvar těla? To je jen **přizpůsobení stejnému prostředí** — voda tlačí všechny rychlé plavce ke stejnému proudnicovému tvaru (konvergence). Podobnost zvenku ≠ příbuznost.\n\nZávěr: **delfín je savec.** Prostředí a tvar těla klamou; rozhodují znaky jako dýchání, rozmnožování a kojení."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "obratlovci", "zadni": "živočichové s páteří a vnitřní kostrou" },
+            { "predni": "hmyz", "zadni": "členovci se 6 nohama; tělo hlava–hruď–zadeček" },
+            { "predni": "pavoukovci", "zadni": "členovci s 8 nohama (pavouci, klíšťata)" },
+            { "predni": "studenokrevní", "zadni": "teplota těla podle okolí — ryby, obojživelníci, plazi" },
+            { "predni": "teplokrevní", "zadni": "stálá tělesná teplota — ptáci a savci; velká spotřeba energie" },
+            { "predni": "savci", "zadni": "srst, živá mláďata, kojení mlékem (i netopýr a velryba!)" },
+            { "predni": "pulec", "zadni": "vodní larva žáby s žábrami — znak obojživelníků" },
+            { "predni": "mimikry", "zadni": "napodobení nebezpečného druhu (pestřenka vypadá jako vosa)" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Základní dělení: bezobratlí (bez páteře — žahavci, měkkýši, kroužkovci, členovci) vs. obratlovci.\n- Obratlovci = 5 tříd: ryby, obojživelníci, plazi, ptáci, savci — každá s jasnými poznávacími znaky.\n- Studenokrevní (ryby, obojživelníci, plazi) vs. teplokrevní (ptáci, savci).\n- O zařazení rozhodují znaky (dýchání, povrch těla, kojení), ne prostředí — netopýr i delfín jsou savci.\n- Živočichové se prostředí přizpůsobují tělem (tvar, srst, uši) i chováním (zimní spánek, tah)."
+        }
+      ]
+    },
+    {
+      "temaId": "bio-ekologie",
+      "nazev": "Ekologie",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Stojíš s tácem u školní jídelny a půlku oběda vyklopíš do koše. Nic se neděje, ne? Jenže ten řízek někdo vypěstoval, dopravil, uskladnil a usmažil — a všechna ta energie a voda letí do koše s ním. Ekologie není jen o pandách na plakátech: je to věda o tom, jak všechno souvisí se vším. Včetně tvého tácu."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Ekosystém** = organismy + jejich neživé prostředí (les, rybník, louka, i městský park). Každý organismus v něm hraje roli:\n\n- **producenti** — zelené rostliny: fotosyntézou vyrábějí organické látky,\n- **konzumenti** — býložravci (1. řád) a masožravci (2. a vyšší řád),\n- **rozkladači** — bakterie, houby, žížaly: vracejí živiny z odumřelé hmoty do půdy.\n\n**Potravní řetězec** ukazuje tok energie: obilí → hraboš → poštolka. Ve skutečnosti se řetězce proplétají do **potravní sítě**. A protože se při každém „patře“ většina energie ztratí (teplo, pohyb — dál se předá jen ~10 %), má **potravní pyramida** široký základ rostlin a jen hrstku dravců na vrcholu.\n\n**Koloběh uhlíku**: fotosyntéza CO₂ z atmosféry odčerpává, dýchání a rozklad ho vracejí. Jenže **spalováním uhlí a ropy** vypouštíme i uhlík uložený miliony let — CO₂ v atmosféře přibývá, zesiluje skleníkový efekt a mění klima."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Budeš vědět, proč nemá smysl házet mastný papír do modrého kontejneru (znehodnotí celý sběr) a kam s rozbitým zrcadlem. Spočítáš si vlastní uhlíkovou stopu a zjistíš, že kolo místo auta ušetří za rok stovky kilo CO₂ — argument, který obstojí i v diskusi. A až se bude mluvit o kůrovci, suchu nebo invazních druzích, pochopíš, o co jde: je to vždycky příběh narušené rovnováhy ekosystému."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 340\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Koloběh uhlíku\"><defs><marker id=\"ku-a\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker><marker id=\"ku-u\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"var(--uspech)\" /></marker><marker id=\"ku-c\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"var(--chyba)\" /></marker></defs><rect x=\"225\" y=\"18\" width=\"190\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"3\" /><text x=\"320\" y=\"43\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">CO₂ v atmosféře</text><rect x=\"55\" y=\"150\" width=\"185\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2.5\" /><text x=\"147\" y=\"175\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">ROSTLINY (producenti)</text><rect x=\"410\" y=\"150\" width=\"165\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><text x=\"492\" y=\"175\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">ŽIVOČICHOVÉ</text><rect x=\"160\" y=\"265\" width=\"215\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"267\" y=\"284\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">ROZKLADAČI</text><text x=\"267\" y=\"299\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">(houby, bakterie, žížaly)</text><rect x=\"455\" y=\"265\" width=\"165\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--chyba)\" stroke-width=\"2.5\" /><text x=\"537\" y=\"284\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">FOSILNÍ PALIVA</text><text x=\"537\" y=\"299\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">(uhlí, ropa)</text><line x1=\"250\" y1=\"60\" x2=\"165\" y2=\"146\" stroke=\"var(--uspech)\" stroke-width=\"2.5\" marker-end=\"url(#ku-u)\" /><text x=\"120\" y=\"100\" font-size=\"12\" fill=\"var(--uspech)\">fotosyntéza</text><line x1=\"185\" y1=\"150\" x2=\"268\" y2=\"62\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ku-a)\" /><text x=\"236\" y=\"120\" font-size=\"12\" fill=\"currentColor\">dýchání</text><line x1=\"240\" y1=\"170\" x2=\"406\" y2=\"170\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ku-a)\" /><text x=\"323\" y=\"162\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">potrava</text><line x1=\"470\" y1=\"150\" x2=\"390\" y2=\"62\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ku-a)\" /><text x=\"455\" y=\"100\" font-size=\"12\" fill=\"currentColor\">dýchání</text><line x1=\"160\" y1=\"192\" x2=\"230\" y2=\"261\" stroke=\"var(--zlata)\" stroke-width=\"2\" marker-end=\"url(#ku-a)\" /><line x1=\"470\" y1=\"192\" x2=\"340\" y2=\"268\" stroke=\"var(--zlata)\" stroke-width=\"2\" marker-end=\"url(#ku-a)\" /><text x=\"345\" y=\"238\" font-size=\"12\" fill=\"var(--zlata)\">odumřelá hmota</text><line x1=\"200\" y1=\"265\" x2=\"250\" y2=\"64\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"5 4\" marker-end=\"url(#ku-a)\" /><text x=\"96\" y=\"238\" font-size=\"12\" fill=\"currentColor\">rozklad</text><line x1=\"530\" y1=\"265\" x2=\"418\" y2=\"48\" stroke=\"var(--chyba)\" stroke-width=\"3\" marker-end=\"url(#ku-c)\" /><text x=\"492\" y=\"232\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--chyba)\">spalování +CO₂</text></svg>",
+          "popisek": "Koloběh uhlíku: fotosyntéza (zelená šipka) uhlík z atmosféry odčerpává do rostlin, potravou putuje do živočichů; dýchání a rozklad ho vracejí. Červená šipka je problém — spalování fosilních paliv přidává uhlík uložený miliony let, a CO₂ v atmosféře proto roste."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-bio-ekologie-1",
+            "temaId": "bio-ekologie",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kdo v ekosystému rozkládá odumřelá těla a vrací živiny do půdy?",
+            "moznosti": [
+              "rozkladači — houby, bakterie, žížaly",
+              "producenti — zelené rostliny",
+              "konzumenti 1. řádu — býložravci",
+              "vrcholoví dravci"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Rozkladači jsou „recyklační linka“ ekosystému — bez nich by se živiny hromadily v mrtvé hmotě a půda by se vyčerpala. Producenti látky vyrábějí, konzumenti je jedí; kruh uzavírají právě rozkladači."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Biodiverzita** — rozmanitost druhů, genů a ekosystémů — je pojistka přírody: pestrý ekosystém líp ustojí sucho, škůdce i změnu klimatu. Učebnicový příklad z ČR: **smrkové monokultury** podlehly kůrovci a suchu, smíšené lesy odolaly mnohem líp. Biodiverzitu ohrožuje ničení stanovišť, znečištění, změna klimatu a **invazní druhy** (bolševník, norek americký).\n\n**Ochrana přírody v ČR**: 4 národní parky (**Krkonošský, Šumava, Podyjí, České Švýcarsko**), chráněné krajinné oblasti, evropská soustava **Natura 2000**.\n\n**Udržitelnost v praxi — tvoje páka:**\n\n- **Třídění odpadu**: modrá = papír, žlutá = plast, zelená = sklo, hnědá = bio, červená/e-box = elektro. Do směsného: mastný papír, termoúčtenky, zrcadla, keramika.\n- **Uhlíková stopa** = skleníkové plyny, které tvůj život vyprodukuje. Největší položky: doprava, energie, strava, nakupování. Snížíš ji: MHD/kolo, neplýtvat jídlem, lokální potraviny, oblečení z druhé ruky, šetřit energií."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Kam s odpadem? Roztřiď věci do správných kontejnerů. Pozor, pár položek je záludných!",
+            "kategorie": [
+              { "id": "papir", "nazev": "Modrý — papír" },
+              { "id": "plast", "nazev": "Žlutý — plast" },
+              { "id": "sklo", "nazev": "Zelený — sklo" },
+              { "id": "bio", "nazev": "Hnědý — bioodpad" },
+              { "id": "smesny", "nazev": "Černý — směsný" }
+            ],
+            "polozky": [
+              { "text": "noviny", "kategorieId": "papir" },
+              { "text": "kartonová krabice", "kategorieId": "papir" },
+              { "text": "sešlápnutá PET lahev", "kategorieId": "plast" },
+              { "text": "vypláchnutý kelímek od jogurtu", "kategorieId": "plast" },
+              { "text": "igelitová taška", "kategorieId": "plast" },
+              { "text": "zavařovací sklenice", "kategorieId": "sklo" },
+              { "text": "rozbitá lahev od vína", "kategorieId": "sklo" },
+              { "text": "slupka od banánu", "kategorieId": "bio" },
+              { "text": "posekaná tráva", "kategorieId": "bio" },
+              { "text": "mastný papír od řízku", "kategorieId": "smesny" },
+              { "text": "účtenka z termopapíru", "kategorieId": "smesny" },
+              { "text": "rozbité zrcadlo", "kategorieId": "smesny" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-bio-ekologie-2",
+            "temaId": "bio-ekologie",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Vypláchnutý kelímek od jogurtu patří do:",
+            "moznosti": [
+              "žlutého kontejneru na plast",
+              "modrého kontejneru na papír",
+              "zeleného kontejneru na sklo",
+              "hnědého kontejneru na bioodpad"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Kelímek je plastový obal → žlutý kontejner. Stačí ho vypláchnout — nemusí být dokonale čistý, ale zbytky jogurtu by znehodnotily sběr. Barvy si zapamatuj: modrá papír, žlutá plast, zelená sklo, hnědá bio."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Do školy je to 5 km. Spočítej, kolik CO₂ za školní rok (200 dní, tam a zpět = 10 km denně) vyprodukuje cesta autem (150 g CO₂/km), autobusem (30 g CO₂ na osobu a km) a na kole. O kolik kilo CO₂ ročně sníží stopu přestup z auta na bus?",
+          "reseni": "Počítej po krocích:\n\n1. **Auto**: 10 km × 150 g = 1 500 g = 1,5 kg CO₂ denně → 200 dní × 1,5 kg = **300 kg CO₂ za rok**.\n2. **Autobus**: 10 km × 30 g = 300 g denně → 200 × 0,3 kg = **60 kg CO₂ za rok** (emise autobusu se dělí mezi desítky cestujících).\n3. **Kolo**: provoz = **0 kg CO₂** (nepočítáme-li výrobu kola a svačinu navíc).\n\n**Přestup z auta na bus ušetří 300 − 60 = 240 kg CO₂ ročně** — asi tolik, kolik váží dospělý medvěd. Kolo ušetří celých 300 kg a k tomu kondičku. Přesně takhle se počítá uhlíková stopa: emise na kilometr × kilometry, u hromadné dopravy děleno počtem cestujících."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "ekosystém", "zadni": "společenstvo organismů + neživé prostředí (les, rybník, park)" },
+            { "predni": "producenti", "zadni": "zelené rostliny — fotosyntézou vyrábějí organické látky" },
+            { "predni": "konzumenti", "zadni": "býložravci (1. řád) a masožravci (2. a vyšší řád)" },
+            { "predni": "rozkladači", "zadni": "houby, bakterie, žížaly — vracejí živiny do půdy" },
+            { "predni": "potravní pyramida", "zadni": "energie směrem nahoru ubývá (~10 % na patro) → dravců je málo" },
+            { "predni": "biodiverzita", "zadni": "rozmanitost druhů, genů a ekosystémů — pojistka odolnosti přírody" },
+            { "predni": "národní parky ČR", "zadni": "Krkonošský, Šumava, Podyjí, České Švýcarsko" },
+            { "predni": "uhlíková stopa", "zadni": "skleníkové plyny vyprodukované naším životem (doprava, energie, strava)" },
+            { "predni": "barvy kontejnerů", "zadni": "modrá papír, žlutá plast, zelená sklo, hnědá bio" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Ekosystém drží pohromadě role: producenti → konzumenti → rozkladači; energie potravou ubývá, látky kolují.\n- Koloběh uhlíku vyrovnávají fotosyntéza a dýchání; spalování fosilních paliv ho vychyluje → změna klimatu.\n- Biodiverzita = odolnost: monokultury padají, pestré ekosystémy přežívají; v ČR chrání přírodu 4 národní parky a Natura 2000.\n- Udržitelnost začíná u tebe: třídit odpad podle barev, jezdit MHD/na kole, neplýtvat jídlem a energií."
+        }
+      ]
+    }
+  ]
+}

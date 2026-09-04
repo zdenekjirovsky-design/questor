@@ -1,0 +1,585 @@
+{
+  "predmetId": "matematika",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "mat-ciselne-obory",
+      "nazev": "Číselné obory a operace",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Black Friday. Mikina za 1 200 Kč, e-shop hlásí slevu 25 % a při platbě kartou dalších 10 %. Kámoš mávne rukou: „To je dohromady 35 %, zaplatíš 780.“ Pokladna ale ukáže jinou částku. Kdo se sekl — kámoš, nebo e-shop? Za pár minut to spočítáš z hlavy."
+        },
+        {
+          "typ": "text",
+          "obsah": "Čísla třídíme do **číselných oborů**, které se do sebe vnořují jako matrjošky:\n\n- **Přirozená čísla (N)**: 1, 2, 3, … — počty kusů, lidí, korun.\n- **Celá čísla (Z)**: přidávají nulu a záporná čísla — dluh, teplota pod nulou.\n- **Racionální čísla (Q)**: vše, co jde zapsat zlomkem p/q — zlomky (3/4), desetinná čísla (0,75) i periodická (0,333…).\n- **Reálná čísla (R)**: navíc **iracionální čísla** — zlomkem je nezapíšeš, rozvoj mají nekonečný a neperiodický (√2, π).\n\nPlatí N ⊂ Z ⊂ Q ⊂ R.\n\n**Zlomky** krátíme a rozšiřujeme násobením čitatele i jmenovatele stejným číslem. Na desetinné číslo zlomek převedeš dělením: 3/4 = 3 ÷ 4 = **0,75**. Stejné číslo tedy můžeš psát třemi způsoby: 3/4 = 0,75 = 75 %."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Slevy, marže, DPH, úroky ze spoření i splátky mobilu — to všechno jsou procenta a desetinná čísla. Kdo umí z hlavy „25 % dolů = krát 0,75“, pozná předraženou „akci“ dřív, než klikne na koupit. A záporná čísla? Stav účtu po víkendu ti je připomene sám."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 140' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Číselná osa s vyznačenými čísly různých oborů'><line x1='20' y1='90' x2='534' y2='90' stroke='currentColor' stroke-width='2'/><polygon points='548,90 534,84 534,96' fill='currentColor'/><line x1='40' y1='84' x2='40' y2='96' stroke='currentColor'/><line x1='100' y1='84' x2='100' y2='96' stroke='currentColor'/><line x1='160' y1='84' x2='160' y2='96' stroke='currentColor'/><line x1='220' y1='84' x2='220' y2='96' stroke='currentColor'/><line x1='280' y1='84' x2='280' y2='96' stroke='currentColor'/><line x1='340' y1='84' x2='340' y2='96' stroke='currentColor'/><line x1='400' y1='84' x2='400' y2='96' stroke='currentColor'/><line x1='460' y1='84' x2='460' y2='96' stroke='currentColor'/><line x1='520' y1='84' x2='520' y2='96' stroke='currentColor'/><text x='40' y='114' font-size='13' text-anchor='middle' fill='currentColor'>−4</text><text x='100' y='114' font-size='13' text-anchor='middle' fill='currentColor'>−3</text><text x='160' y='114' font-size='13' text-anchor='middle' fill='currentColor'>−2</text><text x='220' y='114' font-size='13' text-anchor='middle' fill='currentColor'>−1</text><text x='280' y='114' font-size='13' text-anchor='middle' fill='currentColor'>0</text><text x='340' y='114' font-size='13' text-anchor='middle' fill='currentColor'>1</text><text x='400' y='114' font-size='13' text-anchor='middle' fill='currentColor'>2</text><text x='460' y='114' font-size='13' text-anchor='middle' fill='currentColor'>3</text><text x='520' y='114' font-size='13' text-anchor='middle' fill='currentColor'>4</text><line x1='100' y1='84' x2='100' y2='52' stroke='currentColor' stroke-opacity='0.4'/><circle cx='100' cy='90' r='6' fill='var(--info)'/><text x='100' y='44' font-size='13' text-anchor='middle' fill='var(--info)' font-weight='bold'>−3 ∈ Z</text><line x1='310' y1='84' x2='310' y2='52' stroke='currentColor' stroke-opacity='0.4'/><circle cx='310' cy='90' r='6' fill='var(--akcent)'/><text x='310' y='44' font-size='13' text-anchor='middle' fill='var(--akcent)' font-weight='bold'>0,5 ∈ Q</text><line x1='364' y1='84' x2='364' y2='26' stroke='currentColor' stroke-opacity='0.4'/><circle cx='364' cy='90' r='6' fill='var(--zlata)'/><text x='364' y='18' font-size='13' text-anchor='middle' fill='var(--zlata)' font-weight='bold'>√2 — iracionální</text><line x1='460' y1='84' x2='460' y2='52' stroke='currentColor' stroke-opacity='0.4'/><circle cx='460' cy='90' r='6' fill='var(--uspech)'/><text x='460' y='44' font-size='13' text-anchor='middle' fill='var(--uspech)' font-weight='bold'>3 ∈ N</text></svg>",
+          "popisek": "Číselná osa: každé reálné číslo má na ose své místo. Trojka je přirozená, −3 celá, 0,5 racionální (zlomek 1/2) a √2 ≈ 1,41 je iracionální — leží mezi 1 a 2, ale zlomkem ho nezapíšeš."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-ciselne-obory-1",
+            "temaId": "mat-ciselne-obory",
+            "typ": "vyber",
+            "obtiznost": 1,
+            "zadani": "Do kterého NEJMENŠÍHO číselného oboru patří číslo −7?",
+            "moznosti": ["přirozená čísla (N)", "celá čísla (Z)", "iracionální čísla", "do žádného"],
+            "spravna": 1,
+            "vysvetleni": "−7 je celé číslo. Přirozené není (je záporné) a racionální sice také je (−7 = −7/1), ale ptáme se na NEJMENŠÍ obor — a to je Z. Iracionální čísla naopak zlomkem zapsat nejdou.",
+            "zdroj": "Číselné obory a operace"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Procenta**: 1 % je setina celku. Část spočítáš jako celek × (procenta ÷ 100). Sleva 25 % znamená platit 75 %: 1 200 · 0,75 = 900 Kč. Změnu v procentech počítáš vždy **z původní hodnoty**: zdražení z 8 000 na 9 200 je 1 200 ÷ 8 000 = 15 %.\n\n**Mocniny**: aⁿ je součin n stejných činitelů. Pozor na znaménka: (−2)³ = −8, ale (−2)² = +4. **Odmocnina** √a je nezáporné číslo, jehož druhá mocnina je a: √25 = 5.\n\n**Pořadí operací** — železné pravidlo:\n\n- 1. závorky\n- 2. mocniny a odmocniny\n- 3. násobení a dělení (zleva doprava)\n- 4. sčítání a odčítání\n\nProto 2 + 3 · 4² = 2 + 3 · 16 = 50, ne 400. A dvojitá sleva z hooku? 1 200 · 0,75 = 900, pak 900 · 0,9 = **810 Kč** — slevy se nesčítají, druhá jde z menšího základu. Kámoš se sekl."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď čísla do NEJMENŠÍHO oboru, do kterého patří.",
+            "kategorie": [
+              { "id": "n", "nazev": "Přirozené (N)" },
+              { "id": "z", "nazev": "Celé, ale ne přirozené" },
+              { "id": "q", "nazev": "Racionální, ale ne celé" },
+              { "id": "i", "nazev": "Iracionální" }
+            ],
+            "polozky": [
+              { "text": "12", "kategorieId": "n" },
+              { "text": "100", "kategorieId": "n" },
+              { "text": "0", "kategorieId": "z" },
+              { "text": "−8", "kategorieId": "z" },
+              { "text": "3/5", "kategorieId": "q" },
+              { "text": "−2,4", "kategorieId": "q" },
+              { "text": "√3", "kategorieId": "i" },
+              { "text": "π", "kategorieId": "i" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-ciselne-obory-2",
+            "temaId": "mat-ciselne-obory",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kolik je 5 + 2 · 3?",
+            "moznosti": ["11", "21", "30", "16"],
+            "spravna": 0,
+            "vysvetleni": "Násobení má přednost před sčítáním: 2 · 3 = 6 a 5 + 6 = 11. Výsledek 21 vyjde tomu, kdo počítá zleva doprava (5 + 2 = 7, 7 · 3 = 21) — kalkulačka v mobilu to dnes už počítá správně, hlava musí taky.",
+            "zdroj": "Číselné obory a operace"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Sluchátka stojí 2 490 Kč. E-shop dává slevu 30 % a doprava stojí 99 Kč. Kolik celkem zaplatíš?",
+          "reseni": "1. Sleva 30 % znamená platit 70 % ceny: 2 490 · 0,70 = 1 743 Kč.\n2. Doprava se přičítá až po slevě (na dopravu se sleva nevztahuje): 1 743 + 99 = **1 842 Kč**.\n3. Kontrola úvahou: sleva je 2 490 · 0,30 = 747 Kč; 2 490 − 747 + 99 = 1 842 ✓.\n\nTip: „krát 0,70“ je rychlejší než počítat slevu a odčítat — jeden krok místo dvou."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Přirozená čísla (N)", "zadni": "1, 2, 3, … — počty kusů; nula ani záporná čísla sem nepatří" },
+            { "predni": "Celá čísla (Z)", "zadni": "… −2, −1, 0, 1, 2 … — přirozená čísla, nula a záporná čísla" },
+            { "predni": "Racionální čísla (Q)", "zadni": "vše zapsatelné zlomkem p/q; třeba 0,75 = 3/4" },
+            { "predni": "Iracionální číslo", "zadni": "zlomkem nezapsatelné, rozvoj nekonečný a neperiodický — √2, π" },
+            { "predni": "Sleva 25 %", "zadni": "platím 75 % ceny → cena · 0,75" },
+            { "predni": "O kolik % se změnila cena?", "zadni": "změna ÷ PŮVODNÍ cena · 100" },
+            { "predni": "Pořadí operací", "zadni": "závorky → mocniny → násobení/dělení → sčítání/odčítání" },
+            { "predni": "√49", "zadni": "7 — nezáporné číslo, jehož druhá mocnina je 49" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Obory se vnořují: N ⊂ Z ⊂ Q ⊂ R; iracionální čísla (√2, π) zlomkem nezapíšeš.\n- Zlomek → desetinné číslo: vyděl čitatele jmenovatelem (3/4 = 0,75 = 75 %).\n- Sleva p % = násobení číslem (100 − p)/100; slevy za sebou se **nesčítají**.\n- Procentní změna se počítá vždy z původní hodnoty.\n- Pořadí operací: závorky, mocniny, násobení a dělení, sčítání a odčítání."
+        }
+      ]
+    },
+    {
+      "temaId": "mat-vyrazy",
+      "nazev": "Algebraické výrazy",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Objednáváš pro třídu 101 samolepek po 99 Kč. Spolužačka vysype výsledek z hlavy dřív, než stihneš odemknout mobil: „9 999.“ Žádné kouzlo — jen vzorec, který se dnes naučíš. Písmenka ve výrazech nejsou buzerace, jsou to zkratky, které počítají za tebe."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Výraz** je zápis z čísel, proměnných a operací: 3x² − 5x + 7. **Mnohočlen** je součet jednočlenů — tenhle má **tři členy** (3x², −5x a 7); číslo u proměnné je **koeficient**.\n\nZákladní pravidla úprav:\n\n- **Sčítat jde jen stejné členy**: 3x + 2x = 5x, ale 3x + 2y sloučit nejde.\n- **Při násobení se exponenty sčítají**: x² · x³ = x⁵ (a 3x · 2x = 6x²).\n- **Roznásobení závorky**: 2(x + 4) = 2x + 8 — násobíš každý člen.\n- **Vytýkání** je roznásobení pozpátku: 6x² + 9x = 3x(2x + 3). Kontrola? Roznásob zpět."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Výraz je vzoreček na míru. Brigáda za 120 Kč/h s bonusem 500 Kč? Výdělek = 120h + 500 — dosadíš hodiny a víš, kolik přijde na účet. Stejně funguje cena tarifu, spotřeba auta nebo výpočet DPH v každé firmě. Tabulky v Excelu i ceníky e-shopů nejsou nic než výrazy s dosazenými čísly."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 400 280' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Geometrický důkaz vzorce (a+b) na druhou'><text x='130' y='20' font-size='14' text-anchor='middle' fill='currentColor'>a</text><text x='220' y='20' font-size='14' text-anchor='middle' fill='currentColor'>b</text><text x='54' y='95' font-size='14' text-anchor='end' fill='currentColor'>a</text><text x='54' y='185' font-size='14' text-anchor='end' fill='currentColor'>b</text><rect x='70' y='30' width='120' height='120' fill='var(--info)' fill-opacity='0.35' stroke='currentColor'/><rect x='190' y='30' width='60' height='120' fill='var(--zlata)' fill-opacity='0.35' stroke='currentColor'/><rect x='70' y='150' width='120' height='60' fill='var(--zlata)' fill-opacity='0.35' stroke='currentColor'/><rect x='190' y='150' width='60' height='60' fill='var(--uspech)' fill-opacity='0.35' stroke='currentColor'/><text x='130' y='96' font-size='20' text-anchor='middle' fill='currentColor' font-weight='bold'>a²</text><text x='220' y='96' font-size='16' text-anchor='middle' fill='currentColor'>a·b</text><text x='130' y='186' font-size='16' text-anchor='middle' fill='currentColor'>a·b</text><text x='220' y='186' font-size='18' text-anchor='middle' fill='currentColor' font-weight='bold'>b²</text><text x='200' y='250' font-size='17' text-anchor='middle' fill='var(--akcent)' font-weight='bold'>(a + b)² = a² + 2ab + b²</text></svg>",
+          "popisek": "Čtverec o straně a + b se skládá ze čtverce a², čtverce b² a DVOU obdélníků a·b. Proto (a + b)² = a² + 2ab + b² — prostřední člen 2ab nesmí chybět, jsou to ty dva žluté obdélníky."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-vyrazy-2",
+            "temaId": "mat-vyrazy",
+            "typ": "anone",
+            "obtiznost": 1,
+            "zadani": "Výraz 4x + 4y lze vytknout jako 4(x + y).",
+            "spravna": true,
+            "vysvetleni": "Ano — oba členy mají společný činitel 4. Kontrola roznásobením: 4(x + y) = 4x + 4y ✓. Vytýkání je jen roznásobení pozpátku.",
+            "zdroj": "Algebraické výrazy"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Tři vzorce zpaměti** — šetří práci i chyby:\n\n- (a + b)² = a² + **2ab** + b²\n- (a − b)² = a² − **2ab** + b²\n- (a + b)(a − b) = a² − b²\n\nNejčastější chyba na světě: (a + b)² NENÍ a² + b². Ověř si to: (2 + 3)² = 25, ale 4 + 9 = 13.\n\n**Hodnota výrazu** = dosaď číslo za proměnnou a spočítej: pro x = 2 má výraz 2x² − 3x hodnotu 2 · 4 − 6 = 2. Dosazuj do závorek — u záporných čísel tě závorka zachrání před znaménkovou chybou.\n\nA trik z hooku? 101 · 99 = (100 + 1)(100 − 1) = 100² − 1² = 10 000 − 1 = **9 999**."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              { "a": "(a + b)²", "b": "a² + 2ab + b²" },
+              { "a": "(a − b)²", "b": "a² − 2ab + b²" },
+              { "a": "(a + b)(a − b)", "b": "a² − b²" },
+              { "a": "3x + 5x", "b": "8x" },
+              { "a": "x² · x³", "b": "x⁵" },
+              { "a": "2(x + 4)", "b": "2x + 8" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-vyrazy-1",
+            "temaId": "mat-vyrazy",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Doplň vzorec: (a − b)² = ?",
+            "moznosti": ["a² − 2ab + b²", "a² − b²", "a² + 2ab + b²", "a² − 2ab − b²"],
+            "spravna": 0,
+            "vysvetleni": "Druhá mocnina rozdílu má záporný prostřední člen, ale b² zůstává KLADNÉ: (−b)·(−b) = +b². Volba a² − b² je jiný vzorec (rozdíl čtverců) a a² + 2ab + b² patří součtu.",
+            "zdroj": "Algebraické výrazy"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Na brigádě máš 150 Kč za hodinu a jednorázový víkendový bonus 400 Kč. Zapiš výdělek výrazem a spočítej, kolik dostaneš za 8 odpracovaných hodin.",
+          "reseni": "1. Hodinovka se násobí počtem hodin h, bonus se přičte jednou: **výdělek = 150h + 400**.\n2. Dosaď h = 8: 150 · 8 + 400 = 1 200 + 400 = **1 600 Kč**.\n3. Proč ne (150 + 400) · 8? To by znamenalo bonus KAŽDOU hodinu — 4 400 Kč ti brigádník nevyplatí.\n\nVýraz napíšeš jednou a pak jen dosazuješ — přesně tak fungují vzorce v tabulkách."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Mnohočlen", "zadni": "součet jednočlenů, např. 3x² − 5x + 7 (tři členy)" },
+            { "predni": "Koeficient", "zadni": "číslo u proměnné — v 3x² je to 3" },
+            { "predni": "Vytýkání", "zadni": "společný činitel před závorku: 6x² + 9x = 3x(2x + 3)" },
+            { "predni": "(a + b)²", "zadni": "a² + 2ab + b²" },
+            { "predni": "(a − b)²", "zadni": "a² − 2ab + b²" },
+            { "predni": "(a + b)(a − b)", "zadni": "a² − b² — rozdíl čtverců" },
+            { "predni": "x² · x³", "zadni": "x⁵ — při násobení se exponenty sčítají" },
+            { "predni": "Hodnota výrazu", "zadni": "dosadím číslo za proměnnou a spočítám; dosazuji do závorek" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Sčítat lze jen stejné členy; při násobení mocnin se exponenty sčítají.\n- Vytýkání je opak roznásobení — kontroluj zpětným roznásobením.\n- Vzorce: (a ± b)² = a² ± 2ab + b², (a + b)(a − b) = a² − b².\n- (a + b)² ≠ a² + b² — nikdy nezapomeň na 2ab.\n- Hodnota výrazu: dosaď do závorek, dodrž pořadí operací."
+        }
+      ]
+    },
+    {
+      "temaId": "mat-linearni-rovnice",
+      "nazev": "Lineární rovnice a nerovnice",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Nový telefon za 12 990 Kč. Prodavač: „Tři tisíce hned a zbytek v šesti splátkách.“ Kolik bude jedna splátka? Než stihne otevřít kalkulačku, můžeš to vědět ty — protože tohle je obyčejná lineární rovnice, jen převlečená do letáku."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Lineární rovnice** má neznámou v první mocnině: ax + b = 0. Řešíme ji **ekvivalentními úpravami** — úpravami, které nemění řešení:\n\n- přičtení či odečtení stejného čísla (výrazu) k oběma stranám,\n- vynásobení či vydělení obou stran **nenulovým** číslem,\n- výměna stran.\n\nNásobení nulou informaci zničí a umocnění může přidat falešná řešení — to ekvivalentní není.\n\n**Postup**: roznásob závorky → členy s x na jednu stranu, čísla na druhou (při převodu se mění znaménko) → slouč → vyděl koeficientem → **zkouška** dosazením do původní rovnice: levá strana L se musí rovnat pravé straně P."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Splátky, dobíjení kreditu, dělení útraty z výletu, „kolik můžu utratit, aby mi zbylo na vstupenku“ — všude hledáš neznámé číslo, o kterém něco víš. Rovnice je způsob, jak to zapsat a vyřešit bez tipování. Nerovnice zase odpoví na otázky typu „kolik NEJVÝŠ si můžu dovolit“."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 200' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Rovnice jako rovnoramenné váhy'><line x1='40' y1='60' x2='240' y2='60' stroke='currentColor' stroke-width='3'/><polygon points='140,60 126,94 154,94' fill='currentColor' fill-opacity='0.7'/><rect x='48' y='28' width='80' height='28' rx='6' fill='var(--info)' fill-opacity='0.3' stroke='currentColor'/><text x='88' y='47' font-size='15' text-anchor='middle' fill='currentColor' font-weight='bold'>x + 3</text><rect x='152' y='28' width='80' height='28' rx='6' fill='var(--zlata)' fill-opacity='0.3' stroke='currentColor'/><text x='192' y='47' font-size='15' text-anchor='middle' fill='currentColor' font-weight='bold'>8</text><line x1='255' y1='60' x2='298' y2='60' stroke='var(--akcent)' stroke-width='2.5'/><polygon points='310,60 298,54 298,66' fill='var(--akcent)'/><text x='282' y='42' font-size='13' text-anchor='middle' fill='var(--akcent)' font-weight='bold'>− 3 z obou stran</text><line x1='320' y1='60' x2='520' y2='60' stroke='currentColor' stroke-width='3'/><polygon points='420,60 406,94 434,94' fill='currentColor' fill-opacity='0.7'/><rect x='328' y='28' width='80' height='28' rx='6' fill='var(--info)' fill-opacity='0.3' stroke='currentColor'/><text x='368' y='47' font-size='15' text-anchor='middle' fill='currentColor' font-weight='bold'>x</text><rect x='432' y='28' width='80' height='28' rx='6' fill='var(--zlata)' fill-opacity='0.3' stroke='currentColor'/><text x='472' y='47' font-size='15' text-anchor='middle' fill='currentColor' font-weight='bold'>5</text><text x='280' y='140' font-size='13' text-anchor='middle' fill='currentColor'>Stejná úprava na obou stranách drží váhy v rovnováze.</text><text x='280' y='168' font-size='16' text-anchor='middle' fill='var(--uspech)' font-weight='bold'>x + 3 = 8   →   x = 5</text></svg>",
+          "popisek": "Rovnice jsou váhy v rovnováze: levá a pravá strana váží stejně. Když z OBOU misek sebereš tři kila (odečteš 3), rovnováha zůstane — a na misce se objeví samotné x = 5."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-linearni-rovnice-1",
+            "temaId": "mat-linearni-rovnice",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Vynásobení obou stran rovnice nulou je ekvivalentní úprava.",
+            "spravna": false,
+            "vysvetleni": "Není — z čehokoli vznikne 0 = 0 a informace o řešení zmizí. Násobit a dělit smíš jen NENULOVÝM číslem; přičítat a odčítat můžeš cokoli.",
+            "zdroj": "Lineární rovnice a nerovnice"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Nerovnice** se řeší stejně jako rovnice — s jedinou zradou: při násobení nebo dělení **záporným** číslem se znak nerovnosti **otáčí**. Z −2x < 6 vydělením číslem −2 dostaneš x > −3.\n\nŘešením je obvykle **interval**:\n\n- x > 2 → (2; ∞) — kulatá závorka: krajní bod NEPATŘÍ,\n- x ≤ 2 → (−∞; 2⟩ — lomená závorka: krajní bod PATŘÍ,\n- u ∞ je závorka vždy kulatá.\n\n**Slovní úlohy**: pojmenuj neznámou (s = splátka), přelož text do rovnice, vyřeš, udělej zkoušku — a zkontroluj, že výsledek dává smysl. Počet vstupenek musí být celý, cena nezáporná; při omezeném rozpočtu zaokrouhluj dolů."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Projdi si řešení rovnice 2(x + 3) = x + 10 krok za krokem.",
+            "kroky": [
+              { "nazev": "Roznásob závorky", "popis": "2(x + 3) = x + 10 → 2x + 6 = x + 10" },
+              { "nazev": "Převeď členy", "popis": "Neznámé doleva, čísla doprava — při převodu přes rovnítko se mění znaménko: 2x − x = 10 − 6" },
+              { "nazev": "Slouč obě strany", "popis": "x = 4" },
+              { "nazev": "Udělej zkoušku", "popis": "Dosaď do PŮVODNÍ rovnice: L = 2 · (4 + 3) = 14, P = 4 + 10 = 14. L = P ✓" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-linearni-rovnice-2",
+            "temaId": "mat-linearni-rovnice",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Co se stane se znakem nerovnosti, když obě strany nerovnice vydělíš záporným číslem?",
+            "moznosti": ["otočí se", "nezmění se", "změní se na rovnost", "nerovnice přestane mít řešení"],
+            "spravna": 0,
+            "vysvetleni": "Dělení záporným číslem převrací pořadí čísel na ose (z 2 < 4 se stane −2 > −4), proto se znak otáčí. Při dělení kladným číslem se nic neděje — a právě v tom se nejčastěji chybuje.",
+            "zdroj": "Lineární rovnice a nerovnice"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Kolo stojí 15 990 Kč. Zaplatíš akontaci 3 990 Kč a zbytek ve 12 stejných měsíčních splátkách. Kolik je jedna splátka?",
+          "reseni": "1. Pojmenuj neznámou: s = měsíční splátka.\n2. Přelož zadání do rovnice: 3 990 + 12s = 15 990.\n3. Odečti 3 990 od obou stran: 12s = 12 000.\n4. Vyděl dvanácti: **s = 1 000 Kč**.\n5. Zkouška: 3 990 + 12 · 1 000 = 15 990 ✓.\n\nStejný postup zvládne telefon z hooku: 3 000 + 6s = 12 990 → s = 1 665 Kč."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Lineární rovnice", "zadni": "rovnice s neznámou v první mocnině: ax + b = 0" },
+            { "predni": "Ekvivalentní úprava", "zadni": "úprava, která nemění množinu řešení (±číslo, ×÷ nenulovým číslem, výměna stran)" },
+            { "predni": "Zkouška", "zadni": "dosazení výsledku do PŮVODNÍ rovnice; musí vyjít L = P" },
+            { "predni": "Převod členu přes rovnítko", "zadni": "člen změní znaménko: z 2x + 6 = 10 je 2x = 10 − 6" },
+            { "predni": "Dělení nerovnice záporným číslem", "zadni": "znak nerovnosti se OTÁČÍ: z −2x < 6 je x > −3" },
+            { "predni": "(2; ∞)", "zadni": "interval pro x > 2; kulatá závorka = krajní bod nepatří" },
+            { "predni": "(−∞; 2⟩", "zadni": "interval pro x ≤ 2; lomená závorka = krajní bod patří" },
+            { "predni": "Slovní úloha — postup", "zadni": "pojmenuj neznámou → sestav rovnici → vyřeš → zkouška + kontrola smyslu" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Rovnice = váhy: stejná úprava na obou stranách zachová rovnováhu.\n- Ekvivalentní úpravy: ± cokoliv, × ÷ nenulovým číslem; nulou a umocňováním nikdy.\n- Zkouška patří k řešení — dosazuj do původní rovnice.\n- U nerovnic se při násobení/dělení záporným číslem otáčí znak; řešení zapisuj intervalem.\n- Slovní úlohu přelož do rovnice a výsledek zkontroluj proti realitě."
+        }
+      ]
+    },
+    {
+      "temaId": "mat-soustavy",
+      "nazev": "Soustavy lineárních rovnic",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Brigáda na školním plese: prodávali jste studentské lístky po 150 a dospělé po 250. Večer víš jen dvě čísla — 250 prodaných lístků a 44 500 Kč v kase. Šéfka chce vědět, kolik bylo studentských. Dvě neznámé? Žádná panika: dvě rovnice to zvládnou."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Soustava dvou lineárních rovnic o dvou neznámých** hledá dvojici [x; y], která vyhovuje **oběma** rovnicím zároveň. Graficky je každá rovnice přímka a řešení je jejich **průsečík**.\n\nPodle vzájemné polohy přímek má soustava:\n\n- **právě jedno řešení** — různoběžky, jeden průsečík (nejčastější případ),\n- **žádné řešení** — rovnoběžky různé, nikdy se nepotkají,\n- **nekonečně mnoho řešení** — obě rovnice popisují tutéž přímku."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Kdykoli znáš dva souhrnné údaje o dvou druzích věcí — počet a cenu, vzdálenost a čas — soustava z nich vytáhne detaily. Kolik lístků každého druhu se prodalo, kolik gramů levnější a dražší směsi namíchat, kdy se potkají dvě auta. Firmy takhle plánují výrobu, ty s tím vyúčtuješ ples."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 340 330' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Dvě přímky a jejich průsečík jako řešení soustavy'><line x1='30' y1='290' x2='308' y2='290' stroke='currentColor' stroke-width='2'/><polygon points='320,290 308,284 308,296' fill='currentColor'/><line x1='40' y1='300' x2='40' y2='32' stroke='currentColor' stroke-width='2'/><polygon points='40,20 34,32 46,32' fill='currentColor'/><text x='314' y='310' font-size='14' fill='currentColor'>x</text><text x='22' y='30' font-size='14' fill='currentColor'>y</text><line x1='40' y1='290' x2='157' y2='56' stroke='var(--akcent)' stroke-width='2.5'/><text x='166' y='60' font-size='14' fill='var(--akcent)' font-weight='bold'>y = 2x</text><line x1='40' y1='56' x2='274' y2='290' stroke='var(--info)' stroke-width='2.5'/><text x='236' y='242' font-size='14' fill='var(--info)' font-weight='bold'>x + y = 9</text><line x1='118' y1='134' x2='118' y2='290' stroke='currentColor' stroke-width='1' stroke-dasharray='4 4' stroke-opacity='0.5'/><line x1='40' y1='134' x2='118' y2='134' stroke='currentColor' stroke-width='1' stroke-dasharray='4 4' stroke-opacity='0.5'/><circle cx='118' cy='134' r='6' fill='var(--uspech)'/><text x='130' y='126' font-size='14' fill='var(--uspech)' font-weight='bold'>řešení [3; 6]</text><text x='118' y='310' font-size='13' text-anchor='middle' fill='currentColor'>3</text><text x='30' y='139' font-size='13' text-anchor='end' fill='currentColor'>6</text></svg>",
+          "popisek": "Soustava y = 2x a x + y = 9 v grafu: každá rovnice je přímka a jediný bod, který leží na obou, je průsečík [3; 6]. Přesně ten najdeš i počítáním — dosazovací metodou."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-soustavy-1",
+            "temaId": "mat-soustavy",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kolik řešení má soustava, jejíž přímky jsou rovnoběžné a různé?",
+            "moznosti": ["žádné", "právě jedno", "právě dvě", "nekonečně mnoho"],
+            "spravna": 0,
+            "vysvetleni": "Rovnoběžné různé přímky se nikdy neprotnou, takže neexistuje bod ležící na obou — řešení není žádné. Nekonečně mnoho řešení mají naopak přímky totožné, jedno řešení různoběžky.",
+            "zdroj": "Soustavy lineárních rovnic"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Sčítací metoda**: uprav rovnice tak, aby po sečtení jedna neznámá zmizela. x + y = 10 a x − y = 4 → sečti: 2x = 14 → x = 7, dosazením y = 3. Ideální, když mají neznámé opačné koeficienty (+y a −y).\n\n**Dosazovací metoda**: z jedné rovnice vyjádři neznámou a dosaď do druhé. y = 2x a x + y = 9 → x + 2x = 9 → x = 3, y = 6. Ideální, když už je neznámá vyjádřená.\n\n**Zkouška**: obě hodnoty dosaď do OBOU původních rovnic.\n\n**Slovní úlohy o směsích**: jedna rovnice pro počet, druhá pro peníze (hodnotu). **O pohybu proti sobě**: rychlosti se sčítají — dráha = společná rychlost × čas."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "Sčítací metoda",
+                "vlastnosti": {
+                  "Kdy se hodí": "Neznámé mají opačné koeficienty (+2y a −2y), nebo je snadno vyrobíš vynásobením rovnice",
+                  "První krok": "Sečti obě rovnice, aby jedna neznámá zmizela",
+                  "Ukázka": "x + y = 10, x − y = 4 → sečtením 2x = 14",
+                  "Pozor na": "Násobíš-li rovnici, vynásob VŠECHNY členy včetně pravé strany"
+                }
+              },
+              {
+                "nazev": "Dosazovací metoda",
+                "vlastnosti": {
+                  "Kdy se hodí": "Jedna neznámá je už vyjádřená (y = 2x) nebo má koeficient 1",
+                  "První krok": "Vyjádři neznámou z jedné rovnice a dosaď do druhé",
+                  "Ukázka": "y = 2x, x + y = 9 → x + 2x = 9",
+                  "Pozor na": "Dosazuj do DRUHÉ rovnice — ne zpět do té, ze které jsi vyjadřoval"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-soustavy-2",
+            "temaId": "mat-soustavy",
+            "typ": "doplneni",
+            "obtiznost": 2,
+            "zadani": "Soustava: y = 3x a x + y = 8. Jaká vyjde hodnota x? (Napiš jen číslo.)",
+            "spravneOdpovedi": ["2", "x=2", "x = 2"],
+            "vysvetleni": "Dosaď y = 3x do druhé rovnice: x + 3x = 8 → 4x = 8 → x = 2 (a y = 6). Zkouška: 2 + 6 = 8 ✓.",
+            "zdroj": "Soustavy lineárních rovnic"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Na koncert se prodalo 120 vstupenek: stání po 350 Kč a sezení po 550 Kč. Tržba byla 50 000 Kč. Kolik se prodalo vstupenek na stání a kolik na sezení?",
+          "reseni": "1. Neznámé: x = stání, y = sezení.\n2. Rovnice pro počet: x + y = 120. Rovnice pro peníze: 350x + 550y = 50 000.\n3. Z první rovnice y = 120 − x, dosaď: 350x + 550(120 − x) = 50 000.\n4. Roznásob: 350x + 66 000 − 550x = 50 000 → −200x = −16 000 → **x = 80, y = 40**.\n5. Zkouška v obou rovnicích: 80 + 40 = 120 ✓ a 80 · 350 + 40 · 550 = 28 000 + 22 000 = 50 000 ✓.\n\nA ples z hooku? s + d = 250, 150s + 250d = 44 500 → studentských bylo 180."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Soustava rovnic", "zadni": "dvě rovnice, dvě neznámé; řešení [x; y] musí vyhovovat oběma" },
+            { "predni": "Grafický význam řešení", "zadni": "průsečík dvou přímek" },
+            { "predni": "Sčítací metoda", "zadni": "sečti rovnice tak, aby jedna neznámá zmizela" },
+            { "predni": "Dosazovací metoda", "zadni": "vyjádři neznámou z jedné rovnice a dosaď do druhé" },
+            { "predni": "Různoběžky / rovnoběžky / totožné", "zadni": "1 řešení / žádné / nekonečně mnoho" },
+            { "predni": "Zkouška u soustavy", "zadni": "obě hodnoty dosaď do OBOU původních rovnic" },
+            { "predni": "Úloha o směsi", "zadni": "rovnice pro počet + rovnice pro hodnotu (Kč)" },
+            { "predni": "Pohyb proti sobě", "zadni": "rychlosti se sčítají: čas setkání = vzdálenost ÷ součet rychlostí" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Soustava hledá dvojici [x; y] vyhovující oběma rovnicím — graficky průsečík přímek.\n- Sčítací metoda ruší neznámou sečtením, dosazovací dosazením vyjádřené neznámé.\n- Počet řešení: různoběžky 1, rovnoběžky 0, totožné přímky nekonečně mnoho.\n- U slovních úloh: jedna rovnice pro počet, druhá pro hodnotu; zkouška v obou rovnicích.\n- Pohyb proti sobě = součet rychlostí."
+        }
+      ]
+    },
+    {
+      "temaId": "mat-funkce-uvod",
+      "nazev": "Funkce — úvod",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Sdílená koloběžka: odemčení 25 Kč a pak 5 Kč za minutu. Ještě než na ni sedneš, umíš říct, kolik zaplatíš za deset minut — i kolik minut si můžeš dovolit za stovku. Vztahu „zadám minuty, vypadne cena“ říkají matematici funkce. A ty ji dnes ochočíš."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Funkce** je předpis, který každému x z **definičního oboru** přiřazuje **právě jednu** hodnotu y. Zapisujeme y = f(x).\n\n- **x** — nezávisle proměnná (volím si ji: minuty jízdy),\n- **y** — závisle proměnná (vyjde: cena),\n- **definiční obor D(f)** — všechna přípustná x,\n- **obor hodnot H(f)** — všechna y, která mohou vyjít.\n\nFunkci zadáš **vzorcem** (y = 5x + 25), **tabulkou** nebo **grafem** — množinou bodů [x; y] v soustavě souřadnic. Klíčový test: jednomu x nesmí patřit dvě různá y."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Tarify mobilů, půjčovny, taxi, cena energie — všechno jsou funkce „pevná částka + částka za jednotku“. Kdo umí přečíst koeficienty, porovná nabídky za minutu: velký paušál a levná minuta se vyplatí při častém používání, a naopak. Grafy funkcí potkáš v každé aplikaci — od spotřeby mobilních dat po vývoj ceny bitcoinu."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 340 310' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Graf lineární funkce y = 2x + 1 s vyznačeným sklonem a průsečíkem s osou y'><line x1='20' y1='170' x2='308' y2='170' stroke='currentColor' stroke-width='2'/><polygon points='320,170 308,164 308,176' fill='currentColor'/><line x1='160' y1='300' x2='160' y2='27' stroke='currentColor' stroke-width='2'/><polygon points='160,15 154,27 166,27' fill='currentColor'/><text x='314' y='190' font-size='14' fill='currentColor'>x</text><text x='142' y='24' font-size='14' fill='currentColor'>y</text><line x1='176' y1='166' x2='176' y2='174' stroke='currentColor'/><text x='176' y='188' font-size='12' text-anchor='middle' fill='currentColor'>1</text><line x1='96' y1='282' x2='232' y2='10' stroke='var(--akcent)' stroke-width='2.5'/><text x='240' y='34' font-size='15' fill='var(--akcent)' font-weight='bold'>y = 2x + 1</text><circle cx='160' cy='154' r='5' fill='var(--zlata)'/><text x='150' y='148' font-size='13' text-anchor='end' fill='var(--zlata)' font-weight='bold'>b = 1</text><line x1='176' y1='122' x2='192' y2='122' stroke='var(--uspech)' stroke-width='2'/><line x1='192' y1='122' x2='192' y2='90' stroke='var(--uspech)' stroke-width='2'/><text x='184' y='138' font-size='12' text-anchor='middle' fill='var(--uspech)' font-weight='bold'>+1</text><text x='198' y='110' font-size='12' fill='var(--uspech)' font-weight='bold'>+2</text><text x='30' y='34' font-size='13' fill='var(--uspech)'>a = 2 → rostoucí</text><text x='30' y='54' font-size='13' fill='var(--zlata)'>b = 1 → průsečík s osou y</text></svg>",
+          "popisek": "Graf funkce y = 2x + 1: přímka protíná osu y ve výšce b = 1 (zlatý bod). Zelený schodek ukazuje sklon: o 1 doprava → o 2 nahoru, tedy a = 2. Kladné a znamená rostoucí funkci."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-funkce-uvod-1",
+            "temaId": "mat-funkce-uvod",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Co určuje koeficient a v předpisu lineární funkce y = ax + b?",
+            "moznosti": [
+              "sklon přímky — zda a jak rychle funkce roste, či klesá",
+              "průsečík grafu s osou y",
+              "průsečík grafu s osou x",
+              "definiční obor funkce"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Koeficient a je sklon: a > 0 rostoucí, a < 0 klesající, a = 0 konstantní. Průsečík s osou y určuje koeficient b — to je nejčastější záměna.",
+            "zdroj": "Funkce — úvod"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Lineární funkce** y = ax + b má za graf **přímku**:\n\n- **a** (sklon): a > 0 → **rostoucí**, a < 0 → **klesající**, a = 0 → **konstantní** (vodorovná přímka y = b),\n- **b**: hodnota pro x = 0 — místo, kde přímka protíná osu y.\n\nGraf narýsuješ ze **dvou bodů**: dosaď dvě hodnoty x, spočítej y, spoj přímkou.\n\n**Přímá úměrnost** je lineární funkce s b = 0: y = kx. Graf prochází **počátkem** — dvakrát víc minut, dvakrát vyšší cena. Koloběžka z hooku má předpis y = 5x + 25: není to přímá úměrnost (b = 25 ≠ 0), protože odemčení platíš, i kdybys ujel nula minut."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď lineární funkce podle koeficientu a: rostou, klesají, nebo se nemění?",
+            "kategorie": [
+              { "id": "rostouci", "nazev": "Rostoucí (a > 0)" },
+              { "id": "klesajici", "nazev": "Klesající (a < 0)" },
+              { "id": "konstantni", "nazev": "Konstantní (a = 0)" }
+            ],
+            "polozky": [
+              { "text": "y = 3x − 1", "kategorieId": "rostouci" },
+              { "text": "y = 0,5x + 2", "kategorieId": "rostouci" },
+              { "text": "y = −2x + 4", "kategorieId": "klesajici" },
+              { "text": "y = −x", "kategorieId": "klesajici" },
+              { "text": "y = 5", "kategorieId": "konstantni" },
+              { "text": "y = −7", "kategorieId": "konstantni" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-funkce-uvod-2",
+            "temaId": "mat-funkce-uvod",
+            "typ": "doplneni",
+            "obtiznost": 2,
+            "zadani": "Funkce y = −2x + 5. Vypočítej hodnotu y pro x = 3. (Napiš jen číslo.)",
+            "spravneOdpovedi": ["-1", "−1", "y=-1", "y = -1"],
+            "vysvetleni": "Dosaď: y = −2 · 3 + 5 = −6 + 5 = −1. Pozor na znaménko — nejčastější chyba je spočítat +6 + 5 = 11.",
+            "zdroj": "Funkce — úvod"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Jeden vstup do posilovny stojí 120 Kč. Permanentka stojí 900 Kč měsíčně a vstup s ní jen 30 Kč. Od kolika návštěv měsíčně se permanentka vyplatí?",
+          "reseni": "1. Cena bez permanentky: y₁ = 120n. Cena s permanentkou: y₂ = 900 + 30n (n = počet vstupů).\n2. Najdi, kdy jsou stejné: 120n = 900 + 30n.\n3. Odečti 30n: 90n = 900 → **n = 10**.\n4. Při 10 vstupech zaplatíš oběma způsoby 1 200 Kč. Od **11. vstupu měsíčně** je permanentka levnější (11 vstupů: 1 320 vs. 1 230 Kč).\n\nGraficky: dvě přímky s průsečíkem [10; 1 200] — před ním je níž y₁, za ním y₂."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Funkce", "zadni": "předpis přiřazující každému x právě jedno y" },
+            { "predni": "Definiční obor D(f)", "zadni": "množina všech přípustných x" },
+            { "predni": "Obor hodnot H(f)", "zadni": "množina všech y, která mohou vyjít" },
+            { "predni": "Lineární funkce", "zadni": "y = ax + b; grafem je přímka" },
+            { "predni": "Koeficient a", "zadni": "sklon: a > 0 rostoucí, a < 0 klesající, a = 0 konstantní" },
+            { "predni": "Koeficient b", "zadni": "hodnota pro x = 0; průsečík s osou y" },
+            { "predni": "Přímá úměrnost", "zadni": "y = kx; graf prochází počátkem" },
+            { "predni": "Jak narýsovat graf přímky", "zadni": "dosaď dvě hodnoty x, spočítej y, dva body spoj" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Funkce přiřazuje každému x právě jedno y; D(f) jsou přípustná x, H(f) možná y.\n- Lineární funkce y = ax + b má za graf přímku; a je sklon, b průsečík s osou y.\n- a > 0 rostoucí, a < 0 klesající, a = 0 konstantní.\n- Přímá úměrnost y = kx prochází počátkem.\n- Situace „paušál + cena za jednotku“ je lineární funkce — porovnávej průsečíkem."
+        }
+      ]
+    },
+    {
+      "temaId": "mat-planimetrie",
+      "nazev": "Planimetrie I",
+      "poradi": 5,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Konec tělocviku, autobus jede za tři minuty. Kolem hřiště 30 × 40 metrů je to po chodníku 70 metrů — a šikmo přes trávu? Dvě mocniny, odmocnina: přesně 50 metrů, ušetříš dvacet. Pythagoras — dva a půl tisíce let stará věta, která dodnes měří všechno od žebříků po úhlopříčky televizí."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Úhly**: plný úhel 360°, přímý 180°, pravý 90°. **Vedlejší úhly** dávají dohromady 180°, **vrcholové** jsou shodné. Součet vnitřních úhlů trojúhelníku je vždy **180°**.\n\n**Trojúhelník ABC**: strana a leží naproti vrcholu A. Důležité čáry:\n\n- **výška** — kolmice z vrcholu na protější stranu,\n- **těžnice** — spojnice vrcholu se **středem** protější strany; všechny tři se protínají v **těžišti** (dělí těžnice v poměru 2 : 1 od vrcholu).\n\n**Shodnost trojúhelníků** ověřují věty **sss** (tři strany), **sus** (dvě strany a úhel jimi SEVŘENÝ) a **usu** (strana a dva přilehlé úhly). Trojúhelníková nerovnost: součet každých dvou stran musí být větší než třetí."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Úhlopříčka televize (55″ znamená 139,7 cm šikmo), žebřík k oknu, vzpěra pod poličkou, nejkratší cesta šikmo přes hřiště — to je Pythagoras. Obvod ti řekne, kolik metrů pletiva, lišty nebo LED pásku koupit; obsah kolik barvy, dlažby nebo hnojiva. Řemeslníci, hráči Minecraftu i architekti počítají to samé."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 400 300' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Trojúhelník ABC s výškou, těžnicí a těžištěm'><polygon points='50,250 350,250 140,60' fill='none' stroke='currentColor' stroke-width='2.5'/><polyline points='128,250 128,238 140,238' fill='none' stroke='var(--info)' stroke-width='1.5'/><line x1='140' y1='60' x2='140' y2='250' stroke='var(--info)' stroke-width='2' stroke-dasharray='6 4'/><text x='148' y='170' font-size='13' fill='var(--info)' font-weight='bold'>výška v</text><line x1='50' y1='250' x2='245' y2='155' stroke='var(--zlata)' stroke-width='2'/><circle cx='245' cy='155' r='3' fill='var(--zlata)'/><text x='236' y='142' font-size='13' fill='var(--zlata)' font-weight='bold'>těžnice</text><line x1='350' y1='250' x2='95' y2='155' stroke='var(--zlata)' stroke-width='2' stroke-opacity='0.55'/><circle cx='95' cy='155' r='3' fill='var(--zlata)'/><circle cx='180' cy='187' r='6' fill='var(--akcent)'/><text x='192' y='205' font-size='13' fill='var(--akcent)' font-weight='bold'>těžiště T</text><text x='36' y='266' font-size='15' fill='currentColor' font-weight='bold'>A</text><text x='354' y='266' font-size='15' fill='currentColor' font-weight='bold'>B</text><text x='132' y='46' font-size='15' fill='currentColor' font-weight='bold'>C</text><text x='200' y='272' font-size='14' text-anchor='middle' fill='currentColor'>c</text><text x='258' y='148' font-size='14' fill='currentColor'>a</text><text x='72' y='150' font-size='14' text-anchor='end' fill='currentColor'>b</text></svg>",
+          "popisek": "Trojúhelník ABC: strana c leží naproti vrcholu C. Modrá čárkovaná výška jde z vrcholu C kolmo na stranu c (čtvereček značí pravý úhel). Zlaté těžnice míří do středů protějších stran a protínají se v těžišti T."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-planimetrie-1",
+            "temaId": "mat-planimetrie",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Jak se jmenuje průsečík těžnic trojúhelníku?",
+            "moznosti": ["těžiště", "ortocentrum", "střed kružnice opsané", "vrchol"],
+            "spravna": 0,
+            "vysvetleni": "Těžnice se protínají v těžišti, které dělí každou z nich v poměru 2 : 1 od vrcholu. Ortocentrum je průsečík VÝŠEK — to je nejčastější záměna. Střed kružnice opsané leží na průsečíku os stran.",
+            "zdroj": "Planimetrie I"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Pythagorova věta** platí jen v pravoúhlém trojúhelníku: čtverec nad **přeponou** c (nejdelší strana, naproti pravému úhlu) má stejný obsah jako čtverce nad **odvěsnami** dohromady:\n\n- c² = a² + b² — hledám přeponu: c = √(a² + b²),\n- a² = c² − b² — hledám odvěsnu: **odčítám**.\n\nPověstná trojice: 3² + 4² = 9 + 16 = 25 = 5².\n\n**Obvody a obsahy** (obvod v metrech, obsah v m²):\n\n- čtverec: o = 4a, S = a²,\n- obdélník: o = 2(a + b), S = a · b,\n- trojúhelník: o = a + b + c, S = (strana · výška na ni) ÷ 2."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "popisovacka",
+          "parametry": {
+            "svg": "<svg viewBox='0 0 400 300' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Pravoúhlý trojúhelník k popisování'><polygon points='70,250 350,250 70,70' fill='none' stroke='currentColor' stroke-width='2.5'/><polyline points='70,232 88,232 88,250' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='56' y='268' font-size='15' fill='currentColor' font-weight='bold'>C</text><text x='356' y='268' font-size='15' fill='currentColor' font-weight='bold'>B</text><text x='56' y='60' font-size='15' fill='currentColor' font-weight='bold'>A</text></svg>",
+            "body": [
+              { "x": 210, "y": 250, "nazev": "odvěsna BC", "popis": "Jedna ze dvou stran, které svírají pravý úhel. Leží naproti vrcholu A, v Pythagorově větě je to a." },
+              { "x": 70, "y": 160, "nazev": "odvěsna AC", "popis": "Druhá strana svírající pravý úhel — leží naproti vrcholu B, ve vzorci je to b. Odvěsny jsou vždy kratší než přepona." },
+              { "x": 210, "y": 160, "nazev": "přepona AB", "popis": "Nejdelší strana — leží naproti pravému úhlu u vrcholu C. V Pythagorově větě je to c: c² = a² + b²." },
+              { "x": 80, "y": 240, "nazev": "pravý úhel", "popis": "Úhel 90° u vrcholu C mezi odvěsnami; v obrázku ho značí čtvereček. Bez něj Pythagorova věta neplatí!" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-mat-planimetrie-2",
+            "temaId": "mat-planimetrie",
+            "typ": "doplneni",
+            "obtiznost": 2,
+            "zadani": "Pravoúhlý trojúhelník má odvěsny 6 cm a 8 cm. Jak dlouhá je přepona v cm? (Napiš jen číslo.)",
+            "spravneOdpovedi": ["10", "10 cm", "10cm"],
+            "vysvetleni": "c = √(6² + 8²) = √(36 + 64) = √100 = 10 cm. Je to dvojnásobek slavné trojice 3–4–5.",
+            "zdroj": "Planimetrie I"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Balkon má tvar obdélníku 3 m × 4 m. Chceš úhlopříčně natáhnout šňůru na prádlo a po obvodu (kromě 3m strany u dveří) připevnit LED pásek. Kolik metrů šňůry a kolik pásku potřebuješ?",
+          "reseni": "1. **Šňůra** = úhlopříčka obdélníku. Ta rozděluje obdélník na dva pravoúhlé trojúhelníky s odvěsnami 3 a 4 m.\n2. Pythagoras: u = √(3² + 4²) = √(9 + 16) = √25 = **5 m šňůry**.\n3. **LED pásek** = obvod bez jedné 3m strany: 4 + 3 + 4 = **11 m pásku**.\n4. Kontrola: celý obvod je 2 · (3 + 4) = 14 m, minus 3 m u dveří = 11 m ✓.\n\nStejná trojice jako zkratka přes hřiště z úvodu — 3, 4, 5, tam jen krát deset (30, 40, 50)."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Součet vnitřních úhlů trojúhelníku", "zadni": "vždy 180°" },
+            { "predni": "Vedlejší × vrcholové úhly", "zadni": "vedlejší dávají 180°, vrcholové jsou shodné" },
+            { "predni": "Výška trojúhelníku", "zadni": "kolmice z vrcholu na protější stranu; průsečík výšek = ortocentrum" },
+            { "predni": "Těžnice", "zadni": "spojnice vrcholu se středem protější strany" },
+            { "predni": "Těžiště", "zadni": "průsečík těžnic; dělí těžnici v poměru 2 : 1 od vrcholu" },
+            { "predni": "Věty o shodnosti", "zadni": "sss, sus (úhel sevřený!), usu" },
+            { "predni": "Pythagorova věta", "zadni": "v pravoúhlém trojúhelníku c² = a² + b² (c = přepona)" },
+            { "predni": "Obsah trojúhelníku", "zadni": "S = (strana · výška na ni) ÷ 2" },
+            { "predni": "Obvod a obsah obdélníku", "zadni": "o = 2(a + b), S = a · b" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Vnitřní úhly trojúhelníku dají vždy 180°; vedlejší úhly 180°, vrcholové jsou shodné.\n- Výška jde z vrcholu kolmo, těžnice do středu strany; těžnice se protínají v těžišti.\n- Shodnost: sss, sus, usu — u sus musí být úhel sevřený mezi stranami.\n- Pythagoras jen v pravoúhlém trojúhelníku: c² = a² + b²; odvěsnu počítám odčítáním.\n- Obvod = součet stran (m), obsah = velikost plochy (m²); trojúhelník S = (z · v) ÷ 2."
+        }
+      ]
+    }
+  ]
+}

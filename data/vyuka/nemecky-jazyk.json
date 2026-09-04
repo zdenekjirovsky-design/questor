@@ -1,0 +1,504 @@
+{
+  "predmetId": "nemecky-jazyk",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "nj-pozdravy",
+      "nazev": "Pozdravy a představování",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Stojíš na nádraží v Drážďanech — školní výlet, první hodina v Německu. Přijde k tobě holka se sluchátky na krku: „Hallo! Ich bin Lena. Und wer bist du?“ Ticho. Úsměv. Panika. Přitom stačí znát pár vět — a přesně ty se naučíš teď."
+        },
+        {
+          "typ": "text",
+          "obsah": "Němčina zdraví **podle denní doby**:\n\n- **Guten Morgen!** [gútn morgn] — ráno (zhruba do 10 h)\n- **Guten Tag!** [gútn ták] — přes den\n- **Guten Abend!** [gútn ábnt] — večer\n- **Gute Nacht!** [gúte nacht] — POZOR: jen na dobrou noc před spaním, není to pozdrav při setkání!\n\nMezi kamarády stačí **Hallo!** Při loučení: **Tschüss!** [čys] (neformálně) a **Auf Wiedersehen!** [auf vídrzéen] (zdvořile).\n\nNěmčina přísně rozlišuje **tykání a vykání**: kamarádovi **du** („Wie heißt du?“), dospělému a neznámému **Sie** — píše se vždy s velkým S („Wie heißen Sie?“)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Drážďany jsou z Prahy hodinu a půl autem a Vídeň kousek od Brna — německy pozdravíš prodavačku v Primarku i pokladní v aquaparku. A až budeš na brigádě obsluhovat německé turisty (v Praze jich potkáš tisíce), „Guten Tag“ a „Auf Wiedersehen“ ti vydělá lepší dýško než mlčení. I v online hrách potkáš Němce častěji, než čekáš."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 320' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Pozdravy podle denní doby a rozdíl du versus Sie'><text x='280' y='22' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Kdy jaký pozdrav?</text><line x1='30' y1='60' x2='520' y2='60' stroke='currentColor' stroke-width='2'/><polygon points='520,54 534,60 520,66' fill='currentColor'/><circle cx='90' cy='60' r='9' fill='var(--zlata)'/><circle cx='215' cy='60' r='9' fill='var(--akcent)'/><circle cx='340' cy='60' r='9' fill='var(--info)'/><circle cx='465' cy='60' r='9' fill='none' stroke='var(--info)' stroke-width='2'/><text x='90' y='90' text-anchor='middle' font-size='12' fill='currentColor'>ráno</text><text x='215' y='90' text-anchor='middle' font-size='12' fill='currentColor'>přes den</text><text x='340' y='90' text-anchor='middle' font-size='12' fill='currentColor'>večer</text><text x='465' y='90' text-anchor='middle' font-size='12' fill='currentColor'>před spaním</text><text x='90' y='112' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--zlata)'>Guten Morgen!</text><text x='215' y='112' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>Guten Tag!</text><text x='340' y='112' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>Guten Abend!</text><text x='465' y='112' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>Gute Nacht!</text><rect x='40' y='150' width='230' height='140' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2'/><text x='155' y='176' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--uspech)'>Kamarádi → du</text><text x='155' y='202' text-anchor='middle' font-size='13' fill='currentColor'>Hallo! / Tschüss!</text><text x='155' y='226' text-anchor='middle' font-size='13' fill='currentColor'>Wie heißt du?</text><text x='155' y='250' text-anchor='middle' font-size='12' fill='currentColor'>neformálně, vrstevníci</text><rect x='290' y='150' width='230' height='140' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='405' y='176' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>Dospělí, neznámí → Sie</text><text x='405' y='202' text-anchor='middle' font-size='13' fill='currentColor'>Guten Tag! / Auf Wiedersehen!</text><text x='405' y='226' text-anchor='middle' font-size='13' fill='currentColor'>Wie heißen Sie?</text><text x='405' y='250' text-anchor='middle' font-size='12' fill='currentColor'>zdvořile, Sie s velkým S</text></svg>",
+          "popisek": "Časová osa dne ukazuje, který pozdrav kdy použít (Gute Nacht jen před spaním!). Dole rozdíl mezi tykáním (du — kamarádi) a vykáním (Sie — dospělí a neznámí lidé)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nj-pozdravy-1",
+            "temaId": "nj-pozdravy",
+            "typ": "vyber",
+            "obtiznost": 1,
+            "zadani": "Potkáš ráno v 8 hodin spolužáka. Jak ho neformálně pozdravíš?",
+            "moznosti": ["Hallo!", "Auf Wiedersehen!", "Gute Nacht!", "Tschüss!"],
+            "spravna": 0,
+            "vysvetleni": "Hallo! je neformální pozdrav při setkání (šel by i Guten Morgen). Tschüss a Auf Wiedersehen jsou loučení a Gute Nacht se říká jen na dobrou noc před spaním."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Základ představování je sloveso **sein** (být) — je nepravidelné, musíš ho umět zpaměti:\n\n- **ich bin** — já jsem, **du bist** — ty jsi\n- **er/sie/es ist** — on/ona/ono je\n- **wir sind** — my jsme, **ihr seid** — vy jste (tykání skupině)\n- **sie sind** — oni jsou, **Sie sind** — Vy jste (vykání)\n\nPředstavení: **Ich heiße Petr.** [ich hajse] nebo **Ich bin Petr.** Původ: **Ich komme aus Tschechien.** Bydliště: **Ich wohne in Prag.**\n\n**W-otázky** — tázací slovo je první, sloveso hned za ním:\n\n- **Wie** heißt du? — JAK se jmenuješ?\n- **Wer** bist du? — KDO jsi?\n- **Wo** wohnst du? — KDE bydlíš?\n- **Woher** kommst du? — ODKUD pocházíš?\n\nZemě: **Deutschland** (Německo), **Österreich** (Rakousko), **Tschechien** (Česko), **die Slowakei** (Slovensko)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď výrazy podle toho, jestli se říkají při setkání, nebo při loučení.",
+            "kategorie": [
+              { "id": "setkani", "nazev": "Při setkání" },
+              { "id": "louceni", "nazev": "Při loučení" }
+            ],
+            "polozky": [
+              { "text": "Hallo!", "kategorieId": "setkani" },
+              { "text": "Guten Morgen!", "kategorieId": "setkani" },
+              { "text": "Guten Tag!", "kategorieId": "setkani" },
+              { "text": "Guten Abend!", "kategorieId": "setkani" },
+              { "text": "Tschüss!", "kategorieId": "louceni" },
+              { "text": "Auf Wiedersehen!", "kategorieId": "louceni" },
+              { "text": "Gute Nacht!", "kategorieId": "louceni" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nj-pozdravy-2",
+            "temaId": "nj-pozdravy",
+            "typ": "doplneni",
+            "obtiznost": 2,
+            "zadani": "Doplň tvar slovesa sein: Du ___ aus Brno.",
+            "spravneOdpovedi": ["bist"],
+            "vysvetleni": "K du patří tvar bist: Du bist aus Brno (Jsi z Brna). Sein je nepravidelné — ich bin, du bist, er ist se prostě musí umět."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Jsi na výměnném pobytu v Drážďanech a na chodbě tě osloví Lena. Přečti si minidialog a zkus mu porozumět dřív, než si rozklikneš překlad:\n\n— Hallo! Ich heiße Lena. Wie heißt du?\n— Hallo, ich bin Petr.\n— Woher kommst du, Petr?\n— Ich komme aus Tschechien, aus Prag. Und du?\n— Ich bin aus Dresden. Wie geht's?\n— Gut, danke!",
+          "reseni": "Překlad:\n\n— Ahoj! Jmenuju se Lena. Jak se jmenuješ ty?\n— Ahoj, já jsem Petr.\n— Odkud pocházíš, Petře?\n— Pocházím z Česka, z Prahy. A ty?\n— Já jsem z Drážďan. Jak se máš?\n— Dobře, díky!\n\nVšimni si: oba si tykají (heißt du, kommst du) — jsou vrstevníci. Jméno jde říct dvěma způsoby: *Ich heiße Lena* i *Ich bin Petr*. A na otázku *Woher?* (odkud) se odpovídá *aus* + země nebo město."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Guten Morgen!", "zadni": "Dobré ráno!" },
+            { "predni": "Guten Tag!", "zadni": "Dobrý den!" },
+            { "predni": "Guten Abend!", "zadni": "Dobrý večer!" },
+            { "predni": "Tschüss!", "zadni": "Ahoj! / Čau! (při loučení)" },
+            { "predni": "Auf Wiedersehen!", "zadni": "Na shledanou!" },
+            { "predni": "Wie heißt du?", "zadni": "Jak se jmenuješ?" },
+            { "predni": "Woher kommst du?", "zadni": "Odkud pocházíš?" },
+            { "predni": "Wo wohnst du?", "zadni": "Kde bydlíš?" },
+            { "predni": "Wie geht's? — Gut, danke.", "zadni": "Jak se máš? — Dobře, děkuji." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Pozdrav podle denní doby: Guten Morgen / Tag / Abend; **Gute Nacht jen před spaním**.\n- Loučení: Tschüss (kamarádi), Auf Wiedersehen (zdvořile).\n- **sein**: ich bin, du bist, er ist, wir sind, ihr seid, sie/Sie sind — nazpaměť!\n- Kamarádům **du**, dospělým a neznámým **Sie** (velké S).\n- W-otázky: wie (jak), wer (kdo), wo (kde), woher (odkud) — tázací slovo první, sloveso druhé."
+        }
+      ]
+    },
+    {
+      "temaId": "nj-rodina-cisla",
+      "nazev": "Rodina a čísla",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Lena z Drážďan ti píše na Instagram: „Wie alt bist du? Und hast du Geschwister?“ Pošleš fotku z rodinné oslavy a chceš napsat, kdo je kdo. Jenže — je bratr *der*, *die*, nebo *das*? A jak se vůbec řekne, že ti je šestnáct?"
+        },
+        {
+          "typ": "text",
+          "obsah": "Každé německé podstatné jméno má **člen** — a ten se musíš učit rovnou se slovem:\n\n- **der** = mužský rod: **der Vater** (otec), **der Bruder** (bratr), **der Opa** (děda), **der Sohn** (syn)\n- **die** = ženský rod: **die Mutter** (matka), **die Schwester** (sestra), **die Oma** (babička), **die Tochter** (dcera)\n- **das** = střední rod: **das Kind** (dítě), **das Baby**\n\nDalší slova: **die Familie** (rodina), **die Eltern** (rodiče — jen množné číslo). Podstatná jména se píšou **vždy s velkým písmenem**.\n\nPřivlastňování: **mein** Vater (můj otec), ale **meine** Mutter — před slovy se členem *die* přibírá -e.\n\nSloveso **haben** (mít): ich **habe**, du **hast**, er/sie/es **hat**, wir **haben**, ihr **habt**, sie/Sie **haben**. Pozor na zkrácené tvary **hast** a **hat** — bez -b-!"
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Čísla jsou v němčině nejpoužívanější slova vůbec — ceny v obchodě, věk při registraci, číslo pokoje na lyžáku v Alpách, skóre v zápase. A kdo si splete *sechzehn* (16) a *sechzig* (60), tomu prodavačka naúčtuje úplně jiný nákup. Rodinu zase popisuješ pokaždé, když se s někým seznámíš blíž — na výměně, na táboře, v hostitelské rodině."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 340' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Rodokmen s německými názvy členů rodiny obarvenými podle členu'><text x='280' y='20' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Rodina — barva prozradí člen</text><text x='120' y='44' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>der = mužský</text><text x='280' y='44' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--chyba)'>die = ženský</text><text x='440' y='44' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--uspech)'>das = střední</text><rect x='140' y='62' width='120' height='46' rx='8' fill='none' stroke='var(--info)' stroke-width='2'/><text x='200' y='82' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>der Opa</text><text x='200' y='100' text-anchor='middle' font-size='12' fill='currentColor'>děda</text><rect x='300' y='62' width='120' height='46' rx='8' fill='none' stroke='var(--chyba)' stroke-width='2'/><text x='360' y='82' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--chyba)'>die Oma</text><text x='360' y='100' text-anchor='middle' font-size='12' fill='currentColor'>babička</text><line x1='280' y1='108' x2='280' y2='130' stroke='currentColor' stroke-width='2'/><rect x='140' y='130' width='120' height='46' rx='8' fill='none' stroke='var(--info)' stroke-width='2'/><text x='200' y='150' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>der Vater</text><text x='200' y='168' text-anchor='middle' font-size='12' fill='currentColor'>otec</text><rect x='300' y='130' width='120' height='46' rx='8' fill='none' stroke='var(--chyba)' stroke-width='2'/><text x='360' y='150' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--chyba)'>die Mutter</text><text x='360' y='168' text-anchor='middle' font-size='12' fill='currentColor'>matka</text><line x1='280' y1='176' x2='280' y2='198' stroke='currentColor' stroke-width='2'/><rect x='60' y='198' width='130' height='46' rx='8' fill='none' stroke='var(--info)' stroke-width='2'/><text x='125' y='218' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>der Bruder</text><text x='125' y='236' text-anchor='middle' font-size='12' fill='currentColor'>bratr</text><rect x='215' y='198' width='130' height='46' rx='8' fill='none' stroke='var(--chyba)' stroke-width='2'/><text x='280' y='218' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--chyba)'>die Schwester</text><text x='280' y='236' text-anchor='middle' font-size='12' fill='currentColor'>sestra</text><rect x='370' y='198' width='130' height='46' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2'/><text x='435' y='218' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--uspech)'>das Kind</text><text x='435' y='236' text-anchor='middle' font-size='12' fill='currentColor'>dítě</text><text x='280' y='280' text-anchor='middle' font-size='13' fill='currentColor'>die Eltern = rodiče (jen množné číslo)</text><text x='280' y='305' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--zlata)'>Uč se slova VŽDY i se členem!</text></svg>",
+          "popisek": "Rodokmen tří generací: barva rámečku ukazuje člen — modře der (mužský rod), červeně die (ženský rod), zeleně das (střední rod). Kdo se učí slova rovnou se členem, nemusí později nic dohánět."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nj-rodina-cisla-1",
+            "temaId": "nj-rodina-cisla",
+            "typ": "vyber",
+            "obtiznost": 1,
+            "zadani": "Jaký člen má slovo Vater (otec)?",
+            "moznosti": ["der", "die", "das"],
+            "spravna": 0,
+            "vysvetleni": "Otec je mužského rodu: der Vater. Die patří ženskému rodu (die Mutter) a das střednímu (das Kind)."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Čísla 0–100** — stačí pochopit systém:\n\n- 0–12 samostatná slova: null, eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn, elf, zwölf\n- 13–19 = číslice + **-zehn**: dreizehn, vierzehn… POZOR: **sechzehn** (ne sechszehn) a **siebzehn** (ne siebenzehn)\n- desítky = **-zig**: zwanzig, vierzig, fünfzig… výjimka **dreißig** (30)\n- složená čísla ČTEME OBRÁCENĚ — jednotky + und + desítky: 21 = **einundzwanzig** („jedna-a-dvacet“), 66 = **sechsundsechzig**\n- 100 = **(ein)hundert**\n\n**Věk** se říká slovesem *sein*, ne *haben*:\n\n- **Wie alt bist du?** — Kolik ti je? (doslova „Jak jsi starý?“)\n- **Ich bin sechzehn (Jahre alt).** — Je mi šestnáct.\n- „Ich habe sechzehn Jahre“ je čechismus — v němčině CHYBA!"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď členy rodiny podle správného členu.",
+            "kategorie": [
+              { "id": "der", "nazev": "der (mužský rod)" },
+              { "id": "die", "nazev": "die (ženský rod)" },
+              { "id": "das", "nazev": "das (střední rod)" }
+            ],
+            "polozky": [
+              { "text": "Vater", "kategorieId": "der" },
+              { "text": "Bruder", "kategorieId": "der" },
+              { "text": "Opa", "kategorieId": "der" },
+              { "text": "Sohn", "kategorieId": "der" },
+              { "text": "Mutter", "kategorieId": "die" },
+              { "text": "Schwester", "kategorieId": "die" },
+              { "text": "Oma", "kategorieId": "die" },
+              { "text": "Tochter", "kategorieId": "die" },
+              { "text": "Kind", "kategorieId": "das" },
+              { "text": "Baby", "kategorieId": "das" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nj-rodina-cisla-2",
+            "temaId": "nj-rodina-cisla",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kolik je zweiundvierzig?",
+            "moznosti": ["42", "24", "40", "22"],
+            "spravna": 0,
+            "vysvetleni": "Zwei-und-vierzig = dvě-a-čtyřicet = 42. Německá čísla se čtou obráceně než česká; 24 by bylo vierundzwanzig."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Ukazuješ Leně fotku z rodinné oslavy. Přečti si minidialog:\n\n— Das ist meine Familie. Das ist mein Vater und das ist meine Mutter.\n— Hast du einen Bruder?\n— Ja, er heißt Jakub. Er ist dreizehn.\n— Und wie alt bist du?\n— Ich bin sechzehn.",
+          "reseni": "Překlad:\n\n— To je moje rodina. To je můj otec a to je moje matka.\n— Máš bratra?\n— Jo, jmenuje se Jakub. Je mu třináct.\n— A kolik je tobě?\n— Mně je šestnáct.\n\nVšimni si: věk se říká slovesem **sein** (*Er ist dreizehn*, *Ich bin sechzehn*) — nikdy „habe … Jahre“. *Mein Vater*, ale *meine Mutter a meine Familie* — před slovy se členem die má mein koncovku -e. Tvar *einen Bruder* je 4. pád — ten tě čeká v tématu Jídlo a nakupování."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "der Vater", "zadni": "otec" },
+            { "predni": "die Mutter", "zadni": "matka" },
+            { "predni": "der Bruder", "zadni": "bratr" },
+            { "predni": "die Schwester", "zadni": "sestra" },
+            { "predni": "die Eltern", "zadni": "rodiče" },
+            { "predni": "das Kind", "zadni": "dítě" },
+            { "predni": "einundzwanzig", "zadni": "21" },
+            { "predni": "dreißig", "zadni": "30" },
+            { "predni": "Wie alt bist du?", "zadni": "Kolik ti je let?" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Tři členy: **der** (der Vater), **die** (die Mutter), **das** (das Kind) — slova se uč vždy se členem.\n- **haben**: ich habe, du hast, er hat, wir haben, ihr habt, sie haben.\n- Čísla 13–19 končí na -zehn (výjimky sechzehn, siebzehn), desítky na -zig (výjimka dreißig).\n- Složená čísla obráceně: 21 = einundzwanzig, 66 = sechsundsechzig.\n- Věk se slovesem **sein**: Ich **bin** sechzehn — nikdy „habe 16 Jahre“."
+        }
+      ]
+    },
+    {
+      "temaId": "nj-skola-tyden",
+      "nazev": "Škola a týden",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Pondělí, 7:55. Lena ti volá přes Discord: „Was hast du heute?“ Otevřeš rozvrh a chceš odpovědět — matika, němčina, tělák. Jenže jak se vlastně řekne „v pondělí mám…“? A proč má každé sloveso najednou jinou koncovku?"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Pravidelná slovesa** se časují podle jednoduchého vzorce: vezmi infinitiv (**lernen** — učit se), uřízni **-en** a ke kmeni **lern-** přidej koncovku:\n\n- ich lern**e** — učím se\n- du lern**st** — učíš se\n- er/sie/es lern**t** — učí se\n- wir lern**en** — učíme se\n- ihr lern**t** — učíte se\n- sie/Sie lern**en** — učí se / učíte se (vykání)\n\nStejně fungují **machen** (dělat), **spielen** (hrát), **wohnen** (bydlet), **kommen** (pocházet). U kmenů na -t- se vkládá -e-: arbeiten → du arbeit**est**, er arbeit**et**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Koncovky -e, -st, -t jsou jako tabulka násobilky — naučíš se je JEDNOU a pak časuješ tisíce německých sloves. Dny v týdnu potřebuješ pořád: domluvit trénink, sraz i online session s německými spoluhráči („Freitag?“ — „Ja!“). A až pojedeš na výměnný pobyt, první, co s hostitelskou rodinou probereš, bude tvůj rozvrh."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 330' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Časování pravidelného slovesa lernen: kmen plus koncovky'><text x='280' y='22' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Časovací stroj: lernen = lern- + koncovka</text><rect x='30' y='120' width='120' height='60' rx='10' fill='none' stroke='var(--akcent)' stroke-width='3'/><text x='90' y='145' text-anchor='middle' font-size='16' font-weight='bold' fill='var(--akcent)'>lern-</text><text x='90' y='168' text-anchor='middle' font-size='12' fill='currentColor'>kmen</text><line x1='150' y1='150' x2='210' y2='60' stroke='currentColor' stroke-width='1.5'/><line x1='150' y1='150' x2='210' y2='96' stroke='currentColor' stroke-width='1.5'/><line x1='150' y1='150' x2='210' y2='132' stroke='currentColor' stroke-width='1.5'/><line x1='150' y1='150' x2='210' y2='168' stroke='currentColor' stroke-width='1.5'/><line x1='150' y1='150' x2='210' y2='204' stroke='currentColor' stroke-width='1.5'/><line x1='150' y1='150' x2='210' y2='240' stroke='currentColor' stroke-width='1.5'/><text x='220' y='64' font-size='13' fill='currentColor'>ich</text><text x='220' y='100' font-size='13' fill='currentColor'>du</text><text x='220' y='136' font-size='13' fill='currentColor'>er/sie/es</text><text x='220' y='172' font-size='13' fill='currentColor'>wir</text><text x='220' y='208' font-size='13' fill='currentColor'>ihr</text><text x='220' y='244' font-size='13' fill='currentColor'>sie/Sie</text><text x='320' y='64' font-size='14' font-weight='bold' fill='var(--zlata)'>+ e</text><text x='320' y='100' font-size='14' font-weight='bold' fill='var(--zlata)'>+ st</text><text x='320' y='136' font-size='14' font-weight='bold' fill='var(--zlata)'>+ t</text><text x='320' y='172' font-size='14' font-weight='bold' fill='var(--zlata)'>+ en</text><text x='320' y='208' font-size='14' font-weight='bold' fill='var(--zlata)'>+ t</text><text x='320' y='244' font-size='14' font-weight='bold' fill='var(--zlata)'>+ en</text><text x='400' y='64' font-size='14' font-weight='bold' fill='var(--uspech)'>lerne</text><text x='400' y='100' font-size='14' font-weight='bold' fill='var(--uspech)'>lernst</text><text x='400' y='136' font-size='14' font-weight='bold' fill='var(--uspech)'>lernt</text><text x='400' y='172' font-size='14' font-weight='bold' fill='var(--uspech)'>lernen</text><text x='400' y='208' font-size='14' font-weight='bold' fill='var(--uspech)'>lernt</text><text x='400' y='244' font-size='14' font-weight='bold' fill='var(--uspech)'>lernen</text><text x='280' y='300' text-anchor='middle' font-size='13' fill='currentColor'>Stejně: machen, spielen, wohnen, kommen…</text></svg>",
+          "popisek": "Časovací stroj: kmen lern- (fialově) dostává pro každou osobu svou koncovku (žlutě) a vzniká hotový tvar (zeleně). Stejný vzorec platí pro tisíce pravidelných sloves."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nj-skola-tyden-1",
+            "temaId": "nj-skola-tyden",
+            "typ": "vyber",
+            "obtiznost": 1,
+            "zadani": "Vyber správný tvar: Ich ___ Deutsch.",
+            "moznosti": ["lerne", "lernst", "lernt", "lernen"],
+            "spravna": 0,
+            "vysvetleni": "K ich patří koncovka -e: Ich lerne Deutsch (Učím se němčinu). Lernst patří k du, lernt k er/ihr a lernen k wir/sie."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Dny v týdnu** (všechny mají člen der):\n\n- **Montag** (pondělí), **Dienstag** (úterý), **Mittwoch** (středa — doslova „střed týdne“), **Donnerstag** (čtvrtek), **Freitag** (pátek), **Samstag** (sobota), **Sonntag** (neděle)\n- „v pondělí“ = **am Montag** — před dnem vždy předložka **am**\n\n**Škola:** die Schule (škola), der Stundenplan (rozvrh), die Stunde (hodina), die Pause (přestávka). Předměty: Deutsch, Englisch, Mathe, Sport, Geschichte (dějepis), Biologie, Informatik, **Wirtschaft** (ekonomika — tvůj obor!).\n\n**Další W-otázky:** was (co), wann (kdy), wie viele (kolik): *Was lernst du? Wann hast du Sport? Wie viele Stunden hast du am Freitag?*\n\nV oznamovací větě je sloveso **vždy na 2. místě**: *Ich habe am Montag Mathe.*"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              { "a": "Montag", "b": "pondělí" },
+              { "a": "Dienstag", "b": "úterý" },
+              { "a": "Mittwoch", "b": "středa" },
+              { "a": "Donnerstag", "b": "čtvrtek" },
+              { "a": "Freitag", "b": "pátek" },
+              { "a": "Samstag", "b": "sobota" },
+              { "a": "Sonntag", "b": "neděle" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nj-skola-tyden-2",
+            "temaId": "nj-skola-tyden",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Který den následuje po Dienstag (úterý)?",
+            "moznosti": ["Mittwoch", "Montag", "Donnerstag", "Freitag"],
+            "spravna": 0,
+            "vysvetleni": "Po úterý přichází středa — Mittwoch, doslova „střed týdne“. Donnerstag je čtvrtek a Montag pondělí."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Lena se vyptává na tvůj rozvrh. Přečti si minidialog:\n\n— Was hast du am Montag?\n— Am Montag habe ich Mathe, Deutsch und Sport.\n— Wann hast du Wirtschaft?\n— Am Mittwoch. Und du? Wie viele Stunden hast du am Freitag?\n— Sechs. Ich lerne auch Englisch und Informatik.",
+          "reseni": "Překlad:\n\n— Co máš v pondělí?\n— V pondělí mám matiku, němčinu a tělák.\n— Kdy máš ekonomiku?\n— Ve středu. A ty? Kolik hodin máš v pátek?\n— Šest. Učím se taky angličtinu a informatiku.\n\nVšimni si: před každým dnem je **am** (am Montag, am Mittwoch). Sloveso je vždy na 2. místě — i když věta začíná dnem: *Am Montag habe ich Mathe* (ne „Am Montag ich habe“). W-otázky: Was? (co), Wann? (kdy), Wie viele? (kolik)."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "der Montag", "zadni": "pondělí" },
+            { "predni": "der Mittwoch", "zadni": "středa („střed týdne“)" },
+            { "predni": "der Donnerstag", "zadni": "čtvrtek" },
+            { "predni": "der Samstag", "zadni": "sobota" },
+            { "predni": "der Stundenplan", "zadni": "rozvrh hodin" },
+            { "predni": "die Pause", "zadni": "přestávka" },
+            { "predni": "Wirtschaft", "zadni": "ekonomika (předmět)" },
+            { "predni": "wann?", "zadni": "kdy?" },
+            { "predni": "wie viele?", "zadni": "kolik?" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Pravidelná slovesa: kmen + koncovky **-e, -st, -t, -en, -t, -en** (ich lerne, du lernst, er lernt…).\n- Dny: Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag; „v pondělí“ = **am Montag**.\n- Předměty: Deutsch, Mathe, Sport, Geschichte, Informatik, Wirtschaft.\n- W-otázky: was (co), wann (kdy), wie viele (kolik) — tázací slovo první, sloveso hned za ním.\n- V oznamovací větě sloveso vždy na **2. místě**."
+        }
+      ]
+    },
+    {
+      "temaId": "nj-jidlo-nakupy",
+      "nazev": "Jídlo a nakupování",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Berlín, školní zájezd, poledne. Všichni už jedí a ty stojíš před pekárnou, kručí ti v břiše a v peněžence máš pět eur. Za výlohou voní Brötchen a koláče. Stačí říct jednu větu — jenže kterou? Po téhle lekci si objednáš bez zaváhání."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Jídlo a pití** — vždy se členem:\n\n- **das Brot** (chléb), **das Brötchen** (rohlík), **die Butter** (máslo), **der Käse** (sýr), **das Ei** (vejce), **der Kuchen** (koláč)\n- **der Apfel** (jablko), **die Banane** (banán)\n- **das Wasser** (voda), **die Milch** (mléko), **der Saft** (džus), **der Tee** (čaj), **der Kaffee** (káva)\n\nNakupování: **kaufen** (kupovat), **der Supermarkt**, **die Bäckerei** (pekárna), **die Kasse** (pokladna).\n\nZdvořilé přání = **ich möchte** (chtěl/a bych): *Ich möchte zwei Brötchen, bitte.* Časování: ich möchte, du möchtest, er möchte, wir möchten. S **bitte** na konci zní objednávka slušně."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Tohle je nejpraktičtější lekce celé němčiny — použiješ ji doslova při první cestě přes hranice. Objednat si jídlo, zeptat se na cenu a rozumět odpovědi („zwei Euro vierzig“) znamená nezaplatit zbytečně moc a nestát u kasy jako solný sloup. A německé supermarkety a pekárny potkáš i v Česku — Lidl, Kaufland i BILLA jsou německé a rakouské firmy."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 310' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Změna členů v akuzativu: mění se jen mužský rod'><text x='280' y='22' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Akuzativ (4. pád): mění se JEN mužský rod</text><text x='150' y='56' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>1. pád (kdo? co?)</text><text x='410' y='56' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>4. pád (koho? co?)</text><rect x='90' y='72' width='120' height='40' rx='8' fill='none' stroke='var(--chyba)' stroke-width='2'/><text x='150' y='97' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>der / ein</text><rect x='350' y='72' width='120' height='40' rx='8' fill='none' stroke='var(--chyba)' stroke-width='3'/><text x='410' y='97' text-anchor='middle' font-size='14' font-weight='bold' fill='var(--chyba)'>den / einen</text><line x1='215' y1='92' x2='340' y2='92' stroke='var(--chyba)' stroke-width='2.5'/><polygon points='340,86 352,92 340,98' fill='var(--chyba)'/><text x='278' y='82' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--chyba)'>MĚNÍ SE!</text><rect x='90' y='136' width='120' height='40' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2'/><text x='150' y='161' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>die / eine</text><rect x='350' y='136' width='120' height='40' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2'/><text x='410' y='161' text-anchor='middle' font-size='14' font-weight='bold' fill='var(--uspech)'>die / eine</text><line x1='215' y1='156' x2='340' y2='156' stroke='var(--uspech)' stroke-width='2'/><polygon points='340,150 352,156 340,162' fill='var(--uspech)'/><text x='278' y='146' text-anchor='middle' font-size='12' fill='var(--uspech)'>beze změny</text><rect x='90' y='200' width='120' height='40' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2'/><text x='150' y='225' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>das / ein</text><rect x='350' y='200' width='120' height='40' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2'/><text x='410' y='225' text-anchor='middle' font-size='14' font-weight='bold' fill='var(--uspech)'>das / ein</text><line x1='215' y1='220' x2='340' y2='220' stroke='var(--uspech)' stroke-width='2'/><polygon points='340,214 352,220 340,226' fill='var(--uspech)'/><text x='278' y='210' text-anchor='middle' font-size='12' fill='var(--uspech)'>beze změny</text><text x='280' y='276' text-anchor='middle' font-size='13' fill='currentColor'>Der Apfel ist rot. → Ich kaufe</text><text x='280' y='296' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--chyba)'>den Apfel. / Ich möchte einen Kaffee.</text></svg>",
+          "popisek": "V akuzativu (po slovesech kaufen, haben, möchten) se mění jen mužský rod: der na den, ein na einen (červeně). Ženský a střední rod zůstávají stejné (zeleně) — proto stačí hlídat jen der-slova."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nj-jidlo-nakupy-1",
+            "temaId": "nj-jidlo-nakupy",
+            "typ": "vyber",
+            "obtiznost": 1,
+            "zadani": "Co znamená die Milch?",
+            "moznosti": ["mléko", "máslo", "voda", "džus"],
+            "spravna": 0,
+            "vysvetleni": "Die Milch je mléko. Máslo je die Butter, voda das Wasser a džus der Saft."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Akuzativ (4. pád)** stojí po slovesech *kaufen*, *haben*, *möchten* — a mění se v něm JEN mužský rod:\n\n- **der → den**, **ein → einen**: Ich kaufe **den** Apfel. Ich möchte **einen** Kaffee.\n- die, das, eine, ein (stř.) zůstávají: Ich kaufe die Milch. Ich möchte ein Brötchen.\n\n**Ceny a placení:**\n\n- **Was kostet das?** — Kolik to stojí? / *Was kostet der Käse?*\n- **Das kostet zwei Euro fünfzig.** — 2,50 € (der Euro, der Cent)\n- **Das macht zusammen vier Euro.** — u pokladny: „dohromady to dělá…“\n- **bezahlen** — zaplatit\n\nCeny se čtou jednoduše: 3,20 € = *drei Euro zwanzig*."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Nákup v německé pekárně krok za krokem — co se říká v jaké chvíli?",
+            "kroky": [
+              { "nazev": "Pozdrav", "popis": "Vejdeš a pozdravíš: „Guten Tag!“ Prodavačka odpoví stejně." },
+              { "nazev": "Objednávka", "popis": "Řekneš, co chceš: „Ich möchte zwei Brötchen und einen Kuchen, bitte.“ — möchte + bitte = zdvořilost." },
+              { "nazev": "Otázka na cenu", "popis": "Nevíš, kolik to dělá? Zeptáš se: „Was macht das?“ nebo „Was kostet das?“" },
+              { "nazev": "Placení", "popis": "Prodavačka řekne: „Das macht drei Euro zwanzig.“ (3,20 €) — zaplatíš u pokladny (die Kasse)." },
+              { "nazev": "Rozloučení", "popis": "Poděkuješ a rozloučíš se: „Danke, auf Wiedersehen!“" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nj-jidlo-nakupy-2",
+            "temaId": "nj-jidlo-nakupy",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Vyber správný člen: Ich kaufe ___ Käse. (sýr = der Käse)",
+            "moznosti": ["den", "der", "das", "die"],
+            "spravna": 0,
+            "vysvetleni": "Käse je mužského rodu a po kaufen stojí akuzativ: der se mění na den — Ich kaufe den Käse. Der by byl 1. pád (Der Käse kostet drei Euro)."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Konečně stojíš v té berlínské pekárně. Přečti si minidialog:\n\n— Guten Tag!\n— Guten Tag. Ich möchte zwei Brötchen und einen Kuchen, bitte.\n— Gern. Das macht drei Euro zwanzig.\n— Bitte.\n— Danke, auf Wiedersehen!\n— Auf Wiedersehen!",
+          "reseni": "Překlad:\n\n— Dobrý den!\n— Dobrý den. Chtěl bych dva rohlíky a jeden koláč, prosím.\n— Rád(a). Dělá to tři eura dvacet (3,20 €).\n— Prosím. (podáváš peníze)\n— Děkuji, na shledanou!\n— Na shledanou!\n\nVšimni si: **einen Kuchen** — koláč je der Kuchen a po möchte je akuzativ, proto einen. *Zwei Brötchen* se nemění (střední rod, množné číslo). Cena: *drei Euro zwanzig* = 3,20 €. Celý nákup zvládneš se třemi frázemi: möchte, bitte, danke."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "das Brot", "zadni": "chléb" },
+            { "predni": "das Brötchen", "zadni": "rohlík, houska" },
+            { "predni": "der Käse", "zadni": "sýr" },
+            { "predni": "der Apfel", "zadni": "jablko" },
+            { "predni": "der Saft", "zadni": "džus" },
+            { "predni": "die Bäckerei", "zadni": "pekárna" },
+            { "predni": "Was kostet das?", "zadni": "Kolik to stojí?" },
+            { "predni": "Ich möchte…, bitte.", "zadni": "Chtěl(a) bych…, prosím." },
+            { "predni": "bezahlen", "zadni": "zaplatit" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Potraviny vždy se členem: das Brot, die Milch, der Käse, der Apfel…\n- Objednávka: **Ich möchte** + co chci + **bitte**.\n- Akuzativ mění JEN mužský rod: **der → den, ein → einen**; die a das se nemění.\n- Cena: **Was kostet das?** — *Das macht drei Euro zwanzig* (3,20 €).\n- Nákup = pozdrav → objednávka → cena → placení → rozloučení."
+        }
+      ]
+    },
+    {
+      "temaId": "nj-volny-cas",
+      "nazev": "Volný čas",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Pátek večer, Discord. Lena: „Was machst du am Wochenende?“ Chceš napsat, že umíš skvěle hrát fotbal, že máš rád hry a jestli nechce v sobotu zajít do kina. Tři věty — a v každé na tebe číhá německý slovosled. Zvládneme ho jednou provždy."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Koníčky:**\n\n- **Fußball spielen** (hrát fotbal), **Computerspiele spielen** (hrát počítačové hry)\n- **Musik hören** (poslouchat hudbu), **schwimmen** (plavat), **lesen** (číst), **tanzen** (tancovat), **Rad fahren** (jezdit na kole), **ins Kino gehen** (jít do kina)\n- **das Hobby** (koníček), **das Wochenende** (víkend)\n\nSloveso **mögen** (mít rád) se pojí přímo s podstatným jménem: ich **mag**, du **magst**, er **mag**, wir **mögen**, ihr **mögt**, sie **mögen**.\n\n- *Ich mag Musik.* — Mám rád hudbu.\n- *Magst du Fußball?* — Máš rád fotbal?"
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Small talk o koníčcích je první věc, kterou s kýmkoli novým řešíš — na výměně, na táboře, v online hře. „Ich mag Fußball, und du?“ je nejjednodušší způsob, jak z cizího člověka udělat kamaráda. A návrh „Wollen wir…?“ ti umožní naplánovat program, místo abys jen čekal, co vymyslí ostatní."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 320' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Pořádek slov: sloveso na druhém místě, infinitiv na konci věty'><text x='280' y='22' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Německá věta: sloveso VŽDY na 2. místě</text><rect x='30' y='48' width='130' height='34' rx='6' fill='none' stroke='currentColor' stroke-width='1.5'/><text x='95' y='70' text-anchor='middle' font-size='12' fill='currentColor'>1. místo</text><rect x='170' y='48' width='120' height='34' rx='6' fill='none' stroke='var(--akcent)' stroke-width='3'/><text x='230' y='70' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--akcent)'>2. SLOVESO</text><rect x='300' y='48' width='120' height='34' rx='6' fill='none' stroke='currentColor' stroke-width='1.5'/><text x='360' y='70' text-anchor='middle' font-size='12' fill='currentColor'>zbytek věty</text><rect x='430' y='48' width='110' height='34' rx='6' fill='none' stroke='var(--zlata)' stroke-width='3'/><text x='485' y='70' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--zlata)'>KONEC: infinitiv</text><text x='95' y='128' text-anchor='middle' font-size='14' fill='currentColor'>Ich</text><text x='230' y='128' text-anchor='middle' font-size='14' font-weight='bold' fill='var(--akcent)'>kann</text><text x='360' y='128' text-anchor='middle' font-size='14' fill='currentColor'>gut</text><text x='485' y='128' text-anchor='middle' font-size='14' font-weight='bold' fill='var(--zlata)'>schwimmen.</text><text x='95' y='178' text-anchor='middle' font-size='14' fill='currentColor'>Am Sonntag</text><text x='230' y='178' text-anchor='middle' font-size='14' font-weight='bold' fill='var(--akcent)'>kann</text><text x='360' y='178' text-anchor='middle' font-size='14' fill='currentColor'>ich Computerspiele</text><text x='485' y='178' text-anchor='middle' font-size='14' font-weight='bold' fill='var(--zlata)'>spielen.</text><line x1='60' y1='200' x2='500' y2='200' stroke='currentColor' stroke-width='1' stroke-dasharray='4 4'/><text x='280' y='232' text-anchor='middle' font-size='13' fill='var(--uspech)'>Věta začíná časem (Am Sonntag)? Podmět skočí ZA sloveso!</text><text x='280' y='262' text-anchor='middle' font-size='13' fill='currentColor'>kann … schwimmen = větný rámec:</text><text x='280' y='286' text-anchor='middle' font-size='13' fill='currentColor'>způsobové sloveso drží 2. místo, infinitiv čeká na konci</text></svg>",
+          "popisek": "Schéma německé věty: časované sloveso (fialově) stojí vždy na 2. místě, infinitiv (žlutě) na úplném konci. Druhý řádek ukazuje, že když věta začne časovým údajem, podmět se přesune až za sloveso."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nj-volny-cas-1",
+            "temaId": "nj-volny-cas",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Vyber správný tvar: Er ___ gut Fußball spielen.",
+            "moznosti": ["kann", "kannst", "können", "könnt"],
+            "spravna": 0,
+            "vysvetleni": "K er patří kann — stejný tvar jako u ich (ich kann, er kann). Kannst patří k du, können k wir/sie a könnt k ihr."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Können** (umět, moct) je způsobové sloveso: ich **kann**, du **kannst**, er/sie/es **kann**, wir **können**, ihr **könnt**, sie/Sie **können**. Pozor: *ich kann* a *er kann* mají stejný tvar!\n\nS können vzniká **větný rámec**: können na 2. místě, významové sloveso v infinitivu na ÚPLNÉM KONCI:\n\n- *Ich kann gut schwimmen.* — Umím dobře plavat.\n- *Am Sonntag kann ich Computerspiele spielen.*\n\nKdyž věta začíná časovým údajem, podmět jde AŽ ZA sloveso: *Am Montag spiele ich Fußball.* (ne „Am Montag ich spiele“!)\n\n**Návrhy** — otázka **Wollen wir…?** (Nepůjdeme…? / Co takhle…?):\n\n- *Wollen wir ins Kino gehen?* — Půjdeme do kina?\n- Souhlas: **Ja, gerne!** / **Gute Idee!** Odmítnutí: **Nein, leider nicht.** / **Ich kann nicht.**"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "können",
+                "vlastnosti": {
+                  "Význam": "umět, moct",
+                  "Tvar s ich": "ich kann",
+                  "Co za ním stojí": "infinitiv na konci věty",
+                  "Příklad": "Ich kann gut schwimmen. (Umím dobře plavat.)"
+                }
+              },
+              {
+                "nazev": "mögen",
+                "vlastnosti": {
+                  "Význam": "mít rád",
+                  "Tvar s ich": "ich mag",
+                  "Co za ním stojí": "podstatné jméno",
+                  "Příklad": "Ich mag Musik. (Mám rád hudbu.)"
+                }
+              },
+              {
+                "nazev": "möchten",
+                "vlastnosti": {
+                  "Význam": "chtěl/a bych (zdvořile)",
+                  "Tvar s ich": "ich möchte",
+                  "Co za ním stojí": "podstatné jméno v akuzativu",
+                  "Příklad": "Ich möchte einen Tee. (Chtěl bych čaj.)"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nj-volny-cas-2",
+            "temaId": "nj-volny-cas",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Která věta má správný pořádek slov?",
+            "moznosti": [
+              "Am Freitag spiele ich Tennis.",
+              "Am Freitag ich spiele Tennis.",
+              "Am Freitag spiele Tennis ich.",
+              "Ich am Freitag spiele Tennis."
+            ],
+            "spravna": 0,
+            "vysvetleni": "Věta začíná časovým údajem, takže sloveso zůstává na 2. místě a podmět jde hned za něj: Am Freitag spiele ich Tennis. Varianta „Am Freitag ich spiele“ kopíruje češtinu — v němčině je to chyba."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Plánuješ s Lenou víkend. Přečti si minidialog:\n\n— Wollen wir am Samstag schwimmen gehen?\n— Ich kann nicht gut schwimmen. Aber ich mag Fußball.\n— Gute Idee! Wollen wir Fußball spielen?\n— Ja, gerne! Und am Sonntag kann ich Computerspiele spielen.",
+          "reseni": "Překlad:\n\n— Nepůjdeme v sobotu plavat?\n— Neumím moc dobře plavat. Ale mám ráda fotbal.\n— Dobrý nápad! Zahrajeme si fotbal?\n— Jo, ráda! A v neděli můžu hrát počítačové hry.\n\nVšimni si větného rámce: *Wollen wir … gehen?*, *Ich kann … schwimmen*, *kann ich … spielen* — způsobové sloveso drží 2. místo (v otázce 1.), infinitiv stojí na konci. A ve větě *Am Sonntag kann ich…* je podmět ich až ZA slovesem, protože věta začíná časovým údajem."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "schwimmen", "zadni": "plavat" },
+            { "predni": "lesen", "zadni": "číst" },
+            { "predni": "Rad fahren", "zadni": "jezdit na kole" },
+            { "predni": "Musik hören", "zadni": "poslouchat hudbu" },
+            { "predni": "das Wochenende", "zadni": "víkend" },
+            { "predni": "Ich kann…", "zadni": "Umím… / Můžu…" },
+            { "predni": "Ich mag…", "zadni": "Mám rád(a)…" },
+            { "predni": "Wollen wir ins Kino gehen?", "zadni": "Půjdeme do kina?" },
+            { "predni": "Ja, gerne! / Nein, leider nicht.", "zadni": "Ano, rád(a)! / Ne, bohužel ne." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Koníčky: Fußball spielen, Musik hören, schwimmen, lesen, Rad fahren, ins Kino gehen.\n- **können** (umět): ich kann, du kannst, er kann… — infinitiv na KONCI věty (větný rámec).\n- **mögen** (mít rád) + podstatné jméno: Ich mag Musik.\n- Sloveso vždy na 2. místě; začne-li věta časem, podmět jde za sloveso: *Am Montag spiele ich Fußball.*\n- Návrh: **Wollen wir…?** — odpověď Ja, gerne! / Gute Idee! / Nein, leider nicht."
+        }
+      ]
+    }
+  ]
+}

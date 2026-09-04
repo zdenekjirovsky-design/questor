@@ -14,8 +14,23 @@ npm run dev:server     # API na http://localhost:8787
 npm run dev:aplikace   # aplikace na http://localhost:5173
 ```
 
-Aplikace funguje i bez serveru — bundlované vzorové předměty „Ekonomika
-a podnikání“ (banka otázek) a „Zbožíznalství“ (banka + 5 výukových lekcí).
+Aplikace funguje i bez serveru — kompletní 1. ročník SŠ (obor Ekonomika
+a podnikání) je bundlovaný přímo v ní: 13 předmětů, každý s bankou otázek
+i výukovými lekcemi.
+
+## Předměty (1. ročník)
+
+Ekonomika a podnikání, Písemná a elektronická komunikace, Informatika,
+Český jazyk a literatura, Anglický jazyk, Německý jazyk, Matematika,
+Dějepis, Občanská nauka, Fyzika, Chemie, Biologie a ekologie,
+Zbožíznalství — celkem 77 témat, 708 otázek v bankách, 77 lekcí
+(154 mini-kvízů, 81 widgetů).
+
+Názvy, ikony a pořadí předmětů v UI drží registr
+`aplikace/src/data/predmety.ts` (`PREDMETY`); obsah se bundluje jako JSON
+v `aplikace/src/data/predmety/`. **Nový předmět nebo další ročník**
+(= nový předmět s vlastním id, např. `matematika-2`): postup
+v `docs/NAVOD.md`, kap. 5 — učivo → banka → výuka → registr → bundle.
 
 ## Generování otázek a výuky z učiva
 
@@ -33,10 +48,12 @@ Poskytovatel se volí automaticky (`ANTHROPIC_API_KEY` → API, jinak lokální
 Pozor: příkaz běží uvnitř workspace `generator/`, takže `--vstup`/`--vystup`
 zadávej absolutně (proto `"$PWD/…"`). Nápověda: `npm run generuj -- --napoveda`.
 
-Validace hotové banky:
+Validace hotového obsahu:
 
 ```bash
 npx tsx scripts/validuj-banku.ts data/banky/ekonomika-podnikani.json
+npx tsx scripts/validuj-vyuku.ts data/vyuka/ekonomika-podnikani.json
+npx tsx scripts/kontrola-integrace.ts   # křížové kontroly napříč všemi bundlovanými předměty
 ```
 
 ## Kontrola před commitem
@@ -52,5 +69,7 @@ npm run typecheck && npm test && npm run build -w aplikace
 - `docs/DESIGN.md` — vizuální jazyk a herní „juice“
 - `docs/NAVOD.md` — provozní návod pro admina (učivo → banka + výuka → student)
 - `docs/NASAZENI.md` — server, Windows build (Tauri 2 + GitHub Actions), auto-update
+- `docs/DIDAKTIKA.md` — ZÁVAZNÁ šablona lekcí a pravidla kvality otázek
+  (psychologie učení)
 - `docs/VYUKA.md` — didaktické zásady výukových lekcí (technický kontrakt
   výuky je v ARCHITEKTURA.md, sekce Výuka)

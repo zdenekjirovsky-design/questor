@@ -1,0 +1,751 @@
+{
+  "predmetId": "chemie",
+  "nazev": "Chemie",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "che-latky-smesi", "nazev": "Látky a směsi", "poradi": 0 },
+    { "id": "che-atom-psp", "nazev": "Atom a periodická soustava", "poradi": 1 },
+    { "id": "che-vazba", "nazev": "Chemická vazba", "poradi": 2 },
+    { "id": "che-nazvoslovi", "nazev": "Anorganické názvosloví", "poradi": 3 },
+    { "id": "che-reakce", "nazev": "Chemické reakce", "poradi": 4 },
+    { "id": "che-voda-roztoky", "nazev": "Voda, vzduch a roztoky", "poradi": 5 }
+  ],
+  "otazky": [
+    {
+      "id": "o-che-latky-smesi-1",
+      "temaId": "che-latky-smesi",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co platí o stejnorodé (homogenní) směsi?",
+      "moznosti": [
+        "Její složky nerozeznáme okem ani mikroskopem",
+        "Její složky rozeznáme pouhým okem",
+        "Obsahuje vždy jen jednu čistou látku",
+        "Její složky rozeznáme jen pod mikroskopem"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Stejnorodá směs (roztok) vypadá v celém objemu stejně — složky v ní nerozeznáme okem ani mikroskopem (slaná voda, vzduch). Směs, jejíž složky rozeznáme okem nebo mikroskopem, je různorodá; jedna čistá látka není směs vůbec.",
+      "zdroj": "Látky a směsi"
+    },
+    {
+      "id": "o-che-latky-smesi-2",
+      "temaId": "che-latky-smesi",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Vzduch je chemicky čistá látka.",
+      "spravna": false,
+      "vysvetleni": "Vzduch je stejnorodá směs plynů — hlavně dusíku (78 %) a kyslíku (21 %). Čistá látka má jediné složení (např. samotný kyslík); vzduch klame tím, že je průhledný a vypadá „jednolitě“, ale to je právě znak roztoku.",
+      "zdroj": "Látky a směsi"
+    },
+    {
+      "id": "o-che-latky-smesi-3",
+      "temaId": "che-latky-smesi",
+      "typ": "multi",
+      "obtiznost": 2,
+      "zadani": "Které z následujících směsí jsou různorodé (heterogenní)?",
+      "moznosti": [
+        "Žula",
+        "Voda s pískem",
+        "Slaná voda",
+        "Vzduch",
+        "Mlha"
+      ],
+      "spravne": [0, 1, 4],
+      "vysvetleni": "V žule rozeznáme zrnka minerálů okem, v suspenzi vody s pískem částice písku a mlha jsou drobné kapičky vody rozptýlené ve vzduchu — vše různorodé. Slaná voda a vzduch jsou roztoky (stejnorodé směsi), složky v nich nerozeznáme.",
+      "zdroj": "Látky a směsi"
+    },
+    {
+      "id": "o-che-latky-smesi-4",
+      "temaId": "che-latky-smesi",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Kterou metodou oddělíš kuchyňskou sůl rozpuštěnou ve vodě?",
+      "moznosti": [
+        "Odpařováním s krystalizací",
+        "Filtrací",
+        "Usazováním",
+        "Přecezením přes sítko"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rozpuštěná sůl je součástí roztoku — projde filtrem, sítkem i usazování jí nevadí, protože v roztoku nejsou žádné pevné částice. Musíme odpařit vodu; sůl zůstane a vykrystalizuje. Filtrace funguje jen na nerozpuštěné pevné látky.",
+      "zdroj": "Látky a směsi"
+    },
+    {
+      "id": "o-che-latky-smesi-5",
+      "temaId": "che-latky-smesi",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď metodu oddělování složek k vlastnosti, kterou využívá.",
+      "pary": [
+        { "levy": "Filtrace", "pravy": "různá velikost částic (pevná látka neprojde filtrem)" },
+        { "levy": "Destilace", "pravy": "různá teplota varu kapalin" },
+        { "levy": "Usazování", "pravy": "různá hustota složek" },
+        { "levy": "Krystalizace", "pravy": "odpaření rozpouštědla z roztoku" }
+      ],
+      "vysvetleni": "Každá metoda stojí na jiné vlastnosti: filtr zadrží částice větší než jeho póry, destilace odpaří dřív složku s nižší teplotou varu, při usazování klesá hustší složka ke dnu a krystalizace nechá rozpuštěnou látku vyloučit po odpaření rozpouštědla.",
+      "zdroj": "Látky a směsi"
+    },
+    {
+      "id": "o-che-latky-smesi-6",
+      "temaId": "che-latky-smesi",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Destiluješ směs lihu (teplota varu 78 °C) a vody (100 °C). Co se stane při pomalém zahřívání?",
+      "moznosti": [
+        "Jako první se odpařuje a v chladiči jímá převážně líh",
+        "Jako první se odpařuje a jímá převážně voda",
+        "Obě kapaliny se odpařují vždy naprosto stejně",
+        "Líh zůstane v baňce a voda se vypaří"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Při destilaci se dřív a ochotněji vypařuje složka s nižší teplotou varu — tady líh (78 °C). Jeho páry se v chladiči zkapalní a jímají jako destilát. Voda by se vypařovala první jen tehdy, kdyby měla nižší teplotu varu, což nemá.",
+      "zdroj": "Látky a směsi"
+    },
+    {
+      "id": "o-che-latky-smesi-7",
+      "temaId": "che-latky-smesi",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Metoda oddělování kapalných složek směsi založená na jejich rozdílných teplotách varu se nazývá ___.",
+      "spravneOdpovedi": ["destilace", "Destilace"],
+      "vysvetleni": "Destilace: směs se zahřívá, složka s nižší teplotou varu se vypaří první, páry se v chladiči zkapalní a jímají. Používá se při výrobě destilované vody, lihovin i při zpracování ropy.",
+      "zdroj": "Látky a směsi"
+    },
+    {
+      "id": "o-che-latky-smesi-8",
+      "temaId": "che-latky-smesi",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "V hrnku máš vychladlý čaj, ve kterém je rozpuštěný cukr a na dně nerozpuštěné čajové lístky. Jak získáš zvlášť lístky i cukr?",
+      "moznosti": [
+        "Nejdřív filtrací zachytím lístky, potom z filtrátu odpařím vodu a cukr vykrystalizuje",
+        "Nejdřív odpařím vodu a potom lístky odfiltruju",
+        "Vše najednou oddělím jedinou filtrací",
+        "Směs stačí nechat usadit — cukr klesne ke dnu vedle lístků"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Postup musí jít od nerozpuštěných složek k rozpuštěným: filtr zachytí lístky, ale cukr filtrem proteče, protože je rozpuštěný — získám ho až odpařením vody z filtrátu. Odpařovat před filtrací nedává smysl (cukr i lístky by zůstaly smíchané) a usazováním rozpuštěný cukr nikdy neklesne.",
+      "zdroj": "Látky a směsi"
+    },
+
+    {
+      "id": "o-che-atom-psp-1",
+      "temaId": "che-atom-psp",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Ve které části atomu je soustředěna téměř veškerá jeho hmotnost?",
+      "moznosti": [
+        "V jádře",
+        "V elektronovém obalu",
+        "Rovnoměrně v celém atomu",
+        "Ve valenční vrstvě"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Protony a neutrony v jádře jsou zhruba 1800× těžší než elektrony, proto jádro nese téměř celou hmotnost atomu — přestože je nepatrné. Obal zabírá skoro celý objem atomu, ale váží zanedbatelně málo.",
+      "zdroj": "Atom a periodická soustava"
+    },
+    {
+      "id": "o-che-atom-psp-2",
+      "temaId": "che-atom-psp",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Kladně nabitá částice v jádře atomu se nazývá ___.",
+      "spravneOdpovedi": ["proton", "Proton"],
+      "vysvetleni": "Jádro obsahuje kladné protony a neutrální neutrony. Počet protonů (protonové číslo) určuje, o jaký prvek jde. Záporné elektrony jsou v obalu, ne v jádře.",
+      "zdroj": "Atom a periodická soustava"
+    },
+    {
+      "id": "o-che-atom-psp-3",
+      "temaId": "che-atom-psp",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď částici atomu k jejímu popisu.",
+      "pary": [
+        { "levy": "Proton", "pravy": "kladný náboj, v jádře" },
+        { "levy": "Neutron", "pravy": "bez náboje, v jádře" },
+        { "levy": "Elektron", "pravy": "záporný náboj, v obalu" }
+      ],
+      "vysvetleni": "Jádro tvoří protony (+) a neutrony (0), obal tvoří elektrony (−). Protože je atom navenek neutrální, má stejný počet protonů a elektronů.",
+      "zdroj": "Atom a periodická soustava"
+    },
+    {
+      "id": "o-che-atom-psp-4",
+      "temaId": "che-atom-psp",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Izotopy téhož prvku mají stejný počet protonů, ale různý počet neutronů.",
+      "spravna": true,
+      "vysvetleni": "Přesně to je definice izotopů: stejné protonové číslo Z (jinak by šlo o jiný prvek), různé nukleonové číslo A kvůli jinému počtu neutronů. Příklad: uhlík ¹²C a ¹⁴C.",
+      "zdroj": "Atom a periodická soustava"
+    },
+    {
+      "id": "o-che-atom-psp-5",
+      "temaId": "che-atom-psp",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Atom chloru má protonové číslo Z = 17 a nukleonové číslo A = 35. Kolik má neutronů?",
+      "moznosti": [
+        "18",
+        "17",
+        "35",
+        "52"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Počet neutronů N = A − Z = 35 − 17 = 18. Číslo 17 je počet protonů (a elektronů), 35 je součet protonů a neutronů a 52 by vyšlo chybným sečtením A + Z.",
+      "zdroj": "Atom a periodická soustava"
+    },
+    {
+      "id": "o-che-atom-psp-6",
+      "temaId": "che-atom-psp",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Proč mají prvky v téže hlavní skupině periodické soustavy podobné chemické vlastnosti?",
+      "moznosti": [
+        "Mají stejný počet valenčních elektronů",
+        "Mají stejný počet elektronových vrstev",
+        "Mají stejnou hmotnost atomů",
+        "Mají stejný počet neutronů"
+      ],
+      "spravna": 0,
+      "vysvetleni": "O chemickém chování rozhodují valenční elektrony — a prvky téže hlavní skupiny jich mají stejný počet (např. všechny alkalické kovy jeden). Stejný počet vrstev mají naopak prvky téže periody; hmotnost ani neutrony vlastnosti neurčují.",
+      "zdroj": "Atom a periodická soustava"
+    },
+    {
+      "id": "o-che-atom-psp-7",
+      "temaId": "che-atom-psp",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Která tvrzení o periodické soustavě prvků platí?",
+      "moznosti": [
+        "Prvky jsou řazeny podle rostoucího protonového čísla",
+        "Perioda je vodorovný řádek tabulky",
+        "Skupina je svislý sloupec tabulky",
+        "Prvky jsou řazeny podle abecedy",
+        "V tabulce jsou jen kovy"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Moderní PSP řadí prvky podle protonového čísla (Mendělejev původně podle atomových hmotností); řádky jsou periody, sloupce skupiny. Abecední řazení by periodicitu vlastností zničilo a tabulka obsahuje kovy, polokovy i nekovy.",
+      "zdroj": "Atom a periodická soustava"
+    },
+    {
+      "id": "o-che-atom-psp-8",
+      "temaId": "che-atom-psp",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Které prvky téměř nereagují s ostatními látkami, protože mají zcela zaplněnou valenční vrstvu?",
+      "moznosti": [
+        "Vzácné plyny (helium, neon, argon)",
+        "Alkalické kovy (sodík, draslík)",
+        "Halogeny (fluor, chlor)",
+        "Přechodné kovy (železo, měď)"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Vzácné plyny (VIII.A skupina) mají stabilní zaplněnou valenční vrstvu, takže nemají důvod tvořit vazby — proto se jimi plní třeba balonky (helium) nebo žárovky (argon). Alkalické kovy a halogeny jsou přesný opak: patří k nejreaktivnějším prvkům.",
+      "zdroj": "Atom a periodická soustava"
+    },
+    {
+      "id": "o-che-atom-psp-9",
+      "temaId": "che-atom-psp",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Atom sodíku (Z = 11) odevzdal jeden elektron a vznikl kation Na⁺. Kolik má tento kation protonů a elektronů?",
+      "moznosti": [
+        "11 protonů a 10 elektronů",
+        "10 protonů a 11 elektronů",
+        "11 protonů a 11 elektronů",
+        "10 protonů a 10 elektronů"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Při vzniku iontu se mění jen elektrony v obalu — jádro zůstává: 11 protonů. Neutrální atom měl 11 elektronů, po odevzdání jednoho jich má 10, proto převažuje kladný náboj +1. Kdyby se změnil počet protonů, byl by to jiný prvek, ne ion sodíku.",
+      "zdroj": "Atom a periodická soustava"
+    },
+
+    {
+      "id": "o-che-vazba-1",
+      "temaId": "che-vazba",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Které elektrony se účastní tvorby chemické vazby?",
+      "moznosti": [
+        "Valenční elektrony z nejvzdálenější vrstvy obalu",
+        "Elektrony z vnitřních vrstev obalu",
+        "Elektrony z jádra atomu",
+        "Všechny elektrony atomu stejnou měrou"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Vazby tvoří valenční elektrony — jsou nejdál od jádra, a proto se mohou sdílet nebo předávat. Vnitřní elektrony jsou pevně vázané a v jádře žádné elektrony nejsou (tam jsou protony a neutrony).",
+      "zdroj": "Chemická vazba"
+    },
+    {
+      "id": "o-che-vazba-2",
+      "temaId": "che-vazba",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Kovalentní vazba vzniká sdílením elektronového páru mezi dvěma atomy.",
+      "spravna": true,
+      "vysvetleni": "Ano — to je podstata kovalentní vazby (např. v molekule H₂ nebo H₂O). Úplné předání elektronu je naopak vazba iontová.",
+      "zdroj": "Chemická vazba"
+    },
+    {
+      "id": "o-che-vazba-3",
+      "temaId": "che-vazba",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jaká vazba drží pohromadě krystal chloridu sodného NaCl?",
+      "moznosti": [
+        "Iontová — sodík předal elektron chloru a vzniklé ionty se přitahují",
+        "Nepolární kovalentní — atomy sdílejí elektrony rovnoměrně",
+        "Kovová — ionty drží moře volných elektronů",
+        "Žádná — krystal drží jen gravitací"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Sodík (nízká elektronegativita) elektron odevzdá, chlor (vysoká) ho přijme — vzniknou ionty Na⁺ a Cl⁻, které se přitahují. Rozdíl elektronegativit je příliš velký na sdílení (kovalentní vazbu) a kovová vazba existuje jen mezi atomy kovů.",
+      "zdroj": "Chemická vazba"
+    },
+    {
+      "id": "o-che-vazba-4",
+      "temaId": "che-vazba",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Schopnost atomu přitahovat k sobě elektrony chemické vazby se nazývá ___.",
+      "spravneOdpovedi": ["elektronegativita", "Elektronegativita"],
+      "vysvetleni": "Elektronegativita (X) roste v periodické tabulce doprava a nahoru; nejvyšší má fluor. Z rozdílu elektronegativit vázaných atomů odhadneme, zda je vazba nepolární, polární, nebo iontová.",
+      "zdroj": "Chemická vazba"
+    },
+    {
+      "id": "o-che-vazba-5",
+      "temaId": "che-vazba",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď typ vazby k typickému příkladu.",
+      "pary": [
+        { "levy": "Nepolární kovalentní", "pravy": "molekula H₂" },
+        { "levy": "Polární kovalentní", "pravy": "molekula H₂O" },
+        { "levy": "Iontová", "pravy": "krystal NaCl" },
+        { "levy": "Kovová", "pravy": "drát z mědi" }
+      ],
+      "vysvetleni": "Dva stejné atomy vodíku sdílejí pár rovnoměrně (nepolární). Kyslík přitahuje elektrony silněji než vodík — vazba ve vodě je polární. V NaCl se elektron předává úplně (iontová) a v mědi drží kationty pohromadě volné elektrony (kovová).",
+      "zdroj": "Chemická vazba"
+    },
+    {
+      "id": "o-che-vazba-6",
+      "temaId": "che-vazba",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Vodík má elektronegativitu 2,2 a chlor 3,2. Jaká vazba je v molekule HCl?",
+      "moznosti": [
+        "Polární kovalentní — sdílený pár je posunut k chloru",
+        "Nepolární kovalentní — elektrony jsou přesně uprostřed",
+        "Iontová — vodík elektron úplně předal",
+        "Kovová — elektrony se volně pohybují"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rozdíl elektronegativit je 1,0 — to spadá do pásma polární kovalentní vazby (zhruba 0,4–1,7): pár se sdílí, ale posunutě k elektronegativnějšímu chloru. Na iontovou vazbu je rozdíl malý, na nepolární zase příliš velký.",
+      "zdroj": "Chemická vazba"
+    },
+    {
+      "id": "o-che-vazba-7",
+      "temaId": "che-vazba",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které vlastnosti kovů vysvětlují volně pohyblivé elektrony kovové vazby?",
+      "moznosti": [
+        "Elektrická vodivost",
+        "Tepelná vodivost",
+        "Kujnost a tažnost",
+        "Nízká hustota všech kovů",
+        "Rozpustnost ve vodě"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Volné elektrony přenášejí elektrický náboj i teplo a dovolují vrstvám kationtů po sobě klouzat, aniž se krystal rozpadne — proto jsou kovy kujné. Hustota kovů je různá (lithium plave, olovo je těžké) a běžné kovy se ve vodě nerozpouštějí.",
+      "zdroj": "Chemická vazba"
+    },
+    {
+      "id": "o-che-vazba-8",
+      "temaId": "che-vazba",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Proč vede roztok kuchyňské soli elektrický proud, zatímco pevná sůl nikoli?",
+      "moznosti": [
+        "V roztoku se ionty Na⁺ a Cl⁻ uvolní a mohou se pohybovat, v krystalu jsou pevně vázané",
+        "Voda sama o sobě výborně vede proud a sůl na tom nic nemění",
+        "V roztoku vznikají volné elektrony jako v kovu",
+        "Pevná sůl proud vede, jen mnohem lépe než roztok"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Vedení proudu vyžaduje pohyblivé nabité částice. V krystalu NaCl jsou ionty uvězněné v mřížce; rozpuštěním se uvolní a proud přenášejí. Čistá voda vede proud jen nepatrně a volné elektrony jsou znak kovové vazby, ne roztoku soli.",
+      "zdroj": "Chemická vazba"
+    },
+
+    {
+      "id": "o-che-nazvoslovi-1",
+      "temaId": "che-nazvoslovi",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jaké oxidační číslo má kyslík v oxidech?",
+      "moznosti": [
+        "−II",
+        "+II",
+        "−I",
+        "0"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kyslík má v oxidech vždy oxidační číslo −II — právě od něj se dopočítává kladné oxidační číslo druhého prvku. Nulu mají atomy volných prvků, ne prvky ve sloučenině.",
+      "zdroj": "Anorganické názvosloví"
+    },
+    {
+      "id": "o-che-nazvoslovi-2",
+      "temaId": "che-nazvoslovi",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Napiš název sloučeniny SO₂ (dvě slova).",
+      "spravneOdpovedi": ["oxid siřičitý", "oxid siricity", "Oxid siřičitý"],
+      "vysvetleni": "Síra tu má oxidační číslo +IV (dva kyslíky à −II dají −IV), a číslu IV patří přípona -ičitý: oxid siřičitý. Pozor na záměnu s SO₃ — oxidem sírovým (+VI).",
+      "zdroj": "Anorganické názvosloví"
+    },
+    {
+      "id": "o-che-nazvoslovi-3",
+      "temaId": "che-nazvoslovi",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Napiš vzorec oxidu vápenatého.",
+      "spravneOdpovedi": ["CaO", "cao"],
+      "vysvetleni": "Přípona -natý znamená oxidační číslo +II. Vápník Ca⁺ᴵᴵ a kyslík O⁻ᴵᴵ se vyrovnají v poměru 1 : 1, proto CaO (pálené vápno).",
+      "zdroj": "Anorganické názvosloví"
+    },
+    {
+      "id": "o-che-nazvoslovi-4",
+      "temaId": "che-nazvoslovi",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Jaké oxidační číslo prozrazuje přípona -itý (např. oxid železitý)?",
+      "moznosti": [
+        "+III",
+        "+II",
+        "+IV",
+        "+VI"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Řada přípon jde po oxidačních číslech: -ný (I), -natý (II), -itý (III), -ičitý (IV), -ičný/-ečný (V), -ový (VI), -istý (VII), -ičelý (VIII). Železo v oxidu železitém Fe₂O₃ má tedy +III; -ičitý (IV) je častá záměna.",
+      "zdroj": "Anorganické názvosloví"
+    },
+    {
+      "id": "o-che-nazvoslovi-5",
+      "temaId": "che-nazvoslovi",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď vzorec k názvu sloučeniny.",
+      "pary": [
+        { "levy": "CO₂", "pravy": "oxid uhličitý" },
+        { "levy": "Na₂O", "pravy": "oxid sodný" },
+        { "levy": "Fe₂O₃", "pravy": "oxid železitý" },
+        { "levy": "SO₃", "pravy": "oxid sírový" }
+      ],
+      "vysvetleni": "Uhlík v CO₂ má +IV (-ičitý), sodík v Na₂O +I (-ný), železo ve Fe₂O₃ +III (-itý) a síra v SO₃ +VI (-ový). Křížovým pravidlem si vzorec vždy ověříš: součet oxidačních čísel musí být nula.",
+      "zdroj": "Anorganické názvosloví"
+    },
+    {
+      "id": "o-che-nazvoslovi-6",
+      "temaId": "che-nazvoslovi",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Napiš vzorec kyseliny sírové.",
+      "spravneOdpovedi": ["H₂SO₄", "H2SO4", "h2so4"],
+      "vysvetleni": "Kyselina sírová: síra +VI (přípona -ová), čtyři kyslíky à −II dají −VIII, na vyrovnání zbývá +II — tedy dva vodíky: H₂SO₄. Záměna s H₂SO₃ (kyselinou siřičitou, síra +IV) je nejčastější chyba.",
+      "zdroj": "Anorganické názvosloví"
+    },
+    {
+      "id": "o-che-nazvoslovi-7",
+      "temaId": "che-nazvoslovi",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Jaký je vzorec hydroxidu vápenatého?",
+      "moznosti": [
+        "Ca(OH)₂",
+        "CaOH",
+        "Ca₂OH",
+        "CaO₂H"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Skupina OH má náboj −I a vápník +II, na vyrovnání jsou potřeba dvě skupiny OH — proto závorka: Ca(OH)₂ (hašené vápno). CaOH by nechal součet nábojů +I, tedy nevyrovnaný.",
+      "zdroj": "Anorganické názvosloví"
+    },
+    {
+      "id": "o-che-nazvoslovi-8",
+      "temaId": "che-nazvoslovi",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Přípona -an v názvu aniontu (síran, dusičnan) označuje sůl kyslíkaté kyseliny.",
+      "spravna": true,
+      "vysvetleni": "Ano: síran SO₄²⁻ pochází z kyseliny sírové, dusičnan NO₃⁻ z dusičné — obě jsou kyslíkaté. Soli bezkyslíkatých kyselin mají příponu -id (chlorid, sulfid).",
+      "zdroj": "Anorganické názvosloví"
+    },
+    {
+      "id": "o-che-nazvoslovi-9",
+      "temaId": "che-nazvoslovi",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Vápenec, hlavní surovina pro výrobu cementu, je sůl kyseliny uhličité a vápníku. Jaký je jeho název a vzorec?",
+      "moznosti": [
+        "Uhličitan vápenatý, CaCO₃",
+        "Uhličitan vápenatý, CaCO₄",
+        "Oxid vápenatý, CaO",
+        "Chlorid vápenatý, CaCl₂"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Sůl kyseliny uhličité H₂CO₃ je uhličitan CO₃²⁻; s vápníkem Ca²⁺ se náboje vyrovnají 1 : 1 — CaCO₃. CaO je oxid (vzniká až pálením vápence) a CaCl₂ je sůl kyseliny chlorovodíkové, ne uhličité.",
+      "zdroj": "Anorganické názvosloví"
+    },
+
+    {
+      "id": "o-che-reakce-1",
+      "temaId": "che-reakce",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co říká zákon zachování hmotnosti?",
+      "moznosti": [
+        "Hmotnost reaktantů se rovná hmotnosti produktů",
+        "Hmotnost produktů je vždy větší než hmotnost reaktantů",
+        "Při reakci se část hmotnosti vždy ztratí",
+        "Hmotnost látek závisí na rychlosti reakce"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Atomy při reakci nevznikají ani nezanikají, jen se přeskupují — celková hmotnost se proto nemění (Lomonosov, Lavoisier). Zdánlivý úbytek (třeba při hoření dřeva) způsobují unikající plynné produkty, ne ztráta hmoty.",
+      "zdroj": "Chemické reakce"
+    },
+    {
+      "id": "o-che-reakce-2",
+      "temaId": "che-reakce",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Při chemické reakci atomy zanikají a vznikají atomy nové.",
+      "spravna": false,
+      "vysvetleni": "Atomy se při reakci jen přeskupují — ruší se staré vazby a vznikají nové, ale počet atomů každého prvku zůstává. Právě proto platí zákon zachování hmotnosti a proto rovnice vyčíslujeme.",
+      "zdroj": "Chemické reakce"
+    },
+    {
+      "id": "o-che-reakce-3",
+      "temaId": "che-reakce",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá reakce, při které se uvolňuje teplo?",
+      "moznosti": [
+        "Exotermická",
+        "Endotermická",
+        "Rozkladná",
+        "Neutrální"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Exotermická reakce teplo uvolňuje (hoření, tuhnutí betonu), endotermická ho spotřebovává (fotosyntéza, rozklad vápence). Rozklad je typ reakce podle počtu látek, ne podle tepla.",
+      "zdroj": "Chemické reakce"
+    },
+    {
+      "id": "o-che-reakce-4",
+      "temaId": "che-reakce",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Látky, které do chemické reakce vstupují, se nazývají ___ (jedno slovo).",
+      "spravneOdpovedi": ["reaktanty", "Reaktanty", "reaktant"],
+      "vysvetleni": "Reaktanty (výchozí látky) píšeme v rovnici vlevo, produkty (nové vzniklé látky) vpravo. Šipka mezi nimi ukazuje směr přeměny.",
+      "zdroj": "Chemické reakce"
+    },
+    {
+      "id": "o-che-reakce-5",
+      "temaId": "che-reakce",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Kterými koeficienty správně vyčíslíš rovnici H₂ + O₂ → H₂O?",
+      "moznosti": [
+        "2 H₂ + O₂ → 2 H₂O",
+        "H₂ + O₂ → H₂O₂",
+        "H₂ + O → H₂O",
+        "H₂ + O₂ → 2 H₂O"
+      ],
+      "spravna": 0,
+      "vysvetleni": "2 H₂ + O₂ → 2 H₂O má vlevo i vpravo 4 vodíky a 2 kyslíky. Změnit vzorec na H₂O₂ nebo O znamená změnit látku (peroxid, samostatný atom) — vyčíslovat se smí jen koeficienty. Poslední možnost nesedí ve vodíku (vlevo 2 H, vpravo 4 H) — kyslík tam sice sedí (2 a 2), ale vyvážený musí být KAŽDÝ prvek.",
+      "zdroj": "Chemické reakce"
+    },
+    {
+      "id": "o-che-reakce-6",
+      "temaId": "che-reakce",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď reakci k jejímu typu.",
+      "pary": [
+        { "levy": "C + O₂ → CO₂", "pravy": "slučování (syntéza)" },
+        { "levy": "CaCO₃ → CaO + CO₂", "pravy": "rozklad (analýza)" },
+        { "levy": "Hoření zemního plynu", "pravy": "exotermická reakce" },
+        { "levy": "Fotosyntéza", "pravy": "endotermická reakce" }
+      ],
+      "vysvetleni": "Slučování: z více látek jedna. Rozklad: z jedné látky více. Hoření vždy uvolňuje teplo (exotermické), fotosyntéza naopak energii světla spotřebovává (endotermická).",
+      "zdroj": "Chemické reakce"
+    },
+    {
+      "id": "o-che-reakce-7",
+      "temaId": "che-reakce",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které tři podmínky musí být splněny současně, aby látka hořela (trojúhelník hoření)?",
+      "moznosti": [
+        "Hořlavá látka",
+        "Kyslík (vzduch)",
+        "Zápalná teplota",
+        "Oxid uhličitý",
+        "Voda"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Bez hořlaviny, kyslíku nebo dostatečné teploty oheň nevznikne — a hašení funguje právě odebráním jedné z podmínek. Oxid uhličitý a voda jsou naopak produkty hoření (CO₂ se dokonce používá v hasicích přístrojích).",
+      "zdroj": "Chemické reakce"
+    },
+    {
+      "id": "o-che-reakce-8",
+      "temaId": "che-reakce",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Na pánvi ti vzplál rozpálený olej. Co uděláš?",
+      "moznosti": [
+        "Přiklopím pánev pokličkou a vypnu sporák — plamen bez kyslíku zhasne",
+        "Zaliju pánev vodou, voda přece hasí",
+        "Odnesu hořící pánev pod tekoucí vodu do dřezu",
+        "Pofoukám plamen, abych ho sfoukl jako svíčku"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Poklička odřízne přívod kyslíku — jedné z podmínek hoření. Voda je u hořícího oleje životu nebezpečná: v oleji rozpáleném přes 200 °C se okamžitě vypaří a vystříkne hořící olej do okolí (i při přenášení pánve hrozí rozlití). Foukání plamen jen rozdmýchá přívodem vzduchu.",
+      "zdroj": "Chemické reakce"
+    },
+
+    {
+      "id": "o-che-voda-roztoky-1",
+      "temaId": "che-voda-roztoky",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Roztok s pH = 7 je:",
+      "moznosti": [
+        "neutrální",
+        "kyselý",
+        "zásaditý",
+        "nasycený"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Stupnice pH jde od 0 do 14: pod 7 kyselé, 7 neutrální (čistá voda), nad 7 zásadité. Nasycenost roztoku s pH nesouvisí — popisuje množství rozpuštěné látky.",
+      "zdroj": "Voda, vzduch a roztoky"
+    },
+    {
+      "id": "o-che-voda-roztoky-2",
+      "temaId": "che-voda-roztoky",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jaké je přibližné složení vzduchu?",
+      "moznosti": [
+        "78 % dusíku, 21 % kyslíku, 1 % ostatních plynů",
+        "78 % kyslíku, 21 % dusíku, 1 % ostatních plynů",
+        "50 % kyslíku a 50 % dusíku",
+        "78 % kyslíku, 21 % oxidu uhličitého, 1 % dusíku"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Většinu vzduchu tvoří dusík (78 %), kyslík jen zhruba pětinu (21 %) — častá chyba je prohodit je. Oxidu uhličitého je pouhých asi 0,04 %, přestože se o něm mluví nejvíc.",
+      "zdroj": "Voda, vzduch a roztoky"
+    },
+    {
+      "id": "o-che-voda-roztoky-3",
+      "temaId": "che-voda-roztoky",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Savo se nesmí míchat s octem ani jinými kyselinami, protože se uvolňuje jedovatý plynný chlor.",
+      "spravna": true,
+      "vysvetleni": "Ano. Savo obsahuje chlornan sodný a reakcí s kyselinou (ocet, čistič vodního kamene) se uvolňuje toxický chlor. Nebezpečná je i kombinace s čpavkovými čističi (vznikají chloraminy). Čisticí prostředky nikdy nemíchej.",
+      "zdroj": "Voda, vzduch a roztoky"
+    },
+    {
+      "id": "o-che-voda-roztoky-4",
+      "temaId": "che-voda-roztoky",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Rozpustíš 25 g cukru ve 225 g vody. Kolik procent má vzniklý roztok? (napiš číslo)",
+      "spravneOdpovedi": ["10", "10 %", "10%", "deset"],
+      "vysvetleni": "Hmotnost roztoku = cukr + voda = 25 + 225 = 250 g. Hmotnostní zlomek w = 25/250 = 0,1 = 10 %. Častá chyba je dělit jen hmotností vody (25/225 ≈ 11 %) — jmenovatel je vždy celý roztok.",
+      "zdroj": "Voda, vzduch a roztoky"
+    },
+    {
+      "id": "o-che-voda-roztoky-5",
+      "temaId": "che-voda-roztoky",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Jaký roztok označujeme jako nasycený?",
+      "moznosti": [
+        "Roztok, ve kterém se za dané teploty už více látky nerozpustí",
+        "Roztok s velkým množstvím rozpouštědla",
+        "Každý roztok s pH nad 7",
+        "Roztok, který obsahuje více než 50 % rozpuštěné látky"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Nasycenost znamená, že rozpouštědlo už za dané teploty víc látky nepojme — další přidaná látka zůstane nerozpuštěná. Nezávisí na konkrétním procentu ani na pH; zahřátím se roztok obvykle stane opět nenasyceným.",
+      "zdroj": "Voda, vzduch a roztoky"
+    },
+    {
+      "id": "o-che-voda-roztoky-6",
+      "temaId": "che-voda-roztoky",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď látku z domácnosti k jejímu pH.",
+      "pary": [
+        { "levy": "Ocet", "pravy": "kyselý (pH ≈ 3)" },
+        { "levy": "Čistá voda", "pravy": "neutrální (pH 7)" },
+        { "levy": "Mýdlo", "pravy": "slabě zásadité (pH ≈ 9–10)" },
+        { "levy": "Savo", "pravy": "silně zásadité (pH ≈ 12,5)" }
+      ],
+      "vysvetleni": "Ocet je zředěná kyselina octová, proto pH kolem 3. Voda je přesně uprostřed stupnice. Mýdlo je slabě zásadité (proto štípe v očích) a savo s chlornanem sodným patří k silně zásaditým prostředkům — leptá.",
+      "zdroj": "Voda, vzduch a roztoky"
+    },
+    {
+      "id": "o-che-voda-roztoky-7",
+      "temaId": "che-voda-roztoky",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kolik gramů soli potřebuješ na přípravu 200 g 15% roztoku?",
+      "moznosti": [
+        "30 g",
+        "15 g",
+        "35 g",
+        "170 g"
+      ],
+      "spravna": 0,
+      "vysvetleni": "m(soli) = w × m(roztoku) = 0,15 × 200 = 30 g; zbytek (170 g) je voda. Odpověď 15 g by platila pro 100 g roztoku a 170 g je hmotnost vody, ne soli.",
+      "zdroj": "Voda, vzduch a roztoky"
+    },
+    {
+      "id": "o-che-voda-roztoky-8",
+      "temaId": "che-voda-roztoky",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které kroky patří do úpravy pitné vody ve vodárně?",
+      "moznosti": [
+        "Čiření (koagulace nečistot)",
+        "Filtrace přes pískové filtry",
+        "Dezinfekce (chlorování, ozon nebo UV)",
+        "Destilace veškeré vody",
+        "Přislazení pro lepší chuť"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Vodárna vodu čiří, filtruje a nakonec dezinfikuje, aby zničila choroboplodné zárodky. Destilace by byla energeticky nesmyslně drahá (a destilovaná voda se k pití nehodí) a nic se do pitné vody nepřislazuje.",
+      "zdroj": "Voda, vzduch a roztoky"
+    },
+    {
+      "id": "o-che-voda-roztoky-9",
+      "temaId": "che-voda-roztoky",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Máš 100 g 20% roztoku sirupu a přiliješ 100 g vody. Jakou koncentraci má výsledný roztok?",
+      "moznosti": [
+        "10 %",
+        "20 %",
+        "40 %",
+        "5 %"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Sirupu je pořád 20 g, ale roztok teď váží 200 g: w = 20/200 = 10 %. Koncentrace se ředěním snižuje — 20 % by zůstalo bez přidání vody, 40 % by vyšlo omylem při zdvojnásobení místo zředění a 5 % by odpovídalo přilití 300 g vody.",
+      "zdroj": "Voda, vzduch a roztoky"
+    }
+  ]
+}

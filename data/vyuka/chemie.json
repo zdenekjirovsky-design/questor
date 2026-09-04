@@ -1,0 +1,644 @@
+{
+  "predmetId": "chemie",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "che-latky-smesi",
+      "nazev": "Látky a směsi",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Kámoš ti o přestávce vsadí svačinu, že nedokážeš z kelímku slané vody s pískem dostat zpátky čistou sůl. Žádné kouzlo, žádná laboratoř — jen sítko, filtr z papírového ubrousku a radiátor. Za dvě hodiny mu na lavici sypeš krystalky soli. Jak je to možné? Přesně tohle je chemie směsí."
+        },
+        {
+          "typ": "text",
+          "obsah": "Chemie zkoumá **látky** — z čeho jsou a jak se chovají. Každou látku poznáme podle jejích **vlastností**: skupenství, barva, hustota, teplota tání a varu, rozpustnost, hořlavost. Podle teploty varu rozeznáš líh od vody, podle hustoty zlato od mosazi.\n\n**Chemicky čistá látka** má všude stejné složení (destilovaná voda, kyslík, cukr). Jenže skoro všechno kolem nás jsou **směsi** — spojení dvou a více čistých látek:\n\n- **Stejnorodé (homogenní)** — složky nerozeznáš okem ani mikroskopem. Říká se jim **roztoky**: slaná voda, vzduch, mosaz (slitina mědi a zinku).\n- **Různorodé (heterogenní)** — složky rozeznáš: žula (zrnka minerálů), voda s pískem, mlha (kapičky vody ve vzduchu).\n\nDůležité: složky směsi si **zachovávají své vlastnosti**. Sůl ve slané vodě je pořád sůl — a právě toho využijeme při oddělování."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Kávový filtr, sítko na čaj i odstředivka na salát — to všechno je oddělování směsí v akci. Mořská sůl za 60 Kč z obchodu vznikla obyčejným odpařováním mořské vody na slunci. A benzin, který táta tankuje za 38 Kč/l, se získává destilací ropy — obří kolony v rafinerii dělí ropu podle teplot varu na benzin, naftu a asfalt. Kdo rozumí směsím, chápe, jak funguje půlka průmyslu."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 320' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Rozdělení látek na čisté látky a směsi'><rect x='210' y='16' width='140' height='44' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='280' y='44' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>LÁTKY</text><line x1='280' y1='60' x2='140' y2='110' stroke='currentColor' stroke-width='1.5' /><line x1='280' y1='60' x2='420' y2='110' stroke='currentColor' stroke-width='1.5' /><rect x='40' y='110' width='200' height='44' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2' /><text x='140' y='138' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Čisté látky</text><text x='140' y='180' text-anchor='middle' font-size='12' fill='currentColor'>prvky (kyslík, železo)</text><text x='140' y='198' text-anchor='middle' font-size='12' fill='currentColor'>sloučeniny (voda, cukr)</text><rect x='320' y='110' width='200' height='44' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2' /><text x='420' y='138' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Směsi</text><line x1='420' y1='154' x2='335' y2='210' stroke='currentColor' stroke-width='1.5' /><line x1='420' y1='154' x2='485' y2='210' stroke='currentColor' stroke-width='1.5' /><rect x='270' y='210' width='130' height='50' rx='8' fill='none' stroke='var(--info)' stroke-width='2' /><text x='335' y='230' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>stejnorodé</text><text x='335' y='248' text-anchor='middle' font-size='12' fill='currentColor'>(roztoky)</text><rect x='420' y='210' width='130' height='50' rx='8' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='485' y='240' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>různorodé</text><text x='335' y='282' text-anchor='middle' font-size='11' fill='currentColor'>slaná voda, vzduch,</text><text x='335' y='297' text-anchor='middle' font-size='11' fill='currentColor'>mosaz</text><text x='485' y='282' text-anchor='middle' font-size='11' fill='currentColor'>žula, mlha,</text><text x='485' y='297' text-anchor='middle' font-size='11' fill='currentColor'>voda s pískem</text></svg>",
+          "popisek": "Rozdělení látek: čisté látky (prvky a sloučeniny) mají všude stejné složení; směsi se dělí na stejnorodé (složky nerozeznáme — roztoky) a různorodé (složky rozeznáme okem či mikroskopem)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-latky-smesi-1",
+            "temaId": "che-latky-smesi",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Slaná voda je:",
+            "moznosti": [
+              "stejnorodá směs (roztok)",
+              "různorodá směs",
+              "chemicky čistá látka",
+              "sloučenina soli a vody"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Sůl je ve vodě rozpuštěná — nikde nevidíš zrnka, složení je všude stejné, proto stejnorodá směs (roztok). Čistá látka to není (jsou tam dvě látky) a sloučenina také ne: sůl s vodou chemicky nereaguje, jen se rozpustila.",
+            "zdroj": "Látky a směsi"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Protože si složky ve směsi nechávají své vlastnosti, můžeme je **oddělit**. Metodu vybíráme podle vlastnosti, kterou se složky **liší**:\n\n- **Usazování** — těžší pevné částice klesnou ke dnu (písek ve vodě). Využívá rozdílnou **hustotu**.\n- **Filtrace** — nerozpuštěná pevná látka se zachytí na filtru, kapalina (**filtrát**) proteče. Využívá rozdílnou **velikost částic**.\n- **Odpařování a krystalizace** — rozpouštědlo se odpaří a rozpuštěná látka **vykrystalizuje** (mořská sůl).\n- **Destilace** — kapaliny s různou **teplotou varu**: složka s nižší teplotou varu se vypaří první, páry se v chladiči zkapalní a jímají jako **destilát** (líh 78 °C vs. voda 100 °C).\n\n**Pozor na klasickou chybu:** rozpuštěnou sůl filtrací nezachytíš — projde filtrem i s vodou. Filtr funguje jen na **nerozpuštěné** částice; na rozpuštěné látky potřebuješ odpařování."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď látky: čistá látka, stejnorodá směs, nebo různorodá směs?",
+            "kategorie": [
+              { "id": "cista", "nazev": "Čistá látka" },
+              { "id": "stejnoroda", "nazev": "Stejnorodá směs" },
+              { "id": "raznoroda", "nazev": "Různorodá směs" }
+            ],
+            "polozky": [
+              { "text": "destilovaná voda", "kategorieId": "cista" },
+              { "text": "kyslík", "kategorieId": "cista" },
+              { "text": "cukr (sacharóza)", "kategorieId": "cista" },
+              { "text": "vzduch", "kategorieId": "stejnoroda" },
+              { "text": "slaná voda", "kategorieId": "stejnoroda" },
+              { "text": "mosaz", "kategorieId": "stejnoroda" },
+              { "text": "žula", "kategorieId": "raznoroda" },
+              { "text": "mlha", "kategorieId": "raznoroda" },
+              { "text": "voda s pískem", "kategorieId": "raznoroda" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-latky-smesi-2",
+            "temaId": "che-latky-smesi",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Chceš oddělit líh od vody. Kterou metodu použiješ?",
+            "moznosti": [
+              "Destilaci — líh má nižší teplotu varu, vypaří se první",
+              "Filtraci — líh se zachytí na filtru",
+              "Usazování — líh klesne ke dnu",
+              "Krystalizaci — líh vykrystalizuje"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Líh i voda jsou kapaliny dokonale promíchané v roztoku — filtr ani usazování na ně neplatí a krystalizovat může jen pevná látka. Liší se ale teplotou varu (78 °C vs. 100 °C), a to je práce pro destilaci.",
+            "zdroj": "Látky a směsi"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Máš kádinku slané vody, ve které plave písek. Navrhni postup, jak získáš zvlášť písek a zvlášť čistou sůl.",
+          "reseni": "**Krok 1 — filtrace:** směs přeliju přes filtrační papír. Písek (nerozpuštěná pevná látka) zůstane na filtru, slaná voda (filtrát) proteče — sůl je rozpuštěná, takže filtrem projde.\n\n**Krok 2 — odpařování a krystalizace:** filtrát zahřívám (nebo nechám stát v teple). Voda se odpaří a sůl vykrystalizuje na dně misky.\n\n**Proč ne obráceně?** Kdybych nejdřív odpařil vodu, zůstala by mi na dně směs písku a soli — a tu bych od sebe odděloval mnohem hůř. Vždycky jdu od nerozpuštěných složek (filtr) k rozpuštěným (odpaření)."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Chemicky čistá látka", "zadni": "Látka se stejným složením a vlastnostmi v celém objemu (destilovaná voda, kyslík)." },
+            { "predni": "Stejnorodá směs (roztok)", "zadni": "Směs, jejíž složky nerozeznáme okem ani mikroskopem — slaná voda, vzduch, mosaz." },
+            { "predni": "Různorodá směs", "zadni": "Směs, jejíž složky rozeznáme okem nebo mikroskopem — žula, mlha, voda s pískem." },
+            { "predni": "Filtrace", "zadni": "Oddělení nerozpuštěné pevné látky od kapaliny přes filtr; kapalina, která proteče, je filtrát." },
+            { "predni": "Destilace", "zadni": "Oddělení kapalin podle rozdílné teploty varu — složka s nižší teplotou varu se vypaří první." },
+            { "predni": "Krystalizace", "zadni": "Vyloučení rozpuštěné pevné látky z roztoku po odpaření rozpouštědla (mořská sůl)." },
+            { "predni": "Usazování (sedimentace)", "zadni": "Oddělení složek podle hustoty — těžší částice klesnou ke dnu." },
+            { "predni": "Destilát", "zadni": "Kapalina získaná destilací: páry zkapalněné v chladiči." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Látky poznáváme podle **vlastností** (teplota varu, hustota, rozpustnost…).\n- Čistá látka má všude stejné složení; **směs** = víc čistých látek pohromadě.\n- **Stejnorodá** směs (roztok) — složky nerozeznáme; **různorodá** — rozeznáme.\n- Složky oddělujeme podle vlastnosti, kterou se liší: **filtrace** (nerozpuštěné částice), **usazování** (hustota), **destilace** (teplota varu), **krystalizace** (rozpuštěná pevná látka).\n- Rozpuštěná látka filtrem projde — na tu platí odpaření, ne filtr."
+        }
+      ]
+    },
+    {
+      "temaId": "che-atom-psp",
+      "nazev": "Atom a periodická soustava",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Mobil v tvé kapse, svačina, vzduch i ty sám — všechno je poskládané z pouhých 118 druhů stavebnic zvaných atomy. A je to stavebnice s vtipem: kdyby atom byl velký jako fotbalový stadion, jeho jádro by bylo zrnko rýže uprostřed hřiště — a přesto by v něm byla skoro celá váha stadionu."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Atom** má dvě části:\n\n- **Jádro** — nepatrné, ale nese téměř veškerou hmotnost. Obsahuje **protony** (kladný náboj) a **neutrony** (bez náboje).\n- **Elektronový obal** — zabírá skoro celý objem atomu. **Elektrony** (záporný náboj) v něm krouží ve **vrstvách**; ty z nejvzdálenější vrstvy se nazývají **valenční** a rozhodují o chemickém chování prvku.\n\nKlíčová čísla:\n- **Protonové číslo Z** = počet protonů. Určuje, o jaký prvek jde (každý atom se Z = 8 je kyslík). Atom je navenek neutrální, takže elektronů je stejně jako protonů.\n- **Nukleonové číslo A** = protony + neutrony. Počet neutronů: **N = A − Z**.\n\n**Izotopy** jsou atomy téhož prvku se stejným Z, ale různým počtem neutronů — třeba uhlík ¹²C a radioaktivní ¹⁴C."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Baterie tvého mobilu funguje díky lithiu — prvku, který ochotně pouští svůj jediný valenční elektron (a přesně tenhle tok elektronů je elektřina). Archeologové zase díky izotopu ¹⁴C změří, kdy zemřel mamut nebo kdy vyrostl trám středověké chalupy — radiouhlíkové datování je vlastně stopování neutronů navíc. A až uvidíš v regálu „iont stříbra v deodorantu“, budeš vědět, že jde o atom stříbra, který přišel o elektron."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 320' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Stavba atomu lithia: jádro s protony a neutrony, obal s elektrony ve dvou vrstvách'><circle cx='200' cy='160' r='70' fill='none' stroke='currentColor' stroke-width='1.5' stroke-dasharray='5 5' opacity='0.6' /><circle cx='200' cy='160' r='115' fill='none' stroke='currentColor' stroke-width='1.5' stroke-dasharray='5 5' opacity='0.6' /><circle cx='200' cy='160' r='30' fill='none' stroke='var(--akcent)' stroke-width='2' /><circle cx='190' cy='152' r='8' fill='var(--chyba)' /><circle cx='210' cy='152' r='8' fill='var(--chyba)' /><circle cx='200' cy='172' r='8' fill='var(--chyba)' /><circle cx='200' cy='142' r='8' fill='none' stroke='var(--zlata)' stroke-width='2' /><circle cx='184' cy='166' r='8' fill='none' stroke='var(--zlata)' stroke-width='2' /><circle cx='216' cy='166' r='8' fill='none' stroke='var(--zlata)' stroke-width='2' /><circle cx='200' cy='158' r='8' fill='none' stroke='var(--zlata)' stroke-width='2' /><circle cx='130' cy='160' r='7' fill='var(--info)' /><circle cx='270' cy='160' r='7' fill='var(--info)' /><circle cx='200' cy='45' r='7' fill='var(--info)' /><text x='200' y='222' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>jádro</text><text x='200' y='300' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>elektronový obal (2 vrstvy)</text><circle cx='390' cy='70' r='8' fill='var(--chyba)' /><text x='408' y='75' font-size='13' fill='currentColor'>proton (+)</text><circle cx='390' cy='105' r='8' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='408' y='110' font-size='13' fill='currentColor'>neutron (0)</text><circle cx='390' cy='140' r='7' fill='var(--info)' /><text x='408' y='145' font-size='13' fill='currentColor'>elektron (−)</text><line x1='378' y1='175' x2='402' y2='175' stroke='currentColor' stroke-width='1.5' stroke-dasharray='5 5' opacity='0.6' /><text x='408' y='180' font-size='13' fill='currentColor'>elektronová vrstva</text><text x='382' y='225' font-size='13' font-weight='bold' fill='currentColor'>Lithium: Z = 3, A = 7</text><text x='382' y='247' font-size='12' fill='currentColor'>3 protony, 3 elektrony,</text><text x='382' y='265' font-size='12' fill='currentColor'>N = A − Z = 4 neutrony</text></svg>",
+          "popisek": "Atom lithia (Z = 3, A = 7): v jádře 3 protony a 4 neutrony, v obalu 3 elektrony ve dvou vrstvách. Jádro nese téměř celou hmotnost, obal téměř celý objem atomu."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-atom-psp-1",
+            "temaId": "che-atom-psp",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Atom dusíku má Z = 7 a A = 14. Kolik má protonů, neutronů a elektronů?",
+            "moznosti": [
+              "7 protonů, 7 neutronů, 7 elektronů",
+              "7 protonů, 14 neutronů, 7 elektronů",
+              "14 protonů, 7 neutronů, 14 elektronů",
+              "7 protonů, 7 neutronů, 14 elektronů"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Z = 7 protonů; neutrální atom má stejně elektronů, tedy 7. Neutrony: N = A − Z = 14 − 7 = 7. Číslo A (14) není počet neutronů, ale součet protonů a neutronů — to je nejčastější přehmat.",
+            "zdroj": "Atom a periodická soustava"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Když prvky seřadíme podle rostoucího protonového čísla, začnou se jejich vlastnosti **pravidelně opakovat**. To je **periodický zákon** a je základem **periodické soustavy prvků (PSP)**, kterou roku 1869 sestavil Dmitrij Ivanovič **Mendělejev** — tak dobře, že předpověděl i prvky, které ještě nikdo neznal.\n\n- **Perioda** = vodorovný řádek (1–7). Číslo periody = počet **elektronových vrstev**.\n- **Skupina** = svislý sloupec. Prvky téže hlavní skupiny mají **stejný počet valenčních elektronů**, a proto podobné vlastnosti.\n\nSlavné party prvků:\n- **Alkalické kovy** (I.A — Na, K): 1 valenční elektron, prudce reagují s vodou.\n- **Halogeny** (VII.A — F, Cl): velmi reaktivní nekovy, do oktetu jim chybí 1 elektron.\n- **Vzácné plyny** (VIII.A — He, Ne, Ar): zaplněná valenční vrstva, skoro nereagují.\n\nKovy najdeš vlevo a uprostřed tabulky, nekovy vpravo nahoře."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "popisovacka",
+          "parametry": {
+            "svg": "<svg viewBox='0 0 560 240' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Výřez periodické soustavy: první tři periody hlavních skupin'><text x='68' y='26' text-anchor='middle' font-size='11' fill='currentColor'>I.A</text><text x='132' y='26' text-anchor='middle' font-size='11' fill='currentColor'>II.A</text><text x='196' y='26' text-anchor='middle' font-size='11' fill='currentColor'>III.A</text><text x='260' y='26' text-anchor='middle' font-size='11' fill='currentColor'>IV.A</text><text x='324' y='26' text-anchor='middle' font-size='11' fill='currentColor'>V.A</text><text x='388' y='26' text-anchor='middle' font-size='11' fill='currentColor'>VI.A</text><text x='452' y='26' text-anchor='middle' font-size='11' fill='currentColor'>VII.A</text><text x='516' y='26' text-anchor='middle' font-size='11' fill='currentColor'>VIII.A</text><text x='24' y='72' text-anchor='middle' font-size='11' fill='currentColor'>1</text><text x='24' y='136' text-anchor='middle' font-size='11' fill='currentColor'>2</text><text x='24' y='200' text-anchor='middle' font-size='11' fill='currentColor'>3</text><rect x='40' y='40' width='56' height='56' rx='6' fill='none' stroke='var(--info)' stroke-width='2' /><text x='68' y='72' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>H</text><text x='50' y='54' font-size='9' fill='currentColor'>1</text><rect x='488' y='40' width='56' height='56' rx='6' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='516' y='72' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>He</text><text x='498' y='54' font-size='9' fill='currentColor'>2</text><rect x='40' y='104' width='56' height='56' rx='6' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='68' y='136' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>Li</text><text x='50' y='118' font-size='9' fill='currentColor'>3</text><rect x='104' y='104' width='56' height='56' rx='6' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='132' y='136' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>Be</text><text x='114' y='118' font-size='9' fill='currentColor'>4</text><rect x='168' y='104' width='56' height='56' rx='6' fill='none' stroke='currentColor' stroke-width='1.5' /><text x='196' y='136' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>B</text><text x='178' y='118' font-size='9' fill='currentColor'>5</text><rect x='232' y='104' width='56' height='56' rx='6' fill='none' stroke='currentColor' stroke-width='1.5' /><text x='260' y='136' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>C</text><text x='242' y='118' font-size='9' fill='currentColor'>6</text><rect x='296' y='104' width='56' height='56' rx='6' fill='none' stroke='currentColor' stroke-width='1.5' /><text x='324' y='136' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>N</text><text x='306' y='118' font-size='9' fill='currentColor'>7</text><rect x='360' y='104' width='56' height='56' rx='6' fill='none' stroke='currentColor' stroke-width='1.5' /><text x='388' y='136' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>O</text><text x='370' y='118' font-size='9' fill='currentColor'>8</text><rect x='424' y='104' width='56' height='56' rx='6' fill='none' stroke='var(--uspech)' stroke-width='2' /><text x='452' y='136' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>F</text><text x='434' y='118' font-size='9' fill='currentColor'>9</text><rect x='488' y='104' width='56' height='56' rx='6' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='516' y='136' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>Ne</text><text x='498' y='118' font-size='9' fill='currentColor'>10</text><rect x='40' y='168' width='56' height='56' rx='6' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='68' y='200' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>Na</text><text x='50' y='182' font-size='9' fill='currentColor'>11</text><rect x='104' y='168' width='56' height='56' rx='6' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='132' y='200' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>Mg</text><text x='114' y='182' font-size='9' fill='currentColor'>12</text><rect x='168' y='168' width='56' height='56' rx='6' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='196' y='200' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>Al</text><text x='178' y='182' font-size='9' fill='currentColor'>13</text><rect x='232' y='168' width='56' height='56' rx='6' fill='none' stroke='currentColor' stroke-width='1.5' /><text x='260' y='200' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>Si</text><text x='242' y='182' font-size='9' fill='currentColor'>14</text><rect x='296' y='168' width='56' height='56' rx='6' fill='none' stroke='currentColor' stroke-width='1.5' /><text x='324' y='200' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>P</text><text x='306' y='182' font-size='9' fill='currentColor'>15</text><rect x='360' y='168' width='56' height='56' rx='6' fill='none' stroke='currentColor' stroke-width='1.5' /><text x='388' y='200' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>S</text><text x='370' y='182' font-size='9' fill='currentColor'>16</text><rect x='424' y='168' width='56' height='56' rx='6' fill='none' stroke='var(--uspech)' stroke-width='2' /><text x='452' y='200' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>Cl</text><text x='434' y='182' font-size='9' fill='currentColor'>17</text><rect x='488' y='168' width='56' height='56' rx='6' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='516' y='200' text-anchor='middle' font-size='18' font-weight='bold' fill='currentColor'>Ar</text><text x='498' y='182' font-size='9' fill='currentColor'>18</text></svg>",
+            "body": [
+              { "x": 68, "y": 196, "nazev": "Sodík (Na) — alkalický kov", "popis": "I.A skupina, 3. perioda. Jeden valenční elektron, který ochotně odevzdá — proto prudce reaguje s vodou. Červeně orámované prvky jsou kovy." },
+              { "x": 452, "y": 196, "nazev": "Chlor (Cl) — halogen", "popis": "VII.A skupina. Do oktetu mu chybí jediný elektron, proto je velmi reaktivní. Se sodíkem tvoří kuchyňskou sůl NaCl." },
+              { "x": 516, "y": 68, "nazev": "Helium (He) — vzácný plyn", "popis": "VIII.A skupina: zaplněná valenční vrstva, téměř nereaguje. Proto se s ním bez obav plní balonky." },
+              { "x": 24, "y": 132, "nazev": "Perioda (řádek)", "popis": "Vodorovný řádek tabulky. Číslo periody = počet elektronových vrstev atomu — prvky 2. periody mají 2 vrstvy." },
+              { "x": 260, "y": 132, "nazev": "Uhlík (C) — nekov", "popis": "IV.A skupina, 4 valenční elektrony. Základ všech organických látek — od tuhy v tužce po tvoje DNA. Nekovy sídlí vpravo nahoře." },
+              { "x": 68, "y": 26, "nazev": "Skupina (sloupec)", "popis": "Svislý sloupec tabulky. Prvky téže hlavní skupiny mají stejný počet valenčních elektronů, a proto podobné vlastnosti." }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-atom-psp-2",
+            "temaId": "che-atom-psp",
+            "typ": "anone",
+            "obtiznost": 3,
+            "zadani": "Draslík (K) je v periodické tabulce ve stejné skupině jako sodík (Na). Bude s vodou reagovat podobně prudce jako sodík.",
+            "spravna": true,
+            "vysvetleni": "Ano — oba jsou alkalické kovy z I.A skupiny se stejným počtem valenčních elektronů (jedním), takže mají podobné vlastnosti. Přesně tuhle předpověď umožňuje periodický zákon; draslík reaguje dokonce ještě prudčeji.",
+            "zdroj": "Atom a periodická soustava"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Hliník má protonové číslo Z = 13 a nukleonové číslo A = 27. Urči počet protonů, neutronů a elektronů. Co se změní, když atom odevzdá 3 elektrony a vznikne kation Al³⁺?",
+          "reseni": "**Protony:** Z = 13 → 13 protonů (to dělá z atomu hliník).\n\n**Elektrony:** neutrální atom má elektronů stejně jako protonů → 13.\n\n**Neutrony:** N = A − Z = 27 − 13 = **14 neutronů**.\n\n**Kation Al³⁺:** jádro se nemění (pořád 13 protonů a 14 neutronů — pořád je to hliník!), ale v obalu zbývá 13 − 3 = **10 elektronů**. Převažují 3 kladné náboje, proto Al³⁺. Přesně takový kation je v oxidu hlinitém, ze kterého se vyrábí hliník na plechovky."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Proton", "zadni": "Kladně nabitá částice v jádře; jejich počet (Z) určuje prvek." },
+            { "predni": "Neutron", "zadni": "Částice bez náboje v jádře; N = A − Z." },
+            { "predni": "Elektron", "zadni": "Záporně nabitá částice v obalu; valenční elektrony tvoří vazby." },
+            { "predni": "Protonové číslo Z", "zadni": "Počet protonů v jádře — jednoznačně určuje prvek." },
+            { "predni": "Nukleonové číslo A", "zadni": "Součet protonů a neutronů v jádře." },
+            { "predni": "Izotopy", "zadni": "Atomy téhož prvku se stejným Z, ale různým počtem neutronů (¹²C a ¹⁴C)." },
+            { "predni": "Perioda", "zadni": "Vodorovný řádek PSP; její číslo = počet elektronových vrstev." },
+            { "predni": "Skupina", "zadni": "Svislý sloupec PSP; stejný počet valenčních elektronů → podobné vlastnosti." },
+            { "predni": "Vzácné plyny", "zadni": "VIII.A skupina (He, Ne, Ar) — zaplněná valenční vrstva, téměř nereagují." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Atom = **jádro** (protony +, neutrony 0; skoro celá hmotnost) + **obal** (elektrony −; skoro celý objem).\n- **Z** = počet protonů = počet elektronů neutrálního atomu; **N = A − Z**.\n- **Izotopy**: stejné Z, jiný počet neutronů.\n- PSP řadí prvky podle rostoucího Z; vlastnosti se **periodicky opakují** (Mendělejev 1869).\n- **Perioda** = řádek (počet vrstev), **skupina** = sloupec (počet valenčních elektronů → podobné vlastnosti)."
+        }
+      ]
+    },
+    {
+      "temaId": "che-vazba",
+      "nazev": "Chemická vazba",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Nabíječka od mobilu: měděný drát uvnitř vede proud, plastový obal kolem ne — a solí osolená polévka by ti proud vedla taky, zatímco kostka cukru v čaji ani náhodou. Proč se látky chovají tak různě? Odpověď je schovaná v tom, JAK jsou atomy spojené. Vítej u chemických vazeb."
+        },
+        {
+          "typ": "text",
+          "obsah": "Samostatné atomy většiny prvků nejsou stabilní — spojují se **chemickými vazbami** do **molekul** (H₂O, CO₂) a krystalů. Vazby staví z **valenčních elektronů**: atomy se snaží získat stabilních 8 valenčních elektronů (**oktet**) jako vzácné plyny.\n\nKdo si elektrony přetáhne? To říká **elektronegativita (X)** — schopnost atomu přitahovat elektrony vazby. V tabulce roste doprava a nahoru: rekordman je fluor (4,0), kovy mají X nízkou (sodík 0,9).\n\nPodle **rozdílu elektronegativit** vázaných atomů:\n\n- rozdíl **do 0,4** → **nepolární kovalentní** vazba: rovnocenné sdílení páru (H₂, O₂).\n- rozdíl **0,4–1,7** → **polární kovalentní**: pár posunutý k elektronegativnějšímu atomu (H₂O, HCl).\n- rozdíl **nad 1,7** → **iontová**: elektron se předá úplně."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Iontový nápoj po tréninku je doslova roztok iontů — sodík a draslík, které tělo ztratilo potem, v něm plavou jako Na⁺ a K⁺. Měděný kabel nabíječky vede proud díky kovové vazbě (volné elektrony = elektrický proud) a teflonová pánev nepřipaluje, protože vazba uhlík–fluor je tak pevná, že se na ni nic „nepřilepí“. Typ vazby rozhoduje o tom, co si koupíš do kuchyně i do sportovní tašky."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 720 240' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Tři typy chemické vazby: iontová, kovalentní a kovová'><text x='120' y='30' text-anchor='middle' font-size='15' font-weight='bold' fill='var(--akcent)'>Iontová</text><circle cx='65' cy='115' r='28' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='65' y='121' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Na⁺</text><circle cx='170' cy='115' r='33' fill='none' stroke='var(--info)' stroke-width='2' /><text x='170' y='121' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Cl⁻</text><path d='M 95 85 Q 117 65 140 85' fill='none' stroke='currentColor' stroke-width='1.5' marker-end='url(#sipka-vazba)' /><circle cx='100' cy='82' r='5' fill='var(--info)' /><defs><marker id='sipka-vazba' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor' /></marker></defs><text x='120' y='185' text-anchor='middle' font-size='12' fill='currentColor'>předání elektronu,</text><text x='120' y='203' text-anchor='middle' font-size='12' fill='currentColor'>ionty se přitahují (NaCl)</text><line x1='240' y1='40' x2='240' y2='210' stroke='currentColor' stroke-width='1' opacity='0.3' /><text x='360' y='30' text-anchor='middle' font-size='15' font-weight='bold' fill='var(--uspech)'>Kovalentní</text><circle cx='320' cy='115' r='32' fill='none' stroke='var(--uspech)' stroke-width='2' /><circle cx='400' cy='115' r='32' fill='none' stroke='var(--uspech)' stroke-width='2' /><text x='302' y='121' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>H</text><text x='418' y='121' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>H</text><circle cx='355' cy='105' r='5' fill='var(--info)' /><circle cx='365' cy='125' r='5' fill='var(--info)' /><text x='360' y='185' text-anchor='middle' font-size='12' fill='currentColor'>sdílení elektronového</text><text x='360' y='203' text-anchor='middle' font-size='12' fill='currentColor'>páru (H₂, H₂O)</text><line x1='480' y1='40' x2='480' y2='210' stroke='currentColor' stroke-width='1' opacity='0.3' /><text x='600' y='30' text-anchor='middle' font-size='15' font-weight='bold' fill='var(--zlata)'>Kovová</text><circle cx='545' cy='90' r='15' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='545' y='95' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>+</text><circle cx='600' cy='90' r='15' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='600' y='95' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>+</text><circle cx='655' cy='90' r='15' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='655' y='95' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>+</text><circle cx='545' cy='145' r='15' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='545' y='150' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>+</text><circle cx='600' cy='145' r='15' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='600' y='150' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>+</text><circle cx='655' cy='145' r='15' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='655' y='150' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>+</text><circle cx='572' cy='118' r='4' fill='var(--info)' /><circle cx='628' cy='70' r='4' fill='var(--info)' /><circle cx='572' cy='70' r='4' fill='var(--info)' /><circle cx='628' cy='118' r='4' fill='var(--info)' /><circle cx='545' cy='118' r='4' fill='var(--info)' /><circle cx='655' cy='118' r='4' fill='var(--info)' /><circle cx='600' cy='170' r='4' fill='var(--info)' /><text x='600' y='203' text-anchor='middle' font-size='12' fill='currentColor'>kationty v „moři“ volných elektronů</text></svg>",
+          "popisek": "Tři typy vazby: iontová (sodík předá elektron chloru, vzniklé ionty Na⁺ a Cl⁻ se přitahují), kovalentní (atomy vodíku sdílejí elektronový pár) a kovová (kationty kovu drží pohromadě volně pohyblivé elektrony — modré tečky)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-vazba-1",
+            "temaId": "che-vazba",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "V molekule kyslíku O₂ jsou dva stejné atomy. Jaká vazba je mezi nimi?",
+            "moznosti": [
+              "Nepolární kovalentní — rozdíl elektronegativit je nula",
+              "Polární kovalentní — kyslík je hodně elektronegativní",
+              "Iontová — kyslík elektrony rád přijímá",
+              "Kovová — elektrony se volně pohybují"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Dva stejné atomy mají stejnou elektronegativitu, rozdíl je 0 — pár sdílejí naprosto rovnocenně, vazba je nepolární kovalentní. Vysoká elektronegativita kyslíku sama o sobě polaritu nedělá; záleží vždy na ROZDÍLU mezi vázanými atomy.",
+            "zdroj": "Chemická vazba"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Iontová vazba** vzniká, když je rozdíl elektronegativit velký: elektronegativnější atom elektron úplně převezme.\n\n- Atom, který elektron **odevzdal**, má kladný náboj → **kation** (Na⁺).\n- Atom, který elektron **přijal**, má záporný náboj → **anion** (Cl⁻).\n- Opačné náboje se přitahují a drží **krystal** pohromadě (NaCl).\n\nIontové sloučeniny mají vysoké teploty tání a jejich **roztoky a taveniny vedou proud** — ionty se v nich mohou pohybovat. Pevný krystal proud nevede, ionty jsou uvězněné v mřížce.\n\n**Kovová vazba**: v krystalu kovu drží kladné ionty pohromadě „moře“ volných valenčních elektronů. Odtud typické vlastnosti kovů — **elektrická a tepelná vodivost, kujnost, tažnost a lesk**."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "Iontová vazba",
+                "vlastnosti": {
+                  "Princip": "úplné předání elektronu, ionty se přitahují",
+                  "Rozdíl elektronegativit": "nad 1,7",
+                  "Příklad": "NaCl, CaO",
+                  "Vedení proudu": "jen roztok nebo tavenina (volné ionty)",
+                  "Typické vlastnosti": "tvrdé krystaly, vysoká teplota tání"
+                }
+              },
+              {
+                "nazev": "Kovalentní vazba",
+                "vlastnosti": {
+                  "Princip": "sdílení elektronového páru",
+                  "Rozdíl elektronegativit": "do 0,4 nepolární, 0,4–1,7 polární",
+                  "Příklad": "H₂ (nepolární), H₂O (polární)",
+                  "Vedení proudu": "molekuly proud nevedou",
+                  "Typické vlastnosti": "tvoří molekuly, často plyny a kapaliny"
+                }
+              },
+              {
+                "nazev": "Kovová vazba",
+                "vlastnosti": {
+                  "Princip": "kationty v „moři“ volných elektronů",
+                  "Rozdíl elektronegativit": "mezi atomy kovů se neřeší",
+                  "Příklad": "měď, železo, hliník",
+                  "Vedení proudu": "výborné i v pevném stavu (volné elektrony)",
+                  "Typické vlastnosti": "vodivost, kujnost, tažnost, lesk"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-vazba-2",
+            "temaId": "che-vazba",
+            "typ": "vyber",
+            "obtiznost": 4,
+            "zadani": "Sodík má elektronegativitu 0,9 a chlor 3,2. Jaká vazba vznikne mezi nimi v NaCl?",
+            "moznosti": [
+              "Iontová — rozdíl 2,3 je nad hranicí 1,7",
+              "Polární kovalentní — rozdíl je mezi 0,4 a 1,7",
+              "Nepolární kovalentní — jde o dva různé prvky",
+              "Kovová — sodík je přece kov"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Rozdíl X = 3,2 − 0,9 = 2,3, což je výrazně nad 1,7 — chlor elektron sodíku úplně převezme a vzniknou ionty Na⁺ a Cl⁻. Kovová vazba by byla mezi atomy KOVŮ navzájem; tady se váže kov s nekovem.",
+            "zdroj": "Chemická vazba"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Urči typ vazby: a) v chloridu draselném KCl (elektronegativita K = 0,8; Cl = 3,2), b) v molekule dusíku N₂, c) v hliníkovém plechu. U každé látky rozhodni, zda povede elektrický proud.",
+          "reseni": "**a) KCl:** rozdíl X = 3,2 − 0,8 = 2,4 → **iontová vazba** (K⁺ a Cl⁻). Pevný krystal proud nevede, ale roztok nebo tavenina ano — ionty se uvolní a mohou putovat.\n\n**b) N₂:** dva stejné atomy, rozdíl X = 0 → **nepolární kovalentní vazba** (dokonce trojná — proto je dusík tak líný reagovat a tvoří 78 % atmosféry). Proud nevede.\n\n**c) Hliníkový plech:** atomy kovu → **kovová vazba**, kationty hliníku v moři volných elektronů. Proud vede výborně — proto se z hliníku dělají dráty vysokého napětí."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Molekula", "zadni": "Částice ze dvou a více vázaných atomů (H₂O, CO₂, O₂)." },
+            { "predni": "Valenční elektrony", "zadni": "Elektrony nejvzdálenější vrstvy — tvoří chemické vazby." },
+            { "predni": "Elektronegativita", "zadni": "Schopnost atomu přitahovat elektrony vazby; nejvyšší má fluor." },
+            { "predni": "Kation", "zadni": "Kladný ion — atom, který elektron(y) odevzdal (Na⁺)." },
+            { "predni": "Anion", "zadni": "Záporný ion — atom, který elektron(y) přijal (Cl⁻)." },
+            { "predni": "Nepolární kovalentní vazba", "zadni": "Rovnocenné sdílení páru, rozdíl X do 0,4 (H₂, O₂)." },
+            { "predni": "Polární kovalentní vazba", "zadni": "Sdílený pár posunutý k elektronegativnějšímu atomu, rozdíl X 0,4–1,7 (H₂O)." },
+            { "predni": "Iontová vazba", "zadni": "Úplné předání elektronu, rozdíl X nad 1,7; ionty drží krystal (NaCl)." },
+            { "predni": "Kovová vazba", "zadni": "Kationty kovu v „moři“ volných elektronů → vodivost, kujnost, lesk." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Vazby tvoří **valenční elektrony**; atomy míří ke stabilnímu **oktetu**.\n- **Elektronegativita** = síla, s jakou atom táhne elektrony vazby k sobě.\n- Rozdíl X: do 0,4 **nepolární kovalentní**, 0,4–1,7 **polární kovalentní**, nad 1,7 **iontová**.\n- Iontové látky vedou proud jen jako **roztok či tavenina**; kovy vedou vždy díky **volným elektronům**.\n- Kovová vazba vysvětluje vodivost, kujnost i lesk kovů."
+        }
+      ]
+    },
+    {
+      "temaId": "che-nazvoslovi",
+      "nazev": "Anorganické názvosloví",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Na etiketě sušených meruněk stojí: „konzervant E220 — oxid siřičitý“. Kámoška se ušklíbne: „Zase nějaká chemie…“ Ty ale mrkneš na název a v hlavě ti naskočí SO₂ — síra s oxidačním číslem IV a jeden atom síry na dva kyslíky. České chemické názvosloví je totiž šifra, kterou se dá naučit za jedno odpoledne — a pak už ji jen používáš."
+        },
+        {
+          "typ": "text",
+          "obsah": "Klíčem názvosloví je **oxidační číslo** — myšlený náboj atomu ve sloučenině (římské číslice). Základní pravidla:\n\n- volný prvek má oxidační číslo **0**,\n- kyslík má ve sloučeninách **−II**, vodík **+I**,\n- **součet oxidačních čísel ve sloučenině je nula**.\n\nKladné oxidační číslo I–VIII prozradí **přípona**: -ný (I), -natý (II), -itý (III), -ičitý (IV), -ičný/-ečný (V), -ový (VI), -istý (VII), -ičelý (VIII).\n\n**Oxidy** = sloučeniny kyslíku: CO₂ oxid uhličitý, CaO oxid vápenatý. Vzorec sestavíš **křížovým pravidlem** — oxidační čísla se prohodí jako počty atomů: Al⁺ᴵᴵᴵ a O⁻ᴵᴵ → **Al₂O₃**.\n\n**Sulfidy** = obdoba se sírou S⁻ᴵᴵ: ZnS sulfid zinečnatý."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Názvosloví je čtení etiket. E220 (oxid siřičitý) konzervuje víno i sušené ovoce, hydroxid sodný je ten žíravý čistič odpadů za 89 Kč, kyselina chlorovodíková se prodává jako čistič na vodní kámen a uhličitan vápenatý je obyčejná křída i tableta proti pálení žáhy. Kdo umí názvosloví, ví, co si nese domů z drogerie — a co rozhodně nemíchat dohromady."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 340' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Přehled přípon oxidačních čísel I až VIII s příklady oxidů'><text x='280' y='28' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>oxidační číslo → přípona → příklad</text><rect x='20' y='46' width='250' height='58' rx='8' fill='none' stroke='currentColor' stroke-width='1' opacity='0.9' /><text x='50' y='82' text-anchor='middle' font-size='18' font-weight='bold' fill='var(--akcent)'>I</text><text x='80' y='72' font-size='15' font-weight='bold' fill='currentColor'>-ný</text><text x='80' y='93' font-size='12' fill='currentColor'>Na₂O oxid sodný</text><rect x='20' y='118' width='250' height='58' rx='8' fill='none' stroke='currentColor' stroke-width='1' opacity='0.9' /><text x='50' y='154' text-anchor='middle' font-size='18' font-weight='bold' fill='var(--akcent)'>II</text><text x='80' y='144' font-size='15' font-weight='bold' fill='currentColor'>-natý</text><text x='80' y='165' font-size='12' fill='currentColor'>CaO oxid vápenatý</text><rect x='20' y='190' width='250' height='58' rx='8' fill='none' stroke='currentColor' stroke-width='1' opacity='0.9' /><text x='50' y='226' text-anchor='middle' font-size='18' font-weight='bold' fill='var(--akcent)'>III</text><text x='80' y='216' font-size='15' font-weight='bold' fill='currentColor'>-itý</text><text x='80' y='237' font-size='12' fill='currentColor'>Fe₂O₃ oxid železitý</text><rect x='20' y='262' width='250' height='58' rx='8' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='50' y='298' text-anchor='middle' font-size='18' font-weight='bold' fill='var(--akcent)'>IV</text><text x='80' y='288' font-size='15' font-weight='bold' fill='currentColor'>-ičitý</text><text x='80' y='309' font-size='12' fill='currentColor'>SO₂ oxid siřičitý</text><rect x='290' y='46' width='250' height='58' rx='8' fill='none' stroke='currentColor' stroke-width='1' opacity='0.9' /><text x='320' y='82' text-anchor='middle' font-size='18' font-weight='bold' fill='var(--akcent)'>V</text><text x='350' y='72' font-size='15' font-weight='bold' fill='currentColor'>-ičný / -ečný</text><text x='350' y='93' font-size='12' fill='currentColor'>N₂O₅ oxid dusičný</text><rect x='290' y='118' width='250' height='58' rx='8' fill='none' stroke='currentColor' stroke-width='1' opacity='0.9' /><text x='320' y='154' text-anchor='middle' font-size='18' font-weight='bold' fill='var(--akcent)'>VI</text><text x='350' y='144' font-size='15' font-weight='bold' fill='currentColor'>-ový</text><text x='350' y='165' font-size='12' fill='currentColor'>SO₃ oxid sírový</text><rect x='290' y='190' width='250' height='58' rx='8' fill='none' stroke='currentColor' stroke-width='1' opacity='0.9' /><text x='320' y='226' text-anchor='middle' font-size='18' font-weight='bold' fill='var(--akcent)'>VII</text><text x='350' y='216' font-size='15' font-weight='bold' fill='currentColor'>-istý</text><text x='350' y='237' font-size='12' fill='currentColor'>Cl₂O₇ oxid chloristý</text><rect x='290' y='262' width='250' height='58' rx='8' fill='none' stroke='currentColor' stroke-width='1' opacity='0.9' /><text x='320' y='298' text-anchor='middle' font-size='18' font-weight='bold' fill='var(--akcent)'>VIII</text><text x='350' y='288' font-size='15' font-weight='bold' fill='currentColor'>-ičelý</text><text x='350' y='309' font-size='12' fill='currentColor'>OsO₄ oxid osmičelý</text></svg>",
+          "popisek": "Osm přípon pro oxidační čísla I–VIII. Zvýrazněný řádek: -ičitý (IV) — právě to je síra v oxidu siřičitém SO₂, konzervantu E220. Kyslík má v oxidech vždy −II a součet oxidačních čísel je nula."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-nazvoslovi-1",
+            "temaId": "che-nazvoslovi",
+            "typ": "doplneni",
+            "obtiznost": 2,
+            "zadani": "Napiš název sloučeniny CO₂ (dvě slova).",
+            "spravneOdpovedi": ["oxid uhličitý", "oxid uhlicity", "Oxid uhličitý"],
+            "vysvetleni": "Dva kyslíky à −II dávají −IV, uhlík tedy má +IV a číslu IV patří přípona -ičitý: oxid uhličitý. Ten samý plyn, který sytí kolu a který vydechuješ.",
+            "zdroj": "Anorganické názvosloví"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Kyseliny** poznáš podle vodíku na začátku vzorce:\n\n- **bezkyslíkaté** — přípona *-vodíková*: HCl kyselina chlorovodíková, H₂S sirovodíková.\n- **kyslíkaté** — přípona podle oxidačního čísla prvku: H₂SO₄ kyselina **sírová** (S⁺ⱽᴵ), H₂SO₃ **siřičitá** (S⁺ᴵⱽ), HNO₃ **dusičná** (N⁺ⱽ), H₂CO₃ **uhličitá** (C⁺ᴵⱽ). Počet vodíků dopočítáš tak, aby součet oxidačních čísel byl nula.\n\n**Hydroxidy** obsahují skupinu **OH⁻ᴵ**: NaOH hydroxid sodný, Ca(OH)₂ hydroxid vápenatý.\n\n**Soli** vznikají z kyselin náhradou vodíku kovem. Anion pojmenuješ příponou:\n- **-id** u bezkyslíkatých: NaCl chlorid sodný, ZnS sulfid zinečnatý,\n- **-an** u kyslíkatých: síran SO₄²⁻ (CuSO₄ síran měďnatý — modrá skalice), dusičnan NO₃⁻ (KNO₃), uhličitan CO₃²⁻ (CaCO₃ — vápenec)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              { "a": "SO₂", "b": "oxid siřičitý" },
+              { "a": "NaOH", "b": "hydroxid sodný" },
+              { "a": "HCl", "b": "kyselina chlorovodíková" },
+              { "a": "H₂SO₄", "b": "kyselina sírová" },
+              { "a": "NaCl", "b": "chlorid sodný" },
+              { "a": "CaCO₃", "b": "uhličitan vápenatý" },
+              { "a": "ZnS", "b": "sulfid zinečnatý" },
+              { "a": "HNO₃", "b": "kyselina dusičná" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-nazvoslovi-2",
+            "temaId": "che-nazvoslovi",
+            "typ": "doplneni",
+            "obtiznost": 4,
+            "zadani": "Napiš vzorec oxidu hlinitého (hliník má oxidační číslo +III).",
+            "spravneOdpovedi": ["Al₂O₃", "Al2O3", "al2o3"],
+            "vysvetleni": "Křížové pravidlo: Al⁺ᴵᴵᴵ a O⁻ᴵᴵ — trojka přejde ke kyslíku, dvojka k hliníku: Al₂O₃. Kontrola: 2 × (+III) + 3 × (−II) = +6 − 6 = 0. Sedí.",
+            "zdroj": "Anorganické názvosloví"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Odvoď vzorec oxidu fosforečného — krok za krokem.",
+          "reseni": "**1) Přípona → oxidační číslo:** *-ečný* znamená +V, takže fosfor je P⁺ⱽ.\n\n**2) Druhý prvek:** oxid = kyslík O⁻ᴵᴵ.\n\n**3) Křížové pravidlo:** oxidační čísla se prohodí jako počty atomů — pětka ke kyslíku, dvojka k fosforu: **P₂O₅**.\n\n**4) Kontrola součtu:** 2 × (+V) + 5 × (−II) = +10 − 10 = 0. ✓\n\nStejným postupem zvládneš každý oxid: z názvu přečti oxidační číslo, přihoď kyslík −II a překřižuj."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Oxidační číslo", "zadni": "Myšlený náboj atomu ve sloučenině (římské číslice); součet ve sloučenině je 0." },
+            { "predni": "Přípony I–IV", "zadni": "-ný (I), -natý (II), -itý (III), -ičitý (IV)." },
+            { "predni": "Přípony V–VIII", "zadni": "-ičný/-ečný (V), -ový (VI), -istý (VII), -ičelý (VIII)." },
+            { "predni": "Oxid", "zadni": "Dvouprvková sloučenina kyslíku O⁻ᴵᴵ (CO₂, Fe₂O₃); vzorec křížovým pravidlem." },
+            { "predni": "Sulfid", "zadni": "Dvouprvková sloučenina síry S⁻ᴵᴵ (ZnS sulfid zinečnatý)." },
+            { "predni": "Hydroxid", "zadni": "Sloučenina se skupinou OH⁻ᴵ (NaOH, Ca(OH)₂)." },
+            { "predni": "Kyselina bezkyslíkatá", "zadni": "Přípona -vodíková: HCl kyselina chlorovodíková." },
+            { "predni": "Kyselina kyslíkatá", "zadni": "Přípona podle oxidačního čísla: H₂SO₄ sírová (+VI), HNO₃ dusičná (+V)." },
+            { "predni": "Soli: -id vs. -an", "zadni": "-id = sůl bezkyslíkaté kyseliny (chlorid), -an = kyslíkaté (síran, dusičnan)." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- **Oxidační číslo** je klíč: kyslík −II, vodík +I, součet ve sloučenině 0.\n- Přípona názvu = oxidační číslo I–VIII (**-ný** až **-ičelý**).\n- Vzorec oxidu sestavíš **křížovým pravidlem** a ověříš součtem.\n- Kyseliny: **-vodíková** (bez kyslíku) vs. přípona dle oxidačního čísla (kyslíkaté).\n- Soli: **-id** z bezkyslíkatých, **-an** z kyslíkatých kyselin."
+        }
+      ]
+    },
+    {
+      "temaId": "che-reakce",
+      "nazev": "Chemické reakce",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Domácí sopka: do sklenice s octem hodíš lžičku jedlé sody — a pěna letí přes okraj dřív, než stihneš uhnout. Právě proběhla chemická reakce: ze dvou obyčejných kuchyňských surovin vznikly úplně nové látky, včetně plynu, který tu pěnu nafoukl. A nejlepší na tom je, že ani miligram hmoty se přitom neztratil."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Chemická reakce** je děj, při kterém z výchozích látek (**reaktantů**) vznikají nové látky (**produkty**) s jinými vlastnostmi. Atomy přitom **nezanikají ani nevznikají** — jen se přeskupují: staré vazby se ruší, nové vznikají.\n\nZ toho plyne **zákon zachování hmotnosti** (Lomonosov, Lavoisier): **hmotnost reaktantů = hmotnost produktů**. Spálíš-li 48 g hořčíku ve 32 g kyslíku, vznikne přesně 80 g oxidu hořečnatého.\n\nReakci zapisujeme **rovnicí**: reaktanty → produkty. Aby rovnice sedla, musí být **vyčíslená** — počet atomů každého prvku stejný vlevo i vpravo. Vyčíslujeme **koeficienty** před vzorci; **indexy ve vzorcích neměníme nikdy** (H₂O → H₂O₂ už není voda, ale peroxid!)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Kynutí buchet je chemická reakce — prášek do pečiva uvolní CO₂ a těsto nakyne. Motor auta spaluje benzin (exotermická reakce — proto je kapota horká) a kalorie z tvé svačiny tělo „pálí“ v pomalé řízené oxidaci. A hlavně bezpečnost: kdo ví, že hoření potřebuje kyslík, ví, proč se hořící olej přiklápí pokličkou a NIKDY nezalévá vodou — a proč se savo nesmí míchat s octem."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 300' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Vyčíslená rovnice 2 H2 + O2 → 2 H2O se stejným počtem atomů na obou stranách'><text x='280' y='38' text-anchor='middle' font-size='20' font-weight='bold' fill='currentColor'>2 H₂ + O₂ → 2 H₂O</text><line x1='72' y1='110' x2='108' y2='110' stroke='currentColor' stroke-width='1.5' /><circle cx='60' cy='110' r='13' fill='none' stroke='var(--info)' stroke-width='2' /><text x='60' y='115' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>H</text><circle cx='120' cy='110' r='13' fill='none' stroke='var(--info)' stroke-width='2' /><text x='120' y='115' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>H</text><line x1='72' y1='165' x2='108' y2='165' stroke='currentColor' stroke-width='1.5' /><circle cx='60' cy='165' r='13' fill='none' stroke='var(--info)' stroke-width='2' /><text x='60' y='170' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>H</text><circle cx='120' cy='165' r='13' fill='none' stroke='var(--info)' stroke-width='2' /><text x='120' y='170' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>H</text><line x1='187' y1='138' x2='223' y2='138' stroke='currentColor' stroke-width='1.5' /><circle cx='172' cy='138' r='16' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='172' y='143' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>O</text><circle cx='238' cy='138' r='16' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='238' y='143' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>O</text><line x1='275' y1='138' x2='320' y2='138' stroke='currentColor' stroke-width='2.5' /><path d='M 320 130 L 334 138 L 320 146 Z' fill='currentColor' /><circle cx='420' cy='105' r='16' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='420' y='110' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>O</text><line x1='407' y1='114' x2='390' y2='127' stroke='currentColor' stroke-width='1.5' /><line x1='433' y1='114' x2='450' y2='127' stroke='currentColor' stroke-width='1.5' /><circle cx='382' cy='135' r='13' fill='none' stroke='var(--info)' stroke-width='2' /><text x='382' y='140' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>H</text><circle cx='458' cy='135' r='13' fill='none' stroke='var(--info)' stroke-width='2' /><text x='458' y='140' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>H</text><circle cx='420' cy='180' r='16' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='420' y='185' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>O</text><line x1='407' y1='189' x2='390' y2='202' stroke='currentColor' stroke-width='1.5' /><line x1='433' y1='189' x2='450' y2='202' stroke='currentColor' stroke-width='1.5' /><circle cx='382' cy='210' r='13' fill='none' stroke='var(--info)' stroke-width='2' /><text x='382' y='215' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>H</text><circle cx='458' cy='210' r='13' fill='none' stroke='var(--info)' stroke-width='2' /><text x='458' y='215' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>H</text><text x='150' y='245' text-anchor='middle' font-size='13' fill='currentColor'>vlevo: 4× H, 2× O</text><text x='420' y='245' text-anchor='middle' font-size='13' fill='currentColor'>vpravo: 4× H, 2× O</text><text x='280' y='280' text-anchor='middle' font-size='14' font-weight='bold' fill='var(--uspech)'>hmotnost reaktantů = hmotnost produktů</text></svg>",
+          "popisek": "Vyčíslená rovnice 2 H₂ + O₂ → 2 H₂O: na obou stranách jsou 4 atomy vodíku a 2 atomy kyslíku. Atomy se jen přeskupily do nových molekul — hmotnost se zachovala."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-reakce-1",
+            "temaId": "che-reakce",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Při vyčíslování rovnice smím změnit index ve vzorci (třeba z H₂O udělat H₂O₂), když mi to pomůže dorovnat atomy.",
+            "spravna": false,
+            "vysvetleni": "Nikdy! Změnou indexu vznikne jiná látka — H₂O₂ je peroxid vodíku, ne voda. Vyčíslovat se smí jedině koeficienty PŘED vzorci (2 H₂O znamená dvě molekuly vody).",
+            "zdroj": "Chemické reakce"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Základní typy reakcí:\n\n- **Slučování (syntéza)** — z více látek jedna: C + O₂ → CO₂.\n- **Rozklad (analýza)** — z jedné látky více: CaCO₃ → CaO + CO₂ (pálení vápence).\n\nPodle tepla:\n- **Exotermické** — teplo uvolňují: hoření, tuhnutí betonu.\n- **Endotermické** — teplo spotřebovávají: fotosyntéza, rozklad vápence.\n\n**Hoření** je exotermická reakce s kyslíkem. Potřebuje tři věci najednou (**trojúhelník hoření**): hořlavou látku, kyslík a zápalnou teplotu. Hašení = odstranění jedné z nich: voda ochlazuje, pěna a poklička odříznou kyslík.\n\n**Bezpečnost doma:** hořící olej a elektřinu nikdy nehas vodou. A čisticí prostředky nemíchej — **savo + ocet uvolňuje jedovatý chlor**, savo + čpavkový čistič jedovaté chloraminy."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Vyčísli rovnici hoření zemního plynu: CH₄ + O₂ → CO₂ + H₂O",
+            "kroky": [
+              { "nazev": "Napiš schéma", "popis": "CH₄ + O₂ → CO₂ + H₂O. Vzorce jsou správně — na ně už nesaháme, ladit budeme jen koeficienty.", "ikona": "✍️" },
+              { "nazev": "Spočítej atomy", "popis": "Vlevo: 1 C, 4 H, 2 O. Vpravo: 1 C, 2 H, 3 O. Uhlík sedí, vodík a kyslík ne.", "ikona": "🔢" },
+              { "nazev": "Dorovnej vodík", "popis": "Vlevo 4 H, vpravo jen 2 → před vodu dám koeficient 2: CH₄ + O₂ → CO₂ + 2 H₂O.", "ikona": "⚖️" },
+              { "nazev": "Dorovnej kyslík", "popis": "Vpravo teď 2 + 2 = 4 O, vlevo jen 2 → před O₂ patří 2: CH₄ + 2 O₂ → CO₂ + 2 H₂O.", "ikona": "🔧" },
+              { "nazev": "Zkontroluj", "popis": "Vlevo: 1 C, 4 H, 4 O. Vpravo: 1 C, 4 H, 4 O. Sedí — rovnice je vyčíslená. ✓", "ikona": "✅" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-reakce-2",
+            "temaId": "che-reakce",
+            "typ": "vyber",
+            "obtiznost": 4,
+            "zadani": "Kterými koeficienty vyčíslíš rovnici rezavění: _ Fe + _ O₂ → _ Fe₂O₃?",
+            "moznosti": [
+              "4 Fe + 3 O₂ → 2 Fe₂O₃",
+              "2 Fe + 3 O₂ → 2 Fe₂O₃",
+              "4 Fe + 3 O₂ → 4 Fe₂O₃",
+              "1 Fe + 1 O₂ → 1 Fe₂O₃"
+            ],
+            "spravna": 0,
+            "vysvetleni": "4 Fe + 3 O₂ → 2 Fe₂O₃: železo 4 = 2×2, kyslík 3×2 = 6 = 2×3. Druhá možnost nesedí v železe (2 ≠ 4), třetí v kyslíku (6 ≠ 12) a čtvrtá nesedí vůbec — vždy přepočítej KAŽDÝ prvek na obou stranách.",
+            "zdroj": "Chemické reakce"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Při pálení vápna se vápenec rozkládá: CaCO₃ → CaO + CO₂. Z 100 g vápence vzniklo 56 g páleného vápna (CaO). Kolik gramů oxidu uhličitého uniklo do vzduchu?",
+          "reseni": "**Použiju zákon zachování hmotnosti:** hmotnost reaktantů = hmotnost produktů.\n\nm(CaCO₃) = m(CaO) + m(CO₂)\n\n100 g = 56 g + m(CO₂)\n\n**m(CO₂) = 100 − 56 = 44 g**\n\nŽádná hmota se neztratila — 44 g jen uletělo komínem jako plyn. Přesně proto se vápenka nedoplatí: z každé tuny vápence odejde 440 kg CO₂ do vzduchu. (A mimochodem: rozklad vápence je endotermická reakce — pec se musí pořád přitápět.)"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Reaktanty", "zadni": "Výchozí látky reakce — v rovnici vlevo." },
+            { "predni": "Produkty", "zadni": "Nové látky vzniklé reakcí — v rovnici vpravo." },
+            { "predni": "Zákon zachování hmotnosti", "zadni": "Hmotnost reaktantů = hmotnost produktů (Lomonosov, Lavoisier)." },
+            { "predni": "Vyčíslení rovnice", "zadni": "Dorovnání koeficientů, aby počet atomů každého prvku seděl; indexy se nemění." },
+            { "predni": "Slučování (syntéza)", "zadni": "Z více látek vzniká jedna: C + O₂ → CO₂." },
+            { "predni": "Rozklad (analýza)", "zadni": "Z jedné látky vzniká více látek: CaCO₃ → CaO + CO₂." },
+            { "predni": "Exotermická reakce", "zadni": "Uvolňuje teplo — hoření, tuhnutí betonu." },
+            { "predni": "Endotermická reakce", "zadni": "Teplo spotřebovává — fotosyntéza, rozklad vápence." },
+            { "predni": "Trojúhelník hoření", "zadni": "Hořlavina + kyslík + zápalná teplota; hašení = odebrání jedné z podmínek." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Reakce: **reaktanty → produkty**; atomy se jen přeskupují.\n- **Hmotnost se zachovává** — co vejde, to vyjde (i kdyby jako plyn).\n- Rovnice se vyčísluje **koeficienty**, nikdy změnou indexů.\n- **Slučování** × **rozklad**; **exotermické** (teplo ven) × **endotermické** (teplo dovnitř).\n- Hoření = hořlavina + kyslík + zápalná teplota; olej a elektřinu nikdy nehasit vodou, čisticí prostředky nemíchat."
+        }
+      ]
+    },
+    {
+      "temaId": "che-voda-roztoky",
+      "nazev": "Voda, vzduch a roztoky",
+      "poradi": 5,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Sobotní brigáda v kavárně: šéfová ti podá kanystr a povídá: „Namíchej 2 litry 10% sirupové zálivky.“ Kolik sirupu? Kolik vody? Tipovat se nedá — za špatný poměr platí kavárna chutí i penězi. Za deset minut budeš přesně vědět, jak na to."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Voda** H₂O — nejdůležitější sloučenina na Zemi. Druhy: **destilovaná** (čistá, do laboratoří a napařovaček), **pitná** (zdravotně nezávadná, s rozpuštěnými minerály), **užitková** (mytí, průmysl) a **odpadní**. Podle rozpuštěných vápenatých a hořečnatých solí je voda **tvrdá** (dělá vodní kámen), nebo **měkká**.\n\n**Úprava pitné vody** ve vodárně: usazování → **čiření** (koagulace nečistot) → **filtrace** přes pískové filtry → **dezinfekce** (chlor, ozon nebo UV).\n\n**Vzduch** je stejnorodá směs plynů: **78 % dusík, 21 % kyslík**, 1 % ostatní (argon, CO₂ ~0,04 %, vodní pára). Kyslík potřebujeme k dýchání a hoření; CO₂ vzniká spalováním a jako skleníkový plyn přispívá ke změně klimatu."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Ředění šťávy, míchání iontového nápoje po tréninku i sirupová zálivka v kavárně — všude počítáš hmotnostní zlomek, i když tomu tak neříkáš. Vodní kámen v rychlovarné konvici je daň za tvrdou vodu (odstraní ho kyselina — třeba ocet). A pH rozhoduje, čím co čistíš: kyselým na vodní kámen, zásaditým na mastnotu. Jen pozor — **savo + ocet = jedovatý chlor**. Tohle „proč“ ti jednou může zachránit plíce."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 600 240' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Stupnice pH od 0 do 14 s příklady látek z domácnosti'><rect x='40' y='100' width='226' height='36' rx='4' fill='var(--chyba)' opacity='0.75' /><rect x='266' y='100' width='34' height='36' fill='var(--uspech)' opacity='0.85' /><rect x='300' y='100' width='260' height='36' rx='4' fill='var(--info)' opacity='0.75' /><text x='150' y='124' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>kyselé</text><text x='430' y='124' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>zásadité</text><text x='40' y='158' text-anchor='middle' font-size='12' fill='currentColor'>0</text><text x='283' y='158' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>7</text><text x='560' y='158' text-anchor='middle' font-size='12' fill='currentColor'>14</text><line x1='110' y1='100' x2='110' y2='72' stroke='currentColor' stroke-width='1.5' /><text x='110' y='60' text-anchor='middle' font-size='11' fill='currentColor'>žaludeční šťávy (≈2)</text><line x1='283' y1='100' x2='283' y2='72' stroke='currentColor' stroke-width='1.5' /><text x='283' y='60' text-anchor='middle' font-size='11' fill='currentColor'>čistá voda (7)</text><line x1='474' y1='100' x2='474' y2='72' stroke='currentColor' stroke-width='1.5' /><text x='474' y='60' text-anchor='middle' font-size='11' fill='currentColor'>savo (≈12,5)</text><line x1='144' y1='136' x2='144' y2='172' stroke='currentColor' stroke-width='1.5' /><text x='144' y='190' text-anchor='middle' font-size='11' fill='currentColor'>ocet, kola (≈3)</text><line x1='370' y1='136' x2='370' y2='172' stroke='currentColor' stroke-width='1.5' /><text x='370' y='190' text-anchor='middle' font-size='11' fill='currentColor'>mýdlo (≈9–10)</text><text x='300' y='225' text-anchor='middle' font-size='12' fill='currentColor'>pH &lt; 7 kyselé · pH = 7 neutrální · pH &gt; 7 zásadité</text></svg>",
+          "popisek": "Stupnice pH 0–14: červená oblast jsou kyselé roztoky (žaludeční šťávy, ocet), zelená neutrální bod 7 (čistá voda), modrá zásadité roztoky (mýdlo, savo). Čím dál od 7, tím je roztok agresivnější."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-voda-roztoky-1",
+            "temaId": "che-voda-roztoky",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kterého plynu je ve vzduchu nejvíc?",
+            "moznosti": [
+              "Dusíku (78 %)",
+              "Kyslíku (78 %)",
+              "Oxidu uhličitého (21 %)",
+              "Argonu (21 %)"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Vzduch je hlavně dusík (78 %); kyslíku je 21 %. Lidi často tipují kyslík, protože ho dýcháme — ale většinu nádechu tvoří dusík, který tělem jen projde. CO₂ je pouhých 0,04 %.",
+            "zdroj": "Voda, vzduch a roztoky"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Roztok** = rozpouštědlo + rozpuštěná látka. Když se za dané teploty už víc látky nerozpustí, je roztok **nasycený**. Rozpouštění zrychlí zahřátí, míchání a rozdrcení.\n\nSložení roztoku udává **hmotnostní zlomek**:\n\n**w = m(látky) / m(roztoku)** — v procentech krát 100.\n\nPozor: **roztok = látka + rozpouštědlo**. 25 g cukru ve 225 g vody: w = 25/(25+225) = 25/250 = **10 %** (ne 25/225!). Obráceně: na 200 g 15% roztoku vezmeš 0,15 × 200 = 30 g soli a 170 g vody.\n\n**pH** (0–14) měří kyselost: **< 7 kyselé, 7 neutrální, > 7 zásadité**. Zjistíš ho indikátorem (lakmus, univerzální papírek) nebo pH metrem. Silné kyseliny i zásady leptají — rukavice, brýle a hlavně nikdy nemíchat čisticí prostředky."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď látky z domácnosti podle pH: kyselé, neutrální, nebo zásadité?",
+            "kategorie": [
+              { "id": "kysele", "nazev": "Kyselé (pH < 7)" },
+              { "id": "neutralni", "nazev": "Neutrální (pH = 7)" },
+              { "id": "zasadite", "nazev": "Zásadité (pH > 7)" }
+            ],
+            "polozky": [
+              { "text": "ocet", "kategorieId": "kysele" },
+              { "text": "citronová šťáva", "kategorieId": "kysele" },
+              { "text": "kola", "kategorieId": "kysele" },
+              { "text": "čistá voda", "kategorieId": "neutralni" },
+              { "text": "destilovaná voda", "kategorieId": "neutralni" },
+              { "text": "mýdlová voda", "kategorieId": "zasadite" },
+              { "text": "savo", "kategorieId": "zasadite" },
+              { "text": "roztok jedlé sody", "kategorieId": "zasadite" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-che-voda-roztoky-2",
+            "temaId": "che-voda-roztoky",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Rozpustíš 30 g soli ve 270 g vody. Jaký je hmotnostní zlomek soli v roztoku?",
+            "moznosti": [
+              "10 % — 30 g z celkových 300 g roztoku",
+              "11 % — 30 g z 270 g vody",
+              "30 % — podle hmotnosti soli",
+              "9 % — 270 g děleno 30 g"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Roztok váží 30 + 270 = 300 g, takže w = 30/300 = 0,10 = 10 %. Dělit jen vodou (30/270 ≈ 11 %) je nejčastější chyba — jmenovatel musí být hmotnost CELÉHO roztoku.",
+            "zdroj": "Voda, vzduch a roztoky"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "V kavárně máš namíchat 2 000 g 10% sirupové zálivky (zhruba ty 2 litry od šéfové — litr zálivky váží kvůli sirupu o trochu víc než kilo, proto počítáme rovnou v gramech). Kolik gramů sirupu a kolik vody potřebuješ?",
+          "reseni": "**Sirup:** m(sirupu) = w × m(roztoku) = 0,10 × 2 000 = **200 g**.\n\n**Voda:** zbytek roztoku = 2 000 − 200 = **1 800 g**.\n\n**Kontrola:** 200/2 000 = 0,10 = 10 %. ✓\n\nČastá chyba by byla nalít 2 000 g vody a do toho 200 g sirupu — pak by roztok vážil 2 200 g a měl jen 200/2200 ≈ 9,1 %. Voda se vždy DOPOČÍTÁVÁ do celkové hmotnosti roztoku."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Destilovaná voda", "zadni": "Chemicky čistá voda — laboratoře, napařovačky; k pití se nehodí." },
+            { "predni": "Tvrdá voda", "zadni": "Voda s vyšším obsahem vápenatých a hořečnatých solí — tvoří vodní kámen." },
+            { "predni": "Úprava pitné vody", "zadni": "Čiření → filtrace přes písek → dezinfekce (chlor, ozon, UV)." },
+            { "predni": "Složení vzduchu", "zadni": "78 % dusík, 21 % kyslík, 1 % ostatní (argon, CO₂ 0,04 %)." },
+            { "predni": "Roztok", "zadni": "Stejnorodá směs rozpouštědla a rozpuštěné látky." },
+            { "predni": "Nasycený roztok", "zadni": "Za dané teploty se v něm už víc látky nerozpustí." },
+            { "predni": "Hmotnostní zlomek", "zadni": "w = m(látky)/m(roztoku); roztok = látka + rozpouštědlo." },
+            { "predni": "pH", "zadni": "Stupnice 0–14: < 7 kyselé, 7 neutrální, > 7 zásadité." },
+            { "predni": "Savo + ocet", "zadni": "NIKDY nemíchat — uvolňuje se jedovatý plynný chlor." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Voda: destilovaná / pitná / užitková / odpadní; tvrdá voda = vodní kámen.\n- Vodárna: **čiření → filtrace → dezinfekce**.\n- Vzduch: **78 % N₂, 21 % O₂**, CO₂ jen 0,04 %.\n- **w = m(látky)/m(roztoku)** — jmenovatel je celý roztok, ne jen voda!\n- **pH**: pod 7 kyselé, 7 neutrální, nad 7 zásadité; čisticí prostředky nikdy nemíchat."
+        }
+      ]
+    }
+  ]
+}

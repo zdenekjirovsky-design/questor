@@ -42,11 +42,11 @@ psychologickými hooky.
    questor-server :8787).
 7. API klíče a tokeny jen v env / `.env` (v .gitignore), nikdy v kódu.
 
-## Stav (2026-09-04 pozdě večer — po fázi 2)
+## Stav (2026-09-04 — po fázi 3: obsah 1. ročníku + přepínač předmětů)
 
-**Hotové a ověřené** (typecheck 4/4 workspaces, testy 233/233 — sdílené 77,
-generátor 32, server 38, aplikace 86; build aplikace OK; E2E serveru vč.
-`/api/vyuka`):
+**Hotové a ověřené** (typecheck 4/4 workspaces, testy 248/248 — sdílené 77,
+generátor 32, server 38, aplikace 101; build aplikace OK;
+`npx tsx scripts/kontrola-integrace.ts` → 0 chyb):
 
 - fáze 1: sdílené jádro (typy, zod schémata, gamifikace jako čisté funkce),
   generátor bank (ingest `.md/.txt/.pdf/.docx` → témata → otázky →
@@ -60,37 +60,40 @@ generátor 32, server 38, aplikace 86; build aplikace OK; E2E serveru vč.
   server `GET/PUT /api/vyuka` + admin sekce Výuka, aplikace `/uceni`
   a `/uceni/:temaId` (LekceViewer, 7 typů bloků, 6 obecných widgetů),
   gamifikace lekcí (XP 40 jen 1× denně, quest „lekce“, streak aktivita),
-  deterministické míchání možností odpovědí (pořadí v datech neprozradí
-  klíč);
-- dva vzorové předměty bundlované v aplikaci = plný provoz bez serveru:
-  „Ekonomika a podnikání“ (banka v2, 9 témat, 72 otázek) a „Zbožíznalství“
-  (banka v1, 5 témat, 65 otázek + výuka v2, 5 lekcí);
-- opravná dávka z adversariálního review fáze 2: 17 nálezů, 16 opraveno
-  (mj. míchání možností, věcné opravy obsahu, tvrdší sanitizace SVG,
-  opakování lekce), 1 odložen (persist bez partialize — viz nedostatky).
+  deterministické míchání možností odpovědí; opravná dávka
+  z adversariálního review (17 nálezů, 16 opraveno);
+- fáze 3 — OBSAH 1. ROČNÍKU (obor Ekonomika a podnikání): **13 předmětů**
+  bundlovaných v aplikaci, každý s bankou otázek I výukou — celkem
+  77 témat, 708 otázek v bankách, 77 lekcí (1 : 1 k tématům),
+  154 mini-kvízů, 81 widgetů; obsah podle závazné šablony
+  `docs/DIDAKTIKA.md`; křížové kontroly (unikátní `temaId` a id otázek
+  napříč předměty, vazby lekcí na témata banky, povolené widgety) drží
+  `scripts/kontrola-integrace.ts` + `aplikace/test/predmety.test.ts`;
+- přepínač předmětů (`f17fb66`): registr metadat
+  `aplikace/src/data/predmety.ts` (id, název, ikona, pořadí), volba
+  předmětu jako první krok modalu „Nová výprava“ na Domů i rychlého
+  startu na /test; „Učit se“ a Témata ve Statistikách per předmět;
+  obsah předmětů MIMO localStorage — lazy async chunky
+  (`import.meta.glob` bez eager) + IndexedDB `questor-obsah` pro obsah
+  ze serveru (`sync/uloziste.ts`), persist s `partialize` a migrací
+  v1→v2 (`stav/migrace.ts`). Počáteční JS chunk 414 kB (gzip 125)
+  BEZ obsahu předmětů, obsah = 26 async chunků — dřívější nedostatky
+  „přepínač chybí“, „persist bez partialize“ i varování o velikosti
+  chunku jsou tím vyřešené.
 
 **Připravené, ale neověřené:**
 
-- Tauri/Windows build — staví se jen v GitHub Actions (na Macu se Rust část
-  nekompiluje); první běh CI je nutné zkontrolovat; v `tauri.conf.json`
-  zbývá doplnit updater pubkey a URL repa (postup `docs/NASAZENI.md`);
+- Tauri/Windows build — staví se jen v GitHub Actions (na Macu se Rust
+  část nekompiluje); repo `zdenekjirovsky-design/questor` a tag `v0.1.0`
+  existují, updater pubkey a URL doplněny (`e9ee2a2`) — běh workflow
+  `windows-build` a instalaci na Windows je nutné ověřit na GitHubu
+  (postup `docs/NASAZENI.md`);
 - dogenerování otázek — serverová půlka hotová (bez `ANTHROPIC_API_KEY`
-  vrací 503 = „vypnuto“), proti skutečnému Claude API neověřeno; klientská
-  část v aplikaci pořád chybí;
+  vrací 503 = „vypnuto“), proti skutečnému Claude API neověřeno;
+  klientská část v aplikaci pořád chybí;
 - poskytovatelé `api` a `claude-cli` generátoru neověřeny ostrým během
-  (testy jedou na `mock`) — platí i pro režim `--vyuka`; bundlovaná výuka
-  Zbožíznalství vznikla ručně jako vzor.
+  (testy jedou na `mock`) — platí i pro režim `--vyuka`.
 
-**Známé nedostatky:**
-
-- přepínač předmětů v UI chybí — konfigurace testu na Domů pracuje jen
-  s PRVNÍ bankou (ekonomika); lekce všech předmětů a „Otestuj se z tématu“
-  z konce lekce ale fungují pro každý předmět;
-- zustand persist ukládá celý stav bez `partialize` (do `questor-stav` se
-  persistuje i obsah bank a výuky) — odloženo z review jako samostatný
-  úkol (oddělený klíč obsahu + migrace persistu);
-- Vite varování o velikosti JS chunku (~530 kB) trvá z fáze 1.
-
-**Další krok:** založit GitHub repo, doplnit updater klíče a vydat první
-release přes CI (`docs/NASAZENI.md`); pak ostré vygenerování banky a výuky
-přes `api` nebo `claude-cli` a nasazení serveru.
+**Další krok:** commit + push obsahové vlny fáze 3, ověřit CI release
+(`docs/NASAZENI.md`, krok 3) a nasadit server + nahrát na něj obsah;
+poté ostré vygenerování dalšího předmětu přes `api` nebo `claude-cli`.

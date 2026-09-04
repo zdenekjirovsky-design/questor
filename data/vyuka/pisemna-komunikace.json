@@ -1,0 +1,799 @@
+{
+  "predmetId": "pisemna-komunikace",
+  "verze": 2,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "pek-psani-na-klavesnici",
+      "nazev": "Psaní na klávesnici všemi deseti",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Pátek, poslední hodina. Učitelka zadá sloh na počítači a spustí stopky. Tereza z vedlejší lavice se ani jednou nepodívá na klávesnici — kouká na obrazovku, prsty jedou samy a za dvacet minut má hotovo. Ty pořád lovíš každé písmeno zvlášť. Žádné kouzlo: **desetiprstová hmatová metoda**."
+        },
+        {
+          "typ": "text",
+          "obsah": "Psaní **všemi deseti** stojí na jednoduchém principu: **nedíváš se na klávesnici** a každý prst obsluhuje své klávesy.\n\n- Výchozí poloha je na **základní (střední) řadě**: levá ruka **A S D F**, pravá **J K L Ů**.\n- Na klávesách **F** a **J** jsou **hmatové výstupky** — hrbolky, podle kterých ruce najdou správnou polohu poslepu.\n- **Palce obsluhují mezerník**, malíčky navíc **Shift** a **Enter**.\n- Prsty se z výchozí polohy natahují nahoru a dolů ve „svých“ sloupcích a po každém úhozu se vracejí zpět.\n- **Velké písmeno** píšeš **Shiftem opačné ruky**, než která tiskne písmeno — ruce se tak nekříží.\n\nČeská klávesnice má rozložení **QWERTZ** — oproti anglické jsou prohozená písmena Z a Y."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Referát, sloh, zpráva z praxe, později životopis a pracovní e-maily — všechno se dnes píše na klávesnici. Kdo píše všemi deseti, zvládne přes 300 čistých úhozů za minutu a text jen „vylévá z hlavy“; kdo datluje dvěma prsty, píše dvakrát až třikrát pomaleji a půlku pozornosti spálí hledáním kláves. A u přijímacích pohovorů na administrativní pozice se psaní na rychlost rovnou testuje."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 270\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Základní řada klávesnice a prstoklad\">\n<text x=\"146\" y=\"40\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"currentColor\">levá ruka</text>\n<text x=\"491\" y=\"40\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"currentColor\">pravá ruka</text>\n<g>\n<rect x=\"30\" y=\"52\" width=\"52\" height=\"52\" rx=\"8\" fill=\"var(--uspech)\" fill-opacity=\"0.18\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"56\" y=\"84\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"currentColor\">A</text>\n<rect x=\"88\" y=\"52\" width=\"52\" height=\"52\" rx=\"8\" fill=\"var(--zlata)\" fill-opacity=\"0.18\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"114\" y=\"84\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"currentColor\">S</text>\n<rect x=\"146\" y=\"52\" width=\"52\" height=\"52\" rx=\"8\" fill=\"var(--info)\" fill-opacity=\"0.18\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"172\" y=\"84\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"currentColor\">D</text>\n<rect x=\"204\" y=\"52\" width=\"52\" height=\"52\" rx=\"8\" fill=\"var(--akcent)\" fill-opacity=\"0.18\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"230\" y=\"84\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"currentColor\">F</text>\n<rect x=\"222\" y=\"94\" width=\"16\" height=\"4\" rx=\"2\" fill=\"currentColor\" />\n<rect x=\"262\" y=\"52\" width=\"52\" height=\"52\" rx=\"8\" fill=\"var(--akcent)\" fill-opacity=\"0.10\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" />\n<text x=\"288\" y=\"84\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"currentColor\">G</text>\n<rect x=\"320\" y=\"52\" width=\"52\" height=\"52\" rx=\"8\" fill=\"var(--akcent)\" fill-opacity=\"0.10\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" />\n<text x=\"346\" y=\"84\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"currentColor\">H</text>\n<rect x=\"378\" y=\"52\" width=\"52\" height=\"52\" rx=\"8\" fill=\"var(--akcent)\" fill-opacity=\"0.18\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"404\" y=\"84\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"currentColor\">J</text>\n<rect x=\"396\" y=\"94\" width=\"16\" height=\"4\" rx=\"2\" fill=\"currentColor\" />\n<rect x=\"436\" y=\"52\" width=\"52\" height=\"52\" rx=\"8\" fill=\"var(--info)\" fill-opacity=\"0.18\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"462\" y=\"84\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"currentColor\">K</text>\n<rect x=\"494\" y=\"52\" width=\"52\" height=\"52\" rx=\"8\" fill=\"var(--zlata)\" fill-opacity=\"0.18\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"520\" y=\"84\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"currentColor\">L</text>\n<rect x=\"552\" y=\"52\" width=\"52\" height=\"52\" rx=\"8\" fill=\"var(--uspech)\" fill-opacity=\"0.18\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"578\" y=\"84\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"600\" fill=\"currentColor\">Ů</text>\n</g>\n<rect x=\"175\" y=\"128\" width=\"290\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<text x=\"320\" y=\"148\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">mezerník — tisknou ho palce</text>\n<g>\n<rect x=\"30\" y=\"188\" width=\"14\" height=\"14\" rx=\"3\" fill=\"var(--akcent)\" fill-opacity=\"0.5\" />\n<text x=\"52\" y=\"200\" font-size=\"13\" fill=\"currentColor\">ukazováčky: F + G (levý) · J + H (pravý)</text>\n<rect x=\"330\" y=\"188\" width=\"14\" height=\"14\" rx=\"3\" fill=\"var(--info)\" fill-opacity=\"0.5\" />\n<text x=\"352\" y=\"200\" font-size=\"13\" fill=\"currentColor\">prostředníčky: D · K</text>\n<rect x=\"30\" y=\"216\" width=\"14\" height=\"14\" rx=\"3\" fill=\"var(--zlata)\" fill-opacity=\"0.5\" />\n<text x=\"52\" y=\"228\" font-size=\"13\" fill=\"currentColor\">prsteníčky: S · L</text>\n<rect x=\"330\" y=\"216\" width=\"14\" height=\"14\" rx=\"3\" fill=\"var(--uspech)\" fill-opacity=\"0.5\" />\n<text x=\"352\" y=\"228\" font-size=\"13\" fill=\"currentColor\">malíčky: A · Ů (+ Shift a Enter)</text>\n</g>\n<text x=\"320\" y=\"258\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.75\">Proužky na F a J = hmatové výstupky. Ruce je najdou poslepu.</text>\n</svg>",
+          "popisek": "Základní řada: levá ruka leží na A S D F, pravá na J K L Ů. Barvy ukazují, kterému prstu klávesa patří — ukazováčky hlídají F a J s hmatovými výstupky (a obsluhují i G a H), palce mezerník. Z této polohy prsty vyrážejí ke „svým“ klávesám a hned se vracejí."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-pek-psani-na-klavesnici-1",
+            "temaId": "pek-psani-na-klavesnici",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Chceš napsat velké „K“. Jak na to podle desetiprstové metody?",
+            "moznosti": [
+              "Stisknu levý Shift malíčkem a K pravým prostředníčkem",
+              "Stisknu pravý Shift a K pravou rukou",
+              "Zapnu Caps Lock, napíšu K a Caps Lock vypnu",
+              "Podívám se na klávesnici a stisknu obě klávesy pravou rukou"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Velké písmeno se píše Shiftem OPAČNÉ ruky, než která tiskne písmeno — K píše pravá ruka, Shift tedy drží levý malíček a ruce se nekříží. Pravý Shift by pravou ruku vykroutil z polohy, Caps Lock je na jedno písmeno zbytečně pomalý a koukání na klávesnici je přesně to, co se odnaučuješ.",
+            "zdroj": "Psaní na klávesnici všemi deseti"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Jak trénovat, aby to k něčemu vedlo:\n\n- **Přesnost před rychlostí.** Chyba a její oprava stojí víc času, než kolik uspěchané psaní ušetří — a špatně zafixovaný pohyb se přeučuje hrozně těžko. Rychlost přijde sama s jistotou.\n- **Pravidelnost:** 10–15 minut denně porazí hodinu jednou týdně.\n- **Od první lekce bez koukání** — jinak se hmatová paměť vůbec nevytvoří.\n\nVýkon se měří v **úhozech za minutu**. **Hrubé úhozy** = všechny stisky kláves; za každou chybu se odečítá **penalizace** (při výuce obvykle 10 úhozů). **Čisté úhozy za minutu** = (hrubé úhozy − penalizace) ÷ počet minut.\n\nA nezapomeň na **ergonomii**: seď zpříma, chodidla celou plochou na podlaze, lokty zhruba v pravém úhlu, horní okraj obrazovky ve výšce očí asi na délku paže, zápěstí rovná a uvolněná. Každou půlhodinu krátká pauza — chráníš záda i zápěstí (prevence syndromu karpálního tunelu) a odpočatý člověk dělá míň chyb."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "popisovacka",
+          "parametry": {
+            "svg": "<svg viewBox=\"0 0 640 220\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Česká klávesnice QWERTZ\">\n<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\">\n<rect x=\"40\" y=\"12\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"88\" y=\"12\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"136\" y=\"12\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"184\" y=\"12\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"232\" y=\"12\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"280\" y=\"12\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"328\" y=\"12\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"376\" y=\"12\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"424\" y=\"12\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"472\" y=\"12\" width=\"44\" height=\"44\" rx=\"6\" />\n</g>\n<g fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">\n<text x=\"62\" y=\"39\">Q</text><text x=\"110\" y=\"39\">W</text><text x=\"158\" y=\"39\">E</text><text x=\"206\" y=\"39\">R</text><text x=\"254\" y=\"39\">T</text><text x=\"302\" y=\"39\">Z</text><text x=\"350\" y=\"39\">U</text><text x=\"398\" y=\"39\">I</text><text x=\"446\" y=\"39\">O</text><text x=\"494\" y=\"39\">P</text>\n</g>\n<g>\n<rect x=\"52\" y=\"64\" width=\"44\" height=\"44\" rx=\"6\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"1.2\" />\n<rect x=\"100\" y=\"64\" width=\"44\" height=\"44\" rx=\"6\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"1.2\" />\n<rect x=\"148\" y=\"64\" width=\"44\" height=\"44\" rx=\"6\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"1.2\" />\n<rect x=\"196\" y=\"64\" width=\"44\" height=\"44\" rx=\"6\" fill=\"var(--akcent)\" fill-opacity=\"0.18\" stroke=\"var(--akcent)\" stroke-width=\"2.4\" />\n<rect x=\"244\" y=\"64\" width=\"44\" height=\"44\" rx=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" />\n<rect x=\"292\" y=\"64\" width=\"44\" height=\"44\" rx=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" />\n<rect x=\"340\" y=\"64\" width=\"44\" height=\"44\" rx=\"6\" fill=\"var(--akcent)\" fill-opacity=\"0.18\" stroke=\"var(--akcent)\" stroke-width=\"2.4\" />\n<rect x=\"388\" y=\"64\" width=\"44\" height=\"44\" rx=\"6\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"1.2\" />\n<rect x=\"436\" y=\"64\" width=\"44\" height=\"44\" rx=\"6\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"1.2\" />\n<rect x=\"484\" y=\"64\" width=\"44\" height=\"44\" rx=\"6\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"1.2\" />\n</g>\n<g fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">\n<text x=\"74\" y=\"91\">A</text><text x=\"122\" y=\"91\">S</text><text x=\"170\" y=\"91\">D</text><text x=\"218\" y=\"91\">F</text><text x=\"266\" y=\"91\">G</text><text x=\"314\" y=\"91\">H</text><text x=\"362\" y=\"91\">J</text><text x=\"410\" y=\"91\">K</text><text x=\"458\" y=\"91\">L</text><text x=\"506\" y=\"91\">Ů</text>\n</g>\n<rect x=\"211\" y=\"100\" width=\"14\" height=\"3\" rx=\"1.5\" fill=\"var(--akcent)\" />\n<rect x=\"355\" y=\"100\" width=\"14\" height=\"3\" rx=\"1.5\" fill=\"var(--akcent)\" />\n<rect x=\"536\" y=\"12\" width=\"68\" height=\"96\" rx=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" />\n<text x=\"570\" y=\"65\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">Enter</text>\n<rect x=\"8\" y=\"116\" width=\"76\" height=\"44\" rx=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" />\n<text x=\"46\" y=\"142\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">Shift</text>\n<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\">\n<rect x=\"92\" y=\"116\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"140\" y=\"116\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"188\" y=\"116\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"236\" y=\"116\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"284\" y=\"116\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"332\" y=\"116\" width=\"44\" height=\"44\" rx=\"6\" /><rect x=\"380\" y=\"116\" width=\"44\" height=\"44\" rx=\"6\" />\n</g>\n<g fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">\n<text x=\"114\" y=\"143\">Y</text><text x=\"162\" y=\"143\">X</text><text x=\"210\" y=\"143\">C</text><text x=\"258\" y=\"143\">V</text><text x=\"306\" y=\"143\">B</text><text x=\"354\" y=\"143\">N</text><text x=\"402\" y=\"143\">M</text>\n</g>\n<rect x=\"432\" y=\"116\" width=\"100\" height=\"44\" rx=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" />\n<text x=\"482\" y=\"142\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">Shift</text>\n<rect x=\"140\" y=\"168\" width=\"280\" height=\"36\" rx=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" />\n</svg>",
+            "body": [
+              {
+                "x": 218,
+                "y": 86,
+                "nazev": "Klávesa F",
+                "popis": "Výchozí poloha levého ukazováčku. Hmatový výstupek pod prstem ti prozradí správnou polohu bez koukání."
+              },
+              {
+                "x": 362,
+                "y": 86,
+                "nazev": "Klávesa J",
+                "popis": "Výchozí poloha pravého ukazováčku — druhý hmatový výstupek. Ukazováčky obsluhují i sousední G a H."
+              },
+              {
+                "x": 506,
+                "y": 86,
+                "nazev": "Klávesa Ů",
+                "popis": "Krajní klávesa základní řady — leží na ní pravý malíček."
+              },
+              {
+                "x": 46,
+                "y": 138,
+                "nazev": "Levý Shift",
+                "popis": "Tisknou ho malíčky. Velké písmeno píšeš vždy Shiftem opačné ruky, než která tiskne písmeno."
+              },
+              {
+                "x": 570,
+                "y": 60,
+                "nazev": "Enter",
+                "popis": "Odřádkování — obsluhuje ho pravý malíček, ruka přitom zůstává v základní poloze."
+              },
+              {
+                "x": 280,
+                "y": 186,
+                "nazev": "Mezerník",
+                "popis": "Nejčastější úhoz vůbec — tisknou ho palce."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-pek-psani-na-klavesnici-2",
+            "temaId": "pek-psani-na-klavesnici",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Jak vypadá nejúčinnější trénink psaní všemi deseti?",
+            "moznosti": [
+              "10–15 minut denně, pomalu a bez chyb",
+              "Hodina v kuse jednou týdně",
+              "Psát co nejrychleji — chyby se doladí později",
+              "Prvních pár týdnů se na klávesnici dívat, pak přestat"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Rozložené opakování a přesnost budují hmatovou paměť nejrychleji. Šprtání jednou týdně se do dalšího týdne zapomene, rychlé psaní s chybami fixuje špatné pohyby a koukání na klávesnici brání vzniku hmatové paměti od úplně první lekce.",
+            "zdroj": "Psaní na klávesnici všemi deseti"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Adam psal 5 minut a stiskl celkem 1 480 kláves (hrubé úhozy). Udělal 3 chyby, penalizace je 10 úhozů za chybu. Kolik má čistých úhozů za minutu — a stačí to na kancelářskou brigádu, kde chtějí aspoň 250?",
+          "reseni": "1. Penalizace: 3 chyby × 10 = **30 úhozů**.\n2. Čisté úhozy celkem: 1 480 − 30 = **1 450**.\n3. Za minutu: 1 450 ÷ 5 = **290 čistých úhozů/min**.\n\nAdam limit 250 splní. Všimni si, jak málo ho stály 3 chyby — kdyby jich ale udělal 30, spadl by na (1 480 − 300) ÷ 5 = 236 úhozů a neuspěl. Přesnost rozhoduje."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Základní řada — levá ruka",
+              "zadni": "A S D F"
+            },
+            {
+              "predni": "Základní řada — pravá ruka",
+              "zadni": "J K L Ů"
+            },
+            {
+              "predni": "Hmatové výstupky",
+              "zadni": "Hrbolky na F a J — podle nich najdeš výchozí polohu poslepu"
+            },
+            {
+              "predni": "Mezerník",
+              "zadni": "Tisknou ho palce"
+            },
+            {
+              "predni": "Velké písmeno",
+              "zadni": "Shift opačné ruky, než která tiskne písmeno"
+            },
+            {
+              "predni": "Hlavní zásada nácviku",
+              "zadni": "Přesnost před rychlostí — rychlost přijde sama"
+            },
+            {
+              "predni": "Čisté úhozy za minutu",
+              "zadni": "(hrubé úhozy − penalizace) ÷ počet minut"
+            },
+            {
+              "predni": "Ergonomie u monitoru",
+              "zadni": "Horní okraj obrazovky ve výšce očí, asi na délku paže"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "Shrnutí:\n\n- Výchozí poloha: **A S D F** a **J K L Ů**, ukazováčky na výstupcích **F** a **J**, palce na mezerníku.\n- Velké písmeno = **Shift opačné ruky**; malíčky obsluhují i Enter.\n- **Přesnost před rychlostí**, trénink 10–15 minut denně, od začátku bez koukání.\n- Výkon = **čisté úhozy/min**: (hrubé − penalizace) ÷ minuty.\n- Ergonomie: rovná záda, lokty v pravém úhlu, obrazovka ve výšce očí, pravidelné pauzy."
+        }
+      ]
+    },
+    {
+      "temaId": "pek-norma-csn",
+      "nazev": "Norma ČSN 01 6910",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Eliška poslala personalistce životopis: „narozena 4.9.2010, praxe 2024-2026“. Odpověď nepřišla. Personalistka čte denně desítky životopisů — a zápis, který ignoruje pravidla, u ní znamená „nepečlivý člověk“. Přitom stačilo pár mezer navíc a jedna správná pomlčka."
+        },
+        {
+          "typ": "text",
+          "obsah": "**ČSN 01 6910** je česká norma pro úpravu dokumentů — sjednocuje, jak se v písemnostech píše interpunkce, data, čísla či zkratky, aby dokumenty vypadaly profesionálně a všichni je psali stejně.\n\n**Interpunkce:** tečka, čárka, dvojtečka, středník, otazník i vykřičník se **přisazují k předchozímu slovu** a **mezera se píše až za nimi**. Závorky a uvozovky přiléhají zevnitř k textu, který uzavírají.\n\n**Spojovník (-)** je krátký, **píše se bez mezer** a spojuje: *e-mail, Brno-střed, česko-anglický*.\n\n**Pomlčka (–)** je delší:\n- ve větě se odděluje mezerami: *Přijdu – možná.*\n- ve významu **„až“, „od–do“ a „versus“** se mezi jednoslovnými výrazy píše **bez mezer**: *9–17 h, strana 10–15, Praha–Brno, Sparta–Slavia*."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Životopis, přihláška, reklamace, inzerát na Marketplace — úprava podle normy působí důvěryhodně a personalisté i úředníci ji hodnotí dřív, než vůbec začnou číst obsah. Navíc mezera mění význam: **100 m** je sto metrů, ale **100m** znamená stometrový; **50 %** čteš „padesát procent“, **50%** „padesátiprocentní“. Kdo pravidla zná, napíše přesně to, co myslí — v e-shopu, ve smlouvě i v SMS šéfovi."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 620 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Jak mezera mění význam zápisu\">\n<text x=\"310\" y=\"26\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" fill=\"currentColor\">Mezera mění význam</text>\n<rect x=\"20\" y=\"42\" width=\"285\" height=\"150\" rx=\"10\" fill=\"var(--uspech)\" fill-opacity=\"0.08\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"162\" y=\"66\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--uspech)\">S MEZEROU = číslo + jednotka</text>\n<text x=\"40\" y=\"96\" font-size=\"14\" fill=\"currentColor\">50 % = padesát procent</text>\n<text x=\"40\" y=\"122\" font-size=\"14\" fill=\"currentColor\">20 °C = dvacet stupňů Celsia</text>\n<text x=\"40\" y=\"148\" font-size=\"14\" fill=\"currentColor\">100 m = sto metrů</text>\n<text x=\"40\" y=\"174\" font-size=\"14\" fill=\"currentColor\">5 kg = pět kilogramů</text>\n<rect x=\"315\" y=\"42\" width=\"285\" height=\"150\" rx=\"10\" fill=\"var(--info)\" fill-opacity=\"0.08\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"457\" y=\"66\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--info)\">BEZ MEZERY = přídavné jméno</text>\n<text x=\"335\" y=\"96\" font-size=\"14\" fill=\"currentColor\">50% = padesátiprocentní</text>\n<text x=\"335\" y=\"122\" font-size=\"14\" fill=\"currentColor\">20° = dvacetistupňový</text>\n<text x=\"335\" y=\"148\" font-size=\"14\" fill=\"currentColor\">100m = stometrový</text>\n<text x=\"335\" y=\"174\" font-size=\"14\" fill=\"currentColor\">5kg = pětikilový</text>\n<rect x=\"20\" y=\"212\" width=\"580\" height=\"100\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.06\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" />\n<text x=\"310\" y=\"236\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--akcent)\">Spojovník (-) vs. pomlčka (–)</text>\n<text x=\"40\" y=\"264\" font-size=\"14\" fill=\"currentColor\">spojovník spojuje, vždy bez mezer: e-mail · Brno-střed · česko-anglický</text>\n<text x=\"40\" y=\"292\" font-size=\"14\" fill=\"currentColor\">pomlčka „od–do“ bez mezer: 9–17 h · Praha–Brno | ve větě s mezerami: Přijdu – možná.</text>\n</svg>",
+          "popisek": "Vlevo zápisy s mezerou — číslo a samostatná jednotka či značka. Vpravo tytéž znaky bez mezery — z výrazu se stává přídavné jméno. Dole rozdíl spojovníku (spojuje, vždy bez mezer) a pomlčky („od–do“ bez mezer, ve větě s mezerami)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-pek-norma-csn-1",
+            "temaId": "pek-norma-csn",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Který zápis data v dopise je podle ČSN 01 6910 správně?",
+            "moznosti": [
+              "4. 9. 2026",
+              "4.9.2026",
+              "4. 9.2026",
+              "9/4/2026"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Datum se píše vzestupně (den, měsíc, rok) a za tečkami jsou mezery: 4. 9. 2026. Zápis bez mezer je nejčastější žákovská chyba, „4. 9.2026“ míchá oba způsoby a 9/4/2026 je americké pořadí měsíc/den, které do české písemnosti nepatří. V tabulkách se používá tvar 2026-09-04.",
+            "zdroj": "Norma ČSN 01 6910"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Datum:** vzestupně a s mezerami za tečkami: *4. 9. 2026*; slovně *4. září 2026*; v tabulkách a systémech *2026-09-04*. **Čas:** *10.30 h* (přípustný je i digitální zápis 10:30).\n\n**Čísla:** desetinná **čárka** (3,5 kg), nikdy tečka. Čísla s více než třemi číslicemi se člení **mezerou do trojic**: *1 500 000* (letopočty ne: 2026). Peněžní částky: *250 Kč*, *1 250,50 Kč*.\n\n**Procenta a jednotky:** mezi číslem a značkou je mezera (*50 %, 5 kg, 20 °C, § 13*); **bez mezery** vzniká přídavné jméno (*50% = padesátiprocentní*). Aby se číslo a značka nerozdělily na dva řádky, patří mezi ně **nezalomitelná mezera**.\n\n**Zkratky** ukončené tečkou mají za tečkou mezeru: *např., tj., s. r. o.* Iniciálové zkratky se píší velkými písmeny bez teček: *ČR, EU, DPH, IČO*.\n\n**Telefonní čísla** se člení po trojicích: *601 123 456*, s předvolbou *+420 601 123 456*."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď zápisy: který odpovídá normě a který je chybně?",
+            "kategorie": [
+              {
+                "id": "spravne",
+                "nazev": "Podle normy"
+              },
+              {
+                "id": "chybne",
+                "nazev": "Chyba"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "4. 9. 2026",
+                "kategorieId": "spravne"
+              },
+              {
+                "text": "4.9.2026",
+                "kategorieId": "chybne"
+              },
+              {
+                "text": "+420 601 123 456",
+                "kategorieId": "spravne"
+              },
+              {
+                "text": "+420601123456",
+                "kategorieId": "chybne"
+              },
+              {
+                "text": "3,5 kg",
+                "kategorieId": "spravne"
+              },
+              {
+                "text": "3.5 kg",
+                "kategorieId": "chybne"
+              },
+              {
+                "text": "1 500 000 Kč",
+                "kategorieId": "spravne"
+              },
+              {
+                "text": "1500000 Kč",
+                "kategorieId": "chybne"
+              },
+              {
+                "text": "9–17 h",
+                "kategorieId": "spravne"
+              },
+              {
+                "text": "s.r.o. (bez mezer)",
+                "kategorieId": "chybne"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-pek-norma-csn-2",
+            "temaId": "pek-norma-csn",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "V letáku má stát, že sleva je padesátiprocentní. Který zápis to říká?",
+            "moznosti": [
+              "50% sleva",
+              "50 % sleva",
+              "50%-ní sleva",
+              "50ti% sleva"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Bez mezery je „50%“ přídavné jméno „padesátiprocentní“ — přesně to leták potřebuje. Zápis „50 %“ s mezerou se čte „padesát procent“, takže věta by zněla „padesát procent sleva“. Tvary „50%-ní“ a „50ti%“ jsou hrubé chyby — k číslovce se nikdy nepřilepuje koncovka.",
+            "zdroj": "Norma ČSN 01 6910"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Oprav podle ČSN 01 6910 větu z objednávky: „Zboží dodáme 4.9.2026 mezi 9 - 17h , cena 1500,-Kč ( vč. DPH ) .“",
+          "reseni": "Správně: **„Zboží dodáme 4. 9. 2026 mezi 9–17 h, cena 1 500 Kč (vč. DPH).“**\n\nCo bylo špatně:\n- datum bez mezer → *4. 9. 2026*,\n- rozsah „od–do“ patří pomlčkou bez mezer → *9–17 h* (a mezi číslem a značkou *h* je mezera),\n- čárka a tečka se přisazují k předchozímu slovu, mezera je až za nimi,\n- částka se člení do trojic a zápis „1500,-“ je zastaralý → *1 500 Kč*,\n- závorky přiléhají zevnitř k textu → *(vč. DPH)*."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Mezera u interpunkce",
+              "zadni": "Až ZA tečkou, čárkou, otazníkem — nikdy před nimi"
+            },
+            {
+              "predni": "Spojovník (-)",
+              "zadni": "Krátký, spojuje, bez mezer: e-mail, Brno-střed"
+            },
+            {
+              "predni": "Pomlčka (–) ve významu od–do",
+              "zadni": "Bez mezer: 9–17 h, Praha–Brno"
+            },
+            {
+              "predni": "Datum v dopise",
+              "zadni": "4. 9. 2026 — vzestupně, za tečkami mezery"
+            },
+            {
+              "predni": "Desetinné číslo",
+              "zadni": "S čárkou: 3,5 kg (nikdy 3.5)"
+            },
+            {
+              "predni": "Členění velkých čísel",
+              "zadni": "Mezerou do trojic: 1 500 000 (letopočty ne)"
+            },
+            {
+              "predni": "50 % vs. 50%",
+              "zadni": "S mezerou „padesát procent“, bez mezery „padesátiprocentní“"
+            },
+            {
+              "predni": "Telefonní číslo",
+              "zadni": "Po trojicích: +420 601 123 456"
+            },
+            {
+              "predni": "Iniciálové zkratky",
+              "zadni": "Velkými písmeny bez teček: ČR, EU, DPH, IČO"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "Shrnutí:\n\n- Interpunkce se přisazuje k předchozímu slovu, **mezera je až za ní**.\n- **Spojovník** spojuje bez mezer; **pomlčka** ve významu „až / od–do“ je také bez mezer (9–17 h).\n- **Datum** 4. 9. 2026, **desetinná čárka**, velká čísla mezerou do trojic (1 500 000).\n- **Mezera mění význam:** 50 % ≠ 50%, 20 °C ≠ 20°.\n- Telefon po trojicích (+420 601 123 456), zkratky s tečkou a mezerou (s. r. o.)."
+        }
+      ]
+    },
+    {
+      "temaId": "pek-obchodni-dopis",
+      "nazev": "Obchodní dopis",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Sluchátka za dva tisíce ti po měsíci chraptí a e-shop mlčí — na chat ani e-mail nikdo nereaguje. Máma poradí: „Pošli jim doporučeně reklamační dopis.“ Za týden přijde omluva a nová sluchátka. Papír s podacím razítkem má pořád váhu — když víš, jak ho napsat."
+        },
+        {
+          "typ": "text",
+          "obsah": "Obchodní dopis je **oficiální písemnost firmy** — reprezentuje ji navenek a mívá právní následky (objednávka, reklamace, výpověď smlouvy). Píše se na **A4** a upravuje podle **ČSN 01 6910**. Horní část dopisu:\n\n- **Záhlaví** — údaje odesílatele: název, sídlo, IČO, kontakty, případně logo.\n- **Adresa adresáta** — umístěná tak, aby byla vidět **v okénku obálky**. Řádky: firma (u osoby titul, jméno a příjmení), ulice s číslem domu, **PSČ a název dodací pošty** (*110 00 Praha 1* — PSČ se člení na trojici a dvojici). Na koncích řádků **žádné čárky ani tečky**, nic se nepodtrhává.\n- **Odvolací údaje** — *Váš dopis značky / Ze dne / Naše značka / Vyřizuje / Telefon / E-mail / Datum*; obě strany podle nich dohledají, na co se odpovídá.\n- **Místo a datum** — **bez čárky** a bez slova „dne“: *Praha 4. září 2026*."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Reklamace mobilu, výpověď smlouvy operátorovi, žádost o stipendium, motivační dopis k brigádě — to všechno jsou obchodní dopisy. Kdo zná strukturu, napíše je za deset minut a působí jako profík. A až budeš jednou podnikat, dopisy s právními následky (odstoupení od smlouvy, upomínka) budeš psát úplně běžně."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 470 640\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rozložení obchodního dopisu na stránce A4\">\n<rect x=\"25\" y=\"15\" width=\"420\" height=\"610\" rx=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<circle cx=\"52\" cy=\"58\" r=\"13\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" />\n<text x=\"52\" y=\"62\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">1</text>\n<rect x=\"70\" y=\"35\" width=\"350\" height=\"46\" rx=\"6\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" />\n<text x=\"245\" y=\"55\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"currentColor\">ZÁHLAVÍ</text>\n<text x=\"245\" y=\"71\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.8\">odesílatel: název firmy · sídlo · IČO · kontakty</text>\n<circle cx=\"52\" cy=\"128\" r=\"13\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" />\n<text x=\"52\" y=\"132\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">2</text>\n<text x=\"70\" y=\"133\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">v místě okénka obálky →</text>\n<rect x=\"240\" y=\"98\" width=\"180\" height=\"72\" rx=\"6\" fill=\"var(--zlata)\" fill-opacity=\"0.12\" stroke=\"var(--zlata)\" />\n<text x=\"330\" y=\"116\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\">ADRESA ADRESÁTA</text>\n<text x=\"330\" y=\"133\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">Audio Svět s. r. o.</text>\n<text x=\"330\" y=\"148\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">Vodičkova 12</text>\n<text x=\"330\" y=\"163\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">110 00 Praha 1</text>\n<circle cx=\"52\" cy=\"200\" r=\"13\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" />\n<text x=\"52\" y=\"204\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">3</text>\n<rect x=\"70\" y=\"178\" width=\"350\" height=\"42\" rx=\"6\" fill=\"var(--info)\" fill-opacity=\"0.12\" stroke=\"var(--info)\" />\n<text x=\"245\" y=\"196\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\">ODVOLACÍ ÚDAJE</text>\n<text x=\"245\" y=\"212\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.8\">Naše značka · Vyřizuje · Telefon · Datum</text>\n<text x=\"420\" y=\"248\" text-anchor=\"end\" font-size=\"12\" fill=\"currentColor\">Praha 4. září 2026 (bez čárky)</text>\n<circle cx=\"52\" cy=\"276\" r=\"13\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" />\n<text x=\"52\" y=\"280\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">4</text>\n<text x=\"70\" y=\"281\" font-size=\"14\" font-weight=\"700\" fill=\"currentColor\">Reklamace sluchátek BeatBox X</text>\n<text x=\"70\" y=\"297\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">předmět — tučně, slovo „Věc“ se už nepíše</text>\n<circle cx=\"52\" cy=\"322\" r=\"13\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" />\n<text x=\"52\" y=\"326\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">5</text>\n<text x=\"70\" y=\"327\" font-size=\"13\" fill=\"currentColor\">Vážení, ← oslovení v 5. pádě s čárkou</text>\n<circle cx=\"52\" cy=\"395\" r=\"13\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" />\n<text x=\"52\" y=\"399\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">6</text>\n<rect x=\"70\" y=\"345\" width=\"350\" height=\"108\" rx=\"6\" fill=\"var(--uspech)\" fill-opacity=\"0.06\" stroke=\"var(--uspech)\" />\n<rect x=\"85\" y=\"358\" width=\"320\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.3\" />\n<rect x=\"85\" y=\"370\" width=\"290\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.3\" />\n<rect x=\"85\" y=\"390\" width=\"320\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.3\" />\n<rect x=\"85\" y=\"402\" width=\"310\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.3\" />\n<rect x=\"85\" y=\"414\" width=\"270\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.3\" />\n<rect x=\"85\" y=\"434\" width=\"240\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.3\" />\n<text x=\"245\" y=\"449\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">úvod → jádro → závěr (krátké odstavce)</text>\n<circle cx=\"52\" cy=\"500\" r=\"13\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" />\n<text x=\"52\" y=\"504\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">7</text>\n<text x=\"70\" y=\"490\" font-size=\"13\" fill=\"currentColor\">S pozdravem</text>\n<path d=\"M 70 520 q 15 -18 30 0 t 30 0 t 30 -8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"70\" y=\"543\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.85\">Jan Malý — vlastnoruční podpis + jméno a funkce</text>\n<circle cx=\"52\" cy=\"585\" r=\"13\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" />\n<text x=\"52\" y=\"589\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"currentColor\">8</text>\n<text x=\"70\" y=\"590\" font-size=\"12\" fill=\"currentColor\">Příloha: kopie účtenky</text>\n</svg>",
+          "popisek": "Rozložení obchodního dopisu na stránce A4 odshora dolů: 1 záhlaví odesílatele, 2 adresa adresáta v místě okénka obálky, 3 řádek odvolacích údajů, místo a datum bez čárky, 4 tučný předmět, 5 oslovení v 5. pádě, 6 text členěný na úvod–jádro–závěr, 7 pozdrav s vlastnoručním podpisem a 8 přílohy."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-pek-obchodni-dopis-1",
+            "temaId": "pek-obchodni-dopis",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Jak se podle normy píše místo a datum v obchodním dopise?",
+            "moznosti": [
+              "Praha 4. září 2026",
+              "V Praze, dne 4. září 2026",
+              "Praha, 4. 9. 2026",
+              "Dne 4. září 2026 v Praze"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Místo odeslání a datum se píší bez čárky a bez slova „dne“: Praha 4. září 2026. Tvary „V Praze, dne…“ jsou zastaralé a norma je neuvádí; čárka mezi místem a datem je dnes chyba, stejně jako obrácené pořadí.",
+            "zdroj": "Obchodní dopis"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Dolní část dopisu:\n\n- **Předmět** (dříve „věc“) — heslovité shrnutí obsahu, píše se **tučně**; samotné slovo „Věc“ se už neuvádí.\n- **Oslovení** — vždy v **5. pádě** a končí **čárkou**: *Vážený pane řediteli,* / *Vážená paní Veselá,*. Oslovujeme funkcí, titulem (jen tím nejvyšším), nebo příjmením. Protože za oslovením je čárka, **první odstavec textu začíná malým písmenem**.\n- **Text** — krátké odstavce: úvod (proč píšu), jádro (co sděluji či žádám), závěr (co očekávám, poděkování). Mezi odstavci vynechaný řádek, text od levé svislice.\n- **Závěr** — pozdrav (*S pozdravem*), **vlastnoruční podpis** a pod ním strojově jméno a funkce.\n- **Přílohy** — pod podpisem, počtem nebo výčtem.\n\nJazyk: spisovný, zdvořilý, stručný — **jedna písemnost, jedna záležitost**. Před odesláním zkontroluj pravopis, jména a čísla."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Projdi si obchodní dopis odshora dolů — část po části.",
+            "kroky": [
+              {
+                "nazev": "Záhlaví",
+                "popis": "Kdo píše: název firmy, sídlo, IČO, kontakty.",
+                "ikona": "🏢"
+              },
+              {
+                "nazev": "Adresa adresáta",
+                "popis": "Komu: jméno či firma, ulice s číslem, PSČ a dodací pošta (110 00 Praha 1). Bez čárek na koncích řádků, v místě okénka obálky.",
+                "ikona": "📮"
+              },
+              {
+                "nazev": "Odvolací údaje",
+                "popis": "Váš dopis značky, Ze dne, Naše značka, Vyřizuje, Telefon, Datum — aby obě strany dohledaly, na co se odpovídá.",
+                "ikona": "🔗"
+              },
+              {
+                "nazev": "Předmět",
+                "popis": "Tučné heslovité shrnutí obsahu. Slovo „Věc“ se už nepíše.",
+                "ikona": "🎯"
+              },
+              {
+                "nazev": "Oslovení",
+                "popis": "V 5. pádě a s čárkou: „Vážená paní ředitelko,“ — text pak začíná malým písmenem.",
+                "ikona": "🙋"
+              },
+              {
+                "nazev": "Text dopisu",
+                "popis": "Úvod (proč píšu) → jádro (co žádám) → závěr (co očekávám). Krátké odstavce, jedna záležitost.",
+                "ikona": "📝"
+              },
+              {
+                "nazev": "Pozdrav a podpis",
+                "popis": "„S pozdravem“, vlastnoruční podpis a pod ním strojově jméno a funkce.",
+                "ikona": "✍️"
+              },
+              {
+                "nazev": "Přílohy",
+                "popis": "Pod podpisem: počet nebo výčet (Příloha: kopie účtenky).",
+                "ikona": "📎"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-pek-obchodni-dopis-2",
+            "temaId": "pek-obchodni-dopis",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Dopis začíná: „Vážená paní ředitelko,“ — jak vypadá první řádek textu?",
+            "moznosti": [
+              "obracím se na Vás s žádostí o…",
+              "Obracím se na Vás s žádostí o…",
+              "Věc: Žádost o…",
+              "S pozdravem"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Oslovení končí čárkou, věta tedy pokračuje — první odstavec začíná malým písmenem. Velké „O“ je nejčastější chyba. „Věc“ se v moderním dopise neuvádí vůbec (nahradil ji tučný předmět nad oslovením) a „S pozdravem“ patří až do závěru.",
+            "zdroj": "Obchodní dopis"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Sestav kostru reklamačního dopisu: sluchátka BeatBox X koupená 2. 8. 2026 za 1 990 Kč po měsíci chraptí v levém uchu. Prodejce: Audio Svět s. r. o., Vodičkova 12, 110 00 Praha 1.",
+          "reseni": "**Adresa:** Audio Svět s. r. o. / Vodičkova 12 / 110 00 Praha 1 — každý údaj na svém řádku, bez čárek na koncích.\n\n**Místo a datum:** Praha 4. září 2026\n\n**Předmět:** **Reklamace sluchátek BeatBox X** (tučně)\n\n**Oslovení:** Vážení,\n\n**Text:** dne 2. 8. 2026 jsem u vás zakoupil sluchátka BeatBox X za 1 990 Kč *(úvod — malé písmeno po čárce!)*. Po měsíci běžného používání přestal správně hrát levý reproduktor — zvuk chraptí *(jádro)*. Uplatňuji proto reklamaci a žádám o opravu, výměnu, nebo vrácení peněz v zákonné lhůtě 30 dnů *(závěr)*.\n\n**Závěr:** S pozdravem + vlastnoruční podpis + Jan Malý\n\n**Příloha:** kopie účtenky"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Formát a úprava dopisu",
+              "zadni": "A4, úprava podle ČSN 01 6910"
+            },
+            {
+              "predni": "PSČ",
+              "zadni": "Členění 3 + 2: 110 00 Praha 1"
+            },
+            {
+              "predni": "Odvolací údaje",
+              "zadni": "Značky, Ze dne, Vyřizuje, Telefon, Datum — k dohledání souvislostí"
+            },
+            {
+              "predni": "Místo a datum",
+              "zadni": "Bez čárky a bez „dne“: Praha 4. září 2026"
+            },
+            {
+              "predni": "Předmět",
+              "zadni": "Tučně a heslovitě; slovo „Věc“ se už nepíše"
+            },
+            {
+              "predni": "Oslovení",
+              "zadni": "5. pád + čárka → první odstavec začíná malým písmenem"
+            },
+            {
+              "predni": "Stavba textu dopisu",
+              "zadni": "Úvod (proč) → jádro (co) → závěr (co očekávám)"
+            },
+            {
+              "predni": "Přílohy",
+              "zadni": "Uvádějí se pod podpisem počtem nebo výčtem"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "Shrnutí:\n\n- Obchodní dopis = oficiální písemnost s právními následky; **A4** podle **ČSN 01 6910**.\n- Odshora: záhlaví → adresa (okénko, PSČ 3+2, bez čárek) → odvolací údaje → **tučný předmět** → oslovení.\n- Oslovení v **5. pádě s čárkou** → text začíná **malým písmenem**; členění úvod–jádro–závěr.\n- Závěr: „S pozdravem“, **vlastnoruční podpis**, jméno a funkce; **přílohy pod podpisem**.\n- Místo a datum **bez čárky**: Praha 4. září 2026."
+        }
+      ]
+    },
+    {
+      "temaId": "pek-email-etiketa",
+      "nazev": "E-mail a netiketa",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "„dobry den posilam ukol“ — bez předmětu, bez podpisu, z adresy king_of_fortnite@email.cz. Učitel zprávu našel až za tři dny ve spamu a Kuba si známku z aktivity neopravil. Přitom by stačilo třicet vteřin navíc a jeden slušný předmět."
+        },
+        {
+          "typ": "text",
+          "obsah": "E-mail je dnes nejběžnější pracovní písemnost a **netiketa** — pravidla slušného chování na síti — určuje, jak s ním zacházet.\n\n- **Předmět** je nejdůležitější řádek zprávy: výstižně shrnuje obsah (*Omluva z pátečního testu — Jan Malý, 1.B*). Podle předmětu příjemce zprávu pozná a po měsících dohledá; bez předmětu snadno skončí ve spamu.\n- **Oslovení a pozdrav** patří i do e-mailu: *Dobrý den, paní inženýrko,* na začátku, *S pozdravem* a jméno na konci.\n- Piš **s diakritikou**, spisovně a **bez chatových zkratek** (lol, btw). CELÁ SLOVA VELKÝMI PÍSMENY se chápou jako **křik**.\n- Krátké odstavce; **jeden e-mail = jedna záležitost**.\n- **Podpis**: jméno a příjmení, funkce či třída, škola/firma, telefon — nastav si ho jako automatickou patičku."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Omluva učiteli, dotaz na brigádu, komunikace s autoškolou, přihláška na letní kemp — první dojem uděláš předmětem a prvními dvěma větami. Slušně napsaný e-mail z rozumné adresy (jmeno.prijmeni@…) otevírá dveře; „ukol.docx“ bez textu z adresy king_of_fortnite je skoro jistá cesta do koše. U brigád navíc rozhoduje i to, jak rychle a v jaké formě odpovíš."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 620 420\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Stavba pracovního e-mailu\">\n<rect x=\"15\" y=\"15\" width=\"430\" height=\"390\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<rect x=\"15\" y=\"15\" width=\"430\" height=\"34\" rx=\"10\" fill=\"currentColor\" opacity=\"0.08\" />\n<text x=\"30\" y=\"37\" font-size=\"13\" font-weight=\"600\" fill=\"currentColor\">Nová zpráva</text>\n<text x=\"30\" y=\"72\" font-size=\"12\" font-weight=\"600\" fill=\"var(--akcent)\">Komu:</text>\n<text x=\"95\" y=\"72\" font-size=\"12\" fill=\"currentColor\">pani.novotna@kosmas.cz</text>\n<line x1=\"90\" y1=\"79\" x2=\"430\" y2=\"79\" stroke=\"currentColor\" opacity=\"0.2\" />\n<text x=\"30\" y=\"100\" font-size=\"12\" font-weight=\"600\" fill=\"var(--info)\">Kopie:</text>\n<text x=\"95\" y=\"100\" font-size=\"12\" fill=\"currentColor\">vedouci@kosmas.cz</text>\n<line x1=\"90\" y1=\"107\" x2=\"430\" y2=\"107\" stroke=\"currentColor\" opacity=\"0.2\" />\n<text x=\"30\" y=\"128\" font-size=\"12\" font-weight=\"600\" fill=\"var(--zlata)\">Skrytá:</text>\n<text x=\"95\" y=\"128\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.75\">(adresy ostatních se nezobrazí)</text>\n<line x1=\"90\" y1=\"135\" x2=\"430\" y2=\"135\" stroke=\"currentColor\" opacity=\"0.2\" />\n<text x=\"30\" y=\"156\" font-size=\"12\" font-weight=\"600\" fill=\"var(--uspech)\">Předmět:</text>\n<text x=\"100\" y=\"156\" font-size=\"12\" font-weight=\"600\" fill=\"currentColor\">Víkendová brigáda — Jan Malý</text>\n<line x1=\"95\" y1=\"163\" x2=\"430\" y2=\"163\" stroke=\"currentColor\" opacity=\"0.2\" />\n<text x=\"30\" y=\"192\" font-size=\"12\" fill=\"currentColor\">Dobrý den, paní Novotná,</text>\n<rect x=\"30\" y=\"206\" width=\"330\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.25\" />\n<rect x=\"30\" y=\"218\" width=\"350\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.25\" />\n<rect x=\"30\" y=\"230\" width=\"300\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.25\" />\n<rect x=\"30\" y=\"250\" width=\"340\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.25\" />\n<rect x=\"30\" y=\"262\" width=\"260\" height=\"5\" rx=\"2\" fill=\"currentColor\" opacity=\"0.25\" />\n<rect x=\"30\" y=\"285\" width=\"220\" height=\"70\" rx=\"6\" fill=\"var(--akcent)\" fill-opacity=\"0.06\" stroke=\"var(--akcent)\" />\n<text x=\"42\" y=\"303\" font-size=\"11\" fill=\"currentColor\">S pozdravem</text>\n<text x=\"42\" y=\"319\" font-size=\"11\" font-weight=\"600\" fill=\"currentColor\">Jan Malý</text>\n<text x=\"42\" y=\"333\" font-size=\"11\" fill=\"currentColor\">student 1. B, OA Praha</text>\n<text x=\"42\" y=\"347\" font-size=\"11\" fill=\"currentColor\">tel. 601 123 456</text>\n<rect x=\"30\" y=\"368\" width=\"220\" height=\"26\" rx=\"13\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-opacity=\"0.4\" />\n<text x=\"44\" y=\"385\" font-size=\"11\" fill=\"currentColor\">📎 zivotopis-jan-maly.pdf</text>\n<line x1=\"448\" y1=\"68\" x2=\"458\" y2=\"68\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"464\" y=\"64\" font-size=\"11\" fill=\"var(--akcent)\">hlavní adresát —</text>\n<text x=\"464\" y=\"78\" font-size=\"11\" fill=\"var(--akcent)\">od něj čekáš reakci</text>\n<line x1=\"448\" y1=\"96\" x2=\"458\" y2=\"96\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"464\" y=\"92\" font-size=\"11\" fill=\"var(--info)\">„pro informaci“ —</text>\n<text x=\"464\" y=\"106\" font-size=\"11\" fill=\"var(--info)\">adresu vidí všichni</text>\n<line x1=\"448\" y1=\"124\" x2=\"458\" y2=\"124\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"464\" y=\"120\" font-size=\"11\" fill=\"var(--zlata)\">skryté adresy —</text>\n<text x=\"464\" y=\"134\" font-size=\"11\" fill=\"var(--zlata)\">hromadné rozesílky</text>\n<line x1=\"448\" y1=\"152\" x2=\"458\" y2=\"152\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"464\" y=\"148\" font-size=\"11\" fill=\"var(--uspech)\">výstižný předmět</text>\n<text x=\"464\" y=\"162\" font-size=\"11\" fill=\"var(--uspech)\">se jménem pisatele</text>\n<line x1=\"448\" y1=\"316\" x2=\"458\" y2=\"316\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"464\" y=\"312\" font-size=\"11\" fill=\"var(--akcent)\">podpis s kontakty</text>\n<text x=\"464\" y=\"326\" font-size=\"11\" fill=\"var(--akcent)\">(automatická patička)</text>\n<line x1=\"448\" y1=\"381\" x2=\"458\" y2=\"381\" stroke=\"currentColor\" stroke-width=\"2\" opacity=\"0.6\" />\n<text x=\"464\" y=\"377\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.8\">příloha v PDF,</text>\n<text x=\"464\" y=\"391\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.8\">smysluplný název</text>\n</svg>",
+          "popisek": "Stavba pracovního e-mailu: pole Komu (hlavní adresát), Kopie (pro informaci — adresy vidí všichni) a Skrytá kopie (adresy se nezobrazí), výstižný předmět se jménem, oslovení s čárkou, krátký text, podpis s kontakty a smysluplně pojmenovaná PDF příloha."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-pek-email-etiketa-1",
+            "temaId": "pek-email-etiketa",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Který předmět e-mailu je nejlepší?",
+            "moznosti": [
+              "Omluva z pátečního testu — Jan Malý, 1.B",
+              "Dotaz",
+              "DŮLEŽITÉ!!!",
+              "(bez předmětu)"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Dobrý předmět výstižně shrnuje obsah a umožní zprávu okamžitě zařadit i po měsících dohledat. „Dotaz“ neříká nic, vykřičníky a velká písmena působí jako křik a přitahují spamfiltr; zpráva bez předmětu zapadne úplně.",
+            "zdroj": "E-mail a netiketa"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Pole příjemců:**\n\n- **Komu** — hlavní adresát; od něj čekáš reakci.\n- **Kopie (Cc)** — příjemci „pro informaci“; jejich adresy **vidí všichni**.\n- **Skrytá kopie (Bcc)** — adresy skryje. Při hromadném rozesílání lidem, kteří se navzájem neznají, je Bcc povinnost — zveřejnit cizí adresy je porušení ochrany osobních údajů (**GDPR**).\n- **Odpovědět** vs. **Odpovědět všem**: „všem“ jen tehdy, když se tvá odpověď opravdu všech týká.\n\n**Přílohy:** zmiň je v textu, pojmenuj smysluplně (*zivotopis-jan-maly.pdf*, ne dokument1.pdf) a dokumenty posílej v **PDF** — zobrazí se všem stejně. Soubory řádově nad 10 MB do přílohy nepatří: nahraj je do úschovny či na cloud a pošli odkaz.\n\n**Tón a rychlost:** zdvořile i ve spěchu, nikdy v afektu — co odešleš, nejde vzít zpět a dá se přeposlat komukoli. Na pracovní e-mail odpověz do **1–2 pracovních dnů**. Před odesláním zkontroluj **adresáta, předmět, přílohu a pravopis** — nejčastější trapas je zapomenutá příloha."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "Komu",
+                "vlastnosti": {
+                  "Role příjemce": "Hlavní adresát zprávy",
+                  "Čeká se od něj reakce": "Ano",
+                  "Vidí ostatní jeho adresu": "Ano",
+                  "Typické použití": "Učitel, kterému posíláš omluvu"
+                }
+              },
+              {
+                "nazev": "Kopie (Cc)",
+                "vlastnosti": {
+                  "Role příjemce": "Dostává zprávu jen pro informaci",
+                  "Čeká se od něj reakce": "Ne",
+                  "Vidí ostatní jeho adresu": "Ano",
+                  "Typické použití": "Třídní učitel „v kopii“ omluvy"
+                }
+              },
+              {
+                "nazev": "Skrytá kopie (Bcc)",
+                "vlastnosti": {
+                  "Role příjemce": "Skrytý příjemce",
+                  "Čeká se od něj reakce": "Ne",
+                  "Vidí ostatní jeho adresu": "Ne",
+                  "Typické použití": "Hromadná pozvánka lidem, kteří se neznají (GDPR)"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-pek-email-etiketa-2",
+            "temaId": "pek-email-etiketa",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Posíláš pozvánku na turnaj 30 hráčům z různých škol, kteří se navzájem neznají. Kam vyplníš jejich adresy?",
+            "moznosti": [
+              "Do skryté kopie (Bcc)",
+              "Do pole Komu",
+              "Do kopie (Cc)",
+              "Polovinu do Komu, polovinu do Cc"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Lidé, kteří se neznají, nesmějí vidět navzájem své e-mailové adresy — jejich zveřejnění je porušení GDPR. Bcc adresy skryje; pole Komu i Cc by je ukázala všem třiceti příjemcům, ať už je rozdělíš jakkoli.",
+            "zdroj": "E-mail a netiketa"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Napiš e-mail, kterým se ucházíš o víkendovou brigádu v knihkupectví (inzerát na webu, kontakt pani.novotna@kosmas.cz). Přikládáš životopis.",
+          "reseni": "**Komu:** pani.novotna@kosmas.cz\n**Předmět:** Víkendová brigáda v knihkupectví — Jan Malý\n\nDobrý den, paní Novotná,\n\nreaguji na Váš inzerát na víkendovou výpomoc v prodejně. Jsem student 1. ročníku obchodní akademie, knihy mám rád a o víkendech mám čas pravidelně.\n\nŽivotopis posílám v příloze. Rád přijdu na osobní schůzku kterýkoli všední den po 14. hodině.\n\nS pozdravem\nJan Malý\nstudent OA Praha, tel. 601 123 456\n\n**Příloha:** zivotopis-jan-maly.pdf\n\nVšimni si: výstižný předmět se jménem, oslovení s čárkou → text začíná malým písmenem, jedna záležitost, pojmenovaná PDF příloha zmíněná v textu, podpis s telefonem."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Předmět e-mailu",
+              "zadni": "Výstižné shrnutí obsahu — podle něj se zpráva pozná a dohledá"
+            },
+            {
+              "predni": "Kopie (Cc)",
+              "zadni": "Příjemci „pro informaci“ — adresy vidí všichni"
+            },
+            {
+              "predni": "Skrytá kopie (Bcc)",
+              "zadni": "Adresy skryje — nutná při rozesílce lidem, kteří se neznají (GDPR)"
+            },
+            {
+              "predni": "Odpovědět všem",
+              "zadni": "Jen když se odpověď opravdu týká všech příjemců"
+            },
+            {
+              "predni": "VELKÁ PÍSMENA v textu",
+              "zadni": "Působí jako křik — nepoužívat"
+            },
+            {
+              "predni": "Formát dokumentů v příloze",
+              "zadni": "PDF — zobrazí se všem stejně"
+            },
+            {
+              "predni": "Velké soubory (nad ~10 MB)",
+              "zadni": "Do úschovny či cloudu a poslat odkaz"
+            },
+            {
+              "predni": "Lhůta odpovědi na pracovní e-mail",
+              "zadni": "1–2 pracovní dny"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "Shrnutí:\n\n- **Předmět** shrnuje obsah — bez něj zpráva zapadne nebo skončí ve spamu.\n- Oslovení i pozdrav patří do každého e-mailu; piš s diakritikou, bez chatových zkratek, VELKÁ PÍSMENA = křik.\n- **Komu** = hlavní adresát, **Cc** = pro informaci, **Bcc** = skryté adresy (hromadné rozesílky, GDPR).\n- Přílohy: v **PDF**, smysluplný název, zmínka v textu; velké soubory odkazem.\n- Odpovídej do **1–2 pracovních dnů**; před odesláním zkontroluj adresáta, předmět, přílohu a pravopis."
+        }
+      ]
+    },
+    {
+      "temaId": "pek-bezpecna-komunikace",
+      "nazev": "Bezpečná elektronická komunikace",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "V sobotu ráno ti přijde SMS: „Česká pošta: zásilka zadržena, doplaťte 39 Kč do 2 hodin“ — a odkaz. Zrovna čekáš balík s teniskami, tak proč ne… Prst už máš nad odkazem. Stop. Přesně na tenhle okamžik útočník spoléhá."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Phishing** je podvodná zpráva vydávající se za důvěryhodnou instituci (banka, pošta, e-shop, stát) — chce vylákat hesla či čísla karet, nebo tě donutit nainstalovat škodlivý program. Přes SMS se mu říká **smishing**, podvodnému telefonátu **vishing** (AI dnes napodobí i hlas).\n\n**Znaky podvodné zprávy:**\n- **nátlak a čas**: „účet bude zablokován do 2 hodin“,\n- **podivná adresa odesílatele**: ceska-posta@dorucenka-platba.xyz místo ceskaposta.cz,\n- **odkaz vede jinam, než tvrdí** — skutečný cíl uvidíš najetím myší **bez kliknutí**,\n- **obecné oslovení** („Vážený kliente“) a žádost o citlivé údaje.\n\nPozor: díky AI mívají podvody bezchybnou češtinu — pravopis už není spolehlivé vodítko. Zlaté pravidlo: **banka ani úřad nikdy nechtějí heslo, PIN ani údaje o kartě** e-mailem či telefonem. Při podezření neklikej, ověř si informaci přes oficiální web či aplikaci a podvod nahlas.\n\nÚčty chrání **dvoufaktorové ověření (2FA)**: heslo + jednorázový kód z mobilu — samotné ukradené heslo útočníkovi nestačí. Hesla měj dlouhá, **pro každou službu jiná**, uložená ve správci hesel."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Útoky míří přesně na tebe: falešné „dárky“ na Discordu, phishing na herní účet se skiny za tisíce, podvodné SMS o balíčku, „kupec“ z bazaru chtějící číslo karty. A doma jsi IT podpora — až přijde mámě e-mail „z banky“, poznáš podvod dřív, než klikne. Zapni si 2FA ještě dnes: e-mail, bankovnictví, sociální sítě i herní účty."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 380\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Anatomie podvodné zprávy\">\n<rect x=\"20\" y=\"30\" width=\"400\" height=\"320\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<rect x=\"20\" y=\"30\" width=\"400\" height=\"64\" rx=\"10\" fill=\"currentColor\" opacity=\"0.06\" />\n<text x=\"35\" y=\"54\" font-size=\"12\" fill=\"currentColor\">Od: Česká pošta</text>\n<text x=\"35\" y=\"74\" font-size=\"12\" font-weight=\"600\" fill=\"var(--chyba)\">info@dorucenka-platba.xyz</text>\n<text x=\"35\" y=\"118\" font-size=\"13\" font-weight=\"700\" fill=\"currentColor\">Zásilka č. 8842 zadržena!</text>\n<text x=\"35\" y=\"150\" font-size=\"12\" fill=\"currentColor\">Vážený kliente,</text>\n<text x=\"35\" y=\"172\" font-size=\"12\" fill=\"currentColor\">vaše zásilka byla zadržena. Uhraďte poplatek</text>\n<text x=\"35\" y=\"190\" font-size=\"12\" fill=\"currentColor\">39 Kč do 2 hodin, jinak bude zásilka</text>\n<text x=\"35\" y=\"208\" font-size=\"12\" fill=\"currentColor\">vrácena odesílateli.</text>\n<rect x=\"35\" y=\"240\" width=\"180\" height=\"38\" rx=\"8\" fill=\"var(--chyba)\" fill-opacity=\"0.15\" stroke=\"var(--chyba)\" stroke-width=\"1.5\" />\n<text x=\"125\" y=\"264\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"var(--chyba)\">ZAPLATIT NYNÍ</text>\n<text x=\"35\" y=\"308\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.6\">skutečný cíl odkazu: dorucenka-platba.xyz/pay</text>\n<line x1=\"424\" y1=\"70\" x2=\"440\" y2=\"70\" stroke=\"var(--chyba)\" stroke-width=\"2\" />\n<text x=\"448\" y=\"62\" font-size=\"11\" font-weight=\"600\" fill=\"var(--chyba)\">① doména odesílatele</text>\n<text x=\"448\" y=\"77\" font-size=\"11\" fill=\"var(--chyba)\">není ceskaposta.cz</text>\n<line x1=\"424\" y1=\"182\" x2=\"440\" y2=\"182\" stroke=\"var(--chyba)\" stroke-width=\"2\" />\n<text x=\"448\" y=\"174\" font-size=\"11\" font-weight=\"600\" fill=\"var(--chyba)\">② nátlak na čas</text>\n<text x=\"448\" y=\"189\" font-size=\"11\" fill=\"var(--chyba)\">„do 2 hodin, jinak…“</text>\n<line x1=\"424\" y1=\"146\" x2=\"440\" y2=\"146\" stroke=\"var(--chyba)\" stroke-width=\"2\" />\n<text x=\"448\" y=\"138\" font-size=\"11\" font-weight=\"600\" fill=\"var(--chyba)\">③ obecné oslovení</text>\n<text x=\"448\" y=\"153\" font-size=\"11\" fill=\"var(--chyba)\">skutečný odesílatel tě zná jménem</text>\n<line x1=\"424\" y1=\"259\" x2=\"440\" y2=\"259\" stroke=\"var(--chyba)\" stroke-width=\"2\" />\n<text x=\"448\" y=\"251\" font-size=\"11\" font-weight=\"600\" fill=\"var(--chyba)\">④ tlačítko s odkazem</text>\n<text x=\"448\" y=\"266\" font-size=\"11\" fill=\"var(--chyba)\">najeď myší, neklikej</text>\n</svg>",
+          "popisek": "Čtyři varovné signály podvodné zprávy: falešná doména odesílatele, obecné oslovení, časový nátlak s hrozbou a tlačítko s odkazem, jehož skutečný cíl ověříš najetím myší bez kliknutí."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-pek-bezpecna-komunikace-1",
+            "temaId": "pek-bezpecna-komunikace",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Volá ti „bankéř“: někdo prý právě vybírá tvůj účet a máš mu nadiktovat PIN a kód z SMS, aby to zastavil. Co uděláš?",
+            "moznosti": [
+              "Zavěsím a zavolám bance sám na oficiální číslo z jejího webu či aplikace",
+              "Nadiktuji kód — je to přece nouzová situace",
+              "Řeknu jen PIN, kód z SMS ne",
+              "Pošlu mu údaje raději e-mailem"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Banka nikdy nechce PIN ani kódy z SMS — kdo je chce, je útočník (vishing) a časový nátlak je jeho hlavní zbraň. Jediný bezpečný postup je zavěsit a ověřit si situaci přes oficiální kanál; kterýkoli z těch údajů by útočníkovi stačil k potvrzení platby, ať ho sdělíš telefonem nebo e-mailem.",
+            "zdroj": "Bezpečná elektronická komunikace"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Elektronický podpis** zaručuje, **kdo** dokument podepsal a že se obsah **po podpisu nezměnil**. Evropské nařízení **eIDAS** rozlišuje tři úrovně:\n\n- **prostý** elektronický podpis (např. naskenovaný podpis),\n- **zaručený** — s ověřenou identitou podepisujícího,\n- **kvalifikovaný** — nejvyšší úroveň založená na kvalifikovaném certifikátu; při komunikaci s úřady **plnohodnotně nahrazuje vlastnoruční podpis**.\n\n**Datová schránka** je elektronická úřední schránka zřizovaná státem. Firmám a **všem podnikatelům (i OSVČ)** ji stát zakládá **povinně ze zákona**; občané si ji zřizují dobrovolně. Úřady do ní doručují rozhodnutí, výzvy i pokuty.\n\nKlíčové pravidlo — **fikce doručení**: nepřihlásíš-li se, zpráva se **10. den od dodání považuje za doručenou** a lhůty běží, i když sis ji nepřečetl. Podnikatel proto kontroluje datovku stejně samozřejmě jako e-mail."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              {
+                "a": "phishing",
+                "b": "podvodná zpráva vydávající se za důvěryhodnou instituci"
+              },
+              {
+                "a": "smishing",
+                "b": "podvod přes SMS"
+              },
+              {
+                "a": "vishing",
+                "b": "podvodný telefonát"
+              },
+              {
+                "a": "2FA",
+                "b": "heslo + jednorázový kód z mobilu"
+              },
+              {
+                "a": "kvalifikovaný el. podpis",
+                "b": "u úřadů nahrazuje vlastnoruční podpis"
+              },
+              {
+                "a": "datová schránka",
+                "b": "úřední e-schránka; podnikatelé ji mají povinně"
+              },
+              {
+                "a": "fikce doručení",
+                "b": "zpráva platí za doručenou 10. den od dodání"
+              },
+              {
+                "a": "správce hesel",
+                "b": "uchovává dlouhá unikátní hesla ke každé službě"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-pek-bezpecna-komunikace-2",
+            "temaId": "pek-bezpecna-komunikace",
+            "typ": "vyber",
+            "obtiznost": 4,
+            "zadani": "Truhlář Petr (OSVČ) si tři týdny neotevřel datovou schránku. Úřad mu tam 1. září dodal výzvu s 15denní lhůtou na odpověď. Co platí 24. září?",
+            "moznosti": [
+              "Výzva se považuje za doručenou už 11. září a lhůta téměř uplynula",
+              "Nic — lhůta začne běžet, až si Petr zprávu skutečně přečte",
+              "Výzva se po 10 dnech vrátila úřadu jako nedoručená",
+              "Fikce doručení se na OSVČ nevztahuje"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Fikce doručení: nepřihlásíš-li se, zpráva se 10. den od dodání považuje za doručenou — tady 11. září — a od toho dne běží lhůta bez ohledu na přečtení. Zprávy z datovky se úřadu nevracejí a povinná schránka (a s ní fikce) platí pro všechny podnikatele včetně OSVČ.",
+            "zdroj": "Bezpečná elektronická komunikace"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Přišel ti e-mail: „Od: Moneta Bank, adresa podpora@moneta-overeni.info. Vážený kliente, z bezpečnostních důvodů potvrďte své přihlašovací údaje do 24 hodin, jinak bude účet zablokován. [PŘIHLÁSIT SE]“. Rozhodni, zda je pravý, a popiš správný postup.",
+          "reseni": "Je to podvod — phishing. Jak to poznáš:\n\n1. **Doména** moneta-overeni.info bance nepatří (banka píše z moneta.cz).\n2. **Nátlak na čas** („do 24 hodin, jinak blokace“) — klasická technika.\n3. **Obecné oslovení** „Vážený kliente“ — tvoje banka tě zná jménem.\n4. **Žádost o přihlašovací údaje** — banka je NIKDY nechce.\n\nSprávný postup: neklikat, nic nevyplňovat, e-mail nahlásit bance a smazat. Chceš-li si stav účtu přesto ověřit, otevři aplikaci nebo web banky ručně — nikdy přes odkaz ze zprávy."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Phishing",
+              "zadni": "Podvodná zpráva vydávající se za banku, poštu či e-shop — loví hesla a karty"
+            },
+            {
+              "predni": "Smishing / vishing",
+              "zadni": "Phishing přes SMS / podvodný telefonát"
+            },
+            {
+              "predni": "Zlaté pravidlo",
+              "zadni": "Banka ani úřad nikdy nechtějí heslo, PIN ani údaje o kartě"
+            },
+            {
+              "predni": "Ověření odkazu",
+              "zadni": "Najet myší bez kliknutí — zobrazí se skutečný cíl"
+            },
+            {
+              "predni": "2FA (dvoufaktorové ověření)",
+              "zadni": "Heslo + jednorázový kód z mobilu; ukradené heslo samo nestačí"
+            },
+            {
+              "predni": "eIDAS",
+              "zadni": "Evropské nařízení: prostý, zaručený a kvalifikovaný el. podpis"
+            },
+            {
+              "predni": "Kvalifikovaný elektronický podpis",
+              "zadni": "U úřadů plnohodnotně nahrazuje vlastnoruční"
+            },
+            {
+              "predni": "Fikce doručení",
+              "zadni": "Zpráva v datové schránce platí za doručenou 10. den od dodání"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "Shrnutí:\n\n- **Phishing / smishing / vishing** poznáš podle domény odesílatele, nátlaku na čas, obecného oslovení a podezřelých odkazů — bezchybná čeština už nic nedokazuje.\n- **Nikdy nesděluj** heslo, PIN ani kódy z SMS; ověřuj přes oficiální web či aplikaci a podvody nahlašuj.\n- **2FA** a unikátní hesla ve správci hesel = základní ochrana účtů.\n- **Kvalifikovaný elektronický podpis** (eIDAS) u úřadů nahrazuje vlastnoruční.\n- **Datová schránka** je pro podnikatele povinná a platí v ní **fikce doručení** — 10. den od dodání."
+        }
+      ]
+    }
+  ]
+}

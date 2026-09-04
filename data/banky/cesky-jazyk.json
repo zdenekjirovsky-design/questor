@@ -1,0 +1,945 @@
+{
+  "predmetId": "cesky-jazyk",
+  "nazev": "Český jazyk a literatura",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "cj-obecne-o-jazyce", "nazev": "Obecné poučení o jazyce", "poradi": 0 },
+    { "id": "cj-zvukova-stranka", "nazev": "Zvuková stránka jazyka", "poradi": 1 },
+    { "id": "cj-pravopis", "nazev": "Pravopis", "poradi": 2 },
+    { "id": "cj-tvaroslovi", "nazev": "Tvarosloví", "poradi": 3 },
+    { "id": "cj-sloh-vypravovani", "nazev": "Sloh: vypravování a popis", "poradi": 4 },
+    { "id": "cj-literatura-starovek", "nazev": "Starověká literatura", "poradi": 5 },
+    { "id": "cj-literatura-stredovek", "nazev": "Středověká literatura", "poradi": 6 },
+    { "id": "cj-literarni-teorie", "nazev": "Základy literární teorie", "poradi": 7 }
+  ],
+  "otazky": [
+    {
+      "id": "o-cj-obecne-o-jazyce-1",
+      "temaId": "cj-obecne-o-jazyce",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Který útvar národního jazyka je kodifikovaný a používá se v oficiální komunikaci (škola, úřady, média)?",
+      "moznosti": [
+        "spisovná čeština",
+        "obecná čeština",
+        "nářečí",
+        "slang"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Spisovná čeština je jediný kodifikovaný útvar — její pravidla jsou závazně popsána v příručkách, proto se používá v oficiální komunikaci. Obecná čeština, nářečí i slang jsou útvary nespisovné, hodí se do neformálních situací.",
+      "zdroj": "Obecné poučení o jazyce"
+    },
+    {
+      "id": "o-cj-obecne-o-jazyce-2",
+      "temaId": "cj-obecne-o-jazyce",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co je slang?",
+      "moznosti": [
+        "mluva zájmové nebo profesní skupiny (studenti, hráči, sportovci)",
+        "nespisovná mluva užívaná v celých Čechách",
+        "útvar jazyka vázaný na určité území",
+        "mluvená podoba spisovné češtiny"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Slang spojuje lidi se společným zájmem nebo profesí (písemka, lootovat, bekhend). Nespisovná mluva celých Čech je obecná čeština, útvar vázaný na území je nářečí a mluvená podoba spisovného jazyka je hovorová čeština.",
+      "zdroj": "Obecné poučení o jazyce"
+    },
+    {
+      "id": "o-cj-obecne-o-jazyce-3",
+      "temaId": "cj-obecne-o-jazyce",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Obecná čeština je spisovný útvar národního jazyka.",
+      "spravna": false,
+      "vysvetleni": "Obecná čeština („dobrej“, „vokno“, „bysme“) je NEspisovný interdialekt užívaný hlavně v Čechách. Ke spisovnému jazyku patří vedle neutrální a knižní vrstvy jen čeština hovorová.",
+      "zdroj": "Obecné poučení o jazyce"
+    },
+    {
+      "id": "o-cj-obecne-o-jazyce-4",
+      "temaId": "cj-obecne-o-jazyce",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Nespisovnému útvaru národního jazyka vázanému na určité území (např. hanáčtina) říkáme …",
+      "spravneOdpovedi": ["nářečí", "nareci", "dialekt", "nářečí (dialekt)"],
+      "vysvetleni": "Nářečí (dialekt) je územně vymezený útvar — pozná se podle kraje, ne podle zájmu mluvčích (to by byl slang). U nás jsou hlavně nářečí středomoravská, východomoravská a slezská.",
+      "zdroj": "Obecné poučení o jazyce"
+    },
+    {
+      "id": "o-cj-obecne-o-jazyce-5",
+      "temaId": "cj-obecne-o-jazyce",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Potřebuješ spolehlivě a závazně ověřit pravopis slova. Kam sáhneš?",
+      "moznosti": [
+        "do Internetové jazykové příručky Ústavu pro jazyk český",
+        "do diskuse na sociální síti",
+        "spolehnu se na automatické opravy v mobilu",
+        "do titulků oblíbeného videa"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kodifikaci zachycují jazykové příručky — Pravidla českého pravopisu, Slovník spisovné češtiny a online Internetová jazyková příručka ÚJČ (prirucka.ujc.cas.cz). Diskuse, autokorekce ani titulky za správnost neručí — často samy obsahují chyby.",
+      "zdroj": "Obecné poučení o jazyce"
+    },
+    {
+      "id": "o-cj-obecne-o-jazyce-6",
+      "temaId": "cj-obecne-o-jazyce",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které útvary národního jazyka jsou NEspisovné?",
+      "moznosti": [
+        "obecná čeština",
+        "nářečí",
+        "slang",
+        "hovorová čeština"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Obecná čeština, nářečí a slang stojí mimo spisovný jazyk. Hovorová čeština je past — je to volnější, mluvená VRSTVA spisovné češtiny, takže spisovná je.",
+      "zdroj": "Obecné poučení o jazyce"
+    },
+    {
+      "id": "o-cj-obecne-o-jazyce-7",
+      "temaId": "cj-obecne-o-jazyce",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď útvar národního jazyka k ukázce či charakteristice.",
+      "pary": [
+        { "levy": "spisovná čeština", "pravy": "proslov ředitele při předávání vysvědčení" },
+        { "levy": "obecná čeština", "pravy": "„von je dobrej kámoš“ v běžném hovoru" },
+        { "levy": "slang", "pravy": "„dal jsem headshot“ mezi hráči" },
+        { "levy": "argot", "pravy": "utajovaná mluva podsvětí" }
+      ],
+      "vysvetleni": "Rozhoduje, KDO a KDE útvar užívá: oficiální situace → spisovný jazyk, běžný hovor v Čechách → obecná čeština, zájmová skupina → slang, skupina, která nechce být ostatním rozumět → argot.",
+      "zdroj": "Obecné poučení o jazyce"
+    },
+    {
+      "id": "o-cj-obecne-o-jazyce-8",
+      "temaId": "cj-obecne-o-jazyce",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Jsi na pohovoru o brigádu v obchodě. Která odpověď je jazykově nejvhodnější?",
+      "moznosti": [
+        "„Dobrý den, mám zkušenost s doplňováním zboží a rád bych u vás pracoval.“",
+        "„Čau, klidně bych do toho šel, zbožíčko narovnám levou zadní.“",
+        "„No, jako, já bych jako chtěl tu brigošku.“",
+        "„Zdarec, kdy se nastupuje?“"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Pohovor je oficiální situace — patří do ní spisovná čeština a zdvořilý tón. Ostatní odpovědi míchají obecnou češtinu, slang a familiární pozdravy; nejsou „špatná čeština“ samy o sobě, jen nesedí k situaci. Volba útvaru = vizitka mluvčího.",
+      "zdroj": "Obecné poučení o jazyce"
+    },
+
+    {
+      "id": "o-cj-zvukova-stranka-1",
+      "temaId": "cj-zvukova-stranka",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Čím se liší hláska a písmeno?",
+      "moznosti": [
+        "hláska je zvuk mluvené řeči, písmeno je grafický znak",
+        "jsou to dvě slova pro totéž",
+        "hláska je psaná, písmeno se vyslovuje",
+        "písmeno je jen tiskací podoba hlásky"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Hlásku slyšíme, písmeno vidíme — a nemusí si odpovídat: „ch“ je jedna hláska zapsaná dvěma písmeny, písmeno „ě“ samostatnou hláskou není. Proto to nejsou synonyma.",
+      "zdroj": "Zvuková stránka jazyka"
+    },
+    {
+      "id": "o-cj-zvukova-stranka-2",
+      "temaId": "cj-zvukova-stranka",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Slovní přízvuk je v češtině stálý na první slabice slova.",
+      "spravna": true,
+      "vysvetleni": "Čeština má stálý přízvuk na první slabice (na rozdíl třeba od ruštiny nebo angličtiny). Jednoslabičná předložka se slovem tvoří přízvukový celek a přízvuk přebírá: NA horách, DO školy.",
+      "zdroj": "Zvuková stránka jazyka"
+    },
+    {
+      "id": "o-cj-zvukova-stranka-3",
+      "temaId": "cj-zvukova-stranka",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Které slovo obsahuje dvojhlásku?",
+      "moznosti": [
+        "mouka",
+        "úkol",
+        "léto",
+        "kniha"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Dvojhláska (diftong) jsou dvě samohlásky v jedné slabice — v domácích slovech jen „ou“ (mou-ka). Ú a é jsou dlouhé samohlásky, ne dvojhlásky; „kniha“ má jen krátké samohlásky.",
+      "zdroj": "Zvuková stránka jazyka"
+    },
+    {
+      "id": "o-cj-zvukova-stranka-4",
+      "temaId": "cj-zvukova-stranka",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá nauka o spisovné výslovnosti?",
+      "spravneOdpovedi": ["ortoepie", "ortoepie."],
+      "vysvetleni": "Ortoepie stanovuje pravidla spisovné výslovnosti (nepolykat hlásky, vyslovovat délky). Nezaměň s ortografií — ta se týká pravopisu, tedy psané podoby jazyka.",
+      "zdroj": "Zvuková stránka jazyka"
+    },
+    {
+      "id": "o-cj-zvukova-stranka-5",
+      "temaId": "cj-zvukova-stranka",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč slovo „včela“ vyslovujeme [fčela]?",
+      "moznosti": [
+        "kvůli spodobě znělosti — neznělé č mění znělé v na neznělé f",
+        "protože v je jedinečná souhláska",
+        "protože se tak i píše",
+        "kvůli přízvuku na první slabice"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Sousední souhlásky se přizpůsobují ve znělosti (asimilace): před neznělým č se znělé v vysloví jako jeho neznělý protějšek f. Píšeme ale podle stavby slova — proto „včela“ s v. Přízvuk s výslovností souhlásek nesouvisí.",
+      "zdroj": "Zvuková stránka jazyka"
+    },
+    {
+      "id": "o-cj-zvukova-stranka-6",
+      "temaId": "cj-zvukova-stranka",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Ve kterých slovech se výslovnost liší od psané podoby kvůli spodobě znělosti?",
+      "moznosti": [
+        "kresba",
+        "led",
+        "sbor",
+        "máma",
+        "pole"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Kresba se vyslovuje [krezba] (s se před znělým b mění na z), led na konci slova [let] (ztráta znělosti), sbor [zbor]. V máma a pole se souhlásky nepotkávají ve skupině — po každé následuje samohláska, proto spodoba nenastává.",
+      "zdroj": "Zvuková stránka jazyka"
+    },
+    {
+      "id": "o-cj-zvukova-stranka-7",
+      "temaId": "cj-zvukova-stranka",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď pojem ze zvukové stránky jazyka k jeho vysvětlení.",
+      "pary": [
+        { "levy": "fonetika", "pravy": "nauka o tvoření a vnímání hlásek" },
+        { "levy": "intonace", "pravy": "melodie věty (klesání a stoupání hlasu)" },
+        { "levy": "větný důraz", "pravy": "zesílení nejdůležitějšího slova ve větě" },
+        { "levy": "přízvukový celek", "pravy": "předložka + slovo s jedním přízvukem (NA horách)" }
+      ],
+      "vysvetleni": "Fonetika zkoumá hlásky, intonace je melodie celé věty, důraz zvýrazňuje jedno slovo a přízvukový celek vzniká spojením jednoslabičné předložky se slovem — přízvuk nese předložka.",
+      "zdroj": "Zvuková stránka jazyka"
+    },
+    {
+      "id": "o-cj-zvukova-stranka-8",
+      "temaId": "cj-zvukova-stranka",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Čteš nahlas otázku: „Půjdeš zítra na trénink?“ Jakou intonaci má mít konec věty?",
+      "moznosti": [
+        "stoupavou — je to zjišťovací otázka (odpověď ano/ne)",
+        "klesavou — jako každá oznamovací věta",
+        "klesavou — všechny otázky končí poklesem hlasu",
+        "na intonaci nezáleží, význam nese jen otazník"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zjišťovací otázky (odpovídáme ano/ne) mají stoupavou intonaci — jen díky ní posluchač pozná otázku. Klesavou intonaci mají věty oznamovací a otázky doplňovací („Kam jdeš?“). V mluvené řeči otazník nikdo nevidí — intonace ho nahrazuje.",
+      "zdroj": "Zvuková stránka jazyka"
+    },
+
+    {
+      "id": "o-cj-pravopis-1",
+      "temaId": "cj-pravopis",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Která řada obsahuje jen vyjmenovaná slova (nebo slova příbuzná) po B?",
+      "moznosti": [
+        "být, bydlet, obyvatel, nábytek",
+        "bít, byt, bylina, býk",
+        "být, bílý, bystrý, kobyla",
+        "byt, bydlet, bída, obyčej"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Být, bydlet, obyvatel i nábytek patří k vyjmenovaným slovům po B. Chytáky v ostatních řadách: bít (tlouct), bílý a bída se píšou s měkkým i/í — do vyjmenovaných slov nepatří.",
+      "zdroj": "Pravopis"
+    },
+    {
+      "id": "o-cj-pravopis-2",
+      "temaId": "cj-pravopis",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň i/y a napiš celé slovo: „Ml_nář mele obilí.“",
+      "spravneOdpovedi": ["mlynář", "mlynar", "Mlynář", "y"],
+      "vysvetleni": "Mlynář je příbuzný s vyjmenovaným slovem mlýn, proto tvrdé y. Kdo si vybaví základové slovo, trefí i všechna odvozená (mlýnice, mlynářka).",
+      "zdroj": "Pravopis"
+    },
+    {
+      "id": "o-cj-pravopis-3",
+      "temaId": "cj-pravopis",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Kde píšeme ú (u s čárkou)?",
+      "moznosti": [
+        "na začátku slova a po předponě (úkol, zaútočit)",
+        "uprostřed každého domácího slova",
+        "na konci slova (dom_, dol_)",
+        "vždy po souhláskách b, p, v"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Ú patří na začátek slova, za předponu (ne-úspěch, za-útočit), do složenin (trojúhelník) a do citoslovcí či přejatých slov (túra). Uprostřed a na konci domácích slov píšeme ů (stůl, domů) — proto jsou možnosti s koncem a středem slova špatně.",
+      "zdroj": "Pravopis"
+    },
+    {
+      "id": "o-cj-pravopis-4",
+      "temaId": "cj-pravopis",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "V názvu ulice Na Příkopě píšeme velké N i velké P.",
+      "spravna": true,
+      "vysvetleni": "Začíná-li název ulice předložkou, píše se velkým písmenem předložka i první slovo po ní: Na Příkopě, U Bílého lva. Slovo „ulice“ samo je obecné jméno, proto malé u.",
+      "zdroj": "Pravopis"
+    },
+    {
+      "id": "o-cj-pravopis-5",
+      "temaId": "cj-pravopis",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Ve které dvojici jsou OBĚ slova napsána správně?",
+      "moznosti": [
+        "sjet ze svahu, zhlédnout film",
+        "zjet ze svahu, zhlédnout film",
+        "sjet ze svahu, shlédnout film",
+        "zjet ze svahu, shlédnout film"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Předpona s- značí směr dolů (sjet ze svahu, spadnout). Film zhlédneme — z- tu značí dokončení děje; shlédnout znamená pohlédnout shora dolů (shlédnout z rozhledny do údolí).",
+      "zdroj": "Pravopis"
+    },
+    {
+      "id": "o-cj-pravopis-6",
+      "temaId": "cj-pravopis",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Která slova jsou napsána správně?",
+      "moznosti": [
+        "zapomněl",
+        "domněnka",
+        "rozumněl",
+        "tamnější"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "Mně píšeme tam, kde příbuzné slovo má n: zapomněl (pomni), domněnka (domnívat se). Rozuměl (rozumět) a tamější (tam) žádné n nemají — psaní „rozumněl“ a „tamnější“ je častá chyba z přehnané opatrnosti.",
+      "zdroj": "Pravopis"
+    },
+    {
+      "id": "o-cj-pravopis-7",
+      "temaId": "cj-pravopis",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď pravopisné pravidlo k příkladu.",
+      "pary": [
+        { "levy": "ú na začátku slova", "pravy": "útes" },
+        { "levy": "ů uprostřed slova", "pravy": "stůl" },
+        { "levy": "předpona s- (směr dolů)", "pravy": "spadnout" },
+        { "levy": "předpona z- (změna stavu)", "pravy": "zčervenat" }
+      ],
+      "vysvetleni": "Ú stojí na začátku slova a po předponě, ů uvnitř a na konci. U předpon rozhoduje význam: s- = dolů, z povrchu, dohromady; z- = dokončení děje nebo změna stavu (červený → zčervenat).",
+      "zdroj": "Pravopis"
+    },
+    {
+      "id": "o-cj-pravopis-8",
+      "temaId": "cj-pravopis",
+      "typ": "doplneni",
+      "obtiznost": 5,
+      "zadani": "Ve větě „Bidlím v Praze na Malé Straně.“ je pravopisná chyba. Napiš chybné slovo správně.",
+      "spravneOdpovedi": ["bydlím", "Bydlím", "bydlim"],
+      "vysvetleni": "Bydlím patří k vyjmenovanému slovu bydlet (být), proto tvrdé y. „Bidlím“ by odkazovalo na bidlo (tyč) — a na bidle se bydlet nedá. Název Malá Strana je správně: obě slova vlastního jména městské čtvrti s velkým písmenem.",
+      "zdroj": "Pravopis"
+    },
+
+    {
+      "id": "o-cj-tvaroslovi-1",
+      "temaId": "cj-tvaroslovi",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Kolik slovních druhů rozlišuje čeština?",
+      "moznosti": [
+        "10",
+        "5",
+        "7",
+        "12"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Slovních druhů je deset: 5 ohebných (podstatná jména, přídavná jména, zájmena, číslovky, slovesa) a 5 neohebných (příslovce, předložky, spojky, částice, citoslovce).",
+      "zdroj": "Tvarosloví"
+    },
+    {
+      "id": "o-cj-tvaroslovi-2",
+      "temaId": "cj-tvaroslovi",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Které mluvnické kategorie určujeme u podstatných jmen?",
+      "moznosti": [
+        "pád, číslo, rod a vzor",
+        "osobu, číslo, čas a způsob",
+        "pád, čas a vid",
+        "číslo, rod a osobu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Jména (podstatná, přídavná, zájmena, číslovky) mají pád, číslo, rod a skloňují se podle vzoru. Osoba, čas, způsob a vid jsou kategorie SLOVES — kombinace s pádem a časem dohromady neexistuje u žádného slovního druhu.",
+      "zdroj": "Tvarosloví"
+    },
+    {
+      "id": "o-cj-tvaroslovi-3",
+      "temaId": "cj-tvaroslovi",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Slovesa patří mezi ohebné slovní druhy.",
+      "spravna": true,
+      "vysvetleni": "Slovesa se časují (píšu, píšeš, psal jsem…), takže mění tvar — jsou ohebná. Skloňování (jména) i časování (slovesa) jsou dva druhy ohýbání.",
+      "zdroj": "Tvarosloví"
+    },
+    {
+      "id": "o-cj-tvaroslovi-4",
+      "temaId": "cj-tvaroslovi",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Podle kterého vzoru se skloňuje podstatné jméno „nádraží“?",
+      "spravneOdpovedi": ["stavení", "staveni"],
+      "vysvetleni": "Nádraží je rod střední zakončený na -í, stejně jako stavení (bez nádraží — bez stavení). Vzor moře má krátké -e (bez moře) — časté splétání těchto dvou vzorů hlídej přes 2. pád.",
+      "zdroj": "Tvarosloví"
+    },
+    {
+      "id": "o-cj-tvaroslovi-5",
+      "temaId": "cj-tvaroslovi",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Které sloveso je dokonavé?",
+      "moznosti": [
+        "koupit",
+        "kupovat",
+        "psát",
+        "číst"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Dokonavé sloveso vyjadřuje děj ohraničený, ukončený — a nemá přítomný čas: „koupím“ už je budoucnost. Kupovat, psát i číst vyjadřují probíhající děj (kupuji právě teď) — jsou nedokonavá.",
+      "zdroj": "Tvarosloví"
+    },
+    {
+      "id": "o-cj-tvaroslovi-6",
+      "temaId": "cj-tvaroslovi",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Která slova jsou neohebná (nemění svůj tvar)?",
+      "moznosti": [
+        "rychle",
+        "ale",
+        "před",
+        "dům",
+        "pěkný"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Rychle (příslovce), ale (spojka) a před (předložka) mají pořád stejný tvar. Dům se skloňuje (domu, domem) a pěkný také (pěkného, pěkní) — jsou ohebné.",
+      "zdroj": "Tvarosloví"
+    },
+    {
+      "id": "o-cj-tvaroslovi-7",
+      "temaId": "cj-tvaroslovi",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď podstatné jméno ke správnému vzoru.",
+      "pary": [
+        { "levy": "kolo", "pravy": "město" },
+        { "levy": "ulice", "pravy": "růže" },
+        { "levy": "klíč", "pravy": "stroj" },
+        { "levy": "radost", "pravy": "kost" }
+      ],
+      "vysvetleni": "Rozhoduje rod, zakončení a 2. pád: kolo — bez kola (město), ulice — bez ulice (růže), klíč je neživotný měkký (stroj), radost — bez radosti (kost, ne píseň — ta má 2. pád písně).",
+      "zdroj": "Tvarosloví"
+    },
+    {
+      "id": "o-cj-tvaroslovi-8",
+      "temaId": "cj-tvaroslovi",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Urči mluvnické kategorie slovesného tvaru „napsali bychom“.",
+      "moznosti": [
+        "1. osoba, číslo množné, způsob podmiňovací",
+        "3. osoba, číslo množné, způsob oznamovací",
+        "1. osoba, číslo množné, čas minulý, způsob oznamovací",
+        "2. osoba, číslo množné, způsob podmiňovací"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Tvar „bychom“ prozrazuje 1. osobu množného čísla podmiňovacího způsobu (my bychom). U podmiňovacího způsobu čas neurčujeme — proto je možnost s minulým časem chyták. A pozor: spisovně „bychom“, nikdy „by jsme“.",
+      "zdroj": "Tvarosloví"
+    },
+
+    {
+      "id": "o-cj-sloh-vypravovani-1",
+      "temaId": "cj-sloh-vypravovani",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Který slohový postup je základem vypravování?",
+      "moznosti": [
+        "vyprávěcí",
+        "popisný",
+        "informační",
+        "výkladový"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Vypravování zachycuje děj v čase — to je podstata vyprávěcího postupu. Popisný postup zachycuje vlastnosti, informační jen holá fakta (co, kdy, kde) a výkladový vysvětluje příčiny.",
+      "zdroj": "Sloh: vypravování a popis"
+    },
+    {
+      "id": "o-cj-sloh-vypravovani-2",
+      "temaId": "cj-sloh-vypravovani",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Vyber správné pořadí částí vypravování.",
+      "moznosti": [
+        "úvod → zápletka → vyvrcholení → rozuzlení",
+        "zápletka → úvod → rozuzlení → vyvrcholení",
+        "úvod → rozuzlení → zápletka → vyvrcholení",
+        "vyvrcholení → zápletka → úvod → rozuzlení"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Klasická dějová linie: úvod představí postavy a prostředí, zápletka rozehraje problém, napětí stoupá k vyvrcholení a rozuzlení vše uzavře. Jiná pořadí ruší logiku děje (rozuzlit nejde nic, co se ještě nezapletlo).",
+      "zdroj": "Sloh: vypravování a popis"
+    },
+    {
+      "id": "o-cj-sloh-vypravovani-3",
+      "temaId": "cj-sloh-vypravovani",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Přímá řeč se píše do uvozovek.",
+      "spravna": true,
+      "vysvetleni": "Přímá řeč je doslovné znění výpovědi postavy a patří do uvozovek: „Přijdu zítra,“ řekl Petr. Uvozovací věta se odděluje čárkou (před koncovou uvozovkou).",
+      "zdroj": "Sloh: vypravování a popis"
+    },
+    {
+      "id": "o-cj-sloh-vypravovani-4",
+      "temaId": "cj-sloh-vypravovani",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá stručný přehled bodů, který si sestavíme před psaním, aby měl text logické pořadí?",
+      "spravneOdpovedi": ["osnova"],
+      "vysvetleni": "Osnova drží kostru textu — heslovité body v pořadí, v jakém o nich budeme psát. Bez ní se vypravování snadno zamotá nebo na něco důležitého zapomeneš.",
+      "zdroj": "Sloh: vypravování a popis"
+    },
+    {
+      "id": "o-cj-sloh-vypravovani-5",
+      "temaId": "cj-sloh-vypravovani",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Ve které větě je přímá řeč zapsána správně?",
+      "moznosti": [
+        "„Přijdu zítra,“ řekl Petr.",
+        "„Přijdu zítra.“ řekl Petr.",
+        "Přijdu zítra, řekl Petr.",
+        "„Přijdu zítra“, řekl Petr"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Následuje-li po přímé řeči uvozovací věta, píše se před koncovou uvozovkou čárka (ne tečka) a uvozovací věta končí tečkou. Bez uvozovek by šlo o řeč nepřímou — ta ale vyžaduje spojku (řekl, že přijde zítra).",
+      "zdroj": "Sloh: vypravování a popis"
+    },
+    {
+      "id": "o-cj-sloh-vypravovani-6",
+      "temaId": "cj-sloh-vypravovani",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Čím můžeš vypravování oživit?",
+      "moznosti": [
+        "dějovými slovesy (vyrazil, popadl, zakopl)",
+        "přímou řečí postav",
+        "vyprávěním v přítomném čase (historický prézens)",
+        "dlouhými odbornými definicemi",
+        "opakováním slovesa „být“ v každé větě"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Dějová slovesa, přímá řeč a historický prézens („stojím na zastávce a najednou vidím…“) dodávají textu tempo a napětí. Odborné definice patří do výkladu a opakování „být“ text uspává — to jsou pravé opaky oživení.",
+      "zdroj": "Sloh: vypravování a popis"
+    },
+    {
+      "id": "o-cj-sloh-vypravovani-7",
+      "temaId": "cj-sloh-vypravovani",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď slohový postup k textu, který by jím vznikl.",
+      "pary": [
+        { "levy": "vyprávěcí", "pravy": "historka, jak jsi zaspal na písemku" },
+        { "levy": "popisný", "pravy": "vzhled nového mobilu" },
+        { "levy": "informační", "pravy": "oznámení o zrušení kroužku" },
+        { "levy": "výkladový", "pravy": "proč vzniká bouřka" }
+      ],
+      "vysvetleni": "Vyprávěcí postup nese děj, popisný vlastnosti a části, informační jen fakta (co, kdy, kde) a výkladový vysvětluje příčiny a souvislosti. Jeden námět jde zpracovat různými postupy — rozhoduje cíl textu.",
+      "zdroj": "Sloh: vypravování a popis"
+    },
+    {
+      "id": "o-cj-sloh-vypravovani-8",
+      "temaId": "cj-sloh-vypravovani",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Píšeš vypravování o pádu z kola. Který začátek vtáhne čtenáře nejvíc?",
+      "moznosti": [
+        "Řídítka zakvílela, svět se zatočil — a já letěl přes ně rovnou do křoví.",
+        "V tomto vypravování popíšu, jak jsem spadl z kola.",
+        "Kolo je dopravní prostředek se dvěma koly a řídítky.",
+        "Pád z kola má tři fáze: ztrátu rovnováhy, let a dopad."
+      ],
+      "spravna": 0,
+      "vysvetleni": "První možnost skočí rovnou do děje (in medias res), používá dějová slovesa a buduje napětí. Druhá jen oznamuje záměr, třetí je popis a čtvrtá výklad — čtenáře nevtáhnou, protože se v nich nic neděje.",
+      "zdroj": "Sloh: vypravování a popis"
+    },
+
+    {
+      "id": "o-cj-literatura-starovek-1",
+      "temaId": "cj-literatura-starovek",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Které dílo je nejstarším dochovaným eposem světa?",
+      "moznosti": [
+        "Epos o Gilgamešovi",
+        "Ilias",
+        "Odysseia",
+        "Aeneis"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Epos o Gilgamešovi vznikl v Mezopotámii kolem roku 2000 př. n. l. — dávno před Homérovými eposy (8. století př. n. l.) i římskou Aeneidou (1. století př. n. l.).",
+      "zdroj": "Starověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-starovek-2",
+      "temaId": "cj-literatura-starovek",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co hledá Gilgameš po smrti přítele Enkidua?",
+      "moznosti": [
+        "nesmrtelnost",
+        "zlaté rouno",
+        "cestu domů na Ithaku",
+        "ztracené království"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Smrt přítele Gilgameše vyděsí, a tak hledá věčný život. Dozví se, že nesmrtelnost bohové lidem nedali — člověk se zvěční jen svými činy. Zlaté rouno hledali Argonauti, na Ithaku se vracel Odysseus.",
+      "zdroj": "Starověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-starovek-3",
+      "temaId": "cj-literatura-starovek",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Starý zákon byl původně napsán převážně hebrejsky a Nový zákon řecky.",
+      "spravna": true,
+      "vysvetleni": "Starý zákon je psán převážně hebrejsky (menší části aramejsky), Nový zákon řecky. Latinský překlad celé Bible (Vulgata) vznikl až později a užívala ho středověká církev.",
+      "zdroj": "Starověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-starovek-4",
+      "temaId": "cj-literatura-starovek",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "O čem vypráví Homérova Odysseia?",
+      "moznosti": [
+        "o desetiletém bloudění krále Odyssea při návratu z trojské války domů",
+        "o hněvu Achilleově v závěru trojské války",
+        "o putování Trojana Aenea, praotce Římanů",
+        "o potopě světa a Uta-napištimovi"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Odysseia sleduje návrat itackého krále z Troje (kyklop Polyfémos, Sirény, věrná Pénelopa). Hněv Achilleův je téma Iliady, Aeneovo putování popsal Vergilius v Aeneidě a potopa patří do Eposu o Gilgamešovi.",
+      "zdroj": "Starověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-starovek-5",
+      "temaId": "cj-literatura-starovek",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Napiš jméno řeckého dramatika, který je autorem tragédií Antigona a Král Oidipus.",
+      "spravneOdpovedi": ["Sofokles", "Sofoklés", "sofokles"],
+      "vysvetleni": "Sofokles patří k trojici velkých athénských tragiků 5. století př. n. l. vedle Aischyla a Euripida. Antigona řeší střet svědomí a zákona — proto se hraje dodnes.",
+      "zdroj": "Starověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-starovek-6",
+      "temaId": "cj-literatura-starovek",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Kteří autoři patří do římské literatury?",
+      "moznosti": [
+        "Vergilius",
+        "Ovidius",
+        "Horatius",
+        "Homér",
+        "Sofokles"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Vergilius (Aeneis), Ovidius (Proměny) a Horatius (ódy) psali latinsky v Římě. Homér a Sofokles jsou Řekové — římská literatura na tu řeckou navazovala, ale o stovky let později.",
+      "zdroj": "Starověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-starovek-7",
+      "temaId": "cj-literatura-starovek",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď autora k jeho dílu.",
+      "pary": [
+        { "levy": "Homér", "pravy": "Ilias a Odysseia" },
+        { "levy": "Sofokles", "pravy": "Antigona" },
+        { "levy": "Vergilius", "pravy": "Aeneis" },
+        { "levy": "Ovidius", "pravy": "Proměny" }
+      ],
+      "vysvetleni": "Homér stojí na počátku řecké epiky, Sofokles psal athénské tragédie, Vergilius vytvořil římský národní epos Aeneis a Ovidius sbírku mytologických příběhů Proměny (Metamorfózy).",
+      "zdroj": "Starověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-starovek-8",
+      "temaId": "cj-literatura-starovek",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Komentátor zápasu řekne: „Obrana je Achillova pata tohohle týmu.“ Co tím říká a odkud rčení pochází?",
+      "moznosti": [
+        "obrana je jediné slabé místo týmu; rčení pochází z řeckých bájí o hrdinovi trojské války",
+        "obrana je nejsilnější stránka týmu; rčení pochází z římských dějin",
+        "obrana hraje zpomaleně; rčení pochází z Bible",
+        "obrana je nejzkušenější část týmu; rčení pochází ze středověkých legend"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Achilles byl podle bájí zranitelný jedině na patě — proto Achillova pata znamená jediné slabé místo jinak silného celku. Starověké příběhy žijí v dnešní řeči: trojský kůň, danajský dar, odysea.",
+      "zdroj": "Starověká literatura"
+    },
+
+    {
+      "id": "o-cj-literatura-stredovek-1",
+      "temaId": "cj-literatura-stredovek",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Proč přišli roku 863 Konstantin a Metoděj na Velkou Moravu?",
+      "moznosti": [
+        "aby šířili křesťanství jazykem srozumitelným lidu — staroslověnštinou",
+        "aby zavedli výhradně latinskou bohoslužbu",
+        "aby sepsali první české dějiny",
+        "aby založili pražskou univerzitu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kníže Rostislav pozval soluňské bratry právě proto, aby lidé rozuměli bohoslužbě — franští kněží kázali latinsky. Konstantin proto vytvořil písmo hlaholici a s Metodějem překládal texty do staroslověnštiny. Univerzita vznikla až roku 1348.",
+      "zdroj": "Středověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-stredovek-2",
+      "temaId": "cj-literatura-stredovek",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se jmenuje první slovanské písmo, které sestavil Konstantin?",
+      "spravneOdpovedi": ["hlaholice", "Hlaholice"],
+      "vysvetleni": "Hlaholici vytvořil Konstantin pro zápis staroslověnštiny. Mladší písmo cyrilice vzniklo až po smrti obou bratří a dalo základ dnešní azbuce — obě písma si nezaměňuj.",
+      "zdroj": "Středověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-stredovek-3",
+      "temaId": "cj-literatura-stredovek",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jakým jazykem a formou je psána Kosmova Kronika česká?",
+      "moznosti": [
+        "latinsky prózou",
+        "česky veršem",
+        "staroslověnsky",
+        "německy prózou"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kosmas, děkan pražské kapituly, dokončil kroniku k roku 1125 latinsky a prózou — latina byla jazykem vzdělanců. Česky a veršem je psána o dvě století mladší Dalimilova kronika; to je nejčastější záměna.",
+      "zdroj": "Středověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-stredovek-4",
+      "temaId": "cj-literatura-stredovek",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Dalimilova kronika je nejstarší česky psaná veršovaná kronika.",
+      "spravna": true,
+      "vysvetleni": "Vznikla počátkem 14. století, je psána česky a veršem a vyznívá vlastenecky. Jejího autora neznáme — jméno Dalimil jí přisoudili až pozdější vzdělanci omylem.",
+      "zdroj": "Středověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-stredovek-5",
+      "temaId": "cj-literatura-stredovek",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co je Proglas?",
+      "moznosti": [
+        "veršovaná předmluva k překladu evangelia, oslava slovanského jazyka",
+        "kronika o počátcích českého státu",
+        "legenda o svatém Václavovi",
+        "Husův latinský spis o církvi"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Proglas složil Konstantin jako předmluvu k staroslověnskému překladu evangelia; hájí právo národa na vzdělání ve vlastním jazyce („Nahé jsou národy bez knih“). Kroniku psal Kosmas, spis o církvi (De ecclesia) Hus.",
+      "zdroj": "Středověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-stredovek-6",
+      "temaId": "cj-literatura-stredovek",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Co platí o mistru Janu Husovi?",
+      "moznosti": [
+        "kázal česky v Betlémské kapli",
+        "kritizoval prodávání odpustků",
+        "je mu připisován návrh diakritického pravopisu",
+        "napsal Dalimilovu kroniku",
+        "působil v 10. století"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Hus kázal česky v Betlémské kapli, ostře vystupoval proti odpustkům a spis O pravopise českém s návrhem háčků a čárek je mu připisován. Dalimilova kronika vznikla před jeho narozením a Hus žil na přelomu 14. a 15. století, ne v 10.",
+      "zdroj": "Středověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-stredovek-7",
+      "temaId": "cj-literatura-stredovek",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď autora ke středověkému dílu.",
+      "pary": [
+        { "levy": "Konstantin", "pravy": "Proglas" },
+        { "levy": "Kosmas", "pravy": "Kronika česká" },
+        { "levy": "Jan Hus", "pravy": "Knížky o svatokupectví" },
+        { "levy": "neznámý autor (tzv. Dalimil)", "pravy": "veršovaná česká kronika" }
+      ],
+      "vysvetleni": "Konstantin oslavil slovanský jazyk Proglasem, Kosmas sepsal latinskou Kroniku českou, Hus česky kritizoval kupčení s církevními úřady v Knížkách o svatokupectví a „Dalimil“ je jen tradiční jméno neznámého kronikáře.",
+      "zdroj": "Středověká literatura"
+    },
+    {
+      "id": "o-cj-literatura-stredovek-8",
+      "temaId": "cj-literatura-stredovek",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Šestého července je v Česku státní svátek a den volna. Kterou událost připomíná?",
+      "moznosti": [
+        "upálení mistra Jana Husa v Kostnici roku 1415",
+        "příchod Konstantina a Metoděje na Velkou Moravu",
+        "dokončení Kosmovy Kroniky české",
+        "založení Betlémské kaple"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Hus na kostnickém koncilu své učení neodvolal a 6. července 1415 byl upálen. Pozor na záměnu se svátkem 5. července — ten patří Cyrilu (Konstantinovi) a Metodějovi. Dva červencové svátky, dvě kapitoly středověké literatury.",
+      "zdroj": "Středověká literatura"
+    },
+
+    {
+      "id": "o-cj-literarni-teorie-1",
+      "temaId": "cj-literarni-teorie",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Které tři literární druhy rozlišujeme?",
+      "moznosti": [
+        "lyriku, epiku a drama",
+        "poezii, prózu a román",
+        "tragédii, komedii a činohru",
+        "pohádku, pověst a bajku"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Literární druhy jsou lyrika (pocity), epika (děj) a drama (jednání postav na jevišti). Poezie a próza jsou formy textu, tragédie a komedie jsou žánry dramatu, pohádka či bajka žánry epiky.",
+      "zdroj": "Základy literární teorie"
+    },
+    {
+      "id": "o-cj-literarni-teorie-2",
+      "temaId": "cj-literarni-teorie",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co je metafora?",
+      "moznosti": [
+        "přenesení pojmenování na základě vnější podobnosti",
+        "přenesení pojmenování na základě věcné souvislosti",
+        "opakování slova na začátku po sobě jdoucích veršů",
+        "oslovení neživé věci nebo nepřítomné osoby"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Metafora přenáší význam podle podobnosti: zub pily vypadá jako zub. Přenos podle souvislosti je metonymie, opakování na začátcích veršů anafora a oslovení neživého apostrofa.",
+      "zdroj": "Základy literární teorie"
+    },
+    {
+      "id": "o-cj-literarni-teorie-3",
+      "temaId": "cj-literarni-teorie",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Personifikace přisuzuje neživým věcem lidské vlastnosti nebo činnosti.",
+      "spravna": true,
+      "vysvetleni": "Personifikace (zosobnění) nechá neživé jednat jako člověka: vítr si hraje, město spí. Je to zvláštní případ metafory — přenos na základě podobnosti s lidským chováním.",
+      "zdroj": "Základy literární teorie"
+    },
+    {
+      "id": "o-cj-literarni-teorie-4",
+      "temaId": "cj-literarni-teorie",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá rým se schématem abab?",
+      "spravneOdpovedi": ["střídavý", "stridavy", "střídavý rým", "rým střídavý"],
+      "vysvetleni": "Ve střídavém rýmu se rýmuje první verš se třetím a druhý se čtvrtým (abab). Sdružený má aabb, obkročný abba, přerývaný abcb — pomůže si schéma napsat nad konce veršů.",
+      "zdroj": "Základy literární teorie"
+    },
+    {
+      "id": "o-cj-literarni-teorie-5",
+      "temaId": "cj-literarni-teorie",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Čím se liší epika od lyriky?",
+      "moznosti": [
+        "epika má děj, vypravěče a postavy; lyrika vyjadřuje pocity a nálady",
+        "epika je vždy veršovaná, lyrika vždy v próze",
+        "epika se hraje na jevišti, lyrika se čte",
+        "lyrika je vždy delší než epika"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rozdíl je v ději, ne ve formě ani délce: epos je epika ve verších a básně v próze jsou lyrika bez veršů. Na jevišti se předvádí drama — třetí literární druh.",
+      "zdroj": "Základy literární teorie"
+    },
+    {
+      "id": "o-cj-literarni-teorie-6",
+      "temaId": "cj-literarni-teorie",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které žánry patří k epice?",
+      "moznosti": [
+        "román",
+        "povídka",
+        "bajka",
+        "óda",
+        "tragédie"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Román, povídka i bajka vyprávějí příběh — patří k epice. Óda je oslavná báseň (lyrika) a tragédie se hraje na jevišti (drama). Při třídění žánrů se vždy ptej: má to děj, city, nebo jeviště?",
+      "zdroj": "Základy literární teorie"
+    },
+    {
+      "id": "o-cj-literarni-teorie-7",
+      "temaId": "cj-literarni-teorie",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď obrazné pojmenování k příkladu.",
+      "pary": [
+        { "levy": "metafora", "pravy": "moře světel" },
+        { "levy": "personifikace", "pravy": "vítr si hraje s listím" },
+        { "levy": "přirovnání", "pravy": "rychlý jako blesk" },
+        { "levy": "hyperbola", "pravy": "říkal jsem ti to snad tisíckrát" }
+      ],
+      "vysvetleni": "Moře světel přenáší význam podle podobnosti (mnoho světel jako vodní plocha), vítr si hraje jako člověk (personifikace), přirovnání prozradí spojka „jako“ a tisíckrát je zjevná nadsázka (hyperbola).",
+      "zdroj": "Základy literární teorie"
+    },
+    {
+      "id": "o-cj-literarni-teorie-8",
+      "temaId": "cj-literarni-teorie",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "„Vypil celou sklenici.“ Slovo sklenice tu označuje obsah, ne nádobu. O jaký básnický prostředek jde?",
+      "moznosti": [
+        "metonymii — přenos na základě věcné souvislosti",
+        "metaforu — přenos na základě podobnosti",
+        "personifikaci — zosobnění neživé věci",
+        "hyperbolu — záměrné zveličení"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Nádoba a nápoj spolu věcně souvisejí (jedno je v druhém) — to je metonymie. Metafora by vyžadovala podobnost, ta tu není. Stejná metonymie: „třída se smála“ (žáci ve třídě) nebo „čtu Čapka“ (jeho knihy).",
+      "zdroj": "Základy literární teorie"
+    }
+  ]
+}

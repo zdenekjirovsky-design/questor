@@ -1,0 +1,1456 @@
+{
+  "predmetId": "ekonomika-podnikani",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "zakladni-pojmy",
+      "nazev": "Základní ekonomické pojmy",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Pátek odpoledne, v peněžence 300 Kč. Kamarádi táhnou do kina, jenže ty šetříš na nový mobil — a večer je i turnaj, kde se hraje o kredity do tvé oblíbené hry. Nemůžeš stihnout všechno a 300 Kč se nedá utratit dvakrát. Gratuluju: právě řešíš základní problém celé ekonomie."
+        },
+        {
+          "typ": "text",
+          "obsah": "Ekonomie zkoumá, jak lidé a společnost využívají **omezené zdroje** k uspokojování **potřeb**.\n\n- **Potřeba** = pociťovaný nedostatek, který chceme odstranit (hlad, potřeba zábavy, bydlení). Dělíme je na biologické × kulturní, hmotné × nehmotné, nezbytné × zbytné.\n- Potřeby uspokojujeme **statky** (hmotné věci — svačina, mobil) a **službami** (nehmotné činnosti — stříhání vlasů, streaming).\n- **Volné statky** — je jich taková spousta, že za ně neplatíme (vzduch). Většina statků je ale **ekonomických** — je jich vůči potřebám nedostatek.\n\nA tím se dostáváme k jádru: **vzácnost**. Zdroje (čas, peníze, suroviny, práce) jsou omezené, potřeby prakticky neomezené. Proto každá ekonomika musí odpovědět na **tři základní otázky**: **CO** vyrábět, **JAK** vyrábět a **PRO KOHO** vyrábět. V tržní ekonomice odpovídá hlavně trh, v příkazové stát — reálné ekonomiky jsou smíšené."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Vzácnost řešíš dennodenně, i když jí tak neříkáš. Máš 4 hodiny po škole — trénink, brigáda, nebo učení na písemku? Máš 5 000 Kč z brigády — sluchátka, tenisky, nebo spořit? Kdo umí uvažovat přes náklady obětované příležitosti, rozhoduje se líp: neptá se jen „co za to dostanu“, ale i „čeho se kvůli tomu vzdávám“. Přesně takhle přemýšlí i firmy, když volí, co vyrábět."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 340\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Vzácnost: neomezené potřeby a omezené zdroje nutí k volbě\">\n<defs><marker id=\"ep-sip\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs>\n<rect x=\"30\" y=\"20\" width=\"220\" height=\"52\" rx=\"10\" fill=\"var(--info)\" fill-opacity=\"0.12\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"140\" y=\"42\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">Neomezené potřeby</text>\n<text x=\"140\" y=\"60\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">jídlo, mobil, zážitky, bydlení…</text>\n<rect x=\"310\" y=\"20\" width=\"220\" height=\"52\" rx=\"10\" fill=\"var(--chyba)\" fill-opacity=\"0.12\" stroke=\"var(--chyba)\" stroke-width=\"2\" />\n<text x=\"420\" y=\"42\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">Omezené zdroje</text>\n<text x=\"420\" y=\"60\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">čas, peníze, suroviny, práce</text>\n<line x1=\"140\" y1=\"72\" x2=\"255\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip)\" />\n<line x1=\"420\" y1=\"72\" x2=\"305\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip)\" />\n<rect x=\"170\" y=\"126\" width=\"220\" height=\"56\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"280\" y=\"149\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">VZÁCNOST</text>\n<text x=\"280\" y=\"169\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">nemůžeme mít všechno → volíme</text>\n<line x1=\"280\" y1=\"182\" x2=\"280\" y2=\"210\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip)\" />\n<text x=\"395\" y=\"200\" text-anchor=\"start\" font-size=\"12\" fill=\"var(--zlata)\">každá volba = náklady</text>\n<text x=\"395\" y=\"216\" text-anchor=\"start\" font-size=\"12\" fill=\"var(--zlata)\">obětované příležitosti</text>\n<rect x=\"40\" y=\"218\" width=\"150\" height=\"66\" rx=\"10\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"115\" y=\"245\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">CO?</text>\n<text x=\"115\" y=\"266\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">co vyrábět</text>\n<rect x=\"205\" y=\"218\" width=\"150\" height=\"66\" rx=\"10\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"280\" y=\"245\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">JAK?</text>\n<text x=\"280\" y=\"266\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">jakou technologií</text>\n<rect x=\"370\" y=\"218\" width=\"150\" height=\"66\" rx=\"10\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"445\" y=\"245\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">PRO KOHO?</text>\n<text x=\"445\" y=\"266\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">kdo to dostane</text>\n<text x=\"280\" y=\"316\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Tři základní ekonomické otázky — v tržní ekonomice na ně odpovídá hlavně trh.</text>\n</svg>",
+          "popisek": "Neomezené potřeby narážejí na omezené zdroje — vzniká vzácnost. Ta nutí volit (a každá volba má náklady obětované příležitosti) a odpovídat na tři základní otázky: co, jak a pro koho vyrábět."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-zakladni-pojmy-1",
+            "temaId": "zakladni-pojmy",
+            "typ": "vyber",
+            "obtiznost": 1,
+            "zadani": "Který z následujících statků je VOLNÝ?",
+            "moznosti": [
+              "Vzduch, který venku dýcháš",
+              "Balená voda v obchodě",
+              "Svačina z bufetu",
+              "Nový mobil"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Volný statek je dostupný v takovém množství, že ho nemusíme rozdělovat ani za něj platit — venkovní vzduch. Balená voda, svačina i mobil jsou statky ekonomické: jsou vzácné, a proto stojí peníze.",
+            "zdroj": "Základní ekonomické pojmy"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Aby vůbec něco vzniklo, potřebujeme **výrobní faktory**:\n\n- **Práce** — cílevědomá lidská činnost (barista, programátorka, zedník).\n- **Půda a přírodní zdroje** — pole, lesy, ložiska surovin.\n- **Kapitál** — stroje, budovy a zařízení, které vznikly dřívější výrobou a pomáhají vyrábět dál.\n\nPozor na chyták: **peníze samy o sobě výrobním faktorem nejsou** — nic nevyrobí, jsou jen prostředkem směny. Ekonomický kapitál jsou věci, které vyrábějí (3D tiskárna ano, bankovka ne).\n\nA protože jsou zdroje vzácné, každá volba něco stojí. **Náklady obětované příležitosti** (oportunitní náklady) = hodnota **nejlepší varianty, které jsme se vzdali**. Nejsou to utracené peníze, ale ušlá alternativa! K dobrému rozhodování patří i uvažování „na okraji“: porovnat **dodatečný přínos** a **dodatečný náklad** jednoho kroku navíc."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď příklady: který výrobní faktor to je — a co faktorem vůbec není?",
+            "kategorie": [
+              {
+                "id": "prace",
+                "nazev": "Práce"
+              },
+              {
+                "id": "puda",
+                "nazev": "Půda a přírodní zdroje"
+              },
+              {
+                "id": "kapital",
+                "nazev": "Kapitál"
+              },
+              {
+                "id": "neni-faktor",
+                "nazev": "Není výrobní faktor"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "programátorka píšící aplikaci",
+                "kategorieId": "prace"
+              },
+              {
+                "text": "pole s pšenicí",
+                "kategorieId": "puda"
+              },
+              {
+                "text": "3D tiskárna ve výrobní hale",
+                "kategorieId": "kapital"
+              },
+              {
+                "text": "bankovky v pokladně",
+                "kategorieId": "neni-faktor"
+              },
+              {
+                "text": "ložisko lithia",
+                "kategorieId": "puda"
+              },
+              {
+                "text": "pekař u pece",
+                "kategorieId": "prace"
+              },
+              {
+                "text": "dodávka na rozvoz zboží",
+                "kategorieId": "kapital"
+              },
+              {
+                "text": "kryptoměna na firemním účtu",
+                "kategorieId": "neni-faktor"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-zakladni-pojmy-2",
+            "temaId": "zakladni-pojmy",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Náklady obětované příležitosti jsou všechny peníze, které při rozhodnutí skutečně utratíme.",
+            "spravna": false,
+            "vysvetleni": "Ne — skutečně utracené peníze jsou výdaje explicitní. Náklady obětované příležitosti jsou hodnota NEJLEPŠÍ alternativy, které jsme se volbou vzdali (třeba ušlý výdělek z brigády, když místo ní jedeme na výlet).",
+            "zdroj": "Základní ekonomické pojmy"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "V sobotu můžeš jít na brigádu do skladu (8 hodin × 150 Kč/h), nebo na festival, kde lístek stojí 500 Kč. Vybereš festival. Kolik činí tvoje náklady obětované příležitosti — a kolik tě sobota stojí celkem?",
+          "reseni": "**Náklady obětované příležitosti** = hodnota nejlepší nevyužité varianty = ušlý výdělek z brigády: 8 × 150 = **1 200 Kč**. Lístek za 500 Kč je **explicitní výdaj** — to nejsou oportunitní náklady, ale skutečně vydané peníze.\n\nCelkem tě tedy festival „stojí“ 500 Kč z kapsy + 1 200 Kč ušlého výdělku = **1 700 Kč**. Neznamená to, že je to špatná volba — jen má být zážitek aspoň za tolik, kolik obětuješ."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "potřeba",
+              "zadni": "pociťovaný nedostatek, který chceme odstranit"
+            },
+            {
+              "predni": "statek",
+              "zadni": "hmotná věc uspokojující potřebu (mobil, svačina)"
+            },
+            {
+              "predni": "služba",
+              "zadni": "nehmotná činnost uspokojující potřebu (stříhání, streaming)"
+            },
+            {
+              "predni": "volný statek",
+              "zadni": "je ho tolik, že se za něj neplatí — např. vzduch"
+            },
+            {
+              "predni": "vzácnost",
+              "zadni": "omezené zdroje × prakticky neomezené potřeby → nutnost volby"
+            },
+            {
+              "predni": "tři základní otázky",
+              "zadni": "CO vyrábět, JAK vyrábět, PRO KOHO vyrábět"
+            },
+            {
+              "predni": "výrobní faktory",
+              "zadni": "práce, půda a přírodní zdroje, kapitál (peníze mezi ně nepatří!)"
+            },
+            {
+              "predni": "náklady obětované příležitosti",
+              "zadni": "hodnota nejlepší alternativy, které jsme se volbou vzdali"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Potřeby uspokojujeme **statky** a **službami**; většina statků je ekonomických (vzácných).\n- **Vzácnost** = omezené zdroje vs. neomezené potřeby → každá ekonomika řeší **co, jak a pro koho** vyrábět.\n- Výrobní faktory jsou **práce, půda a kapitál** — peníze mezi ně nepatří.\n- Každá volba má **náklady obětované příležitosti**: hodnotu nejlepší varianty, které se vzdáváme."
+        }
+      ]
+    },
+    {
+      "temaId": "trh-a-trzni-mechanismus",
+      "nazev": "Trh a tržní mechanismus",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Lístky na koncert tvé oblíbené kapely zmizely za osm minut. O hodinu později je přeprodejci nabízejí za trojnásobek — a lidi je kupují. Žádné spiknutí: jen se potkalo málo lístků s obrovským zájmem. Přesně tenhle mechanismus si teď rozebereme."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Trh** je místo (klidně virtuální), kde se střetává nabídka s poptávkou a utváří se **cena**.\n\n- **Poptávka (D)** = množství, které jsou kupující **ochotni a schopni** koupit při různých cenách. **Zákon poptávky:** s rostoucí cenou poptávané množství klesá.\n- **Nabídka (S)** = množství, které chtějí prodávající při různých cenách prodat. **Zákon nabídky:** s rostoucí cenou nabízené množství roste.\n- **Rovnovážná cena** vzniká tam, kde se nabízené množství rovná poptávanému — trh se „vyčistí“.\n\nCo když cena rovnovážná není?\n- Cena **nad** rovnováhou → **přebytek** (převis nabídky): zboží leží na skladě a tlačí cenu **dolů**.\n- Cena **pod** rovnováhou → **nedostatek** (převis poptávky): fronty a vyprodáno, cena jde **nahoru**. Přesně to se stalo s lístky na koncert."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Jakmile vidíš trh jako nabídku a poptávku, přestaneš se divit cenám. Chápeš, proč letenky zdražují před prázdninami (roste poptávka), proč jsou limitované tenisky na resell trhu za pětinásobek (malá nabídka) a proč jahody v prosinci stojí víc než v červnu. A až budeš něco prodávat ty — třeba vlastní výrobky — budeš vědět, že cenu neurčuje tvoje přání, ale trh."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 360\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graf nabídky a poptávky s rovnovážnou cenou\">\n<defs><marker id=\"ep-sip2\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs>\n<line x1=\"70\" y1=\"310\" x2=\"520\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip2)\" />\n<line x1=\"70\" y1=\"310\" x2=\"70\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip2)\" />\n<text x=\"530\" y=\"330\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">množství Q</text>\n<text x=\"40\" y=\"40\" text-anchor=\"start\" font-size=\"13\" fill=\"currentColor\">cena P</text>\n<line x1=\"100\" y1=\"70\" x2=\"460\" y2=\"280\" stroke=\"var(--info)\" stroke-width=\"3\" />\n<text x=\"470\" y=\"290\" text-anchor=\"start\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--info)\">D</text>\n<text x=\"105\" y=\"60\" text-anchor=\"start\" font-size=\"13\" fill=\"var(--info)\">poptávka: cena ↑ → kupuje se ↓</text>\n<line x1=\"100\" y1=\"280\" x2=\"460\" y2=\"70\" stroke=\"var(--akcent)\" stroke-width=\"3\" />\n<text x=\"470\" y=\"72\" text-anchor=\"start\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--akcent)\">S</text>\n<text x=\"330\" y=\"52\" text-anchor=\"start\" font-size=\"13\" fill=\"var(--akcent)\">nabídka: cena ↑ → nabízí se ↑</text>\n<line x1=\"280\" y1=\"175\" x2=\"280\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\" />\n<line x1=\"70\" y1=\"175\" x2=\"280\" y2=\"175\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\" />\n<circle cx=\"280\" cy=\"175\" r=\"7\" fill=\"var(--zlata)\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"295\" y=\"168\" text-anchor=\"start\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--zlata)\">rovnováha</text>\n<text x=\"58\" y=\"180\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">P*</text>\n<text x=\"280\" y=\"328\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">Q*</text>\n<text x=\"280\" y=\"100\" text-anchor=\"middle\" font-size=\"12\" fill=\"var(--chyba)\">cena NAD P* → PŘEBYTEK (nabídka &gt; poptávka) → cena klesá</text>\n<text x=\"280\" y=\"260\" text-anchor=\"middle\" font-size=\"12\" fill=\"var(--chyba)\">cena POD P* → NEDOSTATEK (poptávka &gt; nabídka) → cena roste</text>\n</svg>",
+          "popisek": "Klesající křivka poptávky (D) a rostoucí křivka nabídky (S) se protínají v rovnováze: při ceně P* se prodá množství Q*. Nad P* vzniká přebytek, pod P* nedostatek — obojí tlačí cenu zpět k rovnováze."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-trh-a-trzni-mechanismus-1",
+            "temaId": "trh-a-trzni-mechanismus",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Prodejce nastavil cenu výš, než je cena rovnovážná. Co na trhu nejspíš vznikne?",
+            "moznosti": [
+              "Přebytek — nabízené množství převýší poptávané a cena bude tlačena dolů",
+              "Nedostatek — zboží se rychle vyprodá",
+              "Nic, trh zůstane v rovnováze",
+              "Poptávané množství vzroste"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Při ceně nad rovnováhou chtějí prodávající prodat víc, než jsou kupující ochotni koupit — vzniká přebytek (převis nabídky), který nutí zlevňovat. Nedostatek vzniká naopak při ceně POD rovnováhou.",
+            "zdroj": "Trh a tržní mechanismus"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Změna ceny daného zboží** = pohyb **po** křivce. Křivky se ale umějí i **posouvat** — když se změní něco jiného než cena:\n\n- Poptávku posouvají: **příjmy** kupujících, **preference a móda**, ceny **substitutů** (zboží nahraditelného — čaj × káva) a **komplementů** (zboží doplňkového — auto + benzin), očekávání, počet kupujících.\n- Nabídku posouvají: ceny **vstupů**, **technologie**, daně a dotace, počet výrobců.\n- Růst poptávky zvyšuje rovnovážnou cenu i množství; růst nabídky cenu **snižuje** a množství zvyšuje.\n\n**Cenová elasticita poptávky** měří citlivost na cenu: E = % změna množství ÷ % změna ceny (v absolutní hodnotě). **E > 1 elastická** (zdražení sníží tržby), **E < 1 neelastická** (základní potraviny, léky — kupujeme je i po zdražení).\n\nPodle počtu prodávajících rozlišujeme **tržní struktury**: dokonalou konkurenci, monopolistickou konkurenci, oligopol a monopol (ten reguluje stát, v ČR mj. Úřad pro ochranu hospodářské soutěže)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "Dokonalá konkurence",
+                "vlastnosti": {
+                  "Počet firem": "velmi mnoho malých",
+                  "Produkt": "zcela stejný (homogenní)",
+                  "Vliv firmy na cenu": "žádný — cenu přijímá z trhu",
+                  "Příklad": "trh s pšenicí"
+                }
+              },
+              {
+                "nazev": "Monopolistická konkurence",
+                "vlastnosti": {
+                  "Počet firem": "mnoho",
+                  "Produkt": "odlišený (značka, kvalita)",
+                  "Vliv firmy na cenu": "malý — díky odlišení",
+                  "Příklad": "restaurace, kadeřnictví"
+                }
+              },
+              {
+                "nazev": "Oligopol",
+                "vlastnosti": {
+                  "Počet firem": "několik velkých",
+                  "Produkt": "stejný nebo odlišený",
+                  "Vliv firmy na cenu": "velký — firmy se navzájem hlídají",
+                  "Příklad": "mobilní operátoři v ČR"
+                }
+              },
+              {
+                "nazev": "Monopol",
+                "vlastnosti": {
+                  "Počet firem": "jediná",
+                  "Produkt": "bez blízké náhrady",
+                  "Vliv firmy na cenu": "určuje ji sám — proto ho reguluje stát",
+                  "Příklad": "provozovatel přenosové soustavy"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-trh-a-trzni-mechanismus-2",
+            "temaId": "trh-a-trzni-mechanismus",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Výrazně zdraží benzin. Co se nejspíš stane s poptávkou po autech se spalovacím motorem?",
+            "moznosti": [
+              "Klesne — benzin a auto jsou komplementy, dražší provoz odrazuje od koupě",
+              "Vzroste — benzin a auto jsou substituty",
+              "Nezmění se, benzin s auty nesouvisí",
+              "Klesne poptávka po benzinu, auta to neovlivní"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Auto a benzin se spotřebovávají SPOLU — jsou to komplementy. Zdražení jednoho snižuje poptávku po druhém. Substituty se naopak nahrazují (vlak místo auta); tam by zdražení jednoho poptávku po druhém zvýšilo.",
+            "zdroj": "Trh a tržní mechanismus"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Kino prodává lístek za 200 Kč a chodí 1 000 diváků měsíčně. Po zdražení na 220 Kč (+10 %) klesne návštěvnost na 800 diváků (−20 %). Spočítej cenovou elasticitu poptávky a rozhodni, jestli si kino zdražením pomohlo.",
+          "reseni": "**Elasticita:** E = |−20 % ÷ +10 %| = **2** → poptávka je **elastická** (E > 1), diváci jsou na cenu citliví — kino má konkurenci (streaming, jiná kina).\n\n**Tržby před:** 200 × 1 000 = 200 000 Kč. **Tržby po:** 220 × 800 = 176 000 Kč.\n\nTržby klesly o 24 000 Kč — u elastické poptávky zdražení tržby **snižuje**. Kinu by se spíš vyplatilo nezdražovat, případně zlevnit či odlišit nabídku."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "trh",
+              "zadni": "střet nabídky a poptávky, kde se utváří cena"
+            },
+            {
+              "predni": "zákon poptávky",
+              "zadni": "s rostoucí cenou poptávané množství klesá"
+            },
+            {
+              "predni": "zákon nabídky",
+              "zadni": "s rostoucí cenou nabízené množství roste"
+            },
+            {
+              "predni": "rovnovážná cena",
+              "zadni": "cena, při níž se nabízené množství rovná poptávanému"
+            },
+            {
+              "predni": "přebytek",
+              "zadni": "převis nabídky při ceně nad rovnováhou — tlačí cenu dolů"
+            },
+            {
+              "predni": "nedostatek",
+              "zadni": "převis poptávky při ceně pod rovnováhou — tlačí cenu nahoru"
+            },
+            {
+              "predni": "substituty",
+              "zadni": "zboží vzájemně nahraditelné (čaj × káva)"
+            },
+            {
+              "predni": "komplementy",
+              "zadni": "zboží spotřebovávané spolu (auto + benzin)"
+            },
+            {
+              "predni": "elastická poptávka",
+              "zadni": "E > 1: zákazníci citliví na cenu, zdražení sníží tržby"
+            },
+            {
+              "predni": "monopol",
+              "zadni": "jediný prodávající bez blízké náhrady — reguluje ho stát"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Cena vzniká střetem **nabídky** a **poptávky**; v rovnováze se trh „vyčistí“.\n- Cena nad rovnováhou → **přebytek**, pod rovnováhou → **nedostatek** — obojí vrací cenu k rovnováze.\n- Změna ceny = pohyb **po** křivce; příjmy, móda, substituty, komplementy či náklady křivky **posouvají**.\n- **Elasticita** říká, jak moc zákazníci reagují na cenu — u elastické poptávky zdražení snižuje tržby.\n- Tržní struktury: dokonalá konkurence → monopolistická → oligopol → **monopol**."
+        }
+      ]
+    },
+    {
+      "temaId": "podnikani-a-pravni-formy",
+      "nazev": "Podnikání a právní formy",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "S kamarádkou tisknete na 3D tiskárně stojánky na mobil a na marketplace jich prodáte dvacet za měsíc. Objednávky přibývají a najednou přijde zpráva od táty: „Vy dvě vlastně podnikáte. Máte na to papíry?“ Ehm. Mají?"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Podnikání** je činnost **soustavná**, provozovaná **samostatně**, **vlastním jménem**, **na vlastní odpovědnost** a **za účelem zisku**. Jednorázový prodej starého kola podnikání není — pravidelný prodej výrobků už ano.\n\nPodnikat může **fyzická osoba** (**OSVČ** — osoba samostatně výdělečně činná) i **právnická osoba**. Nejčastějším oprávněním fyzických osob je **živnost** (podmínky: svéprávnost a bezúhonnost):\n\n- **Ohlašovací** — vznikají ohlášením živnostenskému úřadu:\n  - **volná** — bez odborné způsobilosti (maloobchod, e-shop),\n  - **řemeslná** — chce vyučení v oboru (zednictví, truhlářství, hostinská činnost),\n  - **vázaná** — jiná odborná způsobilost (vedení účetnictví, oční optika).\n- **Koncesované** — vyžadují **koncesi** (povolení státu): taxislužba, cestovní kancelář, prodej zbraní."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Prodej výrobků, doučování za peníze, focení na objednávku — jakmile je to soustavné a za účelem zisku, potřebuješ živnostenské oprávnění (většinou stačí volná živnost, vyřídíš ji na úřadě i online). A až jednou budeš zakládat firmu nebo nastupovat do práce, poznáš podle „s.r.o.“ či „a.s.“ v názvu, s kým máš tu čest a kdo za co ručí."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 600 350\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Strom právních forem podnikání v ČR\">\n<rect x=\"215\" y=\"15\" width=\"170\" height=\"42\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"300\" y=\"41\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">PODNIKÁNÍ</text>\n<line x1=\"300\" y1=\"57\" x2=\"150\" y2=\"88\" stroke=\"currentColor\" stroke-width=\"2\" />\n<line x1=\"300\" y1=\"57\" x2=\"450\" y2=\"88\" stroke=\"currentColor\" stroke-width=\"2\" />\n<rect x=\"40\" y=\"88\" width=\"220\" height=\"44\" rx=\"10\" fill=\"var(--info)\" fill-opacity=\"0.12\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"150\" y=\"107\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Fyzická osoba (OSVČ)</text>\n<text x=\"150\" y=\"124\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">nejčastěji živnost</text>\n<rect x=\"340\" y=\"88\" width=\"220\" height=\"44\" rx=\"10\" fill=\"var(--info)\" fill-opacity=\"0.12\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"450\" y=\"107\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Právnická osoba</text>\n<text x=\"450\" y=\"124\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">obchodní korporace (rejstřík)</text>\n<line x1=\"150\" y1=\"132\" x2=\"150\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"2\" />\n<rect x=\"30\" y=\"160\" width=\"240\" height=\"58\" rx=\"10\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"150\" y=\"180\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Ohlašovací</text>\n<text x=\"150\" y=\"198\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">volná · řemeslná · vázaná</text>\n<text x=\"150\" y=\"212\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">vznikají ohlášením</text>\n<rect x=\"30\" y=\"232\" width=\"240\" height=\"46\" rx=\"10\" fill=\"none\" stroke=\"var(--chyba)\" stroke-width=\"2\" />\n<text x=\"150\" y=\"252\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Koncesované</text>\n<text x=\"150\" y=\"269\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">nutné povolení státu (taxi, zbraně)</text>\n<line x1=\"450\" y1=\"132\" x2=\"450\" y2=\"152\" stroke=\"currentColor\" stroke-width=\"2\" />\n<rect x=\"320\" y=\"152\" width=\"260\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"450\" y=\"169\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">s.r.o. — vklad už od 1 Kč</text>\n<text x=\"450\" y=\"185\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">ručení jen do výše nesplacených vkladů</text>\n<rect x=\"320\" y=\"200\" width=\"260\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"450\" y=\"217\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">a.s. — kapitál min. 2 000 000 Kč</text>\n<text x=\"450\" y=\"233\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">rozdělený na akcie, akcionáři neručí</text>\n<rect x=\"320\" y=\"248\" width=\"260\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"450\" y=\"265\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">v.o.s. · k.s. · družstvo</text>\n<text x=\"450\" y=\"281\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">liší se hlavně ručením společníků</text>\n<text x=\"300\" y=\"330\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Formu volíme podle ručení, potřebného kapitálu a počtu zakladatelů.</text>\n</svg>",
+          "popisek": "Podnikat lze jako fyzická osoba (nejčastěji na živnost — ohlašovací, nebo koncesovanou) či jako právnická osoba. Z obchodních korporací je nejrozšířenější s.r.o. (vklad od 1 Kč), pro velké podniky a.s. (kapitál min. 2 mil. Kč)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-podnikani-a-pravni-formy-1",
+            "temaId": "podnikani-a-pravni-formy",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kamarád se vyučil truhlářem a chce vyrábět nábytek na zakázku. Jakou živnost potřebuje?",
+            "moznosti": [
+              "Řemeslnou — je potřeba vyučení v oboru",
+              "Volnou — stačí ohlášení bez kvalifikace",
+              "Vázanou — potřebuje zvláštní zkoušku",
+              "Koncesovanou — potřebuje povolení státu"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Truhlářství je typická řemeslná živnost — odbornost se prokazuje vyučením. Volná živnost žádnou kvalifikaci nechce (např. maloobchod), vázaná chce jinou odbornou způsobilost (např. účetnictví) a koncese je až pro riziková podnikání jako taxislužba.",
+            "zdroj": "Podnikání a právní formy"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Obchodní korporace** upravuje zákon o obchodních korporacích; zapisují se do **obchodního rejstříku**.\n\n- **s.r.o.** — nejrozšířenější forma. Minimální vklad **1 Kč**, společníci ručí jen do výše **nesplacených vkladů**. Nejvyšší orgán: valná hromada; statutární orgán: **jednatel**.\n- **a.s.** — základní kapitál minimálně **2 000 000 Kč** (nebo 80 000 EUR) rozvržený na **akcie**; akcionáři za dluhy **neručí**. Orgány: valná hromada, představenstvo, dozorčí rada. Hodí se pro velké podniky — kapitál lze získat od mnoha investorů, i přes burzu.\n- **v.o.s.** — nejméně dva společníci, ručí **celým svým majetkem**.\n- **k.s.** — komplementáři ručí neomezeně, komanditisté do výše nesplaceného vkladu.\n- **Družstvo** — společenství neuzavřeného počtu osob (min. 3), podnikání nebo vzájemná podpora členů.\n\nFormu volíme podle **ručení** (rizika), potřebného **kapitálu**, daní a počtu zakladatelů."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď činnosti ke správnému druhu živnosti.",
+            "kategorie": [
+              {
+                "id": "volna",
+                "nazev": "Volná"
+              },
+              {
+                "id": "remeslna",
+                "nazev": "Řemeslná"
+              },
+              {
+                "id": "vazana",
+                "nazev": "Vázaná"
+              },
+              {
+                "id": "koncesovana",
+                "nazev": "Koncesovaná"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "e-shop s tričky",
+                "kategorieId": "volna"
+              },
+              {
+                "text": "zednictví",
+                "kategorieId": "remeslna"
+              },
+              {
+                "text": "oční optika",
+                "kategorieId": "vazana"
+              },
+              {
+                "text": "taxislužba",
+                "kategorieId": "koncesovana"
+              },
+              {
+                "text": "hostinská činnost",
+                "kategorieId": "remeslna"
+              },
+              {
+                "text": "vedení účetnictví",
+                "kategorieId": "vazana"
+              },
+              {
+                "text": "prodej zbraní a střeliva",
+                "kategorieId": "koncesovana"
+              },
+              {
+                "text": "maloobchod se suvenýry",
+                "kategorieId": "volna"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-podnikani-a-pravni-formy-2",
+            "temaId": "podnikani-a-pravni-formy",
+            "typ": "anone",
+            "obtiznost": 1,
+            "zadani": "Společnost s ručením omezeným lze v ČR založit se základním kapitálem už od 1 Kč.",
+            "spravna": true,
+            "vysvetleni": "Ano — minimální vklad společníka s.r.o. je symbolická 1 Kč. Vysoký povinný kapitál má naopak akciová společnost: minimálně 2 000 000 Kč (nebo 80 000 EUR).",
+            "zdroj": "Podnikání a právní formy"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Dva spolužáci chtějí rozjet e-shop s vlastními tričky. Zvažují: (a) jeden si založí volnou živnost a druhý mu bude „jen pomáhat“, (b) založí spolu s.r.o. Poraď jim — co která varianta znamená pro ručení a spolupráci?",
+          "reseni": "**(a) OSVČ:** rychlý a levný start, ale podniká jen jeden — druhý nemá žádná práva ani podíl. A hlavně: OSVČ ručí za dluhy z podnikání **celým svým majetkem**.\n\n**(b) s.r.o.:** založí ji spolu, každý má **podíl** podle vkladu (stačí od 1 Kč, rozumné je vložit víc na rozjezd). Ručí jen do výše **nesplacených vkladů**, firma jedná svým jménem přes **jednatele**, vztahy řeší společenská smlouva.\n\n**Doporučení:** pro dva rovnocenné parťáky je čistší **s.r.o.** — jasné podíly a omezené ručení. Samotná volná živnost dává smysl, kdyby začínal jen jeden a chtěl si trh nejdřív levně otestovat."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "podnikání",
+              "zadni": "soustavná samostatná činnost vlastním jménem, na vlastní odpovědnost, za účelem zisku"
+            },
+            {
+              "predni": "OSVČ",
+              "zadni": "osoba samostatně výdělečně činná — podnikající fyzická osoba"
+            },
+            {
+              "predni": "živnost volná",
+              "zadni": "bez odborné způsobilosti — stačí ohlášení (maloobchod, e-shop)"
+            },
+            {
+              "predni": "živnost řemeslná",
+              "zadni": "vyžaduje vyučení v oboru (truhlář, zedník)"
+            },
+            {
+              "predni": "živnost vázaná",
+              "zadni": "vyžaduje jinou odbornou způsobilost (účetnictví, optika)"
+            },
+            {
+              "predni": "živnost koncesovaná",
+              "zadni": "vyžaduje povolení státu — koncesi (taxi, zbraně)"
+            },
+            {
+              "predni": "s.r.o.",
+              "zadni": "vklad od 1 Kč; ručení do výše nesplacených vkladů; jednatel"
+            },
+            {
+              "predni": "a.s.",
+              "zadni": "kapitál min. 2 mil. Kč v akciích; akcionáři za dluhy neručí"
+            },
+            {
+              "predni": "v.o.s.",
+              "zadni": "min. 2 společníci ručící celým svým majetkem"
+            },
+            {
+              "predni": "družstvo",
+              "zadni": "společenství min. 3 osob — podnikání či vzájemná podpora"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Podnikání = **soustavně, samostatně, vlastním jménem, na vlastní odpovědnost, za ziskem**.\n- Živnosti: **ohlašovací** (volná, řemeslná, vázaná) a **koncesované** (povolení státu).\n- **s.r.o.**: vklad od 1 Kč, omezené ručení — nejrozšířenější forma; **a.s.**: kapitál min. 2 mil. Kč.\n- U v.o.s. (a komplementářů k.s.) se ručí **celým majetkem**.\n- Formu vybíráme podle ručení, kapitálu, daní a počtu zakladatelů."
+        }
+      ]
+    },
+    {
+      "temaId": "podnik-a-hospodareni",
+      "nazev": "Podnik a jeho hospodaření",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Školní bufet prodá limonádu za 25 Kč a paní vedoucí se raduje: „25 korun zisk!“ Opravdu? Sirup a kelímek stály 8 Kč, k tomu nájem okénka, lednice, elektřina a mzda… Kolik z té pětadvacetikoruny doopravdy zbyde — a kolik limonád se musí prodat, aby bufet vůbec nebyl v mínusu?"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Podnik** je soubor hmotných, nehmotných a osobních složek podnikání. Jeho **majetek (aktiva)** dělíme:\n\n- **Dlouhodobý majetek** — slouží **déle než rok**: budovy, stroje, auta, licence, software. Postupně se opotřebovává; peněžní vyjádření opotřebení jsou **odpisy**, které vstupují do nákladů po celou dobu životnosti.\n- **Oběžný majetek** — spotřebovává se a mění podobu zpravidla **do roka**: materiál, zboží, pohledávky, peníze.\n\nZdroje krytí majetku (pasiva): **vlastní kapitál** a **cizí zdroje** (úvěry, závazky).\n\nHospodaření měříme přes:\n- **Náklady** = peněžní vyjádření spotřeby (materiál, práce, energie),\n- **Výnosy** = peněžní vyjádření výkonů, hlavně **tržby**,\n- **Výsledek hospodaření** = výnosy − náklady → kladný **zisk**, záporný **ztráta**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Kdykoli budeš cokoli prodávat — náramky, doučování, merch — rozhoduje jediné: pokrývá cena náklady? Kdo nezná svoje fixní a variabilní náklady, „vydělává“ jen zdánlivě. Bod zvratu ti řekne, kolik kusů musíš prodat, než začneš skutečně vydělávat. Stejná logika platí od školního stánku po největší firmy."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 360\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graf bodu zvratu: tržby, náklady, zisk a ztráta\">\n<defs><marker id=\"ep-sip4\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs>\n<line x1=\"70\" y1=\"310\" x2=\"520\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip4)\" />\n<line x1=\"70\" y1=\"310\" x2=\"70\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip4)\" />\n<text x=\"530\" y=\"330\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">počet kusů Q</text>\n<text x=\"36\" y=\"40\" text-anchor=\"start\" font-size=\"13\" fill=\"currentColor\">Kč</text>\n<line x1=\"70\" y1=\"230\" x2=\"490\" y2=\"230\" stroke=\"var(--info)\" stroke-width=\"2.5\" stroke-dasharray=\"7 5\" />\n<text x=\"480\" y=\"222\" text-anchor=\"end\" font-size=\"13\" fill=\"var(--info)\">fixní náklady (nájem, odpisy)</text>\n<line x1=\"70\" y1=\"230\" x2=\"490\" y2=\"120\" stroke=\"var(--chyba)\" stroke-width=\"3\" />\n<text x=\"497\" y=\"120\" text-anchor=\"start\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--chyba)\">CN</text>\n<text x=\"380\" y=\"148\" text-anchor=\"start\" font-size=\"12\" fill=\"var(--chyba)\">celkové náklady = FN + VN</text>\n<line x1=\"70\" y1=\"310\" x2=\"450\" y2=\"60\" stroke=\"var(--uspech)\" stroke-width=\"3\" />\n<text x=\"458\" y=\"60\" text-anchor=\"start\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--uspech)\">tržby</text>\n<circle cx=\"253\" cy=\"182\" r=\"8\" fill=\"var(--zlata)\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"253\" y=\"163\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--zlata)\">BOD ZVRATU</text>\n<line x1=\"253\" y1=\"190\" x2=\"253\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\" />\n<text x=\"253\" y=\"328\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Q = FN ÷ (cena − VN na kus)</text>\n<text x=\"160\" y=\"272\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--chyba)\">ZTRÁTA</text>\n<text x=\"160\" y=\"290\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">tržby &lt; náklady</text>\n<text x=\"392\" y=\"95\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--uspech)\">ZISK</text>\n<text x=\"392\" y=\"112\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">tržby &gt; náklady</text>\n</svg>",
+          "popisek": "Fixní náklady běží i při nulové výrobě; celkové náklady rostou s každým kusem. Kde přímka tržeb protne celkové náklady, je bod zvratu: Q = fixní náklady ÷ (cena − variabilní náklady na kus). Vlevo od něj podnik prodělává, vpravo tvoří zisk."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-podnik-a-hospodareni-1",
+            "temaId": "podnik-a-hospodareni",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Co z následujícího patří do OBĚŽNÉHO majetku podniku?",
+            "moznosti": [
+              "Zásoby materiálu na skladě",
+              "Výrobní hala",
+              "Licence na software používaná 5 let",
+              "Nákladní automobil"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Oběžný majetek se spotřebovává a mění podobu do jednoho roku — zásoby, zboží, pohledávky, peníze. Hala, dlouhodobá licence i automobil slouží déle než rok, proto jsou majetkem dlouhodobým a do nákladů vstupují postupně přes odpisy.",
+            "zdroj": "Podnik a jeho hospodaření"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Náklady se dělí dvěma důležitými způsoby:\n\n- Podle **závislosti na objemu výroby**: **fixní** (nemění se — nájem, odpisy, platy správy) × **variabilní** (rostou s každým kusem — materiál, úkolové mzdy).\n- Podle **přiřaditelnosti**: **přímé** (určíš je na jednotku výkonu — dřevo na jeden stůl) × **nepřímé/režijní** (společné více výkonům — nájem dílny, mzda účetní; na výkony se rozpočítávají).\n\n**Kalkulace** = výpočet nákladů na jednotku výkonu (kalkulační jednici) podle typového kalkulačního vzorce — od přímého materiálu až po prodejní cenu (projdi si ho ve widgetu níž).\n\n**Bod zvratu**: objem výroby, při němž se tržby rovnají celkovým nákladům.\n**Q = fixní náklady ÷ (cena − variabilní náklady na kus)** — jmenovateli se říká **příspěvek na úhradu**. Do bodu zvratu podnik prodělává, nad ním tvoří zisk."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Projdi typový kalkulační vzorec — jak se z nákladů poskládá prodejní cena výrobku.",
+            "kroky": [
+              {
+                "nazev": "Přímý materiál",
+                "popis": "Materiál spočitatelný přímo na kus — dřevo na jeden stůl."
+              },
+              {
+                "nazev": "+ Přímé mzdy",
+                "popis": "Mzda dělníka za výrobu právě tohoto kusu (úkolová mzda truhláře)."
+              },
+              {
+                "nazev": "+ Ostatní přímé náklady",
+                "popis": "Další náklady na kus — lak, kování, obal."
+              },
+              {
+                "nazev": "+ Výrobní režie",
+                "popis": "Podíl společných nákladů výroby (nájem dílny, energie, odpisy strojů). Součet = VLASTNÍ NÁKLADY VÝROBY."
+              },
+              {
+                "nazev": "+ Správní režie",
+                "popis": "Podíl nákladů na řízení podniku — účetní, vedení, kanceláře."
+              },
+              {
+                "nazev": "+ Odbytové náklady",
+                "popis": "Sklad, doprava, prodej. Součet = ÚPLNÉ VLASTNÍ NÁKLADY VÝKONU."
+              },
+              {
+                "nazev": "+ Zisk = prodejní cena",
+                "popis": "K úplným nákladům se přičte zisková přirážka — vzniká prodejní cena bez DPH."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-podnik-a-hospodareni-2",
+            "temaId": "podnik-a-hospodareni",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Který náklad truhlárny je FIXNÍ?",
+            "moznosti": [
+              "Nájem dílny",
+              "Dřevo na výrobu stolů",
+              "Úkolová mzda truhláře za každý stůl",
+              "Kování a šrouby do výrobků"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Fixní náklad se nemění s počtem vyrobených kusů — nájem zaplatíš stejný, ať vyrobíš 5 nebo 50 stolů. Dřevo, úkolové mzdy i kování rostou s každým kusem, proto jsou variabilní.",
+            "zdroj": "Podnik a jeho hospodaření"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Vyrábíš náramky a prodáváš je na trzích. Stánek tě stojí 6 000 Kč měsíčně (fixní náklad), jeden náramek prodáváš za 150 Kč a materiál na něj vyjde na 90 Kč. Kolik náramků měsíčně musíš prodat, abys byla na nule? A kolik vyděláš při 150 prodaných kusech?",
+          "reseni": "**Příspěvek na úhradu** = cena − variabilní náklady na kus = 150 − 90 = **60 Kč** (tolik každý náramek „přispěje“ na nájem a pak na zisk).\n\n**Bod zvratu:** Q = 6 000 ÷ 60 = **100 náramků**. Do stovky proděláváš, od 101. kusu vyděláváš.\n\n**Při 150 kusech:** nad bodem zvratu je 50 kusů × 60 Kč = **zisk 3 000 Kč**. (Kontrola: tržby 22 500 − variabilní 13 500 − fixní 6 000 = 3 000 Kč.)"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "aktiva",
+              "zadni": "majetek podniku — dlouhodobý + oběžný"
+            },
+            {
+              "predni": "dlouhodobý majetek",
+              "zadni": "slouží déle než rok (budovy, stroje, licence)"
+            },
+            {
+              "predni": "oběžný majetek",
+              "zadni": "spotřebuje se do roka (materiál, zboží, pohledávky, peníze)"
+            },
+            {
+              "predni": "odpisy",
+              "zadni": "peněžní vyjádření opotřebení dlouhodobého majetku — postupně vstupují do nákladů"
+            },
+            {
+              "predni": "výsledek hospodaření",
+              "zadni": "výnosy − náklady: kladný = zisk, záporný = ztráta"
+            },
+            {
+              "predni": "fixní náklady",
+              "zadni": "nemění se s objemem výroby (nájem, odpisy, platy správy)"
+            },
+            {
+              "predni": "variabilní náklady",
+              "zadni": "rostou s každým vyrobeným kusem (materiál, úkolové mzdy)"
+            },
+            {
+              "predni": "nepřímé (režijní) náklady",
+              "zadni": "společné více výkonům — rozpočítávají se (nájem dílny)"
+            },
+            {
+              "predni": "kalkulace",
+              "zadni": "výpočet nákladů na jednotku výkonu (kalkulační jednici)"
+            },
+            {
+              "predni": "bod zvratu",
+              "zadni": "Q = fixní náklady ÷ (cena − variabilní náklady na kus)"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Majetek: **dlouhodobý** (déle než rok, odepisuje se) × **oběžný** (do roka); kryjí ho vlastní kapitál a cizí zdroje.\n- **Zisk/ztráta** = výnosy − náklady.\n- Náklady: **fixní × variabilní** (podle objemu), **přímé × nepřímé** (podle přiřaditelnosti).\n- **Kalkulace** skládá cenu od přímého materiálu po zisk.\n- **Bod zvratu** = FN ÷ (cena − VN na kus): odtud začíná zisk."
+        }
+      ]
+    },
+    {
+      "temaId": "marketing",
+      "nazev": "Marketing",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Proč je žvýkačka vždycky u pokladny a energeťák přesně ve výšce tvých očí? Proč stojí skoro všechno 99 Kč místo 100? Nic z toho není náhoda — někdo strávil týdny přemýšlením o tom, jak nakupuješ. Říká se tomu marketing a dnes se naučíš jeho pravidla číst."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Marketing** je proces **zjišťování a uspokojování potřeb zákazníků se ziskem**. Nezačíná reklamou — začíná dávno před prodejem výzkumem trhu a pokračuje i po něm péčí o zákazníka.\n\nJádrem je **marketingový mix 4P**:\n\n- **Produkt** (product) — sortiment, kvalita, design, **značka**, obal, doprovodné služby.\n- **Cena** (price) — ceníky, slevy, platební podmínky.\n- **Distribuce** (place) — prodejní cesty, logistika, umístění prodejen.\n- **Propagace** (promotion) — marketingová komunikace: reklama, podpora prodeje, public relations, osobní prodej, přímý marketing.\n\nU služeb se mix rozšiřuje např. o **lidi** (people) a **procesy**. Všechna 4P musí hrát dohromady — skvělý produkt se špatnou distribucí nikdo nekoupí."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Jednak prokoukneš triky, které míří na tebe — baťovská cena 99 Kč, „sleva“ z nadsazené ceny, zboží u pokladny. A jednak to použiješ: až budeš propagovat školní akci, kapelu nebo vlastní e-shop, projdeš si 4P jako checklist — co nabízím, za kolik, kudy se to k lidem dostane a jak se o tom dozvědí."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 340\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Marketingový mix 4P kolem zákazníka\">\n<defs><marker id=\"ep-sip5\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs>\n<circle cx=\"280\" cy=\"170\" r=\"56\" fill=\"var(--zlata)\" fill-opacity=\"0.18\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" />\n<text x=\"280\" y=\"166\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">ZÁKAZNÍK</text>\n<text x=\"280\" y=\"184\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">jeho potřeby</text>\n<rect x=\"30\" y=\"30\" width=\"215\" height=\"60\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"137\" y=\"52\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">PRODUKT (product)</text>\n<text x=\"137\" y=\"70\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">kvalita, design, značka, obal, služby</text>\n<rect x=\"315\" y=\"30\" width=\"215\" height=\"60\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"422\" y=\"52\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">CENA (price)</text>\n<text x=\"422\" y=\"70\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">ceníky, slevy, platební podmínky</text>\n<rect x=\"30\" y=\"250\" width=\"215\" height=\"60\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"137\" y=\"272\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">DISTRIBUCE (place)</text>\n<text x=\"137\" y=\"290\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">prodejní cesty, logistika, umístění</text>\n<rect x=\"315\" y=\"250\" width=\"215\" height=\"60\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"422\" y=\"272\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">PROPAGACE (promotion)</text>\n<text x=\"422\" y=\"290\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">reklama, podpora prodeje, PR</text>\n<line x1=\"170\" y1=\"90\" x2=\"238\" y2=\"135\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip5)\" />\n<line x1=\"390\" y1=\"90\" x2=\"322\" y2=\"135\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip5)\" />\n<line x1=\"170\" y1=\"250\" x2=\"238\" y2=\"205\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip5)\" />\n<line x1=\"390\" y1=\"250\" x2=\"322\" y2=\"205\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip5)\" />\n</svg>",
+          "popisek": "Marketingový mix 4P: produkt, cena, distribuce a propagace. Všechny čtyři nástroje míří na jediný cíl uprostřed — potřeby zákazníka, a musí být vzájemně sladěné."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-marketing-1",
+            "temaId": "marketing",
+            "typ": "vyber",
+            "obtiznost": 1,
+            "zadani": "Obal a značka výrobku patří v marketingovém mixu do…",
+            "moznosti": [
+              "produktu",
+              "ceny",
+              "distribuce",
+              "propagace"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Obal, značka, design i kvalita jsou vlastnosti samotného výrobku — patří do P „produkt“. Propagace je až komunikace o produktu (reklama, PR), distribuce řeší, kudy se zboží dostane k zákazníkovi.",
+            "zdroj": "Marketing"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Trh není jedna šedá masa. **Segmentace** ho rozděluje na skupiny zákazníků s podobnými potřebami podle kritérií **geografických** (region), **demografických** (věk, příjem, vzdělání), **psychografických** (životní styl, hodnoty) a **behaviorálních** (frekvence nákupů, věrnost). Následuje **targeting** (výběr cílového segmentu) a **positioning** (odlišení v mysli zákazníka).\n\n**Marketingový výzkum**: **primární** = firma sbírá nová data v terénu (dotazování, pozorování, experiment) — přesný, ale drahý; **sekundární** = využití existujících dat (statistiky ČSÚ, studie) — levnější a rychlejší.\n\n**Životní cyklus produktu**: zavedení → růst → **zralost** (tržby vrcholí, sílí konkurenční boj) → úpadek. Cenové strategie při zavádění:\n- **sbírání smetany** (skimming) — zpočátku vysoká cena pro nadšence, postupné zlevňování;\n- **penetrační** — nízká cena pro rychlé dobytí trhu;\n- běžné jsou i ceny **nákladové** (náklady + přirážka), **konkurenčně orientované** a **psychologické** (99 Kč)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď marketingová rozhodnutí ke správnému P.",
+            "kategorie": [
+              {
+                "id": "produkt",
+                "nazev": "Produkt"
+              },
+              {
+                "id": "cena",
+                "nazev": "Cena"
+              },
+              {
+                "id": "distribuce",
+                "nazev": "Distribuce"
+              },
+              {
+                "id": "propagace",
+                "nazev": "Propagace"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "nový design obalu",
+                "kategorieId": "produkt"
+              },
+              {
+                "text": "studentská sleva 20 %",
+                "kategorieId": "cena"
+              },
+              {
+                "text": "otevření výdejního místa v centru",
+                "kategorieId": "distribuce"
+              },
+              {
+                "text": "kampaň na sociálních sítích",
+                "kategorieId": "propagace"
+              },
+              {
+                "text": "prodloužená záruka 3 roky",
+                "kategorieId": "produkt"
+              },
+              {
+                "text": "možnost platby na splátky",
+                "kategorieId": "cena"
+              },
+              {
+                "text": "rozvoz jídla do 30 minut",
+                "kategorieId": "distribuce"
+              },
+              {
+                "text": "soutěž o ceny pro zákazníky",
+                "kategorieId": "propagace"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-marketing-2",
+            "temaId": "marketing",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Výrobce uvádí nový telefon nejdřív za vysokou cenu pro nadšence a po půl roce zlevňuje. Jakou cenovou strategii používá?",
+            "moznosti": [
+              "Sbírání smetany (skimming)",
+              "Penetrační cenu",
+              "Nákladovou cenu",
+              "Psychologickou cenu"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Skimming „sbírá smetanu“: nejdřív zaplatí nejvíc ti, kdo novinku chtějí hned, a náklady na vývoj se rychle vrátí; pak cena klesá pro další skupiny. Penetrační strategie je přesný opak — nízká cena hned na startu kvůli podílu na trhu.",
+            "zdroj": "Marketing"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Vaše školní kapela vydává první EP a chce ho dostat mezi lidi. Navrhni marketingový mix 4P.",
+          "reseni": "- **Produkt:** EP se čtyřmi skladbami + limitovaná edice s podepsaným plakátem (odlišení, značka kapely).\n- **Cena:** digitálně 99 Kč (psychologická cena), limitovaná edice 249 Kč — skimming pro fanoušky, koncertní sleva.\n- **Distribuce:** streamingové platformy + prodej na koncertech a školním jarmarku.\n- **Propagace:** klip a ukázky na sociálních sítích, plakáty ve škole, soutěž o lístky (podpora prodeje), rozhovor pro školní časopis (PR).\n\nKlíčové je sladění: cílový segment (spolužáci, 15–20 let) určuje kanály i cenu."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "marketing",
+              "zadni": "zjišťování a uspokojování potřeb zákazníků se ziskem"
+            },
+            {
+              "predni": "4P",
+              "zadni": "produkt, cena, distribuce, propagace"
+            },
+            {
+              "predni": "propagace",
+              "zadni": "reklama, podpora prodeje, PR, osobní prodej, přímý marketing"
+            },
+            {
+              "predni": "segmentace",
+              "zadni": "rozdělení trhu na skupiny zákazníků s podobnými potřebami"
+            },
+            {
+              "predni": "targeting",
+              "zadni": "volba cílového segmentu"
+            },
+            {
+              "predni": "positioning",
+              "zadni": "odlišení produktu v mysli zákazníka"
+            },
+            {
+              "predni": "primární výzkum",
+              "zadni": "sběr nových dat v terénu — dotazování, pozorování, experiment"
+            },
+            {
+              "predni": "sekundární výzkum",
+              "zadni": "využití existujících dat (ČSÚ, studie) — levnější a rychlejší"
+            },
+            {
+              "predni": "skimming",
+              "zadni": "zaváděcí strategie: nejdřív vysoká cena, postupné zlevňování"
+            },
+            {
+              "predni": "penetrační cena",
+              "zadni": "nízká zaváděcí cena pro rychlé získání podílu na trhu"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Marketing = uspokojování potřeb zákazníků **se ziskem**; začíná výzkumem, ne reklamou.\n- Mix **4P**: produkt, cena, distribuce, propagace — musí být sladěné.\n- **Segmentace → targeting → positioning**: komu prodávám a čím se odliším.\n- Výzkum **primární** (nová data) × **sekundární** (existující data).\n- Životní cyklus: zavedení → růst → zralost → úpadek; při zavádění **skimming**, nebo **penetrace**."
+        }
+      ]
+    },
+    {
+      "temaId": "management",
+      "nazev": "Management",
+      "poradi": 5,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Dva kapitáni, dva florbalové týmy. První všechno rozhoduje sám a na tréninku se nediskutuje. Druhý se před zápasem ptá týmu na názor, ale sestavu nakonec určí on. Kdo je lepší šéf? Chyták — záleží na situaci. A přesně o tom je management."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Management** je řízení organizace: cílevědomé působení na lidi a zdroje tak, aby bylo dosaženo stanovených cílů. Manažeři pracují na třech úrovních: **vrcholový** (top), **střední** a **provozní** (liniový).\n\n**Čtyři základní manažerské funkce**:\n\n- **Plánování** — stanovení cílů a cest k nim,\n- **Organizování** — dělba práce, pravomoci, organizační struktura,\n- **Vedení lidí** — motivace a komunikace,\n- **Kontrola** — porovnání skutečnosti s plánem a náprava odchylek.\n\nPrůběžně k nim patří **rozhodování** a **personální práce**. Funkce tvoří cyklus: zkontroluješ výsledky → upravíš plán → znovu."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Až povedeš školní projekt nebo tým na brigádě, projdeš si ty čtyři funkce jako checklist: máme cíl a plán? Ví každý, co dělá? Táhne tým za jeden provaz? Kontrolujeme, jak nám to jde? A díky stylům vedení poznáš i svého šéfa — a pochopíš, proč na nováčky platí jasné pokyny a na zkušené volnost."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 340\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Maslowova pyramida potřeb od fyziologických po seberealizaci\">\n<defs><marker id=\"ep-sip6\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs>\n<polygon points=\"245,30 315,30 335,80 225,80\" fill=\"var(--zlata)\" fill-opacity=\"0.25\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"280\" y=\"60\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">seberealizace</text>\n<polygon points=\"225,84 335,84 355,134 205,134\" fill=\"var(--akcent)\" fill-opacity=\"0.18\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"280\" y=\"107\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">uznání</text>\n<text x=\"280\" y=\"124\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">respekt, úspěch, pochvala</text>\n<polygon points=\"205,138 355,138 375,188 185,188\" fill=\"var(--info)\" fill-opacity=\"0.15\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"280\" y=\"161\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">sociální potřeby</text>\n<text x=\"280\" y=\"178\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">přátelství, parta, někam patřit</text>\n<polygon points=\"185,192 375,192 395,242 165,242\" fill=\"var(--uspech)\" fill-opacity=\"0.15\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"280\" y=\"215\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">bezpečí</text>\n<text x=\"280\" y=\"232\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">jistota práce, střecha nad hlavou</text>\n<polygon points=\"165,246 395,246 415,296 145,296\" fill=\"var(--chyba)\" fill-opacity=\"0.12\" stroke=\"var(--chyba)\" stroke-width=\"2\" />\n<text x=\"280\" y=\"269\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">fyziologické potřeby</text>\n<text x=\"280\" y=\"286\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">jídlo, spánek, teplo</text>\n<line x1=\"455\" y1=\"280\" x2=\"455\" y2=\"60\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip6)\" />\n<text x=\"470\" y=\"150\" text-anchor=\"start\" font-size=\"11\" fill=\"currentColor\">vyšší patra</text>\n<text x=\"470\" y=\"166\" text-anchor=\"start\" font-size=\"11\" fill=\"currentColor\">motivují až po</text>\n<text x=\"470\" y=\"182\" text-anchor=\"start\" font-size=\"11\" fill=\"currentColor\">uspokojení nižších</text>\n<text x=\"280\" y=\"326\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Maslow: potřeby uspokojujeme postupně odspodu nahoru.</text>\n</svg>",
+          "popisek": "Maslowova pyramida: potřeby uspokojujeme od fyziologických přes bezpečí, sociální potřeby a uznání až po seberealizaci. Vyšší patra začnou motivovat teprve tehdy, když jsou nižší uspokojena — proto na hladového brigádníka pochvala nestačí."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-management-1",
+            "temaId": "management",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Manažerka porovnává skutečné prodeje s plánem a řeší, proč vznikly odchylky. Kterou manažerskou funkci právě vykonává?",
+            "moznosti": [
+              "Kontrolu",
+              "Plánování",
+              "Organizování",
+              "Vedení lidí"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Porovnání skutečnosti s plánem a náprava odchylek je definice kontroly. Plánování cíle teprve stanovuje, organizování rozděluje práci a pravomoci, vedení lidí je motivace a komunikace.",
+            "zdroj": "Management"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Styly vedení:**\n\n- **Autokratický** — manažer rozhoduje sám, přikazuje, názory nezjišťuje. Hodí se v krizi a u nezkušených týmů, kde je potřeba rychlost a jednoznačnost.\n- **Demokratický** — o řešeních diskutuje s týmem, rozhodnutí a odpovědnost si ponechává. Podporuje iniciativu.\n- **Liberální (laissez-faire)** — rozhodování nechává převážně na podřízených. Funguje u zkušených odborníků, jinak hrozí chaos.\n\nModerní přístup je **situační**: styl se volí podle vyspělosti týmu a naléhavosti situace.\n\n**Motivace:** podle **Maslowa** motivují vyšší potřeby až po uspokojení nižších. **Herzberg** rozlišuje **hygienické faktory** (mzda, podmínky, jistota — jejich nedostatek vyvolá nespokojenost, ale samy trvale nemotivují) a **motivátory** (uznání, zajímavá práce, odpovědnost, růst — vedou k výkonu).\n\nStrategickým nástrojem je **SWOT analýza**: vnitřní **S**ilné a slabé (**W**) stránky, vnější příležitosti (**O**) a hrozby (**T**)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              {
+                "a": "autokratický styl",
+                "b": "rozhoduje sám, přikazuje — krize a nezkušené týmy"
+              },
+              {
+                "a": "demokratický styl",
+                "b": "diskutuje s týmem, rozhodnutí si ponechává"
+              },
+              {
+                "a": "liberální styl",
+                "b": "nechává rozhodování na podřízených — zkušení odborníci"
+              },
+              {
+                "a": "hygienické faktory",
+                "b": "mzda a podmínky — brání nespokojenosti, trvale nemotivují"
+              },
+              {
+                "a": "motivátory",
+                "b": "uznání, odpovědnost, růst — vedou k vyššímu výkonu"
+              },
+              {
+                "a": "SWOT",
+                "b": "silné a slabé stránky, příležitosti, hrozby"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-management-2",
+            "temaId": "management",
+            "typ": "anone",
+            "obtiznost": 3,
+            "zadani": "Podle Herzberga vyšší mzda sama o sobě zaměstnance dlouhodobě motivuje k lepšímu výkonu.",
+            "spravna": false,
+            "vysvetleni": "Mzda je hygienický faktor: když je nízká, lidé jsou nespokojení, ale její zvýšení samo trvalou motivaci nepřinese — na ni jsou potřeba motivátory jako uznání, zajímavá práce a možnost růstu.",
+            "zdroj": "Management"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Rozhodni, jaký styl vedení zvolit: (a) ve skladu začala hořet krabice a vedoucí směny musí okamžitě zorganizovat evakuaci; (b) vedoucí přebírá tým pěti zkušených vývojářek, které firmu znají léta. Zdůvodni.",
+          "reseni": "**(a) Autokratický.** V krizi rozhoduje rychlost a jednoznačné povely — „ty volej hasiče, vy dva ke východu“. Diskuse by stála čas i zdraví.\n\n**(b) Liberální až demokratický.** Zkušené odbornice znají práci líp než nový šéf — dostanou volnost a důvěru, vedoucí řeší cíle, překážky a konečná rozhodnutí.\n\n**Pointa:** neexistuje jeden správný styl — **situační přístup** volí styl podle vyspělosti týmu a naléhavosti situace."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "management",
+              "zadni": "cílevědomé řízení lidí a zdrojů k dosažení cílů organizace"
+            },
+            {
+              "predni": "plánování",
+              "zadni": "stanovení cílů a cest, jak jich dosáhnout"
+            },
+            {
+              "predni": "organizování",
+              "zadni": "dělba práce, pravomoci, organizační struktura"
+            },
+            {
+              "predni": "vedení lidí",
+              "zadni": "motivace a komunikace s podřízenými"
+            },
+            {
+              "predni": "kontrola",
+              "zadni": "porovnání skutečnosti s plánem a náprava odchylek"
+            },
+            {
+              "predni": "autokratický styl",
+              "zadni": "rozhoduje sám — vhodný v krizích a u nezkušených týmů"
+            },
+            {
+              "predni": "liberální styl",
+              "zadni": "volnost podřízeným — funguje u zkušených odborníků"
+            },
+            {
+              "predni": "Maslowova pyramida",
+              "zadni": "fyziologické → bezpečí → sociální → uznání → seberealizace"
+            },
+            {
+              "predni": "hygienické faktory (Herzberg)",
+              "zadni": "mzda, podmínky — brání nespokojenosti, trvale nemotivují"
+            },
+            {
+              "predni": "SWOT analýza",
+              "zadni": "silné/slabé stránky (vnitřní) + příležitosti/hrozby (vnější)"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Management = řízení lidí a zdrojů k cílům; úrovně: vrcholový, střední, provozní.\n- Čtyři funkce: **plánování, organizování, vedení lidí, kontrola** (+ rozhodování, personalistika).\n- Styly vedení: **autokratický, demokratický, liberální** — volí se **situačně**.\n- Motivace: **Maslow** (potřeby odspodu), **Herzberg** (hygienické faktory × motivátory).\n- **SWOT**: silné a slabé stránky uvnitř, příležitosti a hrozby venku."
+        }
+      ]
+    },
+    {
+      "temaId": "zamestnanci-a-mzdy",
+      "nazev": "Zaměstnanci a mzdy",
+      "poradi": 6,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Kamarádka nastoupila po škole na plný úvazek „za čtyřicet hrubého“. Když jí přišla první výplata, zírala: na účtu bylo 31 930 Kč. „Kdo mi vzal osm tisíc?!“ Nikdo ji neokradl — jen se poprvé potkala s odvody. Pojď se podívat, kam ty peníze tečou."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Pracovní poměr** vzniká nejčastěji **pracovní smlouvou** (výjimečně jmenováním). Smlouva musí být **písemná** a obsahovat **tři povinné náležitosti**:\n\n- **druh práce**,\n- **místo výkonu práce**,\n- **den nástupu**.\n\nMzda může být sjednána přímo ve smlouvě, nebo určena **mzdovým výměrem**. Sjednat lze **zkušební dobu**. Pracovní poměr končí **dohodou, výpovědí, okamžitým zrušením, zrušením ve zkušební době** nebo **uplynutím sjednané doby**.\n\nMimo pracovní poměr existují **dohody**:\n- **DPP** (dohoda o provedení práce) — typická pro brigády; do stanoveného měsíčního limitu výdělku se z ní neplatí pojistné,\n- **DPČ** (dohoda o pracovní činnosti)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Tohle je nejpraktičtější lekce roku. Na brigádě podepíšeš nejspíš DPP — teď už víš, proč z ní do limitu nejde pojistné. Při první smlouvě zkontroluješ tři povinné náležitosti a nenecháš si namluvit, že „mzda se domluví potom ústně“. A hlavně: z hrubé mzdy si sám spočítáš čistou, takže tě žádná nabídka „40 tisíc!“ nezaskočí."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 310\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rozklad hrubé mzdy 40 000 Kč na čistou mzdu a odvody\">\n<text x=\"280\" y=\"30\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">Hrubá mzda 40 000 Kč — kam se rozdělí?</text>\n<rect x=\"40\" y=\"60\" width=\"383\" height=\"56\" fill=\"var(--uspech)\" fill-opacity=\"0.25\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<rect x=\"423\" y=\"60\" width=\"34\" height=\"56\" fill=\"var(--info)\" fill-opacity=\"0.35\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<rect x=\"457\" y=\"60\" width=\"22\" height=\"56\" fill=\"var(--akcent)\" fill-opacity=\"0.35\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<rect x=\"479\" y=\"60\" width=\"41\" height=\"56\" fill=\"var(--chyba)\" fill-opacity=\"0.3\" stroke=\"var(--chyba)\" stroke-width=\"2\" />\n<text x=\"231\" y=\"84\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">ČISTÁ MZDA</text>\n<text x=\"231\" y=\"103\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">31 930 Kč na účet</text>\n<line x1=\"440\" y1=\"116\" x2=\"360\" y2=\"170\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"355\" y=\"188\" text-anchor=\"end\" font-size=\"12\" fill=\"var(--info)\">sociální pojištění 7,1 % = 2 840 Kč</text>\n<line x1=\"468\" y1=\"116\" x2=\"420\" y2=\"205\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" />\n<text x=\"425\" y=\"222\" text-anchor=\"end\" font-size=\"12\" fill=\"var(--akcent)\">zdravotní pojištění 4,5 % = 1 800 Kč</text>\n<line x1=\"500\" y1=\"116\" x2=\"480\" y2=\"240\" stroke=\"var(--chyba)\" stroke-width=\"1.5\" />\n<text x=\"510\" y=\"258\" text-anchor=\"end\" font-size=\"12\" fill=\"var(--chyba)\">záloha na daň: 15 % = 6 000 − sleva 2 570 = 3 430 Kč</text>\n<text x=\"280\" y=\"292\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Zaměstnavatel navíc NAD hrubou mzdu odvádí 24,8 % (SP) + 9 % (ZP).</text>\n</svg>",
+          "popisek": "Z hrubé mzdy 40 000 Kč jde zaměstnanci na účet 31 930 Kč. Zbytek tvoří sociální pojištění 7,1 % (2 840 Kč), zdravotní pojištění 4,5 % (1 800 Kč) a záloha na daň 15 % snížená o slevu na poplatníka 2 570 Kč (3 430 Kč)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-zamestnanci-a-mzdy-1",
+            "temaId": "zamestnanci-a-mzdy",
+            "typ": "multi",
+            "obtiznost": 2,
+            "zadani": "Které náležitosti MUSÍ pracovní smlouva obsahovat? (více správných odpovědí)",
+            "moznosti": [
+              "Druh práce",
+              "Místo výkonu práce",
+              "Den nástupu do práce",
+              "Výši mzdy",
+              "Délku dovolené"
+            ],
+            "spravne": [
+              0,
+              1,
+              2
+            ],
+            "vysvetleni": "Povinná trojice je druh práce, místo výkonu a den nástupu. Mzda povinnou náležitostí není — lze ji určit i mzdovým výměrem; dovolenou upravuje zákoník práce.",
+            "zdroj": "Zaměstnanci a mzdy"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Formy mzdy:** **časová** (za odpracované hodiny — kde jde o kvalitu), **úkolová** (za množství výkonů), **podílová** (procento z tržeb) a kombinace. K základu patří pohyblivé složky: **prémie**, odměny a zákonné **příplatky** (přesčas, noc, svátek, víkend). **Minimální mzda** je nejnižší přípustná odměna a každoročně se valorizuje.\n\n**Hrubá mzda** = sjednaná odměna před srážkami. **Čistá mzda** = co skutečně dostaneš. Z hrubé mzdy se sráží:\n\n- **sociální pojištění 7,1 %** (důchodové 6,5 % + nemocenské 0,6 %),\n- **zdravotní pojištění 4,5 %**,\n- **záloha na daň z příjmů 15 %** minus slevy — základní **sleva na poplatníka 2 570 Kč měsíčně** (30 840 Kč ročně).\n\nZaměstnavatel navíc NAD rámec hrubé mzdy odvádí **24,8 %** na sociální a **9 %** na zdravotní pojištění — zaměstnanec ho tedy stojí víc, než kolik má „hrubého“."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Projdi výpočet čisté mzdy krok za krokem.",
+            "kroky": [
+              {
+                "nazev": "Hrubá mzda",
+                "popis": "Sjednaná odměna před srážkami — základ všech dalších výpočtů."
+              },
+              {
+                "nazev": "− sociální pojištění 7,1 %",
+                "popis": "Důchodové 6,5 % + nemocenské 0,6 % z hrubé mzdy. Odvádí se ČSSZ."
+              },
+              {
+                "nazev": "− zdravotní pojištění 4,5 %",
+                "popis": "Odvod zdravotní pojišťovně na úhradu zdravotní péče."
+              },
+              {
+                "nazev": "Záloha na daň 15 %",
+                "popis": "Vypočítá se z hrubé mzdy: hrubá × 0,15."
+              },
+              {
+                "nazev": "− sleva na poplatníka 2 570 Kč",
+                "popis": "Základní měsíční sleva náleží každému poplatníkovi — o ni se záloha na daň sníží."
+              },
+              {
+                "nazev": "= čistá mzda",
+                "popis": "Hrubá mzda − pojistné − daň po slevě = částka, která přijde na účet."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-zamestnanci-a-mzdy-2",
+            "temaId": "zamestnanci-a-mzdy",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kolik činí základní MĚSÍČNÍ sleva na poplatníka u daně z příjmů?",
+            "moznosti": [
+              "2 570 Kč",
+              "30 840 Kč",
+              "4 500 Kč",
+              "1 500 Kč"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Měsíční sleva na poplatníka je 2 570 Kč; 30 840 Kč je její ROČNÍ výše (12 × 2 570) — to je častá záměna. O slevu se snižuje vypočtená záloha na daň, ne hrubá mzda.",
+            "zdroj": "Zaměstnanci a mzdy"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Spočítej čistou mzdu při hrubé mzdě 32 000 Kč (uplatňuje se základní sleva na poplatníka).",
+          "reseni": "- Sociální pojištění: 32 000 × 7,1 % = **2 272 Kč**\n- Zdravotní pojištění: 32 000 × 4,5 % = **1 440 Kč**\n- Záloha na daň: 32 000 × 15 % = 4 800 Kč; po slevě 4 800 − 2 570 = **2 230 Kč**\n\n**Čistá mzda = 32 000 − 2 272 − 1 440 − 2 230 = 26 058 Kč.**\n\nZ hrubé mzdy tedy zaměstnanci zůstává zhruba 81 %. (A zaměstnavatele stojí ještě víc: + 24,8 % SP a 9 % ZP nad hrubou mzdu.)"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "povinné náležitosti pracovní smlouvy",
+              "zadni": "druh práce, místo výkonu, den nástupu"
+            },
+            {
+              "predni": "DPP",
+              "zadni": "dohoda o provedení práce — brigády; do limitu bez pojistného"
+            },
+            {
+              "predni": "DPČ",
+              "zadni": "dohoda o pracovní činnosti"
+            },
+            {
+              "predni": "časová mzda",
+              "zadni": "podle odpracovaných hodin — kde záleží na kvalitě"
+            },
+            {
+              "predni": "úkolová mzda",
+              "zadni": "podle množství odvedených výkonů"
+            },
+            {
+              "predni": "hrubá mzda",
+              "zadni": "sjednaná odměna před srážkami"
+            },
+            {
+              "predni": "srážky zaměstnance",
+              "zadni": "SP 7,1 % + ZP 4,5 % + záloha na daň 15 % po slevách"
+            },
+            {
+              "predni": "sleva na poplatníka",
+              "zadni": "2 570 Kč měsíčně (30 840 Kč ročně) — snižuje daň"
+            },
+            {
+              "predni": "minimální mzda",
+              "zadni": "nejnižší přípustná odměna za práci, valorizuje se"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Pracovní smlouva: písemně + **druh práce, místo výkonu, den nástupu**.\n- Brigády jedou hlavně na **DPP** (do limitu bez pojistného), existuje i **DPČ**.\n- Mzda: časová, úkolová, podílová + prémie a příplatky; spodní hranicí je **minimální mzda**.\n- Čistá mzda = hrubá − **SP 7,1 %** − **ZP 4,5 %** − daň (15 % minus **sleva 2 570 Kč/měs.**).\n- Zaměstnavatel platí navíc 24,8 % + 9 % nad hrubou mzdu."
+        }
+      ]
+    },
+    {
+      "temaId": "dane-a-pojisteni",
+      "nazev": "Daně a pojištění",
+      "poradi": 7,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Natankuješ do skútru litr benzinu za 38 Kč a máš pocit, že jsi zaplatil za palivo. Omyl — zhruba polovinu z té částky si vezme stát: odvedl jsi dvě daně najednou, spotřební daň a DPH, obě schované v ceně. Stát je tichý společník každého tvého nákupu. Pojďme zjistit, kolik si říká a proč."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Daň** je **povinná, zákonem stanovená a neúčelová** platba do veřejných rozpočtů. Plní funkci **fiskální** (příjmy rozpočtu), **redistribuční** (přerozdělování) a **stimulační** (motivace k chování — třeba vyšší daň z tabáku).\n\n**Přímé daně** platí poplatník ze svého příjmu či majetku:\n\n- **daň z příjmů fyzických osob**: základní sazba **15 %**, na část základu nad 36násobek průměrné mzdy ročně **23 %**,\n- **daň z příjmů právnických osob**: **21 %**,\n- **daň z nemovitých věcí**, **silniční daň** (dnes jen za těžká nákladní vozidla).\n\n**Nepřímé daně** jsou obsažené v cenách zboží a služeb — platí je spotřebitel, odvádí prodejce: **DPH**, **spotřební daně** (líh, pivo, víno, tabák, minerální oleje) a **energetické daně**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** DPH platíš při každém nákupu, aniž o tom přemýšlíš — teď už z účtenky poznáš kolik. Až budeš mít příjmy z brigád, díky slevě na poplatníka většinou zjistíš, že se ti sražené zálohy na daň po podání přiznání vrátí. A až budeš podnikat, ohlídáš si obrat 2 mil. Kč — pak se povinně stáváš plátcem DPH."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 340\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rozdělení daní v ČR na přímé a nepřímé\">\n<rect x=\"215\" y=\"15\" width=\"130\" height=\"42\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"280\" y=\"41\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">DANĚ V ČR</text>\n<line x1=\"280\" y1=\"57\" x2=\"145\" y2=\"88\" stroke=\"currentColor\" stroke-width=\"2\" />\n<line x1=\"280\" y1=\"57\" x2=\"415\" y2=\"88\" stroke=\"currentColor\" stroke-width=\"2\" />\n<rect x=\"35\" y=\"88\" width=\"220\" height=\"52\" rx=\"10\" fill=\"var(--info)\" fill-opacity=\"0.12\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"145\" y=\"109\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">PŘÍMÉ</text>\n<text x=\"145\" y=\"128\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">platí poplatník ze svého příjmu či majetku</text>\n<rect x=\"305\" y=\"88\" width=\"220\" height=\"52\" rx=\"10\" fill=\"var(--zlata)\" fill-opacity=\"0.15\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"415\" y=\"109\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">NEPŘÍMÉ</text>\n<text x=\"415\" y=\"128\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">schované v ceně — odvádí prodejce</text>\n<rect x=\"35\" y=\"156\" width=\"220\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"145\" y=\"173\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">daň z příjmů FO: 15 % / 23 %</text>\n<text x=\"145\" y=\"189\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">23 % až nad 36násobek průměrné mzdy</text>\n<rect x=\"35\" y=\"204\" width=\"220\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"145\" y=\"223\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">daň z příjmů PO: 21 %</text>\n<rect x=\"35\" y=\"242\" width=\"220\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"145\" y=\"261\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">z nemovitých věcí · silniční</text>\n<rect x=\"305\" y=\"156\" width=\"220\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"415\" y=\"173\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">DPH: základní 21 %, snížená 12 %</text>\n<text x=\"415\" y=\"189\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">knihy 0 %; plátce od obratu 2 mil. Kč</text>\n<rect x=\"305\" y=\"204\" width=\"220\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"415\" y=\"223\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">spotřební: líh, pivo, tabák, paliva</text>\n<rect x=\"305\" y=\"242\" width=\"220\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"415\" y=\"261\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">energetické daně</text>\n<text x=\"280\" y=\"310\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Daň = povinná, zákonem stanovená a neúčelová platba do veřejných rozpočtů.</text>\n</svg>",
+          "popisek": "Daňová soustava ČR: přímé daně (z příjmů FO 15/23 %, z příjmů PO 21 %, z nemovitých věcí, silniční) platí poplatník sám; nepřímé daně (DPH 21/12 %, spotřební, energetické) jsou schované v cenách a odvádí je prodejce."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dane-a-pojisteni-1",
+            "temaId": "dane-a-pojisteni",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Jaká je sazba daně z příjmů právnických osob v ČR?",
+            "moznosti": [
+              "21 %",
+              "15 %",
+              "23 %",
+              "12 %"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Právnické osoby daní zisk sazbou 21 %. Sazby 15 % a 23 % patří dani z příjmů FYZICKÝCH osob a 12 % je snížená sazba DPH — pozor na záměnu.",
+            "zdroj": "Daně a pojištění"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**DPH (daň z přidané hodnoty)** — nejvýnosnější nepřímá daň:\n\n- **základní sazba 21 %**, **snížená 12 %** (potraviny, léky, vodné a stočné, ubytování aj.), knihy **0 %**,\n- plátcem se podnikatel povinně stává po překročení obratu **2 000 000 Kč** za rok,\n- výpočet: cena s daní = cena bez daně × 1,21; základ z ceny s DPH získáš **dělením 1,21**.\n\n**Sociální pojištění** (odvádí se ČSSZ) zahrnuje důchodové pojištění, nemocenské pojištění a příspěvek na státní politiku zaměstnanosti — financují se z něj důchody, nemocenská a podpory v nezaměstnanosti.\n\n**Zdravotní pojištění** jde zdravotním pojišťovnám na úhradu péče; platí ho zaměstnanci, zaměstnavatelé, OSVČ a za **státní pojištěnce** (děti, studenty, důchodce) stát.\n\n**Komerční pojištění** (povinné ručení, životní, majetkové) je smluvní a s veřejným pojistným nesouvisí."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Přímá, nebo nepřímá daň? Roztřiď.",
+            "kategorie": [
+              {
+                "id": "prime",
+                "nazev": "Přímé daně"
+              },
+              {
+                "id": "neprime",
+                "nazev": "Nepřímé daně"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "daň z příjmů fyzických osob",
+                "kategorieId": "prime"
+              },
+              {
+                "text": "DPH",
+                "kategorieId": "neprime"
+              },
+              {
+                "text": "daň z nemovitých věcí",
+                "kategorieId": "prime"
+              },
+              {
+                "text": "spotřební daň z tabáku",
+                "kategorieId": "neprime"
+              },
+              {
+                "text": "daň z příjmů právnických osob",
+                "kategorieId": "prime"
+              },
+              {
+                "text": "energetická daň",
+                "kategorieId": "neprime"
+              },
+              {
+                "text": "silniční daň",
+                "kategorieId": "prime"
+              },
+              {
+                "text": "spotřební daň z lihu",
+                "kategorieId": "neprime"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dane-a-pojisteni-2",
+            "temaId": "dane-a-pojisteni",
+            "typ": "doplneni",
+            "obtiznost": 3,
+            "zadani": "Snížená sazba DPH v ČR činí ___ % (napiš číslo).",
+            "spravneOdpovedi": [
+              "12",
+              "12 %",
+              "12%",
+              "dvanáct",
+              "dvanact"
+            ],
+            "vysvetleni": "Snížená sazba DPH je 12 % — platí pro potraviny, léky, vodné a stočné či ubytovací služby. Základní sazba je 21 % a knihy mají 0 %.",
+            "zdroj": "Daně a pojištění"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Sluchátka stojí 12 100 Kč včetně DPH (základní sazba 21 %). Kolik je cena bez daně a kolik z ceny tvoří DPH? A kolik DPH obsahuje nákup potravin za 560 Kč (snížená sazba 12 %)?",
+          "reseni": "**Sluchátka:** základ = 12 100 ÷ 1,21 = **10 000 Kč bez DPH**; DPH = 12 100 − 10 000 = **2 100 Kč**.\n\n**Potraviny:** základ = 560 ÷ 1,12 = **500 Kč**; DPH = 560 − 500 = **60 Kč**.\n\nPozor na klasickou chybu: DPH z ceny S daní se NEPOČÍTÁ jako 21 % z 12 100 (to by bylo 2 541 Kč) — cena s daní se musí **dělit** 1,21, protože daň je počítaná z ceny bez daně."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "daň",
+              "zadni": "povinná, zákonem stanovená, neúčelová platba do veřejných rozpočtů"
+            },
+            {
+              "predni": "přímé daně",
+              "zadni": "z příjmu a majetku — platí je poplatník sám"
+            },
+            {
+              "predni": "nepřímé daně",
+              "zadni": "v cenách zboží — platí spotřebitel, odvádí prodejce"
+            },
+            {
+              "predni": "sazby DPH",
+              "zadni": "základní 21 %, snížená 12 %, knihy 0 %"
+            },
+            {
+              "predni": "plátce DPH",
+              "zadni": "povinně po překročení obratu 2 000 000 Kč za rok"
+            },
+            {
+              "predni": "DPFO",
+              "zadni": "15 %, nad 36násobek průměrné mzdy ročně 23 %"
+            },
+            {
+              "predni": "DPPO",
+              "zadni": "daň z příjmů právnických osob — 21 %"
+            },
+            {
+              "predni": "spotřební daně",
+              "zadni": "líh, pivo, víno, tabák, minerální oleje"
+            },
+            {
+              "predni": "sociální pojištění",
+              "zadni": "důchodové + nemocenské + příspěvek na politiku zaměstnanosti (ČSSZ)"
+            },
+            {
+              "predni": "státní pojištěnci",
+              "zadni": "děti, studenti, důchodci — zdravotní pojištění za ně platí stát"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Daň = **povinná, zákonná, neúčelová** platba do veřejných rozpočtů.\n- **Přímé**: DPFO 15/23 %, DPPO 21 %, z nemovitých věcí, silniční. **Nepřímé**: DPH, spotřební, energetické.\n- **DPH**: 21 % základní, 12 % snížená, knihy 0 %; plátcem od obratu 2 mil. Kč; základ z ceny s daní ÷ 1,21.\n- **Sociální pojištění** = důchody, nemocenská, zaměstnanost; **zdravotní** = úhrada péče, za studenty platí stát.\n- Komerční pojištění je smluvní — s veřejným pojistným nesouvisí."
+        }
+      ]
+    },
+    {
+      "temaId": "penize-a-financni-trh",
+      "nazev": "Peníze a finanční trh",
+      "poradi": 8,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Babička ti k narozeninám dala 10 000 Kč: „Našetři si, chlapče.“ Můžeš je nechat v hrnečku na poličce, nebo poslat na spořicí účet se 4 % ročně. Za pár let je mezi hrnečkem a účtem rozdíl několika tisíc — a v hrnečku navíc peníze tiše požírá inflace. Jak to celé funguje?"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Peníze** jsou všeobecně přijímaný prostředek směny. Plní **tři základní funkce**:\n\n- **prostředek směny** — odstraňují nevýhody barteru (nemusíš hledat někoho, kdo chce přesně to, co nabízíš),\n- **měřítko cen** — společná zúčtovací jednotka, v níž porovnáváme hodnoty,\n- **uchovatel hodnoty** — kupní sílu lze přenést do budoucna.\n\nPodobu mají **hotovostní** (bankovky, mince) a **bezhotovostní** (na účtech) — ty dnes převažují.\n\n**Inflace** je růst cenové hladiny, při němž **klesá kupní síla peněz**; měří se indexem spotřebitelských cen. Opakem je **deflace**. Právě inflace „požírá“ úspory v hrnečku."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Tady se rozhoduje o tvých penězích. Pochopíš, proč zdražuje svačina i mobil (inflace), proč se hypotéky zlevňují a zdražují podle sazeb ČNB a proč je složené úročení nejlepší kamarád spořícího studenta — a nejhorší nepřítel dlužníka. A až ti někdo nabídne „zaručený výnos 30 % ročně“, vzpomeneš si, že výnos a riziko jdou vždycky ruku v ruce."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 360\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Jak ČNB zvýšením sazeb tlumí inflaci\">\n<defs><marker id=\"ep-sip9\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs>\n<rect x=\"150\" y=\"15\" width=\"260\" height=\"48\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"280\" y=\"35\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">ČNB — inflační cíl 2 %</text>\n<text x=\"280\" y=\"53\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">inflace je moc vysoká → zasáhne</text>\n<line x1=\"280\" y1=\"63\" x2=\"280\" y2=\"83\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip9)\" />\n<rect x=\"150\" y=\"86\" width=\"260\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"280\" y=\"111\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">zvýší 2T repo sazbu</text>\n<line x1=\"280\" y1=\"126\" x2=\"280\" y2=\"146\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip9)\" />\n<rect x=\"150\" y=\"149\" width=\"260\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"280\" y=\"174\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">úvěry a hypotéky u bank <tspan font-weight=\"bold\">zdraží</tspan></text>\n<line x1=\"280\" y1=\"189\" x2=\"280\" y2=\"209\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip9)\" />\n<rect x=\"150\" y=\"212\" width=\"260\" height=\"40\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"280\" y=\"237\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">lidé a firmy si míň půjčují a utrácejí</text>\n<line x1=\"280\" y1=\"252\" x2=\"280\" y2=\"272\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-sip9)\" />\n<rect x=\"150\" y=\"275\" width=\"260\" height=\"40\" rx=\"10\" fill=\"var(--uspech)\" fill-opacity=\"0.15\" stroke=\"var(--uspech)\" stroke-width=\"2.5\" />\n<text x=\"280\" y=\"300\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">inflace klesá zpět k cíli</text>\n<text x=\"280\" y=\"342\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Snížení sazeb funguje opačně: levnější úvěry ekonomiku povzbudí.</text>\n<text x=\"470\" y=\"110\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--zlata)\">ČNB navíc</text>\n<text x=\"470\" y=\"126\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--zlata)\">emituje peníze</text>\n<text x=\"470\" y=\"142\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--zlata)\">a dohlíží na</text>\n<text x=\"470\" y=\"158\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--zlata)\">finanční trh</text>\n</svg>",
+          "popisek": "Měnová politika ČNB v akci: když inflace utíká nad 2% cíl, ČNB zvýší 2T repo sazbu, úvěry zdraží, lidé a firmy méně utrácejí a inflace klesá. Snížení sazeb působí opačně. ČNB navíc emituje bankovky a mince a dohlíží na celý finanční trh."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-penize-a-financni-trh-1",
+            "temaId": "penize-a-financni-trh",
+            "typ": "vyber",
+            "obtiznost": 1,
+            "zadani": "Kterou funkci plní peníze, když si šetříš na nový mobil?",
+            "moznosti": [
+              "Uchovatel hodnoty",
+              "Prostředek směny",
+              "Měřítko cen",
+              "Výrobní faktor"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Při spoření přenášíš kupní sílu do budoucna — peníze uchovávají hodnotu. Prostředkem směny jsou při placení, měřítkem cen při porovnávání; výrobním faktorem peníze nejsou vůbec.",
+            "zdroj": "Peníze a finanční trh"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Česká národní banka (ČNB)** je centrální banka státu:\n\n- pečuje o **cenovou stabilitu** — inflační cíl **2 %**,\n- určuje **měnovou politiku**: především základní úrokové sazby (2T repo sazba),\n- má výhradní právo **emise** bankovek a mincí,\n- vede účty státu, spravuje devizové rezervy a **dohlíží na celý finanční trh** (banky, pojišťovny, kapitálový trh),\n- řídí ji sedmičlenná **bankovní rada** v čele s guvernérem.\n\n**Komerční banky** podnikají s penězi: přijímají vklady, poskytují úvěry, provádějí platební styk; zisk mají hlavně z rozdílu úroků. Vklady chrání zákonné **pojištění vkladů**.\n\n**Úrok** je odměna za půjčení peněz; roční výše v procentech = **úroková míra** (p.a.). **Jednoduché úročení** úročí stále jen jistinu; **složené úročení** i připsané úroky — peníze rostou jako lavina.\n\nNa **finančním trhu** se střetává nabídka volných peněz s poptávkou: krátkodobě na **peněžním**, dlouhodobě na **kapitálovém** trhu, kde se obchodují cenné papíry — **akcie** (podíl na společnosti, právo na dividendu) a **dluhopisy** (závazek splatit dluh s úrokem). Organizovaným trhem je **burza**."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "Akcie",
+                "vlastnosti": {
+                  "Co to je": "podíl na vlastnictví akciové společnosti",
+                  "Výnos": "dividenda + růst kurzu (není zaručený)",
+                  "Riziko": "vyšší — kurz kolísá, dividenda není jistá",
+                  "Práva majitele": "hlasovat na valné hromadě, podíl na zisku"
+                }
+              },
+              {
+                "nazev": "Dluhopis",
+                "vlastnosti": {
+                  "Co to je": "závazek dlužníka splatit dluh s úrokem",
+                  "Výnos": "předem daný úrok (kupón)",
+                  "Riziko": "nižší — záleží na spolehlivosti dlužníka",
+                  "Práva majitele": "na splacení dluhu a úrok, bez hlasování"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-penize-a-financni-trh-2",
+            "temaId": "penize-a-financni-trh",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Při složeném úročení se úročí i úroky připsané v předchozích obdobích.",
+            "spravna": true,
+            "vysvetleni": "Přesně to je podstata složeného úročení: úrok se počítá z jistiny i z dřívějších úroků, takže vklad roste čím dál rychleji. Jednoduché úročení počítá úrok pořád jen z původní jistiny.",
+            "zdroj": "Peníze a finanční trh"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Vložíš 50 000 Kč na spořicí účet se sazbou 4 % p.a. Kolik tam bude za 3 roky při složeném úročení? A o kolik víc to je než při jednoduchém úročení?",
+          "reseni": "**Složené úročení:** 50 000 × 1,04³ = 50 000 × 1,124864 = **56 243 Kč** (zaokrouhleno).\n\n**Jednoduché úročení:** úrok jen z jistiny: 50 000 + 3 × (50 000 × 0,04) = 50 000 + 6 000 = **56 000 Kč**.\n\nRozdíl 243 Kč vypadá malý, ale s časem roste: za 30 let dá složené úročení 162 170 Kč, jednoduché jen 110 000 Kč. Proto se vyplácí začít spořit brzy — čas pracuje pro tebe."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "funkce peněz",
+              "zadni": "prostředek směny, měřítko cen, uchovatel hodnoty"
+            },
+            {
+              "predni": "inflace",
+              "zadni": "růst cenové hladiny — klesá kupní síla peněz"
+            },
+            {
+              "predni": "deflace",
+              "zadni": "pokles cenové hladiny (opak inflace)"
+            },
+            {
+              "predni": "ČNB",
+              "zadni": "centrální banka: cenová stabilita, emise peněz, dohled nad finančním trhem"
+            },
+            {
+              "predni": "inflační cíl ČNB",
+              "zadni": "2 %"
+            },
+            {
+              "predni": "2T repo sazba",
+              "zadni": "základní úroková sazba ČNB — nástroj měnové politiky"
+            },
+            {
+              "predni": "úroková míra",
+              "zadni": "roční výše úroku v procentech (p.a.)"
+            },
+            {
+              "predni": "složené úročení",
+              "zadni": "úročí se jistina i připsané úroky"
+            },
+            {
+              "predni": "akcie",
+              "zadni": "podíl na společnosti — právo na dividendu a hlasování"
+            },
+            {
+              "predni": "dluhopis",
+              "zadni": "závazek splatit dluh s úrokem"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Peníze = prostředek směny, měřítko cen, uchovatel hodnoty; dnes hlavně bezhotovostní.\n- **Inflace** snižuje kupní sílu; ČNB ji drží u cíle **2 %** pomocí úrokových sazeb (2T repo).\n- ČNB navíc emituje peníze a **dohlíží na finanční trh**; komerční banky žijí z rozdílu úroků.\n- **Složené úročení** úročí i úroky — čas hraje pro spořícího.\n- Kapitálový trh: **akcie** (podíl, dividenda) × **dluhopisy** (dluh s úrokem); obchoduje se na **burze**."
+        }
+      ]
+    }
+  ]
+}

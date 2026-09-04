@@ -2,8 +2,9 @@
 
 Praktický postup „mám učební látku → student se ji naučí a testuje“, psaný
 pro denní použití. Souvislosti: nasazení serveru a Windows aplikace řeší
-`docs/NASAZENI.md`, technický kontrakt `docs/ARCHITEKTURA.md`, didaktické
-zásady výukových lekcí `docs/VYUKA.md`.
+`docs/NASAZENI.md`, technický kontrakt `docs/ARCHITEKTURA.md`, závaznou
+šablonu obsahu `docs/DIDAKTIKA.md`, didaktické zásady výukových lekcí
+`docs/VYUKA.md`.
 
 Všechny příkazy spouštěj v Terminálu ve složce projektu:
 
@@ -110,30 +111,48 @@ Admin web `https://<server>/admin` (token = `QUESTOR_ADMIN_TOKEN`):
   „Výzva od táty“; po dokončení výzva ze studentova seznamu zmizí
   a výsledek dorazí mezi poslední testy.
 
-## 4. Aplikace bez serveru (demo banka)
+## 4. Aplikace bez serveru (bundlovaný obsah)
 
 Aplikace je **offline-first** a plně funkční úplně bez serveru:
 
-- Banka „Ekonomika a podnikání“ je zabalená přímo v aplikaci
-  (`aplikace/src/data/demo-banka.json`, kopie
-  `data/banky/ekonomika-podnikani.json` 1:1) — testy, XP, streak, questy,
-  truhly i sbírka jedou lokálně, progres se ukládá v aplikaci.
-- Stejně je bundlovaný vzorový předmět „Zbožíznalství“ — banka i výuka —
-  jako `aplikace/src/data/predmety/zbozinalstvi.banka.json`
-  a `….vyuka.json` (kopie souborů z `data/`; konvence názvů viz README
-  v té složce). Lekce tedy fungují také úplně bez serveru.
+- Kompletní 1. ročník — 13 předmětů, každý s bankou otázek i výukou —
+  je zabalený přímo v aplikaci ve složce `aplikace/src/data/predmety/`
+  (kopie souborů z `data/banky/` a `data/vyuka/` 1:1; konvence názvů
+  `<predmetId>.banka.json` / `<predmetId>.vyuka.json`, viz README v té
+  složce). Testy, lekce, XP, streak, questy, truhly i sbírka jedou
+  lokálně, progres se ukládá v aplikaci. Každý JSON je samostatný async
+  chunk — obsah nezpomaluje start aplikace, načítá se na pozadí.
+- Názvy, ikony a pořadí předmětů v UI určuje ručně psaný registr
+  `aplikace/src/data/predmety.ts` (`PREDMETY`). Předmět se v UI ukáže,
+  jen když jeho banka reálně existuje (bundle, IndexedDB nebo server).
 - Když je server nastavený, ale zrovna nedostupný, nic se neděje: hraje se
   dál a neodeslaný progres čeká ve frontě, která se po obnovení spojení
   sama dosynchronizuje. Žádné chybové hlášky uprostřed hry — stav
   připojení je vidět nenápadně v Nastavení a na Domů.
-- **Aktualizace demo banky** (pro instalace bez serveru): zkopíruj nový
-  JSON 1:1 do `aplikace/src/data/demo-banka.json` a vydej novou verzi
-  aplikace (`docs/NASAZENI.md`, krok 3). Novější verze banky se prosadí
-  i proti persistovanému stavu existující instalace.
+- Obsah stažený ze serveru (jen vyšší verze než lokální) se ukládá do
+  IndexedDB a přežije restart aplikace; instalace bez serveru jede čistě
+  z bundlu.
+- **Aktualizace bundlovaného obsahu** (pro instalace bez serveru):
+  zkopíruj nový JSON 1:1 do `aplikace/src/data/predmety/`, spusť
+  `npx tsx scripts/kontrola-integrace.ts` a vydej novou verzi aplikace
+  (`docs/NASAZENI.md`, krok 3). Novější verze obsahu se prosadí i proti
+  obsahu uloženému v existující instalaci.
 
-## 5. Přidání úplně nového předmětu
+## 5. Předměty a přidání nového (i dalšího ročníku)
+
+Aktuálně bundlovaných 13 předmětů 1. ročníku (obor Ekonomika
+a podnikání): Ekonomika a podnikání, Písemná a elektronická komunikace,
+Informatika, Český jazyk a literatura, Anglický jazyk, Německý jazyk,
+Matematika, Dějepis, Občanská nauka, Fyzika, Chemie, Biologie a ekologie,
+Zbožíznalství. Volba předmětu je první krok při konfiguraci testu
+(modal „Nová výprava“ na Domů i rychlý start na /test); „Učit se“
+a Témata ve Statistikách jsou členěné per předmět.
+
+Přidání nového předmětu — **další ročník = nový předmět s vlastním id**
+(např. `matematika-2` pro matematiku 2. ročníku; id je kebab-case slug):
 
 1. Ulož učivo: `data/uciva/<novy-predmet>.md` (nebo .txt/.pdf/.docx).
+   Piš ho podle šablony `docs/DIDAKTIKA.md` (závazná struktura a kvalita).
 2. Vygeneruj banku s novým id (krok 1 výše):
 
    ```bash
@@ -141,15 +160,19 @@ Aplikace je **offline-first** a plně funkční úplně bez serveru:
      --predmet <novy-predmet> --nazev "Název nového předmětu"
    ```
 
+   Pozor: `temaId` a id otázek musí být unikátní napříč VŠEMI předměty
+   (temaId je routa `/uceni/:temaId` a klíč postupu lekcí) — hlídá to
+   `npx tsx scripts/kontrola-integrace.ts`
+   a `aplikace/test/predmety.test.ts`.
 3. Zvaliduj a nahraj na server (kroky 1.3 a 2). Aplikace si novou banku
    stáhne při nejbližším syncu — stahují se všechny banky ze serveru,
    i dosud neznámé.
-
-> **Omezení (zatím):** konfigurace testu na Domů pracuje s PRVNÍ bankou,
-> kterou aplikace má — přepínač předmětů v UI ještě není (viz Stav
-> v CLAUDE.md). Lekce dalších předmětů ale student vidí na „Učit se“
-> a otestovat se z nich může tlačítkem „Otestuj se z tématu“ na konci
-> lekce (to funguje pro každý předmět).
+4. Přidej předmět do registru `aplikace/src/data/predmety.ts`
+   (`PREDMETY`: id, název, ikona — pořadí v poli = pořadí v UI). Bez
+   záznamu předmět funguje taky, jen s názvem z banky a obecnou ikonou 📘.
+5. Má-li předmět fungovat i BEZ serveru, zkopíruj JSONy do
+   `aplikace/src/data/predmety/` a vydej novou verzi aplikace (kap. 4,
+   poslední bod).
 
 ## 6. Výuka — lekce k předmětu
 
@@ -184,11 +207,15 @@ npm run generuj -- --vstup "$PWD/data/uciva/<predmet>.md" \
 ### 6b. Validace a kontrola
 
 Generátor výstup validuje sám (`validujVyuku`). Po RUČNÍ editaci souboru
-zvaliduj jednořádkovkou z kořene projektu:
+zvaliduj z kořene projektu:
 
 ```bash
-npx tsx -e "import('@questor/sdilene').then(function(s){var fs=require('node:fs');s.validujVyuku(JSON.parse(fs.readFileSync('data/vyuka/<predmet>.json','utf8')));console.log('Výuka OK');}).catch(function(e){console.error(String(e));process.exit(1);})"
+npx tsx scripts/validuj-vyuku.ts data/vyuka/<predmet>.json
 ```
+
+Vypíše lekce a rozpis bloků. Křížové kontroly proti bance (vazba lekcí
+na témata, kolize id) navíc udělá `npx tsx scripts/kontrola-integrace.ts`
+(běží nad bundlovanou složkou `aplikace/src/data/predmety/`).
 
 Pak si lekce projdi očima studenta: `npm run dev:aplikace` →
 http://localhost:5173 → „Učit se“. Zkontroluj věcnou správnost textů
@@ -224,8 +251,7 @@ stáhne sama při nejbližším syncu.
 
 > Dokončená lekce dává XP jen poprvé v den; projít ji znovu jde kdykoli
 > („Projít znovu“ na konci lekce). Tlačítko „Otestuj se z tématu“ na
-> konci lekce funguje pro každý předmět — i ten, který zatím nejde
-> vybrat v konfiguraci testu na Domů (kap. 5).
+> konci lekce funguje pro každý předmět.
 
 ## 7. Dogenerování otázek (volitelné)
 
@@ -282,6 +308,6 @@ vrátí 400):
 
 - 409 → nezvýšila se verze (server už stejnou nebo vyšší má),
 - 400 → JSON neprošel validací (banka: `scripts/validuj-banku.ts`;
-  výuka: jednořádkovka z kap. 6b — vypíše proč),
+  výuka: `scripts/validuj-vyuku.ts` — vypíše proč),
 - 413 → soubor je přes limit 10 MB,
 - 401 → špatný admin token.

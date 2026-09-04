@@ -1,0 +1,809 @@
+{
+  "predmetId": "cesky-jazyk",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "cj-obecne-o-jazyce",
+      "nazev": "Obecné poučení o jazyce",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Píšeš dvě zprávy během jedné minuty. Kamarádovi: „Čau, dorazim vodpoledne, vem ovladače.“ Babičce k narozeninám: „Milá babičko, přeji Ti pevné zdraví.“ Stejný člověk, stejný jazyk — a přitom dva úplně jiné texty. Právě jsi bez přemýšlení přepnul mezi útvary národního jazyka."
+        },
+        {
+          "typ": "text",
+          "obsah": "Čeština je náš **národní jazyk** — patří mezi **slovanské jazyky** (západoslovanská větev se slovenštinou a polštinou) a s nimi do rodiny **jazyků indoevropských**. Národní jazyk ale není jednolitý: má několik podob, kterým říkáme **útvary národního jazyka**.\n\n- **Spisovná čeština** — jediný **kodifikovaný** útvar (pravidla jsou závazně popsána v příručkách). Patří do školy, úřadů, médií a oficiální komunikace. Její volnější mluvenou vrstvou je **hovorová čeština** — pozor, ta je pořád spisovná!\n- **Obecná čeština** — nespisovný **interdialekt** běžného hovoru hlavně v Čechách: „dobrej film“, „vokno“, „bysme“.\n- **Nářečí (dialekty)** — útvary vázané na **území**: hanácké „su z Brna“, východomoravské, slezské.\n- **Slang** — mluva **zájmové nebo profesní skupiny**: studentská „písemka“, herní „respawn“.\n- **Argot** — mluva skupin, které **nechtějí být srozumitelné** (historicky podsvětí: „káča“ = pokladna)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Na pohovoru o brigádu, v e-mailu učiteli nebo při maturitě rozhoduje první dojem — a ten děláš jazykem. Kdo umí přepnout do spisovné češtiny, když jde do tuhého, působí o třídu líp než ten, kdo všude píše „zdarec, tak jak to teda bude“. A naopak: spisovný projev v partě působí škrobeně. Vyhrává ten, kdo útvary střídá **vědomě podle situace**."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 360' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Útvary národního jazyka: spisovná čeština s hovorovou vrstvou a nespisovné útvary — obecná čeština, nářečí, slang, argot'><defs><marker id='sip' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor' /></marker></defs><rect x='230' y='16' width='180' height='40' rx='10' fill='none' stroke='currentColor' stroke-width='2.5' /><text x='320' y='41' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>NÁRODNÍ JAZYK</text><line x1='290' y1='56' x2='170' y2='104' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip)' /><line x1='350' y1='56' x2='470' y2='104' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip)' /><rect x='50' y='110' width='250' height='52' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2.5' /><text x='175' y='132' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>SPISOVNÁ ČEŠTINA</text><text x='175' y='151' text-anchor='middle' font-size='11' fill='currentColor'>kodifikovaná — škola, úřady, média</text><line x1='175' y1='162' x2='175' y2='196' stroke='var(--uspech)' stroke-width='1.5' marker-end='url(#sip)' /><rect x='50' y='202' width='250' height='48' rx='10' fill='none' stroke='var(--uspech)' stroke-width='1.5' stroke-dasharray='5 3' /><text x='175' y='222' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>hovorová čeština</text><text x='175' y='240' text-anchor='middle' font-size='11' fill='currentColor'>mluvená vrstva — stále spisovná!</text><rect x='360' y='110' width='230' height='40' rx='10' fill='none' stroke='var(--chyba)' stroke-width='2.5' /><text x='475' y='135' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>NESPISOVNÉ ÚTVARY</text><line x1='475' y1='150' x2='475' y2='166' stroke='var(--chyba)' stroke-width='1.5' /><rect x='340' y='170' width='280' height='38' rx='8' fill='none' stroke='var(--chyba)' stroke-width='1.5' /><text x='480' y='187' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>obecná čeština</text><text x='480' y='202' text-anchor='middle' font-size='10.5' fill='currentColor'>běžný hovor v Čechách: „dobrej“, „vokno“</text><rect x='340' y='216' width='280' height='38' rx='8' fill='none' stroke='var(--chyba)' stroke-width='1.5' /><text x='480' y='233' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>nářečí (dialekty)</text><text x='480' y='248' text-anchor='middle' font-size='10.5' fill='currentColor'>vázaná na území: „su z Brna“</text><rect x='340' y='262' width='280' height='38' rx='8' fill='none' stroke='var(--chyba)' stroke-width='1.5' /><text x='480' y='279' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>slang</text><text x='480' y='294' text-anchor='middle' font-size='10.5' fill='currentColor'>zájmové skupiny: „písemka“, „respawn“</text><rect x='340' y='308' width='280' height='38' rx='8' fill='none' stroke='var(--chyba)' stroke-width='1.5' /><text x='480' y='325' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>argot</text><text x='480' y='340' text-anchor='middle' font-size='10.5' fill='currentColor'>utajovaná mluva: „káča“ = pokladna</text><text x='175' y='300' text-anchor='middle' font-size='11' fill='var(--info)'>O spisovnosti rozhoduje</text><text x='175' y='316' text-anchor='middle' font-size='11' fill='var(--info)'>kodifikace v příručkách</text></svg>",
+          "popisek": "Národní jazyk se větví na spisovnou češtinu (zeleně, s mluvenou hovorovou vrstvou) a nespisovné útvary (červeně): obecnou češtinu, nářečí, slang a argot. Rozdíl mezi nimi dělá kodifikace — závazná pravidla v příručkách."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-obecne-o-jazyce-1",
+            "temaId": "cj-obecne-o-jazyce",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kamarád ti napíše: „Hele, vodpoledne dorazim, vokno nech votevřený.“ Kterým útvarem národního jazyka je zpráva napsaná?",
+            "moznosti": [
+              "obecnou češtinou",
+              "nářečím",
+              "slangem",
+              "spisovnou češtinou"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Protetické v- (vokno, votevřený) a koncovka -im jsou typické znaky obecné češtiny — nespisovného útvaru běžného hovoru v Čechách. Nářečí by prozradil konkrétní kraj a slang zájmová skupina; spisovně by zpráva zněla „odpoledne dorazím“."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Kdo rozhoduje, co je spisovné? **Kodifikace** — závazné zachycení jazykové normy v **jazykových příručkách**:\n\n- **Pravidla českého pravopisu** — jak psát,\n- **Slovník spisovné češtiny** — významy a tvary slov,\n- **Internetová jazyková příručka** Ústavu pro jazyk český (prirucka.ujc.cas.cz) — dnes nejpoužívanější: zdarma online spojuje slovník s výkladem pravopisu a tvarosloví.\n\nJazykem se vědecky zabývá **jazykověda (lingvistika)** — její disciplíny (hláskosloví, tvarosloví, skladba, stylistika) tě čekají v dalších lekcích. A pamatuj: nespisovné útvary **nejsou špatná čeština** — jsou jen jinde doma. Chyba je použít je v nesprávné situaci."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď ukázky podle útvaru národního jazyka, kterým jsou napsané.",
+            "kategorie": [
+              { "id": "spisovna", "nazev": "spisovná čeština" },
+              { "id": "obecna", "nazev": "obecná čeština" },
+              { "id": "nareci", "nazev": "nářečí" },
+              { "id": "slang", "nazev": "slang" }
+            ],
+            "polozky": [
+              { "text": "„Dobrý den, rád bych se přihlásil do kroužku.“", "kategorieId": "spisovna" },
+              { "text": "„Vážení diváci, vítejte u večerních zpráv.“", "kategorieId": "spisovna" },
+              { "text": "„Ten novej film byl fakt dobrej.“", "kategorieId": "obecna" },
+              { "text": "„Bysme tam měli bejt do vosmi.“", "kategorieId": "obecna" },
+              { "text": "„Su z Brna a idu dom.“", "kategorieId": "nareci" },
+              { "text": "„Tož přindi zítra k nám.“", "kategorieId": "nareci" },
+              { "text": "„Dal jsem headshot a sebral loot.“", "kategorieId": "slang" },
+              { "text": "„Zítra píšeme bajle z matiky,“ hlásí spolužák.", "kategorieId": "slang" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-obecne-o-jazyce-2",
+            "temaId": "cj-obecne-o-jazyce",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Hovorová čeština je nespisovný útvar národního jazyka.",
+            "spravna": false,
+            "vysvetleni": "Hovorová čeština je volnější MLUVENÁ vrstva spisovné češtiny — pořád je spisovná. Nespisovné útvary jsou obecná čeština, nářečí, slang a argot. Právě záměna hovorové a obecné češtiny je nejčastější chyták."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Potřebuješ omluvit zpoždění na dvou místach najednou: (1) ve zprávě třídnímu učiteli, (2) ve zprávě kamarádovi, se kterým máš sraz. Napiš obě zprávy a rozhodni, jaký útvar jazyka zvolíš.",
+          "reseni": "**(1) Učiteli — spisovná čeština** (oficiální situace, adresát má autoritu):\n„Dobrý den, omlouvám se, přijdu asi o deset minut později — ujel mi autobus. Jirka Novák, 1.B“\n\n**(2) Kamarádovi — obecná čeština, klidně se slangem** (neformální situace, blízký člověk):\n„Čau, ujel mi bus, budu tam vo chvíli pozdějc, počkej u véčka.“\n\n**Proč to tak je:** obě zprávy jsou jazykově „správně“ — každá ve své situaci. Kdyby sis je prohodil, učitel by tě měl za drzého a kamarád by si myslel, že sis ho dobíráš. Volba útvaru = součást sdělení."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "spisovná čeština", "zadni": "kodifikovaný útvar pro oficiální komunikaci (škola, úřady, média)" },
+            { "predni": "hovorová čeština", "zadni": "mluvená vrstva SPISOVNÉ češtiny — bez knižních prvků, ale spisovná" },
+            { "predni": "obecná čeština", "zadni": "nespisovný interdialekt běžného hovoru v Čechách („dobrej“, „vokno“)" },
+            { "predni": "nářečí (dialekt)", "zadni": "nespisovný útvar vázaný na určité území („su z Brna“)" },
+            { "predni": "slang", "zadni": "mluva zájmové nebo profesní skupiny („písemka“, „respawn“)" },
+            { "predni": "argot", "zadni": "mluva skupin, které nechtějí být ostatním srozumitelné (podsvětí)" },
+            { "predni": "kodifikace", "zadni": "závazné zachycení jazykové normy v příručkách" },
+            { "predni": "Internetová jazyková příručka", "zadni": "online kodifikační příručka Ústavu pro jazyk český (prirucka.ujc.cas.cz)" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Národní jazyk má **spisovnou** podobu (kodifikovanou, pro oficiální situace) a **nespisovné útvary**.\n- **Obecná čeština** = běžný hovor v Čechách; **nářečí** = vázané na území; **slang** = zájmové skupiny; **argot** = utajovaná mluva.\n- **Hovorová čeština je spisovná** — je to jen její volnější mluvená vrstva.\n- Co je spisovné, říkají **jazykové příručky** — dnes hlavně Internetová jazyková příručka ÚJČ.\n- Útvar volíme **podle situace** — v tom je jazyková dovednost."
+        }
+      ]
+    },
+    {
+      "temaId": "cj-zvukova-stranka",
+      "nazev": "Zvuková stránka jazyka",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Stojíš před tabulí, v ruce papír s referátem. Spolužák v poslední lavici zvedne ruku: „Nerozumíme ti!“ Mumláš, polykáš slabiky a z „čtyři tisíce“ se stalo „štyry tisíce“. Obsah máš skvělý — ale zvuková stránka tě zradila. Pojďme ji ovládnout."
+        },
+        {
+          "typ": "text",
+          "obsah": "Mluvená řeč se skládá z **hlásek** — nejmenších zvukových jednotek. Pozor: **hláska je zvuk, písmeno je znak** a nemusí si odpovídat („ch“ je jedna hláska zapsaná dvěma písmeny — spřežkou). Zvukem řeči se zabývá **fonetika** (jak hlásky tvoříme) a **fonologie** (jak rozlišují význam: pere × pero).\n\n**Samohlásky (vokály)** jsou tóny a tvoří jádro slabiky:\n\n- **5 krátkých**: a, e, i/y, o, u,\n- **5 dlouhých**: á, é, í/ý, ó, ú/ů — délka mění význam: byt × být, dráha × drahá,\n- **dvojhlásky (diftongy)**: **ou** (mouka), au a eu v přejatých slovech (auto, leukocyt).\n\n**Souhlásky (konsonanty)** jsou šumy:\n\n- **párové znělé × neznělé**: b–p, d–t, ď–ť, z–s, ž–š, v–f, h–ch, g–k,\n- **jedinečné** (bez neznělého protějšku): m, n, ň, j, l, r."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Referát, prezentace ročníkové práce, jednou pohovor nebo video na sociální sítě — všude rozhoduje, jestli je ti rozumět. Kdo zřetelně vyslovuje, drží přízvuk a nechává věty správně klesat a stoupat, zní sebejistě — i když má trému. A znalost spodoby znělosti tě zachrání v pravopise: víš, proč se píše „kresba“, i když slyšíš [krezba]."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 360' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Rozdělení hlásek na samohlásky (krátké, dlouhé, dvojhlásky) a souhlásky (párové znělé a neznělé, jedinečné); dole pravidlo o přízvuku na první slabice'><rect x='250' y='14' width='140' height='38' rx='10' fill='none' stroke='currentColor' stroke-width='2.5' /><text x='320' y='38' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>HLÁSKY</text><line x1='285' y1='52' x2='170' y2='86' stroke='currentColor' stroke-width='1.5' /><line x1='355' y1='52' x2='470' y2='86' stroke='currentColor' stroke-width='1.5' /><rect x='55' y='90' width='230' height='40' rx='10' fill='none' stroke='var(--info)' stroke-width='2.5' /><text x='170' y='108' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>SAMOHLÁSKY = tóny</text><text x='170' y='124' text-anchor='middle' font-size='10.5' fill='currentColor'>jádro slabiky</text><rect x='55' y='142' width='230' height='34' rx='8' fill='none' stroke='var(--info)' stroke-width='1.5' /><text x='170' y='156' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>krátké: a e i o u</text><text x='170' y='170' text-anchor='middle' font-size='11' fill='currentColor'>dlouhé: á é í ó ú/ů</text><rect x='55' y='184' width='230' height='34' rx='8' fill='none' stroke='var(--info)' stroke-width='1.5' /><text x='170' y='198' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>dvojhlásky: ou, au, eu</text><text x='170' y='212' text-anchor='middle' font-size='10.5' fill='currentColor'>mouka, auto, leukocyt</text><rect x='55' y='226' width='230' height='34' rx='8' fill='none' stroke='var(--zlata)' stroke-width='1.5' /><text x='170' y='240' text-anchor='middle' font-size='10.5' fill='currentColor'>délka mění význam:</text><text x='170' y='254' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>byt × být, dráha × drahá</text><rect x='355' y='90' width='230' height='40' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='470' y='108' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>SOUHLÁSKY = šumy</text><text x='470' y='124' text-anchor='middle' font-size='10.5' fill='currentColor'>obalují jádro slabiky</text><rect x='355' y='142' width='230' height='48' rx='8' fill='none' stroke='var(--akcent)' stroke-width='1.5' /><text x='470' y='158' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>párové znělé × neznělé</text><text x='470' y='172' text-anchor='middle' font-size='10.5' fill='currentColor'>b–p, d–t, ď–ť, z–s, ž–š</text><text x='470' y='185' text-anchor='middle' font-size='10.5' fill='currentColor'>v–f, h–ch, g–k</text><rect x='355' y='198' width='230' height='34' rx='8' fill='none' stroke='var(--akcent)' stroke-width='1.5' /><text x='470' y='212' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>jedinečné: m n ň j l r</text><text x='470' y='226' text-anchor='middle' font-size='10.5' fill='currentColor'>neznělý protějšek nemají</text><rect x='355' y='240' width='230' height='34' rx='8' fill='none' stroke='var(--zlata)' stroke-width='1.5' /><text x='470' y='254' text-anchor='middle' font-size='10.5' fill='currentColor'>spodoba znělosti:</text><text x='470' y='268' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>včela → [fčela], led → [let]</text><rect x='120' y='300' width='400' height='42' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2' /><text x='320' y='318' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>PŘÍZVUK: vždy na PRVNÍ slabice</text><text x='320' y='334' text-anchor='middle' font-size='11' fill='currentColor'>s předložkou přechází na ni: NA horách, DO školy</text></svg>",
+          "popisek": "Hlásky se dělí na samohlásky (modře) — tóny tvořící jádro slabiky, s krátkými a dlouhými variantami a dvojhláskami — a souhlásky (fialově) — šumy, párové znělé/neznělé a jedinečné. Zlaté rámečky ukazují dva klíčové jevy: délka mění význam a spodoba znělosti mění výslovnost."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-zvukova-stranka-1",
+            "temaId": "cj-zvukova-stranka",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kolik hlásek má slovo „chata“?",
+            "moznosti": ["4", "5", "3", "6"],
+            "spravna": 0,
+            "vysvetleni": "Ch-a-t-a = 4 hlásky, ale 5 písmen. „Ch“ je spřežka — jedna hláska zapsaná dvěma písmeny. Kdo počítal 5, počítal písmena, ne hlásky (zvuky)."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Souhlásky se ve výslovnosti navzájem ovlivňují — **spodoba (asimilace) znělosti**: „včela“ → [fčela], „kresba“ → [krezba], „led“ na konci slova → [let]. **Píšeme ale podle stavby slova, ne podle výslovnosti!**\n\nSpisovnou výslovnost hlídá **ortoepie**: nepolykej hlásky („jablko“, ne „jabko“), drž délky, vyslovuj pečlivě souhláskové skupiny.\n\n**Zvukové prostředky souvislé řeči:**\n\n- **slovní přízvuk** — v češtině **vždy na první slabice**; jednoslabičná předložka tvoří se slovem **přízvukový celek** a přízvuk přebírá: **NA** horách,\n- **větný přízvuk (důraz)** — zesílení nejdůležitějšího slova věty,\n- **intonace (melodie)** — klesá u oznamovacích vět i doplňovacích otázek („Kam jdeš?“), **stoupá u zjišťovacích otázek** („Přijdeš zítra?“),\n- **tempo a pauzy** — člení projev, dávají posluchači čas."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              { "a": "fonetika", "b": "nauka o tvoření a vnímání hlásek" },
+              { "a": "ortoepie", "b": "pravidla spisovné výslovnosti" },
+              { "a": "spodoba znělosti", "b": "„včela“ vyslovíme [fčela]" },
+              { "a": "dvojhláska", "b": "ou ve slově mouka" },
+              { "a": "slovní přízvuk", "b": "v češtině vždy na první slabice" },
+              { "a": "intonace", "b": "melodie věty — stoupá u otázek ano/ne" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-zvukova-stranka-2",
+            "temaId": "cj-zvukova-stranka",
+            "typ": "doplneni",
+            "obtiznost": 2,
+            "zadani": "Na které slabice slova je v češtině slovní přízvuk? (napiš pořadí slabiky)",
+            "spravneOdpovedi": ["první", "prvni", "na první", "na prvni", "1", "1."],
+            "vysvetleni": "Český přízvuk je stálý — vždy na první slabice slova. Díky tomu poznáš v proudu řeči začátky slov. Jednoslabičná předložka přízvuk přebírá: NA horách, DO školy."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Máš nahlas přečíst tři věty tak, aby posluchač jen z hlasu poznal, o jakou větu jde:\n\n1. „Půjdeme zítra na hřiště?“\n2. „Půjdeme zítra na hřiště.“\n3. „Kam půjdeme zítra?“\n\nJak s intonací naložíš?",
+          "reseni": "**1. Zjišťovací otázka** (odpověď ano/ne) → intonace na konci **stoupá**: „…na hřiště?↗“ Bez stoupnutí by posluchač slyšel oznámení.\n\n**2. Oznamovací věta** → intonace **klesá**: „…na hřiště.↘“ Pokles signalizuje: věta končí, nic se neptám.\n\n**3. Doplňovací otázka** (ptá se tázacím slovem „kam“) → intonace **klesá** jako u oznamovací věty — otázku poznáš podle „kam“, melodie stoupat nemusí.\n\nBonus: ve všech větách čti „na hřiště“ jako jeden přízvukový celek s přízvukem na „na“."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "hláska", "zadni": "nejmenší zvuková jednotka řeči (zvuk, ne znak)" },
+            { "predni": "spřežka", "zadni": "jedna hláska zapsaná dvěma písmeny — „ch“" },
+            { "predni": "fonetika", "zadni": "nauka o tvoření a vnímání hlásek" },
+            { "predni": "ortoepie", "zadni": "nauka o spisovné výslovnosti" },
+            { "predni": "dvojhláska (diftong)", "zadni": "dvě samohlásky v jedné slabice: ou (mouka), au, eu" },
+            { "predni": "spodoba znělosti", "zadni": "souhlásky se přizpůsobí: včela [fčela], led [let] — píšeme podle stavby slova" },
+            { "predni": "slovní přízvuk", "zadni": "v češtině vždy na první slabice; předložka ho přebírá (NA horách)" },
+            { "predni": "intonace", "zadni": "melodie věty: stoupá u zjišťovacích otázek, jinak klesá" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Hláska** je zvuk, **písmeno** znak — nemusí si odpovídat („ch“).\n- **Samohlásky** = tóny (krátké, dlouhé, dvojhlásky); délka mění význam.\n- **Souhlásky** = šumy: párové znělé × neznělé + jedinečné; ve výslovnosti nastává **spodoba znělosti**, ale píšeme podle stavby slova.\n- **Přízvuk** je vždy na **první slabice** (s předložkou na předložce).\n- **Intonace stoupá** jen u zjišťovacích otázek — jinak klesá."
+        }
+      ]
+    },
+    {
+      "temaId": "cj-pravopis",
+      "nazev": "Pravopis",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Kamarádka napíše do třídní skupiny: „Nemůžu přijít, bidlím teď u babičky.“ Během minuty má pod zprávou tři smějící se smajlíky a screenshot koluje po škole. Jedno písmenko — a místo soucitu sklidila posměch. Pravopis je vizitka, kterou ukazuješ při každé zprávě."
+        },
+        {
+          "typ": "text",
+          "obsah": "**I/y po obojetných souhláskách** (b, f, l, m, p, s, v, z): uvnitř kořenů píšeme **y** jen ve **vyjmenovaných slovech** a slovech příbuzných — být (bydlet, obyvatel), mýt (mýdlo), pýcha, sytý, vysoký, jazyk, brzy… Pozor na dvojice, kde i/y mění význam: **být × bít**, **mýt × mít**, **výr × vír**. V koncovkách rozhoduje **vzor**: „s pány“ podle vzoru pán.\n\n**Psaní ě**: bě/pě/vě/mě uvnitř slov (běhat, pěna). **Bje/vje** jen po předponě ob-/v-: ob-jet → objede, v-jezd. **Mně/mě**: 2. a 4. pád **mě**, 3. a 6. pád **mně**; ve slovech pomůže příbuzný tvar: zapo**mně**l (pomni), ale ta**mě**jší (bez n).\n\n**Ú/ů**: **ú** na začátku slova, po předponě a ve složeninách (úkol, zaútočit, trojúhelník); **ů** uprostřed a na konci (stůl, domů)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Každá tvoje zpráva, komentář, přihláška na brigádu i životopis je veřejný test pravopisu. Personalisté přiznávají, že životopis s hrubkami často rovnou vyřazují — a algoritmy ti hrubku v příspěvku neopraví. Přitom stačí pár pravidel a návyk: když si nejsem jistý, ověřím v Internetové jazykové příručce. To je dovednost na celý život, autokorekt ji nenahradí (sám dělá chyby)."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 350' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Předpony s-, z- a vz- s významy a příklady; dole pravidlo psaní ú a ů podle pozice ve slově'><defs><marker id='ps' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor' /></marker></defs><text x='320' y='26' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>PŘEDPONY S- / Z- / VZ- — rozhoduje VÝZNAM</text><rect x='30' y='44' width='180' height='120' rx='10' fill='none' stroke='var(--info)' stroke-width='2.5' /><text x='120' y='68' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>S-</text><line x1='120' y1='78' x2='120' y2='104' stroke='var(--info)' stroke-width='2.5' marker-end='url(#ps)' /><text x='120' y='122' text-anchor='middle' font-size='10.5' fill='currentColor'>směr dolů, z povrchu,</text><text x='120' y='135' text-anchor='middle' font-size='10.5' fill='currentColor'>dohromady</text><text x='120' y='153' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>spadnout, sbalit, sejít se</text><rect x='230' y='44' width='180' height='120' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='320' y='68' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>Z-</text><circle cx='305' cy='92' r='9' fill='none' stroke='var(--akcent)' stroke-width='2' /><line x1='318' y1='92' x2='330' y2='92' stroke='var(--akcent)' stroke-width='2' marker-end='url(#ps)' /><circle cx='344' cy='92' r='9' fill='var(--akcent)' /><text x='320' y='122' text-anchor='middle' font-size='10.5' fill='currentColor'>dokončení děje,</text><text x='320' y='135' text-anchor='middle' font-size='10.5' fill='currentColor'>změna stavu</text><text x='320' y='153' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>zčervenat, zhubnout</text><rect x='430' y='44' width='180' height='120' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2.5' /><text x='520' y='68' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>VZ-</text><line x1='520' y1='104' x2='520' y2='78' stroke='var(--uspech)' stroke-width='2.5' marker-end='url(#ps)' /><text x='520' y='122' text-anchor='middle' font-size='10.5' fill='currentColor'>směr vzhůru</text><text x='520' y='153' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>vzlétnout, vztyčit</text><rect x='30' y='180' width='580' height='50' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='320' y='200' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>Významové dvojice — stejný zvuk, jiný smysl:</text><text x='320' y='218' text-anchor='middle' font-size='11' fill='currentColor'>správa domu × zpráva v TV · sběh lidí × zběh z armády · shlédnout dolů × zhlédnout film</text><text x='320' y='260' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>Ú × Ů — rozhoduje POZICE ve slově</text><rect x='75' y='276' width='150' height='56' rx='10' fill='none' stroke='var(--info)' stroke-width='2' /><text x='150' y='298' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>ú = začátek</text><text x='150' y='318' text-anchor='middle' font-size='11' fill='currentColor'>úkol, zaútočit</text><rect x='245' y='276' width='150' height='56' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2' /><text x='320' y='298' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>ů = uprostřed</text><text x='320' y='318' text-anchor='middle' font-size='11' fill='currentColor'>stůl, průvan</text><rect x='415' y='276' width='150' height='56' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2' /><text x='490' y='298' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>ů = konec</text><text x='490' y='318' text-anchor='middle' font-size='11' fill='currentColor'>domů, dolů</text></svg>",
+          "popisek": "Nahoře tři předpony a jejich významy: s- míří dolů či dohromady, z- znamená dokončení nebo změnu stavu, vz- směr vzhůru — u dvojic jako správa × zpráva rozhoduje význam o pravopisu. Dole pravidlo ú/ů: ú na začátku slova a po předponě, ů uprostřed a na konci."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-pravopis-1",
+            "temaId": "cj-pravopis",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Ve které dvojici jsou obě slova napsaná správně?",
+            "moznosti": [
+              "úkol a stůl",
+              "ůkol a stůl",
+              "úkol a stúl",
+              "ůkol a stúl"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Ú s čárkou patří na začátek slova (úkol), ů s kroužkem doprostřed nebo na konec (stůl, domů). Kdo píše „stúl“, přenáší pravidlo začátku doprostřed slova — tam ú patří jen ve složeninách a po předponě (trojúhelník, zaútočit)."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Předpony s-/z-/vz-** — rozhoduje význam: **s-** = dolů, z povrchu, dohromady (spadnout, smazat, sejít se); **z-** = dokončení či změna stavu (zčervenat, zhubnout); **vz-** = vzhůru (vzlétnout). Významové dvojice: **správa** domu × **zpráva** v televizi, **shlédnout** z věže × **zhlédnout** film.\n\n**Velká písmena**: vlastní jména (Petr Novák), zeměpisné názvy (Praha, Vltava), názvy institucí (Ministerstvo financí) a svátků (Vánoce). U ulic je první slovo názvu velké — a začíná-li název předložkou, i slovo po ní: ulice Dlouhá, náměstí Míru, **Na Příkopě**.\n\n**Interpunkce — základ**: čárka odděluje věty v souvětí (před „že“, „aby“, „protože“, „ale“), několikanásobné větné členy (jablka, hrušky a švestky — před slučovacím „a“ čárka není) a oslovení („Petře, pojď sem“)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď slova podle toho, jakou předponou začínají. Vzpomeň si: s- = dolů/dohromady, z- = změna stavu, vz- = vzhůru.",
+            "kategorie": [
+              { "id": "s", "nazev": "předpona s-" },
+              { "id": "z", "nazev": "předpona z-" },
+              { "id": "vz", "nazev": "předpona vz-" }
+            ],
+            "polozky": [
+              { "text": "_padnout ze střechy", "kategorieId": "s" },
+              { "text": "_balit si věci (dohromady)", "kategorieId": "s" },
+              { "text": "_ejít se před kinem", "kategorieId": "s" },
+              { "text": "_červenat se studem", "kategorieId": "z" },
+              { "text": "_hubnout před létem", "kategorieId": "z" },
+              { "text": "_hlédnout nový film", "kategorieId": "z" },
+              { "text": "_létnout k obloze", "kategorieId": "vz" },
+              { "text": "_tyčit vlajku na stožár", "kategorieId": "vz" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-pravopis-2",
+            "temaId": "cj-pravopis",
+            "typ": "doplneni",
+            "obtiznost": 3,
+            "zadani": "Doplň mě/mně: „Přijď ke ___ v pět.“",
+            "spravneOdpovedi": ["mně"],
+            "vysvetleni": "„Ke komu?“ je 3. pád — a ve 3. a 6. pádě píšeme mně. Pomůcka: kde můžeš říct „tobě“ (ke tobě → k tobě), patří delší tvar mně. Tvar mě patří do 2. a 4. pádu (beze mě, vidí mě)."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Oprav všechny pravopisné chyby ve zprávě a u každé vysvětli proč:\n\n„Ahoj, _padl jsem z kola na ulici na příkopě, z_tra proto nedorazím. Brz_ se u_dravím a stav se u mňe.“",
+          "reseni": "Správně: **„Ahoj, spadl jsem z kola na ulici Na Příkopě, zítra proto nedorazím. Brzy se uzdravím a stav se u mě.“**\n\n1. **spadl** — předpona s-, protože jde o pohyb shora dolů,\n2. **Na Příkopě** — název ulice začíná předložkou → velké písmeno má předložka i slovo po ní; „ulice“ zůstává malé (obecné jméno),\n3. **zítra** — ú/í: žádná předpona, jen dlouhé í,\n4. **brzy** — vyjmenované slovo po z,\n5. **uzdravím** — z- vyjadřuje změnu stavu (stanu se zdravým),\n6. **u mě** — „u koho?“ je 2. pád → krátký tvar mě (mne)."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "vyjmenovaná slova", "zadni": "slova, kde po obojetné souhlásce píšeme y (být, mýt, pýcha, sytý…) + slova příbuzná" },
+            { "predni": "být × bít", "zadni": "být = existovat (y), bít = tlouct (i)" },
+            { "predni": "ú", "zadni": "začátek slova, po předponě, ve složeninách: úkol, zaútočit, trojúhelník" },
+            { "predni": "ů", "zadni": "uprostřed a na konci slova: stůl, domů" },
+            { "predni": "předpona s-", "zadni": "směr dolů, z povrchu, dohromady: spadnout, smazat, sejít se" },
+            { "predni": "předpona z-", "zadni": "dokončení děje, změna stavu: zčervenat, zhubnout" },
+            { "predni": "mě", "zadni": "2. a 4. pád zájmena já: beze mě, vidí mě" },
+            { "predni": "mně", "zadni": "3. a 6. pád zájmena já: ke mně, o mně" },
+            { "predni": "Na Příkopě", "zadni": "název ulice s předložkou: velká předložka i slovo po ní" },
+            { "predni": "čárka před „a“", "zadni": "ve slučovacím poměru se nepíše: jablka, hrušky a švestky" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Y po obojetných** jen ve vyjmenovaných a příbuzných slovech; v koncovkách rozhoduje vzor.\n- **Mě** = 2. a 4. pád, **mně** = 3. a 6. pád; ve slovech hledej příbuzný tvar s n (zapomněl — pomni).\n- **Ú** na začátku a po předponě, **ů** uprostřed a na konci.\n- **S-** dolů/dohromady, **z-** změna stavu, **vz-** vzhůru — význam rozhoduje (správa × zpráva).\n- **Velká písmena**: vlastní jména; u ulic s předložkou velká předložka i další slovo.\n- Nejsi-li si jistý, ověř v **Internetové jazykové příručce** — to není podvod, to je profesionalita."
+        }
+      ]
+    },    {
+      "temaId": "cj-tvaroslovi",
+      "nazev": "Tvarosloví",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Odevzdáš sloh a dostaneš ho zpátky červený jako semafor: „by jsme šli“, „s klucima“, „vidím orli“. Obsah prý skvělý, jazyk katastrofa. Učitelka dopíše jedinou větu: „Nauč se tvarosloví a tohle zmizí.“ Má pravdu — koncovky nejsou magie, ale systém."
+        },
+        {
+          "typ": "text",
+          "obsah": "Tvarosloví (morfologie) zkoumá **slovní druhy** a **tvary slov**. Čeština jich má **deset**.\n\n**Ohebné** (mění tvar — skloňují se, nebo časují):\n\n1. **podstatná jména** (pes, radost),\n2. **přídavná jména** (rychlý, jarní),\n3. **zájmena** (já, náš, který),\n4. **číslovky** (pět, první),\n5. **slovesa** (psát, být).\n\n**Neohebné** (tvar nemění):\n\n6. **příslovce** (rychle, večer), 7. **předložky** (na, kolem), 8. **spojky** (a, protože), 9. **částice** (ať, kéž), 10. **citoslovce** (bum, mňau).\n\nPozor: o slovním druhu rozhoduje **role ve větě** — „večer“ je jednou podstatné jméno (krásný večer), jindy příslovce (přijdu večer).\n\n**Mluvnické kategorie jmen**: **pád** (1.–7.), **číslo** (jednotné, množné), **rod** (mužský životný/neživotný, ženský, střední) a **vzor**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Shoda přísudku s podmětem a koncovky podle vzorů jsou nejčastější hrubky v písemkách, mailech i titulcích na internetu — „psi štěkali“ × „kočky mňoukaly“ plete i dospělé. Kdo umí určit pád a vzor, píše koncovky automaticky správně. A „bychom“ místo „by jsme“ je detail, podle kterého se u přijímaček, maturity i v práci pozná, kdo češtinu ovládá."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 380' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Deset slovních druhů rozdělených na ohebné (podstatná jména, přídavná jména, zájmena, číslovky, slovesa) a neohebné (příslovce, předložky, spojky, částice, citoslovce)'><text x='320' y='26' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>10 SLOVNÍCH DRUHŮ</text><rect x='40' y='44' width='270' height='44' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2.5' /><text x='175' y='63' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>OHEBNÉ (1–5)</text><text x='175' y='80' text-anchor='middle' font-size='10.5' fill='currentColor'>skloňují se, nebo časují</text><rect x='40' y='96' width='270' height='44' rx='8' fill='none' stroke='var(--uspech)' stroke-width='1.5' /><text x='54' y='114' font-size='11.5' font-weight='bold' fill='currentColor'>1. podstatná jména</text><text x='54' y='131' font-size='10.5' fill='currentColor'>pes, radost — pád, číslo, rod, vzor</text><rect x='40' y='146' width='270' height='40' rx='8' fill='none' stroke='var(--uspech)' stroke-width='1.5' /><text x='54' y='163' font-size='11.5' font-weight='bold' fill='currentColor'>2. přídavná jména</text><text x='54' y='179' font-size='10.5' fill='currentColor'>rychlý, jarní — vzory mladý, jarní</text><rect x='40' y='192' width='270' height='40' rx='8' fill='none' stroke='var(--uspech)' stroke-width='1.5' /><text x='54' y='209' font-size='11.5' font-weight='bold' fill='currentColor'>3. zájmena  4. číslovky</text><text x='54' y='225' font-size='10.5' fill='currentColor'>já, náš, který · pět, první</text><rect x='40' y='238' width='270' height='44' rx='8' fill='none' stroke='var(--uspech)' stroke-width='1.5' /><text x='54' y='256' font-size='11.5' font-weight='bold' fill='currentColor'>5. slovesa</text><text x='54' y='273' font-size='10.5' fill='currentColor'>osoba, číslo, čas, způsob, rod, vid</text><rect x='330' y='44' width='270' height='44' rx='10' fill='none' stroke='var(--info)' stroke-width='2.5' /><text x='465' y='63' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>NEOHEBNÉ (6–10)</text><text x='465' y='80' text-anchor='middle' font-size='10.5' fill='currentColor'>tvar se nikdy nemění</text><rect x='330' y='96' width='270' height='40' rx='8' fill='none' stroke='var(--info)' stroke-width='1.5' /><text x='344' y='113' font-size='11.5' font-weight='bold' fill='currentColor'>6. příslovce</text><text x='344' y='129' font-size='10.5' fill='currentColor'>rychle, večer — jak? kdy? kde?</text><rect x='330' y='142' width='270' height='40' rx='8' fill='none' stroke='var(--info)' stroke-width='1.5' /><text x='344' y='159' font-size='11.5' font-weight='bold' fill='currentColor'>7. předložky</text><text x='344' y='175' font-size='10.5' fill='currentColor'>na, kolem, před — pojí se se jménem</text><rect x='330' y='188' width='270' height='40' rx='8' fill='none' stroke='var(--info)' stroke-width='1.5' /><text x='344' y='205' font-size='11.5' font-weight='bold' fill='currentColor'>8. spojky</text><text x='344' y='221' font-size='10.5' fill='currentColor'>a, ale, protože — spojují věty a členy</text><rect x='330' y='234' width='270' height='40' rx='8' fill='none' stroke='var(--info)' stroke-width='1.5' /><text x='344' y='251' font-size='11.5' font-weight='bold' fill='currentColor'>9. částice  10. citoslovce</text><text x='344' y='267' font-size='10.5' fill='currentColor'>ať, kéž · bum, mňau</text><rect x='40' y='300' width='560' height='58' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='320' y='322' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>Rozhoduje role ve větě, ne podoba slova:</text><text x='320' y='342' text-anchor='middle' font-size='11' fill='currentColor'>krásný večer (podst. jm.) × přijdu večer (příslovce) · kolem domu (předložka) × šel kolem (příslovce)</text></svg>",
+          "popisek": "Pět ohebných slovních druhů (zeleně) mění tvar skloňováním nebo časováním, pět neohebných (modře) má tvar stálý. Zlatý rámeček připomíná, že slovní druh určujeme podle role slova ve větě — stejné slovo může být pokaždé jiným druhem."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-tvaroslovi-1",
+            "temaId": "cj-tvaroslovi",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Podle kterého vzoru se skloňuje slovo „letadlo“?",
+            "moznosti": ["město", "moře", "kuře", "stavení"],
+            "spravna": 0,
+            "vysvetleni": "Letadlo je rod střední se zakončením -o a 2. pádem „bez letadla“ — stejně jako „bez města“. Moře končí na -e, kuře přibírá -ete (kuřete) a stavení končí na dlouhé -í."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Vzory podstatných jmen** — šablony skloňování:\n\n- **mužský rod**: pán (životný tvrdý), hrad (neživotný tvrdý), muž (životný měkký), stroj (neživotný měkký), předseda, soudce;\n- **ženský rod**: žena, růže, píseň (2. pád písně), kost (2. pád kosti);\n- **střední rod**: město, moře, kuře, stavení.\n\nVzor určíš podle rodu, zakončení a **2. pádu**: „ulice“ → bez ulice → růže; „radost“ → bez radosti → kost. Přídavná jména mají vzory **mladý**, **jarní**, **otcův/matčin**.\n\n**Mluvnické kategorie sloves**: **osoba**, **číslo**, **čas**, **způsob** (oznamovací, rozkazovací, podmiňovací — správně **bych, bys, by, bychom, byste**!), **slovesný rod** (činný × trpný) a **vid**: slovesa **dokonavá** vyjadřují ukončený děj a nemají přítomný čas (napíšu = budoucnost), **nedokonavá** děj probíhající (píšu právě teď)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              { "a": "ulice", "b": "vzor růže" },
+              { "a": "letadlo", "b": "vzor město" },
+              { "a": "klíč", "b": "vzor stroj" },
+              { "a": "radost", "b": "vzor kost" },
+              { "a": "nádraží", "b": "vzor stavení" },
+              { "a": "fotbalista", "b": "vzor předseda" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-tvaroslovi-2",
+            "temaId": "cj-tvaroslovi",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Které z těchto sloves je nedokonavé?",
+            "moznosti": ["psát", "napsat", "koupit", "přečíst"],
+            "spravna": 0,
+            "vysvetleni": "Nedokonavé sloveso vyjadřuje probíhající děj a má skutečný přítomný čas: „píšu právě teď“. Napsat, koupit i přečíst jsou dokonavá — „napíšu, koupím, přečtu“ už znamená budoucnost, přítomný čas tato slovesa nemají."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Urči mluvnické kategorie zvýrazněných slov ve větě: „S **kamarády** jsme včera **vyrazili** na hory.“",
+          "reseni": "**kamarády** (podstatné jméno):\n- pád: **7.** (s kým, čím? — s kamarády),\n- číslo: **množné**,\n- rod: **mužský životný**,\n- vzor: **pán** (kamarád — bez kamaráda, tvrdé zakončení).\n\n**vyrazili** (sloveso):\n- osoba: **1.** (my — prozrazuje „jsme“),\n- číslo: **množné**,\n- čas: **minulý**,\n- způsob: **oznamovací**,\n- vid: **dokonavý** („vyrazím“ je budoucnost — přítomný čas tvar nemá).\n\nA proč „vyrazili“ s měkkým i? Podmět „my“ zahrnuje kamarády — rod mužský životný → shoda s -i."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "slovní druhy", "zadni": "10 druhů: 5 ohebných (jména + slovesa) a 5 neohebných" },
+            { "predni": "mluvnické kategorie jmen", "zadni": "pád, číslo, rod, vzor" },
+            { "predni": "mluvnické kategorie sloves", "zadni": "osoba, číslo, čas, způsob, slovesný rod, vid" },
+            { "predni": "vzory středního rodu", "zadni": "město, moře, kuře, stavení" },
+            { "predni": "vzory ženského rodu", "zadni": "žena, růže, píseň, kost" },
+            { "predni": "vid dokonavý", "zadni": "ukončený děj, nemá přítomný čas (napsat — napíšu = budoucnost)" },
+            { "predni": "vid nedokonavý", "zadni": "probíhající děj, má přítomný čas (psát — píšu)" },
+            { "predni": "podmiňovací způsob", "zadni": "bych, bys, by, bychom, byste — nikdy „by jsme“" },
+            { "predni": "shoda přísudku s podmětem", "zadni": "muži pracovali, ženy pracovaly, města zářila" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Čeština má **10 slovních druhů**: 5 ohebných, 5 neohebných; druh určuje **role ve větě**.\n- Jména mají **pád, číslo, rod a vzor** — vzor poznáš podle rodu, zakončení a 2. pádu.\n- Slovesa mají **osobu, číslo, čas, způsob, rod a vid** (dokonavá nemají přítomný čas).\n- Podmiňovací způsob: **bychom, byste** — „by jsme“ je hrubka.\n- Tvarosloví = klíč ke správným koncovkám a shodě přísudku s podmětem."
+        }
+      ]
+    },
+    {
+      "temaId": "cj-sloh-vypravovani",
+      "nazev": "Sloh: vypravování a popis",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Vyprávíš partě, jak jsi o víkendu málem spadl z lanovky. Půlka lidí kouká do mobilu. Pak to samé vypráví kamarádka — a všichni visí na jejích rtech. Stejný příběh, jiné podání. Rozdíl? Ona (možná nevědomky) používá pravidla dobrého vypravování."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Slohové postupy** jsou obecné způsoby, jak uspořádat obsah:\n\n- **informační** — holá fakta: co, kdo, kdy, kde (zpráva, oznámení),\n- **vyprávěcí** — děj v čase se zápletkou,\n- **popisný** — vlastnosti a části objektu,\n- **výkladový** — vysvětlení příčin a souvislostí,\n- **úvahový** — názor a hodnocení.\n\nBěžná neformální komunikace (zpráva kamarádovi, historka u večeře) patří do **prostě sdělovacího stylu**.\n\n**Vypravování** zachycuje jedinečnou událost. Jeho stavba — **dějová linie**: **úvod (expozice)** → **zápletka** → **stupňování** → **vyvrcholení** → **rozuzlení**. Před psaním si sestav **osnovu** — heslovité body v logickém pořadí, kostru textu."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Vypravování a popis používáš denně: historka pro partu, storytelling ve videu, popis závady v reklamačním mailu, recept, návod pro babičku, jak nainstalovat aplikaci. Kdo umí řadit děj a stavět napětí, udrží pozornost — kdo umí popsat věc od celku k detailu, ušetří všem čas. A u maturitní písemky si mezi vypravováním a popisem nejspíš budeš vybírat."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 320' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Dějová linie vypravování jako křivka napětí: úvod, zápletka, stupňování, vyvrcholení a rozuzlení'><defs><marker id='os' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor' /></marker></defs><line x1='50' y1='270' x2='610' y2='270' stroke='currentColor' stroke-width='1.5' marker-end='url(#os)' /><line x1='50' y1='270' x2='50' y2='30' stroke='currentColor' stroke-width='1.5' marker-end='url(#os)' /><text x='595' y='290' text-anchor='middle' font-size='11' fill='currentColor'>čas</text><text x='38' y='40' text-anchor='end' font-size='11' fill='currentColor' transform='rotate(-90 38 40)'></text><text x='30' y='150' text-anchor='middle' font-size='11' fill='currentColor' transform='rotate(-90 30 150)'>napětí</text><path d='M80,240 C140,235 160,215 200,200 C250,180 280,140 330,110 C370,86 400,60 430,52 C470,42 500,150 560,225' fill='none' stroke='var(--akcent)' stroke-width='3' /><circle cx='80' cy='240' r='7' fill='var(--akcent)' /><text x='80' y='265' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>1. úvod</text><text x='80' y='222' text-anchor='middle' font-size='10' fill='currentColor'>postavy, místo, čas</text><circle cx='200' cy='200' r='7' fill='var(--akcent)' /><text x='200' y='245' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>2. zápletka</text><text x='200' y='182' text-anchor='middle' font-size='10' fill='currentColor'>objeví se problém</text><circle cx='330' cy='110' r='7' fill='var(--akcent)' /><text x='330' y='155' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>3. stupňování</text><text x='330' y='92' text-anchor='middle' font-size='10' fill='currentColor'>komplikace se vrší</text><circle cx='430' cy='52' r='8' fill='var(--zlata)' /><text x='430' y='30' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>4. VYVRCHOLENÍ</text><text x='459' y='75' text-anchor='middle' font-size='10' fill='currentColor'>vše se láme</text><circle cx='560' cy='225' r='7' fill='var(--uspech)' /><text x='560' y='250' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>5. rozuzlení</text><text x='560' y='205' text-anchor='middle' font-size='10' fill='currentColor'>problém vyřešen</text></svg>",
+          "popisek": "Dějová linie vypravování jako křivka napětí v čase: od klidného úvodu přes zápletku a stupňování šplhá napětí k vyvrcholení (zlatý bod) a pak rychle padá k rozuzlení (zelený bod). Dobré vypravování tuhle křivku kopíruje — proto nezačínej pointou."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-sloh-vypravovani-1",
+            "temaId": "cj-sloh-vypravovani",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Recept na palačinky je ukázkou…",
+            "moznosti": [
+              "popisu pracovního postupu",
+              "vypravování",
+              "líčení",
+              "charakteristiky"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Recept řadí kroky v přesném pořadí, které je nutné dodržet — to je popis pracovního postupu. Vypravováním by byla historka, jak se palačinky připálily; líčení je subjektivní popis dojmů a charakteristika popisuje povahu člověka."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Čím vypravování **oživíš**:\n\n- **dějová slovesa**: vyrazil, popadl, zakopl (místo „šel a vzal“),\n- **přímá řeč** — doslovná výpověď postavy v uvozovkách. Uvozovací věta se odděluje čárkou: „Přijdu zítra,“ slíbil Petr. Petr se zeptal: „Přijdeš zítra?“ (Nepřímá řeč je bez uvozovek: Petr slíbil, že přijde.)\n- **historický prézens** — minulý děj v přítomném čase: „Stojím na zastávce a najednou vidím…“,\n- krátké věty pro napětí, citoslovce.\n\n**Popis** zachycuje vlastnosti — postupuj **od celku k detailům** a v logickém pořadí (shora dolů, zleva doprava). Druhy: **prostý** (běžný jazyk), **odborný** (přesné termíny), **popis pracovního postupu** (kroky v pořadí — recept, návod), **líčení** (subjektivní, obrazný) a **charakteristika** (povaha člověka — přímá říká, nepřímá ukazuje na jednání).\n\nText piš ve třech krocích: **příprava (osnova) → koncept → kontrola a úprava**. První verzi nikdy neodevzdávej bez přečtení."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Projdi si stavbu vypravování krok za krokem — od klidu k pointě.",
+            "kroky": [
+              { "nazev": "Úvod (expozice)", "popis": "Představíš postavy, místo a čas. Čtenář se zorientuje: kdo, kde, kdy. Napětí je zatím nízké." },
+              { "nazev": "Zápletka", "popis": "Objeví se problém nebo nečekaná událost, děj se rozjíždí. Od této chvíle chce čtenář vědět, jak to dopadne." },
+              { "nazev": "Stupňování děje", "popis": "Komplikace se vrší, napětí roste. Pomáhají krátké věty, dějová slovesa a přímá řeč." },
+              { "nazev": "Vyvrcholení", "popis": "Nejnapínavější okamžik celého příběhu — všechno se láme. Sem směřovala každá předchozí věta." },
+              { "nazev": "Rozuzlení (závěr)", "popis": "Problém se vyřeší, napětí spadne, příběh se uzavře. Může přijít pointa nebo poučení." }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-sloh-vypravovani-2",
+            "temaId": "cj-sloh-vypravovani",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Ve které větě je přímá řeč s uvozovací větou vpředu zapsána správně?",
+            "moznosti": [
+              "Petr se zeptal: „Přijdeš zítra?“",
+              "Petr se zeptal, „Přijdeš zítra?“",
+              "Petr se zeptal: přijdeš zítra?",
+              "Petr se zeptal „přijdeš zítra?“"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Stojí-li uvozovací věta před přímou řečí, následuje dvojtečka a přímá řeč v uvozovkách začíná velkým písmenem. Čárka místo dvojtečky, chybějící uvozovky i malé písmeno jsou nejčastější chyby v písemkách."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Máš napsat vypravování „Jak jsem zaspal na písemku“. Sestav osnovu podle dějové linie a napiš úvodní větu, která čtenáře vtáhne.",
+          "reseni": "**Osnova (dějová linie):**\n1. Večer před písemkou — učení dlouho do noci (úvod),\n2. ráno nezvoní budík — mobil vybitý (zápletka),\n3. běh na autobus, ujíždí mi před nosem, kolo má prázdnou pneumatiku (stupňování),\n4. vbíhám do třídy v půlce písemky (vyvrcholení),\n5. učitelka mi dá čas po škole — a písemku zvládnu (rozuzlení).\n\n**Úvodní věta — srovnej:**\n- Nudná: „V tomto vypravování popíšu, jak jsem zaspal.“\n- Vtahující (in medias res + historický prézens): **„Otevřu oči, na mobilu černá obrazovka — a hodiny na zdi ukazují za pět osm.“**\n\nDruhá věta hází čtenáře rovnou do děje, první jen oznamuje, že se někdy něco stane."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "slohový postup", "zadni": "obecný způsob uspořádání obsahu: informační, vyprávěcí, popisný, výkladový, úvahový" },
+            { "predni": "prostě sdělovací styl", "zadni": "styl běžné neformální komunikace (zpráva, vzkaz, historka)" },
+            { "predni": "dějová linie vypravování", "zadni": "úvod → zápletka → stupňování → vyvrcholení → rozuzlení" },
+            { "predni": "osnova", "zadni": "heslovitá kostra textu — body v logickém pořadí" },
+            { "predni": "přímá řeč", "zadni": "doslovná výpověď v uvozovkách: „Přijdu zítra,“ slíbil Petr." },
+            { "predni": "historický prézens", "zadni": "minulý děj vyprávěný v přítomném čase („stojím a vidím…“)" },
+            { "predni": "líčení", "zadni": "subjektivně zabarvený popis s obraznými prostředky" },
+            { "predni": "charakteristika", "zadni": "popis povahy: přímá vlastnost říká, nepřímá ji ukazuje na jednání" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Pět **slohových postupů**: informační, vyprávěcí, popisný, výkladový, úvahový; běžná komunikace = **prostě sdělovací styl**.\n- Vypravování stojí na **dějové linii**: úvod → zápletka → stupňování → vyvrcholení → rozuzlení.\n- Oživení: **dějová slovesa, přímá řeč, historický prézens**, krátké věty.\n- **Popis** jde od celku k detailům; zvláštní druhy: odborný, pracovní postup, líčení, charakteristika.\n- Piš ve třech krocích: **osnova → koncept → kontrola**."
+        }
+      ]
+    },
+    {
+      "temaId": "cj-literatura-starovek",
+      "nazev": "Starověká literatura",
+      "poradi": 5,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Hraješ God of War, koukáš na Troju, v Assassin's Creed Odyssey brázdíš Egejské moře a kamarád má „achillovku“ — zraněnou Achillovu šlachu. Popkultura i běžná řeč jedou na příbězích starých tři tisíce let. Pojď se podívat, odkud se ty příběhy vzaly."
+        },
+        {
+          "typ": "text",
+          "obsah": "Nejstarší literatura vznikla v **Mezopotámii**: Sumerové vynalezli **klínové písmo** a na hliněných tabulkách se dochoval **Epos o Gilgamešovi** (asi 2000 př. n. l.) — nejstarší epos světa. Král Gilgameš po smrti přítele **Enkidua** hledá **nesmrtelnost** — a pochopí, že člověk se zvěční jen svými činy.\n\n**Bible** — základní kniha židovství a křesťanství, nejpřekládanější kniha světa:\n\n- **Starý zákon** (převážně **hebrejsky**): Pět knih Mojžíšových, proroci, žalmy,\n- **Nový zákon** (**řecky**): čtyři **evangelia** (Matouš, Marek, Lukáš, Jan), Skutky, epištoly, Zjevení.\n\nZ Bible žijí rčení „zakázané ovoce“ i „jidášský polibek“.\n\n**Řecko**: **Homér** (8. st. př. n. l.) — eposy **Ilias** (hněv Achilleův, závěr trojské války) a **Odysseia** (desetiletý návrat Odyssea na Ithaku). Lyrika: **Sapfó**; bajky: **Ezop**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Bez starověku nerozumíš půlce dnešní kultury: „trojský kůň“ je typ počítačového viru, „Achillova pata“ slabé místo, „odysea“ dlouhé bloudění, „danajský dar“ dárek, který škodí. Filmy, seriály a hry tyhle příběhy recyklují pořád dokola — kdo zná originál, vidí o vrstvu víc. A na výletě v Řecku či Římě budeš vědět, na čem stojíš."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 310' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Časová osa starověké literatury: Mezopotámie s Eposem o Gilgamešovi, hebrejská Bible, řecká literatura s Homérem a dramatem, římská literatura s Vergiliem'><defs><marker id='lt' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor' /></marker></defs><line x1='40' y1='60' x2='610' y2='60' stroke='currentColor' stroke-width='2' marker-end='url(#lt)' /><text x='600' y='42' text-anchor='end' font-size='10.5' fill='currentColor'>čas →</text><circle cx='90' cy='60' r='6' fill='var(--zlata)' /><text x='90' y='40' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>≈ 2000 př. n. l.</text><rect x='30' y='80' width='130' height='84' rx='8' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='95' y='99' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>MEZOPOTÁMIE</text><text x='95' y='116' text-anchor='middle' font-size='10' fill='currentColor'>klínové písmo</text><text x='95' y='134' text-anchor='middle' font-size='10' font-weight='bold' fill='currentColor'>Epos o Gilgamešovi</text><text x='95' y='150' text-anchor='middle' font-size='10' fill='currentColor'>nejstarší epos světa</text><circle cx='240' cy='60' r='6' fill='var(--info)' /><text x='240' y='40' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>1. tis. př. n. l.</text><rect x='180' y='80' width='120' height='84' rx='8' fill='none' stroke='var(--info)' stroke-width='2' /><text x='240' y='99' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>BIBLE</text><text x='240' y='116' text-anchor='middle' font-size='10' fill='currentColor'>Starý zákon — hebrejsky</text><text x='240' y='132' text-anchor='middle' font-size='10' fill='currentColor'>Nový zákon — řecky</text><text x='240' y='150' text-anchor='middle' font-size='10' fill='currentColor'>evangelia, žalmy</text><circle cx='400' cy='60' r='6' fill='var(--akcent)' /><text x='400' y='40' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>8.–5. st. př. n. l.</text><rect x='330' y='80' width='140' height='114' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2' /><text x='400' y='99' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>ŘECKO</text><text x='400' y='116' text-anchor='middle' font-size='10' font-weight='bold' fill='currentColor'>Homér: Ilias, Odysseia</text><text x='400' y='132' text-anchor='middle' font-size='10' fill='currentColor'>drama v Athénách:</text><text x='400' y='148' text-anchor='middle' font-size='10' fill='currentColor'>Aischylos, Sofokles,</text><text x='400' y='164' text-anchor='middle' font-size='10' fill='currentColor'>Euripides · Aristofanes</text><text x='400' y='182' text-anchor='middle' font-size='10' fill='currentColor'>Sapfó · Ezop</text><circle cx='545' cy='60' r='6' fill='var(--uspech)' /><text x='545' y='40' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>1. st. př. n. l.</text><rect x='485' y='80' width='125' height='114' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2' /><text x='547' y='99' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>ŘÍM</text><text x='547' y='116' text-anchor='middle' font-size='10' font-weight='bold' fill='currentColor'>Vergilius: Aeneis</text><text x='547' y='132' text-anchor='middle' font-size='10' fill='currentColor'>Ovidius: Proměny</text><text x='547' y='148' text-anchor='middle' font-size='10' fill='currentColor'>Horatius · Cicero</text><text x='547' y='164' text-anchor='middle' font-size='10' fill='currentColor'>píše latinsky,</text><text x='547' y='180' text-anchor='middle' font-size='10' fill='currentColor'>navazuje na Řecko</text><rect x='150' y='230' width='340' height='56' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='320' y='252' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>Dědictví dodnes: epos, tragédie, komedie, óda, bajka</text><text x='320' y='272' text-anchor='middle' font-size='10.5' fill='currentColor'>Achillova pata · trojský kůň · odysea · danajský dar</text></svg>",
+          "popisek": "Starověká literatura na časové ose: nejstarší je mezopotámský Epos o Gilgamešovi (zlatě), následuje hebrejská Bible (modře), řecká literatura s Homérem a athénským dramatem (fialově) a římská literatura (zeleně), která na řeckou vědomě navazuje. Dole dědictví, které používáme dodnes."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-literatura-starovek-1",
+            "temaId": "cj-literatura-starovek",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "„Hněv Achilleův“ v závěru trojské války je tématem kterého díla?",
+            "moznosti": ["Iliady", "Odysseie", "Aeneidy", "Eposu o Gilgamešovi"],
+            "spravna": 0,
+            "vysvetleni": "Ilias líčí závěr trojské války a hněv největšího řeckého bojovníka Achillea. Odysseia vypráví o návratu z té samé války domů, Aeneis o Trojanu Aeneovi po pádu města — snadno se pletou, protože všechny tři souvisejí s Trojou."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "V Athénách 5. století př. n. l. vzniklo **drama** — z obřadů k poctě boha **Dionýsa**. Hráli jen muži s maskami, dění komentoval **chór**, dodržovala se jednota místa, času a děje.\n\n- **Tragédie**: **Aischylos** (Oresteia), **Sofokles** (**Antigona**, **Král Oidipus**), **Euripides** (Médeia),\n- **komedie**: **Aristofanes** (Žáby).\n\n**Řím** na řeckou literaturu navazuje a píše **latinsky**:\n\n- **Vergilius** — národní epos **Aeneis** o Trojanu Aeneovi, praotci Římanů,\n- **Ovidius** — **Proměny** (Metamorfózy), mytologické příběhy,\n- **Horatius** — ódy; **Plautus** — komedie; **Cicero** — řečnictví; **Seneca** — filozofie.\n\nStarověk dal Evropě základní žánry (epos, tragédie, komedie, óda, bajka) — a latina zůstala jazykem vzdělanců na dalších tisíc let."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "Ilias",
+                "vlastnosti": {
+                  "Autor": "Homér",
+                  "Literatura": "řecká (8. st. př. n. l.)",
+                  "O čem je": "závěr trojské války, hněv Achilleův",
+                  "Hlavní hrdina": "Achilleus",
+                  "Známé motivy": "hněv Achilleův, souboj Achillea s Hektorem"
+                }
+              },
+              {
+                "nazev": "Odysseia",
+                "vlastnosti": {
+                  "Autor": "Homér",
+                  "Literatura": "řecká (8. st. př. n. l.)",
+                  "O čem je": "desetileté bloudění při návratu z Troje na Ithaku",
+                  "Hlavní hrdina": "Odysseus",
+                  "Známé motivy": "kyklop Polyfémos, Sirény, věrná Pénelopa"
+                }
+              },
+              {
+                "nazev": "Aeneis",
+                "vlastnosti": {
+                  "Autor": "Vergilius",
+                  "Literatura": "římská (1. st. př. n. l.)",
+                  "O čem je": "putování Trojana Aenea do Itálie",
+                  "Hlavní hrdina": "Aeneas, praotec Římanů",
+                  "Známé motivy": "národní epos Říma, navazuje na Homéra"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-literatura-starovek-2",
+            "temaId": "cj-literatura-starovek",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Který římský autor napsal sbírku mytologických příběhů Proměny (Metamorfózy)?",
+            "moznosti": ["Ovidius", "Vergilius", "Horatius", "Homér"],
+            "spravna": 0,
+            "vysvetleni": "Proměny jsou Ovidiovo dílo — příběhy, v nichž se postavy proměňují (Daidalos a Ikaros, Pygmalion). Vergilius napsal epos Aeneis, Horatius ódy a Homér je Řek, ne Říman — psal o osm století dřív."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Kamarádi chtějí doporučit něco „ze staré školy“ podle svého vkusu: (1) Tom miluje válečné akční filmy, (2) Eliška road-tripy a cestovatelská dobrodružství, (3) Matěj detektivky s pátráním. Které starověké dílo komu doporučíš a proč?",
+          "reseni": "**(1) Tomovi → Ilias.** Bitvy před hradbami Troje, souboj Achillea s Hektorem — válečná akce se vším všudy, jen o tři tisíce let starší než filmové trháky.\n\n**(2) Elišce → Odysseia.** Deset let cesty domů: kyklop Polyfémos, Sirény, čarodějka Kirké — praotec všech road-tripů a dobrodružných her.\n\n**(3) Matějovi → Král Oidipus (Sofokles).** Thébský král pátrá po vrahovi, který přivolal na město mor — a stopy vedou k němu samému. Bývá označován za první detektivku světové literatury.\n\nPointa: starověká díla nejsou „povinná nuda“ — jsou to původní verze žánrů, které dnes sledujeme v kinech."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Epos o Gilgamešovi", "zadni": "nejstarší epos světa, Mezopotámie (≈ 2000 př. n. l.), hledání nesmrtelnosti" },
+            { "predni": "Bible — jazyky", "zadni": "Starý zákon hebrejsky, Nový zákon řecky" },
+            { "predni": "evangelia", "zadni": "Matouš, Marek, Lukáš, Jan — o životě Ježíše Krista" },
+            { "predni": "Homér", "zadni": "řecké eposy Ilias a Odysseia (8. st. př. n. l.)" },
+            { "predni": "Sofokles", "zadni": "athénský tragik: Antigona, Král Oidipus" },
+            { "predni": "Aristofanes", "zadni": "řecká komedie (Žáby)" },
+            { "predni": "Vergilius", "zadni": "římský národní epos Aeneis" },
+            { "predni": "Ovidius", "zadni": "Proměny (Metamorfózy) — mytologické příběhy" },
+            { "predni": "Ezop", "zadni": "řecké bajky — zvířata s lidskými vlastnostmi" },
+            { "predni": "Achillova pata", "zadni": "jediné slabé místo jinak silného celku (z bájí o Achilleovi)" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Nejstarší je **Epos o Gilgamešovi** (Mezopotámie, klínové písmo).\n- **Bible**: Starý zákon hebrejsky, Nový zákon řecky; evangelia o Ježíši.\n- **Řecko**: Homér (Ilias, Odysseia), drama v Athénách — Aischylos, **Sofokles** (Antigona), Euripides, komik Aristofanes.\n- **Řím navazuje na Řecko**: Vergilius (Aeneis), Ovidius (Proměny), Horatius; jazykem je latina.\n- Starověk dal Evropě **žánry i rčení**: epos, tragédie, Achillova pata, trojský kůň."
+        }
+      ]
+    },    {
+      "temaId": "cj-literatura-stredovek",
+      "nazev": "Středověká literatura",
+      "poradi": 6,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Začátek července, dva dny volna po sobě — 5. a 6. Bereš to jako prodloužený víkend u vody. Ale proč vlastně? Pátý červenec patří dvěma bratrům ze Soluně, kteří k nám před víc než tisíci lety přinesli písmo, a šestý muži, který kvůli svému přesvědčení shořel na hranici. Oba příběhy patří k té nejlepší středověké literatuře."
+        },
+        {
+          "typ": "text",
+          "obsah": "Středověká literatura (5.–15. století) je převážně **náboženská**. Na našem území se vystřídaly tři literární jazyky: **staroslověnština → latina → čeština**.\n\nRoku **863** přišli na Velkou Moravu na pozvání knížete **Rostislava** soluňští bratři **Konstantin (Cyril) a Metoděj**. Přinesli bohoslužbu ve **staroslověnštině** — prvním slovanském spisovném jazyce — a Konstantin sestavil první slovanské písmo **hlaholici** (mladší **cyrilice** vznikla až po smrti bratří a dala základ azbuce). Konstantin složil **Proglas** — veršovanou předmluvu k překladu evangelia, oslavu vzdělání ve vlastním jazyce („Nahé jsou národy bez knih“). Životy bratří líčí **moravsko-panonské legendy**.\n\nPo pádu Velké Moravy převládla **latina**: **legendy** o světcích (sv. Václav, sv. Ludmila) a **kroniky**. Nejvýznamnější je **Kosmova Kronika česká** (dokončena k roku **1125**, latinsky, prózou) — první ucelené dějiny Čech."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Dva státní svátky (5. a 6. červenec) ti přestanou splývat — a hlavně pochopíš, o čem se dodnes vedou spory v médiích: Hus je národní symbol, o „odkaz Cyrila a Metoděje“ se přou politici i církve. Kroniky jsou navíc pra-předci dnešních dokumentů a datové žurnalistiky: Kosmas psal dějiny tak, jak je chtěl ukázat — číst kriticky se vyplatí u něj stejně jako u dnešních zpráv."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 330' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Časová osa české středověké literatury od roku 863 do 1415 s pruhem střídání jazyků: staroslověnština, latina, čeština'><defs><marker id='st' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor' /></marker></defs><line x1='40' y1='150' x2='615' y2='150' stroke='currentColor' stroke-width='2' marker-end='url(#st)' /><rect x='55' y='44' width='120' height='34' rx='8' fill='none' stroke='var(--info)' stroke-width='2' /><text x='115' y='58' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>staroslověnština</text><text x='115' y='72' text-anchor='middle' font-size='9.5' fill='currentColor'>9.–10. století</text><rect x='195' y='44' width='150' height='34' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2' /><text x='270' y='58' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>latina</text><text x='270' y='72' text-anchor='middle' font-size='9.5' fill='currentColor'>10.–13. století</text><rect x='365' y='44' width='230' height='34' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2' /><text x='480' y='58' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>čeština</text><text x='480' y='72' text-anchor='middle' font-size='9.5' fill='currentColor'>od 13.–14. století</text><circle cx='90' cy='150' r='7' fill='var(--info)' /><text x='90' y='130' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>863</text><text x='90' y='176' text-anchor='middle' font-size='10' fill='currentColor'>Konstantin a Metoděj</text><text x='90' y='190' text-anchor='middle' font-size='10' fill='currentColor'>hlaholice, Proglas</text><circle cx='230' cy='150' r='7' fill='var(--akcent)' /><text x='230' y='130' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>1125</text><text x='230' y='176' text-anchor='middle' font-size='10' fill='currentColor'>Kosmas: Kronika česká</text><text x='230' y='190' text-anchor='middle' font-size='10' fill='currentColor'>latinsky, prózou</text><circle cx='360' cy='150' r='7' fill='var(--uspech)' /><text x='360' y='130' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>poč. 14. st.</text><text x='360' y='176' text-anchor='middle' font-size='10' fill='currentColor'>Dalimilova kronika</text><text x='360' y='190' text-anchor='middle' font-size='10' fill='currentColor'>česky, veršem</text><circle cx='470' cy='150' r='7' fill='var(--uspech)' /><text x='470' y='130' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>1348</text><text x='470' y='176' text-anchor='middle' font-size='10' fill='currentColor'>Karel IV. zakládá</text><text x='470' y='190' text-anchor='middle' font-size='10' fill='currentColor'>pražskou univerzitu</text><circle cx='575' cy='150' r='7' fill='var(--chyba)' /><text x='575' y='130' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>1415</text><text x='575' y='176' text-anchor='middle' font-size='10' fill='currentColor'>Jan Hus upálen</text><text x='575' y='190' text-anchor='middle' font-size='10' fill='currentColor'>v Kostnici (6. 7.)</text><rect x='100' y='230' width='440' height='72' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='320' y='252' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>Tři literární jazyky se vystřídaly v pořadí:</text><text x='320' y='274' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>staroslověnština → latina → čeština</text><text x='320' y='293' text-anchor='middle' font-size='10.5' fill='currentColor'>Hus pak češtině navrhl háčky a čárky místo spřežek</text></svg>",
+          "popisek": "Česká středověká literatura na časové ose: 863 příchod Konstantina a Metoděje (staroslověnština, hlaholice), 1125 Kosmova latinská kronika, počátkem 14. století česky psaná Dalimilova kronika, 1348 založení univerzity a 1415 upálení Jana Husa. Barevný pruh nahoře ukazuje střídání literárních jazyků."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-literatura-stredovek-1",
+            "temaId": "cj-literatura-stredovek",
+            "typ": "doplneni",
+            "obtiznost": 2,
+            "zadani": "V kterém roce přišli Konstantin a Metoděj na Velkou Moravu? (napiš letopočet)",
+            "spravneOdpovedi": ["863", "r. 863", "roku 863"],
+            "vysvetleni": "Rok 863 je jeden ze základních letopočtů českých dějin — kníže Rostislav pozval soluňské bratry, aby lidé rozuměli bohoslužbě. Výročí připomíná státní svátek 5. července."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Česky psaná literatura** sílí od 13.–14. století: duchovní píseň **Svatý Václave**, satiry (Podkoní a žák) a hlavně **Dalimilova kronika** (počátek 14. století) — nejstarší **česky psaná veršovaná** kronika, vlastenecká, autor neznámý. Vrchol nastal za **Karla IV.**: založení pražské univerzity (**1348**), vlastní životopis Vita Caroli.\n\n**Mistr Jan Hus** (asi 1370–1415):\n\n- kazatel v **Betlémské kapli** a rektor univerzity,\n- kritizoval zesvětštělou církev a **prodávání odpustků**,\n- psal latinsky (**De ecclesia**) i česky (**Knížky o svatokupectví**, **Postila**),\n- je mu připisován návrh **diakritického pravopisu** — háčky a čárky místo spřežek (z „cz“ naše „č“),\n- roku **1415** byl na kostnickém koncilu odsouzen a **6. července upálen**, protože své učení neodvolal.\n\nJeho smrt rozpoutala husitské hnutí — a 6. červenec je dodnes státním svátkem."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "casova-osa",
+          "parametry": {
+            "udalosti": [
+              { "rok": 863, "nazev": "Příchod Konstantina a Metoděje", "popis": "Soluňští bratři přinášejí na Velkou Moravu bohoslužbu ve staroslověnštině. Konstantin sestavil hlaholici a složil Proglas — oslavu vzdělání ve vlastním jazyce." },
+              { "rok": 1125, "nazev": "Kosmova Kronika česká", "popis": "Děkan pražské kapituly Kosmas dokončuje první ucelené dějiny Čech — latinsky a prózou, od praotce Čecha po svou současnost." },
+              { "rok": 1310, "nazev": "Dalimilova kronika", "popis": "Počátkem 14. století vzniká nejstarší česky psaná veršovaná kronika. Autor je neznámý, jméno Dalimil jí přisoudili omylem pozdější vzdělanci; vyznívá vlastenecky." },
+              { "rok": 1348, "nazev": "Založení pražské univerzity", "popis": "Karel IV. zakládá nejstarší univerzitu ve střední Evropě — vrchol středověké vzdělanosti u nás. Sám sepsal vlastní životopis Vita Caroli." },
+              { "rok": 1402, "nazev": "Hus káže v Betlémské kapli", "popis": "Jan Hus začíná česky kázat v Betlémské kapli proti zesvětštělé církvi a odpustkům. Je mu připisován i návrh háčků a čárek (diakritický pravopis)." },
+              { "rok": 1415, "nazev": "Upálení Jana Husa", "popis": "Kostnický koncil Husa odsoudil; protože učení neodvolal, byl 6. července 1415 upálen. Jeho smrt rozpoutala husitské hnutí — dnes státní svátek." }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-literatura-stredovek-2",
+            "temaId": "cj-literatura-stredovek",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Čím se Dalimilova kronika liší od Kosmovy Kroniky české?",
+            "moznosti": [
+              "je psána česky a veršem, Kosmova latinsky a prózou",
+              "je psána latinsky, Kosmova česky",
+              "je o dvě století starší než Kosmova",
+              "popisuje jen život svatého Václava"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Dalimilova kronika (počátek 14. století) je nejstarší česky psaná veršovaná kronika; Kosmas psal o dvě století DŘÍV (1125), ale latinsky a prózou. Kdo prohodil jazyky nebo století, zaměnil obě kroniky — pomůcka: čeština nastupuje až po latině."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Seřaď chronologicky a u každé položky urči jazyk: (A) Dalimilova kronika, (B) Proglas, (C) Husovy Knížky o svatokupectví, (D) Kosmova Kronika česká.",
+          "reseni": "**Správné pořadí: B → D → A → C**\n\n1. **B — Proglas** (po roce 863) — **staroslověnsky**; Konstantinova veršovaná předmluva k evangeliu,\n2. **D — Kosmova Kronika česká** (1125) — **latinsky**, prózou,\n3. **A — Dalimilova kronika** (počátek 14. století) — **česky**, veršem,\n4. **C — Knížky o svatokupectví** (počátek 15. století) — **česky**; Husova kritika kupčení s církevními úřady.\n\nVšimni si: pořadí děl kopíruje střídání literárních jazyků **staroslověnština → latina → čeština**. Kdo si pamatuje tuhle trojici, seřadí středověká díla i bez letopočtů."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "863", "zadni": "příchod Konstantina a Metoděje na Velkou Moravu" },
+            { "predni": "hlaholice", "zadni": "první slovanské písmo — sestavil Konstantin (cyrilice vznikla později)" },
+            { "predni": "Proglas", "zadni": "Konstantinova veršovaná předmluva k evangeliu — „Nahé jsou národy bez knih“" },
+            { "predni": "staroslověnština", "zadni": "první slovanský spisovný jazyk" },
+            { "predni": "legenda", "zadni": "vyprávění o životě, zázracích a smrti světce" },
+            { "predni": "Kosmas", "zadni": "Kronika česká (1125) — latinsky, prózou; první dějiny Čech" },
+            { "predni": "Dalimilova kronika", "zadni": "nejstarší česky psaná veršovaná kronika (poč. 14. st.), autor neznámý" },
+            { "predni": "Jan Hus", "zadni": "kazatel Betlémské kaple, kritik odpustků; upálen 6. 7. 1415 v Kostnici" },
+            { "predni": "diakritický pravopis", "zadni": "háčky a čárky místo spřežek — návrh připisovaný Husovi" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Tři literární jazyky v pořadí: **staroslověnština → latina → čeština**.\n- **863**: Konstantin a Metoděj — **hlaholice**, **Proglas**, staroslověnská bohoslužba.\n- Latinské období: **legendy** o světcích a **Kosmova Kronika česká** (1125, próza).\n- **Dalimilova kronika** — nejstarší česky psaná, veršovaná, vlastenecká.\n- **Jan Hus**: Betlémská kaple, kritika odpustků, háčky a čárky; **upálen 6. 7. 1415** — dnes státní svátek."
+        }
+      ]
+    },
+    {
+      "temaId": "cj-literarni-teorie",
+      "nazev": "Základy literární teorie",
+      "poradi": 7,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Pustíš si nový track a rapper v něm sype: „mám srdce z ledu, město spí, říkal jsem ti to milionkrát“. Tři verše — a tři básnické prostředky, které se učili už antičtí básníci: metafora, personifikace, hyperbola. Literární teorie není nuda pro knihomoly, je to návod, jak texty kolem tebe fungují."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Literární druhy** jsou tři:\n\n- **Lyrika** — nemá děj; vyjadřuje **pocity a nálady**. Žánry: **óda** (oslavná báseň), **elegie** (žalozpěv), **sonet** (14 veršů), **epigram** (krátká satira), píseň.\n- **Epika** — má **děj, vypravěče a postavy**. Veršovaná: **epos**, **balada** (pochmurná, tragický konec), romance. Prozaická: **román**, **novela**, **povídka**, pohádka, **pověst** (váže se ke skutečnému místu), **bajka** (zvířata + ponaučení), legenda.\n- **Drama** — děj předváděný **jednáním postav na jevišti**: dialogy, monology, scénické poznámky. Žánry: **tragédie**, **komedie**, činohra.\n\n**Forma textu** je jiná věc než druh: **próza** = řeč neveršovaná (věty, odstavce), **poezie** = řeč vázaná ve **verších**. Verš = řádek básně, **sloka** = skupina veršů, **rým** = zvuková shoda konců veršů (**sdružený aabb, střídavý abab, obkročný abba**), **rytmus** = střídání přízvučných a nepřízvučných slabik."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Reklamy, texty písní, memy i politické projevy na tebe míří tropy a figurami — „nadupaná výbava za lidovku“ je hyperbola s metaforou. Kdo je umí pojmenovat, vidí, JAK se ho text snaží přesvědčit, a jen tak mu nenaletí. A prakticky: rozbor básně je jistota u maturity a tropy oceníš, i když sám píšeš — od slohovky po caption na sítě."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 360' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Tři literární druhy — lyrika, epika, drama — s typickými žánry; dole rozlišení formy: poezie ve verších a próza ve větách'><text x='320' y='26' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>LITERÁRNÍ DRUHY</text><rect x='35' y='44' width='180' height='150' rx='10' fill='none' stroke='var(--info)' stroke-width='2.5' /><text x='125' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>LYRIKA</text><text x='125' y='86' text-anchor='middle' font-size='10.5' fill='currentColor'>bez děje — pocity,</text><text x='125' y='100' text-anchor='middle' font-size='10.5' fill='currentColor'>nálady, dojmy</text><line x1='55' y1='110' x2='195' y2='110' stroke='var(--info)' stroke-width='1' /><text x='125' y='128' text-anchor='middle' font-size='10.5' fill='currentColor'>óda · elegie</text><text x='125' y='145' text-anchor='middle' font-size='10.5' fill='currentColor'>sonet (14 veršů)</text><text x='125' y='162' text-anchor='middle' font-size='10.5' fill='currentColor'>epigram · píseň</text><rect x='230' y='44' width='180' height='150' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='320' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>EPIKA</text><text x='320' y='86' text-anchor='middle' font-size='10.5' fill='currentColor'>děj + vypravěč</text><text x='320' y='100' text-anchor='middle' font-size='10.5' fill='currentColor'>+ postavy</text><line x1='250' y1='110' x2='390' y2='110' stroke='var(--akcent)' stroke-width='1' /><text x='320' y='128' text-anchor='middle' font-size='10.5' fill='currentColor'>veršovaná: epos, balada</text><text x='320' y='145' text-anchor='middle' font-size='10.5' fill='currentColor'>próza: román, novela,</text><text x='320' y='162' text-anchor='middle' font-size='10.5' fill='currentColor'>povídka, pověst, bajka</text><rect x='425' y='44' width='180' height='150' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2.5' /><text x='515' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>DRAMA</text><text x='515' y='86' text-anchor='middle' font-size='10.5' fill='currentColor'>jednání postav</text><text x='515' y='100' text-anchor='middle' font-size='10.5' fill='currentColor'>na jevišti</text><line x1='445' y1='110' x2='585' y2='110' stroke='var(--uspech)' stroke-width='1' /><text x='515' y='128' text-anchor='middle' font-size='10.5' fill='currentColor'>tragédie · komedie</text><text x='515' y='145' text-anchor='middle' font-size='10.5' fill='currentColor'>činohra · muzikál</text><text x='515' y='162' text-anchor='middle' font-size='10.5' fill='currentColor'>dialogy a monology</text><rect x='35' y='216' width='570' height='60' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='320' y='238' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>FORMA ≠ DRUH:  poezie (verše) × próza (věty a odstavce)</text><text x='320' y='260' text-anchor='middle' font-size='10.5' fill='currentColor'>epos = epika ve verších · báseň v próze = lyrika bez veršů</text><rect x='35' y='292' width='570' height='54' rx='10' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='320' y='313' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>Tropy = přenos významu: metafora (podobnost) · metonymie (souvislost)</text><text x='320' y='333' text-anchor='middle' font-size='10.5' fill='currentColor'>personifikace · přirovnání (jako) · hyperbola · ironie</text></svg>",
+          "popisek": "Tři literární druhy vedle sebe: lyrika (modře) nese pocity bez děje, epika (fialově) děj s vypravěčem, drama (zeleně) jednání postav na jevišti — pod každým jeho typické žánry. Zlatý pruh připomíná, že poezie a próza jsou forma, ne druh; červený shrnuje hlavní tropy."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-literarni-teorie-1",
+            "temaId": "cj-literarni-teorie",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "„Rychlý jako blesk“ je…",
+            "moznosti": ["přirovnání", "metafora", "personifikace", "hyperbola"],
+            "spravna": 0,
+            "vysvetleni": "Přirovnání prozradí spojka JAKO — vlastnost se přirovnává k něčemu známému. Metafora by spojku vynechala („ten kluk je blesk“), personifikace oživuje neživé a hyperbola zveličuje."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Obrazná pojmenování (tropy)** — přenášejí význam:\n\n- **metafora** — přenos podle **podobnosti**: moře světel, zub pily,\n- **personifikace** — neživé jedná jako člověk: vítr si hraje,\n- **metonymie** — přenos podle věcné **souvislosti**: vypil celou sklenici, číst Čapka,\n- **přirovnání** — se spojkou *jako*: rychlý jako blesk,\n- **hyperbola** — nadsázka: tisíckrát jsem ti to říkal,\n- **ironie** — opak míněného: „To se ti povedlo,“\n- **epiteton** — básnický přívlastek: zlaté slunce.\n\n**Figury** pracují s opakováním a stavbou: **anafora** (opakování na začátku veršů), **epifora** (na konci), **aliterace** (plyne peníz po penízku), **řečnická otázka** (neočekává odpověď), **apostrofa** (oslovení neživé věci).\n\nRozlišovací pomůcka metafora × metonymie: podobají se ty věci (metafora), nebo spolu věcně souvisejí (metonymie)?"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď žánry ke správnému literárnímu druhu. Ptej se: má to děj? Hraje se to na jevišti?",
+            "kategorie": [
+              { "id": "lyrika", "nazev": "lyrika" },
+              { "id": "epika", "nazev": "epika" },
+              { "id": "drama", "nazev": "drama" }
+            ],
+            "polozky": [
+              { "text": "óda (oslavná báseň)", "kategorieId": "lyrika" },
+              { "text": "sonet (14 veršů)", "kategorieId": "lyrika" },
+              { "text": "elegie (žalozpěv)", "kategorieId": "lyrika" },
+              { "text": "román", "kategorieId": "epika" },
+              { "text": "bajka (zvířata + ponaučení)", "kategorieId": "epika" },
+              { "text": "balada (tragický konec)", "kategorieId": "epika" },
+              { "text": "pověst (váže se k místu)", "kategorieId": "epika" },
+              { "text": "tragédie", "kategorieId": "drama" },
+              { "text": "komedie", "kategorieId": "drama" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-literarni-teorie-2",
+            "temaId": "cj-literarni-teorie",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Co je balada?",
+            "moznosti": [
+              "veršovaná epika s pochmurným dějem a tragickým koncem",
+              "oslavná lyrická báseň",
+              "radostná veršovaná skladba se šťastným koncem",
+              "divadelní hra se smutným koncem"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Balada vypráví příběh (je to epika) ve verších a končí tragicky — třeba Erbenova Polednice. Oslavná báseň je óda, radostným protějškem balady je romance a smutná divadelní hra je tragédie (drama, ne epika)."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Reklamní slogan zní: „Tisíc chutí v jednom nápoji. Léto tě volá!“ Najdi v něm básnické prostředky a vysvětli, proč je tam tvůrci dali.",
+          "reseni": "**1. „Tisíc chutí“ — hyperbola.** Nápoj nemá tisíc chutí; nadsázka vzbuzuje dojem bohatství chuti.\n\n**2. „Léto tě volá“ — personifikace.** Roční období nemluví; zosobnění vytváří pocit, že tě někdo osobně zve — odmítnout kamaráda je těžší než odmítnout limonádu.\n\n**3. Celý slogan je navíc apostrofou naruby** — oslovuje přímo tebe („tě“), aby sdělení působilo osobně.\n\n**Proč to funguje:** tropy zhušťují — dvě krátké věty předají emoci, na kterou by popisný text potřeboval odstavec. Stejné nástroje používá poezie od antiky; reklama si je jen půjčila. Kdo je umí pojmenovat, čte reklamu s odstupem."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "lyrika", "zadni": "literární druh bez děje — pocity a nálady (óda, elegie, sonet)" },
+            { "predni": "epika", "zadni": "literární druh s dějem, vypravěčem a postavami (román, povídka, epos)" },
+            { "predni": "drama", "zadni": "děj předváděný jednáním postav na jevišti (tragédie, komedie)" },
+            { "predni": "verš × sloka", "zadni": "verš = řádek básně; sloka = skupina veršů" },
+            { "predni": "rýmová schémata", "zadni": "sdružený aabb, střídavý abab, obkročný abba" },
+            { "predni": "metafora", "zadni": "přenos významu podle PODOBNOSTI (moře světel)" },
+            { "predni": "metonymie", "zadni": "přenos podle věcné SOUVISLOSTI (vypil celou sklenici)" },
+            { "predni": "personifikace", "zadni": "neživé jedná jako člověk (vítr si hraje)" },
+            { "predni": "hyperbola", "zadni": "nadsázka (tisíckrát jsem ti to říkal)" },
+            { "predni": "anafora", "zadni": "opakování slov na začátku veršů po sobě" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Tři **literární druhy**: lyrika (pocity), epika (děj), drama (jeviště).\n- **Forma ≠ druh**: poezie je řeč ve verších, próza ve větách — epos je epika ve verších.\n- **Rýmy**: sdružený aabb, střídavý abab, obkročný abba.\n- **Tropy** přenášejí význam: metafora (podobnost), metonymie (souvislost), personifikace, přirovnání, hyperbola, ironie.\n- **Figury** staví na opakování: anafora, epifora, aliterace, řečnická otázka.\n- Tropy a figury potkáš v reklamě i v textech písní — uměj je pojmenovat."
+        }
+      ]
+    }
+  ]
+}

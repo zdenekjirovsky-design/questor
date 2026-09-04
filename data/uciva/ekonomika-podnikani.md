@@ -232,9 +232,9 @@ oleje) a **energetické daně**.
 **DPH (daň z přidané hodnoty)** má v ČR **základní sazbu 21 %** a **sníženou
 sazbu 12 %** (potraviny, léky, vodné a stočné, ubytovací služby aj.); knihy
 mají sazbu 0 %. Plátcem se podnikatel povinně stává po překročení obratu
-2 000 000 Kč za rok. Výpočet: cena s daní = cena bez daně × 1,21; daň z ceny
-včetně DPH se získá dělením 1,21 (např. 6 050 Kč ÷ 1,21 = 5 000 Kč bez daně,
-DPH 1 050 Kč).
+2 000 000 Kč za rok. Výpočet: cena s daní = cena bez daně × 1,21; základ daně
+se z ceny včetně DPH získá dělením 1,21 a daň je rozdíl obou částek
+(např. 6 050 Kč ÷ 1,21 = 5 000 Kč bez daně, DPH 1 050 Kč).
 
 **Sociální pojištění** (odvádí se ČSSZ) zahrnuje **důchodové pojištění**,
 **nemocenské pojištění** a **příspěvek na státní politiku zaměstnanosti**;

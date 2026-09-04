@@ -1,0 +1,731 @@
+{
+  "predmetId": "dejepis",
+  "nazev": "Dějepis",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "dej-pravek", "nazev": "Pravěk", "poradi": 0 },
+    { "id": "dej-starovek-orient", "nazev": "Starověké orientální státy", "poradi": 1 },
+    { "id": "dej-recko", "nazev": "Starověké Řecko", "poradi": 2 },
+    { "id": "dej-rim", "nazev": "Starověký Řím", "poradi": 3 },
+    { "id": "dej-rany-stredovek", "nazev": "Raný středověk", "poradi": 4 }
+  ],
+  "otazky": [
+    {
+      "id": "o-dej-pravek-1",
+      "temaId": "dej-pravek",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jak získávali potravu lidé v paleolitu (starší době kamenné)?",
+      "moznosti": [
+        "Lovem zvěře a sběrem plodů",
+        "Pěstováním obilí na polích",
+        "Chovem dobytka u stálých vesnic",
+        "Směnou na tržištích"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Paleolit je éra přisvojovacího hospodářství — člověk si bere, co příroda dává (lov, sběr). Pěstování a chov přišly až s neolitickou revolucí a tržiště až se starověkými městy.",
+      "zdroj": "Pravěk"
+    },
+    {
+      "id": "o-dej-pravek-2",
+      "temaId": "dej-pravek",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co znamenala neolitická revoluce?",
+      "moznosti": [
+        "Přechod od lovu a sběru k zemědělství a chovu dobytka",
+        "Ovládnutí ohně člověkem",
+        "Objev výroby bronzu",
+        "Stavbu prvních keltských oppid"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Neolitická revoluce (kolem 10 000 př. n. l.) = začátek výrobního hospodářství: pěstování a chov. Oheň ovládl Homo erectus už v paleolitu, bronz patří do doby bronzové a oppida do doby železné.",
+      "zdroj": "Pravěk"
+    },
+    {
+      "id": "o-dej-pravek-3",
+      "temaId": "dej-pravek",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Bronz je slitina mědi a cínu.",
+      "spravna": true,
+      "vysvetleni": "Ano — bronz vzniká slitím mědi a cínu. Je tvrdší než samotná měď; jeho odlévání vyžadovalo specialisty, což prohloubilo dělbu práce a obchod (cín se musel dovážet zdaleka).",
+      "zdroj": "Pravěk"
+    },
+    {
+      "id": "o-dej-pravek-4",
+      "temaId": "dej-pravek",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč se po neolitické revoluci začala společnost dělit na bohatší a chudší?",
+      "moznosti": [
+        "Zemědělství umožnilo tvořit zásoby — vznikl majetek a ten neměl každý stejný",
+        "Lovci začali prodávat maso za peníze",
+        "Lidé začali odvádět daně faraonovi",
+        "Bohatství přinesla až ražba keltských mincí"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Klíč je v zásobách: kdo měl plnější sýpku, měl majetek a moc. Peníze, daně ani mince v neolitu neexistovaly — to jsou jevy mnohem pozdější (starověk, doba železná).",
+      "zdroj": "Pravěk"
+    },
+    {
+      "id": "o-dej-pravek-5",
+      "temaId": "dej-pravek",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Keltský kmen, podle kterého dostaly Čechy latinský název Bohemia (Boiohaemum), se jmenoval ___.",
+      "spravneOdpovedi": ["Bójové", "bójové", "Bojové", "bojove", "Boiové", "boiove", "Bójové (Boiové)"],
+      "vysvetleni": "Bójové byli keltský kmen žijící v Čechách; latinské Boiohaemum = „domov Bójů“, odtud Bohemia. Keltové jsou první jménem známí obyvatelé naší země.",
+      "zdroj": "Pravěk"
+    },
+    {
+      "id": "o-dej-pravek-6",
+      "temaId": "dej-pravek",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď druh pravěkého člověka k tomu, čím je významný.",
+      "pary": [
+        { "levy": "Homo habilis", "pravy": "první kamenné nástroje („člověk zručný“)" },
+        { "levy": "Homo erectus", "pravy": "ovládl oheň a rozšířil se z Afriky" },
+        { "levy": "neandertálec", "pravy": "vedlejší větev; jako první pohřbíval mrtvé" },
+        { "levy": "Homo sapiens", "pravy": "náš přímý předek; jeskynní malby a sošky" }
+      ],
+      "vysvetleni": "Linie vede od habilis (nástroje) přes erectus (oheň, odchod z Afriky) k sapiens (my, umění). Neandertálec je slepá vedlejší větev — vymřel asi před 40 000 lety.",
+      "zdroj": "Pravěk"
+    },
+    {
+      "id": "o-dej-pravek-7",
+      "temaId": "dej-pravek",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Archeologové našli při stavbě dálnice sídliště: keramické nádoby, kosti ovcí a koz a broušenou kamennou sekeru. Do kterého období ho zařadí?",
+      "moznosti": [
+        "Neolit",
+        "Paleolit",
+        "Doba železná",
+        "Doba ledová"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Keramika, chovaná zvířata a broušené nástroje = balíček neolitu. V paleolitu byly jen štípané nástroje a lovená zvěř; v době železné by se našly železné předměty. „Doba ledová“ je klimatický pojem, ne archeologické období.",
+      "zdroj": "Pravěk"
+    },
+    {
+      "id": "o-dej-pravek-8",
+      "temaId": "dej-pravek",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Co z následujícího patří ke Keltům na našem území? (více správných odpovědí)",
+      "moznosti": [
+        "Oppida jako Závist a Stradonice",
+        "Ražba mincí (tzv. duhovek)",
+        "Hrnčířský kruh a železné nástroje",
+        "Stavba pyramid pro náčelníky",
+        "Klínové písmo na hliněných tabulkách"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Keltové u nás stavěli oppida, razili mince a zavedli hrnčířský kruh i kvalitní železářství. Pyramidy patří Egyptu a klínové písmo Mezopotámii — pozor na míchání civilizací.",
+      "zdroj": "Pravěk"
+    },
+    {
+      "id": "o-dej-pravek-9",
+      "temaId": "dej-pravek",
+      "typ": "anone",
+      "obtiznost": 1,
+      "zadani": "Pravěcí lidé žili ve stejné době jako dinosauři.",
+      "spravna": false,
+      "vysvetleni": "Ne — dinosauři vyhynuli asi před 66 miliony let, první lidé se objevili před necelými 3 miliony let. Mezera je přes 60 milionů let; „jeskynní člověk s dinosaurem“ je filmový omyl.",
+      "zdroj": "Pravěk"
+    },
+    {
+      "id": "o-dej-pravek-10",
+      "temaId": "dej-pravek",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Kamarádi si založili skupinový chat bez tebe a zasáhne tě to víc, než by „rozumně“ mělo. Jak to vysvětlí znalost pravěku?",
+      "moznosti": [
+        "Mozek se vyvinul v paleolitu, kdy vyloučení z tlupy znamenalo pro jednotlivce téměř jistou smrt — sociální odmítnutí proto dodnes prožíváme jako ohrožení",
+        "Strach z vyloučení vznikl až s nástupem sociálních sítí — s vývojem člověka nesouvisí",
+        "Je to pozůstatek neolitu, kdy vesnice trestaly provinilce vyhnáním z osady",
+        "Zdědili jsme ho od neandertálců, kteří jako jediní žili ve velkých tlupách"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Paleolitický lovec a sběrač přežil jen v tlupě — sám neměl šanci, a mozek proto dodnes bere sociální odmítnutí jako reálné nebezpečí. Sociální sítě starý pud jen zesilují, nevytvořily ho; neolit je na vznik tak hlubokého programu příliš pozdě a neandertálci jsou vedlejší, vymřelá větev — naše pudy z nich nepocházejí.",
+      "zdroj": "Pravěk"
+    },
+
+    {
+      "id": "o-dej-starovek-orient-1",
+      "temaId": "dej-starovek-orient",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Kde vznikla nejstarší města a nejstarší písmo na světě?",
+      "moznosti": [
+        "V Mezopotámii mezi Eufratem a Tigridem",
+        "V Řecku",
+        "V Římě",
+        "Ve střední Evropě u Keltů"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Prvenství drží sumerská Mezopotámie (klínové písmo kolem 3300 př. n. l.). Řecko a Řím jsou o tisíce let mladší civilizace; Keltové písmo pro běžné zápisy nepoužívali.",
+      "zdroj": "Starověké orientální státy"
+    },
+    {
+      "id": "o-dej-starovek-orient-2",
+      "temaId": "dej-starovek-orient",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Čím se proslavil babylonský král Chammurapi?",
+      "moznosti": [
+        "Jedním z nejstarších zákoníků s principem „oko za oko, zub za zub“",
+        "Stavbou Cheopsovy pyramidy",
+        "Rozluštěním hieroglyfů",
+        "Propojením Velké čínské zdi"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Chammurapiho zákoník (18. století př. n. l.) stojí na odvetném principu a je vytesán na kamenné stéle. Pyramidy patří egyptským faraonům, hieroglyfy rozluštil Champollion (1822) a zeď spojil první čínský císař.",
+      "zdroj": "Starověké orientální státy"
+    },
+    {
+      "id": "o-dej-starovek-orient-3",
+      "temaId": "dej-starovek-orient",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Obrázkové písmo starých Egypťanů se nazývá ___.",
+      "spravneOdpovedi": ["hieroglyfy", "Hieroglyfy", "hieroglyfické písmo", "hieroglyf"],
+      "vysvetleni": "Hieroglyfy jsou egyptské obrázkové písmo — tesalo se do kamene a psalo na papyrus. Rozluštil je roku 1822 Champollion díky trojjazyčné Rosettské desce. Klínové písmo je naproti tomu mezopotámské.",
+      "zdroj": "Starověké orientální státy"
+    },
+    {
+      "id": "o-dej-starovek-orient-4",
+      "temaId": "dej-starovek-orient",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď civilizaci její typické znaky.",
+      "pary": [
+        { "levy": "Mezopotámie", "pravy": "klínové písmo a zikkuraty" },
+        { "levy": "Egypt", "pravy": "pyramidy a mumifikace" },
+        { "levy": "Indie", "pravy": "kastovní systém a zrod buddhismu" },
+        { "levy": "Čína", "pravy": "Velká zeď a vynález papíru" }
+      ],
+      "vysvetleni": "Každá říční civilizace má svůj „podpis“: Mezopotámie klín a chrámové věže, Egypt hrobky a balzamování, Indie kasty a Buddhu, Čína zeď, papír a hedvábí.",
+      "zdroj": "Starověké orientální státy"
+    },
+    {
+      "id": "o-dej-starovek-orient-5",
+      "temaId": "dej-starovek-orient",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč vznikaly nejstarší státy právě v údolích velkých řek?",
+      "moznosti": [
+        "Záplavy přinášely úrodné bahno a společná stavba kanálů si vynutila organizaci — z ní vyrostl stát i písmo",
+        "Řeky sloužily hlavně jako vodní hradba proti nepřátelům",
+        "První státy založili lovci, kteří u řek nacházeli nejvíc zvěře",
+        "Byla to náhoda — státy mohly stejně dobře vzniknout kdekoli"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Řeka = jistá úroda, úroda = přebytky, přebytky = města, úředníci, daně a evidence (písmo!). Obrana ani lov nevysvětlí, proč všechny čtyři nejstarší civilizace sedí na řekách — náhoda to tedy určitě není.",
+      "zdroj": "Starověké orientální státy"
+    },
+    {
+      "id": "o-dej-starovek-orient-6",
+      "temaId": "dej-starovek-orient",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které vynálezy pocházejí ze staré Číny? (více správných odpovědí)",
+      "moznosti": [
+        "Papír",
+        "Hedvábí",
+        "Kompas",
+        "Nula jako číslice",
+        "Klínové písmo"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Papír, hedvábí i kompas jsou čínské (putovaly k nám po Hedvábné stezce). Nulu vymysleli učenci v Indii a klínové písmo patří Mezopotámii — typická záměna civilizací.",
+      "zdroj": "Starověké orientální státy"
+    },
+    {
+      "id": "o-dej-starovek-orient-7",
+      "temaId": "dej-starovek-orient",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Pyramidy v Gíze stavěli podle dnešních poznatků hlavně otroci pod bičem.",
+      "spravna": false,
+      "vysvetleni": "Filmová představa neplatí: archeologové našli u pyramid vesnice najatých dělníků a rolníků, kteří na stavbě pracovali (zejména v době záplav) za jídlo, pivo a odměny. Stavba byla i státní „zaměstnanecký projekt“.",
+      "zdroj": "Starověké orientální státy"
+    },
+    {
+      "id": "o-dej-starovek-orient-8",
+      "temaId": "dej-starovek-orient",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Podle Chammurapiho zákoníku postavil stavitel dům tak špatně, že spadl a zabil majitele. Jaký trest stavitele čekal?",
+      "moznosti": [
+        "Smrt — platil odvetný princip „oko za oko“",
+        "Pokuta ve stříbře podle ceny domu",
+        "Povinnost postavit nový dům, nic víc",
+        "Několik let vězení"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zákoník trestal zrcadlově: smrt majitele = smrt stavitele. Pokuty se týkaly lehčích případů a poškozených z nižších vrstev; vězení jako běžný trest tehdy prakticky neexistovalo. Krutost mírní jedno: pravidla byla veřejně vytesána a platila předem.",
+      "zdroj": "Starověké orientální státy"
+    },
+    {
+      "id": "o-dej-starovek-orient-9",
+      "temaId": "dej-starovek-orient",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Nulu a číslice, kterým dnes říkáme „arabské“, vymysleli učenci ve starověké ___.",
+      "spravneOdpovedi": ["Indii", "indii", "Indie", "indie"],
+      "vysvetleni": "Číslice i nula vznikly v Indii; do Evropy je přinesli arabští obchodníci a učenci — proto se jim (nepřesně) říká arabské. Zkus si napsat rok 2026 římskými číslicemi a pochopíš, proč se ujaly.",
+      "zdroj": "Starověké orientální státy"
+    },
+    {
+      "id": "o-dej-starovek-orient-10",
+      "temaId": "dej-starovek-orient",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Píše se rok 3000 př. n. l. a vládneš městu u velké řeky. K čemu se ti nový vynález — písmo — skutečně hodí? (více správných odpovědí)",
+      "moznosti": [
+        "K evidenci daní a zásob obilí ve skladech",
+        "K zapsání zákonů, aby je nešlo měnit podle libosti",
+        "K záznamu smluv při obchodu na dálku",
+        "K tomu, aby se většina obyvatel naučila číst a psát",
+        "K rychlejšímu doručování zpráv než po poslovi"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Písmo vzniklo z účetnictví a správy: evidence, zákony, smlouvy. Číst a psát uměla jen hrstka písařů (gramotnost většiny je až novověk) a psaný vzkaz nesl pořád stejný posel — rychlost se nezměnila, jen spolehlivost.",
+      "zdroj": "Starověké orientální státy"
+    },
+
+    {
+      "id": "o-dej-recko-1",
+      "temaId": "dej-recko",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co byla řecká polis?",
+      "moznosti": [
+        "Městský stát — město s okolní krajinou, které se spravovalo samo",
+        "Chrám zasvěcený bohyni Athéně",
+        "Elitní jednotka spartské armády",
+        "Provincie perské říše"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Polis = samostatný městský stát (Athény, Sparta, Korint…). Hornaté Řecko se nikdy nespojilo do jedné říše — poleis sdílely jazyk a bohy, ale vládly si samy.",
+      "zdroj": "Starověké Řecko"
+    },
+    {
+      "id": "o-dej-recko-2",
+      "temaId": "dej-recko",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Kdo směl v Athénách 5. století př. n. l. hlasovat na sněmu (ekklésii)?",
+      "moznosti": [
+        "Svobodní dospělí muži s athénským občanstvím",
+        "Všichni obyvatelé města včetně žen a otroků",
+        "Pouze aristokraté z urozených rodů",
+        "Pouze vojáci v činné službě"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Athénská demokracie byla přímá, ale jen pro menšinu: občané-muži. Ženy, otroci a cizinci (metoikové) politická práva neměli. Vláda urozených byla naopak stav PŘED demokratickými reformami.",
+      "zdroj": "Starověké Řecko"
+    },
+    {
+      "id": "o-dej-recko-3",
+      "temaId": "dej-recko",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Městský stát, kde chlapci od sedmi let procházeli tvrdou vojenskou výchovou a vše se podřizovalo armádě, byla ___.",
+      "spravneOdpovedi": ["Sparta", "sparta"],
+      "vysvetleni": "Sparta = vojenský stát na Peloponésu se dvěma králi; výchova (agógé) měla jediný cíl — dokonalé válečníky. Pole za Sparťany obdělávali porobení heilóti.",
+      "zdroj": "Starověké Řecko"
+    },
+    {
+      "id": "o-dej-recko-4",
+      "temaId": "dej-recko",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď událost či osobnost řeckých dějin k tomu, co se stalo.",
+      "pary": [
+        { "levy": "Marathón (490 př. n. l.)", "pravy": "vítězství Athéňanů; legenda o běžci se zprávou" },
+        { "levy": "Thermopyly (480 př. n. l.)", "pravy": "Leónidás a 300 Sparťanů zdrželi Peršany" },
+        { "levy": "Salamína (480 př. n. l.)", "pravy": "námořní vítězství Řeků v úzké úžině" },
+        { "levy": "Alexandr Makedonský", "pravy": "dobyl perskou říši a došel až k Indu" }
+      ],
+      "vysvetleni": "Tři bitvy řecko-perských válek: Marathón na souši (490), Thermopyly jako hrdinné zdržení a Salamína na moři (obě 480). Alexandr o půldruhého století později perskou říši dobyl — z obránce se stal dobyvatel.",
+      "zdroj": "Starověké Řecko"
+    },
+    {
+      "id": "o-dej-recko-5",
+      "temaId": "dej-recko",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč chtěl Themistoklés svést bitvu u Salamíny (480 př. n. l.) právě v úzké mořské úžině?",
+      "moznosti": [
+        "Početnější perská flotila se v úžině nemohla rozvinout — převaha ztratila smysl",
+        "Řekové měli více lodí a chtěli Peršany v úžině obklíčit",
+        "V úžině byla mělčina, kde perské lodě uvízly na dně",
+        "Chtěl Peršanům odříznout cestu domů a vyhladovět je"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Řekové měli lodí MÉNĚ — proto potřebovali bojiště, kde se velká flotila nerozvine a bojuje se „loď na loď“. Volba bojiště srovnala síly; mělčiny ani obklíčení v pramenech nehrají roli.",
+      "zdroj": "Starověké Řecko"
+    },
+    {
+      "id": "o-dej-recko-6",
+      "temaId": "dej-recko",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Kteří tři slavní filozofové na sebe v Athénách navazovali (učitel → žák → žák)?",
+      "moznosti": [
+        "Sókratés → Platón → Aristotelés",
+        "Aristotelés → Platón → Sókratés",
+        "Homér → Hérodotos → Pythagoras",
+        "Solón → Kleisthenés → Periklés"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Správné pořadí: Sókratés učil Platóna, Platón Aristotela (a ten pak mladého Alexandra Makedonského). Obrácené pořadí je nejčastější chyba; Homér byl básník, Hérodotos dějepisec a Solón s Kleisthenem a Periklem státníci.",
+      "zdroj": "Starověké Řecko"
+    },
+    {
+      "id": "o-dej-recko-7",
+      "temaId": "dej-recko",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Olympijské hry se konaly už ve starověkém Řecku a po dobu her platil mezi poleis mír.",
+      "spravna": true,
+      "vysvetleni": "Hry se konaly od roku 776 př. n. l. v Olympii k poctě boha Dia; posvátný mír (ekecheiria) umožňoval sportovcům a divákům bezpečnou cestu. Novodobé hry na tuto tradici navázaly roku 1896.",
+      "zdroj": "Starověké Řecko"
+    },
+    {
+      "id": "o-dej-recko-8",
+      "temaId": "dej-recko",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Athénský hrnčíř ráno hlasuje na sněmu o válce, odpoledne losem zasedne v soudní porotě. Jeho žena ani otrok hlasovat nesmějí. Který popis athénské demokracie je přesný?",
+      "moznosti": [
+        "Přímá demokracie svobodných mužů-občanů; ženy, otroci a cizinci byli vyloučeni",
+        "Zastupitelská demokracie — občané si volili poslance jako dnes",
+        "Vláda všech obyvatel bez rozdílu pohlaví a původu",
+        "Vláda jednoho muže voleného doživotně"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Athéňané rozhodovali PŘÍMO (sněm, losované úřady), žádný parlament neexistoval — ale jen menšina obyvatel byla občany. Moderní „vláda všech“ to nebyla a doživotní vládce jednoho muže je spíš tyranida.",
+      "zdroj": "Starověké Řecko"
+    },
+    {
+      "id": "o-dej-recko-9",
+      "temaId": "dej-recko",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Období po výbojích Alexandra Makedonského, kdy se řecká kultura smísila s orientální, nazýváme ___.",
+      "spravneOdpovedi": ["helénismus", "Helénismus", "helenismus", "helénistické období", "helenisticke obdobi"],
+      "vysvetleni": "Helénismus (zhruba 323–30 př. n. l.): řečtina a řecká vzdělanost se rozlily od Egypta po Indii — Alexandrijská knihovna, Archimédés, maják na ostrově Faru. Skončil ovládnutím Egypta Římem.",
+      "zdroj": "Starověké Řecko"
+    },
+    {
+      "id": "o-dej-recko-10",
+      "temaId": "dej-recko",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Co z dnešního světa má kořeny ve starověkém Řecku? (více správných odpovědí)",
+      "moznosti": [
+        "Divadlo — tragédie a komedie",
+        "Maratonský běh",
+        "Hlasování občanů o veřejných věcech",
+        "Číslice, kterými počítáme (1, 2, 3…)",
+        "Juliánský kalendář"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Divadlo vzniklo z athénských slavností, maraton připomíná běžce od Marathónu a myšlenka hlasujících občanů je athénská. Číslice pocházejí z Indie a juliánský kalendář zavedl Říman Caesar — pozor na správné „adresy“ vynálezů.",
+      "zdroj": "Starověké Řecko"
+    },
+
+    {
+      "id": "o-dej-rim-1",
+      "temaId": "dej-rim",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "V jakém pořadí se v Římě vystřídaly formy vlády?",
+      "moznosti": [
+        "Království → republika → císařství",
+        "Republika → království → císařství",
+        "Císařství → republika → království",
+        "Království → demokracie → republika"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Řím začal jako království (753–509 př. n. l.), po vyhnání posledního krále byl republikou (509–27 př. n. l.) a od Augusta císařstvím. Demokracii athénského typu Řím nikdy neměl.",
+      "zdroj": "Starověký Řím"
+    },
+    {
+      "id": "o-dej-rim-2",
+      "temaId": "dej-rim",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Podle pověsti založil Řím roku 753 př. n. l. Romulus, kterého s bratrem Remem odkojila vlčice.",
+      "spravna": true,
+      "vysvetleni": "Tak zní zakládající pověst — Romulus dal městu jméno. Skutečný Řím vyrostl z latinských osad na pahorcích u Tibery; rok 753 př. n. l. ale Římané používali jako počátek svého letopočtu.",
+      "zdroj": "Starověký Řím"
+    },
+    {
+      "id": "o-dej-rim-3",
+      "temaId": "dej-rim",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Kdo stál v čele římské republiky?",
+      "moznosti": [
+        "Dva konzulové volení na jeden rok",
+        "Doživotní král",
+        "Císař s neomezenou mocí",
+        "Deset stratégů velících vojsku"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Konzulové byli dva a jen na rok — schválně, aby nikdo nezískal moc krále; radil (a fakticky vládl) senát. Císař přichází až roku 27 př. n. l. a deset stratégů je athénská instituce.",
+      "zdroj": "Starověký Řím"
+    },
+    {
+      "id": "o-dej-rim-4",
+      "temaId": "dej-rim",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď osobnost římských dějin k jejímu činu.",
+      "pary": [
+        { "levy": "Julius Caesar", "pravy": "dobyl Galii, překročil Rubikon; zavražděn 44 př. n. l." },
+        { "levy": "Augustus", "pravy": "první císař; éra míru a rozkvětu" },
+        { "levy": "Konstantin", "pravy": "roku 313 povolil křesťanství; založil Konstantinopol" },
+        { "levy": "Hannibal", "pravy": "kartaginský vojevůdce; přešel Alpy se slony" }
+      ],
+      "vysvetleni": "Caesar republiku fakticky pohřbil, Augustus na jejích troskách postavil císařství, Konstantin obrátil říši ke křesťanství a Hannibal byl největší VNĚJŠÍ nepřítel Říma — jediný z uvedených, kdo nebyl Říman.",
+      "zdroj": "Starověký Řím"
+    },
+    {
+      "id": "o-dej-rim-5",
+      "temaId": "dej-rim",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co se stalo roku 476 n. l.?",
+      "moznosti": [
+        "Germánský velitel Odoaker sesadil posledního západořímského císaře — zánik západořímské říše",
+        "Říše se rozdělila na západní a východní část",
+        "Císař Konstantin vydal edikt milánský",
+        "Caesar překročil řeku Rubikon"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rok 476 = konec západořímské říše a symbolický konec starověku. Rozdělení říše proběhlo už 395, edikt milánský je z roku 313 a Rubikon Caesar překročil roku 49 př. n. l. — data, která se pletou nejčastěji.",
+      "zdroj": "Starověký Řím"
+    },
+    {
+      "id": "o-dej-rim-6",
+      "temaId": "dej-rim",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Co z římského dědictví používáme dodnes? (více správných odpovědí)",
+      "moznosti": [
+        "Základy práva — třeba zásadu vyslechnout i druhou stranu",
+        "Kalendář vycházející z juliánského (a měsíce July/August podle Caesara a Augusta)",
+        "Latinku — písmo, kterým je psán i tento test",
+        "Losování úředníků z řad všech občanů",
+        "Obrázkové písmo pro slavnostní nápisy"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Právo, kalendář i latinka jsou římské dary Evropě. Losování úřadů je athénský vynález (Řím úředníky volil) a obrázkové písmo patří Egyptu — nezaměňuj civilizace.",
+      "zdroj": "Starověký Řím"
+    },
+    {
+      "id": "o-dej-rim-7",
+      "temaId": "dej-rim",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Křesťanství bylo v římské říši od svého vzniku povoleným náboženstvím.",
+      "spravna": false,
+      "vysvetleni": "Naopak — křesťané byli dlouho pronásledováni (proslulé je Neronovo obvinění z požáru Říma). Legální je křesťanství až od ediktu milánského (313, Konstantin); státním náboženstvím se stalo roku 380.",
+      "zdroj": "Starověký Řím"
+    },
+    {
+      "id": "o-dej-rim-8",
+      "temaId": "dej-rim",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Prvním římským císařem se roku 27 př. n. l. stal ___.",
+      "spravneOdpovedi": ["Augustus", "augustus", "Octavianus", "Octavianus Augustus", "Oktavián", "oktavián", "Octavián"],
+      "vysvetleni": "Octavianus, adoptivní syn Caesara, přijal roku 27 př. n. l. čestné jméno Augustus („Vznešený“). Formálně „obnovil republiku“, fakticky založil císařství — proto se nikdy nenechal titulovat král.",
+      "zdroj": "Starověký Řím"
+    },
+    {
+      "id": "o-dej-rim-9",
+      "temaId": "dej-rim",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Jak dlouho trvaly punské války mezi Římem a Kartágem (264–146 př. n. l.)?",
+      "moznosti": [
+        "Přibližně 120 let",
+        "Přibližně 410 let",
+        "Přibližně 60 let",
+        "To z letopočtů před naším letopočtem nejde spočítat"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Letopočty před naším letopočtem běží „pozpátku“, takže se odečítá: 264 − 146 = 118, tedy zhruba 120 let. Sečtení (264 + 146 = 410) je typická chyba — sčítá se jen tehdy, když období překračuje přelom letopočtu.",
+      "zdroj": "Starověký Řím"
+    },
+    {
+      "id": "o-dej-rim-10",
+      "temaId": "dej-rim",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Jsi římský občan roku 50 př. n. l. — republika je v krizi. Které jevy kolem sebe skutečně vidíš? (více správných odpovědí)",
+      "moznosti": [
+        "Vojevůdce s legiemi věrnými jim osobně, ne státu",
+        "Boj o moc mezi několika siláky (nedávno spojenými v triumvirátu) místo řádných úřadů",
+        "Čerstvou vzpomínku na velké povstání otroků (Spartakus)",
+        "Císaře vládnoucího z Konstantinopole",
+        "Říši rozdělenou na západní a východní"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Krizi republiky dělají soukromé armády, spolky siláků (triumvirát, po jeho rozpadu boj Caesara s Pompeiem) a otřes ze Spartakova povstání (73–71 př. n. l.). Císař, Konstantinopol i rozdělení říše jsou o stovky let později — kdo je „vidí“ roku 50 př. n. l., plete časové vrstvy.",
+      "zdroj": "Starověký Řím"
+    },
+
+    {
+      "id": "o-dej-rany-stredovek-1",
+      "temaId": "dej-rany-stredovek",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Kdo byl Sámo?",
+      "moznosti": [
+        "Franský kupec, který sjednotil Slovany proti Avarům",
+        "Velkomoravský kníže, který pozval Cyrila a Metoděje",
+        "První přemyslovský kníže pokřtěný Metodějem",
+        "Vůdce kočovných Hunů"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Sámo byl franský obchodník; Slovany vedl proti Avarům a roku 623 se stal vládcem jejich kmenového svazu. Cyrila a Metoděje pozval o 240 let později Rastislav a prvním pokřtěným Přemyslovcem byl Bořivoj.",
+      "zdroj": "Raný středověk"
+    },
+    {
+      "id": "o-dej-rany-stredovek-2",
+      "temaId": "dej-rany-stredovek",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co se stalo o Vánocích roku 800 v Římě?",
+      "moznosti": [
+        "Papež korunoval franského krále Karla Velikého císařem",
+        "Zanikla západořímská říše",
+        "Cyril a Metoděj dorazili na Velkou Moravu",
+        "Vnuci Karla Velikého si rozdělili franskou říši"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Korunovací Karla Velikého (25. 12. 800) papež obnovil na Západě císařský titul. Západořímská říše zanikla 476, misie Cyrila a Metoděje přišla 863 a dělení říše proběhlo verdunskou smlouvou 843.",
+      "zdroj": "Raný středověk"
+    },
+    {
+      "id": "o-dej-rany-stredovek-3",
+      "temaId": "dej-rany-stredovek",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Proč pozval kníže Rastislav roku 863 na Velkou Moravu Konstantina a Metoděje z Byzance?",
+      "moznosti": [
+        "Chtěl kněze, kteří budou učit jazykem srozumitelným lidu — a oslabit vliv franských kněží",
+        "Potřeboval vojevůdce do války proti Avarům",
+        "Chtěl na Moravě postavit chrám Hagia Sofia",
+        "Hledal pro svůj dvůr učitele latiny"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Šlo o víru i politiku: bohoslužba ve staroslověnštině, které lidé rozuměli, a církev nezávislá na franském vlivu. Proti Avarům bojoval Sámo o dvě století dřív; latinu naopak šířili právě franští kněží.",
+      "zdroj": "Raný středověk"
+    },
+    {
+      "id": "o-dej-rany-stredovek-4",
+      "temaId": "dej-rany-stredovek",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Písmo, které Konstantin (Cyril) vytvořil pro staroslověnštinu, se nazývá ___.",
+      "spravneOdpovedi": ["hlaholice", "Hlaholice"],
+      "vysvetleni": "Konstantin sestavil hlaholici — nejstarší slovanské písmo. Cyrilice (základ dnešní azbuky) vznikla až později u žáků obou bratří a je pojmenovaná na Cyrilovu počest — proto se obě písma tak často pletou.",
+      "zdroj": "Raný středověk"
+    },
+    {
+      "id": "o-dej-rany-stredovek-5",
+      "temaId": "dej-rany-stredovek",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď raně středověký útvar či rod k tomu, co ho vystihuje.",
+      "pary": [
+        { "levy": "Sámova říše", "pravy": "první kmenový svaz Slovanů (7. století)" },
+        { "levy": "Velká Morava", "pravy": "Mojmírovci; misie Cyrila a Metoděje" },
+        { "levy": "franská říše", "pravy": "Karel Veliký, císařem od roku 800" },
+        { "levy": "přemyslovské Čechy", "pravy": "Bořivoj I. a kníže Václav" }
+      ],
+      "vysvetleni": "Časová posloupnost na našem území: Sámo (7. století) → Velká Morava (9. století) → přemyslovské Čechy (od konce 9. století). Franská říše byla po celou dobu mocným — a často nepříjemným — západním sousedem.",
+      "zdroj": "Raný středověk"
+    },
+    {
+      "id": "o-dej-rany-stredovek-6",
+      "temaId": "dej-rany-stredovek",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Stěhování národů uvedl do pohybu vpád kočovných Hunů do Evropy koncem 4. století.",
+      "spravna": true,
+      "vysvetleni": "Hunové (kolem roku 375) tlačili před sebou germánské kmeny, které se daly do pohybu přes hranice římské říše. Právě tento řetězový pohyb pomohl západořímskou říši rozvrátit.",
+      "zdroj": "Raný středověk"
+    },
+    {
+      "id": "o-dej-rany-stredovek-7",
+      "temaId": "dej-rany-stredovek",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Verdunskou smlouvou (843) si vnuci Karla Velikého rozdělili říši na tři díly. Který dnešní stát vyrostl ze západního dílu?",
+      "moznosti": [
+        "Francie",
+        "Španělsko",
+        "Anglie",
+        "Polsko"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Západofranská říše se vyvinula ve Francii, východofranská v Německo (pozdější Svatou říši římskou); prostřední pruh byl brzy rozebrán. Anglie ani Polsko s dělením franské říše nesouvisejí a Španělsko bylo tehdy z velké části arabské.",
+      "zdroj": "Raný středověk"
+    },
+    {
+      "id": "o-dej-rany-stredovek-8",
+      "temaId": "dej-rany-stredovek",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Kníže Václav byl roku 935 zavražděn ve Staré Boleslavi lidmi svého bratra Boleslava.",
+      "spravna": true,
+      "vysvetleni": "Ano — vražda u dveří kostela udělala z Václava mučedníka a věčného patrona české země (starší knihy uvádějí rok 929). Výročí 28. září je dnes státní svátek, Den české státnosti.",
+      "zdroj": "Raný středověk"
+    },
+    {
+      "id": "o-dej-rany-stredovek-9",
+      "temaId": "dej-rany-stredovek",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Velká Morava zanikla kolem roku 907 pod nájezdy Maďarů. Do kterého století rok 907 patří?",
+      "moznosti": [
+        "Do 10. století",
+        "Do 9. století",
+        "Do 8. století",
+        "Do 19. století"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Století č. 10 zahrnuje roky 901–1000, takže 907 je začátek 10. století. Typická chyba je vzít první číslici letopočtu (9 → „9. století“) — jenže 9. století jsou roky 801–900.",
+      "zdroj": "Raný středověk"
+    },
+    {
+      "id": "o-dej-rany-stredovek-10",
+      "temaId": "dej-rany-stredovek",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Co v dnešním Česku přímo připomíná raný středověk? (více správných odpovědí)",
+      "moznosti": [
+        "Státní svátek 5. července — příchod Cyrila a Metoděje",
+        "Státní svátek 28. září — Den české státnosti (sv. Václav)",
+        "Socha sv. Václava na Václavském náměstí v Praze",
+        "Státní svátek 28. října",
+        "Svátek práce 1. května"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Dva státní svátky i nejznámější pražská socha odkazují na 9.–10. století. Naproti tomu 28. říjen připomíná vznik Československa (1918) a 1. máj dělnické hnutí (19. století) — s raným středověkem nesouvisejí.",
+      "zdroj": "Raný středověk"
+    }
+  ]
+}

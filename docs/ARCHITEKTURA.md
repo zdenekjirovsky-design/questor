@@ -22,8 +22,9 @@ questor/
 ├── generator/   @questor/generator — ingest učiva → Claude → banka otázek (CLI + knihovna)
 ├── server/      @questor/server — Hono API + node:sqlite + admin mini-web
 ├── aplikace/    @questor/aplikace — React + Vite (desktop shell: Tauri 2, balí se v CI)
-├── data/        demo učivo (uciva/), banky (banky/) a výuka (vyuka/)
-└── docs/        ARCHITEKTURA.md, DESIGN.md, NAVOD.md, NASAZENI.md, VYUKA.md
+├── data/        učivo (uciva/), banky (banky/) a výuka (vyuka/) — zdroj pravdy obsahu
+├── scripts/     validuj-banku.ts, validuj-vyuku.ts, kontrola-integrace.ts (kontroly z kořene)
+└── docs/        ARCHITEKTURA.md, DESIGN.md, DIDAKTIKA.md, NAVOD.md, NASAZENI.md, VYUKA.md
 ```
 
 ### Konvence (platí všude)
@@ -217,9 +218,10 @@ prozradit klíč (generované banky mívají správnou odpověď na prvním mís
 odpovědi se enginu hlásí vždy v datových indexech. Dokončenou lekci lze
 projít znovu (tlačítko „Projít znovu“ → akce `zacniLekciZnovu` vynuluje
 dokončené bloky, XP 1× denně dál hlídá `dokonciLekci`); `resetujProgres`
-maže i `postupLekci`. Persistovaná výuka se při rehydrataci revaliduje
-(`validujVyuku`) a nevalidní snapshot (např. z novější verze aplikace po
-rollbacku) se zahodí ve prospěch bundlu.
+maže i `postupLekci`. Obsah načtený z IndexedDB se při startu revaliduje
+(`validujBanku`/`validujVyuku` v `nacteniObsahu.ts`) a nevalidní záznam
+(např. z novější verze aplikace po rollbacku) se tiše přeskočí ve
+prospěch bundlu.
 
 ### Vlastnictví souborů (paralelní práce)
 
@@ -249,7 +251,8 @@ rollbacku) se zahodí ve prospěch bundlu.
 
 ### Sync (offline-first)
 
-Aplikace je plně funkční bez serveru (demo banka bundlovaná v `data/`).
+Aplikace je plně funkční bez serveru (obsah všech předmětů bundlovaný
+v `data/predmety/` jako lazy chunky, viz registr výše).
 `sync/` drží: URL serveru + token (stránka Nastavení, default
 `http://localhost:8787`), frontu neodeslaných událostí (localStorage),
 při startu a po testu: push progres + události, pull banky i výuky (jen vyšší

@@ -1,0 +1,612 @@
+{
+  "predmetId": "obcanska-nauka",
+  "nazev": "Občanská nauka",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "obn-clovek-ve-spolecnosti", "nazev": "Člověk ve společnosti", "poradi": 0 },
+    { "id": "obn-psychologie-osobnosti", "nazev": "Základy psychologie osobnosti", "poradi": 1 },
+    { "id": "obn-vztahy-komunikace", "nazev": "Vztahy a komunikace", "poradi": 2 },
+    { "id": "obn-stat-demokracie", "nazev": "Stát a demokracie", "poradi": 3 },
+    { "id": "obn-lidska-prava", "nazev": "Lidská práva", "poradi": 4 }
+  ],
+  "otazky": [
+    {
+      "id": "o-obn-clovek-ve-spolecnosti-1",
+      "temaId": "obn-clovek-ve-spolecnosti",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jak se nazývá celoživotní proces, při kterém si člověk osvojuje jazyk, normy a hodnoty své společnosti?",
+      "moznosti": ["socializace", "konformita", "deviace", "motivace"],
+      "spravna": 0,
+      "vysvetleni": "Socializace je vrůstání do společnosti — učíme se v ní žít od narození až do smrti. Konformita je přizpůsobení se tlaku skupiny, deviace je odchylka od norem a motivace patří do psychologie osobnosti — to všechno jsou jiné pojmy.",
+      "zdroj": "Člověk ve společnosti"
+    },
+    {
+      "id": "o-obn-clovek-ve-spolecnosti-2",
+      "temaId": "obn-clovek-ve-spolecnosti",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Kdo je hlavním činitelem primární socializace?",
+      "moznosti": ["rodina", "škola", "parta vrstevníků", "sociální sítě"],
+      "spravna": 0,
+      "vysvetleni": "Primární socializace probíhá v raném dětství a jejím hlavním činitelem je rodina — od ní přebíráme jazyk, základní normy i hodnoty. Škola, vrstevníci a média působí až v sekundární socializaci, proto jsou to lákavé, ale špatné odpovědi.",
+      "zdroj": "Člověk ve společnosti"
+    },
+    {
+      "id": "o-obn-clovek-ve-spolecnosti-3",
+      "temaId": "obn-clovek-ve-spolecnosti",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď druh sociální normy k jeho popisu.",
+      "pary": [
+        { "levy": "právní norma", "pravy": "vydává a vymáhá ji stát, za porušení hrozí pokuta či trest" },
+        { "levy": "morální norma", "pravy": "hlídá ji svědomí a mínění okolí" },
+        { "levy": "zvyk (obyčej)", "pravy": "ustálený způsob chování, např. cukroví na Vánoce" },
+        { "levy": "náboženská norma", "pravy": "plyne z víry a učení církve" }
+      ],
+      "vysvetleni": "Normy se liší hlavně tím, KDO je vymáhá a JAKÁ sankce hrozí: u právních norem stát (pokuta, trest), u morálních svědomí a okolí (výčitky, posměch), zvyky drží tradice a náboženské normy víra.",
+      "zdroj": "Člověk ve společnosti"
+    },
+    {
+      "id": "o-obn-clovek-ve-spolecnosti-4",
+      "temaId": "obn-clovek-ve-spolecnosti",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Jeden člověk může hrát současně více sociálních rolí.",
+      "spravna": true,
+      "vysvetleni": "Ano — tentýž člověk je zároveň třeba student, dcera, kamarádka, kapitánka týmu a brigádnice. Každá role s sebou nese jiná očekávání; když se dostanou do rozporu, vzniká konflikt rolí.",
+      "zdroj": "Člověk ve společnosti"
+    },
+    {
+      "id": "o-obn-clovek-ve-spolecnosti-5",
+      "temaId": "obn-clovek-ve-spolecnosti",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Celá třída se směje vtipu, který ti vtipný nepřijde — ale zasměješ se taky, abys nevybočoval/a. Jak se tohle chování nazývá?",
+      "moznosti": ["konformita", "socializace", "deviace", "asertivita"],
+      "spravna": 0,
+      "vysvetleni": "Konformita = přizpůsobení se tlaku skupiny navzdory vlastnímu názoru — přesně to popsal Aschův experiment. Socializace je širší celoživotní proces učení, deviace je naopak odchylka od normy a asertivita by znamenala klidně dát najevo vlastní postoj.",
+      "zdroj": "Člověk ve společnosti"
+    },
+    {
+      "id": "o-obn-clovek-ve-spolecnosti-6",
+      "temaId": "obn-clovek-ve-spolecnosti",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Skupina, do které člověk sám nepatří, ale jejíž hodnoty a styl přejímá, protože se jí chce podobat, se nazývá skupina __________.",
+      "spravneOdpovedi": ["referenční", "referencni"],
+      "vysvetleni": "Referenční skupina slouží jako vzor — člověk se s ní srovnává a napodobuje ji (např. oblíbení influenceři nebo starší spolužáci), i když jejím členem není.",
+      "zdroj": "Člověk ve společnosti"
+    },
+    {
+      "id": "o-obn-clovek-ve-spolecnosti-7",
+      "temaId": "obn-clovek-ve-spolecnosti",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Tomáš je kapitán florbalového týmu a zároveň nejlepší kamarád Filipa, který chodí pozdě na tréninky. Jako kapitán by ho měl napomenout, jako kamarád krýt. Jaká situace nastala?",
+      "moznosti": ["konflikt rolí", "deviace", "sekundární socializace", "negativní sankce"],
+      "spravna": 0,
+      "vysvetleni": "Očekávání dvou rolí téhož člověka (kapitán vs. kamarád) se dostala do rozporu — to je konflikt rolí. Deviace by bylo Filipovo porušování normy, socializace je proces učení a sankce by byl až případný trest — nic z toho nevystihuje Tomášovo dilema.",
+      "zdroj": "Člověk ve společnosti"
+    },
+    {
+      "id": "o-obn-clovek-ve-spolecnosti-8",
+      "temaId": "obn-clovek-ve-spolecnosti",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které z následujících skupin jsou PRIMÁRNÍ sociální skupiny?",
+      "moznosti": [
+        "rodina",
+        "parta nejbližších kamarádů",
+        "všichni zaměstnanci velké firmy",
+        "fanoušci fotbalového klubu na stadionu"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "Primární skupiny jsou malé, důvěrné a citově významné — rodina a nejbližší kamarádi. Zaměstnanci velké firmy a dav fanoušků jsou skupiny sekundární: velké a neosobní, i když může být na stadionu veselo.",
+      "zdroj": "Člověk ve společnosti"
+    },
+    {
+      "id": "o-obn-clovek-ve-spolecnosti-9",
+      "temaId": "obn-clovek-ve-spolecnosti",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Na síti se šíří nebezpečná výzva a sdílí ji většina třídy. Pár spolužáků se přidá jen proto, že „to dělají všichni“. Který jev jejich chování nejlépe vysvětluje a proč je riskantní?",
+      "moznosti": [
+        "konformita — tlak skupiny vede k převzetí chování bez vlastního úsudku",
+        "deviace — záměrně porušují normy společnosti",
+        "primární socializace — chování přejali od rodiny",
+        "pozitivní sankce — společnost je za to odměňuje"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rozhodli se podle většiny, ne podle vlastního úsudku — to je konformita, a u nebezpečné výzvy může stát zdraví. Deviace by bylo vědomé porušení normy z vlastní vůle, rodina s výzvou nemá nic společného a případný lajk není sankce společnosti, ale právě ten skupinový tlak.",
+      "zdroj": "Člověk ve společnosti"
+    },
+    {
+      "id": "o-obn-psychologie-osobnosti-1",
+      "temaId": "obn-psychologie-osobnosti",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jak antická typologie nazývá temperament člověka, který je klidný, vyrovnaný a jen tak něco ho nerozhodí?",
+      "moznosti": ["flegmatik", "cholerik", "sangvinik", "melancholik"],
+      "spravna": 0,
+      "vysvetleni": "Flegmatik je klidný a stabilní typ. Cholerik je naopak výbušný, sangvinik živý a společenský, melancholik citlivý a hloubavý — klid a nevzrušivost sedí právě na flegmatika.",
+      "zdroj": "Základy psychologie osobnosti"
+    },
+    {
+      "id": "o-obn-psychologie-osobnosti-2",
+      "temaId": "obn-psychologie-osobnosti",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď typ temperamentu k jeho typickému projevu.",
+      "pary": [
+        { "levy": "sangvinik", "pravy": "živý, společenský, emočně stabilní" },
+        { "levy": "cholerik", "pravy": "výbušný, rychle se nadchne i rozčílí" },
+        { "levy": "flegmatik", "pravy": "klidný, vyrovnaný, těžko ho vyvést z míry" },
+        { "levy": "melancholik", "pravy": "citlivý, hloubavý, sklon ke smutku" }
+      ],
+      "vysvetleni": "Čtyři antické typy se liší ve dvou dimenzích: stabilita (sangvinik, flegmatik) vs. labilita (cholerik, melancholik) a extraverze (sangvinik, cholerik) vs. introverze (flegmatik, melancholik) — tak je popsal i Eysenck.",
+      "zdroj": "Základy psychologie osobnosti"
+    },
+    {
+      "id": "o-obn-psychologie-osobnosti-3",
+      "temaId": "obn-psychologie-osobnosti",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Temperament je z velké části vrozený a během života se mění jen málo.",
+      "spravna": true,
+      "vysvetleni": "Ano — temperament je převážně vrozený styl reagování a prožívání. Můžeme se naučit své projevy zvládat (cholerik umí trénovat sebeovládání), ale základní nastavení se mění jen málo.",
+      "zdroj": "Základy psychologie osobnosti"
+    },
+    {
+      "id": "o-obn-psychologie-osobnosti-4",
+      "temaId": "obn-psychologie-osobnosti",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co vyjadřuje inteligenční kvocient (IQ)?",
+      "moznosti": [
+        "úroveň rozumových schopností ve srovnání s vrstevníky",
+        "množství znalostí naučených ve škole",
+        "píli a snahu člověka",
+        "schopnost rozumět citům druhých"
+      ],
+      "spravna": 0,
+      "vysvetleni": "IQ srovnává rozumový výkon člověka s vrstevníky (průměr = 100). Neměří naučené znalosti ani píli — a porozumění citům je doména emoční inteligence (EQ), ne IQ.",
+      "zdroj": "Základy psychologie osobnosti"
+    },
+    {
+      "id": "o-obn-psychologie-osobnosti-5",
+      "temaId": "obn-psychologie-osobnosti",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Motivace, která pramení z vlastního zájmu a radosti z činnosti (ne z odměn zvenčí), se nazývá motivace __________.",
+      "spravneOdpovedi": ["vnitřní", "vnitrni"],
+      "vysvetleni": "Vnitřní motivace vychází z činnosti samotné (hraju, protože mě to baví) a je trvalejší než motivace vnější, poháněná známkami, penězi nebo pochvalou.",
+      "zdroj": "Základy psychologie osobnosti"
+    },
+    {
+      "id": "o-obn-psychologie-osobnosti-6",
+      "temaId": "obn-psychologie-osobnosti",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Které potřeby leží podle Maslowovy pyramidy úplně dole — musí být uspokojeny nejdřív?",
+      "moznosti": [
+        "fyziologické potřeby (jídlo, spánek)",
+        "potřeba seberealizace",
+        "potřeba uznání",
+        "potřeba sounáležitosti a lásky"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Základnu pyramidy tvoří fyziologické potřeby — hladový a nevyspalý člověk těžko řeší uznání nebo seberealizaci. Seberealizace je naopak na samém vrcholu, uznání a sounáležitost leží uprostřed.",
+      "zdroj": "Základy psychologie osobnosti"
+    },
+    {
+      "id": "o-obn-psychologie-osobnosti-7",
+      "temaId": "obn-psychologie-osobnosti",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kája se učí na test z ekonomiky. Který postup jí podle psychologie učení pomůže nejvíc?",
+      "moznosti": [
+        "rozložit učení do více dnů a průběžně se zkoušet z otázek",
+        "přečíst si sešit pětkrát za sebou večer před testem",
+        "zvýraznit si v učebnici všechny důležité věty",
+        "pustit si výklad na videu a nic si nezkoušet"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kombinuje spacing (rozložené opakování) a testing effect (aktivní vybavování) — dvojici nejúčinnějších metod; přesně tak funguje QUESTOR. Opakované čtení, zvýrazňování i pasivní sledování videa vytvářejí jen pocit znalosti, ne trvalou paměť.",
+      "zdroj": "Základy psychologie osobnosti"
+    },
+    {
+      "id": "o-obn-psychologie-osobnosti-8",
+      "temaId": "obn-psychologie-osobnosti",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Která tvrzení o efektivním učení odpovídají výzkumům psychologie?",
+      "moznosti": [
+        "zkoušení sám sebe upevňuje paměť víc než opakované čtení",
+        "rozložené opakování je účinnější než šprtání na jeden zátah",
+        "čím déle v kuse se učím, tím víc si zapamatuji",
+        "zvýrazňování textu je nejúčinnější metoda učení"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "První dvě tvrzení popisují testing effect a spacing. Dlouhé učení v kuse naráží na únavu a zapomínání (proto je lepší dávkovat) a zvýrazňování patří podle výzkumů k nejméně účinným metodám — jen hezky vypadá.",
+      "zdroj": "Základy psychologie osobnosti"
+    },
+    {
+      "id": "o-obn-psychologie-osobnosti-9",
+      "temaId": "obn-psychologie-osobnosti",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Petr má za 14 dní velký test. Naplánuj mu podle poznatků o učení nejlepší strategii.",
+      "moznosti": [
+        "učit se ob den po menších dávkách a každé opakování začít zkoušením z minula",
+        "nechat vše na poslední večer a učit se 6 hodin v kuse",
+        "přečíst všechno první den a už se k látce nevracet",
+        "každý den si látku znovu přečíst, ale nezkoušet se"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rozložené dávky (spacing) plus zkoušení (testing effect) vytvářejí nejtrvalejší paměť. Šprtání na jeden zátah funguje jen krátkodobě, jedno přečtení se rychle zapomene a čtení bez vybavování buduje jen falešný pocit „já to umím“.",
+      "zdroj": "Základy psychologie osobnosti"
+    },
+    {
+      "id": "o-obn-vztahy-komunikace-1",
+      "temaId": "obn-vztahy-komunikace",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co patří do neverbální komunikace?",
+      "moznosti": [
+        "mimika a gesta",
+        "slova, která říkám",
+        "text zprávy na mobilu",
+        "obsah e-mailu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Neverbální komunikace je vše mimoslovní — mimika, gesta, postoj, oční kontakt, tón hlasu. Slova (mluvená i psaná, tedy i zprávy a e-maily) jsou komunikace verbální.",
+      "zdroj": "Vztahy a komunikace"
+    },
+    {
+      "id": "o-obn-vztahy-komunikace-2",
+      "temaId": "obn-vztahy-komunikace",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Tón hlasu a hlasitost řeči patří do verbální komunikace.",
+      "spravna": false,
+      "vysvetleni": "Tón, hlasitost a tempo řeči jsou paralingvistické prostředky a řadí se k NEverbální komunikaci — verbální je jen obsah slov. Je to častý chyták: mluvíme mimoslovně, i když zrovna mluvíme.",
+      "zdroj": "Vztahy a komunikace"
+    },
+    {
+      "id": "o-obn-vztahy-komunikace-3",
+      "temaId": "obn-vztahy-komunikace",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá jednání, při kterém klidně a sebevědomě prosazuji svůj oprávněný požadavek a zároveň respektuji druhé?",
+      "moznosti": ["asertivita", "agresivita", "pasivita", "manipulace"],
+      "spravna": 0,
+      "vysvetleni": "Asertivita respektuje obě strany — sebe i druhého. Agresivita druhé přehlíží a útočí, pasivita nerespektuje sebe (ustoupím vždy) a manipulace prosazuje zájmy oklikou, třeba pocitem viny.",
+      "zdroj": "Vztahy a komunikace"
+    },
+    {
+      "id": "o-obn-vztahy-komunikace-4",
+      "temaId": "obn-vztahy-komunikace",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď styl jednání k jeho projevu.",
+      "pary": [
+        { "levy": "pasivní", "pravy": "ustoupím, i když nesouhlasím" },
+        { "levy": "agresivní", "pravy": "prosadím se křikem a útokem bez ohledu na druhé" },
+        { "levy": "asertivní", "pravy": "klidně řeknu svůj názor a respektuji druhou stranu" },
+        { "levy": "manipulativní", "pravy": "dosahuji svého oklikou, třeba vyvoláváním pocitu viny" }
+      ],
+      "vysvetleni": "Klíč je v respektu: pasivní jednání nerespektuje mě, agresivní nerespektuje druhé, asertivní respektuje oba — a manipulace se respektu vyhýbá oklikou.",
+      "zdroj": "Vztahy a komunikace"
+    },
+    {
+      "id": "o-obn-vztahy-komunikace-5",
+      "temaId": "obn-vztahy-komunikace",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Záměrné a opakované ubližování slabšímu, které probíhá přes internet a mobilní telefony, se nazývá __________.",
+      "spravneOdpovedi": ["kyberšikana", "kybersikana", "kyberšikanování", "kybersikanovani"],
+      "vysvetleni": "Kyberšikana má stejné znaky jako šikana (úmysl, opakování, nepoměr sil), ale probíhá online — je zákeřnější, protože oběť nemá kam uniknout a obsah se šíří rychle.",
+      "zdroj": "Vztahy a komunikace"
+    },
+    {
+      "id": "o-obn-vztahy-komunikace-6",
+      "temaId": "obn-vztahy-komunikace",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Prodavač ti nechce uznat reklamaci rozbitých sluchátek. Klidně opakuješ: „Rozumím, ale sluchátka jsou rozbitá a chci je reklamovat.“ Kterou asertivní techniku používáš?",
+      "moznosti": [
+        "poškozenou gramofonovou desku — klidné opakování oprávněného požadavku",
+        "agresivní protiútok — zvýšením hlasu si vynutím své",
+        "pasivní ústup — vezmu sluchátka a odejdu",
+        "manipulaci — vyvolám v prodavači pocit viny"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Poškozená (gramofonová) deska = klidně a bez hádky opakovat svůj oprávněný požadavek, dokud není vyslyšen. Nekřičíš (agrese), neustupuješ (pasivita) ani nehraješ na city (manipulace) — právě proto technika funguje.",
+      "zdroj": "Vztahy a komunikace"
+    },
+    {
+      "id": "o-obn-vztahy-komunikace-7",
+      "temaId": "obn-vztahy-komunikace",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které znaky odlišují šikanu od obyčejného škádlení?",
+      "moznosti": [
+        "úmysl ublížit",
+        "dlouhodobé opakování",
+        "nepoměr sil — oběť se nemůže bránit",
+        "oběma stranám to přijde vtipné"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Šikanu definuje trojice: záměr ublížit + opakování + nepoměr sil. Když je legrace oboustranná a síly vyrovnané, jde o škádlení — jakmile se jedna strana přestane smát a nemůže se bránit, o legraci už nejde.",
+      "zdroj": "Vztahy a komunikace"
+    },
+    {
+      "id": "o-obn-vztahy-komunikace-8",
+      "temaId": "obn-vztahy-komunikace",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Když jsem svědkem kyberšikany spolužáka, je nejlepší nereagovat a nic neřešit, aby se situace nezhoršila.",
+      "spravna": false,
+      "vysvetleni": "Mlčení šikanu posiluje — agresor ho bere jako souhlas. Správný postup: nepřidávat se, uložit důkazy, obsah nahlásit a říct to dospělému. Svědek, který jedná, dokáže šikanu zastavit nejrychleji.",
+      "zdroj": "Vztahy a komunikace"
+    },
+    {
+      "id": "o-obn-vztahy-komunikace-9",
+      "temaId": "obn-vztahy-komunikace",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Kamarádka ti napíše, že jí spolužáci týden posílají výhrůžné zprávy a založili o ní posměšnou skupinu. Co jí poradíš jako NEJLEPŠÍ první krok?",
+      "moznosti": [
+        "uložit důkazy (snímky obrazovky) a svěřit se dospělému — třídnímu, rodičům, případně Lince bezpečí 116 111",
+        "smazat všechny zprávy i svůj účet, ať má klid",
+        "pomstít se stejně ostrými zprávami",
+        "nic neřešit — samo to přestane"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Důkazy jsou klíčové pro řešení se školou i případně policií — proto se nesmí mazat (druhá možnost by je zničila). Odveta z oběti udělá agresora a situaci vyhrotí; čekání kyberšikanu obvykle jen prodlouží. Linka bezpečí 116 111 je zdarma a nonstop.",
+      "zdroj": "Vztahy a komunikace"
+    },
+    {
+      "id": "o-obn-stat-demokracie-1",
+      "temaId": "obn-stat-demokracie",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jaká je forma vlády v České republice?",
+      "moznosti": [
+        "demokratická parlamentní republika",
+        "konstituční monarchie",
+        "prezidentská republika",
+        "přímá demokracie bez parlamentu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "ČR je parlamentní republika — vláda je odpovědná Poslanecké sněmovně. Monarchie má v čele panovníka, v prezidentské republice (např. USA) řídí vládu přímo prezident a čistě přímá demokracie bez parlamentu nikde ve velkém státě nefunguje.",
+      "zdroj": "Stát a demokracie"
+    },
+    {
+      "id": "o-obn-stat-demokracie-2",
+      "temaId": "obn-stat-demokracie",
+      "typ": "multi",
+      "obtiznost": 2,
+      "zadani": "Které z následujících patří mezi základní znaky státu?",
+      "moznosti": [
+        "území vymezené hranicemi",
+        "obyvatelstvo",
+        "svrchovaná státní moc",
+        "jednotný jazyk všech obyvatel",
+        "členství v Evropské unii"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Stát tvoří území + obyvatelstvo + svrchovaná moc (a právní řád). Společný jazyk znakem není — Švýcarsko má úřední jazyky čtyři. Členství v EU je dobrovolné rozhodnutí, ne podmínka státnosti.",
+      "zdroj": "Stát a demokracie"
+    },
+    {
+      "id": "o-obn-stat-demokracie-3",
+      "temaId": "obn-stat-demokracie",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Ústava České republiky je účinná od 1. ledna roku __________ (rok vzniku samostatné ČR).",
+      "spravneOdpovedi": ["1993"],
+      "vysvetleni": "Ústava byla schválena 16. prosince 1992 a účinnosti nabyla 1. ledna 1993 — v den, kdy se Československo rozdělilo a vznikla samostatná Česká republika.",
+      "zdroj": "Stát a demokracie"
+    },
+    {
+      "id": "o-obn-stat-demokracie-4",
+      "temaId": "obn-stat-demokracie",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď složku státní moci k tomu, kdo ji vykonává a co dělá.",
+      "pary": [
+        { "levy": "moc zákonodárná", "pravy": "Parlament ČR — přijímá zákony" },
+        { "levy": "moc výkonná", "pravy": "vláda a prezident — řídí stát a provádějí zákony" },
+        { "levy": "moc soudní", "pravy": "nezávislé soudy — rozhodují spory a chrání právo" }
+      ],
+      "vysvetleni": "Dělba moci na zákonodárnou, výkonnou a soudní brání zneužití — složky se navzájem kontrolují (systém brzd a protivah). Parlament zákony tvoří, vláda podle nich řídí stát a soudy hlídají jejich dodržování.",
+      "zdroj": "Stát a demokracie"
+    },
+    {
+      "id": "o-obn-stat-demokracie-5",
+      "temaId": "obn-stat-demokracie",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Kolik poslanců má Poslanecká sněmovna Parlamentu ČR?",
+      "moznosti": ["200", "81", "100", "300"],
+      "spravna": 0,
+      "vysvetleni": "Poslanecká sněmovna má 200 poslanců volených na 4 roky. Číslo 81 je počet senátorů — obě komory se pletou nejčastěji, proto si pamatuj: Sněmovna 200, Senát 81.",
+      "zdroj": "Stát a demokracie"
+    },
+    {
+      "id": "o-obn-stat-demokracie-6",
+      "temaId": "obn-stat-demokracie",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Prezident České republiky je od roku 2013 volen přímo občany.",
+      "spravna": true,
+      "vysvetleni": "Ano — do roku 2012 volil prezidenta Parlament, od roku 2013 ho volí občané v přímé volbě na 5 let (nejvýše dvakrát za sebou).",
+      "zdroj": "Stát a demokracie"
+    },
+    {
+      "id": "o-obn-stat-demokracie-7",
+      "temaId": "obn-stat-demokracie",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Adamovi je 18 let. Co může ve volbách do Poslanecké sněmovny dělat?",
+      "moznosti": [
+        "volit — aktivní volební právo má, kandidovat může až od 21 let",
+        "volit i kandidovat",
+        "jen kandidovat, volit až od 21 let",
+        "nic — obě práva vznikají v 21 letech"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Aktivní volební právo (volit) vzniká v 18 letech, pasivní (být volen) do Sněmovny až v 21. Záměna aktivního a pasivního práva je nejčastější chyba — pamatuj: nejdřív smíš vybírat, teprve později být vybírán.",
+      "zdroj": "Stát a demokracie"
+    },
+    {
+      "id": "o-obn-stat-demokracie-8",
+      "temaId": "obn-stat-demokracie",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Kandidovat do Senátu (i na prezidenta) může občan ČR nejdříve od věku __________ let.",
+      "spravneOdpovedi": ["40", "čtyřiceti", "ctyriceti", "čtyřicet", "ctyricet"],
+      "vysvetleni": "Pro Senát i prezidentskou volbu platí hranice 40 let, pro Poslaneckou sněmovnu stačí 21. Volit (aktivní právo) můžeš ve všech případech od 18.",
+      "zdroj": "Stát a demokracie"
+    },
+    {
+      "id": "o-obn-stat-demokracie-9",
+      "temaId": "obn-stat-demokracie",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Parlament schválil zákon, ale Ústavní soud ho zrušil, protože odporoval ústavnímu pořádku. Který princip se tu projevil a proč je důležitý?",
+      "moznosti": [
+        "dělba moci s brzdami a protiváhami — soudní moc kontroluje zákonodárnou, aby žádná složka nezískala převahu",
+        "suverenita státu — stát si na svém území dělá, co chce",
+        "přímá demokracie — o zákonu rozhodli občané hlasováním",
+        "všeobecné volební právo — zákon neplatí, dokud ho neschválí voliči"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Ústavní soud je pojistka: hlídá, aby ani zvolená většina nemohla porušit ústavní pořádek — to je systém brzd a protivah mezi složkami moci. Suverenita se týká nezávislosti navenek a občané ani voliči v tomto procesu přímo nehlasují.",
+      "zdroj": "Stát a demokracie"
+    },
+    {
+      "id": "o-obn-lidska-prava-1",
+      "temaId": "obn-lidska-prava",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jak se jmenuje dokument, který v ČR zaručuje základní lidská práva a je součástí ústavního pořádku?",
+      "moznosti": [
+        "Listina základních práv a svobod",
+        "Občanský zákoník",
+        "Deklarace nezávislosti",
+        "Zákoník práce"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Listina základních práv a svobod (č. 2/1993 Sb.) je součástí ústavního pořádku — žádný zákon jí nesmí odporovat. Občanský zákoník a zákoník práce jsou obyčejné zákony, Deklarace nezávislosti patří do dějin USA.",
+      "zdroj": "Lidská práva"
+    },
+    {
+      "id": "o-obn-lidska-prava-2",
+      "temaId": "obn-lidska-prava",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Základní lidská práva si musí člověk zasloužit dobrým chováním.",
+      "spravna": false,
+      "vysvetleni": "Lidská práva jsou vrozená, nezadatelná, nezcizitelná a nepromlčitelná — máme je od narození bez podmínek. I člověk, který porušil zákon, má právo na život, důstojnost a spravedlivý proces.",
+      "zdroj": "Lidská práva"
+    },
+    {
+      "id": "o-obn-lidska-prava-3",
+      "temaId": "obn-lidska-prava",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Do kolika let věku je člověk podle Úmluvy o právech dítěte považován za dítě?",
+      "moznosti": ["do 18 let", "do 15 let", "do 21 let", "do 26 let"],
+      "spravna": 0,
+      "vysvetleni": "Dítětem je každý do 18 let. Hranice 15 let mate — tehdy dostáváš občanku a smíš na brigádu po ukončení povinné školní docházky, ale dítětem podle Úmluvy zůstáváš do 18. Věk 21 a 26 se týká jiných věcí (kandidatura, studentské slevy).",
+      "zdroj": "Lidská práva"
+    },
+    {
+      "id": "o-obn-lidska-prava-4",
+      "temaId": "obn-lidska-prava",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Veřejnému ochránci práv, který pomáhá lidem při nesprávném postupu úřadů, se běžně říká __________.",
+      "spravneOdpovedi": ["ombudsman", "ombucman"],
+      "vysvetleni": "Ombudsman (veřejný ochránce práv) sídlí v Brně, volí ho Poslanecká sněmovna na 6 let a pomáhá bezplatně — prošetřuje postup úřadů a pomáhá obětem diskriminace.",
+      "zdroj": "Lidská práva"
+    },
+    {
+      "id": "o-obn-lidska-prava-5",
+      "temaId": "obn-lidska-prava",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď skupinu práv z Listiny ke konkrétnímu příkladu.",
+      "pary": [
+        { "levy": "základní lidská práva", "pravy": "právo na život a lidskou důstojnost" },
+        { "levy": "politická práva", "pravy": "volební právo a právo petiční" },
+        { "levy": "hospodářská a sociální práva", "pravy": "právo na vzdělání a zdravotní péči" },
+        { "levy": "práva národnostních menšin", "pravy": "vzdělání v mateřském jazyce" }
+      ],
+      "vysvetleni": "Listina práva třídí: základní patří každému člověku jako bytosti, politická umožňují podílet se na správě státu, hospodářská a sociální zajišťují důstojný život a menšinová chrání jazyk a kulturu menšin.",
+      "zdroj": "Lidská práva"
+    },
+    {
+      "id": "o-obn-lidska-prava-6",
+      "temaId": "obn-lidska-prava",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Ve kterých situacích jde o diskriminaci?",
+      "moznosti": [
+        "zaměstnavatel odmítne uchazečku o práci jen proto, že je žena",
+        "restaurace odmítne obsloužit hosta kvůli barvě pleti",
+        "firma vybere uchazeče s lepší kvalifikací",
+        "kino nepustí dvanáctiletého na film s přístupností od 15 let"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "Diskriminace = znevýhodnění z neoprávněného důvodu (pohlaví, barva pleti). Výběr podle kvalifikace je legitimní rozlišování a věkové hranice u filmů stanovují pravidla na ochranu dětí — tam o diskriminaci nejde.",
+      "zdroj": "Lidská práva"
+    },
+    {
+      "id": "o-obn-lidska-prava-7",
+      "temaId": "obn-lidska-prava",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Nepřímá diskriminace znamená, že navenek neutrální pravidlo v praxi znevýhodňuje určitou skupinu lidí.",
+      "spravna": true,
+      "vysvetleni": "Ano — pravidlo vypadá neutrálně (platí pro všechny stejně), ale dopadá tvrději na určitou skupinu. Příklad: požadavek výšky 180 cm pro práci v kanceláři vyřadí většinu žen, ačkoli výška s prací nesouvisí.",
+      "zdroj": "Lidská práva"
+    },
+    {
+      "id": "o-obn-lidska-prava-8",
+      "temaId": "obn-lidska-prava",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Úřad ti dlouhodobě neodpovídá a stížnost u jeho nadřízeného nepomohla. Na koho se můžeš bezplatně obrátit?",
+      "moznosti": [
+        "na veřejného ochránce práv (ombudsmana)",
+        "na prezidenta republiky — řídí všechny úřady",
+        "na Policii ČR — nečinnost úřadu je trestný čin",
+        "nikam — proti úřadům se bránit nedá"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Přesně pro tyto případy ombudsman existuje — nečinnost a nesprávný postup úřadů prošetřuje bezplatně. Prezident úřady neřídí, běžná nečinnost úřadu není trestný čin a bezbrannost proti úřadům by odporovala právu na ochranu.",
+      "zdroj": "Lidská práva"
+    },
+    {
+      "id": "o-obn-lidska-prava-9",
+      "temaId": "obn-lidska-prava",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Inzerát na brigádu pokladního v obchodě zní: „Přijmeme pouze chlapce, dívky ať se nehlásí.“ Jak situaci posoudíš?",
+      "moznosti": [
+        "jde o přímou diskriminaci podle pohlaví — pohlaví není pro práci pokladního podstatné",
+        "je to v pořádku — zaměstnavatel si může vybírat podle čehokoli",
+        "jde o nepřímou diskriminaci — pravidlo je navenek neutrální",
+        "není to diskriminace, protože jde jen o brigádu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Inzerát znevýhodňuje otevřeně a přímo kvůli pohlaví, které s prací pokladního nesouvisí — přímá diskriminace zakázaná antidiskriminačním zákonem. Nepřímá by byla, kdyby pravidlo vypadalo neutrálně; a zákon platí pro brigády (dohody) úplně stejně jako pro pracovní poměr.",
+      "zdroj": "Lidská práva"
+    }
+  ]
+}

@@ -1,0 +1,616 @@
+{
+  "predmetId": "pisemna-komunikace",
+  "nazev": "Písemná a elektronická komunikace",
+  "verze": 2,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "pek-psani-na-klavesnici", "nazev": "Psaní na klávesnici všemi deseti", "poradi": 0 },
+    { "id": "pek-norma-csn", "nazev": "Norma ČSN 01 6910", "poradi": 1 },
+    { "id": "pek-obchodni-dopis", "nazev": "Obchodní dopis", "poradi": 2 },
+    { "id": "pek-email-etiketa", "nazev": "E-mail a netiketa", "poradi": 3 },
+    { "id": "pek-bezpecna-komunikace", "nazev": "Bezpečná elektronická komunikace", "poradi": 4 }
+  ],
+  "otazky": [
+    {
+      "id": "o-pek-psani-na-klavesnici-1",
+      "temaId": "pek-psani-na-klavesnici",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Na kterých klávesách leží v základní poloze ukazováčky?",
+      "moznosti": ["F a J", "D a K", "G a H", "A a Ů"],
+      "spravna": 0,
+      "vysvetleni": "Na F a J jsou hmatové výstupky, podle kterých se ruce vracejí do výchozí polohy poslepu. D a K patří prostředníčkům, A a Ů malíčkům; G a H ukazováčky jen obsluhují navíc, výchozí poloha to není.",
+      "zdroj": "Psaní na klávesnici všemi deseti"
+    },
+    {
+      "id": "o-pek-psani-na-klavesnici-2",
+      "temaId": "pek-psani-na-klavesnici",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Mezerník se při psaní všemi deseti tiskne palcem.",
+      "spravna": true,
+      "vysvetleni": "Palce spočívají nad mezerníkem a nic jiného nepíšou — mezera je nejčastější úhoz, proto ji obsluhuje nejsilnější prst. Ostatní prsty mají přidělené sloupce písmen.",
+      "zdroj": "Psaní na klávesnici všemi deseti"
+    },
+    {
+      "id": "o-pek-psani-na-klavesnici-3",
+      "temaId": "pek-psani-na-klavesnici",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Které klávesy tvoří základní (střední) řadu české klávesnice?",
+      "moznosti": ["A S D F G H J K L Ů", "Q W E R T Z U I O P", "Y X C V B N M", "ě š č ř ž ý á í é"],
+      "spravna": 0,
+      "vysvetleni": "Základní řada je výchozí pozice prstů — levá ruka na A S D F, pravá na J K L Ů. QWERTZ je horní písmenná řada, Y X C V… je dolní řada a ě š č ř… je číselná řada s diakritikou.",
+      "zdroj": "Psaní na klávesnici všemi deseti"
+    },
+    {
+      "id": "o-pek-psani-na-klavesnici-4",
+      "temaId": "pek-psani-na-klavesnici",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Drobné hmatové výstupky, podle kterých poslepu najdeš základní polohu rukou, jsou na klávese F a na klávese ___.",
+      "spravneOdpovedi": ["J", "j", "jé"],
+      "vysvetleni": "Výstupky jsou na F (levý ukazováček) a J (pravý ukazováček). Stačí po nich přejet bříšky prstů a ruce se srovnají do výchozí polohy bez jediného pohledu dolů.",
+      "zdroj": "Psaní na klávesnici všemi deseti"
+    },
+    {
+      "id": "o-pek-psani-na-klavesnici-5",
+      "temaId": "pek-psani-na-klavesnici",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč se při nácviku psaní všemi deseti trénuje nejdřív přesnost a teprve potom rychlost?",
+      "moznosti": [
+        "Opravy chyb stojí víc času, než kolik rychlé psaní ušetří, a špatně zafixovaná technika se těžko odstraňuje",
+        "Rychlost není při psaní na klávesnici vůbec důležitá",
+        "Klávesnice se při rychlém psaní rychleji opotřebuje",
+        "Přesnost řeší jen začátečníci, zkušení pisatelé chyby nedělají"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Každá chyba znamená zastavit, smazat a psát znovu — a hlavně: chybný pohyb, který si vtiskneš do svalové paměti, se přeučuje mnohem hůř, než se učí správný. Rychlost přijde sama s jistotou; důležitá je, ale až jako druhá.",
+      "zdroj": "Psaní na klávesnici všemi deseti"
+    },
+    {
+      "id": "o-pek-psani-na-klavesnici-6",
+      "temaId": "pek-psani-na-klavesnici",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co patří ke správné ergonomii pracovního místa u počítače? (více správných odpovědí)",
+      "moznosti": [
+        "Chodidla celou plochou na podlaze",
+        "Horní okraj obrazovky přibližně ve výšce očí",
+        "Rovná, uvolněná zápěstí, která se při psaní neopírají o hranu stolu",
+        "Klávesnice výrazně výš než lokty",
+        "Obrazovka co nejblíž očím, ideálně 20 cm"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Správně: opřená chodidla, obrazovka horním okrajem u výšky očí a rovná zápěstí. Klávesnice nad úrovní loktů nutí zvedat ramena a namáhá krk; obrazovka má být zhruba na délku paže, 20 cm ničí oči.",
+      "zdroj": "Psaní na klávesnici všemi deseti"
+    },
+    {
+      "id": "o-pek-psani-na-klavesnici-7",
+      "temaId": "pek-psani-na-klavesnici",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kterým prstem napíšeš podle prstokladu písmeno E?",
+      "moznosti": ["Levým prostředníčkem", "Levým ukazováčkem", "Pravým prostředníčkem", "Levým malíčkem"],
+      "spravna": 0,
+      "vysvetleni": "E leží ve sloupci nad D a sloupec D‑E‑C obsluhuje levý prostředníček. Levý ukazováček má sloupce R‑F‑V a T‑G‑B; pravá ruka na E vůbec nedosahuje ze své poloviny klávesnice.",
+      "zdroj": "Psaní na klávesnici všemi deseti"
+    },
+    {
+      "id": "o-pek-psani-na-klavesnici-8",
+      "temaId": "pek-psani-na-klavesnici",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď prst ke klávesám, které obsluhuje.",
+      "pary": [
+        { "levy": "Palec", "pravy": "mezerník" },
+        { "levy": "Levý ukazováček", "pravy": "F a G se svými sloupci" },
+        { "levy": "Pravý ukazováček", "pravy": "J a H se svými sloupci" },
+        { "levy": "Levý malíček", "pravy": "A a levý Shift" },
+        { "levy": "Pravý malíček", "pravy": "Ů, Enter a pravý Shift" }
+      ],
+      "vysvetleni": "Ukazováčky jsou nejšikovnější, proto obsluhují po dvou sloupcích uprostřed klávesnice. Malíčky mají krajní klávesy včetně Shiftu a Enteru, palce jen mezerník.",
+      "zdroj": "Psaní na klávesnici všemi deseti"
+    },
+    {
+      "id": "o-pek-psani-na-klavesnici-9",
+      "temaId": "pek-psani-na-klavesnici",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Lucie napsala za 10 minut 2 000 úhozů a udělala 8 chyb. Každá chyba se penalizuje 10 úhozy. Kolik čistých úhozů za minutu napsala?",
+      "moznosti": ["192", "200", "199,2", "208"],
+      "spravna": 0,
+      "vysvetleni": "Penalizace: 8 × 10 = 80 úhozů. Čisté úhozy: 2 000 − 80 = 1 920, za minutu 1 920 ÷ 10 = 192. Kdo počítá 200, zapomněl na penalizaci; 199,2 vzniká odečtením jen 8 úhozů místo 80; 208 penalizaci omylem přičítá.",
+      "zdroj": "Psaní na klávesnici všemi deseti"
+    },
+
+    {
+      "id": "o-pek-norma-csn-1",
+      "temaId": "pek-norma-csn",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jak se podle normy správně zapíše datum číslicemi?",
+      "moznosti": ["4. 9. 2026", "4.9.2026", "4. 9.2026", "04.09. 2026"],
+      "spravna": 0,
+      "vysvetleni": "Datum se píše vzestupně (den, měsíc, rok) a za tečkami jsou mezery: 4. 9. 2026. Zápis bez mezer je chybný; bez mezer se píše jen tvar 2026-09-04 pro tabulky a systémy.",
+      "zdroj": "Norma ČSN 01 6910"
+    },
+    {
+      "id": "o-pek-norma-csn-2",
+      "temaId": "pek-norma-csn",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Před čárkou ani tečkou se mezera nepíše, za nimi ano.",
+      "spravna": true,
+      "vysvetleni": "Interpunkční znaménka (tečka, čárka, dvojtečka, středník, otazník, vykřičník) se přisazují k předchozímu slovu a mezera následuje až za nimi. Mezera před čárkou je jedna z nejčastějších chyb v dokumentech.",
+      "zdroj": "Norma ČSN 01 6910"
+    },
+    {
+      "id": "o-pek-norma-csn-3",
+      "temaId": "pek-norma-csn",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Chceš napsat, že zboží zlevnili o padesát procent. Který zápis je správný?",
+      "moznosti": ["o 50 %", "o 50%", "o 50 procent %", "o %50"],
+      "spravna": 0,
+      "vysvetleni": "S mezerou čteme „padesát procent“. Zápis 50% bez mezery znamená přídavné jméno „padesátiprocentní“ (50% sleva) — mezera tu mění význam, není to jen kosmetika.",
+      "zdroj": "Norma ČSN 01 6910"
+    },
+    {
+      "id": "o-pek-norma-csn-4",
+      "temaId": "pek-norma-csn",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Zapiš telefonní číslo 601123456 správně rozčleněné podle normy (po trojicích).",
+      "spravneOdpovedi": ["601 123 456"],
+      "vysvetleni": "Telefonní čísla se člení do trojic oddělených mezerami: 601 123 456. S mezinárodní předvolbou +420 601 123 456. Nečleněné číslo se špatně čte i diktuje.",
+      "zdroj": "Norma ČSN 01 6910"
+    },
+    {
+      "id": "o-pek-norma-csn-5",
+      "temaId": "pek-norma-csn",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Otevírací dobu „od 9 do 17 hodin“ zapíšeme zkráceně:",
+      "moznosti": ["9–17 h (pomlčka bez mezer)", "9-17 h (spojovník)", "9 – 17 h (pomlčka s mezerami)", "9 až–17 h"],
+      "spravna": 0,
+      "vysvetleni": "Pomlčka tu nahrazuje slovo „až“ a mezi jednoslovnými výrazy se píše bez mezer: 9–17 h. Spojovník je kratší znak, který slova spojuje (Brno-střed); pomlčka s mezerami patří do větné souvislosti, ne do rozsahu.",
+      "zdroj": "Norma ČSN 01 6910"
+    },
+    {
+      "id": "o-pek-norma-csn-6",
+      "temaId": "pek-norma-csn",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které zápisy odpovídají normě? (více správných odpovědí)",
+      "moznosti": ["1 500 Kč", "20 °C", "např.", "1.500 Kč", "20°C"],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Trojice číslic se oddělují mezerou (ne tečkou), mezi číslem a značkou jednotky je mezera a zkratka „např.“ má tečku. Zápis 1.500 Kč plete desetinnou tečku do členění a 20°C bez mezery normě u teploty neodpovídá.",
+      "zdroj": "Norma ČSN 01 6910"
+    },
+    {
+      "id": "o-pek-norma-csn-7",
+      "temaId": "pek-norma-csn",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď zápis k tomu, co znamená nebo jakým pravidlem se řídí.",
+      "pary": [
+        { "levy": "Brno-střed", "pravy": "spojovník — spojuje slova, píše se bez mezer" },
+        { "levy": "Praha–Brno", "pravy": "pomlčka ve významu „a/versus/až“" },
+        { "levy": "50 %", "pravy": "čteme „padesát procent“" },
+        { "levy": "50%", "pravy": "čteme „padesátiprocentní“" },
+        { "levy": "§ 5", "pravy": "značka paragrafu — od čísla ji dělí mezera" }
+      ],
+      "vysvetleni": "Spojovník (kratší) spojuje, pomlčka (delší) nahrazuje „až/versus“. U procent rozhoduje mezera o významu a značky (§, %, kg) se od čísla oddělují mezerou, pokud nejde o složené přídavné jméno.",
+      "zdroj": "Norma ČSN 01 6910"
+    },
+    {
+      "id": "o-pek-norma-csn-8",
+      "temaId": "pek-norma-csn",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Která věta je celá napsaná podle normy?",
+      "moznosti": [
+        "Schůzka je 4. 9. 2026 v 10.30 h, vstup stojí 150 Kč.",
+        "Schůzka je 4.9.2026 v 10.30 h, vstup stojí 150 Kč.",
+        "Schůzka je 4. 9. 2026 v 10.30 h , vstup stojí 150Kč.",
+        "Schůzka je 4. 9. 2026 v 10.30h, vstup stojí 150 Kč."
+      ],
+      "spravna": 0,
+      "vysvetleni": "Správně: datum s mezerami za tečkami, čas 10.30 h s mezerou před značkou hodiny a 150 Kč s mezerou. Druhá možnost slepila datum, třetí má mezeru před čárkou a slepené 150Kč, čtvrtá slepené 10.30h.",
+      "zdroj": "Norma ČSN 01 6910"
+    },
+    {
+      "id": "o-pek-norma-csn-9",
+      "temaId": "pek-norma-csn",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Do smlouvy zapisuješ částku jeden milion dvě stě padesát tisíc korun (s uvedením haléřů). Který zápis je správný?",
+      "moznosti": ["1 250 000,00 Kč", "1,250,000.00 Kč", "1.250.000,- Kč", "1250000 Kč,-"],
+      "spravna": 0,
+      "vysvetleni": "Trojice číslic se oddělují mezerami, desetinná místa desetinnou ČÁRKOU a před značkou Kč je mezera. Druhý zápis je anglosaský (čárky v trojicích, desetinná tečka), třetí členění tečkami do češtiny nepatří a „,-“ za značkou je nesmysl.",
+      "zdroj": "Norma ČSN 01 6910"
+    },
+
+    {
+      "id": "o-pek-obchodni-dopis-1",
+      "temaId": "pek-obchodni-dopis",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jak správně vypadá oslovení v obchodním dopise?",
+      "moznosti": [
+        "Vážený pane řediteli, (5. pád, za oslovením čárka)",
+        "Vážený pan ředitel. (1. pád, tečka)",
+        "VÁŽENÝ PANE ŘEDITELI!",
+        "Ahoj pane řediteli,"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Oslovujeme vždy 5. pádem a za oslovením píšeme čárku — text pak začíná malým písmenem. První pád („pan ředitel“) není oslovení, kapitálky s vykřičníkem působí jako křik a „ahoj“ do oficiálního dopisu nepatří.",
+      "zdroj": "Obchodní dopis"
+    },
+    {
+      "id": "o-pek-obchodni-dopis-2",
+      "temaId": "pek-obchodni-dopis",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Slovo „Věc“ se podle současné normy před heslovité vyjádření obsahu dopisu už nepíše.",
+      "spravna": true,
+      "vysvetleni": "Předmět dopisu se píše tučně jako samostatné heslo (např. „Objednávka 20 ks stolních lamp“) a samotné slovo „Věc“ norma vypustila. Ve starých vzorech dopisů ho ještě potkáš, dnes už je chybou.",
+      "zdroj": "Obchodní dopis"
+    },
+    {
+      "id": "o-pek-obchodni-dopis-3",
+      "temaId": "pek-obchodni-dopis",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Do odvolacích údajů obchodního dopisu patří i oslovení adresáta.",
+      "spravna": false,
+      "vysvetleni": "Odvolací údaje jsou: Váš dopis značky, Ze dne, Naše značka, Vyřizuje, kontakty a Datum — slouží k dohledání, na co se odpovídá. Oslovení je samostatná část dopisu až za předmětem.",
+      "zdroj": "Obchodní dopis"
+    },
+    {
+      "id": "o-pek-obchodni-dopis-4",
+      "temaId": "pek-obchodni-dopis",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "PSČ se člení do skupiny tří a dvou číslic. Zapiš správně PSČ 11000.",
+      "spravneOdpovedi": ["110 00"],
+      "vysvetleni": "PSČ se vždy člení 3 + 2: 110 00. Píše se před název dodací pošty (110 00 Praha 1). Nečleněné 11000 vypadá jako obyčejné číslo a stroje pošty i lidé ho hůř čtou.",
+      "zdroj": "Obchodní dopis"
+    },
+    {
+      "id": "o-pek-obchodni-dopis-5",
+      "temaId": "pek-obchodni-dopis",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Jak se v obchodním dopise správně uvádí místo odeslání a datum?",
+      "moznosti": ["Praha 4. září 2026", "Praha, 4. září 2026", "V Praze, dne 4. 9. 2026", "PRAHA — 4.9.2026"],
+      "spravna": 0,
+      "vysvetleni": "Mezi místem a datem se čárka nepíše a slovo „dne“ je nadbytečné: Praha 4. září 2026. Tvary s čárkou a „V Praze, dne…“ jsou zastaralé zvyklosti, které norma nepodporuje.",
+      "zdroj": "Obchodní dopis"
+    },
+    {
+      "id": "o-pek-obchodni-dopis-6",
+      "temaId": "pek-obchodni-dopis",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co patří do poštovní adresy firmy na obálce a v dopise? (více správných odpovědí)",
+      "moznosti": [
+        "Název firmy",
+        "Ulice s číslem domu",
+        "PSČ a název dodací pošty (obce)",
+        "IČO firmy",
+        "Číslo bankovního účtu"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Adresa slouží doručení: název, ulice s číslem, PSČ a obec. IČO a bankovní spojení patří do záhlaví či zápatí dopisu, ne do adresního pole — pošťák je k ničemu nepotřebuje.",
+      "zdroj": "Obchodní dopis"
+    },
+    {
+      "id": "o-pek-obchodni-dopis-7",
+      "temaId": "pek-obchodni-dopis",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď část obchodního dopisu k jejímu obsahu.",
+      "pary": [
+        { "levy": "Záhlaví", "pravy": "údaje odesílatele — název, sídlo, kontakty" },
+        { "levy": "Odvolací údaje", "pravy": "značky, vyřizuje, datum" },
+        { "levy": "Předmět (věc)", "pravy": "heslovité shrnutí obsahu, tučně" },
+        { "levy": "Oslovení", "pravy": "5. pád, končí čárkou" },
+        { "levy": "Závěr dopisu", "pravy": "pozdrav, podpis a funkce podepsaného" }
+      ],
+      "vysvetleni": "Každá část má v dopise pevné místo odshora dolů: záhlaví → adresa → odvolací údaje → předmět → oslovení → text → závěr s podpisem → přílohy. Kdo strukturu zná, čte i píše dopisy rychleji.",
+      "zdroj": "Obchodní dopis"
+    },
+    {
+      "id": "o-pek-obchodni-dopis-8",
+      "temaId": "pek-obchodni-dopis",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Vyber správné pořadí částí obchodního dopisu odshora dolů:",
+      "moznosti": [
+        "adresa adresáta → odvolací údaje → předmět → oslovení → text → pozdrav → podpis",
+        "oslovení → adresa adresáta → text → předmět → podpis → pozdrav",
+        "předmět → text → adresa adresáta → oslovení → pozdrav → podpis",
+        "adresa adresáta → oslovení → odvolací údaje → podpis → text → pozdrav"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Dopis jde odshora: komu píšu (adresa), na co navazuji (odvolací údaje), o čem to je (předmět), koho oslovuji, co sděluji (text) a jak končím (pozdrav, podpis). Ostatní pořadí by adresáta nutila skákat po stránce.",
+      "zdroj": "Obchodní dopis"
+    },
+    {
+      "id": "o-pek-obchodni-dopis-9",
+      "temaId": "pek-obchodni-dopis",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Petra píše žádost o brigádu řediteli hotelu Ing. Pavlu Novákovi. Jaké oslovení zvolí?",
+      "moznosti": ["Vážený pane řediteli,", "Vážený pane Novák,", "Vážený pane inženýre Nováku!", "Dobrý den pane Novák,"],
+      "spravna": 0,
+      "vysvetleni": "Oslovení funkcí má přednost před titulem i jménem a píše se v 5. pádě s čárkou. „Pane Novák“ je chybný 1. pád (správně by bylo „pane Nováku“), vykřičník do oslovení nepatří a kombinace titulu se jménem je zbytečně šroubovaná.",
+      "zdroj": "Obchodní dopis"
+    },
+
+    {
+      "id": "o-pek-email-etiketa-1",
+      "temaId": "pek-email-etiketa",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "K čemu slouží pole Předmět v e-mailu?",
+      "moznosti": [
+        "Výstižně shrnout, o čem zpráva je",
+        "Napsat pozdrav a oslovení",
+        "Uvést adresy dalších příjemců",
+        "Vložit podpis odesílatele"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Předmět je první, co příjemce vidí — podle něj pozná, o co jde, a zprávu později dohledá. Pozdrav patří do textu, adresy do polí Komu/Kopie a podpis na konec zprávy.",
+      "zdroj": "E-mail a netiketa"
+    },
+    {
+      "id": "o-pek-email-etiketa-2",
+      "temaId": "pek-email-etiketa",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Adresy vložené do pole Skrytá kopie (Bcc) ostatní příjemci nevidí.",
+      "spravna": true,
+      "vysvetleni": "Přesně to je smysl skryté kopie — příjemce dostane zprávu, ale jeho adresa zůstane ostatním utajena. Pole Kopie (Cc) naopak adresy všem ukazuje.",
+      "zdroj": "E-mail a netiketa"
+    },
+    {
+      "id": "o-pek-email-etiketa-3",
+      "temaId": "pek-email-etiketa",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Kdy je správné použít skrytou kopii (Bcc)?",
+      "moznosti": [
+        "Při hromadném e-mailu lidem, kteří se navzájem neznají — chráníš jejich adresy",
+        "Vždy, když posíláš přílohu",
+        "Když chceš, aby všichni viděli, komu píšeš",
+        "Nikdy — skrytá kopie je nezdvořilá"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zveřejnit desítky cizích adres všem příjemcům je porušení ochrany osobních údajů (GDPR). S přílohou Bcc nesouvisí a viditelnost příjemců zajišťuje naopak pole Kopie.",
+      "zdroj": "E-mail a netiketa"
+    },
+    {
+      "id": "o-pek-email-etiketa-4",
+      "temaId": "pek-email-etiketa",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Psaní celých slov VELKÝMI PÍSMENY se v elektronické komunikaci chápe jako ______.",
+      "spravneOdpovedi": ["křik", "krik", "křičení", "kriceni", "řvaní", "rvani"],
+      "vysvetleni": "Kapitálky v textu působí, jako by pisatel křičel — v pracovní komunikaci jsou nezdvořilé. Zdůraznit slovo jde tučným písmem nebo formulací.",
+      "zdroj": "E-mail a netiketa"
+    },
+    {
+      "id": "o-pek-email-etiketa-5",
+      "temaId": "pek-email-etiketa",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co patří do podpisu pracovního e-mailu? (více správných odpovědí)",
+      "moznosti": [
+        "Jméno a příjmení",
+        "Funkce a název firmy (nebo třída a škola)",
+        "Telefonní číslo",
+        "Rodné číslo",
+        "Heslo k e-mailovému účtu"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Podpis říká, kdo píše, za koho a jak ho zastihnout. Rodné číslo je citlivý údaj, který se nikam neposílá, a heslo nepatří do žádné zprávy — kdo ho chce, je podvodník.",
+      "zdroj": "E-mail a netiketa"
+    },
+    {
+      "id": "o-pek-email-etiketa-6",
+      "temaId": "pek-email-etiketa",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Potřebuješ kolegovi poslat video o velikosti 300 MB. Co uděláš?",
+      "moznosti": [
+        "Nahraju ho do úschovny nebo na cloud a pošlu odkaz",
+        "Přiložím ho rovnou k e-mailu",
+        "Rozdělím ho a pošlu v deseti e-mailech",
+        "Vytisknu QR kód a pošlu ho poštou"
+      ],
+      "spravna": 0,
+      "vysvetleni": "E-mailové schránky mají limit velikosti zprávy řádově 10–25 MB — 300 MB příloha se nedoručí. Úschovna či cloud jsou na velké soubory stavěné; dělení do mnoha e-mailů zahltí schránku příjemce.",
+      "zdroj": "E-mail a netiketa"
+    },
+    {
+      "id": "o-pek-email-etiketa-7",
+      "temaId": "pek-email-etiketa",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď pole či tlačítko e-mailu k jeho funkci.",
+      "pary": [
+        { "levy": "Komu", "pravy": "hlavní příjemce — od něj čekáš reakci" },
+        { "levy": "Kopie (Cc)", "pravy": "pro informaci, adresu vidí všichni" },
+        { "levy": "Skrytá kopie (Bcc)", "pravy": "adresa zůstane ostatním skrytá" },
+        { "levy": "Odpovědět", "pravy": "odpověď jen odesílateli" },
+        { "levy": "Odpovědět všem", "pravy": "odpověď všem příjemcům zprávy" }
+      ],
+      "vysvetleni": "Kdo je v Komu, má jednat; kdo v Kopii, má jen vědět. Bcc chrání adresy při hromadné rozesílce. Odpovědět všem používej jen tehdy, když se odpověď opravdu týká všech.",
+      "zdroj": "E-mail a netiketa"
+    },
+    {
+      "id": "o-pek-email-etiketa-8",
+      "temaId": "pek-email-etiketa",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Píšeš třídní učitelce, že v pátek nebudeš na testu z ekonomiky. Nejlepší předmět e-mailu je:",
+      "moznosti": [
+        "Omluva z pátečního testu z ekonomiky — Jan Malý, 1.B",
+        "Dotaz",
+        "DŮLEŽITÉ!!! PŘEČTĚTE SI!!!",
+        "(nechám předmět prázdný)"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Dobrý předmět říká co, kdy a od koho — učitelka zprávu zařadí na první pohled i za měsíc ve vyhledávání. „Dotaz“ neříká nic, kapitálky s vykřičníky působí jako spam a e-mail bez předmětu snadno zapadne.",
+      "zdroj": "E-mail a netiketa"
+    },
+    {
+      "id": "o-pek-email-etiketa-9",
+      "temaId": "pek-email-etiketa",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Kolegyně poslala e-mail 40 lidem a ty jí chceš odpovědět něco, co se týká jen jí. Co uděláš?",
+      "moznosti": [
+        "Použiju Odpovědět — reakce dorazí jen jí",
+        "Použiju Odpovědět všem, ať mají všichni přehled",
+        "Založím nový e-mail a všech 40 lidí dám do kopie",
+        "Odpovím jí a všechny ostatní vložím do skryté kopie"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Odpovědět všem posílej jen to, co všech 40 lidí opravdu potřebuje — jinak zahlcuješ cizí schránky. Nový e-mail s kopií všem je totéž v horším a skrytá kopie by zprávu zbytečně rozeslala také všem.",
+      "zdroj": "E-mail a netiketa"
+    },
+
+    {
+      "id": "o-pek-bezpecna-komunikace-1",
+      "temaId": "pek-bezpecna-komunikace",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je phishing?",
+      "moznosti": [
+        "Podvodná zpráva, která se vydává za důvěryhodnou instituci a láká citlivé údaje",
+        "Program na čištění schránky od spamu",
+        "Bezpečné přihlašování otiskem prstu",
+        "Placená reklama v e-mailu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Phishing „loví“ hesla a údaje o kartách tím, že se tváří jako banka, pošta nebo úřad. Není to nástroj ani reklama — je to útok, jehož úspěch závisí na nepozornosti příjemce.",
+      "zdroj": "Bezpečná elektronická komunikace"
+    },
+    {
+      "id": "o-pek-bezpecna-komunikace-2",
+      "temaId": "pek-bezpecna-komunikace",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Banka po tobě nikdy nebude chtít heslo nebo PIN e-mailem — taková žádost je znak podvodu.",
+      "spravna": true,
+      "vysvetleni": "Žádná banka, úřad ani seriózní firma nepotřebuje tvé heslo — do systému vidí i bez něj. Kdokoliv ho po tobě chce, je útočník. Stejné pravidlo platí pro PIN a údaje o kartě.",
+      "zdroj": "Bezpečná elektronická komunikace"
+    },
+    {
+      "id": "o-pek-bezpecna-komunikace-3",
+      "temaId": "pek-bezpecna-komunikace",
+      "typ": "multi",
+      "obtiznost": 2,
+      "zadani": "Které znaky jsou typické pro podvodnou zprávu? (více správných odpovědí)",
+      "moznosti": [
+        "Nátlak na okamžitou akci a výhrůžky",
+        "Odkaz, který vede na jinou adresu, než tvrdí text",
+        "Žádost o heslo nebo údaje o platební kartě",
+        "Oslovení tvým skutečným jménem",
+        "Zpráva od spolužáka, kterou čekáš"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Podvod pozná nátlak („do 2 hodin!“), maskované odkazy a lov citlivých údajů. Oslovení jménem podvod nevylučuje (cílený phishing si jméno zjistí) — ale samo o sobě znakem podvodu není, stejně jako očekávaná zpráva od známého člověka.",
+      "zdroj": "Bezpečná elektronická komunikace"
+    },
+    {
+      "id": "o-pek-bezpecna-komunikace-4",
+      "temaId": "pek-bezpecna-komunikace",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Přihlášení, při kterém kromě hesla zadáváš ještě jednorázový kód z mobilu, se nazývá ______ ověření.",
+      "spravneOdpovedi": ["dvoufaktorové", "dvoufaktorove", "dvojfaktorové", "dvojfaktorove", "dvoufázové", "dvoufazove", "2FA"],
+      "vysvetleni": "Dvoufaktorové ověření (2FA) kombinuje něco, co znáš (heslo), s něčím, co máš (mobil s kódem). Ukradené heslo pak útočníkovi samo o sobě nestačí.",
+      "zdroj": "Bezpečná elektronická komunikace"
+    },
+    {
+      "id": "o-pek-bezpecna-komunikace-5",
+      "temaId": "pek-bezpecna-komunikace",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Který elektronický podpis má podle nařízení eIDAS nejvyšší úroveň a u úřadů plnohodnotně nahrazuje vlastnoruční podpis?",
+      "moznosti": [
+        "Kvalifikovaný elektronický podpis",
+        "Prostý elektronický podpis",
+        "Naskenovaný vlastnoruční podpis vložený do dokumentu",
+        "Jméno napsané v patičce e-mailu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "eIDAS rozlišuje podpis prostý, zaručený a kvalifikovaný — jen ten poslední, založený na kvalifikovaném certifikátu, má u úřadů sílu vlastnoručního podpisu. Sken podpisu i jméno v patičce jsou jen prostý podpis a jdou snadno zfalšovat.",
+      "zdroj": "Bezpečná elektronická komunikace"
+    },
+    {
+      "id": "o-pek-bezpecna-komunikace-6",
+      "temaId": "pek-bezpecna-komunikace",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Datovou schránku zřizuje stát a pro firmy i podnikatele (OSVČ) je ze zákona povinná.",
+      "spravna": true,
+      "vysvetleni": "Stát zakládá datové schránky všem právnickým osobám a podnikajícím fyzickým osobám automaticky; občané-nepodnikatelé si ji mohou zřídit dobrovolně. Úřady jí doručují oficiální dokumenty.",
+      "zdroj": "Bezpečná elektronická komunikace"
+    },
+    {
+      "id": "o-pek-bezpecna-komunikace-7",
+      "temaId": "pek-bezpecna-komunikace",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Úřad ti poslal zprávu do datové schránky, ale ty ses celý měsíc nepřihlásil. Co platí?",
+      "moznosti": [
+        "Zpráva se považuje za doručenou 10. den od dodání (fikce doručení) a lhůty běží",
+        "Zpráva se po týdnu smaže a nic z ní neplatí",
+        "Úřad ji musí poslat znovu papírově poštou",
+        "Doručená je až v okamžiku, kdy si ji přečteš"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Fikce doručení: po 10 dnech od dodání se zpráva považuje za doručenou, i když ji nikdo neotevřel — lhůty na odvolání či zaplacení běží dál. Proto musí podnikatel datovku pravidelně kontrolovat; „nečetl jsem“ u soudu neobstojí.",
+      "zdroj": "Bezpečná elektronická komunikace"
+    },
+    {
+      "id": "o-pek-bezpecna-komunikace-8",
+      "temaId": "pek-bezpecna-komunikace",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď pojem k jeho významu.",
+      "pary": [
+        { "levy": "Phishing", "pravy": "podvodný e-mail lovící citlivé údaje" },
+        { "levy": "Smishing", "pravy": "podvodná SMS" },
+        { "levy": "Vishing", "pravy": "podvodný telefonát" },
+        { "levy": "Dvoufaktorové ověření", "pravy": "heslo + jednorázový kód navíc" },
+        { "levy": "Fikce doručení", "pravy": "po 10 dnech platí zpráva za doručenou" }
+      ],
+      "vysvetleni": "Phishing, smishing a vishing jsou stejný podvod různými kanály (e-mail, SMS, telefon). Dvoufaktorové ověření je obrana; fikce doručení je pravidlo datových schránek, ne útok.",
+      "zdroj": "Bezpečná elektronická komunikace"
+    },
+    {
+      "id": "o-pek-bezpecna-komunikace-9",
+      "temaId": "pek-bezpecna-komunikace",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Přišel ti e-mail „Česká pošta: zásilka zadržena, uhraďte 29 Kč“ s odkazem na adresu ceska-posta.dorucenka-platba.xyz. Co uděláš?",
+      "moznosti": [
+        "Neklikám a zásilku si ověřím přímo na oficiálním webu nebo v aplikaci pošty",
+        "Zaplatím — 29 Kč je tak málo, že o nic nejde",
+        "Kliknu na odkaz a jen se podívám, platit nebudu",
+        "Přepošlu e-mail rodičům, ať to zaplatí oni"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Doména dorucenka-platba.xyz poště nepatří (oficiální je ceskaposta.cz). Malá částka je návnada — cílem je získat údaje o tvé kartě na falešné platební bráně. I pouhé kliknutí je riziko a přeposláním bys past nastražil rodině.",
+      "zdroj": "Bezpečná elektronická komunikace"
+    }
+  ]
+}

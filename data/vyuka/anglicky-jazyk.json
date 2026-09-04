@@ -1,0 +1,674 @@
+{
+  "predmetId": "anglicky-jazyk",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "aj-osobni-udaje",
+      "nazev": "Osobní údaje a rodina",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Do třídy přišel nový spolužák Tom z Manchesteru. Sedí vedle tebe, usměje se a spustí: „Hi, I'm Tom. Have you got brothers or sisters?“ A ty v duchu horečně skládáš větu… „I am have… ne… I got…?“ Přesně pro tyhle momenty je dnešní lekce."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Sloveso be (být)** je základ každého představování:\n\n- *I **am** — you **are** — he/she/it **is** — we/you/they **are***\n- Zápor: *I'm **not**, he **isn't**, we **aren't*** (Nejsem, není, nejsme.)\n- Otázka přehozením: ***Are** you from Prague? — Yes, I am. / No, I'm not.*\n\nV krátké kladné odpovědi se nestahuje: *Yes, I am* (nikdy „Yes, I'm“).\n\n**Have got (mít)** vyjadřuje vlastnictví a rodinu:\n\n- *I/you/we/they **have got** a dog.* (Mám/máš/máme/mají psa.)\n- *He/she/it **has got** two brothers.* (Má dva bratry.) — 3. osoba = **has**!\n- Zápor: *haven't got / hasn't got*. Otázka: *Have you got…? — Yes, I have.*\n\nNejčastější chyba: „He **have** got“ — správně *He **has** got*."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Představit se anglicky potřebuješ dřív, než myslíš — herní chat, výměnný pobyt, první zpráva zahraničnímu kamarádovi na Instagramu, bio na profilu. „I'm sixteen, I'm from Brno and I've got a crazy little sister“ — tři věty a druhá strana ví, s kým mluví. A na brigádě v kavárně plné turistů je *Are you…? / Have you got…?* denní chleba."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 340' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Rodokmen s anglickými názvy členů rodiny'><text x='280' y='14' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>FAMILY — rodina</text><rect x='130' y='24' width='140' height='46' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='200' y='43' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>grandfather</text><text x='200' y='60' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.75'>dědeček</text><rect x='290' y='24' width='140' height='46' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='360' y='43' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>grandmother</text><text x='360' y='60' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.75'>babička</text><line x1='270' y1='47' x2='290' y2='47' stroke='currentColor' stroke-width='2' opacity='0.6'/><line x1='280' y1='70' x2='280' y2='96' stroke='currentColor' stroke-width='2' opacity='0.6'/><line x1='210' y1='96' x2='345' y2='96' stroke='currentColor' stroke-width='2' opacity='0.6'/><line x1='210' y1='96' x2='210' y2='120' stroke='currentColor' stroke-width='2' opacity='0.6'/><line x1='345' y1='96' x2='345' y2='120' stroke='currentColor' stroke-width='2' opacity='0.6'/><rect x='15' y='120' width='120' height='50' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='75' y='141' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>father</text><text x='75' y='159' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.75'>táta</text><rect x='150' y='120' width='120' height='50' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='210' y='141' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>mother</text><text x='210' y='159' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.75'>máma</text><rect x='285' y='120' width='120' height='50' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='345' y='141' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>aunt</text><text x='345' y='159' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.75'>teta</text><rect x='420' y='120' width='120' height='50' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='480' y='141' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>uncle</text><text x='480' y='159' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.75'>strýc</text><line x1='135' y1='145' x2='150' y2='145' stroke='currentColor' stroke-width='2' opacity='0.6'/><line x1='405' y1='145' x2='420' y2='145' stroke='currentColor' stroke-width='2' opacity='0.6'/><line x1='142' y1='170' x2='142' y2='230' stroke='currentColor' stroke-width='2' opacity='0.6'/><line x1='120' y1='230' x2='260' y2='230' stroke='currentColor' stroke-width='2' opacity='0.6'/><line x1='120' y1='230' x2='120' y2='252' stroke='currentColor' stroke-width='2' opacity='0.6'/><line x1='260' y1='230' x2='260' y2='252' stroke='currentColor' stroke-width='2' opacity='0.6'/><line x1='412' y1='170' x2='412' y2='252' stroke='currentColor' stroke-width='2' opacity='0.6'/><rect x='60' y='252' width='120' height='54' rx='8' fill='none' stroke='var(--zlata)' stroke-width='3'/><text x='120' y='275' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>me — já</text><text x='120' y='293' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.75'>son / daughter</text><rect x='200' y='252' width='120' height='54' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='260' y='275' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>sister</text><text x='260' y='293' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.75'>sestra (bratr = brother)</text><rect x='352' y='252' width='130' height='54' rx='8' fill='none' stroke='var(--info)' stroke-width='2'/><text x='417' y='275' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>cousin</text><text x='417' y='293' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.75'>bratranec / sestřenice</text><text x='280' y='330' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.7'>rodiče = parents, prarodiče = grandparents, synovec = nephew, neteř = niece</text></svg>",
+          "popisek": "Rodokmen tří generací: nahoře prarodiče (grandparents), uprostřed rodiče (parents) a teta se strýcem, dole ty (zlatý rámeček), sestra a bratranec/sestřenice (cousin — jedno slovo pro obě pohlaví)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-osobni-udaje-1",
+            "temaId": "aj-osobni-udaje",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Doplň větu: You ___ my best friend.",
+            "moznosti": ["is", "are", "am", "be"],
+            "spravna": 1,
+            "vysvetleni": "S podmětem you má sloveso be vždy tvar are: You are my best friend. „Is“ patří k he/she/it a „am“ jen k I."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Přivlastňovací pád ('s)** — komu co patří:\n\n- *Peter**'s** sister* (Petrova sestra), *my mum**'s** car* (mámino auto)\n- Množné číslo na -s → jen apostrof: *my parents**'** house* (dům rodičů)\n- U lidí nikdy „the sister of Peter“ — vždycky *Peter's sister*.\n\n**Členy a/an/the** — rozhoduje VÝSLOVNOST, ne písmeno:\n\n- ***a*** před souhláskovou výslovností: *a dog, a house, a **u**niversity* (čte se /ju:/)\n- ***an*** před samohláskovou výslovností: *an apple, an engineer, an **h**our* (h se nečte)\n- ***the*** pro jedinečné a už zmíněné věci: *the sun, the Czech Republic; I've got an uncle. **The** uncle lives in Brno.*\n\nA pozor: před povoláním člen nechybí — *She is **a** teacher.*"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď výrazy podle členu, který před ně patří. Pozor — rozhoduje výslovnost, ne první písmeno!",
+            "kategorie": [
+              { "id": "a", "nazev": "a" },
+              { "id": "an", "nazev": "an" },
+              { "id": "the", "nazev": "the" }
+            ],
+            "polozky": [
+              { "text": "dog", "kategorieId": "a" },
+              { "text": "apple", "kategorieId": "an" },
+              { "text": "hour", "kategorieId": "an" },
+              { "text": "university", "kategorieId": "a" },
+              { "text": "sun", "kategorieId": "the" },
+              { "text": "engineer", "kategorieId": "an" },
+              { "text": "house", "kategorieId": "a" },
+              { "text": "Czech Republic", "kategorieId": "the" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-osobni-udaje-2",
+            "temaId": "aj-osobni-udaje",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Doplň větu: This is ___ bike.",
+            "moznosti": ["my brothers", "my brother", "the my brother's", "my brother's"],
+            "spravna": 3,
+            "vysvetleni": "Přivlastnění tvoří pád 's: my brother's bike (kolo mého bráchy). Bez apostrofu by „brothers“ bylo množné číslo a před my nikdy nestojí the."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Tom si prohlíží fotku tvojí rodiny a ptá se, kdo je kdo. Sestav minidialog (4–6 replik), ve kterém použiješ be, have got a přivlastňovací pád.",
+          "reseni": "**Tom:** Who's this? (Kdo je tohle?)\n\n**Ty:** That's my sister Ema. She's twelve and she's got a hamster. (To je moje sestra Ema. Je jí dvanáct a má křečka.)\n\n**Tom:** And is this your grandfather? (A tohle je tvůj dědeček?)\n\n**Ty:** Yes, it is. And that's my uncle's dog, Rex. (Ano. A tohle je pes mého strýce, Rex.)\n\n**Tom:** Have you got any cousins? (Máš nějaké bratrance nebo sestřenice?)\n\n**Ty:** Yes, I have. My aunt's daughter Lucy — she's my cousin. (Ano. Lucy, dcera mojí tety — to je moje sestřenice.)\n\nVšimni si: *she's got* (has got), *my uncle's dog* (pád 's), krátká odpověď *Yes, I have* — ne „Yes, I have got“."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "parents — My parents work in Ostrava.", "zadni": "rodiče" },
+            { "predni": "daughter — Their daughter is six.", "zadni": "dcera" },
+            { "predni": "son — Her son plays hockey.", "zadni": "syn" },
+            { "predni": "aunt — My aunt lives in London.", "zadni": "teta" },
+            { "predni": "uncle — My uncle has got a farm.", "zadni": "strýc" },
+            { "predni": "cousin — My cousin is my best friend.", "zadni": "bratranec / sestřenice" },
+            { "predni": "nephew — Their nephew is two years old.", "zadni": "synovec" },
+            { "predni": "niece — My niece loves drawing.", "zadni": "neteř" },
+            { "predni": "husband — Her husband is a cook.", "zadni": "manžel" },
+            { "predni": "wife — His wife is a doctor.", "zadni": "manželka" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- *be*: I **am**, he/she/it **is**, you/we/they **are**; otázka přehozením (*Are you…?*).\n- *have got*: 3. osoba **has got**; zápor *haven't/hasn't got*.\n- Přivlastnění: *Peter's sister*, množné číslo jen s apostrofem (*parents' house*).\n- Členy podle výslovnosti: *a university* /ju:/, *an hour* (němé h); *the* = jedinečné/známé.\n- Rodina: *cousin* je bratranec i sestřenice, *nephew* synovec, *niece* neteř."
+        }
+      ]
+    },
+    {
+      "temaId": "aj-denni-rezim",
+      "nazev": "Denní režim a škola",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Videohovor s parťákem z Anglie. Ty: „I go to school now.“ On se zamračí: „Now? But you're at home…“ Aha. Chtěl jsi říct, že právě VYCHÁZÍŠ do školy, ale řekl jsi, že do školy CHODÍŠ (obecně). Angličtina má na tyhle dvě situace dva různé časy — a dnes se je naučíš rozlišit."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Present simple** (přítomný prostý) = co se děje **pravidelně, obvykle**:\n\n- *I get up at seven. We have six lessons on Monday.*\n- 3. osoba j. č. přidává **-s**: *she walk**s**, he get**s***; po sykavkách -es: *watch**es**, go**es***.\n- Zápor s **don't/doesn't** + základní tvar: *He **doesn't like** Mondays.* (ne „doesn't likes“!)\n- Otázka s **do/does**: ***Do** you play football? **Does** she work?*\n\nSignální slova: *every day, usually, on Mondays, twice a week*.\n\n**Present continuous** (přítomný průběhový) = co se děje **právě teď**:\n\n- *am/is/are + sloveso-ing*: *Look! Tom **is playing** football.*\n- Pravopis: *sit → si**tt**ing, make → mak**ing**, study → study**ing***.\n- Signální slova: *now, right now, at the moment, Look! Listen!*\n\nPozor na **stavová slovesa** (*know, like, want, understand*) — průběhový čas netvoří: *I **know** the answer* (nikdy „I am knowing“)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Rozvrh, brigáda, tréninky — celý tvůj týden se anglicky popisuje present simplem: „I train on Tuesdays and Thursdays.“ A když ti o půlnoci píše kamarád z Kanady „What are you doing?“, ptá se, co děláš PRÁVĚ TEĎ — a čeká odpověď v průběhovém čase: „I'm watching a series.“ Kdo ty dva časy plete, říká věci jako „I am going to school every day“ — a rodilý mluvčí slyší nesmysl."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 290' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Škála příslovcí četnosti od never po always'><defs><marker id='sipka-f' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor'/></marker></defs><text x='280' y='22' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>How often? — Jak často?</text><line x1='40' y1='140' x2='520' y2='140' stroke='currentColor' stroke-width='2' marker-end='url(#sipka-f)'/><circle cx='60' cy='140' r='7' fill='var(--chyba)'/><text x='60' y='110' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>never</text><text x='60' y='125' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>nikdy — 0 %</text><circle cx='150' cy='140' r='6' fill='var(--akcent)'/><text x='150' y='165' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>rarely</text><text x='150' y='180' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>zřídka — 10 %</text><circle cx='270' cy='140' r='6' fill='var(--akcent)'/><text x='270' y='110' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>sometimes</text><text x='270' y='125' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>někdy — 50 %</text><circle cx='360' cy='140' r='6' fill='var(--akcent)'/><text x='360' y='165' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>often</text><text x='360' y='180' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>často — 70 %</text><circle cx='440' cy='140' r='6' fill='var(--akcent)'/><text x='440' y='110' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>usually</text><text x='440' y='125' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>obvykle — 90 %</text><circle cx='505' cy='140' r='7' fill='var(--uspech)'/><text x='505' y='165' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>always</text><text x='505' y='180' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>vždy — 100 %</text><rect x='60' y='205' width='440' height='66' rx='10' fill='none' stroke='var(--info)' stroke-width='2'/><text x='280' y='230' text-anchor='middle' font-size='12' fill='currentColor'>Pozice: PŘED významovým slovesem — I usually go to bed at ten.</text><text x='280' y='252' text-anchor='middle' font-size='12' fill='currentColor'>Ale ZA slovesem be — She is always late.</text></svg>",
+          "popisek": "Příslovce četnosti seřazená od never (0 %, červeně) po always (100 %, zeleně). Rámeček dole připomíná dvě pravidla pozice: před významovým slovesem, ale za tvarem slovesa be."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-denni-rezim-1",
+            "temaId": "aj-denni-rezim",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Doplň větu: My dad ___ coffee every morning.",
+            "moznosti": ["drink", "is drinking", "drinks", "drinking"],
+            "spravna": 2,
+            "vysvetleni": "Every morning = pravidelnost → present simple, a dad je 3. osoba → drinks. „Is drinking“ by znamenalo, že kávu pije právě v tuhle chvíli."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Příslovce četnosti** — *always, usually, often, sometimes, rarely, never* — mají pevné místo:\n\n- **před** významovým slovesem: *I **usually go** to bed at ten.*\n- **za** slovesem be: *She **is always** late.*\n\n**Kolik je hodin?** *What time is it?*\n\n- 8:00 — *eight o'clock* | 8:15 — *quarter **past** eight* (čtvrt na devět)\n- 8:30 — *half **past** eight* (půl deváté) | 7:45 — *quarter **to** eight* (tři čtvrtě na osm)\n- *past* = po celé hodině, *to* = před celou hodinou. Anglické *half past eight* je česky půl DEVÁTÉ — počítá se půl hodiny PO osmé.\n\n**Škola:** *timetable* (rozvrh), *subject* (předmět), *lesson* (hodina), *break* (přestávka), *homework* (domácí úkol): *My favourite subject is English. We have a break at quarter to ten.*"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď věty: popisuje věta pravidelný zvyk (present simple), nebo děj probíhající právě teď (present continuous)?",
+            "kategorie": [
+              { "id": "simple", "nazev": "Present simple — pravidelně" },
+              { "id": "continuous", "nazev": "Present continuous — právě teď" }
+            ],
+            "polozky": [
+              { "text": "She walks to school every day.", "kategorieId": "simple" },
+              { "text": "Listen! Dad is singing in the shower.", "kategorieId": "continuous" },
+              { "text": "I usually get up at seven.", "kategorieId": "simple" },
+              { "text": "We are watching a film right now.", "kategorieId": "continuous" },
+              { "text": "He doesn't eat meat.", "kategorieId": "simple" },
+              { "text": "They're doing homework at the moment.", "kategorieId": "continuous" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-denni-rezim-2",
+            "temaId": "aj-denni-rezim",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Doplň větu: Right now she ___ her homework.",
+            "moznosti": ["does", "is doing", "do", "doing"],
+            "spravna": 1,
+            "vysvetleni": "Right now = právě teď → present continuous: is doing. „Does“ by popisovalo zvyk a samotné „doing“ bez pomocného be větu netvoří."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Kamarádka z Anglie ti volá v úterý v 16:00 a ptá se na tvůj den. Sestav minidialog, ve kterém použiješ oba přítomné časy a jedno příslovce četnosti.",
+          "reseni": "**Amy:** Hi! What are you doing? (Ahoj! Co právě děláš?)\n\n**Ty:** I'm doing my maths homework. Boring! (Dělám úkol z matiky. Nuda!)\n\n**Amy:** What time do you usually finish school? (V kolik obvykle končíš školu?)\n\n**Ty:** At half past two. Then I usually go to football training. (O půl třetí. Pak obvykle chodím na fotbalový trénink.)\n\n**Amy:** So why are you at home now? (Tak proč jsi teď doma?)\n\n**Ty:** Our coach is ill, so I'm just watching series today. (Trenér je nemocný, takže dneska jen koukám na seriály.)\n\nVšimni si: *What are you doing?* (teď) × *What time do you usually finish?* (obvykle) — a *usually* stojí před slovesem."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "timetable — Our timetable changes on Friday.", "zadni": "rozvrh" },
+            { "predni": "subject — My favourite subject is IT.", "zadni": "(školní) předmět" },
+            { "predni": "break — We have lunch during the long break.", "zadni": "přestávka" },
+            { "predni": "homework — I never do homework on Saturday.", "zadni": "domácí úkol" },
+            { "predni": "get up — I get up at quarter to seven.", "zadni": "vstávat" },
+            { "predni": "brush my teeth — I brush my teeth twice a day.", "zadni": "čistit si zuby" },
+            { "predni": "half past eight — School starts at half past eight.", "zadni": "půl deváté (8:30)" },
+            { "predni": "quarter to eight — I leave home at quarter to eight.", "zadni": "tři čtvrtě na osm (7:45)" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Present simple = zvyky a pravidelnost; 3. osoba **-s**, zápor/otázka s **do/does** + základní tvar.\n- Present continuous = právě teď; **am/is/are + -ing**; stavová slovesa (*know, like, want*) ho netvoří.\n- Příslovce četnosti před slovesem (*I usually go…*), ale za be (*She is always late*).\n- Čas: *past* po celé, *to* před celou; *half past eight* = půl deváté.\n- Škola: *timetable, subject, break, homework*."
+        }
+      ]
+    },
+    {
+      "temaId": "aj-volny-cas",
+      "nazev": "Volný čas a koníčky",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "V online hře tě pozvali do mezinárodního týmu. První otázka v hlasovém chatu: „So, what do you like doing when you're not gaming?“ Ticho. Pak tvoje: „I like… play… football?“ Funguje to, ale zní to jako robot. Po dnešní lekci řekneš „I love playing football and I can swim really well“ — a zapadneš."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Like / love / hate / enjoy / don't mind + -ing** — po slovesech vyjadřujících postoj následuje sloveso s koncovkou **-ing**:\n\n- *I **love listening** to music.* (Miluju poslouchání hudby.)\n- *He **hates getting** up early.* (Nesnáší rané vstávání.)\n- *I **don't mind walking** to school.* (Nevadí mi chodit pěšky.)\n\nŠkála postojů od nejsilnějšího kladu: **love → like → don't mind → don't like → hate**.\n\nTypická chyba z češtiny: „I like play football“ — správně *I like **playing** football*."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Koníčky jsou téma číslo jedna při každém seznamování — nový tým ve hře, výměnný pobyt, letní kemp, pohovor na brigádu („What do you enjoy doing?“). Věta „I love taking photos and I can edit videos“ ti na brigádě u sociálních sítí kavárny reálně vydělá peníze. A *can/can't* použiješ pokaždé, když si s někým domlouváš sport: „Can you skate?“"
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 300' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Škála postojů od love po hate s příklady'><text x='230' y='24' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>Jak moc to máš rád? Vždy + sloveso s -ing</text><rect x='30' y='44' width='18' height='18' rx='4' fill='var(--uspech)'/><text x='60' y='58' font-size='14' font-weight='bold' fill='currentColor'>love</text><text x='185' y='58' font-size='12' fill='currentColor' opacity='0.85'>I love dancing. — Miluju tancování.</text><rect x='30' y='90' width='18' height='18' rx='4' fill='var(--uspech)' fill-opacity='0.5'/><text x='60' y='104' font-size='14' font-weight='bold' fill='currentColor'>like</text><text x='185' y='104' font-size='12' fill='currentColor' opacity='0.85'>I like swimming. — Rád plavu.</text><rect x='30' y='136' width='18' height='18' rx='4' fill='var(--info)'/><text x='60' y='150' font-size='14' font-weight='bold' fill='currentColor'>don't mind</text><text x='185' y='150' font-size='12' fill='currentColor' opacity='0.85'>I don't mind walking. — Nevadí mi chodit pěšky.</text><rect x='30' y='182' width='18' height='18' rx='4' fill='var(--chyba)' fill-opacity='0.5'/><text x='60' y='196' font-size='14' font-weight='bold' fill='currentColor'>don't like</text><text x='185' y='196' font-size='12' fill='currentColor' opacity='0.85'>I don't like running. — Nerad běhám.</text><rect x='30' y='228' width='18' height='18' rx='4' fill='var(--chyba)'/><text x='60' y='242' font-size='14' font-weight='bold' fill='currentColor'>hate</text><text x='185' y='242' font-size='12' fill='currentColor' opacity='0.85'>I hate getting up early. — Nesnáším rané vstávání.</text><rect x='470' y='40' width='76' height='210' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2'/><text x='508' y='130' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>+ ING</text><text x='508' y='152' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>dancing</text><text x='508' y='168' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>swimming</text><text x='508' y='184' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>walking</text><text x='280' y='282' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.7'>enjoy funguje stejně: I enjoy playing chess. — Baví mě hrát šachy.</text></svg>",
+          "popisek": "Škála pěti postojů od love (zeleně) po hate (červeně) — každý řádek ukazuje celou větu s příkladem. Zlatý rámeček připomíná, že po všech následuje sloveso s -ing."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-volny-cas-1",
+            "temaId": "aj-volny-cas",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Doplň větu: They enjoy ___ computer games.",
+            "moznosti": ["play", "to play", "playing", "plays"],
+            "spravna": 2,
+            "vysvetleni": "Enjoy patří do stejné skupiny jako like/love/hate — následuje sloveso s -ing: enjoy playing. Holý tvar ani „to play“ po enjoy stát nemůže."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Play × go × do** — tři slovesa pro sport a aktivity:\n\n- **play** + hry a míčové sporty: *play football, play tennis, play chess, play video games*\n- **go** + aktivity na -ing: *go swimming, go cycling, go hiking, go skiing*\n- **do** + cvičení a bojové sporty: *do karate, do gymnastics, do athletics, do yoga*\n\n**Can / can't** = schopnost („umím“):\n\n- *She **can swim** very well. I **can't ski**.*\n- Po can je sloveso **bez to** a bez -s: *He can play* (ne „can to play“, ne „cans“).\n- Otázka: ***Can** you dance? — Yes, I can. / No, I can't.*\n\n**Hudba:** u nástrojů stojí člen the: *play **the** guitar / **the** piano / **the** drums*. Další slova: *band* (kapela), *singer* (zpěvák), *song* (písnička), *concert* (koncert)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              { "a": "go swimming", "b": "chodit plavat" },
+              { "a": "play the drums", "b": "hrát na bicí" },
+              { "a": "do gymnastics", "b": "dělat gymnastiku" },
+              { "a": "go cycling", "b": "jezdit na kole" },
+              { "a": "read comics", "b": "číst komiksy" },
+              { "a": "take photos", "b": "fotit" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-volny-cas-2",
+            "temaId": "aj-volny-cas",
+            "typ": "doplneni",
+            "obtiznost": 3,
+            "zadani": "Doplň jedno slovo: ___ you swim? — Yes, I can.",
+            "spravneOdpovedi": ["Can", "can"],
+            "vysvetleni": "Otázka na schopnost se tvoří přehozením can před podmět: Can you swim? Odpověď can v krátké odpovědi jen opakuje: Yes, I can."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Nový spolužák z Irska hledá někoho na společný sport. Sestav minidialog o koníčcích, ve kterém použiješ like/love + -ing, can/can't a správné sloveso play/go/do.",
+          "reseni": "**Liam:** What do you like doing in your free time? (Co rád děláš ve volném čase?)\n\n**Ty:** I love playing basketball and I go swimming on Fridays. (Miluju basket a v pátek chodím plavat.)\n\n**Liam:** Cool! Can you play tennis? (Super! Umíš tenis?)\n\n**Ty:** No, I can't. But I can teach you chess! (Ne, neumím. Ale můžu tě naučit šachy!)\n\n**Liam:** Deal. I don't mind losing. (Platí. Nevadí mi prohrávat.)\n\nVšimni si: *love playing* (+ -ing), *go swimming* (aktivita na -ing → go), *Can you…? — No, I can't* a *don't mind losing*."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "go cycling — We go cycling every weekend.", "zadni": "jezdit na kole" },
+            { "predni": "play chess — My grandpa plays chess online.", "zadni": "hrát šachy" },
+            { "predni": "do athletics — She does athletics at school.", "zadni": "dělat atletiku" },
+            { "predni": "take photos — I take photos on my phone.", "zadni": "fotit" },
+            { "predni": "draw — He draws comics in his notebook.", "zadni": "kreslit" },
+            { "predni": "band — Their band plays rock music.", "zadni": "kapela" },
+            { "predni": "song — This song is everywhere right now.", "zadni": "písnička" },
+            { "predni": "free time — I haven't got much free time.", "zadni": "volný čas" },
+            { "predni": "play the guitar — I can play the guitar.", "zadni": "hrát na kytaru" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- *like/love/hate/enjoy/don't mind* + sloveso s **-ing**: *I love playing football.*\n- **play** hry a míčové sporty, **go** aktivity na -ing, **do** cvičení (karate, gymnastics).\n- *can/can't* + holý infinitiv bez to, stejný tvar pro všechny osoby.\n- Hudební nástroje se členem the: *play the piano*.\n- Škála postojů: *love → like → don't mind → don't like → hate*."
+        }
+      ]
+    },
+    {
+      "temaId": "aj-minulost",
+      "nazev": "Minulý čas",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Pondělí ráno, Tom se ptá: „What did you do at the weekend?“ Máš toho tolik — výlet, zápas, nová hra… ale všechno se ti to sype do přítomného času: „I go… ehm… I see a film…“ Tom se směje: „You SAW a film. Yesterday is the past, my friend!“ Čas to napravit — doslova."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Was / were** — minulost slovesa be:\n\n- *I/he/she/it **was*** — *you/we/they **were***: *I was at home. They were at school.*\n- Zápor: *wasn't / weren't*. Otázka přehozením: ***Were** you at school? — Yes, I was.*\n\n**Past simple pravidelných sloves** = koncovka **-ed**:\n\n- *watch → watch**ed**, play → play**ed***\n- Pravopis: *stop → sto**pped*** (zdvojení), *study → stud**ied*** (y → i), *live → liv**ed*** (jen -d)\n\n**Nepravidelná slovesa** mají vlastní tvary — je nutné se je naučit:\n\n- *go → **went**, see → **saw**, buy → **bought**, have → **had**, take → **took***\n- *eat → **ate**, come → **came**, write → **wrote**, make → **made**, get → **got**, fall → **fell***"
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Bez minulého času nevyprávíš žádný příběh — co bylo o víkendu, jak dopadl zápas, co se stalo ve škole. Popisek k fotce z výletu („We went to the mountains and it was amazing“), recenze hry na Steamu („I played it for 40 hours“), i pohovor na brigádu („I worked in a café last summer“) — všechno stojí na past simplu. Je to nejpoužívanější minulý čas v angličtině."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 300' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Časová osa minulosti s výrazy ago, last a yesterday'><defs><marker id='sipka-p' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor'/></marker></defs><text x='280' y='24' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>PAST — minulost → past simple</text><line x1='30' y1='150' x2='450' y2='150' stroke='currentColor' stroke-width='2' marker-end='url(#sipka-p)'/><rect x='462' y='126' width='84' height='48' rx='8' fill='none' stroke='var(--zlata)' stroke-width='3'/><text x='504' y='147' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>NOW</text><text x='504' y='164' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>teď</text><circle cx='80' cy='150' r='6' fill='var(--akcent)'/><text x='80' y='118' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>in 2020</text><text x='80' y='133' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>v roce 2020</text><circle cx='180' cy='150' r='6' fill='var(--akcent)'/><text x='180' y='178' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>two years ago</text><text x='180' y='193' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>před dvěma lety</text><circle cx='290' cy='150' r='6' fill='var(--akcent)'/><text x='290' y='118' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>last week</text><text x='290' y='133' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>minulý týden</text><circle cx='395' cy='150' r='6' fill='var(--akcent)'/><text x='395' y='178' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>yesterday</text><text x='395' y='193' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>včera</text><rect x='40' y='215' width='230' height='68' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='155' y='240' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>tvary: was/were, watched,</text><text x='155' y='258' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>went, saw, bought…</text><rect x='290' y='215' width='230' height='68' rx='10' fill='none' stroke='var(--info)' stroke-width='2'/><text x='405' y='240' text-anchor='middle' font-size='12' fill='currentColor'>ago stojí ZA údajem:</text><text x='405' y='258' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>two years ago ✓</text></svg>",
+          "popisek": "Časová osa běží zleva (hluboká minulost) k rámečku NOW (teď). Všechny body na ose — in 2020, two years ago, last week, yesterday — vyžadují past simple; ago stojí vždy za časovým údajem."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-minulost-1",
+            "temaId": "aj-minulost",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Doplň větu: Yesterday we ___ at school until four.",
+            "moznosti": ["was", "are", "were", "be"],
+            "spravna": 2,
+            "vysvetleni": "S podmětem we má be v minulosti tvar were: We were at school. „Was“ patří k I/he/she/it — to je nejčastější záměna."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Zápor a otázka** — nastupuje pomocné **did** a významové sloveso se vrací do základního tvaru:\n\n- Zápor: *She **didn't come** to the party.* (ne „didn't came“!)\n- Otázka: ***Did** you **see** the film? — Yes, I did. / No, I didn't.*\n- Minulost nese did — druhé sloveso ji už neopakuje: „Did she went?“ je dvojitá minulost, správně *Did she **go**?*\n\n**Časové výrazy minulosti:**\n\n- *yesterday* (včera), *last week/month/year* (minulý týden/měsíc/rok)\n- *two years **ago*** (před dvěma lety) — **ago stojí ZA údajem**\n- *in 2020, when I was ten* (v roce 2020, když mi bylo deset)"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              { "a": "go", "b": "went" },
+              { "a": "buy", "b": "bought" },
+              { "a": "eat", "b": "ate" },
+              { "a": "write", "b": "wrote" },
+              { "a": "come", "b": "came" },
+              { "a": "make", "b": "made" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-minulost-2",
+            "temaId": "aj-minulost",
+            "typ": "doplneni",
+            "obtiznost": 3,
+            "zadani": "Napiš minulý tvar slovesa see: Last night I ___ a great film.",
+            "spravneOdpovedi": ["saw", "Saw"],
+            "vysvetleni": "See je nepravidelné: see → saw. „Seed“ ani „seen“ tady nefungují — saw je jediný správný tvar past simple."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Tom se ptá na tvůj víkend. Sestav minidialog v minulém čase — použij was/were, jedno pravidelné a dvě nepravidelná slovesa a otázku s did.",
+          "reseni": "**Tom:** What did you do at the weekend? (Co jsi dělal o víkendu?)\n\n**Ty:** On Saturday I went to my cousin's place. We played video games all day. (V sobotu jsem jel k bratranci. Celý den jsme hráli hry.)\n\n**Tom:** Nice! Did you win? (Pěkný! Vyhrál jsi?)\n\n**Ty:** No, I didn't. He bought a new controller and he was unbeatable. (Ne. Koupil si nový ovladač a byl k neporažení.)\n\n**Tom:** And Sunday? (A v neděli?)\n\n**Ty:** I was at home. I wrote an essay for Czech class. Boring! (Byl jsem doma. Psal jsem sloh na češtinu. Nuda!)\n\nVšimni si: *went, bought, wrote* (nepravidelná), *played* (-ed), *Did you win? — No, I didn't* (did + základní tvar)."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "go → ? — Last summer we ___ to Croatia.", "zadni": "went (jet, jít)" },
+            { "predni": "see → ? — I ___ a shooting star yesterday.", "zadni": "saw (vidět)" },
+            { "predni": "buy → ? — She ___ new trainers last week.", "zadni": "bought (koupit)" },
+            { "predni": "take → ? — He ___ the bus this morning.", "zadni": "took (vzít, jet čím)" },
+            { "predni": "eat → ? — We ___ pizza on Friday.", "zadni": "ate (jíst)" },
+            { "predni": "come → ? — They ___ home late.", "zadni": "came (přijít)" },
+            { "predni": "have → ? — I ___ a great time at the party.", "zadni": "had (mít)" },
+            { "predni": "yesterday — I was ill yesterday.", "zadni": "včera" },
+            { "predni": "two years ago — We met two years ago.", "zadni": "před dvěma lety" },
+            { "predni": "last month — It rained a lot last month.", "zadni": "minulý měsíc" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- *be* v minulosti: **was** (I/he/she/it) × **were** (you/we/they).\n- Pravidelná slovesa: **-ed** (*watched*); pozor na pravopis (*stopped, studied*).\n- Nepravidelná slovesa mají vlastní tvary: *went, saw, bought, took, ate…*\n- Zápor a otázka s **did** + základní tvar: *Did she go? She didn't come.*\n- *ago* stojí za údajem (*two years ago*); *yesterday, last week, in 2020* → past simple."
+        }
+      ]
+    },
+    {
+      "temaId": "aj-jidlo-nakupovani",
+      "nazev": "Jídlo a nakupování",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Školní zájezd do Londýna, první večer v malém obchodě. Chceš chleba a mléko, ale u pokladny ze sebe vysoukáš: „I want two breads and a milk.“ Prodavač zvedne obočí. Chleba ani mléko se totiž anglicky počítat nedají — a přesně tenhle trik s počitatelností dnes rozlouskneš."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Počitatelná × nepočitatelná podstatná jména:**\n\n- **Počitatelná** (countable) se dají počítat po kusech: *an apple, two eggs, three tomatoes*.\n- **Nepočitatelná** (uncountable) nemají množné číslo: *water, bread, milk, rice, sugar* — a překvapivě i ***money***: *How much money?*\n- Nepočitatelné počítáme přes obaly a míry: *a loaf of bread* (bochník chleba), *a bottle of water* (láhev vody), *a kilo of rice* (kilo rýže).\n\n**Some × any:**\n\n- **some** v kladných větách: *We've got **some** cheese.* (Máme nějaký sýr.)\n- **some** i ve zdvořilých nabídkách: *Would you like **some** tea?* (Dáte si čaj?)\n- **any** v otázkách a záporech: *Is there **any** milk? We haven't got **any** bread.*"
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Tohle je nejpraktičtější lekce roku — použiješ ji při KAŽDÉM nákupu a jídle v zahraničí. Objednat si v Londýně oběd, koupit lístek a svačinu, zeptat se na cenu, spočítat, jestli ti kapesné stačí na dva sendviče a colu. A kdo umí zdvořilé „I'd like… please“, dostane jinou obsluhu než ten, kdo štěkne „Give me“. V gastru na brigádě se ti fráze hodí i obráceně — jako obsluze."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 320' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Tabulka much, many, some a any podle počitatelnosti'><text x='280' y='22' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>much / many / some / any — kdy co?</text><rect x='200' y='36' width='170' height='52' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='285' y='58' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>POČITATELNÁ</text><text x='285' y='76' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>apples, eggs, tomatoes</text><rect x='370' y='36' width='170' height='52' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='455' y='58' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>NEPOČITATELNÁ</text><text x='455' y='76' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.75'>water, bread, money</text><rect x='20' y='88' width='180' height='72' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.7'/><text x='110' y='120' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>Kolik? (otázka)</text><rect x='200' y='88' width='170' height='72' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.7'/><text x='285' y='115' text-anchor='middle' font-size='17' font-weight='bold' fill='var(--info)'>many</text><text x='285' y='140' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.8'>How many apples?</text><rect x='370' y='88' width='170' height='72' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.7'/><text x='455' y='115' text-anchor='middle' font-size='17' font-weight='bold' fill='var(--info)'>much</text><text x='455' y='140' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.8'>How much money?</text><rect x='20' y='160' width='180' height='72' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.7'/><text x='110' y='192' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>Kladná věta</text><rect x='200' y='160' width='170' height='72' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.7'/><text x='285' y='187' text-anchor='middle' font-size='17' font-weight='bold' fill='var(--uspech)'>some</text><text x='285' y='212' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.8'>I've got some eggs.</text><rect x='370' y='160' width='170' height='72' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.7'/><text x='455' y='187' text-anchor='middle' font-size='17' font-weight='bold' fill='var(--uspech)'>some</text><text x='455' y='212' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.8'>I'd like some water.</text><rect x='20' y='232' width='180' height='72' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.7'/><text x='110' y='264' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>Otázka a zápor</text><rect x='200' y='232' width='170' height='72' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.7'/><text x='285' y='259' text-anchor='middle' font-size='17' font-weight='bold' fill='var(--chyba)'>any</text><text x='285' y='284' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.8'>Are there any eggs?</text><rect x='370' y='232' width='170' height='72' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.7'/><text x='455' y='259' text-anchor='middle' font-size='17' font-weight='bold' fill='var(--chyba)'>any</text><text x='455' y='284' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.8'>There isn't any milk.</text></svg>",
+          "popisek": "Tabulka: sloupce dělí podstatná jména na počitatelná a nepočitatelná, řádky na typ věty. Many patří počitatelným, much nepočitatelným; some do kladných vět (a nabídek), any do otázek a záporů — u obou skupin stejně."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-jidlo-nakupovani-1",
+            "temaId": "aj-jidlo-nakupovani",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Doplň větu: There isn't ___ cheese in the fridge.",
+            "moznosti": ["some", "any", "many", "a"],
+            "spravna": 1,
+            "vysvetleni": "Záporná věta → any: There isn't any cheese. Some patří do kladných vět, many jen k počitatelným v množném čísle a „a cheese“ nejde — cheese je nepočitatelný."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Much × many × a lot of:**\n\n- **many** + počitatelná: *How **many** apples do we need?*\n- **much** + nepočitatelná: *How **much** sugar? How **much** money?*\n- **a lot of** + obojí: *a lot of friends, a lot of time*\n\n**Ceny a nakupování:** *How much is it?* (Kolik to stojí?) — *It's three pounds fifty (£3.50).* Slovíčka: *customer* (zákazník), *shop assistant* (prodavač), *receipt* (účtenka), *change* (drobné nazpět), *cash/card* (hotovost/karta).\n\n**V restauraci — zdvořilost především:**\n\n- Číšník: *Are you ready to order?* (Máte vybráno?) *Anything else?* (Ještě něco?)\n- Ty: *I'd like the tomato soup, please. / Can I have a cola, please?*\n- Na konci: *The bill, please.* (Účet, prosím.)\n- Holé „Give me soup“ zní v angličtině hrubě — vždycky *I'd like… / Can I have… + please*."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď potraviny: dají se počítat po kusech (a/an, many), nebo ne (much)?",
+            "kategorie": [
+              { "id": "pocitatelna", "nazev": "Počitatelná — a/an, many" },
+              { "id": "nepocitatelna", "nazev": "Nepočitatelná — much" }
+            ],
+            "polozky": [
+              { "text": "apple", "kategorieId": "pocitatelna" },
+              { "text": "water", "kategorieId": "nepocitatelna" },
+              { "text": "money", "kategorieId": "nepocitatelna" },
+              { "text": "egg", "kategorieId": "pocitatelna" },
+              { "text": "bread", "kategorieId": "nepocitatelna" },
+              { "text": "tomato", "kategorieId": "pocitatelna" },
+              { "text": "rice", "kategorieId": "nepocitatelna" },
+              { "text": "sandwich", "kategorieId": "pocitatelna" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-jidlo-nakupovani-2",
+            "temaId": "aj-jidlo-nakupovani",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Doplň otázku: How ___ money have you got?",
+            "moznosti": ["many", "much", "some", "a lot"],
+            "spravna": 1,
+            "vysvetleni": "Money je nepočitatelné → How much money? „Many“ láká, protože peníze jsou česky množné — ale anglicky se money chová jako jednotné nepočitatelné."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Jsi v londýnské kavárně a objednáváš oběd pro sebe a kamaráda. Sestav zdvořilý minidialog s číšníkem — objednávka, dotaz na cenu, placení.",
+          "reseni": "**Číšník:** Are you ready to order? (Máte vybráno?)\n\n**Ty:** Yes, I'd like the chicken sandwich and some orange juice, please. (Ano, dal bych si kuřecí sendvič a pomerančový džus, prosím.)\n\n**Číšník:** Anything else? (Ještě něco?)\n\n**Ty:** Can I have a glass of water for my friend, please? (Můžu poprosit sklenici vody pro kamaráda?)\n\n**Číšník:** Of course. (Samozřejmě.)\n\n**Ty:** How much is it altogether? (Kolik to dělá dohromady?)\n\n**Číšník:** That's eight pounds twenty. (8,20 libry.)\n\n**Ty:** Here you are. The receipt, please. (Prosím. A účtenku, prosím.)\n\nVšimni si: *I'd like… please, Can I have…?, some juice* (nabídka/žádost), *a glass of water* (nepočitatelná voda po sklenicích)."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "bread — We need a loaf of bread.", "zadni": "chléb (nepočitatelný)" },
+            { "predni": "flour — There isn't any flour at home.", "zadni": "mouka" },
+            { "predni": "cucumber — Cut the cucumber into slices.", "zadni": "okurka" },
+            { "predni": "grapes — I bought some green grapes.", "zadni": "hroznové víno" },
+            { "predni": "chicken — She doesn't eat chicken.", "zadni": "kuře, kuřecí maso" },
+            { "predni": "receipt — Keep the receipt, please.", "zadni": "účtenka" },
+            { "predni": "change — Here's your change — two pounds.", "zadni": "drobné nazpět" },
+            { "predni": "customer — The customer is always right.", "zadni": "zákazník" },
+            { "predni": "the bill — The bill, please.", "zadni": "účet (v restauraci)" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Počitatelná se počítají po kusech (*two eggs*), nepočitatelná ne (*water, bread, money*).\n- **some** = kladné věty a nabídky; **any** = otázky a zápory.\n- **many** + počitatelná, **much** + nepočitatelná, **a lot of** + obojí.\n- Ceny: *How much is it? — It's £3.50.*\n- V restauraci zdvořile: *I'd like… / Can I have…, please. The bill, please.*"
+        }
+      ]
+    },
+    {
+      "temaId": "aj-cestovani-mesto",
+      "nazev": "Cestování a město",
+      "poradi": 5,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Druhý den v Londýně se skupina rozdělí a ty s dvěma spolužáky zjistíš, že vaše metro nejede. Mapa v mobilu? Vybitý. Nezbývá než chytit kolemjdoucího: „Ehm… where is… station?“ Zabralo to napůl — ukázal rukou někam mezi tři ulice. Dnes se naučíš zeptat se tak, abys odpovědi taky rozuměl."
+        },
+        {
+          "typ": "text",
+          "obsah": "**There is / there are** — co kde je:\n\n- Jednotné číslo: *There **is** a bank on the square.* (Na náměstí je banka.)\n- Množné číslo: *There **are** two hotels in our town.*\n- Zápor: *There **isn't** a cinema. There **aren't** any shops here.*\n- Otázka: ***Is there** a bank near here? — Yes, there is. / No, there isn't.*\n\n**Předložky místa:**\n\n- *next to* (vedle), *opposite* (naproti), *between* (mezi)\n- *behind* (za), *in front of* (před), *on the corner* (na rohu), *near* (blízko)\n- *The café is **between** the bank and the school.*"
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** První cesta do zahraničí bez rodičů — školní zájezd, sportovní turnaj, návštěva kamaráda — a najednou je na tobě najít nádraží, hotel nebo nejbližší lékárnu. A funguje to i obráceně: v centru Prahy tě turisté zastavují každou chvíli. „Go straight on, turn right at the traffic lights, it's opposite the church“ — a máš dobrý pocit na celý den. Plus: rozumět navigaci v angličtině znamená rozumět i GPS v mobilu bez češtiny."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 330' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Plánek města s předložkami místa a trasou'><defs><marker id='sipka-m' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='var(--uspech)'/></marker></defs><text x='280' y='20' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>Where is the café? — plánek</text><line x1='0' y1='150' x2='560' y2='150' stroke='currentColor' stroke-width='1.5' opacity='0.6'/><line x1='0' y1='195' x2='560' y2='195' stroke='currentColor' stroke-width='1.5' opacity='0.6'/><text x='12' y='177' font-size='10' fill='currentColor' opacity='0.6'>High Street</text><line x1='360' y1='0' x2='360' y2='150' stroke='currentColor' stroke-width='1.5' opacity='0.6'/><line x1='400' y1='0' x2='400' y2='150' stroke='currentColor' stroke-width='1.5' opacity='0.6'/><line x1='360' y1='195' x2='360' y2='330' stroke='currentColor' stroke-width='1.5' opacity='0.6'/><line x1='400' y1='195' x2='400' y2='330' stroke='currentColor' stroke-width='1.5' opacity='0.6'/><rect x='20' y='70' width='95' height='60' rx='6' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='67' y='96' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>BANK</text><text x='67' y='114' text-anchor='middle' font-size='9' fill='currentColor' opacity='0.75'>banka</text><rect x='135' y='70' width='95' height='60' rx='6' fill='none' stroke='var(--zlata)' stroke-width='3'/><text x='182' y='96' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>CAFÉ</text><text x='182' y='114' text-anchor='middle' font-size='9' fill='currentColor' opacity='0.75'>kavárna</text><rect x='250' y='70' width='95' height='60' rx='6' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='297' y='96' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>SHOP</text><text x='297' y='114' text-anchor='middle' font-size='9' fill='currentColor' opacity='0.75'>obchod</text><rect x='420' y='70' width='110' height='60' rx='6' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='475' y='96' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>SCHOOL</text><text x='475' y='114' text-anchor='middle' font-size='9' fill='currentColor' opacity='0.75'>škola</text><rect x='135' y='215' width='120' height='70' rx='6' fill='none' stroke='var(--uspech)' stroke-width='2'/><text x='195' y='245' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>PARK</text><text x='195' y='263' text-anchor='middle' font-size='9' fill='currentColor' opacity='0.75'>park</text><rect x='420' y='215' width='110' height='70' rx='6' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='475' y='245' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>STATION</text><text x='475' y='263' text-anchor='middle' font-size='9' fill='currentColor' opacity='0.75'>nádraží</text><line x1='115' y1='60' x2='135' y2='60' stroke='var(--info)' stroke-width='2'/><text x='125' y='50' text-anchor='middle' font-size='10' font-weight='bold' fill='var(--info)'>next to</text><text x='182' y='146' text-anchor='middle' font-size='10' font-weight='bold' fill='var(--info)'>between</text><line x1='195' y1='130' x2='195' y2='215' stroke='var(--info)' stroke-width='2' stroke-dasharray='5 4'/><text x='230' y='177' text-anchor='middle' font-size='10' font-weight='bold' fill='var(--info)'>opposite</text><circle cx='380' cy='172' r='7' fill='var(--zlata)'/><text x='380' y='215' text-anchor='middle' font-size='9' fill='currentColor' opacity='0.75'>traffic lights — semafor</text><path d='M40,172 L380,172 L380,40' fill='none' stroke='var(--uspech)' stroke-width='3' marker-end='url(#sipka-m)'/><text x='150' y='166' font-size='10' font-weight='bold' fill='var(--uspech)'>go straight on</text><text x='410' y='40' font-size='10' font-weight='bold' fill='var(--uspech)'>turn left</text><text x='280' y='320' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.7'>The café is next to the bank, between the bank and the shop, opposite the park.</text></svg>",
+          "popisek": "Plánek: kavárna (zlatě) je next to (vedle) banky, between (mezi) bankou a obchodem a opposite (naproti) parku přes ulici. Zelená šipka ukazuje trasu „go straight on, turn left“ u semaforu (zlatá tečka)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-cestovani-mesto-1",
+            "temaId": "aj-cestovani-mesto",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Doplň větu: There ___ a park next to my house.",
+            "moznosti": ["are", "is", "have", "be"],
+            "spravna": 1,
+            "vysvetleni": "A park je jednotné číslo → There is. „There are“ by vyžadovalo množné číslo (There are two parks)."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Ptaní na cestu — kompletní výbava:**\n\n- Oslovení: *Excuse me…* (Promiňte…)\n- Otázka: *How do I **get to** the station, please? / Where's the museum?*\n- Odpovědi: *Go **straight on**.* (Rovně.) *Turn **left/right** at the traffic lights.* (U semaforu doleva/doprava.) *Take the **second street** on the left.* (Druhou ulicí vlevo.) *It's **on the right**, opposite the park.*\n- Poděkování: *Thank you very much!*\n\n**Doprava:** jedeme **by** bus/train/car/tram/plane, ale pěšky = **on foot** (výjimka!):\n\n- *I go to school **by bus**, but my dad goes to work **on foot**.*\n- Slovíčka: *ticket* (jízdenka), *platform* (nástupiště), *bus stop* (zastávka), *timetable* (jízdní řád), *journey* (cesta).\n\n**Místa ve městě:** *station* (nádraží), *square* (náměstí), *town hall* (radnice), *chemist's* (lékárna), *crossroads* (křižovatka), *bridge* (most)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Jak se zeptat na cestu — projdi si všech pět kroků rozhovoru.",
+            "kroky": [
+              { "nazev": "Oslov", "popis": "„Excuse me…“ — zdvořile zastav kolemjdoucího. Bez oslovení působíš hrubě." },
+              { "nazev": "Zeptej se", "popis": "„How do I get to the station, please?“ nebo „Where's the nearest chemist's?“" },
+              { "nazev": "Poslouchej směry", "popis": "Chytej klíčová slova: „Go straight on, turn left at the traffic lights, take the second street on the right.“" },
+              { "nazev": "Ověř si to", "popis": "Zopakuj, cos slyšel: „So it's on the right, opposite the park?“ — ušetříš si bloudění." },
+              { "nazev": "Poděkuj", "popis": "„Thank you very much!“ — a vyraz. Případně „Sorry, can you say that again?“, když jsi nestihl." }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-cestovani-mesto-2",
+            "temaId": "aj-cestovani-mesto",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Doplň větu: The café is ___ the bank and the school.",
+            "moznosti": ["next to", "opposite", "between", "behind"],
+            "spravna": 2,
+            "vysvetleni": "Mezi DVĚMA věcmi = between: between the bank and the school. Next to je vedle jedné věci, opposite naproti přes ulici, behind za něčím."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Turista tě v Praze zastaví a hledá lékárnu. Sestav minidialog — oslovení, otázka, popis cesty s aspoň dvěma pokyny a jednou předložkou místa, poděkování.",
+          "reseni": "**Turista:** Excuse me, is there a chemist's near here? (Promiňte, je tu poblíž lékárna?)\n\n**Ty:** Yes, there is. Go straight on and turn right at the crossroads. (Ano. Jděte rovně a na křižovatce zabočte doprava.)\n\n**Turista:** Straight on, then right. OK. (Rovně, pak doprava. Dobře.)\n\n**Ty:** It's next to the supermarket, opposite the bus stop. You can't miss it. (Je hned vedle supermarketu, naproti zastávce. Nemůžete ji minout.)\n\n**Turista:** Thank you very much! (Mockrát děkuju!)\n\n**Ty:** You're welcome! (Není zač!)\n\nVšimni si: *Is there…? — Yes, there is.*, pokyny *go straight on / turn right* a předložky *next to, opposite*."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "station — The train leaves from the main station.", "zadni": "nádraží" },
+            { "predni": "square — We meet on the square at noon.", "zadni": "náměstí" },
+            { "predni": "chemist's — The chemist's closes at six.", "zadni": "lékárna" },
+            { "predni": "crossroads — Turn left at the crossroads.", "zadni": "křižovatka" },
+            { "predni": "traffic lights — Stop at the traffic lights.", "zadni": "semafor" },
+            { "predni": "platform — The train leaves from platform two.", "zadni": "nástupiště" },
+            { "predni": "ticket — A return ticket, please.", "zadni": "jízdenka" },
+            { "predni": "on foot — I go everywhere on foot.", "zadni": "pěšky" },
+            { "predni": "journey — The journey takes two hours.", "zadni": "cesta (jízda)" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- *There is* + jednotné, *there are* + množné; otázka *Is/Are there…?*\n- Předložky: *next to* (vedle), *opposite* (naproti), *between* (mezi), *behind* (za).\n- Na cestu: *Excuse me, how do I get to…?* → *go straight on, turn left/right, take the second street*.\n- Doprava: **by** bus/train/car, ale **on foot**.\n- Město: *station, square, chemist's, crossroads, traffic lights*."
+        }
+      ]
+    },
+    {
+      "temaId": "aj-budoucnost",
+      "nazev": "Plány a budoucnost",
+      "poradi": 6,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Pátek odpoledne, píše ti Tom: „What are your plans for the weekend?“ Ty máš dávno domluvený výlet na kola s bráchou — a zrovna když odepisuješ, zhasne ti obrazovka. Vybitý mobil. „OK, I'll charge it first,“ řekneš si. A přesně v těch dvou větách se skrývá celé tajemství anglické budoucnosti: plán → *going to*, rozhodnutí teď → *will*."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Going to** — budoucnost, která už má obrysy:\n\n1. **Plán rozmyšlený předem:** *We**'re going to** visit Brno on Saturday.* (V sobotu se chystáme do Brna — je to domluvené.)\n2. **Předpověď z důkazu**, který vidíme: *Look at those black clouds! It**'s going to** rain.* (Ty mraky = důkaz.)\n\nStavba: **am/is/are + going to + sloveso**: *I'm going to buy…, she's going to study…*\n\nZápor: *We **aren't going to** watch TV tonight.* Otázka: ***Are** you **going to** come?*"
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Domlouvání je polovina tvého života na mobilu — sraz s partou, trénink, společné hraní, rande. V mezinárodní partě to celé běží anglicky: „What about Friday? — I'm afraid I can't. Let's meet on Saturday, see you at six!“ A správná volba going to × will rozhoduje o smyslu: „I'm going to help you“ (mám to v plánu) × „I'll help you“ (nabízím se právě teď) — druhá věta zní jako ochota, první jako oznámení."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 320' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Rozhodovací strom pro volbu mezi going to a will'><defs><marker id='sipka-b' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor'/></marker></defs><rect x='170' y='16' width='220' height='46' rx='10' fill='none' stroke='currentColor' stroke-width='2'/><text x='280' y='44' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>Mluvím o budoucnosti…</text><line x1='230' y1='62' x2='150' y2='106' stroke='currentColor' stroke-width='2' marker-end='url(#sipka-b)'/><line x1='330' y1='62' x2='410' y2='106' stroke='currentColor' stroke-width='2' marker-end='url(#sipka-b)'/><rect x='30' y='110' width='240' height='64' rx='10' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.8'/><text x='150' y='134' text-anchor='middle' font-size='12' fill='currentColor'>plán domluvený PŘEDEM</text><text x='150' y='152' text-anchor='middle' font-size='12' fill='currentColor'>nebo důkaz před očima (mraky)</text><rect x='290' y='110' width='240' height='64' rx='10' fill='none' stroke='currentColor' stroke-width='1.5' opacity='0.8'/><text x='410' y='134' text-anchor='middle' font-size='12' fill='currentColor'>rozhodnutí PRÁVĚ TEĎ,</text><text x='410' y='152' text-anchor='middle' font-size='12' fill='currentColor'>nabídka, slib, odhad (I think…)</text><line x1='150' y1='174' x2='150' y2='210' stroke='currentColor' stroke-width='2' marker-end='url(#sipka-b)'/><line x1='410' y1='174' x2='410' y2='210' stroke='currentColor' stroke-width='2' marker-end='url(#sipka-b)'/><rect x='55' y='214' width='190' height='50' rx='10' fill='none' stroke='var(--uspech)' stroke-width='3'/><text x='150' y='245' text-anchor='middle' font-size='16' font-weight='bold' fill='var(--uspech)'>GOING TO</text><rect x='315' y='214' width='190' height='50' rx='10' fill='none' stroke='var(--info)' stroke-width='3'/><text x='410' y='245' text-anchor='middle' font-size='16' font-weight='bold' fill='var(--info)'>WILL ('ll)</text><text x='150' y='288' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>We're going to visit Brno on Saturday.</text><text x='150' y='305' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.65'>V sobotu se chystáme do Brna.</text><text x='410' y='288' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>The phone is ringing. — I'll answer it.</text><text x='410' y='305' text-anchor='middle' font-size='10' fill='currentColor' opacity='0.65'>Zvoní telefon. — Vezmu to.</text></svg>",
+          "popisek": "Rozhodovací strom: plán domluvený předem nebo předpověď z viditelného důkazu vede ke going to (zeleně); rozhodnutí učiněné právě teď, nabídka, slib či odhad s I think vede k will (modře). Pod oběma větvemi je vzorová věta."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-budoucnost-1",
+            "temaId": "aj-budoucnost",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Máte to s bráchou domluvené už týden: We ___ paint my room on Saturday.",
+            "moznosti": ["will", "are going to", "going to", "paint"],
+            "spravna": 1,
+            "vysvetleni": "Plán rozmyšlený předem = going to s tvarem be: We are going to paint. Samotné „going to“ bez are větu netvoří a will by naznačovalo rozhodnutí učiněné právě teď."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Will ('ll)** — budoucnost, která vzniká právě teď:\n\n1. **Rozhodnutí v okamžiku mluvení:** *The phone is ringing. — OK, **I'll answer** it.*\n2. **Nabídka a slib:** ***I'll help** you with that bag. **I won't tell** anyone.* (Pomůžu ti. Nikomu to neřeknu.)\n3. **Odhad a názor**, často s *I think / probably*: *I think our team **will win**.*\n\nPo will je sloveso vždy v základním tvaru: *he will **go*** (ne „will goes“, ne „will to go“). Zápor: **won't**.\n\n**Domluva schůzky — fráze, které reálně použiješ:**\n\n- *Are you free on Saturday?* (Máš v sobotu čas?)\n- *What about Friday?* (Co takhle v pátek?)\n- *Let's meet at the cinema.* (Sejdeme se u kina.)\n- *I'm sorry, I can't. / I'm afraid I can't.* (Promiň, nemůžu. / Bohužel nemůžu.)\n- *See you at six!* (Uvidíme se v šest!)"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "going to",
+                "vlastnosti": {
+                  "Kdy použít": "plán rozmyšlený předem; předpověď z viditelného důkazu",
+                  "Stavba věty": "am/is/are + going to + sloveso",
+                  "Příklad": "We're going to travel to Spain in July.",
+                  "Typický signál": "domluvené datum, jasný důkaz (černé mraky)"
+                }
+              },
+              {
+                "nazev": "will ('ll)",
+                "vlastnosti": {
+                  "Kdy použít": "rozhodnutí právě teď; nabídka, slib; odhad a názor",
+                  "Stavba věty": "will ('ll) + sloveso bez to; zápor won't",
+                  "Příklad": "It's cold in here. — I'll close the window.",
+                  "Typický signál": "I think…, probably, OK, náhlá situace"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-aj-budoucnost-2",
+            "temaId": "aj-budoucnost",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Právě sis všiml, že je otevřené okno a je zima. Co řekneš?",
+            "moznosti": ["I'm going to close the window.", "I close the window.", "I'll close the window.", "I closing the window."],
+            "spravna": 2,
+            "vysvetleni": "Rozhodl ses právě teď → will: I'll close the window. Going to by znamenalo, že jsi zavření okna plánoval už dřív; present simple budoucí rozhodnutí nevyjádří."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Domlouváš si s Tomem víkendový program. Sestav minidialog, ve kterém zazní going to (plán), will (rozhodnutí teď) a aspoň dvě fráze pro domluvu schůzky.",
+          "reseni": "**Tom:** Are you free on Saturday? (Máš v sobotu čas?)\n\n**Ty:** I'm afraid I can't. We're going to visit my grandma. (Bohužel nemůžu. Chystáme se navštívit babičku.)\n\n**Tom:** What about Sunday? There's a new film at the cinema. (Co takhle v neděli? V kině je nový film.)\n\n**Ty:** Sunday is great. OK, I'll buy the tickets online tonight. (Neděle je super. Tak jo, koupím večer lístky online.)\n\n**Tom:** Perfect. Let's meet in front of the cinema. (Perfektní. Sejdeme se před kinem.)\n\n**Ty:** Deal. See you at five! (Platí. Uvidíme se v pět!)\n\nVšimni si: *We're going to visit* (plán existoval předem), *I'll buy* (rozhodnutí padlo právě teď) a fráze *Are you free…? / What about…? / Let's meet… / See you at…*"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "tomorrow — I've got a test tomorrow.", "zadni": "zítra" },
+            { "predni": "tonight — Let's watch a film tonight.", "zadni": "dnes večer" },
+            { "predni": "next week — The holidays start next week.", "zadni": "příští týden" },
+            { "predni": "at the weekend — What are you doing at the weekend?", "zadni": "o víkendu" },
+            { "predni": "What about Friday? — What about Friday at six?", "zadni": "Co takhle v pátek?" },
+            { "predni": "Let's meet… — Let's meet at the bus stop.", "zadni": "Sejdeme se… (návrh)" },
+            { "predni": "I'm afraid I can't. — Friday? I'm afraid I can't.", "zadni": "Bohužel nemůžu." },
+            { "predni": "See you at six. — OK, see you at six!", "zadni": "Uvidíme se v šest." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **going to** = plán rozmyšlený předem + předpověď z viditelného důkazu; *am/is/are + going to + sloveso*.\n- **will** = rozhodnutí právě teď, nabídka, slib, odhad (*I think…*); po will základní tvar, zápor *won't*.\n- *I'm going to help* (plán) × *I'll help* (nabídka teď) — volba mění smysl.\n- Domluva: *Are you free…? What about…? Let's meet… See you at…*\n- Čas budoucnosti: *tomorrow, tonight, next week, at the weekend*."
+        }
+      ]
+    }
+  ]
+}

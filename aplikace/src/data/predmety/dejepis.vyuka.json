@@ -1,0 +1,646 @@
+{
+  "predmetId": "dejepis",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "dej-pravek",
+      "nazev": "Pravěk",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Stojíš v supermarketu a ruka ti sama jede po čokoládě. Proč? Protože tvůj mozek je pořád nastavený na dobu, kdy sladké a tučné znamenalo přežití. Pravěk neskončil — nosíš ho v hlavě. Pojďme se podívat, kde se vzal."
+        },
+        {
+          "typ": "text",
+          "obsah": "Všechno začalo v **Africe**. Vývoj člověka je štafeta trvající miliony let:\n\n- **Australopiték** — chodí po dvou, nástroje ještě nevyrábí.\n- **Homo habilis** („člověk zručný“, ~2,5 mil. let) — otlouká oblázky: **první nástroje**.\n- **Homo erectus** („člověk vzpřímený“) — ovládne **oheň** a jako první opustí Afriku.\n- **Neandertálec** — vedlejší větev; zvládá dobu ledovou a jako první **pohřbívá mrtvé**. Vymřel ~před 40 000 lety.\n- **Homo sapiens** („člověk rozumný“) — my. V Evropě od ~40 000 let: jeskynní malby (Lascaux, Altamira), sošky — z našeho území je světoznámá **Věstonická venuše**.\n\nCelé tohle dlouhé období je **paleolit** — starší doba kamenná: lidé **loví a sbírají**, co příroda dá (**přisvojovací hospodářství**), kočují v tlupách a používají **štípané** kamenné nástroje."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Tvoje tělo je pořád paleolitické. Chuť na sladké a tučné, stres „bojuj, nebo uteč“ před písemkou, kouzlo ohně při grilovačce — to jsou programy staré statisíce let; kdo jim rozumí, líp odolá akčním slevám i nočnímu jídlu. A jedna praktická věc k podnikání: než se u nás postaví dálnice nebo hala, běží ze zákona **záchranný archeologický výzkum** — stavební firmy s ním musejí počítat v rozpočtu i termínech. Pravěk tak dodnes zasahuje do byznysu."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 340' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Vývoj člověka od australopitéka k Homo sapiens'><defs><marker id='ev-s' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor'/></marker></defs><rect x='10' y='258' width='145' height='64' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='82' y='280' text-anchor='middle' font-size='12.5' font-weight='bold' fill='var(--akcent)'>AUSTRALOPITÉK</text><text x='82' y='297' text-anchor='middle' font-size='11' fill='currentColor'>chůze po dvou</text><text x='82' y='313' text-anchor='middle' font-size='10.5' fill='var(--zlata)'>před ~4 mil. let</text><rect x='170' y='196' width='145' height='64' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='242' y='218' text-anchor='middle' font-size='12.5' font-weight='bold' fill='var(--akcent)'>HOMO HABILIS</text><text x='242' y='235' text-anchor='middle' font-size='11' fill='currentColor'>první kamenné nástroje</text><text x='242' y='251' text-anchor='middle' font-size='10.5' fill='var(--zlata)'>~2,5 mil. let</text><rect x='330' y='134' width='145' height='64' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='402' y='156' text-anchor='middle' font-size='12.5' font-weight='bold' fill='var(--akcent)'>HOMO ERECTUS</text><text x='402' y='173' text-anchor='middle' font-size='11' fill='currentColor'>oheň, odchod z Afriky</text><text x='402' y='189' text-anchor='middle' font-size='10.5' fill='var(--zlata)'>~1,8 mil. let</text><rect x='490' y='72' width='140' height='64' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2.5'/><text x='560' y='94' text-anchor='middle' font-size='12.5' font-weight='bold' fill='var(--uspech)'>HOMO SAPIENS</text><text x='560' y='111' text-anchor='middle' font-size='11' fill='currentColor'>my — řeč a umění</text><text x='560' y='127' text-anchor='middle' font-size='10.5' fill='var(--zlata)'>~300 000 let</text><rect x='490' y='190' width='140' height='64' rx='8' fill='none' stroke='var(--info)' stroke-width='2' stroke-dasharray='5 4'/><text x='560' y='212' text-anchor='middle' font-size='12.5' font-weight='bold' fill='var(--info)'>NEANDERTÁLEC</text><text x='560' y='229' text-anchor='middle' font-size='11' fill='currentColor'>vedlejší větev, pohřby</text><text x='560' y='245' text-anchor='middle' font-size='10.5' fill='var(--zlata)'>vymřel ~40 000 let</text><line x1='155' y1='283' x2='168' y2='235' stroke='currentColor' stroke-width='2' marker-end='url(#ev-s)'/><line x1='315' y1='222' x2='328' y2='173' stroke='currentColor' stroke-width='2' marker-end='url(#ev-s)'/><line x1='475' y1='160' x2='487' y2='112' stroke='currentColor' stroke-width='2' marker-end='url(#ev-s)'/><line x1='475' y1='175' x2='487' y2='213' stroke='var(--info)' stroke-width='2' stroke-dasharray='5 4' marker-end='url(#ev-s)'/><line x1='10' y1='332' x2='620' y2='332' stroke='currentColor' stroke-width='1.5' marker-end='url(#ev-s)'/><text x='615' y='324' text-anchor='end' font-size='10.5' fill='var(--zlata)'>směr času</text></svg>",
+          "popisek": "Vývoj člověka: hlavní linie vede z Afriky od australopitéka přes Homo habilis (první nástroje) a Homo erectus (oheň) až k Homo sapiens. Neandertálec je vedlejší větev, která vymřela — nejsme jeho potomci, ale souputníci."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dej-pravek-1",
+            "temaId": "dej-pravek",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Který druh člověka jako první ovládl oheň?",
+            "moznosti": [
+              "Homo erectus",
+              "Homo habilis",
+              "Homo sapiens",
+              "Australopiték"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Oheň patří k Homo erectus — dal mu teplo, ochranu a vařené jídlo, a proto mohl jako první opustit Afriku. Habilis je starší (jen nástroje) a sapiens už oheň zdědil."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Neolitická revoluce** (~10 000 př. n. l., Blízký východ — „úrodný půlměsíc“) je největší změna v dějinách člověka: místo hledání jídla ho lidé začnou **vyrábět**.\n\n- pěstování obilí + chov ovcí, koz a skotu → **výrobní hospodářství**,\n- usedlý život ve **vesnicích**, broušené nástroje, keramika, tkaní,\n- **zásoby** → majetek → směna → první **společenské rozdíly**.\n\nK nám zemědělci dorazili kolem **5500 př. n. l.** Pak přišly kovy:\n\n- **Doba bronzová** (u nás od ~2000 př. n. l.): **bronz = měď + cín**. Odlévat umí jen specialisté → dělba práce, dálkový obchod, mocní náčelníci (únětická kultura).\n- **Doba železná** (od ~800 př. n. l.): železo je dostupnější a tvrdší.\n\nV mladší době železné u nás žijí **Keltové** — první obyvatelé naší země, které známe jménem. Kmen **Bójů** dal Čechám jméno **Boiohaemum → Bohemia**. Keltové stavějí opevněná hradiště **oppida** (Závist u Prahy, Stradonice), razí **mince** (duhovky), točí keramiku na hrnčířském kruhu. Kolem přelomu letopočtu je vytlačí Germáni."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "casova-osa",
+          "parametry": {
+            "udalosti": [
+              {
+                "rok": -10000,
+                "nazev": "Neolitická revoluce",
+                "popis": "Na Blízkém východě („úrodný půlměsíc“) lidé začínají pěstovat obilí a chovat zvířata — přechod k výrobnímu hospodářství."
+              },
+              {
+                "rok": -5500,
+                "nazev": "První zemědělci u nás",
+                "popis": "Do Čech a na Moravu přicházejí první zemědělské osady: vesnice, keramika, broušené nástroje."
+              },
+              {
+                "rok": -3300,
+                "nazev": "Vznik písma = konec pravěku",
+                "popis": "V Mezopotámii vzniká klínové písmo. Kde se píše, začíná starověk — u nás ale pravěk běží dál."
+              },
+              {
+                "rok": -2000,
+                "nazev": "Doba bronzová u nás",
+                "popis": "Bronz (měď + cín): specializovaní řemeslníci, dálkový obchod s cínem a jantarem, bohaté hroby únětické kultury."
+              },
+              {
+                "rok": -800,
+                "nazev": "Doba železná",
+                "popis": "Železo je tvrdší a dostupnější než bronz. Starší době železné říkáme halštatská, mladší laténská."
+              },
+              {
+                "rok": -400,
+                "nazev": "Keltové u nás",
+                "popis": "Kmen Bójů dává zemi jméno Boiohaemum → Bohemia. Oppida (Závist, Stradonice), mince, hrnčířský kruh."
+              },
+              {
+                "rok": -10,
+                "nazev": "Příchod Germánů",
+                "popis": "Kolem přelomu letopočtu Kelty z našeho území vytlačují germánské kmeny."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dej-pravek-2",
+            "temaId": "dej-pravek",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kdo jsou první obyvatelé našeho území, které známe jménem?",
+            "moznosti": [
+              "Keltové (kmen Bójů)",
+              "Slované",
+              "Germáni",
+              "Římané"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Keltští Bójové dali zemi i latinské jméno Bohemia. Germáni je vytlačili až kolem přelomu letopočtu a Slované přišli ještě později (6. století n. l.); Římané u nás trvale nesídlili."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Archeologové našli u Kolína při stavbě dálnice pravěké sídliště: úlomky keramických nádob, zuhelnatělá zrna pšenice, kosti ovcí a koz a broušenou kamennou sekeru. Do kterého období sídliště patří — a jak se to pozná?",
+          "reseni": "Postupuj po stopách jako detektiv:\n\n1. **Keramika** — v paleolitu se nádoby nevyráběly; keramika se objevuje až s usedlým životem v neolitu.\n2. **Zrna pšenice** — obilí se muselo pěstovat → výrobní hospodářství, tedy po neolitické revoluci.\n3. **Kosti ovcí a koz** — domestikovaná zvířata = chov, ne lov.\n4. **Broušená sekera** — broušení je neolitická technika (paleolit zná jen štípání).\n\nVšechny čtyři stopy míří na **neolit** — u nás zhruba 5500–4500 př. n. l. Přesnější dataci pak určí radiokarbonová metoda (měření rozpadu uhlíku C14 v organických zbytcích, třeba právě v těch zrnech)."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "paleolit", "zadni": "starší doba kamenná — lov a sběr, kočování, štípané nástroje" },
+            { "predni": "neolit", "zadni": "mladší doba kamenná — zemědělství, vesnice, keramika, broušené nástroje" },
+            { "predni": "neolitická revoluce", "zadni": "přechod k pěstování a chovu (~10 000 př. n. l.) — začátek výrobního hospodářství" },
+            { "predni": "Homo habilis", "zadni": "„člověk zručný“ — první výrobce kamenných nástrojů" },
+            { "predni": "Homo erectus", "zadni": "„člověk vzpřímený“ — ovládl oheň, první opustil Afriku" },
+            { "predni": "bronz", "zadni": "slitina mědi a cínu — dala jméno době bronzové" },
+            { "predni": "oppidum", "zadni": "keltské opevněné hradiště (Závist, Stradonice)" },
+            { "predni": "Bójové", "zadni": "keltský kmen v Čechách — odtud latinské jméno Bohemia" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "Shrnutí:\n\n- **Vývoj člověka**: habilis (nástroje) → erectus (oheň) → sapiens (my); neandertálec byl vedlejší větev.\n- **Paleolit** = lov a sběr, kočování; **neolit** = zemědělství, vesnice, zásoby → majetek a první rozdíly.\n- **Neolitická revoluce** (~10 000 př. n. l.) je největší hospodářský zlom dějin.\n- **Bronz** = měď + cín; později ho nahradilo dostupnější **železo**.\n- **Keltové (Bójové)** — první jménem známí obyvatelé naší země: oppida, mince, jméno **Bohemia**."
+        }
+      ]
+    },
+    {
+      "temaId": "dej-starovek-orient",
+      "nazev": "Starověké orientální státy",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Přijde ti zpráva z banky: „Podepište smlouvu.“ Před 4 000 lety by ti totéž vytlačili rákosem do hliněné destičky v Babylónu — i s úroky, svědky a razítkem ve formě pečetního válečku. Papírování nevymysleli dnešní úředníci. Vymyslely ho první civilizace u velkých řek."
+        },
+        {
+          "typ": "text",
+          "obsah": "Od 4. tisíciletí př. n. l. se na čtyřech místech světa postupně odehraje totéž — u velkých řek vyrostou první státy (nejdřív v Mezopotámii a Egyptě, o stovky let později v Indii a Číně):\n\n- **Mezopotámie** — Eufrat a Tigris,\n- **Egypt** — Nil,\n- **Indie** — Indus,\n- **Čína** — Chuang-che (Žlutá řeka).\n\nProč u řek? Záplavy přinášejí **úrodné bahno** → pole uživí davy lidí → přebytky, města, řemesla. Stavba zavlažovacích kanálů vyžaduje **organizaci** → úředníci, daně, vládce → **stát**. A stát potřebuje evidenci → **písmo** (jeho vznik = hranice pravěku a starověku).\n\n**Mezopotámie**: Sumerové vytvořili **klínové písmo** (nejstarší na světě, rákosem do hlíny), stavěli chrámové věže **zikkuraty**, znali kolo a šedesátkovou soustavu — proto má hodina 60 minut. Babylonský král **Chammurapi** dal sepsat zákoník: **„oko za oko, zub za zub“**, tresty podle společenského postavení.\n\n**Egypt** — „dar Nilu“: vládne bůh-král **faraon**; hrobkami jsou **pyramidy** (největší Cheopsova v Gíze), píše se **hieroglyfy** na kámen a papyrus, tělo pro posmrtný život uchová **mumifikace**. Tutanchamonova nevyloupená hrobka (objevená 1922) je dodnes archeologická senzace."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Skoro celý „dospělácký svět“ vymyslel starověký Orient. **Psané smlouvy** — podpis u mobilního tarifu je pravnuk hliněné tabulky. **Daně a evidence** — základ každého státu i účetnictví, které tě čeká v ekonomice. **Psané zákony platné předem** — princip právního státu, ve kterém budeš podnikat. Minuty počítáš **po šedesáti** (Mezopotámie), čísla píšeš **indická**, poznámky na **čínský** vynález — papír. A když někdo řekne „oko za oko“, cituje 3 700 let starý babylonský zákoník."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 330' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Čtyři nejstarší civilizace u velkých řek'><rect x='10' y='8' width='620' height='40' rx='8' fill='none' stroke='var(--zlata)' stroke-width='2'/><text x='320' y='33' text-anchor='middle' font-size='13' fill='currentColor'>velká řeka → úrodné bahno → přebytky → města a daně → STÁT a PÍSMO</text><rect x='10' y='62' width='148' height='250' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><path d='M28 92 q 12 -10 24 0 t 24 0 t 24 0 t 24 0' fill='none' stroke='var(--info)' stroke-width='2.5'/><path d='M28 102 q 12 -10 24 0 t 24 0 t 24 0 t 24 0' fill='none' stroke='var(--info)' stroke-width='2.5'/><text x='84' y='122' text-anchor='middle' font-size='10.5' fill='var(--info)'>Eufrat a Tigris</text><text x='84' y='146' text-anchor='middle' font-size='13.5' font-weight='bold' fill='var(--akcent)'>MEZOPOTÁMIE</text><text x='84' y='172' text-anchor='middle' font-size='11' fill='currentColor'>klínové písmo</text><text x='84' y='192' text-anchor='middle' font-size='11' fill='currentColor'>zikkuraty</text><text x='84' y='212' text-anchor='middle' font-size='11' fill='currentColor'>Chammurapiho zákoník</text><text x='84' y='232' text-anchor='middle' font-size='11' fill='currentColor'>„oko za oko“</text><rect x='168' y='62' width='148' height='250' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><path d='M186 97 q 12 -10 24 0 t 24 0 t 24 0 t 24 0' fill='none' stroke='var(--info)' stroke-width='2.5'/><text x='242' y='122' text-anchor='middle' font-size='10.5' fill='var(--info)'>Nil</text><text x='242' y='146' text-anchor='middle' font-size='13.5' font-weight='bold' fill='var(--akcent)'>EGYPT</text><text x='242' y='172' text-anchor='middle' font-size='11' fill='currentColor'>faraon — bůh-král</text><text x='242' y='192' text-anchor='middle' font-size='11' fill='currentColor'>pyramidy</text><text x='242' y='212' text-anchor='middle' font-size='11' fill='currentColor'>hieroglyfy, papyrus</text><text x='242' y='232' text-anchor='middle' font-size='11' fill='currentColor'>mumifikace</text><rect x='326' y='62' width='148' height='250' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><path d='M344 97 q 12 -10 24 0 t 24 0 t 24 0 t 24 0' fill='none' stroke='var(--info)' stroke-width='2.5'/><text x='400' y='122' text-anchor='middle' font-size='10.5' fill='var(--info)'>Indus</text><text x='400' y='146' text-anchor='middle' font-size='13.5' font-weight='bold' fill='var(--akcent)'>INDIE</text><text x='400' y='172' text-anchor='middle' font-size='11' fill='currentColor'>harappská města</text><text x='400' y='192' text-anchor='middle' font-size='11' fill='currentColor'>kastovní systém</text><text x='400' y='212' text-anchor='middle' font-size='11' fill='currentColor'>buddhismus</text><text x='400' y='232' text-anchor='middle' font-size='11' fill='currentColor'>nula a číslice</text><rect x='484' y='62' width='148' height='250' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><path d='M502 97 q 12 -10 24 0 t 24 0 t 24 0 t 24 0' fill='none' stroke='var(--info)' stroke-width='2.5'/><text x='558' y='122' text-anchor='middle' font-size='10.5' fill='var(--info)'>Chuang-che</text><text x='558' y='146' text-anchor='middle' font-size='13.5' font-weight='bold' fill='var(--akcent)'>ČÍNA</text><text x='558' y='172' text-anchor='middle' font-size='11' fill='currentColor'>první císař (221 př. n. l.)</text><text x='558' y='192' text-anchor='middle' font-size='11' fill='currentColor'>Velká zeď</text><text x='558' y='212' text-anchor='middle' font-size='11' fill='currentColor'>papír, hedvábí</text><text x='558' y='232' text-anchor='middle' font-size='11' fill='currentColor'>Konfucius</text></svg>",
+          "popisek": "Čtyři nejstarší civilizace „sedí“ na velkých řekách — to není náhoda, ale recept: úrodné bahno a zavlažování → přebytky → města → stát a písmo. Každá civilizace má navíc svůj nezaměnitelný „podpis“."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dej-starovek-orient-1",
+            "temaId": "dej-starovek-orient",
+            "typ": "vyber",
+            "obtiznost": 1,
+            "zadani": "Nejstarší písmo na světě — klínové — vzniklo v:",
+            "moznosti": [
+              "Mezopotámii",
+              "Egyptě",
+              "Číně",
+              "Řecku"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Klínové písmo vytvořili Sumerové v Mezopotámii kolem 3300 př. n. l. — psali rákosovým rydlem do hliněných tabulek. Egypt měl hieroglyfy, Čína znakové písmo; obě vznikla později."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Indie**: na řece Indus kvete už ~2500 př. n. l. **harappská kultura** — města s pravoúhlými ulicemi, vodovodem a kanalizací (Mohendžodáro). Později:\n\n- **kastovní systém** — dědičné rozdělení společnosti na uzavřené skupiny,\n- zrod **hinduismu** a **buddhismu** (Buddha = Siddhártha Gautama, 5. století př. n. l.),\n- **nula** a číslice, kterým říkáme „arabské“ — dílo indických učenců.\n\n**Čína**: roku **221 př. n. l.** sjednotí zemi **první císař Čchin Š’-chuang-ti**:\n\n- nechá propojit **Velkou čínskou zeď** proti nájezdníkům ze severu,\n- v hrobce ho střeží hliněná **terakotová armáda**,\n- zavede jednotné písmo, míry a váhy — recept na říši, která drží pohromadě dodnes.\n\nČínské myšlení formuje **Konfucius** (řád, úcta ke starším, vzdělání). Vynálezy: **papír, hedvábí**, kompas, porcelán. Na Západ vede **Hedvábná stezka** — první „globální“ obchodní trasa."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď pojmy ke správné civilizaci.",
+            "kategorie": [
+              { "id": "mezopotamie", "nazev": "Mezopotámie" },
+              { "id": "egypt", "nazev": "Egypt" },
+              { "id": "indie", "nazev": "Indie" },
+              { "id": "cina", "nazev": "Čína" }
+            ],
+            "polozky": [
+              { "text": "klínové písmo", "kategorieId": "mezopotamie" },
+              { "text": "zikkurat", "kategorieId": "mezopotamie" },
+              { "text": "Chammurapiho zákoník", "kategorieId": "mezopotamie" },
+              { "text": "hieroglyfy", "kategorieId": "egypt" },
+              { "text": "pyramidy v Gíze", "kategorieId": "egypt" },
+              { "text": "mumifikace", "kategorieId": "egypt" },
+              { "text": "kastovní systém", "kategorieId": "indie" },
+              { "text": "zrod buddhismu", "kategorieId": "indie" },
+              { "text": "nula a „arabské“ číslice", "kategorieId": "indie" },
+              { "text": "Velká zeď", "kategorieId": "cina" },
+              { "text": "vynález papíru", "kategorieId": "cina" },
+              { "text": "hedvábí", "kategorieId": "cina" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dej-starovek-orient-2",
+            "temaId": "dej-starovek-orient",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Odkud pochází buddhismus?",
+            "moznosti": [
+              "Z Indie",
+              "Z Číny",
+              "Z Egypta",
+              "Z Mezopotámie"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Buddhismus založil v Indii Siddhártha Gautama (Buddha) v 5. století př. n. l. Do Číny se rozšířil až později — proto se obě země pletou; Egypt a Mezopotámie měly vlastní bohy."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Jsi soudce v Babylónu za krále Chammurapiho. Stavitel odbyl práci: dům se zřítil a zabil majitele. Jak rozhodneš podle zákoníku — a co je na tom pro dnešek důležité?",
+          "reseni": "1. Najdeš příslušné ustanovení: zákoník je **vytesán veřejně na kamenné stéle** — pravidla platí předem a pro všechny případy stejné.\n2. Uplatníš **odvetný princip „oko za oko“**: zemřel majitel domu → stavitel zaplatí životem. (Zákoník je opravdu takto zrcadlový: kdyby zahynul majitelův syn, zemřel by stavitelův syn.)\n3. Zohledníš **postavení** poškozeného — za škodu otrokovi by stačila náhrada v penězích. Rovnost před zákonem ještě neexistuje.\n\nCo z toho zůstalo dodnes? Ne krutost, ale **principy**: zákony jsou psané, veřejné a platí předem — bez toho nefunguje ani dnešní obchod, stavebnictví, ani reklamace v e-shopu. Odvetu mezitím nahradila **přiměřenost trestu**."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "klínové písmo", "zadni": "nejstarší písmo světa — Mezopotámie, rákosem do hliněných tabulek" },
+            { "predni": "Chammurapi", "zadni": "babylonský král; zákoník s principem „oko za oko, zub za zub“" },
+            { "predni": "zikkurat", "zadni": "stupňovitá chrámová věž v Mezopotámii" },
+            { "predni": "faraon", "zadni": "egyptský panovník, uctívaný jako živý bůh" },
+            { "predni": "hieroglyfy", "zadni": "obrázkové písmo Egypta; rozluštil je Champollion (1822)" },
+            { "predni": "mumifikace", "zadni": "balzamování těla pro posmrtný život (Egypt)" },
+            { "predni": "kastovní systém", "zadni": "dědičné rozdělení indické společnosti do uzavřených skupin" },
+            { "predni": "buddhismus", "zadni": "učení Siddhárthy Gautamy (Buddhy) — vzniklo v Indii" },
+            { "predni": "Hedvábná stezka", "zadni": "obchodní cesta spojující Čínu se Západem" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "Shrnutí:\n\n- První státy vznikly **u velkých řek**: úroda → přebytky → města → stát → **písmo**.\n- **Mezopotámie**: klínové písmo, zikkuraty, **Chammurapiho zákoník** („oko za oko“).\n- **Egypt**: faraon, pyramidy, hieroglyfy, mumifikace.\n- **Indie**: harappská města, kasty, buddhismus, **nula a číslice**.\n- **Čína**: první císař (221 př. n. l.), Velká zeď, papír a hedvábí, Konfucius."
+        }
+      ]
+    },
+    {
+      "temaId": "dej-recko",
+      "nazev": "Starověké Řecko",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Za pár let ti bude osmnáct a poprvé hodíš hlas do volební urny. Ten nápad — že o společných věcech hlasují obyčejní lidé, a ne král — vymysleli před 2 500 lety v jednom prašném městě pod Akropolí. A málem o něj přišli ve válce s největší říší tehdejšího světa."
+        },
+        {
+          "typ": "text",
+          "obsah": "Řecko = hory a moře. Místo jedné říše stovky **polis** — městských států, které si vládnou samy. Spojuje je jazyk, bohové (Zeus, Athéna…), **olympijské hry** (od 776 př. n. l., po dobu her platí mír) a Homérovy eposy Ilias a Odyssea. Přelidnění řeší **velká kolonizace** — osady po celém Středomoří.\n\n**Athény** dojdou postupnými reformami (Solón 594, Kleisthenés 508 př. n. l.) k **demokracii** — „vládě lidu“; vrchol nastane za **Perikla** (5. století, stavba Parthenónu):\n\n- **ekklésia** — sněm občanů hlasuje přímo o zákonech, válce a míru,\n- většina úřadů se **losuje**, jen 10 **stratégů** (velitelů) se volí,\n- nebezpečně mocného politika lze na 10 let vypovědět **ostrakismem** (střepinovým soudem).\n\nHáček: občan = **svobodný dospělý muž**. Ženy, otroci a cizinci (metoikové) politická práva nemají — hlasuje jen menšina obyvatel.\n\n**Sparta** je pravý opak: vojenský stát se dvěma králi, chlapci od 7 let v tvrdém drilu (**agógé**), pole obdělávají porobení **heilóti**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** V osmnácti dostaneš totéž co athénský hrnčíř před 2 500 lety — **hlas**. Řecko ti dalo i divadlo, olympiádu, maraton a umění argumentovat: Sókratovo vytrvalé „a proč si to myslíš?“ je dodnes nejlepší zbraň proti hloupostem v internetových diskusích. A Salamína je lekce strategie, kterou učí i na ekonomkách: **slabší hráč vyhrává volbou bojiště** — startup neporazí korporaci všude, ale na úzkém segmentu, který si sám vybere, ano."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 620 360' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Struktura athénské demokracie'><defs><marker id='de-s' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor'/></marker></defs><rect x='150' y='10' width='320' height='48' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2.5'/><text x='310' y='30' text-anchor='middle' font-size='13.5' font-weight='bold' fill='var(--akcent)'>OBČANÉ — svobodní dospělí muži</text><text x='310' y='48' text-anchor='middle' font-size='11.5' fill='currentColor'>jen asi desetina obyvatel Athén</text><line x1='310' y1='58' x2='310' y2='92' stroke='currentColor' stroke-width='2' marker-end='url(#de-s)'/><rect x='150' y='96' width='320' height='52' rx='8' fill='none' stroke='var(--zlata)' stroke-width='2.5'/><text x='310' y='117' text-anchor='middle' font-size='13.5' font-weight='bold' fill='var(--zlata)'>EKKLÉSIA — lidový sněm</text><text x='310' y='136' text-anchor='middle' font-size='11.5' fill='currentColor'>hlasuje o zákonech, válce a míru; ostrakismus</text><line x1='250' y1='148' x2='105' y2='196' stroke='currentColor' stroke-width='2' marker-end='url(#de-s)'/><line x1='310' y1='148' x2='310' y2='196' stroke='currentColor' stroke-width='2' marker-end='url(#de-s)'/><line x1='370' y1='148' x2='515' y2='196' stroke='currentColor' stroke-width='2' marker-end='url(#de-s)'/><rect x='10' y='200' width='180' height='68' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='100' y='222' text-anchor='middle' font-size='12.5' font-weight='bold' fill='var(--akcent)'>RADA PĚTI SET</text><text x='100' y='239' text-anchor='middle' font-size='11' fill='currentColor'>připravuje návrhy</text><text x='100' y='256' text-anchor='middle' font-size='11' fill='var(--info)'>obsazena LOSEM</text><rect x='220' y='200' width='180' height='68' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='310' y='222' text-anchor='middle' font-size='12.5' font-weight='bold' fill='var(--akcent)'>POROTNÍ SOUDY</text><text x='310' y='239' text-anchor='middle' font-size='11' fill='currentColor'>soudí spory</text><text x='310' y='256' text-anchor='middle' font-size='11' fill='var(--info)'>porotci LOSEM</text><rect x='430' y='200' width='180' height='68' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='520' y='222' text-anchor='middle' font-size='12.5' font-weight='bold' fill='var(--akcent)'>10 STRATÉGŮ</text><text x='520' y='239' text-anchor='middle' font-size='11' fill='currentColor'>velí vojsku a loďstvu</text><text x='520' y='256' text-anchor='middle' font-size='11' fill='var(--info)'>VOLENI občany</text><rect x='10' y='292' width='600' height='52' rx='8' fill='none' stroke='var(--chyba)' stroke-width='2' stroke-dasharray='6 4'/><text x='310' y='313' text-anchor='middle' font-size='12.5' font-weight='bold' fill='var(--chyba)'>BEZ POLITICKÝCH PRÁV</text><text x='310' y='331' text-anchor='middle' font-size='11.5' fill='currentColor'>ženy • otroci • cizinci (metoikové) — demokracie platila jen pro menšinu</text></svg>",
+          "popisek": "Athénská demokracie byla přímá: občané sami hlasovali na sněmu, úřady se losovaly (aby na ně dosáhl každý občan), jen vojenští velitelé se volili. Čárkovaný rámeček ale připomíná, kdo zůstal venku — většina obyvatel."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dej-recko-1",
+            "temaId": "dej-recko",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Athénská demokracie znamenala vládu:",
+            "moznosti": [
+              "svobodných mužů-občanů, kteří hlasovali přímo na sněmu",
+              "všech obyvatel včetně žen a otroků",
+              "poslanců volených na čtyři roky",
+              "jednoho krále a jeho rady"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Demokracie byla přímá (žádný parlament) — ale jen pro občany-muže; ženy, otroci a cizinci byli vyloučeni. Proto pozor na představu, že šlo o „vládu všech“."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Řecko-perské války** (490–479 př. n. l.) — obří Persie proti malému Řecku:\n\n- **Marathón** (490): athénské vítězství; legenda o běžci se zprávou dala jméno dnešnímu **maratonu**,\n- **Thermopyly** (480): spartský král **Leónidás** a jeho 300 mužů se obětují, aby zdrželi perský postup,\n- **Salamína** (480): **Themistoklés** vláká perské loďstvo do úzké úžiny — početní převaha je rázem k ničemu,\n- **Plataje** (479): rozhodující vítězství. Řecko si uhájí svobodu — a zažije zlatý věk.\n\nPak se ale Athény a Sparta vyčerpají v bratrovražedné **peloponéské válce** (431–404) a oslabené Řecko ovládne makedonský král Filip II. Jeho syn **Alexandr Makedonský** (žák filozofa Aristotela!) v letech 334–323 př. n. l. dobude celou perskou říši a dojde až k Indu. Řecká kultura se rozlije Orientem — vznikne **helénismus** (Alexandrie s obří knihovnou, vynálezce Archimédés).\n\nŘecký odkaz: filozofie (**Sókratés → Platón → Aristotelés**), divadlo (tragédie a komedie), Hérodotovo dějepisectví, Hippokratovo lékařství, Pythagorova matematika."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "Athény",
+                "vlastnosti": {
+                  "Zřízení": "demokracie — sněm občanů (ekklésia)",
+                  "Hlavní síla": "loďstvo a obchod",
+                  "Výchova chlapců": "všestranná — čtení, počty, hudba, tělocvik",
+                  "Kdo pracuje na polích": "rolníci a otroci",
+                  "Čím prosluly": "filozofie, divadlo, Akropolis"
+                }
+              },
+              {
+                "nazev": "Sparta",
+                "vlastnosti": {
+                  "Zřízení": "vojenský stát — dva králové a rada starších",
+                  "Hlavní síla": "pozemní armáda (hoplité)",
+                  "Výchova chlapců": "od 7 let vojenský dril (agógé)",
+                  "Kdo pracuje na polích": "porobení heilóti",
+                  "Čím prosluly": "disciplína a válečníci (Thermopyly)"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dej-recko-2",
+            "temaId": "dej-recko",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kdo dobyl perskou říši a rozšířil řeckou kulturu až k Indii?",
+            "moznosti": [
+              "Alexandr Makedonský",
+              "Periklés",
+              "Leónidás",
+              "Themistoklés"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Alexandr Makedonský (334–323 př. n. l.) — jeho výboje spustily helénismus. Periklés vedl Athény ve zlatém věku, Leónidás padl u Thermopyl a Themistoklés vyhrál Salamínu; všichni tři žili o víc než století dřív."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Píše se rok 480 př. n. l. Peršané vypálili Athény a jejich loďstvo je mnohem početnější. Themistoklés navrhuje: „Nastupte na lodě, svedeme bitvu v úzké úžině u Salamíny.“ Část velitelů chce ustoupit. Proč je Themistoklova volba geniální?",
+          "reseni": "Rozlož si situaci jako stratég:\n\n1. **Slabina Řeků**: méně lodí. Na otevřeném moři by je perská přesila obklíčila a rozdrtila.\n2. **Vlastnost úžiny**: velká flotila se v ní nemůže rozvinout — bojuje se „loď proti lodi“. Početní převaha přestává platit.\n3. **Výhody domácích**: Řekové znají místní vody, proudy a větry; bojují za své rodiny, které evakuovali na ostrov.\n4. **Výsledek**: perské loďstvo se v úžině zmateně tlačí, Řekové je taranují — drtivé vítězství. Král Xerxés s velkou částí armády odtáhne.\n\nObecné poučení (platí i v byznysu): **když jsi slabší, nebojuj na poli soupeře — vyber si bojiště, kde jeho převaha nefunguje.**"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "polis", "zadni": "řecký městský stát — město s okolní krajinou, vládne si samo" },
+            { "predni": "ekklésia", "zadni": "athénský sněm občanů — hlasoval o zákonech, válce a míru" },
+            { "predni": "ostrakismus", "zadni": "střepinový soud — vypovězení nebezpečně mocného politika na 10 let" },
+            { "predni": "agógé", "zadni": "tvrdá spartská výchova chlapců od 7 let" },
+            { "predni": "Marathón (490 př. n. l.)", "zadni": "vítězství Athéňanů nad Peršany; legenda o běžci → maraton" },
+            { "predni": "Thermopyly (480 př. n. l.)", "zadni": "Leónidás a 300 Sparťanů zdrželi perský postup" },
+            { "predni": "Salamína (480 př. n. l.)", "zadni": "námořní vítězství Řeků v úzké úžině (Themistoklés)" },
+            { "predni": "helénismus", "zadni": "prolnutí řecké a orientální kultury po výbojích Alexandra" },
+            { "predni": "Sókratés → Platón → Aristotelés", "zadni": "athénská filozofická trojice: učitel → žák → žák" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "Shrnutí:\n\n- **Polis** = městský stát; Řecko nikdy nebylo jednou říší.\n- **Athény** = přímá demokracie občanů (jen svobodní muži); **Sparta** = vojenský stát.\n- **Řecko-perské války** (Marathón, Thermopyly, Salamína) — Řecko ubránilo svobodu.\n- **Alexandr Makedonský** dobyl Persii → **helénismus**.\n- Odkaz Řecka: demokracie, filozofie, divadlo, olympiáda, maraton."
+        }
+      ]
+    },
+    {
+      "temaId": "dej-rim",
+      "nazev": "Starověký Řím",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "July a August — dva prázdninové měsíce se v angličtině (a spoustě dalších jazyků) jmenují po dvou Římanech: Juliovi Caesarovi a císaři Augustovi. Kdo si dokáže pojmenovat kus kalendáře na dva tisíce let dopředu, ten si zaslouží hodinu tvého času."
+        },
+        {
+          "typ": "text",
+          "obsah": "Podle pověsti založil Řím roku **753 př. n. l.** Romulus (s bratrem Remem je odkojila vlčice). Nejdřív vládnou **králové** — pod silným vlivem vyspělých **Etrusků**. Roku **509 př. n. l.** Římané posledního krále vyženou a krále už nikdy nechtějí.\n\n**Republika** (res publica = „věc veřejná“):\n\n- **2 konzulové** volení na 1 rok — dva a nakrátko, aby nikdo nezískal královskou moc,\n- **senát** — sbor zkušených, který fakticky vládne,\n- **tribunové lidu** s právem **veta** hájí neurozené **plebeje** proti urozeným **patricijům**.\n\nŘím ovládne Itálii a srazí se s námořní velmocí **Kartágem** — **punské války** (264–146 př. n. l.). Kartaginský vojevůdce **Hannibal** přejde s vojskem a slony Alpy a u **Kann** (216 př. n. l.) Římanům uštědří nejtěžší porážku dějin republiky — válku ale stejně prohraje. Roku 146 př. n. l. Řím Kartágo srovná se zemí. Středomoří je teď „mare nostrum“ — naše moře."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Až budeš podepisovat nájemní smlouvu nebo řešit reklamaci, spoléháš na principy **římského práva**: smlouvy se plní, vyslechnout je třeba obě strany. Píšeš **latinkou**, žiješ podle kalendáře odvozeného z **juliánského**, beton kolem tebe je vylepšený římský vynález a evropské dálnice často kopírují římské silnice. A příběh konce republiky — silák s vlastní armádou převálcuje instituce — je šablona, podle které se dodnes pozná ohrožená demokracie."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 320' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Vývoj římského státu od království k rozdělení říše'><defs><marker id='ri-s' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor'/></marker></defs><text x='320' y='30' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>Vývoj římského státu</text><rect x='10' y='54' width='184' height='112' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='102' y='78' text-anchor='middle' font-size='13.5' font-weight='bold' fill='var(--akcent)'>KRÁLOVSTVÍ</text><text x='102' y='97' text-anchor='middle' font-size='11.5' fill='var(--zlata)'>753–509 př. n. l.</text><text x='102' y='116' text-anchor='middle' font-size='11.5' fill='currentColor'>vládne král</text><text x='102' y='134' text-anchor='middle' font-size='11.5' fill='currentColor'>silný vliv Etrusků</text><rect x='228' y='54' width='184' height='112' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='320' y='78' text-anchor='middle' font-size='13.5' font-weight='bold' fill='var(--akcent)'>REPUBLIKA</text><text x='320' y='97' text-anchor='middle' font-size='11.5' fill='var(--zlata)'>509–27 př. n. l.</text><text x='320' y='116' text-anchor='middle' font-size='11.5' fill='currentColor'>2 konzulové na 1 rok</text><text x='320' y='134' text-anchor='middle' font-size='11.5' fill='currentColor'>senát, tribunové lidu</text><rect x='446' y='54' width='184' height='112' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='538' y='78' text-anchor='middle' font-size='13.5' font-weight='bold' fill='var(--akcent)'>CÍSAŘSTVÍ</text><text x='538' y='97' text-anchor='middle' font-size='11.5' fill='var(--zlata)'>27 př. n. l. – 476 n. l.</text><text x='538' y='116' text-anchor='middle' font-size='11.5' fill='currentColor'>vládne císař</text><text x='538' y='134' text-anchor='middle' font-size='11.5' fill='currentColor'>senát jen poradní</text><line x1='194' y1='110' x2='226' y2='110' stroke='currentColor' stroke-width='2' marker-end='url(#ri-s)'/><line x1='412' y1='110' x2='444' y2='110' stroke='currentColor' stroke-width='2' marker-end='url(#ri-s)'/><text x='430' y='192' text-anchor='middle' font-size='11.5' fill='var(--zlata)'>395 — rozdělení říše</text><line x1='500' y1='166' x2='348' y2='214' stroke='currentColor' stroke-width='2' marker-end='url(#ri-s)'/><line x1='538' y1='166' x2='538' y2='214' stroke='currentColor' stroke-width='2' marker-end='url(#ri-s)'/><rect x='248' y='218' width='184' height='76' rx='8' fill='none' stroke='var(--chyba)' stroke-width='2'/><text x='340' y='242' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--chyba)'>ZÁPADOŘÍMSKÁ ŘÍŠE</text><text x='340' y='260' text-anchor='middle' font-size='11.5' fill='currentColor'>zaniká 476 (Odoaker)</text><text x='340' y='278' text-anchor='middle' font-size='11.5' fill='var(--zlata)'>= konec starověku</text><rect x='446' y='218' width='184' height='76' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2'/><text x='538' y='242' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--uspech)'>VÝCHODOŘÍMSKÁ ŘÍŠE</text><text x='538' y='260' text-anchor='middle' font-size='11.5' fill='currentColor'>Byzanc — trvá do 1453</text><text x='538' y='278' text-anchor='middle' font-size='11.5' fill='currentColor'>Konstantinopol</text></svg>",
+          "popisek": "Tři podoby římského státu: království (do 509 př. n. l.), republika s konzuly a senátem a od Augusta císařství. Roku 395 se říše rozdělila — západní část roku 476 zanikla (konec starověku), východní žila jako Byzanc až do roku 1453."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dej-rim-1",
+            "temaId": "dej-rim",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Proč stáli v čele římské republiky právě DVA konzulové volení jen na JEDEN rok?",
+            "moznosti": [
+              "Aby žádný z nich nezískal moc krále — navzájem se hlídali a brzy končili",
+              "Aby jeden mohl vládnout doma a druhý válčit v zahraničí",
+              "Protože senát nedokázal vybrat jediného vítěze voleb",
+              "Byla to náhoda, počet se každý rok měnil"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Dva + krátký mandát = pojistka proti návratu tyranie; Římané se po vyhnání krále báli soustředění moci. Dělba „doma/venku“ se sice někdy hodila, ale nebyl to důvod zavedení."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Obří říši už ale nejde řídit jako městský stát — přichází **krize republiky**:\n\n- propastné rozdíly mezi boháči a chudinou, povstání otroků (**Spartakus**, 73–71 př. n. l.),\n- legie věrné svým vojevůdcům, ne státu.\n\n**Gaius Julius Caesar** dobude Galii, roku 49 př. n. l. překročí s vojskem říčku **Rubikon** („kostky jsou vrženy“) a ovládne stát jako doživotní diktátor. 15. března **44 př. n. l.** ho senátoři zavraždí — republiku tím ale nezachrání. Caesarův dědic Octavianus vyhraje občanskou válku (Actium 31 př. n. l.) a roku **27 př. n. l.** přijme jméno **Augustus** — první **císař**. Nastává **pax Romana**, zlatý věk míru a kultury (Vergilius, Ovidius).\n\nDál už jen klíčové milníky:\n\n- **313** — Konstantin **ediktem milánským** povolí dosud pronásledované **křesťanství** (od 380 státní náboženství),\n- **395** — říše se natrvalo rozdělí na **západní a východní**,\n- **476** — germánský velitel Odoaker sesadí posledního západního císaře: **zánik západořímské říše = konec starověku**. Východ (Byzanc) žije dál do roku 1453."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "casova-osa",
+          "parametry": {
+            "udalosti": [
+              {
+                "rok": -753,
+                "nazev": "Založení Říma",
+                "popis": "Podle pověsti zakládá město Romulus; od tohoto roku Římané počítali svůj letopočet."
+              },
+              {
+                "rok": -509,
+                "nazev": "Vznik republiky",
+                "popis": "Vyhnání posledního (etruského) krále; vládu přebírají konzulové a senát."
+              },
+              {
+                "rok": -216,
+                "nazev": "Bitva u Kann",
+                "popis": "Hannibal uštědří Římu nejtěžší porážku — punské války ale nakonec vyhraje Řím."
+              },
+              {
+                "rok": -146,
+                "nazev": "Zničení Kartága",
+                "popis": "Konec punských válek; Řím je pánem Středomoří („mare nostrum“)."
+              },
+              {
+                "rok": -44,
+                "nazev": "Zavraždění Caesara",
+                "popis": "Březnové idy: doživotního diktátora zavraždí spiklenci ze senátu v čele s Brutem."
+              },
+              {
+                "rok": -27,
+                "nazev": "Augustus prvním císařem",
+                "popis": "Octavianus přijímá jméno Augustus; začíná císařství a éra míru pax Romana."
+              },
+              {
+                "rok": 313,
+                "nazev": "Edikt milánský",
+                "popis": "Konstantin povoluje křesťanství; roku 380 se stane státním náboženstvím."
+              },
+              {
+                "rok": 395,
+                "nazev": "Rozdělení říše",
+                "popis": "Říše se natrvalo dělí na západní a východní (byzantskou) polovinu."
+              },
+              {
+                "rok": 476,
+                "nazev": "Zánik západořímské říše",
+                "popis": "Odoaker sesazuje Romula Augustula — symbolický konec starověku."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dej-rim-2",
+            "temaId": "dej-rim",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Edikt milánský z roku 313 křesťanství zakázal.",
+            "spravna": false,
+            "vysvetleni": "Přesně naopak — Konstantin jím křesťanství POVOLIL a ukončil pronásledování. Státním náboženstvím se pak stalo roku 380 za Theodosia."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Spočítej bez kalkulačky: a) Jak dlouho trvala římská republika (509–27 př. n. l.)? b) Kolik let uplynulo od zavraždění Caesara (44 př. n. l.) do ediktu milánského (313 n. l.)?",
+          "reseni": "Klíč: letopočty **před naším letopočtem běží „pozpátku“** (rok 509 je DŘÍV než rok 27).\n\n**a) Obě data před n. l. → odečti:** 509 − 27 = **482 let**. Sečíst je (509 + 27) je nejčastější chyba.\n\n**b) Data na opačných stranách přelomu letopočtu → sečti:** 44 + 313 = 357. A teď finta: rok 0 neexistuje (po roce 1 př. n. l. jde rovnou rok 1 n. l.), takže odečti 1 → **356 let**.\n\nPravidlo k zapamatování: **stejná éra = rozdíl, přes přelom = součet minus 1.** Hodí se u každé časové osy — i v testu."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "753 př. n. l.", "zadni": "založení Říma (pověst o Romulovi a Removi)" },
+            { "predni": "republika", "zadni": "res publica = „věc veřejná“ — vláda konzulů a senátu (509–27 př. n. l.)" },
+            { "predni": "konzul", "zadni": "nejvyšší úředník republiky; volili se dva na jeden rok" },
+            { "predni": "tribun lidu", "zadni": "ochránce plebejů s právem veta" },
+            { "predni": "Hannibal", "zadni": "kartaginský vojevůdce — přešel Alpy, zvítězil u Kann, válku prohrál" },
+            { "predni": "Julius Caesar", "zadni": "dobyl Galii, překročil Rubikon, doživotní diktátor; zavražděn 44 př. n. l." },
+            { "predni": "Augustus", "zadni": "první římský císař (od 27 př. n. l.); éra pax Romana" },
+            { "predni": "edikt milánský (313)", "zadni": "Konstantin povolil křesťanství" },
+            { "predni": "rok 395", "zadni": "rozdělení říše na západní a východní" },
+            { "predni": "rok 476", "zadni": "zánik západořímské říše = konec starověku" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "Shrnutí:\n\n- **753 → 509 → 27 př. n. l.**: království → republika → císařství.\n- Republiku řídili **2 konzulové, senát a tribunové lidu**; zničily ji soukromé armády a boj siláků o moc (Caesar).\n- **Augustus** = první císař; pax Romana.\n- Křesťanství: pronásledováno → **313 povoleno** (edikt milánský) → 380 státní náboženství.\n- **395** rozdělení říše, **476** zánik Západu = konec starověku. Dědictví: právo, latinka, kalendář, stavby."
+        }
+      ]
+    },
+    {
+      "temaId": "dej-rany-stredovek",
+      "nazev": "Raný středověk",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "28. září máš volno. 5. července taky. Oba dny ti „zařídili“ lidé z 9. a 10. století: dva učení bratři ze Soluně a jeden kníže zavražděný vlastním bratrem. Tahle lekce je o tom, jak po pádu Říma vznikla Evropa — a v ní země, ve které žiješ."
+        },
+        {
+          "typ": "text",
+          "obsah": "Kolem roku **375** vpadnou do Evropy kočovní **Hunové** a spustí řetězovou reakci — **stěhování národů**. Germánské kmeny prchají a valí se přes hranice slábnoucího Říma; roku **476** západořímská říše padá a začíná **středověk**. Na východě dál září **Byzanc** (Konstantinopol, císař Justinián, chrám Hagia Sofia).\n\nNa jihu mezitím vyroste nová velmoc: prorok **Muhammad** založí v Arábii **islám** (rokem **622** — hidžrou, odchodem z Mekky do Medíny — začíná muslimský letopočet) a sjednocení Arabové pak během jediného století dobudou území od Indie přes severní Afriku až do Hispánie.\n\nNejsilnější nástupnickou říší na Západě je říše **Franků**:\n\n- král **Chlodvík** (kolem 496) přijme křest — spojenectví trůnu a církve se stane pilířem franské moci,\n- **Karel Martel** roku 732 u Poitiers zastaví arabský postup do západní Evropy,\n- **Karel Veliký** (768–814) ovládne většinu Západu, zakládá školy (karolinská renesance) a o Vánocích roku **800** ho papež v Římě korunuje **císařem**. Říká se mu „otec Evropy“.\n\nRoku **843** si Karlovi vnuci říši rozdělí **verdunskou smlouvou**: ze západního dílu vyroste **Francie**, z východního **Německo** (pozdější Svatá říše římská)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Dva státní svátky v tvém kalendáři (5. 7. a 28. 9.) jsou přímé pozdravy z raného středověku. Když politici mluví o „kořenech Evropy“, myslí často Karla Velikého — nejprestižnější evropská cena za sjednocování kontinentu nese jeho jméno. Svatováclavská koruna je dodnes symbolem státu a „Václavák“ místem, kde se dějí dějiny. A Rastislavův tah s Byzancí je učebnicová strategie: **kdo závisí na jediném silném partnerovi, měl by si najít druhého** — platí pro knížata i pro firmy s jedním odběratelem."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 660 340' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Od Sámovy říše přes Velkou Moravu k přemyslovským Čechám'><defs><marker id='rs-s' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor'/></marker></defs><rect x='170' y='10' width='320' height='52' rx='8' fill='none' stroke='var(--zlata)' stroke-width='2.5'/><text x='330' y='31' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--zlata)'>FRANSKÁ ŘÍŠE — tlak ze západu</text><text x='330' y='50' text-anchor='middle' font-size='11' fill='currentColor'>Karel Veliký císařem 800 • Verdun 843: dělení říše</text><line x1='250' y1='62' x2='120' y2='116' stroke='var(--zlata)' stroke-width='2' stroke-dasharray='5 4' marker-end='url(#rs-s)'/><line x1='410' y1='62' x2='334' y2='116' stroke='var(--zlata)' stroke-width='2' stroke-dasharray='5 4' marker-end='url(#rs-s)'/><rect x='15' y='120' width='196' height='96' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='113' y='142' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>SÁMOVA ŘÍŠE</text><text x='113' y='159' text-anchor='middle' font-size='11' fill='var(--zlata)'>623–658</text><text x='113' y='176' text-anchor='middle' font-size='11' fill='currentColor'>kmenový svaz Slovanů</text><text x='113' y='192' text-anchor='middle' font-size='11' fill='currentColor'>proti Avarům</text><text x='113' y='208' text-anchor='middle' font-size='11' fill='currentColor'>631 Wogastisburg</text><rect x='232' y='120' width='196' height='96' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2'/><text x='330' y='142' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>VELKÁ MORAVA</text><text x='330' y='159' text-anchor='middle' font-size='11' fill='var(--zlata)'>833–907</text><text x='330' y='176' text-anchor='middle' font-size='11' fill='currentColor'>Mojmírovci</text><text x='330' y='192' text-anchor='middle' font-size='11' fill='currentColor'>Rastislav, Svatopluk</text><text x='330' y='208' text-anchor='middle' font-size='11' fill='currentColor'>863 Cyril a Metoděj</text><rect x='449' y='120' width='196' height='96' rx='8' fill='none' stroke='var(--uspech)' stroke-width='2.5'/><text x='547' y='142' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--uspech)'>PŘEMYSLOVSKÉ ČECHY</text><text x='547' y='159' text-anchor='middle' font-size='11' fill='var(--zlata)'>od ~880</text><text x='547' y='176' text-anchor='middle' font-size='11' fill='currentColor'>Bořivoj I. — křest, Praha</text><text x='547' y='192' text-anchor='middle' font-size='11' fill='currentColor'>sv. Václav († 935)</text><text x='547' y='208' text-anchor='middle' font-size='11' fill='currentColor'>973 pražské biskupství</text><line x1='211' y1='168' x2='230' y2='168' stroke='currentColor' stroke-width='2' stroke-dasharray='4 3' marker-end='url(#rs-s)'/><line x1='428' y1='168' x2='447' y2='168' stroke='currentColor' stroke-width='2' marker-end='url(#rs-s)'/><text x='222' y='236' text-anchor='middle' font-size='10' fill='currentColor'>~170 let mezera</text><text x='437' y='236' text-anchor='middle' font-size='10' fill='currentColor'>těžiště se přesouvá</text><rect x='232' y='258' width='196' height='46' rx='8' fill='none' stroke='var(--chyba)' stroke-width='2'/><text x='330' y='277' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--chyba)'>MAĎAŘI — nájezdy</text><text x='330' y='295' text-anchor='middle' font-size='10.5' fill='currentColor'>rozvrátí Velkou Moravu ~907</text><line x1='330' y1='256' x2='330' y2='220' stroke='var(--chyba)' stroke-width='2' marker-end='url(#rs-s)'/></svg>",
+          "popisek": "Státní útvary na našem území šly za sebou: Sámův kmenový svaz (7. století), po mezeře Velká Morava (9. století) a nakonec přemyslovské Čechy. Shora celou dobu tlačila franská říše, Velkou Moravu nakonec rozvrátili Maďaři."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dej-rany-stredovek-1",
+            "temaId": "dej-rany-stredovek",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "V jakém pořadí vznikaly státní útvary na našem území?",
+            "moznosti": [
+              "Sámova říše → Velká Morava → přemyslovské Čechy",
+              "Velká Morava → Sámova říše → přemyslovské Čechy",
+              "Přemyslovské Čechy → Velká Morava → Sámova říše",
+              "Sámova říše → přemyslovské Čechy → Velká Morava"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Sámo (7. století) → Velká Morava (9. století) → Přemyslovci (od konce 9. století). Pomůcka: 623 → 833 → ~880 — letopočty rostou."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "A teď naše území:\n\n- **Sámova říše (623–658)**: franský kupec **Sámo** sjednotí Slovany proti kočovným **Avarům** a roku **631 u Wogastisburgu** porazí i vojsko franského krále Dagoberta. Po Sámově smrti se svaz rozpadne — byl držený jeho osobností, ne institucemi.\n- **Velká Morava (9. století)**: zakládá ji **Mojmír I.** (~833). Kníže **Rastislav** nechce záviset na franských kněžích, a proto roku **863** pozve z Byzance bratry **Konstantina (Cyrila) a Metoděje**. Ti vytvoří písmo **hlaholici** a prosadí bohoslužbu ve **staroslověnštině** — jazyce, kterému lidé rozumějí (cyrilice, základ azbuky, vznikla až u jejich žáků). Za **Svatopluka** je říše největší; kolem **907** ji rozvrátí nájezdy **Maďarů**.\n- **Přemyslovské Čechy**: první doložený kníže **Bořivoj I.** přijme křest (~883, patrně od Metoděje) a usadí se na Pražském hradě. Kníže **Václav** je roku **935** ve Staré Boleslavi zavražděn družinou bratra **Boleslava** — a stane se světcem a věčným patronem české země. Roku **973** vznikne pražské biskupství: český stát je pevnou součástí křesťanské Evropy."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "casova-osa",
+          "parametry": {
+            "udalosti": [
+              {
+                "rok": 375,
+                "nazev": "Vpád Hunů",
+                "popis": "Kočovní Hunové spouštějí stěhování národů — germánské kmeny se dávají do pohybu."
+              },
+              {
+                "rok": 476,
+                "nazev": "Zánik západořímské říše",
+                "popis": "Konec starověku, začátek středověku."
+              },
+              {
+                "rok": 623,
+                "nazev": "Sámova říše",
+                "popis": "Franský kupec Sámo sjednocuje Slovany proti Avarům — první známý svaz Slovanů."
+              },
+              {
+                "rok": 631,
+                "nazev": "Bitva u Wogastisburgu",
+                "popis": "Sámovi Slované porážejí vojsko franského krále Dagoberta."
+              },
+              {
+                "rok": 800,
+                "nazev": "Karel Veliký císařem",
+                "popis": "Papež o Vánocích korunuje franského krále — na Západě se obnovuje císařství."
+              },
+              {
+                "rok": 833,
+                "nazev": "Vznik Velké Moravy",
+                "popis": "Mojmír I. vyhání Pribinu z Nitry a spojuje obě knížectví."
+              },
+              {
+                "rok": 843,
+                "nazev": "Verdunská smlouva",
+                "popis": "Vnuci Karla Velikého si dělí říši — základ budoucí Francie a Německa."
+              },
+              {
+                "rok": 863,
+                "nazev": "Příchod Cyrila a Metoděje",
+                "popis": "Byzantská misie přináší hlaholici a bohoslužbu ve staroslověnštině."
+              },
+              {
+                "rok": 907,
+                "nazev": "Zánik Velké Moravy",
+                "popis": "Říše podléhá nájezdům Maďarů; těžiště dějin se přesouvá do Čech."
+              },
+              {
+                "rok": 935,
+                "nazev": "Zavraždění knížete Václava",
+                "popis": "Ve Staré Boleslavi umírá kníže Václav — budoucí patron české země (svátek 28. září)."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-dej-rany-stredovek-2",
+            "temaId": "dej-rany-stredovek",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Jak se jmenuje písmo, které pro staroslověnštinu vytvořil Konstantin (Cyril)?",
+            "moznosti": [
+              "Hlaholice",
+              "Cyrilice",
+              "Latinka",
+              "Klínové písmo"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Konstantin vytvořil hlaholici. Cyrilice (pojmenovaná na jeho počest) vznikla později u žáků obou bratří — proto je to nejlákavější, ale špatná odpověď. Z cyrilice se vyvinula dnešní azbuka."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Seřaď události a urči u každé století: korunovace Karla Velikého (800), příchod Cyrila a Metoděje (863), vznik Sámovy říše (623), zavraždění knížete Václava (935).",
+          "reseni": "**Pořadí** podle letopočtů: Sámo (623) → Karel Veliký (800) → Cyril a Metoděj (863) → Václav (935).\n\n**Století** — pravidlo: n-té století jsou roky (n−1)01 až n00.\n\n- 623 → roky 601–700 = **7. století**\n- 800 → pozor, chyták! Roky 701–800 = **8. století**; rok 800 je jeho ÚPLNĚ POSLEDNÍ rok. (Stejně jako rok 2000 patřil ještě do 20. století.)\n- 863 → roky 801–900 = **9. století**\n- 935 → roky 901–1000 = **10. století**\n\nNejčastější chyba: vzít první číslici letopočtu (863 → „8. století“). Vždycky si polož kontrolní otázku: kolikátá stovka let právě běží?"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "stěhování národů", "zadni": "pohyb kmenů Evropou po vpádu Hunů (od ~375); pomohlo rozvrátit Řím" },
+            { "predni": "Sámova říše", "zadni": "první známý kmenový svaz Slovanů (623–658), proti Avarům" },
+            { "predni": "Wogastisburg (631)", "zadni": "Sámovo vítězství nad franským králem Dagobertem" },
+            { "predni": "Karel Veliký", "zadni": "franský král, od roku 800 císař; „otec Evropy“" },
+            { "predni": "verdunská smlouva (843)", "zadni": "rozdělení franské říše na tři díly — základ Francie a Německa" },
+            { "predni": "Velká Morava", "zadni": "stát Mojmírovců v 9. století (833–907)" },
+            { "predni": "Cyril a Metoděj", "zadni": "věrozvěsti z Byzance (863) — hlaholice, staroslověnština" },
+            { "predni": "hlaholice", "zadni": "nejstarší slovanské písmo, dílo Konstantina (Cyrila)" },
+            { "predni": "Bořivoj I.", "zadni": "první doložený přemyslovský kníže; křest, sídlo v Praze" },
+            { "predni": "sv. Václav", "zadni": "český kníže zavražděný 935; patron české země (28. září)" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "Shrnutí:\n\n- **Stěhování národů** (Hunové ~375) pomohlo rozvrátit západní Řím (**476** = začátek středověku).\n- **Franská říše**: Karel Veliký císařem **800**; **verdunská smlouva 843** = základ Francie a Německa.\n- **Sámova říše (623–658)** — první svaz Slovanů, vítězství u Wogastisburgu (631).\n- **Velká Morava (833–907)**: Mojmírovci; roku **863 Cyril a Metoděj** — hlaholice a staroslověnština.\n- **Přemyslovci**: Bořivoj I. (křest, Praha) a **sv. Václav († 935)** — patron české země."
+        }
+      ]
+    }
+  ]
+}

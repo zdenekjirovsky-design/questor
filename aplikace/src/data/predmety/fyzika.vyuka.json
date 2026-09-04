@@ -1,0 +1,490 @@
+{
+  "predmetId": "fyzika",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "fyz-veliciny-jednotky",
+      "nazev": "Fyzikální veličiny a jednotky",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Trenér ti po sprintu ukáže stopky: „8,2!“ Kámoš se chlubí, že běžel „dvacítkou“. Táta v autě drží „devadesát“. Tři čísla — a každé znamená něco úplně jiného. Dokud k číslu nepřidáš **jednotku**, je to jen číslo. Přesně tady začíná fyzika."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Fyzikální veličina** je vlastnost, kterou umíme změřit — délka, hmotnost, čas, teplota. Její zápis má vždy **dvě části**:\n\n- **číselnou hodnotu** (kolik),\n- **jednotku** (čeho).\n\nZápis „s = 40 m“ je úplný; „s = 40“ nedává smysl.\n\nAby si celý svět rozuměl, používá se **soustava SI** se **sedmi základními jednotkami**:\n\n- délka — **metr (m)**\n- hmotnost — **kilogram (kg)**\n- čas — **sekunda (s)**\n- elektrický proud — **ampér (A)**\n- teplota — **kelvin (K)**\n- látkové množství — **mol**\n- svítivost — **kandela (cd)**\n\nVšechno ostatní jsou jednotky **odvozené** — skládají se ze základních. Třeba rychlost (m/s), síla (newton) nebo tlak (pascal)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** V obchodě porovnáš cenu za 100 g s cenou za kilo a poznáš, co je fakt levnější. U mobilního tarifu rozlišíš MB a GB (tisíckrát rozdíl!). Ve sportu převedeš rychlost sprintu na km/h a víš, jestli bys předběhl cyklistu. A když si objednáš skříňku „140“ místo „140 cm“, může přijet čtrnáct centimetrů — bez jednotek se prostě obchod dělat nedá."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Převodní schody jednotek délky a převod rychlosti mezi km/h a m/s\"><defs><marker id=\"fy1-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs><rect x=\"20\" y=\"20\" width=\"90\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"65\" y=\"48\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">km</text><rect x=\"160\" y=\"80\" width=\"90\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"205\" y=\"108\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">m</text><rect x=\"300\" y=\"140\" width=\"90\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"345\" y=\"168\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">mm</text><rect x=\"440\" y=\"200\" width=\"90\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"485\" y=\"228\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">µm</text><line x1=\"112\" y1=\"58\" x2=\"158\" y2=\"88\" stroke=\"var(--uspech)\" stroke-width=\"2\" marker-end=\"url(#fy1-sipka)\" /><text x=\"110\" y=\"90\" font-size=\"13\" fill=\"var(--uspech)\">×1000</text><line x1=\"252\" y1=\"118\" x2=\"298\" y2=\"148\" stroke=\"var(--uspech)\" stroke-width=\"2\" marker-end=\"url(#fy1-sipka)\" /><text x=\"250\" y=\"150\" font-size=\"13\" fill=\"var(--uspech)\">×1000</text><line x1=\"392\" y1=\"178\" x2=\"438\" y2=\"208\" stroke=\"var(--uspech)\" stroke-width=\"2\" marker-end=\"url(#fy1-sipka)\" /><text x=\"390\" y=\"210\" font-size=\"13\" fill=\"var(--uspech)\">×1000</text><line x1=\"460\" y1=\"196\" x2=\"414\" y2=\"166\" stroke=\"var(--info)\" stroke-width=\"2\" marker-end=\"url(#fy1-sipka)\" /><text x=\"415\" y=\"192\" font-size=\"13\" fill=\"var(--info)\">÷1000</text><line x1=\"320\" y1=\"136\" x2=\"274\" y2=\"106\" stroke=\"var(--info)\" stroke-width=\"2\" marker-end=\"url(#fy1-sipka)\" /><text x=\"275\" y=\"132\" font-size=\"13\" fill=\"var(--info)\">÷1000</text><line x1=\"180\" y1=\"76\" x2=\"134\" y2=\"46\" stroke=\"var(--info)\" stroke-width=\"2\" marker-end=\"url(#fy1-sipka)\" /><text x=\"135\" y=\"72\" font-size=\"13\" fill=\"var(--info)\">÷1000</text><text x=\"30\" y=\"140\" font-size=\"13\" fill=\"currentColor\">menší jednotka</text><text x=\"30\" y=\"158\" font-size=\"13\" fill=\"currentColor\">= větší číslo</text><rect x=\"20\" y=\"262\" width=\"520\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><text x=\"280\" y=\"283\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--zlata)\">Rychlost: km/h → m/s dělíme 3,6 | m/s → km/h násobíme 3,6</text><text x=\"280\" y=\"303\" text-anchor=\"middle\" font-size=\"14\" fill=\"currentColor\">72 km/h = 20 m/s | 10 m/s = 36 km/h</text></svg>",
+          "popisek": "Převodní schody: každý schod dolů (na menší jednotku) znamená násobit 1000, každý schod nahoru dělit 1000. Dole zlaté pravidlo pro rychlost: mezi km/h a m/s se převádí číslem 3,6."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-fyz-veliciny-jednotky-1",
+            "temaId": "fyz-veliciny-jednotky",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Zápis „délka stolu = 1,2“ je úplný zápis fyzikální veličiny.",
+            "spravna": false,
+            "vysvetleni": "Chybí jednotka! 1,2 čeho — metru, centimetru, palce? Úplný zápis veličiny má vždy číselnou hodnotu A jednotku: l = 1,2 m."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Od atomů po planety — na to jedna jednotka nestačí. Proto máme **předpony**, které jednotku násobí mocninou deseti:\n\n- **giga- (G)** miliardkrát, **mega- (M)** milionkrát, **kilo- (k)** tisíckrát,\n- **deci- (d)** desetina, **centi- (c)** setina, **mili- (m)** tisícina, **mikro- (µ)** miliontina.\n\nPřevod je jen posun desetinné čárky: 2,5 kg = 2 500 g, 70 µm = 0,07 mm. Pomůcka: **čím menší jednotka, tím větší číslo** (a naopak).\n\nU rychlosti si zapamatuj číslo **3,6**: z km/h na m/s **děl**, opačně **násob**. Takže 72 km/h = 20 m/s.\n\nA ještě **měření**: žádné není dokonale přesné. Proto měříme **víckrát** a bereme **aritmetický průměr** — ten je nejblíž skutečnosti. Hodnota, která výrazně „ulítla“ (špatně jsi odečetl), se vyřadí a měření zopakuje."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              { "a": "délka", "b": "metr (m)" },
+              { "a": "hmotnost", "b": "kilogram (kg)" },
+              { "a": "čas", "b": "sekunda (s)" },
+              { "a": "síla", "b": "newton (N)" },
+              { "a": "tlak", "b": "pascal (Pa)" },
+              { "a": "výkon", "b": "watt (W)" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-fyz-veliciny-jednotky-2",
+            "temaId": "fyz-veliciny-jednotky",
+            "typ": "doplneni",
+            "obtiznost": 3,
+            "zadani": "Dálniční kamera ti naměří 90 km/h. Kolik je to m/s? (napiš i jednotku)",
+            "spravneOdpovedi": ["25 m/s", "25m/s", "25"],
+            "vysvetleni": "Z km/h na m/s se dělí číslem 3,6: v = 90 : 3,6 = 25 m/s. Kontrola směru: v m/s musí vyjít menší číslo než v km/h."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Měříš tloušťku mobilu posuvným měřítkem a třikrát ti vyjde: 14,7 mm; 14,9 mm; 14,8 mm. Jaký je nejlepší odhad skutečné tloušťky? A kolik je to v centimetrech?",
+          "reseni": "**1. Proč tři měření?** Každé měření má chybu — průměr ji zmenší.\n\n**2. Aritmetický průměr:**\nd = (14,7 mm + 14,9 mm + 14,8 mm) : 3\nd = 44,4 mm : 3\n**d = 14,8 mm**\n\n**3. Převod na centimetry** (mm → cm = dělení 10):\nd = 14,8 mm = **1,48 cm**\n\nVýsledek zapíšeme i s přesností: d = 14,8 mm ± 0,1 mm — hodnoty se lišily nejvýš o desetinu milimetru."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Fyzikální veličina", "zadni": "Měřitelná vlastnost — zapisuje se VŽDY číselnou hodnotou a jednotkou (s = 40 m)." },
+            { "predni": "Soustava SI", "zadni": "Mezinárodní soustava jednotek se 7 základními jednotkami; ostatní jsou odvozené." },
+            { "predni": "7 základních jednotek SI", "zadni": "metr, kilogram, sekunda, ampér, kelvin, mol, kandela" },
+            { "predni": "kilo- (k)", "zadni": "tisíckrát víc: 1 km = 1000 m, 1 kg = 1000 g" },
+            { "predni": "mili- (m)", "zadni": "tisícina: 1 mm = 0,001 m" },
+            { "predni": "mikro- (µ)", "zadni": "miliontina: 1 µm = 0,000001 m = tisícina milimetru" },
+            { "predni": "Převod km/h ↔ m/s", "zadni": "km/h → m/s: děl 3,6 (72 km/h = 20 m/s). m/s → km/h: násob 3,6." },
+            { "predni": "Aritmetický průměr měření", "zadni": "Součet naměřených hodnot dělený jejich počtem — nejlepší odhad skutečné hodnoty." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Veličina = **číslo + jednotka**; bez jednotky je zápis k ničemu.\n- **SI** má 7 základních jednotek (m, kg, s, A, K, mol, cd), zbytek je odvozený.\n- **Předpony** posouvají řád: kilo- ×1000, mili- ÷1000, mikro- ÷1 000 000.\n- Rychlost: mezi **km/h a m/s** převádí číslo **3,6**.\n- Měř **víckrát** a ber **aritmetický průměr** — každé měření má chybu."
+        }
+      ]
+    },
+    {
+      "temaId": "fyz-kinematika",
+      "nazev": "Kinematika — popis pohybu",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Stojíš u přechodu. Auto je 40 metrů daleko a jede padesátkou. Šlápne řidič na brzdu včas — a hlavně: **stačí mu těch 40 metrů**? Kinematika ti to spočítá dřív, než uděláš první krok do silnice. Na konci lekce budeš znát odpověď."
+        },
+        {
+          "typ": "text",
+          "obsah": "Kinematika **popisuje pohyb** — neřeší, co ho způsobilo. Pohyb je vždy **relativní**: vůči autu sedíš v klidu, vůči silnici sviští devadesátkou.\n\n**Rovnoměrný přímočarý pohyb** = stálá rychlost:\n\n- **v = s / t** (rychlost), **s = v · t** (dráha)\n\n**Průměrná rychlost** = celková dráha : celkový čas. Auto, které ujede 180 km za 2 h, má průměr 90 km/h — i když stálo na semaforech.\n\n**Rovnoměrně zrychlený pohyb** má stálé **zrychlení a** (m/s²) — o tolik m/s rychlost každou sekundu vzroste:\n\n- **a = Δv / t**, z klidu **v = a · t**, dráha **s = ½ · a · t²**\n\nDráha roste s **druhou mocninou času** — rozjíždějící se motorka urazí ve druhé sekundě třikrát víc než v první."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Navigace ti ukáže „příjezd 15:40“ — to je jen s = v · t naruby. Na kole odhadneš, jestli stihneš vlak. A hlavně přežiješ na silnici: kdo ví, že **brzdná dráha roste s druhou mocninou rychlosti**, nepřebíhá před autem, které „ještě daleko“. Řidič jedoucí o 20 km/h rychleji potřebuje k zastavení skoro dvojnásobek místa — to je rozdíl mezi leknutím a nemocnicí."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graf závislosti rychlosti na čase pro rovnoměrný a rovnoměrně zrychlený pohyb\"><defs><marker id=\"fy2-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs><polygon points=\"60,270 460,270 460,70\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" /><line x1=\"60\" y1=\"270\" x2=\"520\" y2=\"270\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#fy2-sipka)\" /><line x1=\"60\" y1=\"270\" x2=\"60\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#fy2-sipka)\" /><text x=\"530\" y=\"290\" font-size=\"14\" fill=\"currentColor\">t [s]</text><text x=\"20\" y=\"40\" font-size=\"14\" fill=\"currentColor\">v [m/s]</text><line x1=\"60\" y1=\"150\" x2=\"470\" y2=\"150\" stroke=\"var(--info)\" stroke-width=\"3\" /><text x=\"180\" y=\"138\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--info)\">rovnoměrný: v = konst.</text><line x1=\"60\" y1=\"270\" x2=\"460\" y2=\"70\" stroke=\"var(--akcent)\" stroke-width=\"3\" /><text x=\"250\" y=\"85\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--akcent)\">rovnoměrně zrychlený: v = a·t</text><text x=\"300\" y=\"235\" font-size=\"13\" fill=\"currentColor\">plocha pod grafem = dráha s</text><line x1=\"60\" y1=\"270\" x2=\"60\" y2=\"270\" stroke=\"currentColor\" stroke-width=\"1\" /><text x=\"52\" y=\"288\" font-size=\"13\" fill=\"currentColor\">0</text></svg>",
+          "popisek": "Graf v–t: rovnoměrný pohyb je vodorovná přímka (rychlost se nemění), rovnoměrně zrychlený rostoucí přímka (rychlost roste stále stejným tempem). Vybarvená plocha pod čarou odpovídá ujeté dráze."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-fyz-kinematika-1",
+            "temaId": "fyz-kinematika",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Autobus ujede 120 km za 1,5 hodiny. Jaká je jeho průměrná rychlost?",
+            "moznosti": ["80 km/h", "120 km/h", "180 km/h", "60 km/h"],
+            "spravna": 0,
+            "vysvetleni": "v = s : t = 120 km : 1,5 h = 80 km/h. Pozor na lákavé „120“ — to by platilo jen pro jízdu přesně hodinu."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Nejslavnější zrychlený pohyb je **volný pád**. Ve vakuu padá všechno — kladivo i pírko — se stejným **tíhovým zrychlením g ≈ 9,81 m/s²** (počítáme s 10 m/s²):\n\n- **v = g · t**, **s = ½ · g · t²**\n\nPo 1 sekundě letíš 10 m/s, po 2 sekundách 20 m/s (72 km/h!). Proto bolí i pád z malé výšky.\n\nBrzdění je **rovnoměrně zpomalený pohyb** — zrychlení míří proti pohybu. **Brzdná dráha**:\n\n- **s = v² / (2a)**\n\nRychlost je ve vzorci **na druhou**: 2× rychleji = **4×** delší brzdná dráha. A pozor — než vůbec šlápneš na brzdu, uběhne **reakční doba** (~1 s), během které jedeš dál plnou rychlostí."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď situace podle druhu pohybu.",
+            "kategorie": [
+              { "id": "rovnomerny", "nazev": "Rovnoměrný" },
+              { "id": "zrychleny", "nazev": "Rovnoměrně zrychlený" },
+              { "id": "zpomaleny", "nazev": "Rovnoměrně zpomalený" }
+            ],
+            "polozky": [
+              { "text": "eskalátor v obchoďáku", "kategorieId": "rovnomerny" },
+              { "text": "auto na tempomat na dálnici", "kategorieId": "rovnomerny" },
+              { "text": "rozjezd metra ze stanice", "kategorieId": "zrychleny" },
+              { "text": "kámen ve volném pádu", "kategorieId": "zrychleny" },
+              { "text": "vlak brzdící do stanice", "kategorieId": "zpomaleny" },
+              { "text": "puk klouzající po ledě, až zastaví", "kategorieId": "zpomaleny" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-fyz-kinematika-2",
+            "temaId": "fyz-kinematika",
+            "typ": "doplneni",
+            "obtiznost": 4,
+            "zadani": "Upustíš klíče z okna a padají volným pádem 3 sekundy (g = 10 m/s²). Jakou rychlostí dopadnou? (napiš i jednotku)",
+            "spravneOdpovedi": ["30 m/s", "30m/s", "108 km/h", "108km/h", "30"],
+            "vysvetleni": "v = g · t = 10 m/s² · 3 s = 30 m/s, tedy 108 km/h. Každou sekundu pádu přibude 10 m/s — po třech sekundách letí klíče dálniční rychlostí."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Zpátky k přechodu z úvodu: auto jede 50 km/h a je 40 m od tebe. Řidič má reakční dobu 1 s, pak brzdí se zpomalením 5 m/s². Zastaví včas?",
+          "reseni": "**1. Převod rychlosti:**\nv = 50 km/h = 50 : 3,6 ≈ **13,9 m/s**\n\n**2. Dráha za reakční dobu** (jede se dál plnou rychlostí):\ns₁ = v · t = 13,9 m/s · 1 s = **13,9 m**\n\n**3. Brzdná dráha:**\ns₂ = v² : (2a) = (13,9 m/s)² : (2 · 5 m/s²) = 193,2 : 10 = **19,3 m**\n\n**4. Celkem:**\ns = s₁ + s₂ = 13,9 m + 19,3 m = **33,2 m**\n\n**Zastaví asi 7 m před tebou** — těsné. Kdyby jel 70 km/h (19,4 m/s), vyšlo by s = 19,4 + 37,6 = 57 m a nezastavil by. Proto se u přechodů jezdí pomalu."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Rovnoměrný pohyb", "zadni": "Rychlost se nemění; s = v · t. V grafu v–t vodorovná přímka." },
+            { "predni": "Průměrná rychlost", "zadni": "Celková dráha dělená celkovým časem (včetně zastávek): v = s / t." },
+            { "predni": "Zrychlení a", "zadni": "O kolik m/s se změní rychlost za sekundu; a = Δv / t, jednotka m/s²." },
+            { "predni": "Dráha zrychleného pohybu z klidu", "zadni": "s = ½ · a · t² — roste s DRUHOU mocninou času." },
+            { "predni": "Volný pád", "zadni": "Rovnoměrně zrychlený pohyb s g ≈ 9,81 m/s² (počítáme 10). Všechna tělesa padají stejně." },
+            { "predni": "Rychlost volného pádu", "zadni": "v = g · t: po 1 s ~10 m/s, po 2 s ~20 m/s (72 km/h)." },
+            { "predni": "Brzdná dráha", "zadni": "s = v² / (2a) — dvojnásobná rychlost = ČTYŘNÁSOBNÁ brzdná dráha." },
+            { "predni": "Reakční doba", "zadni": "~1 sekunda, než řidič vůbec šlápne na brzdu — celou ji jede plnou rychlostí." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Rovnoměrný pohyb: **v = s/t**, stálá rychlost, v grafu v–t vodorovná čára.\n- Zrychlený pohyb: **a = Δv/t**, v = a·t, dráha **s = ½·a·t²**.\n- **Volný pád** = zrychlený pohyb s g ≈ 10 m/s², stejný pro všechna tělesa.\n- **Brzdná dráha s = v²/(2a)** — 2× rychlost znamená 4× delší brzdění.\n- Plocha pod grafem v–t = ujetá dráha."
+        }
+      ]
+    },
+    {
+      "temaId": "fyz-dynamika",
+      "nazev": "Dynamika — síly a Newtonovy zákony",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Autodrom na pouti. Kámoš do tebe zezadu napálí, tvoje hlava cukne dozadu a jeho vozík se odrazí zpátky, i když ty jsi do něj vůbec nestrčil. Kdo tady do koho vlastně strčil? Za všechno můžou tři zákony, které před 340 lety sepsal Isaac Newton — a platí na pouti, na silnici i ve vesmíru."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Síla F** popisuje vzájemné působení těles. Má **velikost i směr** a jednotku **newton (N)**; měří se siloměrem.\n\n**Tři Newtonovy zákony:**\n\n1. **Zákon setrvačnosti** — těleso zůstává v klidu nebo v rovnoměrném přímočarém pohybu, dokud ho síla nedonutí to změnit. Při brzdění tě „hodí“ dopředu — tělo si drží původní rychlost. Proto pásy.\n2. **Zákon síly** — **F = m · a**. Stejná síla: prázdný vozík vystřelí, plný se sotva hne. Čím větší hmotnost, tím menší zrychlení.\n3. **Zákon akce a reakce** — síly vznikají ve dvojicích: stejně velké, opačného směru, **každá na jiném tělese**. Proto se nevyruší. Skočíš z loďky: ty letíš dopředu, loďka odpluje dozadu."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Bezpečnostní pás a helma = pojistka proti setrvačnosti — tvoje tělo při nárazu letí dál původní rychlostí, dokud ho něco nezastaví; lepší pás než čelní sklo. Plný školní batoh zrychlíš (i zastavíš!) hůř než prázdný — F = m·a v praxi. A když na bruslích odstrčíš kámoše, odjedeš i ty — akce a reakce. Kdo zákonům rozumí, líp brzdí, líp odhaduje a míň se diví."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Síly působící na taženou bednu: tahová, třecí, tíhová a tlaková síla podložky\"><defs><marker id=\"fy3-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs><line x1=\"20\" y1=\"230\" x2=\"540\" y2=\"230\" stroke=\"currentColor\" stroke-width=\"3\" /><rect x=\"210\" y=\"140\" width=\"140\" height=\"90\" rx=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" /><text x=\"280\" y=\"192\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">bedna</text><line x1=\"350\" y1=\"185\" x2=\"470\" y2=\"185\" stroke=\"var(--akcent)\" stroke-width=\"4\" marker-end=\"url(#fy3-sipka)\" /><text x=\"400\" y=\"170\" font-size=\"15\" font-weight=\"bold\" fill=\"var(--akcent)\">F tahová</text><line x1=\"210\" y1=\"215\" x2=\"120\" y2=\"215\" stroke=\"var(--chyba)\" stroke-width=\"4\" marker-end=\"url(#fy3-sipka)\" /><text x=\"75\" y=\"205\" font-size=\"15\" font-weight=\"bold\" fill=\"var(--chyba)\">Ft třecí</text><line x1=\"280\" y1=\"230\" x2=\"280\" y2=\"310\" stroke=\"var(--info)\" stroke-width=\"4\" marker-end=\"url(#fy3-sipka)\" /><text x=\"295\" y=\"300\" font-size=\"15\" font-weight=\"bold\" fill=\"var(--info)\">FG tíhová</text><line x1=\"280\" y1=\"140\" x2=\"280\" y2=\"60\" stroke=\"var(--uspech)\" stroke-width=\"4\" marker-end=\"url(#fy3-sipka)\" /><text x=\"295\" y=\"75\" font-size=\"15\" font-weight=\"bold\" fill=\"var(--uspech)\">FN podložky</text><text x=\"30\" y=\"40\" font-size=\"14\" fill=\"currentColor\">Svisle: FN a FG jsou v rovnováze — bedna se nepropadá.</text><text x=\"30\" y=\"62\" font-size=\"14\" fill=\"currentColor\">Vodorovně: výslednice = F − Ft → ta bednu zrychluje.</text></svg>",
+          "popisek": "Čtyři síly na tažené bedně: tahová síla dopředu, třecí síla proti pohybu, tíhová síla dolů a tlaková síla podložky nahoru. Svislé síly se vyrovnají, o pohybu rozhoduje vodorovná výslednice F − Ft."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-fyz-dynamika-1",
+            "temaId": "fyz-dynamika",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Stejnou silou tlačíš prázdný a plný nákupní vozík. Co se stane a proč?",
+            "moznosti": [
+              "Prázdný zrychlí víc — při stejné síle znamená menší hmotnost větší zrychlení (F = m·a)",
+              "Oba zrychlí stejně — síla je přece stejná",
+              "Plný zrychlí víc — má větší setrvačnost",
+              "Plný se nerozjede nikdy"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Z F = m·a plyne a = F/m: stejná síla, větší hmotnost → menší zrychlení. Setrvačnost velkých hmotností pohyb neusnadňuje, naopak ho brzdí měnit. Plný vozík se rozjede — jen líněji."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Na těleso skoro nikdy nepůsobí jen jedna síla — skládají se do **výslednice**:\n\n- stejný směr → **sčítají se**,\n- opačný směr → **odčítají se** (výslednice má směr větší síly),\n- stejně velké proti sobě → **rovnováha**, výslednice 0.\n\nProti pohybu vždy působí **třecí síla**. Závisí na **drsnosti povrchů** a **přítlačné síle** — na velikosti styčné plochy překvapivě ne. **Valivé** tření (kolečka) je mnohem menší než **smykové** (smýkání) — proto kufr radši táhneš na kolečkách. Tření ale i pomáhá: bez něj neuděláš krok a auto nezabrzdí. Puk na ledě nezastavuje, protože „mu došla síla“ — brzdí ho právě tření.\n\n**Hybnost p = m · v** (kg·m/s) měří „množství pohybu“: rozjetý kamion má obří hybnost kvůli hmotnosti, střela kvůli rychlosti."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Který Newtonův zákon situaci vysvětluje? Roztřiď.",
+            "kategorie": [
+              { "id": "prvni", "nazev": "1. zákon (setrvačnost)" },
+              { "id": "druhy", "nazev": "2. zákon (F = m·a)" },
+              { "id": "treti", "nazev": "3. zákon (akce a reakce)" }
+            ],
+            "polozky": [
+              { "text": "cestující při prudkém brzdění „letí“ dopředu", "kategorieId": "prvni" },
+              { "text": "kečup vyklepneš z lahve prudkým trhnutím", "kategorieId": "prvni" },
+              { "text": "prázdný vozík zrychlíš snáz než plný", "kategorieId": "druhy" },
+              { "text": "čím víc šlapeš do pedálů, tím víc zrychluješ", "kategorieId": "druhy" },
+              { "text": "veslo tlačí vodu dozadu, loďka jede dopředu", "kategorieId": "treti" },
+              { "text": "raketa letí vzhůru, spaliny tryskají dolů", "kategorieId": "treti" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-fyz-dynamika-2",
+            "temaId": "fyz-dynamika",
+            "typ": "doplneni",
+            "obtiznost": 3,
+            "zadani": "Gokart s jezdcem má hmotnost 150 kg a zrychluje se zrychlením 2 m/s². Jaká výsledná síla na něj působí? (F = m · a, napiš i jednotku)",
+            "spravneOdpovedi": ["300 N", "300N", "0,3 kN", "0.3 kN", "300"],
+            "vysvetleni": "F = m · a = 150 kg · 2 m/s² = 300 N. Newton je přesně kg·m/s², proto hmotnost krát zrychlení dává rovnou sílu v newtonech."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Tlačíš bednu s výbavou na florbal po chodbě silou 250 N. Třecí síla je 50 N, bedna má hmotnost 40 kg. Jaké bude její zrychlení?",
+          "reseni": "**1. Výslednice sil** (tah a tření působí proti sobě):\nF = F tahová − Ft = 250 N − 50 N = **200 N** (ve směru tlačení)\n\n**2. Druhý Newtonův zákon** (a = F : m):\na = 200 N : 40 kg = **5 m/s²**\n\nBedna každou sekundu zrychlí o 5 m/s. Kdyby tření vzrostlo na 250 N (koberec), výslednice by byla 0 N — bedna by jela **rovnoměrně**, ne zrychleně. Tlačit ≠ zrychlovat: rozhoduje výslednice!"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Síla F", "zadni": "Vzájemné působení těles; má velikost a směr, jednotka newton (N), měří siloměr." },
+            { "predni": "1. Newtonův zákon", "zadni": "Zákon setrvačnosti: bez působení síly těleso setrvává v klidu nebo rovnoměrném přímočarém pohybu." },
+            { "predni": "2. Newtonův zákon", "zadni": "F = m · a — zrychlení je úměrné síle, nepřímo úměrné hmotnosti." },
+            { "predni": "3. Newtonův zákon", "zadni": "Akce a reakce: stejně velké síly opačného směru, každá působí na JINÉ těleso — nevyruší se." },
+            { "predni": "Výslednice sil", "zadni": "Souhrn všech sil: stejný směr sčítám, opačný odčítám. Rovnováha = výslednice 0." },
+            { "predni": "Třecí síla", "zadni": "Působí proti pohybu; závisí na drsnosti povrchů a přítlačné síle, NE na velikosti plochy." },
+            { "predni": "Smykové vs. valivé tření", "zadni": "Valivé (kolečka) je mnohem menší než smykové (smýkání) — proto vozíme, nesuneme." },
+            { "predni": "Hybnost p", "zadni": "p = m · v, jednotka kg·m/s — „množství pohybu“ tělesa." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Síla (newton) má velikost a směr; síly se skládají do **výslednice**.\n- **1. zákon:** bez síly žádná změna pohybu (setrvačnost — proto pásy).\n- **2. zákon: F = m·a** — těžší těleso zrychluje hůř.\n- **3. zákon:** akce a reakce na dvou různých tělesech, nevyruší se.\n- **Tření** brzdí pohyb, ale bez něj nejde chodit ani brzdit; **hybnost p = m·v**."
+        }
+      ]
+    },
+    {
+      "temaId": "fyz-prace-energie",
+      "nazev": "Práce, výkon, energie",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Horská dráha. Řetěz tě s cvakáním táhne do první výšky — klik, klik, klik — a pak už motor nikdo nezapne. Celý zbytek jízdy, všechny výkruty a hrby, jede vozík jen z toho, co si „našetřil“ cestou nahoru. Z čeho vlastně? Z energie. A ta se řídí pravidly přísnějšími než školní řád."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Mechanická práce** se koná, když síla **posunuje** těleso:\n\n- **W = F · s**, jednotka **joule (J)** — 1 J = síla 1 N po dráze 1 m.\n\nDržíš činku na místě? Dráha s = 0, práce **W = 0** — ať to bolí, jak chce.\n\n**Výkon** říká, jak **rychle** se práce koná:\n\n- **P = W / t**, jednotka **watt (W)**.\n\nVynést batoh do 3. patra dá stejnou práci sprintem i loudáním — sprinter má ale větší výkon. U aut se pořád uvádí i „koně“ (1 k ≈ 735 W)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Účet za elektřinu se počítá v **kWh — to je jednotka práce**: spotřebič o příkonu 1000 W běžící hodinu. Rychlonabíječka na 15 W nabije mobil třikrát rychleji než stará pětiwattová — stejná práce, vyšší výkon, kratší čas. V posilovně konáš práci při zvedání činky (síla × dráha), a proč tě zpomalí kopec na kole, ti řekne Ep = m·g·h. Energie = peníze: kdo rozumí wattům, neplatí zbytečně."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 340\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Přeměna potenciální a kinetické energie na horské dráze\"><path d=\"M20,80 C90,80 110,250 200,250 C290,250 300,165 380,165 C440,165 460,250 540,250\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" /><circle cx=\"40\" cy=\"83\" r=\"9\" fill=\"var(--akcent)\" /><circle cx=\"200\" cy=\"250\" r=\"9\" fill=\"var(--akcent)\" /><circle cx=\"380\" cy=\"165\" r=\"9\" fill=\"var(--akcent)\" /><rect x=\"25\" y=\"110\" width=\"14\" height=\"60\" fill=\"var(--zlata)\" /><rect x=\"43\" y=\"162\" width=\"14\" height=\"8\" fill=\"var(--info)\" /><text x=\"32\" y=\"188\" font-size=\"12\" fill=\"currentColor\">Ep max</text><text x=\"32\" y=\"204\" font-size=\"12\" fill=\"currentColor\">Ek ~0</text><rect x=\"185\" y=\"282\" width=\"14\" height=\"8\" fill=\"var(--zlata)\" /><rect x=\"203\" y=\"230\" width=\"14\" height=\"60\" fill=\"var(--info)\" /><text x=\"192\" y=\"308\" font-size=\"12\" fill=\"currentColor\">Ep ~0</text><text x=\"192\" y=\"324\" font-size=\"12\" fill=\"currentColor\">Ek max</text><rect x=\"365\" y=\"180\" width=\"14\" height=\"34\" fill=\"var(--zlata)\" /><rect x=\"383\" y=\"180\" width=\"14\" height=\"34\" fill=\"var(--info)\" /><text x=\"372\" y=\"232\" font-size=\"12\" fill=\"currentColor\">Ep + Ek</text><text x=\"372\" y=\"248\" font-size=\"12\" fill=\"currentColor\">napůl</text><rect x=\"330\" y=\"20\" width=\"14\" height=\"14\" fill=\"var(--zlata)\" /><text x=\"350\" y=\"32\" font-size=\"13\" fill=\"currentColor\">Ep (polohová)</text><rect x=\"330\" y=\"44\" width=\"14\" height=\"14\" fill=\"var(--info)\" /><text x=\"350\" y=\"56\" font-size=\"13\" fill=\"currentColor\">Ek (pohybová)</text><text x=\"30\" y=\"50\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--uspech)\">Ep + Ek = pořád stejně (bez tření)</text></svg>",
+          "popisek": "Horská dráha jako přelévání energie: nahoře maximum polohové energie Ep (zlatý sloupec), v údolí maximum pohybové Ek (modrý sloupec), na menším kopci směs obou. Součet zůstává stejný — jen ho pomalu ukusuje tření."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-fyz-prace-energie-1",
+            "temaId": "fyz-prace-energie",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Zvedneš činku tíhy 200 N do výšky 1,5 m. Jakou mechanickou práci vykonáš?",
+            "moznosti": ["300 J", "133 J", "201,5 J", "300 W"],
+            "spravna": 0,
+            "vysvetleni": "W = F · s = 200 N · 1,5 m = 300 J. Práce je vždy součin síly a dráhy — ne podíl ani součet. A jednotka je joule; watt měří výkon."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Energie** = schopnost konat práci (také v joulech). Mechanická má dvě podoby:\n\n- **Kinetická: Ek = ½ · m · v²** — energie pohybu. Rychlost je na druhou: 2× rychlejší auto = **4×** větší energie nárazu.\n- **Potenciální: Ep = m · g · h** — energie polohy. Vytažený vozík horské dráhy, voda v přehradě, činka nad hlavou.\n\n**Zákon zachování energie:** energie nevzniká ani nezaniká, jen se **přeměňuje**. Nahoře Ep, dole Ek — a součet pořád stejný. Ve skutečnosti si tření vždy kousek vezme (změní ho v teplo), proto vozík bez motoru na původní výšku už nevyjede.\n\n**Účinnost η = W užitečná / W dodaná** říká, kolik energie stroj skutečně využije. Spalovací motor ~35 %, elektromotor přes 90 %. Vždy **méně než 100 %** — perpetuum mobile neexistuje."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Projdi si jízdu horské dráhy krok za krokem a sleduj, kam se energie přelévá.",
+            "kroky": [
+              { "nazev": "Výtah nahoru", "popis": "Motor koná práci — táhne vozík řetězem vzhůru. Vykonaná práce se ukládá jako potenciální energie Ep = m·g·h." },
+              { "nazev": "Vrchol", "popis": "Nejvýš = Ep maximální, rychlost skoro nulová (Ek ~ 0). Vozík má „plnou nádrž“ energie polohy." },
+              { "nazev": "Sjezd", "popis": "Ep se mění na Ek: výška ubývá, rychlost roste. Čím níž, tím rychleji." },
+              { "nazev": "Údolí", "popis": "Nejníž = Ek maximální, vozík je nejrychlejší za celou jízdu. Ep je skoro nula." },
+              { "nazev": "Výjezd na další hrb", "popis": "Ek se mění zpátky na Ep: rychlost klesá, výška roste. Další hrb musí být nižší — tření si část energie vzalo." },
+              { "nazev": "Dojezd a brzdy", "popis": "Brzdy přemění zbylou Ek na teplo. Energie nezmizela — jen skončila jako ohřáté brzdové destičky." }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-fyz-prace-energie-2",
+            "temaId": "fyz-prace-energie",
+            "typ": "doplneni",
+            "obtiznost": 4,
+            "zadani": "Fotbalový míč o hmotnosti 0,4 kg letí rychlostí 20 m/s. Jaká je jeho kinetická energie? (Ek = ½ · m · v², napiš i jednotku)",
+            "spravneOdpovedi": ["80 J", "80J", "80"],
+            "vysvetleni": "Ek = ½ · 0,4 kg · (20 m/s)² = 0,5 · 0,4 · 400 = 80 J. Nezapomeň rychlost NEJDŘÍV umocnit — nejčastější chyba je násobit jen dvacítkou."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Výtah vytáhne kabinu o hmotnosti 400 kg do výšky 10 m za 20 sekund (g = 10 m/s²). a) Jakou vykoná práci? b) Jaký má výkon? c) Motor přitom odebírá ze sítě příkon 2500 W — jaká je jeho účinnost?",
+          "reseni": "**a) Práce** (zvednutí = dodání potenciální energie):\nW = m · g · h = 400 kg · 10 m/s² · 10 m = **40 000 J = 40 kJ**\n\n**b) Výkon:**\nP = W : t = 40 000 J : 20 s = **2000 W = 2 kW**\n\n**c) Účinnost** (užitečný výkon : dodaný příkon):\nη = 2000 W : 2500 W = 0,8 = **80 %**\n\nZbylých 500 W se ztrácí třením a v motoru jako teplo. Účinnost přes 100 % vyjít nemůže — to by stroj energii vyráběl z ničeho."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Mechanická práce", "zadni": "W = F · s — síla posunuje těleso po dráze. Bez posunutí není práce." },
+            { "predni": "Joule (J)", "zadni": "Jednotka práce i energie: 1 J = 1 N po dráze 1 m." },
+            { "predni": "Výkon", "zadni": "P = W / t — jak rychle se práce koná. Jednotka watt (W)." },
+            { "predni": "Kinetická energie", "zadni": "Ek = ½ · m · v² — energie pohybu; 2× rychlost = 4× energie." },
+            { "predni": "Potenciální energie", "zadni": "Ep = m · g · h — energie polohy v tíhovém poli." },
+            { "predni": "Zákon zachování energie", "zadni": "Energie nevzniká ani nezaniká, jen se přeměňuje (Ep ↔ Ek, tření → teplo)." },
+            { "predni": "Účinnost η", "zadni": "η = W užitečná / W dodaná; vždy pod 100 % — část energie vždy uteče jako teplo." },
+            { "predni": "kWh na účtu za elektřinu", "zadni": "Jednotka PRÁCE: spotřebič s příkonem 1000 W běžící 1 hodinu = 1 kWh = 3,6 MJ." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Práce **W = F·s** (joule) — jen když se těleso posune.\n- Výkon **P = W/t** (watt) — tatáž práce za kratší čas = větší výkon.\n- **Ek = ½·m·v²**, **Ep = m·g·h** — energie pohybu a polohy.\n- **Zákon zachování:** energie se jen přeměňuje, součet zůstává.\n- **Účinnost** = užitečná : dodaná, vždy < 100 %."
+        }
+      ]
+    },
+    {
+      "temaId": "fyz-kapaliny",
+      "nazev": "Mechanika kapalin",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Aquapark. Kámoš hodí na dno hlubokého bazénu minci: „Kdo ji vyloví?“ Naber vzduch, potop se — a v půlce cesty ti někdo jakoby zmáčkne uši. Nikdo tam není. To na tebe tlačí voda. A čím hloubš, tím víc. Kdo za to může a proč loď ze železa neklesne, i když železo ano? To je celá dnešní lekce."
+        },
+        {
+          "typ": "text",
+          "obsah": "Síla v kapalinách nepůsobí v bodě, ale na **ploše** — proto **tlak**:\n\n- **p = F / S**, jednotka **pascal (Pa)**.\n\nStejná síla na menší ploše = větší tlak: ostrý nůž řeže, sněžnice se nebořejí (velká plocha = malý tlak).\n\n**Pascalův zákon:** tlak vyvolaný vnější silou se v kapalině šíří **do všech směrů stejně**. Na tom stojí **hydraulika**: tlak z malého pístu se přenese na velký píst a síla se zvětší v poměru obsahů:\n\n- **F₂ = F₁ · S₂ / S₁**\n\nTak zvedák v servisu zvedne auto silou jedné ruky a tak fungují i brzdy — sešlápnutí pedálu se kapalinou rozvede ke všem kolům."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Brzdy na kole i v autě jsou hydraulické — bublina vzduchu v hadičce znamená „měkkou páku“ a servis (vzduch jde stlačit, kapalina ne). V bazénu víš, proč tě u dna bolí uši, a při šnorchlování, proč nejde dýchat trubicí z dvoumetrové hloubky. Podpatek ničí podlahu víc než slon tlapou — malá plocha, velký tlak. A nafukovací lehátko tě unese jen proto, že s ním máš průměrnou hustotu menší než voda."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Tři případy chování tělesa v kapalině: plove, vznáší se, klesá; na vznášejícím se tělese vyznačena vztlaková a tíhová síla\"><defs><marker id=\"fy5-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs><rect x=\"20\" y=\"80\" width=\"520\" height=\"230\" fill=\"var(--info)\" fill-opacity=\"0.15\" stroke=\"var(--info)\" stroke-width=\"2\" /><line x1=\"20\" y1=\"80\" x2=\"540\" y2=\"80\" stroke=\"var(--info)\" stroke-width=\"3\" /><text x=\"455\" y=\"70\" font-size=\"13\" fill=\"var(--info)\">hladina</text><rect x=\"70\" y=\"55\" width=\"80\" height=\"50\" rx=\"6\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"3\" /><text x=\"110\" y=\"135\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--uspech)\">plove</text><text x=\"110\" y=\"155\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">ρt &lt; ρk</text><circle cx=\"280\" cy=\"190\" r=\"34\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"3\" /><line x1=\"280\" y1=\"156\" x2=\"280\" y2=\"96\" stroke=\"var(--uspech)\" stroke-width=\"4\" marker-end=\"url(#fy5-sipka)\" /><text x=\"290\" y=\"105\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--uspech)\">Fvz</text><line x1=\"280\" y1=\"224\" x2=\"280\" y2=\"284\" stroke=\"var(--chyba)\" stroke-width=\"4\" marker-end=\"url(#fy5-sipka)\" /><text x=\"290\" y=\"278\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--chyba)\">FG</text><text x=\"280\" y=\"250\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--zlata)\">vznáší se</text><text x=\"280\" y=\"268\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">ρt = ρk (Fvz = FG)</text><rect x=\"430\" y=\"250\" width=\"70\" height=\"50\" rx=\"6\" fill=\"none\" stroke=\"var(--chyba)\" stroke-width=\"3\" /><text x=\"465\" y=\"235\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--chyba)\">klesá</text><text x=\"465\" y=\"218\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">ρt &gt; ρk</text><text x=\"30\" y=\"35\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">Archimédes: Fvz = V · ρk · g (V = objem ponořené části)</text></svg>",
+          "popisek": "Souboj vztlakové síly Fvz (nahoru) a tíhy FG (dolů) rozhoduje o plování: řidší těleso plove, stejně husté se vznáší (síly v rovnováze), hustší klesá ke dnu."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-fyz-kapaliny-1",
+            "temaId": "fyz-kapaliny",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Stejnou silou zatlačíš na plochu poloviční velikosti. Jak se změní tlak?",
+            "moznosti": ["Bude dvojnásobný", "Bude poloviční", "Nezmění se", "Klesne na čtvrtinu"],
+            "spravna": 0,
+            "vysvetleni": "p = F/S — plocha je ve jmenovateli, takže poloviční plocha znamená dvojnásobný tlak. Přesně proto se ostrý nůž (malé S) zařízne a tupý ne."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Kapalina tlačí i **vlastní tíhou** — to je **hydrostatický tlak**:\n\n- **p = h · ρ · g** (h = hloubka, ρ = hustota kapaliny)\n\nRoste s hloubkou, **nezávisí na tvaru ani objemu nádoby**. V 10 m hloubky je to už 100 kPa — celá atmosféra navíc. Proto bolí uši a hráze jsou dole nejtlustší.\n\nNa ponořené těleso působí vzhůru **vztlaková síla**. **Archimédův zákon:**\n\n- **Fvz = V · ρk · g** — rovná se tíze kapaliny, kterou těleso vytlačí (V = objem **ponořené části**).\n\nO **plování** rozhoduje porovnání hustot: **ρt < ρk** plove, **ρt = ρk** vznáší se, **ρt > ρk** klesá. Ocelová loď plove, protože dutý trup jí srazí **průměrnou** hustotu pod hustotu vody; ponorka mění hloubku napouštěním nádrží. Led (ρ ≈ 900 kg/m³) plove s 90 % objemu **pod** hladinou."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "Dřevěný špalek",
+                "vlastnosti": {
+                  "Hustota": "asi 600 kg/m³",
+                  "Porovnání s vodou (1000 kg/m³)": "menší hustota než voda",
+                  "Chování ve vodě": "plove na hladině (část nad vodou)",
+                  "Příklad ze života": "vor, poleno v rybníce, paddleboard"
+                }
+              },
+              {
+                "nazev": "Ryba",
+                "vlastnosti": {
+                  "Hustota": "asi 1000 kg/m³ (ladí ji plynovým měchýřem)",
+                  "Porovnání s vodou (1000 kg/m³)": "stejná hustota jako voda",
+                  "Chování ve vodě": "vznáší se v libovolné hloubce",
+                  "Příklad ze života": "kapr u dna, potápěč s vyváženou zátěží"
+                }
+              },
+              {
+                "nazev": "Ocelová matka",
+                "vlastnosti": {
+                  "Hustota": "asi 7800 kg/m³",
+                  "Porovnání s vodou (1000 kg/m³)": "mnohem větší hustota než voda",
+                  "Chování ve vodě": "klesá ke dnu",
+                  "Příklad ze života": "klíče v bazénu, kotva — ale dutá LOĎ z oceli plove!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-fyz-kapaliny-2",
+            "temaId": "fyz-kapaliny",
+            "typ": "doplneni",
+            "obtiznost": 3,
+            "zadani": "Potopíš se v bazénu do hloubky 2 m (ρ = 1000 kg/m³, g = 10 m/s²). Jaký je tam hydrostatický tlak? (napiš i jednotku)",
+            "spravneOdpovedi": ["20 kPa", "20kPa", "20 000 Pa", "20000 Pa", "20000Pa", "20000"],
+            "vysvetleni": "p = h · ρ · g = 2 m · 1000 kg/m³ · 10 m/s² = 20 000 Pa = 20 kPa. Už dva metry vody na tebe tlačí pětinou atmosférického tlaku — proto ten tlak v uších."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Z bazénu lovíš kámen: má objem 0,5 litru (0,0005 m³) a hmotnost 1,3 kg. Jak velká vztlaková síla na něj pod vodou působí a jakou silou ho musíš zvedat? (ρ vody = 1000 kg/m³, g = 10 m/s²)",
+          "reseni": "**1. Tíha kamene:**\nFG = m · g = 1,3 kg · 10 m/s² = **13 N**\n\n**2. Vztlaková síla** (Archimédův zákon, kámen je celý ponořený):\nFvz = V · ρk · g = 0,0005 m³ · 1000 kg/m³ · 10 m/s² = **5 N**\n\n**3. Síla potřebná ke zvedání pod vodou:**\nF = FG − Fvz = 13 N − 5 N = **8 N**\n\nPod vodou se kámen zvedá, jako by „vážil“ jen 0,8 kg — voda ti pomáhá silou 5 N. Protože FG > Fvz (hustota kamene 1,3 kg : 0,0005 m³ = 2600 kg/m³ > 1000 kg/m³), kámen bez tvé pomoci klesá ke dnu."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "Tlak", "zadni": "p = F / S, jednotka pascal (Pa). Menší plocha = větší tlak při stejné síle." },
+            { "predni": "Pascalův zákon", "zadni": "Tlak vyvolaný vnější silou se v kapalině šíří do všech směrů stejně." },
+            { "predni": "Hydraulické zařízení", "zadni": "F₂ = F₁ · S₂/S₁ — malou silou na malém pístu velká síla na velkém (zvedák, brzdy, lis)." },
+            { "predni": "Hydrostatický tlak", "zadni": "p = h · ρ · g — roste s hloubkou a hustotou; na tvaru nádoby nezávisí." },
+            { "predni": "Archimédův zákon", "zadni": "Vztlaková síla = tíha vytlačené kapaliny: Fvz = V · ρk · g (V = ponořená část)." },
+            { "predni": "Kdy těleso plove?", "zadni": "ρ tělesa < ρ kapaliny → plove; ρt = ρk → vznáší se; ρt > ρk → klesá." },
+            { "predni": "Proč plove ocelová loď?", "zadni": "Dutý trup snižuje PRŮMĚRNOU hustotu lodi pod hustotu vody." },
+            { "predni": "Plovoucí led", "zadni": "ρ ledu ≈ 900 kg/m³ → asi 90 % objemu kry je POD hladinou." }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Tlak p = F/S** (pascal) — sílu rozkládáme na plochu.\n- **Pascalův zákon** = tlak se v kapalině šíří všemi směry stejně → hydraulika: **F₂ = F₁·S₂/S₁**.\n- **Hydrostatický tlak p = h·ρ·g** roste s hloubkou, na nádobě nezávisí.\n- **Archimédés: Fvz = V·ρk·g** — tíha vytlačené kapaliny.\n- Plování = souboj hustot: řidší plove, stejné se vznáší, hustší klesá."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,493 @@
+{
+  "predmetId": "obcanska-nauka",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "obn-clovek-ve-spolecnosti",
+      "nazev": "Člověk ve společnosti",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "První den na nové škole. Nikoho neznáš — a přesto do týdne víš, kam si sednout, komu se ozvat a co se tu „prostě nedělá“. Nikdo ti ta pravidla nediktoval, žádný manuál jsi nedostal/a. A stejně je znáš. Jak se to stalo?"
+        },
+        {
+          "typ": "text",
+          "obsah": "Odpověď zní **socializace** — celoživotní proces, při kterém si osvojujeme jazyk, normy a hodnoty společnosti.\n\n- **Primární socializace** probíhá v raném dětství, hlavním činitelem je **rodina**.\n- **Sekundární socializace** běží celý další život — působí v ní **škola, vrstevníci, média a sociální sítě**.\n\nVe společnosti hraje každý několik **sociálních rolí** najednou: student, syn/dcera, kamarád, brigádník. Když se očekávání dvou rolí střetnou (kapitán týmu má napomenout kamaráda), vzniká **konflikt rolí**.\n\nŽijeme ve **skupinách**: **primární** jsou malé a důvěrné (rodina, nejbližší kamarádi), **sekundární** velké a neosobní (velká firma, fanoušci na stadionu). **Referenční skupina** je ta, ke které nepatříme, ale chceme se jí podobat — třeba oblíbení influenceři."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Nastoupíš na první brigádu — a přesně tohle tě čeká: nová sekundární socializace (jak se tu zdraví, kdy je pauza, co šéf nesnáší), nová role brigádníka, která se může poprat s rolí kamaráda (kolega flákač je tvůj spolužák — krýt ho, nebo ne?). A když si všimneš, že napodobuješ styl lidí, které sleduješ na sítích, víš, že na tebe působí referenční skupina. Kdo těm mechanismům rozumí, nenechá se jimi ovládat."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 420' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Činitelé socializace a fungování norem'><defs><marker id='sip1' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor' /></marker></defs><circle cx='320' cy='120' r='36' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='320' y='126' text-anchor='middle' font-size='16' font-weight='bold' fill='currentColor'>JÁ</text><rect x='40' y='30' width='150' height='40' rx='8' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='115' y='55' text-anchor='middle' font-size='14' fill='currentColor'>rodina</text><text x='115' y='86' text-anchor='middle' font-size='11' fill='var(--zlata)'>primární socializace</text><rect x='450' y='30' width='150' height='40' rx='8' fill='none' stroke='currentColor' stroke-width='1.5' /><text x='525' y='55' text-anchor='middle' font-size='14' fill='currentColor'>škola</text><rect x='40' y='150' width='150' height='40' rx='8' fill='none' stroke='currentColor' stroke-width='1.5' /><text x='115' y='175' text-anchor='middle' font-size='14' fill='currentColor'>vrstevníci</text><rect x='450' y='150' width='150' height='40' rx='8' fill='none' stroke='currentColor' stroke-width='1.5' /><text x='525' y='175' text-anchor='middle' font-size='14' fill='currentColor'>média a sítě</text><text x='525' y='206' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.7'>sekundární socializace</text><line x1='190' y1='58' x2='282' y2='104' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip1)' /><line x1='450' y1='58' x2='358' y2='104' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip1)' /><line x1='190' y1='162' x2='284' y2='134' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip1)' /><line x1='450' y1='162' x2='356' y2='134' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip1)' /><rect x='240' y='250' width='160' height='42' rx='8' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='320' y='276' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>sociální norma</text><line x1='320' y1='156' x2='320' y2='244' stroke='currentColor' stroke-width='1.5' stroke-dasharray='4 3' marker-end='url(#sip1)' /><text x='330' y='215' font-size='11' fill='currentColor' opacity='0.7'>učím se je</text><line x1='240' y1='285' x2='185' y2='330' stroke='var(--uspech)' stroke-width='1.5' marker-end='url(#sip1)' /><rect x='40' y='335' width='250' height='60' rx='8' fill='var(--uspech)' fill-opacity='0.12' stroke='var(--uspech)' stroke-width='1.5' /><text x='165' y='360' text-anchor='middle' font-size='12' fill='currentColor'>dodržím → pozitivní sankce</text><text x='165' y='380' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>pochvala, uznání</text><line x1='400' y1='285' x2='455' y2='330' stroke='var(--chyba)' stroke-width='1.5' marker-end='url(#sip1)' /><rect x='350' y='335' width='250' height='60' rx='8' fill='var(--chyba)' fill-opacity='0.12' stroke='var(--chyba)' stroke-width='1.5' /><text x='475' y='360' text-anchor='middle' font-size='12' fill='currentColor'>poruším → negativní sankce</text><text x='475' y='380' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>posměch, pokuta, trest</text></svg>",
+          "popisek": "Socializace: na jedince působí rodina (primární) a škola, vrstevníci i média (sekundární). Učí ho sociálním normám — jejich dodržení společnost odměňuje pozitivními sankcemi, porušení trestá negativními."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obn-clovek-ve-spolecnosti-1",
+            "temaId": "obn-clovek-ve-spolecnosti",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Socializace končí dosažením dospělosti.",
+            "spravna": false,
+            "vysvetleni": "Socializace je celoživotní — každé nové prostředí (nová škola, brigáda, zaměstnání) znamená učit se nová pravidla a role. Primární socializace sice skončila už v raném dětství, socializace jako taková ale pokračuje celý život."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Soužití řídí **sociální normy** — pravidla očekávaného chování:\n\n- **právní** — vydává a vymáhá je stát (pokuta, trest),\n- **morální** — hlídá je svědomí a mínění okolí,\n- **zvyky a obyčeje** — ustálené způsoby chování (vánoční cukroví),\n- **náboženské** — plynou z víry.\n\nDodržení norem přináší **pozitivní sankce** (pochvalu, uznání), porušení **negativní sankce** (posměch, pokutu). Výraznější odchylka od norem se nazývá **deviace**.\n\nSkupina umí vyvinout obrovský tlak: **konformita** je přizpůsobení se většině i proti vlastnímu názoru. **Aschův experiment** (50. léta 20. století) ukázal, že velká část lidí zopakuje zjevně chybnou odpověď většiny, jen aby nevybočila. Konformita drží skupinu pohromadě — ale bez vlastního úsudku je nebezpečná, třeba u riskantních výzev na sítích."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď pravidla podle druhu sociální normy.",
+            "kategorie": [
+              { "id": "pravni", "nazev": "právní norma" },
+              { "id": "moralni", "nazev": "morální norma" },
+              { "id": "zvyk", "nazev": "zvyk (obyčej)" }
+            ],
+            "polozky": [
+              { "text": "zákaz jízdy na červenou", "kategorieId": "pravni" },
+              { "text": "povinná školní docházka", "kategorieId": "pravni" },
+              { "text": "uvolnit místo seniorovi v tramvaji", "kategorieId": "moralni" },
+              { "text": "nelhat kamarádům", "kategorieId": "moralni" },
+              { "text": "péct cukroví na Vánoce", "kategorieId": "zvyk" },
+              { "text": "pomlázka na Velikonoce", "kategorieId": "zvyk" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obn-clovek-ve-spolecnosti-2",
+            "temaId": "obn-clovek-ve-spolecnosti",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Spolužačka začne mluvit a oblékat se jako influencerka, kterou nikdy osobně nepotkala. Skupina okolo té influencerky je pro ni skupina…",
+            "moznosti": ["referenční", "primární", "formální", "sekundární, jejíž je členkou"],
+            "spravna": 0,
+            "vysvetleni": "Referenční skupina je vzor, se kterým se srovnáváme a jehož styl přejímáme, i když do skupiny nepatříme. Primární skupina vyžaduje blízké osobní vztahy a členkou žádné takové skupiny kolem influencerky spolužačka není."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Popiš den Aničky (16 let): ráno doma pomáhá se snídaní, dopoledne píše test, odpoledne vede jako kapitánka volejbalový trénink a večer obsluhuje na brigádě v kavárně. Urči její sociální role, rozliš primární a sekundární skupiny a najdi místo, kde hrozí konflikt rolí.",
+          "reseni": "**Role:** dcera (doma), studentka (test), kapitánka týmu (trénink), brigádnice (kavárna) — čtyři role za jediný den.\n\n**Skupiny:** rodina = primární (malá, důvěrná, citová); školní třída, volejbalový oddíl a tým kavárny = sekundární (formálnější, vznikly „zvenčí“). Uvnitř třídy ale může mít Anička partu nejbližších kamarádek — malou primární skupinu uvnitř sekundární.\n\n**Konflikt rolí:** na tréninku je kapitánka — když její nejlepší kamarádka chodí pozdě, role kapitánky velí napomenout, role kamarádky krýt. Řešení konfliktu rolí je vždy kompromis mezi očekáváními: např. napomenout v soukromí, ne před týmem."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "socializace", "zadni": "celoživotní osvojování jazyka, norem a hodnot společnosti" },
+            { "predni": "primární socializace", "zadni": "rané dětství, hlavní činitel = rodina" },
+            { "predni": "sociální role", "zadni": "očekávané chování spojené s postavením (student, syn, brigádník)" },
+            { "predni": "konflikt rolí", "zadni": "očekávání dvou rolí téhož člověka se dostanou do rozporu" },
+            { "predni": "primární skupina", "zadni": "malá, důvěrná, citově významná (rodina, nejbližší kamarádi)" },
+            { "predni": "referenční skupina", "zadni": "nepatřím do ní, ale přejímám její hodnoty a styl" },
+            { "predni": "sociální norma", "zadni": "pravidlo očekávaného chování (právní, morální, zvyk, náboženská)" },
+            { "predni": "sankce", "zadni": "reakce společnosti na ne/dodržení normy — pozitivní i negativní" },
+            { "predni": "konformita", "zadni": "přizpůsobení se tlaku skupiny i proti vlastnímu názoru" },
+            { "predni": "deviace", "zadni": "výraznější odchylka od společenských norem" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Socializace** je celoživotní: primární (rodina) a sekundární (škola, vrstevníci, média).\n- Každý hraje víc **sociálních rolí** najednou; jejich střet = **konflikt rolí**.\n- Skupiny: **primární** (důvěrné) × **sekundární** (neosobní); **referenční** skupině se chceme podobat.\n- **Normy** (právní, morální, zvyky, náboženské) vymáhají **sankce** — pozitivní i negativní.\n- **Konformita** = přizpůsobení většině; bez vlastního úsudku je riskantní (Aschův experiment)."
+        }
+      ]
+    },
+    {
+      "temaId": "obn-psychologie-osobnosti",
+      "nazev": "Základy psychologie osobnosti",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Dva spolužáci, stejný test. Marek se učil šest hodin v kuse večer před testem, Ema po kouskách celý týden a pořád se zkoušela z kartiček. Marek si ráno nepamatuje skoro nic a nechápe to — vždyť „do sebe všechno nahustil“. Ema píše za jedna. Náhoda? Ne. Psychologie."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Osobnost** je souhrn vlastností, které tě dělají jedinečným: temperament, schopnosti, motivace.\n\n**Temperament** je převážně **vrozený** styl prožívání a reagování. Antická typologie zná čtyři typy:\n\n- **sangvinik** — živý, společenský, stabilní,\n- **cholerik** — výbušný, rychle se nadchne i rozčílí,\n- **flegmatik** — klidný, jen tak něco ho nerozhodí,\n- **melancholik** — citlivý, hloubavý, sklon ke smutku.\n\nModerně (Eysenck) jde o dvě dimenze: **extraverze–introverze** a **stabilita–labilita**. Žádný typ není „lepší“.\n\n**Schopnosti** se rozvíjejí z vrozených vloh; mimořádné = **nadání, talent**. Rozumové schopnosti měří **IQ** (průměr 100), porozumění emocím vlastním i cizím vyjadřuje **EQ** — emoční inteligence. Gardner navíc popsal **více druhů inteligence** (jazykovou, logickou, pohybovou, hudební…)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Znát svůj temperament znamená vědět, co s tebou dělá stres — cholerik se učí nevybouchnout při hádce v partě, melancholik nespadnout do trudomyslnosti před zkouškou. A hlavně: poznatky o učení ti ušetří hodiny. Místo šesti hodin šprtání večer před testem ti stejnou známku zajistí tři půlhodinky rozložené do týdne. To není trik na učitele — to je trik na vlastní mozek. Funguje i na autoškolu, slovíčka i na naučení nové hry."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 560 400' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Maslowova pyramida potřeb'><defs><marker id='sip2' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor' /></marker></defs><polygon points='280,40 324,110 236,110' fill='var(--zlata)' fill-opacity='0.35' stroke='currentColor' stroke-width='1.5' /><polygon points='236,110 324,110 368,180 192,180' fill='var(--akcent)' fill-opacity='0.12' stroke='currentColor' stroke-width='1.5' /><polygon points='192,180 368,180 412,250 148,250' fill='var(--akcent)' fill-opacity='0.18' stroke='currentColor' stroke-width='1.5' /><polygon points='148,250 412,250 456,320 104,320' fill='var(--akcent)' fill-opacity='0.24' stroke='currentColor' stroke-width='1.5' /><polygon points='104,320 456,320 500,390 60,390' fill='var(--akcent)' fill-opacity='0.3' stroke='currentColor' stroke-width='1.5' /><line x1='310' y1='72' x2='372' y2='60' stroke='currentColor' stroke-width='1' /><text x='378' y='64' font-size='13' font-weight='bold' fill='var(--zlata)'>seberealizace</text><text x='378' y='80' font-size='11' fill='currentColor' opacity='0.8'>rozvoj vlastních možností</text><text x='280' y='150' text-anchor='middle' font-size='13' fill='currentColor'>uznání</text><text x='280' y='220' text-anchor='middle' font-size='13' fill='currentColor'>sounáležitost a láska</text><text x='280' y='290' text-anchor='middle' font-size='13' fill='currentColor'>bezpečí</text><text x='280' y='355' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>fyziologické potřeby</text><text x='280' y='373' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>jídlo, spánek, teplo</text><line x1='530' y1='380' x2='530' y2='120' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip2)' /><text x='530' y='105' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>směr</text><text x='498' y='250' font-size='11' fill='currentColor' opacity='0.8' transform='rotate(-90 498 250)'>uspokojuji odspodu</text></svg>",
+          "popisek": "Maslowova pyramida potřeb: nejdřív musí být uspokojeny fyziologické potřeby a bezpečí (dole), teprve pak sounáležitost, uznání a na vrcholu seberealizace."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obn-psychologie-osobnosti-1",
+            "temaId": "obn-psychologie-osobnosti",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Spolužák se pro nový projekt okamžitě nadchne, ale při první překážce vybouchne a křičí. Který temperament to nejspíš je?",
+            "moznosti": ["cholerik", "flegmatik", "sangvinik", "melancholik"],
+            "spravna": 0,
+            "vysvetleni": "Rychlé nadchnutí + výbušnost = cholerik (labilní extravert). Sangvinik je také živý, ale emočně stabilní — nevybuchuje; flegmatika hned tak něco nerozhodí a melancholik reaguje spíš stažením se než výbuchem."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Motivace** uvádí jednání do pohybu. **Vnitřní** pramení z radosti z činnosti samotné, **vnější** z odměn a trestů (známky, peníze). Vnitřní je trvalejší. **Maslow** seřadil potřeby do pyramidy — hladový a nevyspalý člověk neřeší seberealizaci.\n\nA teď to nejužitečnější — **jak se efektivně učit**:\n\n- **Testing effect**: aktivní **vybavování** (zkoušení sám sebe) upevňuje paměť mnohem víc než opakované čtení. Číst pětkrát = pocit znalosti; vybavit si zpaměti = skutečná znalost.\n- **Spacing**: učení **rozložené do více dnů** poráží šprtání na jeden zátah — paměť potřebuje zapomínat a znovu si vybavovat.\n- Zvýrazňování a pasivní čtení patří k **nejméně účinným** metodám, i když hezky vypadají.\n\nZní ti to povědomě? Přesně na testing effectu a spacingu stojí QUESTOR — proto tě místo čtení pořád zkouší a otázky ti vrací s odstupem. Teď už víš, že to nedělá naschvál."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              { "a": "sangvinik", "b": "živý, společenský, stabilní" },
+              { "a": "cholerik", "b": "výbušný, rychle se rozčílí" },
+              { "a": "flegmatik", "b": "klidný, nic ho nerozhodí" },
+              { "a": "melancholik", "b": "citlivý, hloubavý" },
+              { "a": "IQ", "b": "míra rozumových schopností" },
+              { "a": "EQ", "b": "porozumění emocím" },
+              { "a": "testing effect", "b": "zkoušení se upevňuje paměť" },
+              { "a": "spacing", "b": "rozložené opakování" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obn-psychologie-osobnosti-2",
+            "temaId": "obn-psychologie-osobnosti",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Co tvrdí testing effect (efekt testování)?",
+            "moznosti": [
+              "aktivní vybavování látky posiluje paměť víc než opakované čtení",
+              "nejlepší je číst text pořád dokola",
+              "testy slouží hlavně ke známkování, ne k učení",
+              "učení funguje jen pod tlakem a stresem"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Testing effect říká, že zkoušení (vybavování z paměti) je samo o sobě silný nástroj učení — silnější než další čtení. Testy tedy nejsou jen měření znalostí, ale i jejich budování; stres s tím nesouvisí."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Šimon má za 10 dní test ze 40 pojmů z občanské nauky. Navrhni mu konkrétní plán učení postavený na testing effectu a spacingu.",
+          "reseni": "**Krok 1 — rozdělit (spacing):** 40 pojmů rozdělí na 4 dávky po 10. Dny 1–4: každý den se naučí jednu novou dávku.\n\n**Krok 2 — zkoušet, ne číst (testing effect):** z každé dávky si vyrobí kartičky (pojem → vysvětlení). Učení = zakrýt odpověď a vybavit si ji zpaměti, ne číst.\n\n**Krok 3 — vracet se:** dny 5–9 opakuje ob den VŠECHNY dosavadní dávky, ale jen zkoušením; co nevybaví, jde na hromádku „znovu zítra“ (přesně tak fungují Leitnerovy boxy v QUESTORu).\n\n**Krok 4 — den před testem:** žádný šestihodinový zátah, jen lehké přezkoušení chybujících kartiček a spát. Vyspalý mozek si vybavuje líp — to je mimochodem nejnižší patro Maslowovy pyramidy v praxi."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "temperament", "zadni": "vrozený styl prožívání a reagování; mění se jen málo" },
+            { "predni": "čtyři temperamenty", "zadni": "sangvinik, cholerik, flegmatik, melancholik" },
+            { "predni": "IQ", "zadni": "inteligenční kvocient — rozumové schopnosti vs. vrstevníci, průměr 100" },
+            { "predni": "EQ", "zadni": "emoční inteligence — rozumět citům svým i druhých" },
+            { "predni": "vnitřní motivace", "zadni": "z vlastního zájmu a radosti; trvalejší než vnější" },
+            { "predni": "Maslowova pyramida", "zadni": "fyziologické → bezpečí → sounáležitost → uznání → seberealizace" },
+            { "predni": "testing effect", "zadni": "vybavování (zkoušení se) upevňuje paměť víc než čtení" },
+            { "predni": "spacing", "zadni": "rozložené opakování poráží šprtání na jeden zátah" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Temperament** je vrozený: sangvinik, cholerik, flegmatik, melancholik (dimenze extraverze a stability).\n- **Schopnosti** rostou z vloh; IQ měří rozum, **EQ** práci s emocemi.\n- **Motivace** vnitřní (zájem) je silnější než vnější (odměna); potřeby se uspokojují odspodu **Maslowovy pyramidy**.\n- Efektivní učení = **testing effect** (zkoušej se) + **spacing** (rozlož to do dnů).\n- Zvýrazňování a opakované čtení jen vytvářejí pocit znalosti."
+        }
+      ]
+    },
+    {
+      "temaId": "obn-vztahy-komunikace",
+      "nazev": "Vztahy a komunikace",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Napíšeš kamarádce „tak jo 👍“ a ona se urazí. Naživo by úplně stejná věta s úsměvem prošla bez mrknutí. Kde se ta zpráva cestou „pokazila“? Nikde — jen jí chyběla celá jedna polovina: ta neverbální."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Komunikace** je výměna sdělení.\n\n- **Verbální** = slova, mluvená i psaná.\n- **Neverbální** = vše ostatní: **mimika** (výraz tváře), **gesta**, postoj, oční kontakt, vzdálenost — a taky **tón, hlasitost a tempo řeči** (paralingvistika). Pozor, častý chyták: tón hlasu je NEverbální, i když zní při mluvení.\n\nKdyž si slova a řeč těla odporují („v pohodě“ + zamračený obličej), věříme spíš **neverbálním signálům** — hůř se vědomě ovládají.\n\nV náročné situaci můžeš jednat třemi styly:\n\n- **pasivně** — ustoupím, i když nesouhlasím (nerespektuji sebe),\n- **agresivně** — prosadím se útokem (nerespektuji druhé),\n- **asertivně** — klidně řeknu, co potřebuji, a respektuji i druhou stranu.\n\nČtvrtá cesta je **manipulace** — prosazování se oklikou, třeba vyvoláváním pocitu viny."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Reklamace rozbitých sluchátek, domluva se šéfem na brigádě o slíbené odměně, vyjednání pozdějšího příchodu s rodiči — všude vyhrává asertivita. Technika **„poškozené gramofonové desky“**: klidně opakuješ svůj oprávněný požadavek („Rozumím, ale sluchátka jsou rozbitá a chci je reklamovat.“), dokud není vyslyšen. Žádný křik, žádné ustupování. A znalost neverbální komunikace ti řekne, proč se přes zprávy tak snadno hádáme — a kdy je lepší zavolat nebo to probrat osobně."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 320' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Spektrum stylů jednání: pasivní, asertivní, agresivní a manipulace'><line x1='60' y1='85' x2='580' y2='85' stroke='currentColor' stroke-width='1' opacity='0.4' /><rect x='60' y='60' width='150' height='50' rx='8' fill='var(--info)' fill-opacity='0.12' stroke='var(--info)' stroke-width='1.5' /><text x='135' y='90' text-anchor='middle' font-size='14' fill='currentColor'>pasivní</text><rect x='245' y='52' width='150' height='66' rx='8' fill='var(--uspech)' fill-opacity='0.15' stroke='var(--uspech)' stroke-width='3' /><text x='320' y='90' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>asertivní</text><rect x='430' y='60' width='150' height='50' rx='8' fill='var(--chyba)' fill-opacity='0.12' stroke='var(--chyba)' stroke-width='1.5' /><text x='505' y='90' text-anchor='middle' font-size='14' fill='currentColor'>agresivní</text><text x='135' y='140' text-anchor='middle' font-size='12' fill='currentColor'>respekt k sobě: NE</text><text x='135' y='158' text-anchor='middle' font-size='12' fill='currentColor'>respekt k druhým: ANO</text><text x='135' y='182' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.7'>„radši ustoupím“</text><text x='320' y='140' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--uspech)'>respekt k sobě: ANO</text><text x='320' y='158' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--uspech)'>respekt k druhým: ANO</text><text x='320' y='182' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.7'>„klidně řeknu, co potřebuji“</text><text x='505' y='140' text-anchor='middle' font-size='12' fill='currentColor'>respekt k sobě: ANO</text><text x='505' y='158' text-anchor='middle' font-size='12' fill='currentColor'>respekt k druhým: NE</text><text x='505' y='182' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.7'>„prosadím se křikem“</text><rect x='245' y='225' width='150' height='48' rx='8' fill='none' stroke='currentColor' stroke-width='1.5' stroke-dasharray='6 4' /><text x='320' y='247' text-anchor='middle' font-size='13' fill='currentColor'>manipulace</text><text x='320' y='265' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.7'>skrytý nátlak, pocit viny</text><text x='320' y='300' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.6'>prosazuje se oklikou — mimo přímé spektrum</text></svg>",
+          "popisek": "Spektrum jednání: pasivní styl nerespektuje mě, agresivní nerespektuje druhé — asertivita (uprostřed, zvýrazněně) respektuje obě strany. Manipulace stojí mimo: prosazuje se skrytě, oklikou."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obn-vztahy-komunikace-1",
+            "temaId": "obn-vztahy-komunikace",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Kamarád procedí „v pohodě“, ale mračí se a odsekává. Čemu spíš uvěříš a proč?",
+            "moznosti": [
+              "neverbálním signálům — hůř se vědomě ovládají než slova",
+              "slovům — co člověk řekne, to platí",
+              "ničemu — komunikace se posoudit nedá",
+              "slovům, protože mimika je vždy náhodná"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Když si verbální a neverbální složka odporují, spolehlivější bývá ta neverbální — mimiku a tón kontrolujeme mnohem hůř než slova. Proto poznáš, že „v pohodě“ ve skutečnosti znamená „naštvaný jsem dost“."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Konflikt** — střet zájmů či názorů — je v každém vztahu normální. Řešit ho lze únikem, ústupkem, soupeřením, **kompromisem** (každý trochu ustoupí), nebo nejlépe **spoluprací** (win–win). Pomáhá mluvit o problému, ne o člověku, a používat **já-výroky**: „mrzí mě, když…“ místo „ty vždycky…“.\n\n**Šikana** je záměrné a opakované ubližování slabšímu. Od škádlení ji odlišují **tři znaky**: úmysl ublížit + opakování + nepoměr sil. **Kyberšikana** probíhá online — výhrůžné zprávy, posměšné skupiny, šíření fotek bez souhlasu; oběť nemá kam uniknout.\n\n**Co dělat:**\n\n- neodpovídat agresorovi,\n- **uložit důkazy** (snímky obrazovky) — nikdy je nemazat,\n- obsah **nahlásit** platformě,\n- **svěřit se dospělému** — rodičům, třídnímu, výchovnému poradci,\n- anonymně a zdarma pomůže **Linka bezpečí 116 111** (nonstop).\n\nPřihlížet a mlčet znamená šikanu posilovat — svědek, který jedná, ji zastaví nejrychleji."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Šéf na brigádě ti poslal nižší odměnu, než slíbil, a spolužák si bere tvoje věci bez ptaní. Roztřiď reakce podle stylu jednání.",
+            "kategorie": [
+              { "id": "pasivni", "nazev": "pasivní" },
+              { "id": "asertivni", "nazev": "asertivní" },
+              { "id": "agresivni", "nazev": "agresivní" }
+            ],
+            "polozky": [
+              { "text": "Nic neřeknu a v duchu se durdím.", "kategorieId": "pasivni" },
+              { "text": "„Asi si víc nezasloužím,“ mávnu nad tím rukou.", "kategorieId": "pasivni" },
+              { "text": "„Rozumím, ale domluvili jsme 150 Kč/h a chci je doplatit.“", "kategorieId": "asertivni" },
+              { "text": "„Vadí mi, když si bereš moje věci bez ptaní. Příště se prosím zeptej.“", "kategorieId": "asertivni" },
+              { "text": "Zařvu, že je zloděj, a prásknu dveřmi.", "kategorieId": "agresivni" },
+              { "text": "Vezmu mu schválně taky něco, ať vidí.", "kategorieId": "agresivni" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obn-vztahy-komunikace-2",
+            "temaId": "obn-vztahy-komunikace",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Když se „legraci“ směje jen jedna strana, opakuje se a terč se nemůže bránit, může jít o šikanu.",
+            "spravna": true,
+            "vysvetleni": "Přesně tak — jsou to tři definiční znaky šikany: úmysl ublížit, opakování a nepoměr sil. Škádlení je oboustranná legrace mezi rovnocennými; jakmile se jedna strana přestane smát, o legraci už nejde."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Na brigádě ti šéf slíbil 150 Kč na hodinu. Přišla odměna — spočítaná po 120 Kč. Předveď, jak situaci vyřešíš asertivně, krok za krokem.",
+          "reseni": "**1. Připrav si fakta:** kolik hodin jsi odpracoval/a, co bylo domluveno (ideálně dohoda písemně, klidně i zpráva v mobilu — to je důkaz).\n\n**2. Mluv o problému, ne o člověku (já-výrok):** „Dostal jsem o 30 Kč/h méně, než jsme si domluvili. Chci doplatek.“ Ne: „Vy jste podvodník!“\n\n**3. Poškozená gramofonová deska:** šéf mlží („teď nemám čas“, „všichni berou 120“)? Klidně opakuj: „Rozumím, ale domluvili jsme 150 korun a chci rozdíl doplatit.“ Bez křiku, bez omluv, bez ustupování.\n\n**4. Když to nepomůže:** požádej o vyjádření písemně a obrať se na rodiče; u dohody o provedení práce se lze obrátit i na inspektorát práce.\n\n**Proč ne jinak?** Pasivní mlčení = pracoval/a jsi zadarmo. Agresivní výbuch = šéf získá záminku a ty přijdeš o brigádu i o doplatek."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "verbální komunikace", "zadni": "slova — mluvená i psaná" },
+            { "predni": "neverbální komunikace", "zadni": "mimika, gesta, postoj, oční kontakt + tón a tempo řeči" },
+            { "predni": "paralingvistika", "zadni": "tón, hlasitost, tempo — mimoslovní složka řeči" },
+            { "predni": "asertivita", "zadni": "klidné prosazení požadavku s respektem k oběma stranám" },
+            { "predni": "poškozená gramofonová deska", "zadni": "klidné opakování oprávněného požadavku" },
+            { "predni": "manipulace", "zadni": "prosazování se oklikou, např. pocitem viny" },
+            { "predni": "tři znaky šikany", "zadni": "úmysl ublížit + opakování + nepoměr sil" },
+            { "predni": "kyberšikana", "zadni": "šikana přes internet a mobily; důkazy nemazat!" },
+            { "predni": "Linka bezpečí", "zadni": "116 111 — zdarma, anonymně, nonstop" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Komunikace = **verbální** (slova) + **neverbální** (mimika, gesta, tón); při rozporu věříme neverbální.\n- Styly jednání: **pasivní** (nerespektuji sebe), **agresivní** (nerespektuji druhé), **asertivní** (respektuji oba), **manipulace** (oklika).\n- Konflikty řeš **kompromisem či spoluprací**, mluv o problému, používej **já-výroky**.\n- **Šikana** = úmysl + opakování + nepoměr sil; kyberšikana totéž online.\n- Při (kyber)šikaně: uložit důkazy, nahlásit, svěřit se — **Linka bezpečí 116 111**."
+        }
+      ]
+    },
+    {
+      "temaId": "obn-stat-demokracie",
+      "nazev": "Stát a demokracie",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "V patnácti dostaneš občanku, v osmnácti poprvé obálku s hlasovacími lístky. Jeden hlas z osmi milionů — má vůbec smysl? Jenže volby se u nás nejednou rozhodly o pár tisíc hlasů. A kdo nevolí, nechává rozhodovat ostatní — i o svých penězích, škole a budoucnosti."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Stát** je organizace společnosti na určitém území. Jeho **základní znaky**: území vymezené hranicemi, obyvatelstvo, **svrchovaná státní moc** (suverenita), právní řád a státní symboly. Společný jazyk znakem není — Švýcarsko má úřední jazyky čtyři.\n\n**Formy vlády:**\n\n- podle hlavy státu: **monarchie** (panovník, moc obvykle dědí) × **republika** (volený prezident),\n- podle rozdělení moci: **demokracie** (vláda lidu — řecky *démos* = lid, *kratos* = vláda) × režimy **autoritářské a totalitní**.\n\nDemokracie **přímá** = občané rozhodují hlasováním (referendum); **zastupitelská** = rozhodují volení zástupci. **Česká republika je demokratická parlamentní republika.**\n\nZákladním zákonem je **Ústava ČR** (ústavní zákon č. 1/1993 Sb.) — schválena 16. 12. 1992, účinná od **1. 1. 1993**, kdy vznikla samostatná ČR. Spolu s Listinou základních práv a svobod tvoří **ústavní pořádek**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** V 18 jdeš poprvé volit — a je fajn vědět, co se s tvým hlasem stane a proč kandidáti do Senátu bývají starší (musí jim být 40). Až uvidíš titulek „Ústavní soud zrušil zákon“, budeš vědět, že to není chaos, ale pojistka: brzdy a protiváhy hlídají, aby ani vítěz voleb nemohl všechno. A až ti někdo na síti napíše, že „jeden hlas nic nezmění“, můžeš mu spočítat, kolik mandátů se rozdělovalo rozdílem menším než jedna třída studentů."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 680 410' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Dělba moci v ČR podle Ústavy'><defs><marker id='sip4' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor' /></marker></defs><rect x='230' y='15' width='220' height='52' rx='8' fill='var(--zlata)' fill-opacity='0.15' stroke='var(--zlata)' stroke-width='2' /><text x='340' y='38' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Ústava ČR</text><text x='340' y='57' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>č. 1/1993 Sb., účinná od 1. 1. 1993</text><line x1='260' y1='67' x2='130' y2='105' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip4)' /><line x1='340' y1='67' x2='340' y2='105' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip4)' /><line x1='420' y1='67' x2='550' y2='105' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip4)' /><rect x='25' y='110' width='200' height='160' rx='10' fill='var(--akcent)' fill-opacity='0.1' stroke='var(--akcent)' stroke-width='2.5' /><text x='125' y='138' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>ZÁKONODÁRNÁ</text><text x='125' y='165' text-anchor='middle' font-size='12' fill='currentColor'>Parlament ČR</text><text x='125' y='188' text-anchor='middle' font-size='12' fill='currentColor'>Sněmovna: 200 poslanců</text><text x='125' y='208' text-anchor='middle' font-size='12' fill='currentColor'>Senát: 81 senátorů</text><text x='125' y='240' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--akcent)'>přijímá zákony</text><rect x='240' y='110' width='200' height='160' rx='10' fill='var(--zlata)' fill-opacity='0.1' stroke='var(--zlata)' stroke-width='2.5' /><text x='340' y='138' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>VÝKONNÁ</text><text x='340' y='165' text-anchor='middle' font-size='12' fill='currentColor'>prezident republiky</text><text x='340' y='188' text-anchor='middle' font-size='12' fill='currentColor'>(přímá volba, 5 let)</text><text x='340' y='208' text-anchor='middle' font-size='12' fill='currentColor'>vláda s premiérem</text><text x='340' y='240' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--zlata)'>řídí stát, provádí zákony</text><rect x='455' y='110' width='200' height='160' rx='10' fill='var(--info)' fill-opacity='0.1' stroke='var(--info)' stroke-width='2.5' /><text x='555' y='138' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>SOUDNÍ</text><text x='555' y='165' text-anchor='middle' font-size='12' fill='currentColor'>nezávislé soudy</text><text x='555' y='188' text-anchor='middle' font-size='12' fill='currentColor'>Ústavní soud</text><text x='555' y='208' text-anchor='middle' font-size='12' fill='currentColor'>(ruší protiústavní zákony)</text><text x='555' y='240' text-anchor='middle' font-size='12' font-weight='bold' fill='var(--info)'>chrání právo</text><line x1='125' y1='285' x2='125' y2='320' stroke='currentColor' stroke-width='1.5' /><line x1='555' y1='285' x2='555' y2='320' stroke='currentColor' stroke-width='1.5' /><line x1='125' y1='320' x2='555' y2='320' stroke='currentColor' stroke-width='1.5' /><line x1='340' y1='320' x2='340' y2='290' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip4)' /><line x1='230' y1='190' x2='240' y2='190' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip4)' /><line x1='450' y1='170' x2='440' y2='170' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip4)' /><text x='340' y='348' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>brzdy a protiváhy</text><text x='340' y='368' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>složky moci se navzájem kontrolují — žádná nesmí získat převahu</text><text x='340' y='388' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>(vláda odpovídá Sněmovně, Ústavní soud hlídá zákony)</text></svg>",
+          "popisek": "Dělba moci podle Ústavy ČR: zákonodárnou moc má Parlament (Sněmovna 200, Senát 81), výkonnou prezident s vládou, soudní nezávislé soudy v čele s Ústavním soudem. Vzájemná kontrola = systém brzd a protivah."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obn-stat-demokracie-1",
+            "temaId": "obn-stat-demokracie",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Kdo v České republice přijímá zákony?",
+            "moznosti": ["Parlament ČR", "vláda", "prezident republiky", "Ústavní soud"],
+            "spravna": 0,
+            "vysvetleni": "Zákony přijímá moc zákonodárná — Parlament (Sněmovna a Senát). Vláda zákony navrhuje a provádí, prezident je podepisuje (a může vetovat) a Ústavní soud je může zrušit — ale žádný z nich je nepřijímá."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Dělba moci** — Ústava rozděluje moc na tři složky, které se navzájem kontrolují (**brzdy a protiváhy**):\n\n- **zákonodárná**: Parlament ČR — **Poslanecká sněmovna** (200 poslanců, 4 roky, poměrný systém) a **Senát** (81 senátorů, 6 let, každé 2 roky se obměňuje třetina, většinová volba),\n- **výkonná**: **prezident** (od 2013 přímá volba, 5 let, max. dvakrát za sebou) a **vláda** s premiérem — odpovídá Sněmovně,\n- **soudní**: nezávislé soudy; **Ústavní soud** může zrušit zákon odporující ústavnímu pořádku.\n\n**Volby** — volební právo v ČR je **všeobecné, rovné, přímé** a hlasování **tajné**.\n\n- **Aktivní** právo (volit): od **18 let**.\n- **Pasivní** právo (být volen): Sněmovna od **21**, Senát a prezident od **40 let**.\n\nÚčast je právo, ne povinnost — žádná pokuta za neúčast nehrozí. Jen platí: kdo nevolí, tomu vyberou ostatní."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Projdi si krok za krokem, jak v ČR vzniká zákon.",
+            "kroky": [
+              { "nazev": "Návrh zákona", "popis": "Podává ho poslanec, skupina poslanců, Senát, vláda nebo kraj. Nejčastěji navrhuje vláda." },
+              { "nazev": "Poslanecká sněmovna", "popis": "Projedná návrh ve třech čteních, může ho měnit pozměňovacími návrhy, a hlasuje." },
+              { "nazev": "Senát", "popis": "Schválí, zamítne, nebo vrátí s úpravami. Zamítnutí či úpravy může Sněmovna přehlasovat." },
+              { "nazev": "Prezident", "popis": "Zákon podepíše, nebo vrátí (veto). Veto může Sněmovna přehlasovat nadpoloviční většinou všech poslanců (101 hlasů)." },
+              { "nazev": "Sbírka zákonů", "popis": "Vyhlášením ve Sbírce zákonů se zákon stává platným — a od stanoveného data účinným pro všechny." }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obn-stat-demokracie-2",
+            "temaId": "obn-stat-demokracie",
+            "typ": "doplneni",
+            "obtiznost": 2,
+            "zadani": "Aktivní volební právo (právo volit) vzniká v ČR dosažením věku __________ let.",
+            "spravneOdpovedi": ["18", "osmnácti", "osmnacti", "osmnáct", "osmnact"],
+            "vysvetleni": "Volit můžeš od 18 let ve všech volbách. Nezaměň s pasivním právem (být volen) — tam platí 21 let pro Sněmovnu a 40 pro Senát i prezidenta."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Je ti 18 a poprvé jdeš volit do Poslanecké sněmovny. Popiš, jak volby prakticky proběhnou a co se stane s tvým hlasem.",
+          "reseni": "**1. Před volbami** ti přijdou hlasovací lístky do schránky (v místě trvalého bydliště; jinde potřebuješ voličský průkaz).\n\n**2. Ve volební místnosti** se prokážeš občankou. Za **plentou** (tajnost volby!) vložíš do úřední obálky lístek JEDNÉ strany či hnutí — a můžeš až **4 kandidátům** dát preferenční kroužek.\n\n**3. Sčítání — poměrný systém:** mandáty se mezi strany rozdělí **podle podílu hlasů**; do Sněmovny postoupí strany, které překročí uzavírací klauzuli **5 %**. Kroužky mohou posunout konkrétní kandidáty dopředu.\n\n**4. Výsledek:** 200 poslanců na 4 roky. Nová Sněmovna pak vyslovuje důvěru vládě — tvůj hlas tedy nakonec rozhoduje i o tom, kdo bude vládnout.\n\n(Pro srovnání: do **Senátu** se volí **většinově** — vyhrává konkrétní člověk, ne strana, případně ve dvou kolech.)"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "znaky státu", "zadni": "území, obyvatelstvo, svrchovaná moc, právní řád, symboly" },
+            { "predni": "demokracie", "zadni": "vláda lidu (démos + kratos); přímá × zastupitelská" },
+            { "predni": "forma vlády ČR", "zadni": "demokratická parlamentní republika" },
+            { "predni": "Ústava ČR", "zadni": "č. 1/1993 Sb., účinná od 1. 1. 1993" },
+            { "predni": "moc zákonodárná", "zadni": "Parlament: Sněmovna 200 (4 roky) + Senát 81 (6 let)" },
+            { "predni": "moc výkonná", "zadni": "prezident (přímo, 5 let) + vláda odpovědná Sněmovně" },
+            { "predni": "moc soudní", "zadni": "nezávislé soudy; Ústavní soud ruší protiústavní zákony" },
+            { "predni": "aktivní volební právo", "zadni": "právo volit — od 18 let" },
+            { "predni": "pasivní volební právo", "zadni": "být volen: Sněmovna 21, Senát a prezident 40 let" },
+            { "predni": "zásady voleb", "zadni": "všeobecné, rovné, přímé, tajné hlasování" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Znaky státu: **území, obyvatelstvo, svrchovaná moc**, právní řád (jazyk NE).\n- ČR = **demokratická parlamentní republika**; Ústava účinná od **1. 1. 1993**.\n- **Dělba moci**: zákonodárná (Parlament 200+81), výkonná (prezident + vláda), soudní (Ústavní soud) — brzdy a protiváhy.\n- Volby: **všeobecné, rovné, přímé, tajné**; volit od **18**, kandidovat od **21/40**.\n- Sněmovna se volí **poměrně**, Senát **většinově**; účast je právo, ne povinnost."
+        }
+      ]
+    },
+    {
+      "temaId": "obn-lidska-prava",
+      "nazev": "Lidská práva",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Inzerát na brigádu k pokladně: „Přijmeme pouze chlapce, dívky ať se nehlásí.“ Kamarádka pokrčí rameny: „Asi můžou, je to jejich obchod, ne?“ Nemůžou. A stojí za to vědět proč — jednou se to může hodit právě tobě."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Lidská práva** náleží každému člověku bez rozdílu. Jsou:\n\n- **vrozená** — máme je od narození,\n- **nezadatelná** — nelze se jich vzdát,\n- **nezcizitelná** — nikdo je nemůže odebrat,\n- **nepromlčitelná** — nezanikají časem.\n\nNemusíš si je ničím zasloužit. Světově je zakotvila **Všeobecná deklarace lidských práv** (OSN, 1948) — reakce na hrůzy 2. světové války. V ČR je zaručuje **Listina základních práv a svobod** (č. 2/1993 Sb.), součást **ústavního pořádku** — žádný zákon jí nesmí odporovat.\n\nListina práva řadí do skupin: **základní lidská práva** (život, důstojnost, svoboda projevu a vyznání, vlastnictví), **politická práva** (volební, petiční, shromažďovací), **práva národnostních menšin**, **hospodářská, sociální a kulturní práva** (vzdělání, práce, zdravotní péče) a **právo na soudní ochranu**. Platí: svoboda jednoho končí tam, kde začíná svoboda druhého — svoboda projevu nekryje pomluvy ani šíření nenávisti."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Diskriminační inzerát na brigádu, horší odměna „protože jsi mladá“, spolužák ponižovaný kvůli původu, fotka zveřejněná bez tvého souhlasu — to všechno jsou situace, kde ti znalost práv dává reálnou obranu. Víš, že jako člověk do 18 let máš navíc zvláštní ochranu Úmluvy o právech dítěte, a víš, kam se obrátit: na školu, na soud, na ombudsmana. Kdo svá práva nezná, tomu jsou k ničemu."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 660 380' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Listina základních práv a svobod: skupiny práv a jejich ochrana'><defs><marker id='sip5' markerWidth='8' markerHeight='8' refX='6' refY='3' orient='auto'><path d='M0,0 L6,3 L0,6 Z' fill='currentColor' /></marker></defs><rect x='150' y='15' width='360' height='56' rx='10' fill='var(--zlata)' fill-opacity='0.15' stroke='var(--zlata)' stroke-width='2.5' /><text x='330' y='40' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>Listina základních práv a svobod</text><text x='330' y='60' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>č. 2/1993 Sb. — součást ústavního pořádku</text><line x1='210' y1='71' x2='95' y2='115' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip5)' /><line x1='290' y1='71' x2='255' y2='115' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip5)' /><line x1='370' y1='71' x2='405' y2='115' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip5)' /><line x1='450' y1='71' x2='565' y2='115' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip5)' /><rect x='15' y='120' width='150' height='96' rx='8' fill='var(--akcent)' fill-opacity='0.1' stroke='var(--akcent)' stroke-width='2' /><text x='90' y='145' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>základní lidská</text><text x='90' y='161' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>práva a svobody</text><text x='90' y='184' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>život, důstojnost,</text><text x='90' y='200' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>svoboda projevu</text><rect x='180' y='120' width='150' height='96' rx='8' fill='var(--akcent)' fill-opacity='0.1' stroke='var(--akcent)' stroke-width='2' /><text x='255' y='150' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>politická práva</text><text x='255' y='184' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>volební, petiční,</text><text x='255' y='200' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>shromažďovací</text><rect x='345' y='120' width='150' height='96' rx='8' fill='var(--akcent)' fill-opacity='0.1' stroke='var(--akcent)' stroke-width='2' /><text x='420' y='145' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>hospodářská,</text><text x='420' y='161' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>sociální a kulturní</text><text x='420' y='184' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>vzdělání, práce,</text><text x='420' y='200' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>zdravotní péče</text><rect x='510' y='120' width='135' height='96' rx='8' fill='var(--akcent)' fill-opacity='0.1' stroke='var(--akcent)' stroke-width='2' /><text x='577' y='150' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>práva menšin</text><text x='577' y='184' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>jazyk, kultura,</text><text x='577' y='200' text-anchor='middle' font-size='11' fill='currentColor' opacity='0.8'>vzdělání v jazyce</text><line x1='330' y1='222' x2='330' y2='262' stroke='currentColor' stroke-width='1.5' marker-end='url(#sip5)' /><text x='342' y='247' font-size='11' fill='currentColor' opacity='0.7'>když jsou porušena</text><rect x='115' y='268' width='430' height='84' rx='10' fill='var(--uspech)' fill-opacity='0.12' stroke='var(--uspech)' stroke-width='2.5' /><text x='330' y='295' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>ochrana práv</text><text x='330' y='317' text-anchor='middle' font-size='12' fill='currentColor'>nezávislé soudy (vč. Ústavního soudu)</text><text x='330' y='337' text-anchor='middle' font-size='12' fill='currentColor'>veřejný ochránce práv — ombudsman (Brno, bezplatně)</text></svg>",
+          "popisek": "Listina základních práv a svobod zaručuje čtyři hlavní skupiny práv. Při jejich porušení se lze bránit u nezávislých soudů a bezplatně u veřejného ochránce práv (ombudsmana)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obn-lidska-prava-1",
+            "temaId": "obn-lidska-prava",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Listina základních práv a svobod je součástí ústavního pořádku ČR, takže jí žádný zákon nesmí odporovat.",
+            "spravna": true,
+            "vysvetleni": "Ano — Listina má sílu ústavního zákona. Zákon, který by jí odporoval, může Ústavní soud zrušit. Právě proto jsou práva z Listiny tak dobře chráněna."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Práva dítěte** — Úmluva o právech dítěte (OSN, 1989) považuje za dítě **každého do 18 let** (občanka v 15 na tom nic nemění). Dítě má právo na život, jméno, rodinu, **vzdělání**, ochranu před násilím a zneužíváním, právo **vyjádřit svůj názor** ve věcech, které se ho týkají, a právo na **soukromí** — ano, i vůči zveřejňování fotek bez souhlasu.\n\n**Diskriminace** = neoprávněné rozdílné zacházení kvůli pohlaví, věku, barvě pleti, etnickému původu, postižení, víře či orientaci. Zakazuje ji **antidiskriminační zákon** (č. 198/2009 Sb.).\n\n- **Přímá**: znevýhodnění otevřeně („dívky ať se nehlásí“).\n- **Nepřímá**: navenek neutrální pravidlo, které v praxi dopadá tvrději na určitou skupinu (výška 180 cm pro práci v kanceláři).\n- Diskriminace **není** legitimní rozlišování: výběr podle kvalifikace, věkové hranice dané zákonem.\n\n**Ombudsman** (veřejný ochránce práv): sídlí v **Brně**, volí ho **Poslanecká sněmovna na 6 let**. Bezplatně prošetřuje nesprávný postup úřadů a pomáhá obětem diskriminace; rozhodnutí soudů rušit nemůže."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Diskriminace, nebo legitimní rozlišování? Roztřiď situace.",
+            "kategorie": [
+              { "id": "diskriminace", "nazev": "diskriminace" },
+              { "id": "v-poradku", "nazev": "legitimní rozlišování" }
+            ],
+            "polozky": [
+              { "text": "„Číšníky přijímáme jen do 30 let věku.“", "kategorieId": "diskriminace" },
+              { "text": "Restaurace neobslouží hosta kvůli barvě pleti.", "kategorieId": "diskriminace" },
+              { "text": "„Pokladní chlapec — dívky ať se nehlásí.“", "kategorieId": "diskriminace" },
+              { "text": "Nižší mzda za stejnou práci jen kvůli pohlaví.", "kategorieId": "diskriminace" },
+              { "text": "Řidičský průkaz na auto až od 18 let.", "kategorieId": "v-poradku" },
+              { "text": "Firma vybere uchazečku s delší praxí.", "kategorieId": "v-poradku" },
+              { "text": "Vstup na noční akci s alkoholem od 18 let.", "kategorieId": "v-poradku" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obn-lidska-prava-2",
+            "temaId": "obn-lidska-prava",
+            "typ": "vyber",
+            "obtiznost": 4,
+            "zadani": "Firma požaduje pro práci v kanceláři výšku aspoň 180 cm. Pravidlo platí pro všechny stejně — přesto může jít o…",
+            "moznosti": [
+              "nepřímou diskriminaci — neutrální pravidlo v praxi vyřadí většinu žen, ač výška s prací nesouvisí",
+              "přímou diskriminaci — pravidlo otevřeně jmenuje ženy",
+              "legitimní rozlišování — firma si může stanovit cokoli",
+              "pozitivní sankci — firma odměňuje vysoké lidi"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Pravidlo je navenek neutrální (nemluví o ženách), ale dopadá na ně mnohem tvrději a s prací v kanceláři nijak nesouvisí — to je definice nepřímé diskriminace. Přímá by ženy jmenovala výslovně; „cokoli“ si firma stanovit nesmí, požadavky musí souviset s prací."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "V inzerátu na brigádu v rychlém občerstvení stojí: „Přijímáme pouze uchazeče s českým příjmením.“ Posuď situaci: o co jde, co to porušuje a co může odmítnutý uchazeč udělat?",
+          "reseni": "**1. O co jde:** příjmení tu zastupuje etnický/národnostní původ — jde o **přímou diskriminaci** (znevýhodnění kvůli původu, který s prací u fritézy nijak nesouvisí). Pravidlo sice zní navenek neutrálně, ale příjmení tu neslouží k ničemu jinému než jako zástupka původu — proto přímá. (Výška z mini-kvízu byla naproti tomu skutečné měřítko, které samo o sobě s pohlavím nesouvisí — proto tam šlo o nepřímou.)\n\n**2. Co to porušuje:** zásadu rovného zacházení z **antidiskriminačního zákona** (č. 198/2009 Sb.) a **Listinu základních práv a svobod**, která zaručuje základní práva všem bez rozdílu. Platí to i pro brigády — dohody o provedení práce nejsou výjimka.\n\n**3. Co dělat:** uložit důkaz (screenshot inzerátu, případně zamítavou odpověď), obrátit se na **veřejného ochránce práv** (pomáhá obětem diskriminace bezplatně) a případně se **žalobou u soudu** domáhat upuštění od diskriminace i přiměřeného zadostiučinění.\n\n**Pozor na rozdíl:** kdyby tatáž firma odmítla uchazeče proto, že nemá potravinářský průkaz, je to legitimní požadavek souvisící s prací — žádná diskriminace."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "vlastnosti lidských práv", "zadni": "vrozená, nezadatelná, nezcizitelná, nepromlčitelná" },
+            { "predni": "Všeobecná deklarace lidských práv", "zadni": "OSN, 1948 — reakce na 2. světovou válku" },
+            { "predni": "Listina základních práv a svobod", "zadni": "č. 2/1993 Sb., součást ústavního pořádku ČR" },
+            { "predni": "Úmluva o právech dítěte", "zadni": "OSN 1989; dítě = každý člověk do 18 let" },
+            { "predni": "přímá diskriminace", "zadni": "otevřené znevýhodnění („dívky ať se nehlásí“)" },
+            { "predni": "nepřímá diskriminace", "zadni": "neutrální pravidlo, které v praxi znevýhodní skupinu" },
+            { "predni": "antidiskriminační zákon", "zadni": "č. 198/2009 Sb. — zakazuje neoprávněné rozdílné zacházení" },
+            { "predni": "ombudsman", "zadni": "veřejný ochránce práv; Brno, volí ho Sněmovna na 6 let, bezplatný" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Lidská práva jsou **vrozená, nezadatelná, nezcizitelná, nepromlčitelná** — nezasluhují se.\n- V ČR je zaručuje **Listina** (součást ústavního pořádku); světově Všeobecná deklarace (1948).\n- **Dítě** = každý do 18 let (Úmluva o právech dítěte, 1989) — zvláštní ochrana.\n- **Diskriminace** přímá (otevřená) × nepřímá (skrytá za neutrální pravidlo); legitimní rozlišování diskriminace není.\n- Ochrana: **soudy** + **ombudsman** (Brno, bezplatně, volen Sněmovnou na 6 let)."
+        }
+      ]
+    }
+  ]
+}

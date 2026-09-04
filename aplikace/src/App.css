@@ -1,0 +1,52 @@
+.rozvrzeni {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.hlavicka {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--okraj);
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.hlavicka__logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--zlata);
+  text-shadow: var(--zare-zlata);
+  white-space: nowrap;
+}
+
+.hlavicka__nav {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.nav-odkaz {
+  padding: 8px 14px;
+  border-radius: var(--radius-maly);
+  color: var(--text-tlumeny);
+  font-weight: 600;
+}
+
+.nav-odkaz:hover {
+  color: var(--text);
+  background: var(--pozadi-panel);
+}
+
+.nav-odkaz--aktivni {
+  color: var(--text);
+  background: var(--pozadi-panel-2);
+  box-shadow: inset 0 0 0 1px var(--okraj);
+}
+
+.obsah {
+  min-height: 60vh;
+}

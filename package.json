@@ -1,0 +1,26 @@
+{
+  "name": "questor",
+  "private": true,
+  "version": "0.1.0",
+  "description": "QUESTOR — herní testovací systém: z nahraného učiva generuje testové otázky v různých obtížnostech.",
+  "type": "module",
+  "workspaces": [
+    "sdilene",
+    "generator",
+    "server",
+    "aplikace"
+  ],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "dev:server": "npm run dev -w server",
+    "dev:aplikace": "npm run dev -w aplikace",
+    "generuj": "npm run cli -w generator --"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

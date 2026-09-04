@@ -1,0 +1,17 @@
+{
+  "name": "@questor/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@hono/node-server": "^1.13.0",
+    "@questor/sdilene": "*",
+    "hono": "^4.6.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  }
+}

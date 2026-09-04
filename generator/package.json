@@ -1,0 +1,17 @@
+{
+  "name": "@questor/generator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "@questor/sdilene": "*",
+    "mammoth": "^1.8.0",
+    "unpdf": "^0.12.0"
+  },
+  "scripts": {
+    "cli": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  }
+}

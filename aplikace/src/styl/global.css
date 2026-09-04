@@ -1,0 +1,166 @@
+@import './tokeny.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#koren {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  background: var(--pozadi);
+  background-image: var(--pozadi-gradient);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--pismo);
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: var(--pismo-display);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+a {
+  color: var(--akcent-svetly);
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* --- Sdílené utility (používají všechny stránky) --- */
+
+.panel {
+  background: var(--pozadi-panel);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius);
+  box-shadow: var(--stin);
+  padding: 20px;
+}
+
+.tlacitko {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: var(--radius-maly);
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text);
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.tlacitko:hover {
+  transform: translateY(-1px);
+}
+
+.tlacitko:active {
+  transform: translateY(0);
+}
+
+.tlacitko--primarni {
+  background: linear-gradient(135deg, var(--akcent) 0%, var(--akcent-tmavy) 100%);
+  border-color: transparent;
+  box-shadow: var(--zare-akcent);
+}
+
+.tlacitko--zlate {
+  background: linear-gradient(135deg, var(--zlata) 0%, #d99a1f 100%);
+  border-color: transparent;
+  color: #241a02;
+  box-shadow: var(--zare-zlata);
+}
+
+.tlacitko:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.stitek {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  color: var(--text-tlumeny);
+}
+
+.ukazatel {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  overflow: hidden;
+}
+
+.ukazatel > div {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--akcent) 0%, var(--akcent-svetly) 100%);
+  transition: width 0.4s ease;
+}
+
+.ukazatel--zlaty > div {
+  background: linear-gradient(90deg, #d99a1f 0%, var(--zlata) 100%);
+}
+
+/* --- Standardní animace („juice“) — používej transform/opacity, ne layout --- */
+
+@keyframes pulz-zare {
+  0%, 100% { box-shadow: 0 0 12px rgba(139, 92, 246, 0.25); }
+  50% { box-shadow: 0 0 26px rgba(139, 92, 246, 0.55); }
+}
+
+@keyframes pulz-zare-zlata {
+  0%, 100% { box-shadow: 0 0 12px rgba(245, 185, 66, 0.25); }
+  50% { box-shadow: 0 0 28px rgba(245, 185, 66, 0.6); }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes naskoceni {
+  from { transform: translateY(14px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zatreseni {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px) rotate(-2deg); }
+  40% { transform: translateX(6px) rotate(2deg); }
+  60% { transform: translateX(-4px) rotate(-1deg); }
+  80% { transform: translateX(4px) rotate(1deg); }
+}
+
+@keyframes vznaseni {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animace-pop { animation: pop 0.35s ease-out both; }
+.animace-naskoceni { animation: naskoceni 0.4s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

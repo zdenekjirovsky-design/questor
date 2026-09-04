@@ -41,7 +41,13 @@ export function prahLevelu(level: number): number {
 }
 
 export function levelZXp(xp: number): number {
-  return Math.floor(Math.pow(Math.max(0, xp) / 100, 1 / 1.6)) + 1;
+  // Inverze prahLevelu (kvůli zaokrouhlení ceil nelze počítat čistě mocninou —
+  // hrubý odhad se doladí proti skutečným prahům, ať nikdy nevznikne záporný zbytek).
+  const bezpecneXp = Math.max(0, xp);
+  let level = Math.floor(Math.pow(bezpecneXp / 100, 1 / 1.6)) + 1;
+  while (level > 1 && prahLevelu(level) > bezpecneXp) level -= 1;
+  while (prahLevelu(level + 1) <= bezpecneXp) level += 1;
+  return level;
 }
 
 export interface StavLevelu {
@@ -222,7 +228,9 @@ export function otevriTruhlu(
   }
 
   const novaSbirka: Sbirka = { ...sbirka, truhelBezKarty: sbirka.truhelBezKarty + 1 };
-  if (los < cfg.pKarta + cfg.pZmrazeni) {
+  // Zmrazení má pevné pásmo [pKarta, pKarta+pZmrazeni) — když karta padnout
+  // nemůže (vše vlastněno), její pásmo připadne XP, ne zmrazení.
+  if (los >= cfg.pKarta && los < cfg.pKarta + cfg.pZmrazeni) {
     return { odmena: { typ: 'zmrazeni' }, sbirka: novaSbirka };
   }
   const xp = Math.round(cfg.xpMin + nahoda() * (cfg.xpMax - cfg.xpMin));

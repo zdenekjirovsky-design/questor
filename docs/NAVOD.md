@@ -1,9 +1,9 @@
 # QUESTOR — provozní návod pro admina
 
-Praktický postup „mám učební látku → student na ní testuje“, psaný pro denní
-použití. Souvislosti: nasazení serveru a Windows aplikace řeší
-`docs/NASAZENI.md`, technický kontrakt `docs/ARCHITEKTURA.md`, výukovou
-logiku (fáze 2, zatím neimplementováno) `docs/VYUKA.md`.
+Praktický postup „mám učební látku → student se ji naučí a testuje“, psaný
+pro denní použití. Souvislosti: nasazení serveru a Windows aplikace řeší
+`docs/NASAZENI.md`, technický kontrakt `docs/ARCHITEKTURA.md`, didaktické
+zásady výukových lekcí `docs/VYUKA.md`.
 
 Všechny příkazy spouštěj v Terminálu ve složce projektu:
 
@@ -118,6 +118,10 @@ Aplikace je **offline-first** a plně funkční úplně bez serveru:
   (`aplikace/src/data/demo-banka.json`, kopie
   `data/banky/ekonomika-podnikani.json` 1:1) — testy, XP, streak, questy,
   truhly i sbírka jedou lokálně, progres se ukládá v aplikaci.
+- Stejně je bundlovaný vzorový předmět „Zbožíznalství“ — banka i výuka —
+  jako `aplikace/src/data/predmety/zbozinalstvi.banka.json`
+  a `….vyuka.json` (kopie souborů z `data/`; konvence názvů viz README
+  v té složce). Lekce tedy fungují také úplně bez serveru.
 - Když je server nastavený, ale zrovna nedostupný, nic se neděje: hraje se
   dál a neodeslaný progres čeká ve frontě, která se po obnovení spojení
   sama dosynchronizuje. Žádné chybové hlášky uprostřed hry — stav
@@ -141,22 +145,99 @@ Aplikace je **offline-first** a plně funkční úplně bez serveru:
    stáhne při nejbližším syncu — stahují se všechny banky ze serveru,
    i dosud neznámé.
 
-> **Omezení (zatím):** aplikace na Domů pracuje s PRVNÍ bankou, kterou má
-> — přepínač předmětů v UI ještě není (viz Stav v CLAUDE.md). Druhý
-> předmět tedy data-flow zvládne už dnes, ale student ho v aplikaci zatím
-> nepřepne; do té doby dává smysl držet na serveru jeden „ostrý“ předmět.
+> **Omezení (zatím):** konfigurace testu na Domů pracuje s PRVNÍ bankou,
+> kterou aplikace má — přepínač předmětů v UI ještě není (viz Stav
+> v CLAUDE.md). Lekce dalších předmětů ale student vidí na „Učit se“
+> a otestovat se z nich může tlačítkem „Otestuj se z tématu“ na konci
+> lekce (to funguje pro každý předmět).
 
-## 6. Dogenerování otázek (volitelné)
+## 6. Výuka — lekce k předmětu
+
+Výuka jsou interaktivní lekce po tématech (texty, obrázky, hry, kartičky,
+mini-kvízy); student je najde v aplikaci pod „Učit se“. Obsah je JSON
+(`VyukaPredmetu`) a teče stejnou cestou jako banka: vygenerovat →
+zvalidovat → nahrát na server (nebo bundlovat). Didaktická vodítka
+k obsahu: `docs/VYUKA.md`.
+
+### 6a. Vygenerování výuky
+
+Ke `generuj` přidej přepínač `--vyuka` (ostatní volby vč. poskytovatelů
+a cest platí stejně jako v kap. 1):
+
+```bash
+npm run generuj -- --vstup "$PWD/data/uciva/<predmet>.md" \
+  --predmet <predmet> --nazev "Lidský název předmětu" --vyuka
+```
+
+- Výstup: `data/vyuka/<predmet>.json`; verze se sama zvedá podle
+  existujícího souboru (server přijme jen vyšší).
+- Generuje se ze STEJNÉHO souboru učiva jako banka a lekce se na témata
+  banky vážou přes `temaId`. Generuj proto nejdřív banku, pak výuku,
+  a zkontroluj, že `temaId` lekcí odpovídají id témat v bance — obě
+  pipeline odvozují témata z téhož učiva, ale jde o výstup Clauda; při
+  odchylce uprav `temaId` v JSONu ručně. U bundlovaných předmětů shodu
+  hlídá test `aplikace/test/predmety.test.ts`.
+- Widgety generátor navrhuje jen datové (`tridicka`, `pexeso`,
+  `prubeh-procesu`, `srovnavac`); `popisovacka` a `casova-osa` se
+  doplňují ručně, když pro ně látka má smysluplná data.
+
+### 6b. Validace a kontrola
+
+Generátor výstup validuje sám (`validujVyuku`). Po RUČNÍ editaci souboru
+zvaliduj jednořádkovkou z kořene projektu:
+
+```bash
+npx tsx -e "import('@questor/sdilene').then(function(s){var fs=require('node:fs');s.validujVyuku(JSON.parse(fs.readFileSync('data/vyuka/<predmet>.json','utf8')));console.log('Výuka OK');}).catch(function(e){console.error(String(e));process.exit(1);})"
+```
+
+Pak si lekce projdi očima studenta: `npm run dev:aplikace` →
+http://localhost:5173 → „Učit se“. Zkontroluj věcnou správnost textů
+i SVG obrázků (v obou režimech vzhledu) a že mini-kvízy dávají smysl.
+
+### 6c. Nahrání na server
+
+- **Rovnou při generování**: přidej `--server https://<server> --token
+  <admin-token>` (nahraje se přes `PUT /api/vyuka/<predmet>`).
+- **Admin web**: `https://<server>/admin` → sekce **Výuka** (tabulka
+  předmět/verze + upload JSON souboru).
+- **Z terminálu**:
+
+  ```bash
+  curl -X PUT "https://<server>/api/vyuka/<predmet>" \
+    -H "content-type: application/json" \
+    -H "x-questor-token: <admin-token>" \
+    --data-binary @data/vyuka/<predmet>.json
+  ```
+
+Chování stejné jako u banky: validace (400), verze musí růst (409),
+limit 10 MB (413), špatný token (401). Aplikace si novou verzi výuky
+stáhne sama při nejbližším syncu.
+
+### 6d. Lekce pro úplně nový předmět
+
+1. Učivo → banka → nahrání banky: kap. 5.
+2. Výuka: `--vyuka` (kap. 6a) + kontrola (6b) + nahrání (6c).
+3. Má-li předmět fungovat v aplikaci i BEZ serveru, zkopíruj JSONy 1:1 do
+   `aplikace/src/data/predmety/<predmet>.banka.json`
+   a `<predmet>.vyuka.json` (konvence viz README v té složce) a vydej
+   novou verzi aplikace (`docs/NASAZENI.md`).
+
+> Dokončená lekce dává XP jen poprvé v den; projít ji znovu jde kdykoli
+> („Projít znovu“ na konci lekce). Tlačítko „Otestuj se z tématu“ na
+> konci lekce funguje pro každý předmět — i ten, který zatím nejde
+> vybrat v konfiguraci testu na Domů (kap. 5).
+
+## 7. Dogenerování otázek (volitelné)
 
 Server umí na vyžádání dogenerovat otázky k tématu
 (`POST /api/generovani/dogenerovat`) — jen když má v prostředí
 `ANTHROPIC_API_KEY`. Bez klíče vrací 503 a funkce se tváří jako vypnutá,
 nic dalšího není potřeba. Klientská část v aplikaci zatím není
-implementovaná (fáze 2) — endpoint jde volat ručně/skriptem. Kontext pro
+implementovaná — endpoint jde volat ručně/skriptem. Kontext pro
 generování si server skládá ze zadání a vysvětlení existujících otázek
 tématu (zdrojové učivo na serveru není).
 
-## 7. Tokeny
+## 8. Tokeny
 
 - `QUESTOR_ADMIN_TOKEN` a `QUESTOR_STUDENT_TOKEN` se nastavují v env
   serveru; defaulty `admin-dev`/`student-dev` jsou JEN pro lokální vývoj.
@@ -164,7 +245,7 @@ tématu (zdrojové učivo na serveru není).
   student v aplikaci na stránce Nastavení. Admin token smí i všechno
   studentské.
 
-## 8. Řešení potíží
+## 9. Řešení potíží
 
 **Validace banky selhala** (`validuj-banku.ts` skončí chybou, nebo upload
 vrátí 400):
@@ -184,7 +265,7 @@ vrátí 400):
   → http://localhost:8787.
 - 401 = špatný token (zkontroluj env serveru vs. co zadáváš).
 - Na hostingu zkontroluj logy a env proměnné (`docs/NASAZENI.md`, krok 5);
-  po redeployi bez volume je DB prázdná — banku nahraj znovu.
+  po redeployi bez volume je DB prázdná — banku i výuku nahraj znovu.
 - Pro studenta to není havárie: aplikace jede dál offline (bod 4).
 
 **Aplikace nesynchronizuje:**
@@ -197,10 +278,10 @@ vrátí 400):
    obnovení spojení. Položku, kterou server trvale odmítá (4xx, např.
    výsledek mezitím smazané výzvy), fronta zahodí, aby neblokovala zbytek.
 
-**Upload banky vrací chybu:**
+**Upload banky nebo výuky vrací chybu:**
 
 - 409 → nezvýšila se verze (server už stejnou nebo vyšší má),
-- 400 → JSON neprošel validací (spusť lokálně `scripts/validuj-banku.ts`,
-  vypíše proč),
+- 400 → JSON neprošel validací (banka: `scripts/validuj-banku.ts`;
+  výuka: jednořádkovka z kap. 6b — vypíše proč),
 - 413 → soubor je přes limit 10 MB,
 - 401 → špatný admin token.

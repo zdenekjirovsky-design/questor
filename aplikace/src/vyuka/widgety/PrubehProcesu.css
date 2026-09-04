@@ -1,0 +1,138 @@
+/* Průběh procesu — pilulky se šipkami, detail aktivního kroku, krokování. */
+
+.prubeh__zadani {
+  margin: 0 0 14px;
+  font-weight: 600;
+}
+
+.prubeh__pilulky {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.prubeh__clanek {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.prubeh__sipka {
+  color: var(--okraj);
+  font-size: 1.1rem;
+  transition: color 0.25s ease;
+}
+
+.prubeh__sipka--projita {
+  color: var(--akcent-svetly);
+}
+
+.prubeh__pilulka {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel);
+  color: var(--text-tlumeny);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.prubeh__pilulka:hover {
+  transform: translateY(-2px);
+  border-color: var(--akcent);
+  color: var(--text);
+}
+
+.prubeh__pilulka--aktivni {
+  border-color: var(--akcent);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4) 0%, rgba(109, 63, 240, 0.4) 100%);
+  color: var(--text);
+  box-shadow: var(--zare-akcent);
+}
+
+.prubeh__pilulka--navstivena {
+  border-color: rgba(52, 211, 153, 0.5);
+  color: var(--text);
+}
+
+.prubeh__pilulka-cislo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  font-family: var(--pismo-display);
+  font-size: 0.78rem;
+}
+
+.prubeh__pilulka--aktivni .prubeh__pilulka-cislo {
+  background: var(--akcent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.prubeh__pilulka--navstivena .prubeh__pilulka-cislo {
+  color: var(--uspech);
+  border-color: rgba(52, 211, 153, 0.5);
+}
+
+.prubeh__pilulka-ikona {
+  font-size: 1.05rem;
+}
+
+.prubeh__detail {
+  animation: naskoceni 0.3s ease-out both;
+  margin-bottom: 14px;
+}
+
+.prubeh__detail-hlavicka {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prubeh__detail-ikona {
+  font-size: 1.7rem;
+}
+
+.prubeh__detail-nazev {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--akcent-svetly);
+}
+
+.prubeh__detail-popis {
+  margin: 8px 0 0;
+  color: var(--text);
+}
+
+.prubeh__ovladani {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.prubeh__pocitadlo {
+  font-size: 0.88rem;
+  color: var(--text-tlumeny);
+  text-align: center;
+}
+
+.prubeh__hotovo {
+  display: inline-block;
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  color: var(--uspech);
+  text-shadow: 0 0 12px rgba(52, 211, 153, 0.45);
+}

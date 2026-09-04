@@ -3,26 +3,15 @@
 // jen test, kde sedí VŠECHNY páry.
 import { useEffect, useMemo, useState } from 'react';
 import type { OtazkaPrirazovani } from '@questor/sdilene';
-import { hashRetezce, vytvorNahodu } from '@questor/sdilene';
 import type { OdpovedHodnota, ParovaniOdpoved } from '../engine';
 import { jeVstupniPole } from './klavesy';
+import { zamichaneIndexy } from './michani';
 
 interface Props {
   otazka: OtazkaPrirazovani;
   odeslana: OdpovedHodnota | null;
   zobrazVyhodnoceni: boolean;
   onOdpoved(hodnota: OdpovedHodnota): void;
-}
-
-/** Deterministické zamíchání pravé strany (stejné pro každé zobrazení otázky). */
-function zamichaneIndexy(otazka: OtazkaPrirazovani): number[] {
-  const nahoda = vytvorNahodu(hashRetezce(`prirazovani:${otazka.id}`));
-  const indexy = otazka.pary.map((_, i) => i);
-  for (let i = indexy.length - 1; i > 0; i--) {
-    const j = Math.floor(nahoda() * (i + 1));
-    [indexy[i], indexy[j]] = [indexy[j], indexy[i]];
-  }
-  return indexy;
 }
 
 export default function PrirazovaniOtazka({
@@ -32,7 +21,10 @@ export default function PrirazovaniOtazka({
   onOdpoved,
 }: Props) {
   const zamceno = odeslana !== null;
-  const pravePoradi = useMemo(() => zamichaneIndexy(otazka), [otazka]);
+  const pravePoradi = useMemo(
+    () => zamichaneIndexy(`prirazovani:${otazka.id}`, otazka.pary.length),
+    [otazka],
+  );
   const [vybranyLevy, setVybranyLevy] = useState<number | null>(null);
   const [pary, setPary] = useState<ParovaniOdpoved[]>([]);
 

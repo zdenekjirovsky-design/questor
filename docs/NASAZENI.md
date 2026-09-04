@@ -195,7 +195,7 @@ progres lokálně) a po obnovení spojení se sama dosynchronizuje.
 | Chci… | Udělám… |
 |---|---|
 | vydat novou verzi aplikace | zvýšit `version` v `tauri.conf.json`, commit, `git tag vX.Y.Z && git push --tags` |
-| nahrát nové učivo/banku | `docs/NAVOD.md` (admin web `/admin` nebo generátor CLI) |
+| nahrát nové učivo/banku/výuku | `docs/NAVOD.md` (admin web `/admin` nebo generátor CLI) |
 | změnit tokeny | env na serveru + student v Nastavení |
 | zkontrolovat build | GitHub → Actions → `windows-build` |
 | najít instalátor | GitHub → Releases → Assets → `…-setup.exe` |

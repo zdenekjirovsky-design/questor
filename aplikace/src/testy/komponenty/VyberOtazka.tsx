@@ -1,8 +1,11 @@
 // Výběrová otázka (1 správná z možností) — celá karta možnosti je tlačítko.
-import { useEffect } from 'react';
+// Možnosti se zobrazují v deterministicky zamíchaném pořadí (hash id otázky),
+// aby pořadí v datech neprozrazovalo klíč; odpověď nese DATOVÝ index.
+import { useEffect, useMemo } from 'react';
 import type { OtazkaVyber } from '@questor/sdilene';
 import type { OdpovedHodnota } from '../engine';
 import { indexZKlavesy, jeVstupniPole, popisekKlavesy } from './klavesy';
+import { zamichaneIndexy } from './michani';
 
 interface Props {
   otazka: OtazkaVyber;
@@ -16,19 +19,24 @@ interface Props {
 export default function VyberOtazka({ otazka, odeslana, zobrazVyhodnoceni, onOdpoved }: Props) {
   const zamceno = odeslana !== null;
   const vybrana = odeslana?.typ === 'vyber' ? odeslana.vybrana : null;
+  // Zobrazovací pořadí možností: pozice → datový index.
+  const poradi = useMemo(
+    () => zamichaneIndexy(`vyber:${otazka.id}`, otazka.moznosti.length),
+    [otazka],
+  );
 
   useEffect(() => {
     if (zamceno) return;
     const zpracuj = (e: KeyboardEvent) => {
       if (jeVstupniPole(e.target) || e.metaKey || e.ctrlKey || e.altKey) return;
-      const index = indexZKlavesy(e.key, otazka.moznosti.length);
-      if (index === null) return;
+      const pozice = indexZKlavesy(e.key, otazka.moznosti.length);
+      if (pozice === null) return;
       e.preventDefault();
-      onOdpoved({ typ: 'vyber', vybrana: index });
+      onOdpoved({ typ: 'vyber', vybrana: poradi[pozice] });
     };
     window.addEventListener('keydown', zpracuj);
     return () => window.removeEventListener('keydown', zpracuj);
-  }, [zamceno, otazka, onOdpoved]);
+  }, [zamceno, otazka, poradi, onOdpoved]);
 
   const tridaMoznosti = (index: number): string => {
     const tridy = ['moznost'];
@@ -43,7 +51,7 @@ export default function VyberOtazka({ otazka, odeslana, zobrazVyhodnoceni, onOdp
 
   return (
     <div className="moznosti" role="group" aria-label="Možnosti odpovědi">
-      {otazka.moznosti.map((text, index) => (
+      {poradi.map((index, pozice) => (
         <button
           key={index}
           type="button"
@@ -51,8 +59,8 @@ export default function VyberOtazka({ otazka, odeslana, zobrazVyhodnoceni, onOdp
           disabled={zamceno}
           onClick={() => onOdpoved({ typ: 'vyber', vybrana: index })}
         >
-          <span className="moznost__klavesa">{popisekKlavesy(index)}</span>
-          <span>{text}</span>
+          <span className="moznost__klavesa">{popisekKlavesy(pozice)}</span>
+          <span>{otazka.moznosti[index]}</span>
         </button>
       ))}
     </div>

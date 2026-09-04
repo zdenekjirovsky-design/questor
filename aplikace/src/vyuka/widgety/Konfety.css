@@ -1,0 +1,36 @@
+/* Konfety widgetů — částice vystřelí ze středu horní části rodiče. */
+
+.widget-konfety {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  width: 0;
+  height: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.widget-konfety__kus {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 2px;
+  opacity: 0;
+  animation: widget-konfeta-let 1.2s ease-out var(--zpozdeni) both;
+}
+
+@keyframes widget-konfeta-let {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(var(--dx) * 1.15), calc(var(--dy) + 140px))
+      rotate(calc(var(--rot) * 1.4)) scale(0.7);
+    opacity: 0;
+  }
+}

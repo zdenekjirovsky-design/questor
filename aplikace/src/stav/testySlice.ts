@@ -2,9 +2,8 @@
 // Drží banky otázek, průběh aktuálního testu (serializovatelný stav enginu)
 // a poslední výsledek. Čistá logika průběhu je v ../testy/engine.ts.
 import type { StateCreator } from 'zustand';
-import { validujBanku } from '@questor/sdilene';
 import type { BankaOtazek, TestKonfigurace, TestVysledek } from '@questor/sdilene';
-import demoBankaJson from '../data/demo-banka.json';
+import { bundlovaneBanky } from '../data/predmety';
 import {
   dalsiOtazkaVEnginu,
   inicializujTest,
@@ -32,16 +31,12 @@ export interface TestySlice {
   prijmiBanku(banka: BankaOtazek): boolean;
 }
 
-/** Demo banka bundlovaná v aplikaci — validuje se při startu (offline-first základ). */
+/** Banky vzorových předmětů bundlované v aplikaci (offline-first základ).
+ * Validaci a try/catch řeší mapa v ../data/predmety.ts — sem chodí jen platné. */
 function nactiDemoBanky(): Record<string, BankaOtazek> {
-  try {
-    const banka = validujBanku(demoBankaJson);
-    return { [banka.predmetId]: banka };
-  } catch (chyba) {
-    // Vadná demo banka nesmí shodit aplikaci — jen se nenabídne.
-    console.error('Demo banka neprošla validací:', chyba);
-    return {};
-  }
+  const banky: Record<string, BankaOtazek> = {};
+  for (const banka of bundlovaneBanky()) banky[banka.predmetId] = banka;
+  return banky;
 }
 
 export const vytvorTestySlice: StateCreator<QUESTORStav, [], [], TestySlice> = (set, get) => {

@@ -7,7 +7,9 @@ import Anthropic, { AnthropicError, APIError, RateLimitError } from '@anthropic-
 import { zodOutputFormat } from '@anthropic-ai/sdk/helpers/zod';
 import type { z } from 'zod/v4';
 import { davkaOtazekSchema, seznamTematSchema } from '../llm-schema';
+import { llmLekceSchema } from '../llm-schema-vyuka';
 import { promptOtazky, promptOvereni, promptTemata, SYSTEM_GENERATOR } from '../prompty';
+import { promptLekce, SYSTEM_VYUKA } from '../prompty-vyuka';
 import type { Poskytovatel } from './rozhrani';
 
 export const VYCHOZI_MODEL = 'claude-opus-5';
@@ -38,6 +40,7 @@ export function vytvorPoskytovateleApi(volby: ApiVolby = {}): Poskytovatel {
     prompt: string,
     schema: S,
     popis: string,
+    system: string = SYSTEM_GENERATOR,
   ): Promise<z.infer<S> | null> {
     let pokus = 0;
     for (;;) {
@@ -45,7 +48,7 @@ export function vytvorPoskytovateleApi(volby: ApiVolby = {}): Poskytovatel {
         const odpoved = await client.messages.parse({
           model,
           max_tokens: 16000,
-          system: SYSTEM_GENERATOR,
+          system,
           messages: [{ role: 'user', content: prompt }],
           output_config: { format: zodOutputFormat(schema) },
         });
@@ -109,6 +112,14 @@ export function vytvorPoskytovateleApi(volby: ApiVolby = {}): Poskytovatel {
         `ověření „${vstup.tema.nazev}“`,
       );
       return vysledek ? vysledek.otazky : null;
+    },
+    async vygenerujLekci(vstup) {
+      return zavolej(
+        promptLekce(vstup),
+        llmLekceSchema,
+        `lekce „${vstup.tema.nazev}“`,
+        SYSTEM_VYUKA,
+      );
     },
   };
 }

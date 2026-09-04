@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   aktualizujStatistiku,
   aktualizujStreakPoAktivite,
+  aplikujLekciNaQuesty,
   aplikujOdpovedNaQuesty,
   aplikujTestNaQuesty,
   comboNasobic,
@@ -28,6 +29,7 @@ import {
   vychoziProgres,
   vygenerujDenniQuesty,
   vytvorNahodu,
+  XP_ZA_LEKCI,
   xpZaOdpoved,
 } from '../src/index';
 import type {
@@ -336,6 +338,45 @@ describe('denní questy', () => {
     expect(po[0].postup).toBe(1);
     const po2 = aplikujOdpovedNaQuesty(po, zaznam(), 2);
     expect(po2[0]).toEqual(po[0]);
+  });
+
+  it('šablona „lekce“ se losuje mezi denními questy a XP_ZA_LEKCI je 40', () => {
+    expect(XP_ZA_LEKCI).toBe(40);
+    // Deterministický průchod řadou dnů — šablona lekce musí padnout aspoň jednou
+    // a vždy se správným zněním a odměnou.
+    const lekcove: QuestDenni[] = [];
+    for (let den = 1; den <= 30; den++) {
+      const datum = `2026-09-${String(den).padStart(2, '0')}`;
+      lekcove.push(...vygenerujDenniQuesty(datum, ctx).filter((q) => q.sablona === 'lekce'));
+    }
+    expect(lekcove.length).toBeGreaterThan(0);
+    for (const q of lekcove) {
+      expect(q.popis).toBe('Projdi dnes 1 lekci');
+      expect(q.cil).toBe(1);
+      expect(q.odmenaXp).toBe(60);
+    }
+  });
+
+  it('aplikujLekciNaQuesty plní quest lekce a ostatních se nedotkne', () => {
+    const questy: QuestDenni[] = [
+      { id: 'q1', sablona: 'lekce', popis: 'Projdi dnes 1 lekci', cil: 1, postup: 0, splneno: false, odmenaXp: 60, datum: '2026-09-04' },
+      { id: 'q2', sablona: 'odpovez', popis: '', cil: 10, postup: 2, splneno: false, odmenaXp: 40, datum: '2026-09-04' },
+    ];
+    const po = aplikujLekciNaQuesty(questy, 'tema-a');
+    expect(po[0].postup).toBe(1);
+    expect(po[0].splneno).toBe(true);
+    expect(po[1]).toBe(questy[1]); // jiné šablony beze změny
+    // splněný quest se už nemění (postup nepřeteče přes cíl)
+    const po2 = aplikujLekciNaQuesty(po, 'tema-b');
+    expect(po2[0]).toBe(po[0]);
+  });
+
+  it('aplikujLekciNaQuesty respektuje volitelný parametr temaId', () => {
+    const questy: QuestDenni[] = [
+      { id: 'q1', sablona: 'lekce', popis: '', cil: 2, postup: 0, splneno: false, odmenaXp: 60, datum: '2026-09-04', parametry: { temaId: 'tema-b' } },
+    ];
+    expect(aplikujLekciNaQuesty(questy, 'tema-a')[0].postup).toBe(0);
+    expect(aplikujLekciNaQuesty(questy, 'tema-b')[0].postup).toBe(1);
   });
 
   it('aplikujTestNaQuesty plní quest úspěšnosti od 80 %', () => {

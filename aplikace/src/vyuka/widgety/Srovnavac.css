@@ -1,0 +1,162 @@
+/* Srovnávač — mřížka karet s odkrývanými řádky vlastností. */
+
+.srovnavac {
+  position: relative;
+}
+
+.srovnavac__napoveda {
+  margin: 0 0 12px;
+  color: var(--text-tlumeny);
+  font-size: 0.9rem;
+}
+
+.srovnavac__mrizka {
+  display: grid;
+  gap: 8px;
+}
+
+/* Řádek je subgrid přes display: contents — buňky sedí do sloupců mřížky. */
+.srovnavac__radek {
+  display: contents;
+}
+
+.srovnavac__roh {
+  min-height: 1px;
+}
+
+.srovnavac__hlava {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: var(--radius-maly);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.28) 0%, rgba(109, 63, 240, 0.28) 100%);
+  border: 1px solid var(--akcent);
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+}
+
+.srovnavac__vlastnost {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.srovnavac__vlastnost:hover {
+  transform: translateY(-1px);
+  border-color: var(--akcent);
+  box-shadow: var(--zare-akcent);
+}
+
+.srovnavac__vlastnost--odkryta {
+  border-color: rgba(52, 211, 153, 0.45);
+}
+
+.srovnavac__vlastnost--aktivni {
+  border-color: var(--akcent);
+  box-shadow: var(--zare-akcent);
+}
+
+.srovnavac__stitek {
+  flex-shrink: 0;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.srovnavac__stitek--odkryj {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--akcent-svetly);
+  animation: srovnavac-blik 1.8s ease-in-out infinite;
+}
+
+@keyframes srovnavac-blik {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.srovnavac__stitek--rozdil {
+  background: rgba(245, 185, 66, 0.18);
+  color: var(--zlata);
+}
+
+.srovnavac__stitek--shoda {
+  background: var(--pozadi-panel);
+  color: var(--text-tlumeny);
+}
+
+.srovnavac__hodnota {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 10px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel);
+  color: var(--text-tlumeny);
+  font-size: 0.88rem;
+  text-align: center;
+  font-family: var(--pismo-display);
+  overflow-wrap: anywhere;
+}
+
+.srovnavac__hodnota--odkryta {
+  color: var(--text);
+  font-family: var(--pismo);
+  animation: pop 0.3s ease-out both;
+}
+
+.srovnavac__hodnota--rozdil {
+  border-color: rgba(245, 185, 66, 0.5);
+  background: rgba(245, 185, 66, 0.07);
+}
+
+.srovnavac__hodnota--aktivni {
+  box-shadow: var(--zare-akcent);
+}
+
+.srovnavac__paticka {
+  margin-top: 14px;
+  text-align: center;
+  min-height: 26px;
+}
+
+.srovnavac__zbyva {
+  font-size: 0.88rem;
+  color: var(--text-tlumeny);
+}
+
+.srovnavac__oslava {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.srovnavac__oslava-titul {
+  font-family: var(--pismo-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--zlata);
+  text-shadow: var(--zare-zlata);
+}
+
+.srovnavac__oslava-detail {
+  font-size: 0.9rem;
+  color: var(--text-tlumeny);
+}

@@ -102,6 +102,19 @@ export const ADMIN_HTML = `<!doctype html>
     <div class="zprava" id="banky-zprava"></div>
   </section>
 
+  <section class="panel" id="panel-vyuka">
+    <h2>Výuka</h2>
+    <table>
+      <thead><tr><th>Předmět</th><th>Verze</th></tr></thead>
+      <tbody id="vyuka-telo"><tr><td colspan="2" class="tlumene">Načítám…</td></tr></tbody>
+    </table>
+    <div class="radek odsaz">
+      <input id="soubor-vyuky" type="file" accept="application/json,.json">
+      <button id="nahraj-vyuku" class="zlate" type="button">Nahrát výuku (PUT)</button>
+    </div>
+    <div class="zprava" id="vyuka-zprava"></div>
+  </section>
+
   <section class="panel" id="panel-progres">
     <h2>Progres studenta</h2>
     <div id="progres-obsah"><span class="tlumene">Načítám…</span></div>
@@ -246,6 +259,56 @@ export const ADMIN_HTML = `<!doctype html>
     ctecka.readAsText(vstup.files[0]);
   });
 
+  // --- Výuka ---------------------------------------------------------------
+  function nactiVyuku() {
+    var telo = $('vyuka-telo');
+    return api('/api/vyuka').then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).then(function (vyuky) {
+      if (!vyuky.length) { prazdnyRadek(telo, 2, 'Žádná výuka — nahraj JSON níže.'); return; }
+      telo.textContent = '';
+      for (var i = 0; i < vyuky.length; i++) {
+        telo.appendChild(radekTabulky([vyuky[i].predmetId, 'v' + vyuky[i].verze]));
+      }
+    }).catch(function () {
+      prazdnyRadek(telo, 2, 'Nepodařilo se načíst — zkontroluj token.');
+    });
+  }
+
+  $('nahraj-vyuku').addEventListener('click', function () {
+    var vstup = $('soubor-vyuky');
+    if (!vstup.files || !vstup.files[0]) {
+      nastavZpravu('vyuka-zprava', 'Nejdřív vyber JSON soubor s výukou.', false);
+      return;
+    }
+    var ctecka = new FileReader();
+    ctecka.onload = function () {
+      var vyuka;
+      try { vyuka = JSON.parse(String(ctecka.result)); }
+      catch (e) { nastavZpravu('vyuka-zprava', 'Soubor není platný JSON.', false); return; }
+      if (!vyuka || typeof vyuka.predmetId !== 'string') {
+        nastavZpravu('vyuka-zprava', 'V JSONu chybí predmetId.', false);
+        return;
+      }
+      api('/api/vyuka/' + encodeURIComponent(vyuka.predmetId), {
+        method: 'PUT',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(vyuka)
+      }).then(function (r) { return r.json().then(function (data) { return { r: r, data: data }; }); })
+        .then(function (v) {
+          if (v.r.ok) {
+            nastavZpravu('vyuka-zprava', 'Nahráno — výuka „' + vyuka.predmetId + '“ má teď verzi ' + v.data.verze + '.', true);
+            nactiVyuku();
+          } else {
+            nastavZpravu('vyuka-zprava', v.data.chyba || ('Chyba HTTP ' + v.r.status), false);
+          }
+        })
+        .catch(function () { nastavZpravu('vyuka-zprava', 'Server neodpovídá.', false); });
+    };
+    ctecka.readAsText(vstup.files[0]);
+  });
+
   // --- Progres a poslední testy -------------------------------------------
   function kpi(hodnota, popisek) {
     var div = document.createElement('div');
@@ -364,7 +427,7 @@ export const ADMIN_HTML = `<!doctype html>
   });
 
   // --- Token a start -------------------------------------------------------
-  function nactiVse() { nactiBanky(); nactiProgres(); nactiTesty(); nactiVyzvy(); }
+  function nactiVse() { nactiBanky(); nactiVyuku(); nactiProgres(); nactiTesty(); nactiVyzvy(); }
   $('ulozToken').addEventListener('click', function () {
     try { localStorage.setItem(KLIC_TOKENU, $('token').value); } catch (e) { /* soukromý režim */ }
     nactiVse();

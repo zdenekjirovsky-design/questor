@@ -137,7 +137,7 @@ function pocetVyskytu(text: string, hledane: string): number {
  * (ve sdilene je hlídá až superRefine celé banky — tady je potřeba dřív,
  * aby jedna vadná otázka neshodila validaci celé banky).
  */
-function jeKonzistentni(otazka: Otazka): boolean {
+export function jeKonzistentni(otazka: Otazka): boolean {
   if (otazka.typ === 'vyber') {
     return otazka.spravna < otazka.moznosti.length;
   }

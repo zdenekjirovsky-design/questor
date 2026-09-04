@@ -7,6 +7,7 @@ import { spawn } from 'node:child_process';
 import { accessSync, constants } from 'node:fs';
 import path from 'node:path';
 import { davkaOtazekSchema, seznamTematSchema } from '../llm-schema';
+import { llmLekceSchema } from '../llm-schema-vyuka';
 import {
   POPIS_TVARU_OTAZEK,
   POPIS_TVARU_TEMAT,
@@ -14,6 +15,7 @@ import {
   promptOvereni,
   promptTemata,
 } from '../prompty';
+import { POPIS_TVARU_LEKCE, promptLekce } from '../prompty-vyuka';
 import type { Poskytovatel } from './rozhrani';
 
 /** Je binárka `claude` dostupná v PATH? (pro autodetekci poskytovatele) */
@@ -155,6 +157,25 @@ export function vytvorPoskytovateleClaudeCli(volby: ClaudeCliVolby = {}): Poskyt
     async overOtazky(vstup) {
       const prompt = `${promptOvereni(vstup)}\n\n${POPIS_TVARU_OTAZEK}`;
       return zavolejDavku(prompt, `ověření „${vstup.tema.nazev}“`);
+    },
+    async vygenerujLekci(vstup) {
+      const popis = `lekce „${vstup.tema.nazev}“`;
+      const prompt = `${promptLekce(vstup)}\n\n${POPIS_TVARU_LEKCE}`;
+      let data: unknown;
+      try {
+        data = zpracujStdoutClaudeCli(await spustClaude(prompt, volby.model));
+      } catch (chyba) {
+        log(
+          `POZOR: claude-cli selhalo (${popis}): ${chyba instanceof Error ? chyba.message : String(chyba)} — lekce se přeskakuje.`,
+        );
+        return null;
+      }
+      const vysledek = llmLekceSchema.safeParse(data);
+      if (!vysledek.success) {
+        log(`POZOR: odpověď claude-cli neodpovídá tvaru lekce (${popis}) — lekce se přeskakuje.`);
+        return null;
+      }
+      return vysledek.data;
     },
   };
 }

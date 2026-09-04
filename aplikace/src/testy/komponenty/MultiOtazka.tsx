@@ -1,9 +1,12 @@
 // Multi otázka (více správných) — klikáním/klávesami se přepíná výběr,
 // Enter (nebo tlačítko) odešle. Hodnotí se PŘESNÁ shoda množin.
-import { useEffect, useState } from 'react';
+// Možnosti se zobrazují v deterministicky zamíchaném pořadí (hash id otázky),
+// aby pořadí v datech neprozrazovalo klíč; odpověď nese DATOVÉ indexy.
+import { useEffect, useMemo, useState } from 'react';
 import type { OtazkaMulti } from '@questor/sdilene';
 import type { OdpovedHodnota } from '../engine';
 import { indexZKlavesy, jeVstupniPole, popisekKlavesy } from './klavesy';
+import { zamichaneIndexy } from './michani';
 
 interface Props {
   otazka: OtazkaMulti;
@@ -16,6 +19,11 @@ export default function MultiOtazka({ otazka, odeslana, zobrazVyhodnoceni, onOdp
   const zamceno = odeslana !== null;
   const [vybrane, setVybrane] = useState<number[]>([]);
   const odeslane = odeslana?.typ === 'multi' ? odeslana.vybrane : [];
+  // Zobrazovací pořadí možností: pozice → datový index.
+  const poradi = useMemo(
+    () => zamichaneIndexy(`multi:${otazka.id}`, otazka.moznosti.length),
+    [otazka],
+  );
 
   const prepni = (index: number) => {
     setVybrane((stare) =>
@@ -37,10 +45,10 @@ export default function MultiOtazka({ otazka, odeslana, zobrazVyhodnoceni, onOdp
         odesli();
         return;
       }
-      const index = indexZKlavesy(e.key, otazka.moznosti.length);
-      if (index === null) return;
+      const pozice = indexZKlavesy(e.key, otazka.moznosti.length);
+      if (pozice === null) return;
       e.preventDefault();
-      prepni(index);
+      prepni(poradi[pozice]);
     };
     window.addEventListener('keydown', zpracuj);
     return () => window.removeEventListener('keydown', zpracuj);
@@ -61,7 +69,7 @@ export default function MultiOtazka({ otazka, odeslana, zobrazVyhodnoceni, onOdp
     <div>
       <p className="parovani__napoveda">Správných odpovědí může být víc — označ všechny.</p>
       <div className="moznosti" role="group" aria-label="Možnosti odpovědi (více správných)">
-        {otazka.moznosti.map((text, index) => (
+        {poradi.map((index, pozice) => (
           <button
             key={index}
             type="button"
@@ -70,8 +78,8 @@ export default function MultiOtazka({ otazka, odeslana, zobrazVyhodnoceni, onOdp
             aria-pressed={(zamceno ? odeslane : vybrane).includes(index)}
             onClick={() => prepni(index)}
           >
-            <span className="moznost__klavesa">{popisekKlavesy(index)}</span>
-            <span>{text}</span>
+            <span className="moznost__klavesa">{popisekKlavesy(pozice)}</span>
+            <span>{otazka.moznosti[index]}</span>
           </button>
         ))}
       </div>

@@ -4,14 +4,16 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { vytvorTestySlice, type TestySlice } from './testySlice';
 import { vytvorHraSlice, type HraSlice } from './hraSlice';
+import { vytvorVyukaSlice, type VyukaSlice } from './vyukaSlice';
 
-export type QUESTORStav = TestySlice & HraSlice;
+export type QUESTORStav = TestySlice & HraSlice & VyukaSlice;
 
 export const pouzijStav = create<QUESTORStav>()(
   persist(
     (...a) => ({
       ...vytvorTestySlice(...a),
       ...vytvorHraSlice(...a),
+      ...vytvorVyukaSlice(...a),
     }),
     {
       name: 'questor-stav',

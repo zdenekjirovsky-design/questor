@@ -9,8 +9,10 @@ Herní testovací systém pro studenta SŠ (primárně ekonomika a podnikání, 
 obecný pro libovolný obor): admin (Zdeněk) nahraje učivo → Claude z něj
 vygeneruje banku testových otázek v obtížnostech 1–5 → aplikace na Windows 11
 z banky staví testy a drží studenta psychologickými hooky (XP, streaky, questy,
-truhly, sbírka, výzvy). Malý server zajišťuje distribuci bank, sběr progresu
-a dogenerování otázek na vyžádání.
+truhly, sbírka, výzvy). Fáze 2 přidala VÝUKU: interaktivní lekce po tématech
+(texty, SVG, hry, mini-kvízy), kterými se student látku naučí, než ji testuje
+(sekce Výuka níže). Malý server zajišťuje distribuci bank i výuky, sběr
+progresu a dogenerování otázek na vyžádání.
 
 ## Monorepo
 
@@ -20,7 +22,7 @@ questor/
 ├── generator/   @questor/generator — ingest učiva → Claude → banka otázek (CLI + knihovna)
 ├── server/      @questor/server — Hono API + node:sqlite + admin mini-web
 ├── aplikace/    @questor/aplikace — React + Vite (desktop shell: Tauri 2, balí se v CI)
-├── data/        demo učivo (uciva/) a banky (banky/)
+├── data/        demo učivo (uciva/), banky (banky/) a výuka (vyuka/)
 └── docs/        ARCHITEKTURA.md, DESIGN.md, NAVOD.md, NASAZENI.md, VYUKA.md
 ```
 
@@ -51,8 +53,18 @@ Zdroj pravdy: `sdilene/src/typy.ts` + `sdilene/src/schema.ts`.
   Každá má `obtiznost` 1–5, `vysvetleni` (povinné — učí) a volitelný `zdroj`.
 - **ProgresStudenta** — XP, streak, questy dne, sbírka, statistiky otázek
   (Leitnerův box 0–4), rekordy. Vlastní ho aplikace, server jen ukládá snapshoty.
-- Validace: `validujBanku(json)` ze `sdilene` — používá generátor (výstup),
-  server (upload) i aplikace (import demo banky).
+- **VyukaPredmetu** `{ predmetId, verze, vytvoreno, lekce[] }` (zdroj pravdy
+  `sdilene/src/vyuka.ts`, detail v sekci Výuka níže) — lekce se váže na téma
+  banky přes `temaId`, bloky jsou diskriminovaná unie (`text`, `klicove-pojmy`,
+  `obrazek` s inline SVG, `priklad`, `karticky`, `mini-kviz`, `widget` se 6
+  typy widgetů). SVG se VŽDY čistí přes `sanitizujSvg` a barví tokeny
+  (currentColor / var(--…)); sanitizace navíc filtruje hodnoty paint atributů
+  (fill/stroke/marker-* jen barva, var(--token) nebo `url(#…)`) a všechna
+  interní id prefixuje `svg-`, aby obsah nemohl podvrhnout kotvy stránky.
+  Verzování stejné jako u banky. `temaId` lekce i `id` tématu banky jsou slug
+  (`^[a-z0-9-]+$`) — temaId je součást routy `/uceni/:temaId`.
+- Validace: `validujBanku(json)` / `validujVyuku(json)` ze `sdilene` — používá
+  generátor (výstup), server (upload) i aplikace (bundlovaný obsah).
 
 ## Server — API kontrakt
 
@@ -70,7 +82,8 @@ server proto na všech cestách pouští CORS middleware
 (`allowHeaders: content-type, x-questor-token`, origin `*`; autentizaci
 nesou tokeny, ne origin).
 
-**Limity těla requestu**: `PUT /api/banky/:predmetId` max 10 MB, ostatní
+**Limity těla requestu**: `PUT /api/banky/:predmetId` a `PUT
+/api/vyuka/:predmetId` max 10 MB (content-upload s inline SVG), ostatní
 zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
 
 | Metoda a cesta | Role | Tělo / odpověď |
@@ -80,6 +93,9 @@ zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
 | `GET /api/banky` | student | `[{ predmetId, nazev, verze }]` |
 | `GET /api/banky/:predmetId` | student | celá `BankaOtazek`; 404 když není |
 | `PUT /api/banky/:predmetId` | admin | tělo `BankaOtazek` (validovat! verze musí růst) → `{ ok, verze }` |
+| `GET /api/vyuka` | student | `[{ predmetId, verze }]` |
+| `GET /api/vyuka/:predmetId` | student | celá `VyukaPredmetu`; 404 když není |
+| `PUT /api/vyuka/:predmetId` | admin | tělo `VyukaPredmetu` (`validujVyuku`; shoda predmetId URL vs. tělo, jinak 400; verze musí růst, jinak 409) → `{ ok, verze }` |
 | `POST /api/progres` | student | tělo `ProgresStudenta` → `{ ok }` (uloží poslední snapshot) |
 | `GET /api/progres` | admin | `{ progres, prijato, level }` nebo 404 (`level` = `stavLevelu(xp)` ze sdílené funkce, ať ho admin web neduplikuje) |
 | `POST /api/udalosti` | student | tělo `TestVysledek` → `{ ok }` (append; idempotentní podle `vysledek.id` — duplicitní doručení z retry fronty se tiše ignoruje) |
@@ -87,18 +103,20 @@ zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
 | `GET /api/vyzvy` | student | `Vyzva[]` se stavem != `dokoncena` |
 | `POST /api/vyzvy` | admin | `{ zprava, konfigurace, cilovaUspesnost? }` → `Vyzva` |
 | `POST /api/vyzvy/:id/vysledek` | student | `{ uspesnost, xp }` → `{ ok }` (nastaví `dokoncena`) |
-| `POST /api/generovani/dogenerovat` | student | `{ predmetId, temaId, obtiznost, pocet }` → `{ otazky }`; **503** když server nemá `ANTHROPIC_API_KEY` (aplikace to bere jako „funkce vypnutá“, žádná chyba uživateli). Kontext učiva server skládá ze zadání a vysvětlení existujících otázek tématu v bance (zdrojové učivo na serveru není). **Stav: klientská část v aplikaci zatím NENÍ implementovaná (fáze 2)** — hotová je jen serverová půlka včetně 503. |
+| `POST /api/generovani/dogenerovat` | student | `{ predmetId, temaId, obtiznost, pocet }` → `{ otazky }`; **503** když server nemá `ANTHROPIC_API_KEY` (aplikace to bere jako „funkce vypnutá“, žádná chyba uživateli). Kontext učiva server skládá ze zadání a vysvětlení existujících otázek tématu v bance (zdrojové učivo na serveru není). **Stav: klientská část v aplikaci zatím NENÍ implementovaná** — hotová je jen serverová půlka včetně 503. |
 | `GET /admin` | admin (token zadá stránka) | mini admin web (viz níže) |
 
 DB tabulky: `banky(predmet_id TEXT PK, verze INT, json TEXT)`,
+`vyuka(predmet_id TEXT PK, verze INT, json TEXT)`,
 `progres(id INT PK CHECK(id=1), json TEXT, prijato TEXT)`,
 `udalosti(id INTEGER PK AUTOINCREMENT, cas TEXT, json TEXT)`,
 `vyzvy(id TEXT PK, json TEXT)`.
 
 **Admin mini-web** (`/admin`, jedna HTML stránka servírovaná Honem, styl viz
-DESIGN.md): pole na token (uloží localStorage), upload banky (JSON soubor),
-přehled progresu studenta (level, XP, streak, poslední testy), formulář na
-výzvu. Bez frameworku — vanilla JS + fetch.
+DESIGN.md): pole na token (uloží localStorage), upload banky a upload výuky
+(JSON soubor, sekce Výuka s tabulkou předmět/verze), přehled progresu studenta
+(level, XP, streak, poslední testy), formulář na výzvu. Bez frameworku —
+vanilla JS + fetch.
 
 Dogenerování volá stejnou knihovnu jako generátor (`@questor/generator`),
 poskytovatel `api`.
@@ -110,6 +128,15 @@ Pozor: root skript deleguje do workspace, takže CLI běží s cwd
 `generator/` — relativní `--vstup`/`--vystup` se vyhodnocují odtud
 (zadávat absolutně, viz docs/NAVOD.md); výchozí výstup bez `--vystup`
 míří správně do kořenového `data/banky/`.
+
+Režim `--vyuka`: místo banky vygeneruje `VyukaPredmetu` (po jedné lekci na
+volání, structured output `llm-schema-vyuka.ts`, systémový prompt
+`prompty-vyuka.ts`); SVG bloků prochází `sanitizujSvg`, mini-kvízy dostávají
+id přes `vytvorIdOtazky` a validují se `otazkaSchema`, widgety
+`WIDGET_PARAMETRY_SCHEMATA`; výstup default `data/vyuka/<predmet>.json`,
+závěrečná validace `validujVyuku`, volitelný PUT na `/api/vyuka/<predmet>`.
+Generátor navrhuje jen datové widgety (`tridicka`/`pexeso`/`prubeh-procesu`/
+`srovnavac`).
 
 1. **Ingest**: `.md`/`.txt` přímo, `.pdf` přes `unpdf` (`extractText`),
    `.docx` přes `mammoth.extractRawText`.
@@ -148,15 +175,37 @@ React 19 + Vite, zustand (persist do localStorage, klíč `questor-stav`),
 react-router. Struktura `aplikace/src/`:
 
 ```
-stav/       store.ts (ZMRAZENÝ — skládá slices), testySlice.ts, hraSlice.ts
+stav/       store.ts (ZMRAZENÝ — skládá slices), testySlice.ts, hraSlice.ts, vyukaSlice.ts
 testy/      engine testu (čistá logika) + komponenty typů otázek
 hra/        gamifikační komponenty (XP, streak, questy, truhla, sbírka, avatar, rekordy)
+vyuka/      Uceni (/uceni), LekceViewer (/uceni/:temaId), bloky/, widgety/, registr.ts
 sync/       klient serveru + offline fronta + nastavení připojení
 stranky/    Domu, Test, Vysledek, Sbirka, Statistiky, Nastaveni
 komponenty/ HudHlavicka + sdílené vizuální prvky
 styl/       tokeny.css, global.css (viz DESIGN.md)
-data/       demo-banka.json (kopie data/banky/ekonomika-podnikani.json)
+data/       predmety.ts (mapa vzorových předmětů) + demo-banka.json + predmety/
 ```
+
+Bundlovaný obsah: `data/predmety.ts` skládá mapu `VZOROVE_PREDMETY`
+(predmetId → { banka?, vyuka? }) z `demo-banka.json` (ekonomika, fáze 1)
+a souborů `data/predmety/<predmetId>.banka.json` / `<predmetId>.vyuka.json`
+(kopie z kořenového `data/`; konvence viz README ve složce). Vadný soubor se
+jen zaloguje a přeskočí. Výukové widgety (6 obecných komponent) žijí ve
+`vyuka/widgety/`, UI je bere výhradně přes `vyuka/registr.ts`. Postup lekcí
+drží `vyukaSlice` klíčovaný `temaId` — temaId proto NESMÍ kolidovat napříč
+předměty a id mini-kvízů (`mk-…`) nesmí kolidovat s id otázek bank (`o-…`);
+hlídá to test `aplikace/test/predmety.test.ts`.
+
+Zobrazování možností: `VyberOtazka`, `MultiOtazka` i `PrirazovaniOtazka`
+míchají pořadí možností deterministicky podle hashe id otázky
+(`testy/komponenty/michani.ts`) — pořadí v datech tak nesmí a nemůže
+prozradit klíč (generované banky mívají správnou odpověď na prvním místě);
+odpovědi se enginu hlásí vždy v datových indexech. Dokončenou lekci lze
+projít znovu (tlačítko „Projít znovu“ → akce `zacniLekciZnovu` vynuluje
+dokončené bloky, XP 1× denně dál hlídá `dokonciLekci`); `resetujProgres`
+maže i `postupLekci`. Persistovaná výuka se při rehydrataci revaliduje
+(`validujVyuku`) a nevalidní snapshot (např. z novější verze aplikace po
+rollbacku) se zahodí ve prospěch bundlu.
 
 ### Vlastnictví souborů (paralelní práce)
 
@@ -189,8 +238,9 @@ data/       demo-banka.json (kopie data/banky/ekonomika-podnikani.json)
 Aplikace je plně funkční bez serveru (demo banka bundlovaná v `data/`).
 `sync/` drží: URL serveru + token (stránka Nastavení, default
 `http://localhost:8787`), frontu neodeslaných událostí (localStorage),
-při startu a po testu: push progres + události, pull banky (jen vyšší verze),
-pull výzvy. Selhání sítě = ticho, žádné chybové hlášky uprostřed hry (jen
+při startu a po testu: push progres + události, pull banky i výuky (jen vyšší
+verze; pull výuky má vlastní tichý try/catch kvůli starším serverům bez
+/api/vyuka), pull výzvy. Selhání sítě = ticho, žádné chybové hlášky uprostřed hry (jen
 nenápadný indikátor stavu připojení v Nastavení a na Domů). Fronta odesílá
 at-least-once s exponenciálním odkladem; položku, kterou server trvale odmítá
 (4xx mimo 408/429, např. výsledek smazané výzvy), zahodí, aby neblokovala
@@ -215,6 +265,72 @@ prosadí i bez serveru).
 - Avatar: SVG s dlouhými vlasy — VÝCHOZÍ A NEODSTRANITELNÉ (mění se jen barva
   a doplňky z truhel). Tohle je záměr, ne bug.
 
+## Výuka — kontrakt (fáze 2)
+
+Student se učivo nejdřív interaktivně naučí (lekce), pak ho testuje.
+Tady je závazný technický kontrakt; DIDAKTICKÉ zásady obsahu lekcí drží
+docs/VYUKA.md, provozní postup (vygenerovat → zvalidovat → nahrát)
+docs/NAVOD.md. Serverová, generátorová a datová část kontraktu jsou
+v příslušných sekcích výše (API `/api/vyuka`, tabulka `vyuka`, režim
+`--vyuka`, schémata ve `sdilene/src/vyuka.ts`).
+
+### Lekce a bloky
+
+`Lekce { temaId, nazev, poradi, bloky[] }` — `temaId` je slug tématu banky
+(lekce se přes něj váže na téma, `poradi` jde souvisle od 0).
+`VyukovyBlok` je diskriminovaná unie:
+
+| typ | obsah |
+|---|---|
+| `text` | mini-markdown: odstavce, `**tučné**`, odrážky |
+| `klicove-pojmy` | `{ pojem, definice }[]` |
+| `obrazek` | inline SVG + popisek (VŽDY přes `sanitizujSvg`, barvy tokeny) |
+| `priklad` | zadání + rozklikávací řešení |
+| `karticky` | flashcards `{ predni, zadni }[]` s otáčením |
+| `mini-kviz` | plnohodnotná `Otazka` (id `mk-…`, nesmí kolidovat s bankami) |
+| `widget` | `{ widgetId, parametry }` — viz registr níže |
+
+### Widget registr
+
+Komponenty žijí v `aplikace/src/vyuka/widgety/`, UI je bere VÝHRADNĚ přes
+`vyuka/registr.ts`. Obsah je DATA (parametry v JSON), komponenty jsou
+OBECNÉ — použitelné pro jakýkoli obor. Parametry typuje
+`WidgetParametryMapa` a validují `WIDGET_PARAMETRY_SCHEMATA` (sdilene):
+
+| widgetId | Co dělá |
+|---|---|
+| `tridicka` | drag & drop třídění položek do kategorií, oslava při úspěchu |
+| `pexeso` | hra pexeso: pojem ↔ definice |
+| `prubeh-procesu` | kroková animace procesu (krok za krokem, zvýraznění) |
+| `popisovacka` | SVG s hotspoty — klikni a zjisti, co je co; režim zkoušení |
+| `casova-osa` | interaktivní časová osa (klik na událost → detail) |
+| `srovnavac` | srovnání 2–4 věcí vedle sebe (přepínání vlastností) |
+
+Všechny widgety: klávesnice + myš, animace dle DESIGN.md
+(transform/opacity), splnění hlásí callbackem — kvůli postupu lekce.
+
+### Postup a gamifikace lekcí
+
+- Blok se „odškrtne“ zobrazením/scrollem; mini-kvíz a widget vyžadují
+  SPLNĚNÍ. Postup drží `vyukaSlice` (per lekce: dokončené bloky, klíčované
+  `temaId`).
+- Dokončená lekce: `XP_ZA_LEKCI` (40; jen poprvé v daný den — hlídá
+  `dokonciLekci`), počítá se jako aktivita pro streak a plní questy
+  (`aplikujLekciNaQuesty`). Quest šablona `lekce`: „Projdi dnes 1 lekci“,
+  odměna 60 XP.
+- Mistrovství tématu se NEmění — řídí ho výhradně testy. Výuka je cesta,
+  test je důkaz.
+
+### UI výuky
+
+- Routy: `/uceni` (přehled lekcí s progresí a doporučením „pokračuj tady“)
+  a `/uceni/:temaId` (LekceViewer — bloky pod sebou, plynulé odkrývání,
+  lišta postupu; na konci oslava + „Otestuj se z tématu“ → standard,
+  10 otázek, jen dané téma — funguje pro kterýkoli předmět + „Projít
+  znovu“).
+- Nav odkaz „Učit se“ v hlavičce, dlaždice na Domů; u témat v konfiguraci
+  testu ikona 📖, když má téma lekci (v kterékoli výuce).
+
 ## Ověření (před commitem)
 
 ```
@@ -233,5 +349,7 @@ Aplikace: `npm run dev:aplikace` → http://localhost:5173.
 - **Windows aplikace**: Tauri 2 shell (`aplikace/src-tauri/`), build v GitHub
   Actions (windows runner) → NSIS instalátor + updater artefakty; aplikace se
   aktualizuje sama z GitHub Releases. Vývoj na Macu = jen web (`npm run dev:aplikace`).
-- **Obsah**: nová banka = `PUT /api/banky/:id` (admin web nebo CLI) — bez
-  nového buildu aplikace. Kód aplikace = nový release, auto-update.
+- **Obsah**: nová banka = `PUT /api/banky/:id`, nová výuka =
+  `PUT /api/vyuka/:id` (admin web nebo CLI) — bez nového buildu aplikace.
+  Kód aplikace (a bundlovaný obsah v `aplikace/src/data/`) = nový release,
+  auto-update.

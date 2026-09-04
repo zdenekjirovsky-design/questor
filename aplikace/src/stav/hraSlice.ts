@@ -399,6 +399,9 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
       denBonusoveTruhly: null,
       zmrazeniPouzitoDen: null,
       historieTestu: [],
+      // Postup lekci (vyukaSlice) je soucast progresu studenta — obsah
+      // (vyuky, banky) naopak zustava.
+      postupLekci: {},
     });
   },
 

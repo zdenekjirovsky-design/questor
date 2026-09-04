@@ -51,7 +51,9 @@ export const otazkaSchema = z.discriminatedUnion('typ', [
 ]);
 
 export const temaSchema = z.object({
-  id: z.string().min(1),
+  // Slug — temaId se stava soucasti routy /uceni/:temaId, znaky jako `/`,
+  // `?` ci `#` by URL rozbily (lekce by byla nedosazitelna).
+  id: z.string().min(1).regex(/^[a-z0-9-]+$/, 'id tématu smí obsahovat jen a–z, 0–9 a pomlčky'),
   nazev: z.string().min(1),
   poradi: z.number().int().min(0),
 });

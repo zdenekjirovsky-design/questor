@@ -9,6 +9,7 @@ import type {
   Otazka,
   ProgresStudenta,
   TestVysledek,
+  VyukaPredmetu,
   Vyzva,
 } from '@questor/sdilene';
 import { vytvorApp, type MoznostiApp } from '../src/app';
@@ -48,6 +49,38 @@ function vzorovaBanka(verze = 1): BankaOtazek {
         zadani: 'Je konkurence součástí tržního mechanismu?',
         spravna: true,
         vysvetleni: 'Konkurence je jeden ze základních prvků trhu.',
+      },
+    ],
+  };
+}
+
+function vzorovaVyuka(verze = 1): VyukaPredmetu {
+  return {
+    predmetId: 'ekonomika-podnikani',
+    verze,
+    vytvoreno: '2026-09-04',
+    lekce: [
+      {
+        temaId: 'trh',
+        nazev: 'Trh a tržní mechanismus',
+        poradi: 0,
+        bloky: [
+          { typ: 'text', obsah: 'Trh je místo, kde se potkává **nabídka** s poptávkou.' },
+          {
+            typ: 'klicove-pojmy',
+            polozky: [{ pojem: 'Nabídka', definice: 'Množství zboží, které chtějí výrobci prodat.' }],
+          },
+          {
+            typ: 'widget',
+            widgetId: 'pexeso',
+            parametry: {
+              dvojice: [
+                { a: 'Nabídka', b: 'Výrobci chtějí prodat' },
+                { a: 'Poptávka', b: 'Kupující chtějí koupit' },
+              ],
+            },
+          },
+        ],
       },
     ],
   };
@@ -205,6 +238,114 @@ describe('banky', () => {
 
     const detail = await app.request('/api/banky/ekonomika-podnikani', { headers: STUDENT });
     expect(((await detail.json()) as BankaOtazek).verze).toBe(3);
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+describe('výuka', () => {
+  let app: Hono;
+  beforeEach(() => {
+    app = novaApp();
+  });
+
+  async function nahrajVyuku(vyuka: VyukaPredmetu) {
+    return app.request(`/api/vyuka/${vyuka.predmetId}`, {
+      method: 'PUT',
+      headers: { ...ADMIN, ...JSON_HLAVICKY },
+      body: JSON.stringify(vyuka),
+    });
+  }
+
+  it('GET /api/vyuka vyžaduje token, PUT admin token', async () => {
+    const bezTokenu = await app.request('/api/vyuka');
+    expect(bezTokenu.status).toBe(401);
+
+    const studentPut = await app.request('/api/vyuka/ekonomika-podnikani', {
+      method: 'PUT',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify(vzorovaVyuka()),
+    });
+    expect(studentPut.status).toBe(401);
+  });
+
+  it('PUT odmítne neplatnou výuku (400)', async () => {
+    const odpoved = await app.request('/api/vyuka/ekonomika-podnikani', {
+      method: 'PUT',
+      headers: { ...ADMIN, ...JSON_HLAVICKY },
+      body: JSON.stringify({ predmetId: 'ekonomika-podnikani', verze: 1 }),
+    });
+    expect(odpoved.status).toBe(400);
+    expect(await odpoved.json()).toHaveProperty('chyba');
+  });
+
+  it('PUT odmítne výuku s rozbitými parametry widgetu (400 přes validujVyuku)', async () => {
+    const rozbita = vzorovaVyuka();
+    rozbita.lekce[0].bloky.push({
+      typ: 'widget',
+      widgetId: 'tridicka',
+      parametry: { zadani: 'Roztřiď' }, // chybí kategorie a polozky
+    } as unknown as VyukaPredmetu['lekce'][0]['bloky'][0]);
+    const odpoved = await app.request('/api/vyuka/ekonomika-podnikani', {
+      method: 'PUT',
+      headers: { ...ADMIN, ...JSON_HLAVICKY },
+      body: JSON.stringify(rozbita),
+    });
+    expect(odpoved.status).toBe(400);
+  });
+
+  it('PUT odmítne nesoulad predmetId v URL a v těle (400)', async () => {
+    const odpoved = await app.request('/api/vyuka/jiny-predmet', {
+      method: 'PUT',
+      headers: { ...ADMIN, ...JSON_HLAVICKY },
+      body: JSON.stringify(vzorovaVyuka()),
+    });
+    expect(odpoved.status).toBe(400);
+  });
+
+  it('nahraje výuku, vrátí ji zpět a objeví se v seznamu', async () => {
+    const ulozeni = await nahrajVyuku(vzorovaVyuka());
+    expect(ulozeni.status).toBe(200);
+    expect(await ulozeni.json()).toEqual({ ok: true, verze: 1 });
+
+    const seznam = await app.request('/api/vyuka', { headers: STUDENT });
+    expect(seznam.status).toBe(200);
+    expect(await seznam.json()).toEqual([{ predmetId: 'ekonomika-podnikani', verze: 1 }]);
+
+    const detail = await app.request('/api/vyuka/ekonomika-podnikani', { headers: STUDENT });
+    expect(detail.status).toBe(200);
+    expect(await detail.json()).toEqual(vzorovaVyuka());
+  });
+
+  it('GET neexistující výuky vrací 404', async () => {
+    const odpoved = await app.request('/api/vyuka/neexistuje', { headers: STUDENT });
+    expect(odpoved.status).toBe(404);
+    expect(await odpoved.json()).toHaveProperty('chyba');
+  });
+
+  it('verze musí růst: stejná a nižší → 409, vyšší projde', async () => {
+    await nahrajVyuku(vzorovaVyuka(2));
+
+    const stejna = await nahrajVyuku(vzorovaVyuka(2));
+    expect(stejna.status).toBe(409);
+    expect(await stejna.json()).toHaveProperty('chyba');
+
+    const nizsi = await nahrajVyuku(vzorovaVyuka(1));
+    expect(nizsi.status).toBe(409);
+
+    const vyssi = await nahrajVyuku(vzorovaVyuka(3));
+    expect(vyssi.status).toBe(200);
+    expect(await vyssi.json()).toEqual({ ok: true, verze: 3 });
+
+    const detail = await app.request('/api/vyuka/ekonomika-podnikani', { headers: STUDENT });
+    expect(((await detail.json()) as VyukaPredmetu).verze).toBe(3);
+  });
+
+  it('admin stránka obsahuje sekci Výuka s uploadem', async () => {
+    const odpoved = await app.request('/admin');
+    const html = await odpoved.text();
+    expect(html).toContain('panel-vyuka');
+    expect(html).toContain('/api/vyuka/');
   });
 });
 

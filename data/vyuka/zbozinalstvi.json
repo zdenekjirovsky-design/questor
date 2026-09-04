@@ -1,0 +1,1092 @@
+{
+  "predmetId": "zbozinalstvi",
+  "verze": 2,
+  "vytvoreno": "2026-09-04",
+  "lekce": [
+    {
+      "temaId": "zaklady-zbozinalstvi",
+      "nazev": "Základy zbožíznalství",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Představ si, že máš letní brigádu v samoobsluze. Ráno přijede dodávka: bedny s čokoládou, banány a prací prášek. Vedoucí na tebe mávne: „Ukliď to do skladu!“ Kam co dáš? Čokoládu k topení? Banány do mrazáku? Prášek vedle sušenek?\n\nPřesně tohle řeší **zbožíznalství** — nauka o zboží. Učí nás:\n- **co** zboží je a **jaké má vlastnosti**,\n- **co ho ničí** a jak ho chránit (obaly, správné skladování),\n- **jak poznat jakost** — a co dělat, když ji zboží nemá (reklamace).\n\nKdo zboží rozumí, umí ho prodat i skladovat, poradí zákazníkovi — a nespálí se ani při vlastním nákupu."
+        },
+        {
+          "typ": "klicove-pojmy",
+          "polozky": [
+            {
+              "pojem": "Zbožíznalství",
+              "definice": "Nauka o zboží: sleduje jeho vlastnosti, jakost, vady, balení, skladování i správné použití."
+            },
+            {
+              "pojem": "Zboží",
+              "definice": "Výrobek určený k prodeji na trhu."
+            },
+            {
+              "pojem": "Jakost (kvalita)",
+              "definice": "Souhrn vlastností, díky kterým zboží uspokojuje potřeby zákazníka."
+            },
+            {
+              "pojem": "Řízení jakosti",
+              "definice": "Soustavná činnost firmy, aby kvalita vznikala už při výrobě — nejen se kontrolovala na konci."
+            },
+            {
+              "pojem": "Reklamace",
+              "definice": "Uplatnění odpovědnosti prodávajícího za vady zboží."
+            },
+            {
+              "pojem": "Obal",
+              "definice": "Chrání zboží, usnadňuje manipulaci, informuje o zboží, podporuje jeho prodej a šetří životní prostředí."
+            },
+            {
+              "pojem": "Skladování",
+              "definice": "Uchovávání zboží v podmínkách, které zachovají jeho jakost: správná teplota, vlhkost, čistota, FIFO."
+            }
+          ]
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Příklady vlivů působících na zboží\">\n<defs>\n<marker id=\"vz-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n</defs>\n<rect x=\"210\" y=\"140\" width=\"140\" height=\"50\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"280\" y=\"171\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">ZBOŽÍ</text>\n<rect x=\"8\" y=\"16\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"94\" y=\"37\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Teplota a vlhkost</text>\n<text x=\"94\" y=\"56\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--info)\">fyzikální vliv</text>\n<rect x=\"8\" y=\"139\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"94\" y=\"160\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Světlo a záření</text>\n<text x=\"94\" y=\"179\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--info)\">fyzikální vliv</text>\n<rect x=\"8\" y=\"262\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<text x=\"94\" y=\"283\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Náraz, tlak, otřesy</text>\n<text x=\"94\" y=\"302\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.7\">mechanický vliv</text>\n<rect x=\"380\" y=\"16\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"466\" y=\"37\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Mikroby a škůdci</text>\n<text x=\"466\" y=\"56\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--uspech)\">biologický vliv</text>\n<rect x=\"380\" y=\"139\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"466\" y=\"160\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Koroze, žluknutí</text>\n<text x=\"466\" y=\"179\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--zlata)\">chemický vliv</text>\n<rect x=\"380\" y=\"262\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<text x=\"466\" y=\"283\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Čas — stárnutí zboží</text>\n<text x=\"466\" y=\"302\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.7\">důsledek působení vlivů</text>\n<line x1=\"182\" y1=\"52\" x2=\"226\" y2=\"140\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"182\" y1=\"165\" x2=\"206\" y2=\"165\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"182\" y1=\"278\" x2=\"226\" y2=\"192\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"378\" y1=\"52\" x2=\"334\" y2=\"140\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"378\" y1=\"165\" x2=\"354\" y2=\"165\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"378\" y1=\"278\" x2=\"334\" y2=\"192\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n</svg>",
+          "popisek": "Na zboží při přepravě a skladování útočí čtyři skupiny vlivů: fyzikální, chemické, biologické a mechanické — a čas jejich působení sčítá."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-zaklady-zbozinalstvi-1",
+            "temaId": "zaklady-zbozinalstvi",
+            "obtiznost": 1,
+            "zadani": "Jak se nazývá souhrn vlastností, díky kterým zboží dokáže uspokojit potřeby zákazníka?",
+            "vysvetleni": "Jakost (kvalita) je souhrn užitných vlastností zboží. Cena je peněžní vyjádření hodnoty, sortiment je skladba nabídky a poptávka je zájem kupujících.",
+            "zdroj": "Jakost a řízení jakosti",
+            "typ": "vyber",
+            "moznosti": [
+              "Jakost",
+              "Cena",
+              "Sortiment",
+              "Poptávka"
+            ],
+            "spravna": 0
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Kvalitu nikdo nevymyslel včera.** Hlídala se už ve středověku — jen se jí neříkalo „systém řízení jakosti“. Projdi si na časové ose, jak se z cechovního mistra stal certifikát ISO."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "casova-osa",
+          "parametry": {
+            "udalosti": [
+              {
+                "rok": 1300,
+                "nazev": "Středověké cechy",
+                "popis": "Řemeslnické cechy hlídají poctivost práce: kontrolují suroviny, postupy i hotové výrobky svých mistrů. Šizení zákazníka se přísně trestá."
+              },
+              {
+                "rok": 1800,
+                "nazev": "Průmyslová revoluce",
+                "popis": "Výrobu přebírají stroje a dělba práce. Dělník už nedělá celý výrobek sám, proto kvalitu hlídají zvláštní kontroloři na konci výroby."
+              },
+              {
+                "rok": 1924,
+                "nazev": "Baťa a moderní řízení",
+                "popis": "Tomáš Baťa ve Zlíně staví kvalitu na promyšleném systému: samospráva dílen, měření výkonů a heslo „Náš zákazník — náš pán“. Ve stejné době vzniká statistická kontrola jakosti."
+              },
+              {
+                "rok": 1987,
+                "nazev": "Normy ISO řady 9000",
+                "popis": "Vycházejí mezinárodní normy ISO 9000: popisují, jak má vypadat systém řízení jakosti v celé firmě. Jejich splnění potvrzuje certifikát."
+              },
+              {
+                "rok": 1990,
+                "nazev": "TQM — komplexní řízení jakosti",
+                "popis": "Total Quality Management: kvalita je věcí každého zaměstnance, ne jen kontrolora. Firma neustále zlepšuje všechny své procesy."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              {
+                "a": "Jakost",
+                "b": "Souhrn vlastností, díky kterým zboží uspokojí potřeby zákazníka"
+              },
+              {
+                "a": "Norma",
+                "b": "Předpis stanovující požadavky na vlastnosti výrobku nebo postupu"
+              },
+              {
+                "a": "Certifikace",
+                "b": "Nezávislé ověření, že výrobek či firma splňuje požadavky normy"
+              },
+              {
+                "a": "Kontrola jakosti",
+                "b": "Porovnání skutečných vlastností výrobku s předepsanými"
+              },
+              {
+                "a": "TQM",
+                "b": "Komplexní řízení jakosti — kvalitu tvoří všichni zaměstnanci"
+              },
+              {
+                "a": "Reklamace",
+                "b": "Uplatnění odpovědnosti prodávajícího za vady zboží"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Zboží na cestě od výrobce k zákazníkovi čeká drncání v kamionu, přeskládávání, světlo i vlhko. Prvním bodyguardem zboží je **obal**. Plní pět funkcí: **ochrannou**, **manipulační** (usnadňuje přepravu a skladování), **informační**, **prodejní** (marketingovou — láká zákazníka ke koupi) a **ekologickou** (vratné a recyklovatelné obaly). Porovnej si nejběžnější obalové materiály:"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "Papír a lepenka",
+                "vlastnosti": {
+                  "Surovina": "dřevná vláknina",
+                  "Hmotnost": "velmi nízká",
+                  "Ochrana obsahu": "proti prachu a světlu, ne proti vlhku",
+                  "Recyklace": "snadná a levná",
+                  "Typické použití": "krabice, sáčky, proložky"
+                }
+              },
+              {
+                "nazev": "Sklo",
+                "vlastnosti": {
+                  "Surovina": "křemičitý písek, soda, vápenec",
+                  "Hmotnost": "vysoká, materiál je křehký",
+                  "Ochrana obsahu": "výborná — nic nepropouští, chemicky netečné",
+                  "Recyklace": "stoprocentní, opakovaná",
+                  "Typické použití": "lahve, zavařovací sklenice"
+                }
+              },
+              {
+                "nazev": "Plasty",
+                "vlastnosti": {
+                  "Surovina": "ropné produkty",
+                  "Hmotnost": "nízká",
+                  "Ochrana obsahu": "dobrá proti vlhku, část plynů propustí",
+                  "Recyklace": "nutné pečlivé třídění podle druhu",
+                  "Typické použití": "PET lahve, fólie, kelímky"
+                }
+              },
+              {
+                "nazev": "Kovy",
+                "vlastnosti": {
+                  "Surovina": "ocelový plech, hliník",
+                  "Hmotnost": "střední",
+                  "Ochrana obsahu": "výborná — zastaví světlo, vzduch i mikroby",
+                  "Recyklace": "dobrá, ocel se třídí magnetem",
+                  "Typické použití": "konzervy, plechovky, tuby"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Zbožíznalství",
+              "zadni": "Nauka o zboží — o jeho vlastnostech, jakosti, vadách, skladování a použití."
+            },
+            {
+              "predni": "Jakost",
+              "zadni": "Souhrn vlastností, díky kterým zboží uspokojí potřeby zákazníka."
+            },
+            {
+              "predni": "Čtyři skupiny vlivů působících na zboží",
+              "zadni": "Fyzikální (teplota, vlhkost, světlo), chemické (koroze, žluknutí), biologické (mikroby, škůdci) a mechanické (náraz, tlak, otřesy). Čas jejich působení sčítá."
+            },
+            {
+              "predni": "Hlavní funkce obalu",
+              "zadni": "Ochranná, manipulační, informační, prodejní (marketingová) a ekologická."
+            },
+            {
+              "predni": "FIFO",
+              "zadni": "„First in, first out“ — zboží naskladněné jako první se prodává jako první."
+            },
+            {
+              "predni": "Norma",
+              "zadni": "Předpis stanovující požadavky na vlastnosti výrobku (např. ISO řady 9000 pro systémy řízení jakosti)."
+            },
+            {
+              "predni": "Certifikace",
+              "zadni": "Nezávislé ověření, že výrobek nebo firma splňuje požadavky normy."
+            },
+            {
+              "predni": "Zásady správného skladování",
+              "zadni": "Správná teplota a vlhkost, čistota, oddělení neslučitelného zboží, FIFO."
+            }
+          ]
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Nový skladník uložil krabice s čokoládou ke stoupačkám topení a hned vedle postavil paletu pracích prášků. Najdeš obě chyby a vysvětlíš, co zboží hrozí?",
+          "reseni": "1) **Teplo od topení** — čokoláda nad cca 25 °C měkne a taje; po opětovném ztuhnutí se objeví šedavý tukový výkvět. Působí tu nepříznivý **fyzikální vliv** (teplota).\n2) **Sousedství pracího prášku** — tuk v čokoládě snadno **přijímá cizí pachy**; jde o **chemický vliv**.\n\nZásada správného skladování: potraviny nikdy neskladovat společně s drogerií a vždy hlídat teplotu i vlhkost skladu."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-zaklady-zbozinalstvi-2",
+            "temaId": "zaklady-zbozinalstvi",
+            "obtiznost": 2,
+            "zadani": "Které funkce plní obal zboží? (více správných odpovědí)",
+            "vysvetleni": "Obal plní pět funkcí: ochrannou, manipulační, informační, prodejní (marketingovou) a ekologickou. Záruční dobu stanovuje zákon — obal ji změnit nedokáže.",
+            "zdroj": "Ochrana zboží, obaly, obalová technika",
+            "typ": "multi",
+            "moznosti": [
+              "Chrání zboží před poškozením a zkázou",
+              "Informuje o složení, použití a výrobci",
+              "Usnadňuje manipulaci a přepravu",
+              "Láká zákazníka ke koupi — podporuje prodej",
+              "Prodlužuje zákonnou záruční dobu"
+            ],
+            "spravne": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "temaId": "potravinarske-zbozi",
+      "nazev": "Potravinářské zboží",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Stojíš v obchodě s košíkem: jogurt musí rychle do lednice, těstoviny vydrží ve spíži měsíce — a obojí je „jídlo“. **Potravinářské zboží** je nejcitlivější sortiment obchodu: rychle podléhá zkáze, platí pro něj přísná pravidla a chyba prodavače může zákazníka i ohrozit na zdraví.\n\nV téhle lekci zjistíš:\n- jak se potraviny dělí podle **původu** (živočišné, rostlinné, nerostné),\n- z čeho se potraviny **skládají** a co které živiny tělu dávají,\n- co s potravinou udělá **průmyslová úprava** — třeba proč čerstvé mléko vydrží v lednici celý týden a trvanlivé i měsíce mimo ni."
+        },
+        {
+          "typ": "klicove-pojmy",
+          "polozky": [
+            {
+              "pojem": "Potravina",
+              "definice": "Výrobek určený k lidské výživě."
+            },
+            {
+              "pojem": "Živiny",
+              "definice": "Látky, ze kterých tělo staví a získává energii: bílkoviny, sacharidy a tuky."
+            },
+            {
+              "pojem": "Vitamíny a minerální látky",
+              "definice": "Ochranné látky nezbytné v malém množství; tělo si většinu z nich neumí vyrobit samo."
+            },
+            {
+              "pojem": "Racionální výživa",
+              "definice": "Pestrá a vyvážená strava odpovídající věku, zdraví a výdeji energie."
+            },
+            {
+              "pojem": "Průmyslová úprava potravin",
+              "definice": "Postupy prodlužující trvanlivost a zlepšující vlastnosti: pasterace, sterilace, sušení, mražení, uzení."
+            },
+            {
+              "pojem": "Trvanlivost",
+              "definice": "Doba, po kterou si potravina drží zdravotní nezávadnost a jakost."
+            },
+            {
+              "pojem": "Inovace sortimentu",
+              "definice": "Průběžné obnovování nabídky — nové výrobky nahrazují ty, o které zájem klesá."
+            }
+          ]
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď potraviny podle původu",
+            "kategorie": [
+              {
+                "id": "zivocisne",
+                "nazev": "Živočišný původ"
+              },
+              {
+                "id": "rostlinne",
+                "nazev": "Rostlinný původ"
+              },
+              {
+                "id": "nerostne",
+                "nazev": "Nerostný původ"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "máslo",
+                "kategorieId": "zivocisne"
+              },
+              {
+                "text": "vejce",
+                "kategorieId": "zivocisne"
+              },
+              {
+                "text": "šunka",
+                "kategorieId": "zivocisne"
+              },
+              {
+                "text": "med",
+                "kategorieId": "zivocisne"
+              },
+              {
+                "text": "mouka",
+                "kategorieId": "rostlinne"
+              },
+              {
+                "text": "rýže",
+                "kategorieId": "rostlinne"
+              },
+              {
+                "text": "jablka",
+                "kategorieId": "rostlinne"
+              },
+              {
+                "text": "čočka",
+                "kategorieId": "rostlinne"
+              },
+              {
+                "text": "kuchyňská sůl",
+                "kategorieId": "nerostne"
+              },
+              {
+                "text": "minerální voda",
+                "kategorieId": "nerostne"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 300\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Z čeho se skládá potravina: voda a sušina s živinami\">\n<defs>\n<marker id=\"sz-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n</defs>\n<rect x=\"245\" y=\"12\" width=\"150\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"320\" y=\"39\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">POTRAVINA</text>\n<rect x=\"40\" y=\"108\" width=\"130\" height=\"42\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"105\" y=\"126\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">VODA</text>\n<text x=\"105\" y=\"142\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--info)\">u ovoce i přes 80 %</text>\n<rect x=\"350\" y=\"108\" width=\"200\" height=\"42\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"450\" y=\"126\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">SUŠINA = živiny</text>\n<text x=\"450\" y=\"142\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--zlata)\">vše, co zbude po odpaření vody</text>\n<line x1=\"290\" y1=\"56\" x2=\"115\" y2=\"106\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#sz-sipka)\" />\n<line x1=\"350\" y1=\"56\" x2=\"440\" y2=\"106\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#sz-sipka)\" />\n<rect x=\"8\" y=\"210\" width=\"118\" height=\"64\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"67\" y=\"232\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Bílkoviny</text>\n<text x=\"67\" y=\"248\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--uspech)\">stavba těla</text>\n<text x=\"67\" y=\"262\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">maso, vejce, luštěniny</text>\n<rect x=\"136\" y=\"210\" width=\"118\" height=\"64\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"195\" y=\"232\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Sacharidy</text>\n<text x=\"195\" y=\"248\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--uspech)\">rychlá energie</text>\n<text x=\"195\" y=\"262\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">pečivo, rýže, ovoce</text>\n<rect x=\"264\" y=\"210\" width=\"118\" height=\"64\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"323\" y=\"232\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Tuky</text>\n<text x=\"323\" y=\"248\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--uspech)\">zásoba energie</text>\n<text x=\"323\" y=\"262\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">máslo, oleje, ořechy</text>\n<rect x=\"392\" y=\"210\" width=\"118\" height=\"64\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"451\" y=\"232\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Vitamíny</text>\n<text x=\"451\" y=\"248\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--info)\">ochranné látky</text>\n<text x=\"451\" y=\"262\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">C, D, skupina B</text>\n<rect x=\"520\" y=\"210\" width=\"118\" height=\"64\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"579\" y=\"232\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Minerální látky</text>\n<text x=\"579\" y=\"248\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--info)\">kosti, zuby, krev</text>\n<text x=\"579\" y=\"262\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">vápník, železo, jód</text>\n<line x1=\"450\" y1=\"150\" x2=\"70\" y2=\"208\" stroke=\"currentColor\" stroke-width=\"1.2\" opacity=\"0.55\" marker-end=\"url(#sz-sipka)\" />\n<line x1=\"450\" y1=\"150\" x2=\"196\" y2=\"208\" stroke=\"currentColor\" stroke-width=\"1.2\" opacity=\"0.55\" marker-end=\"url(#sz-sipka)\" />\n<line x1=\"450\" y1=\"150\" x2=\"322\" y2=\"208\" stroke=\"currentColor\" stroke-width=\"1.2\" opacity=\"0.55\" marker-end=\"url(#sz-sipka)\" />\n<line x1=\"450\" y1=\"150\" x2=\"450\" y2=\"208\" stroke=\"currentColor\" stroke-width=\"1.2\" opacity=\"0.55\" marker-end=\"url(#sz-sipka)\" />\n<line x1=\"450\" y1=\"150\" x2=\"578\" y2=\"208\" stroke=\"currentColor\" stroke-width=\"1.2\" opacity=\"0.55\" marker-end=\"url(#sz-sipka)\" />\n</svg>",
+          "popisek": "Každá potravina je voda + sušina. V sušině jsou hlavní živiny (bílkoviny, sacharidy, tuky) a látky ochranné (vitamíny, minerální látky)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-potravinarske-zbozi-1",
+            "temaId": "potravinarske-zbozi",
+            "obtiznost": 2,
+            "zadani": "Přiřaď k živinám jejich hlavní úlohu v těle.",
+            "vysvetleni": "Bílkoviny tělo staví, sacharidy ho rychle pohání, tuky jsou zásobárna energie (a rozpouštějí vitamíny A, D, E, K), vitamíny tělo chrání.",
+            "zdroj": "Složení potravin",
+            "typ": "prirazovani",
+            "pary": [
+              {
+                "levy": "Bílkoviny",
+                "pravy": "stavební látka těla (maso, vejce, luštěniny)"
+              },
+              {
+                "levy": "Sacharidy",
+                "pravy": "rychlý zdroj energie (pečivo, rýže, ovoce)"
+              },
+              {
+                "levy": "Tuky",
+                "pravy": "zásobní energie a nosič vitamínů"
+              },
+              {
+                "levy": "Vitamíny",
+                "pravy": "ochranné látky potřebné v malém množství"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Syrové mléko by se v regálu zkazilo za pár hodin. Aby bezpečně doputovalo až do tvé lednice, projde v mlékárně **průmyslovou úpravou**. Čerstvé mléko se **pasteruje** (šetrný záhřev pod 100 °C) a vydrží v chladu dny až týdny; **trvanlivé** mléko z krabice dostane navíc **UHT záhřev** — bleskové zahřátí asi na 135 °C — a vydrží měsíce i bez lednice. Proklikej si cestu čerstvého mléka krok za krokem:"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Cesta mléka od krávy do tvé lednice",
+            "kroky": [
+              {
+                "nazev": "Nadojení a zchlazení",
+                "popis": "Na farmě se mléko hned po nadojení zchladí asi na 4 °C, aby se nemnožily bakterie.",
+                "ikona": "🐄"
+              },
+              {
+                "nazev": "Svoz do mlékárny",
+                "popis": "Chlazená cisterna sveze mléko z farem; při příjmu se kontroluje jeho jakost.",
+                "ikona": "🚚"
+              },
+              {
+                "nazev": "Odstředění a úprava tučnosti",
+                "popis": "Odstředivka oddělí smetanu; smícháním se pak nastaví tučnost, třeba 1,5 %.",
+                "ikona": "⚙️"
+              },
+              {
+                "nazev": "Homogenizace",
+                "popis": "Tukové kuličky se roztříští na drobné, takže se smetana neusazuje u víčka.",
+                "ikona": "🥛"
+              },
+              {
+                "nazev": "Pasterace",
+                "popis": "Šetrné zahřátí asi na 72 °C na 15 až 30 sekund zničí choroboplodné mikroorganismy.",
+                "ikona": "🔥"
+              },
+              {
+                "nazev": "Balení a expedice",
+                "popis": "Plnění do krabic a lahví a rychlý rozvoz do prodejen v nepřerušeném chladicím řetězci.",
+                "ikona": "📦"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-potravinarske-zbozi-2",
+            "temaId": "potravinarske-zbozi",
+            "obtiznost": 2,
+            "zadani": "Pasterace je šetrné zahřátí potraviny pod 100 °C, které zničí většinu škodlivých mikroorganismů.",
+            "vysvetleni": "Ano. Pasterace probíhá pod bodem varu a šetří chuť i vitamíny. Záhřev nad 100 °C je sterilace — zničí i spory a trvanlivost prodlouží mnohem víc (konzervy).",
+            "zdroj": "Průmyslová úprava potravin",
+            "typ": "anone",
+            "spravna": true
+          }
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Datum použitelnosti („Spotřebujte do“)",
+              "zadni": "U rychle se kazících potravin. Po tomto datu se potravina nesmí prodávat ani konzumovat."
+            },
+            {
+              "predni": "Datum minimální trvanlivosti",
+              "zadni": "Do kdy výrobce zaručuje plnou jakost. Po něm může být potravina dál jedlá, jen ztrácí kvalitu."
+            },
+            {
+              "predni": "Pasterace",
+              "zadni": "Šetrné zahřátí pod 100 °C — zničí většinu mikroorganismů, chuť a vitamíny z velké části zůstávají."
+            },
+            {
+              "predni": "Sterilace",
+              "zadni": "Záhřev nad 100 °C — zničí i spory mikroorganismů; výrazně prodlouží trvanlivost (konzervy)."
+            },
+            {
+              "predni": "Bílkoviny",
+              "zadni": "Stavební látka těla; zdroje: maso, vejce, mléko, luštěniny."
+            },
+            {
+              "predni": "Sacharidy",
+              "zadni": "Hlavní rychlý zdroj energie; zdroje: pečivo, brambory, rýže, ovoce."
+            },
+            {
+              "predni": "Vláknina",
+              "zadni": "Nestravitelná složka rostlinné stravy — podporuje trávení a sytí."
+            },
+            {
+              "predni": "Racionální výživa",
+              "zadni": "Pestrá, vyvážená strava odpovídající věku a výdeji energie: hodně zeleniny a ovoce, méně cukru, soli a tuku."
+            }
+          ]
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Zákazník u pokladny zjistí, že těstoviny mají čtrnáct dní prošlé datum minimální trvanlivosti. Zlobí se, že prodáváte „zkažené zboží“. Co mu jako prodavač odpovíš?",
+          "reseni": "Datum **minimální trvanlivosti** neznamená zkažení — říká jen, do kdy výrobce **zaručuje plnou jakost** (chuť, barvu, křupavost). Takové zboží se smí dál prodávat, pokud je zdravotně nezávadné a viditelně označené (obvykle se zlevňuje).\n\nNěco jiného je **datum použitelnosti** („Spotřebujte do“) u rychle se kazících potravin, jako je maso nebo jogurt — po něm se potravina prodávat **nesmí**."
+        }
+      ]
+    },
+    {
+      "temaId": "drobne-zbozi",
+      "nazev": "Drobné zboží",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Konec srpna, papírnictví praská ve švech: seznamy pomůcek, fronta rodičů, na pultě sešity, kružítka i vodovky. **Drobné zboží** je pestrá skupina věcí denní potřeby — od obálky přes stavebnici po švihadlo. Právě kvůli té pestrosti se v něm prodavač musí umět rychle zorientovat: sortiment třídíme **podle účelu** a **podle materiálu**."
+        },
+        {
+          "typ": "klicove-pojmy",
+          "polozky": [
+            {
+              "pojem": "Drobné zboží",
+              "definice": "Rozmanitý sortiment věcí denní potřeby: papírnické zboží, psací a rýsovací potřeby, hračky, sportovní potřeby."
+            },
+            {
+              "pojem": "Papírnické zboží",
+              "definice": "Papíry, sešity, obálky, bloky; základní vlastností papíru je gramáž (g/m²)."
+            },
+            {
+              "pojem": "Psací potřeby",
+              "definice": "Pera, propisovací tužky, tužky, fixy."
+            },
+            {
+              "pojem": "Rýsovací potřeby",
+              "definice": "Kružítka, pravítka, trojúhelník s ryskou, úhloměry, mikrotužky."
+            },
+            {
+              "pojem": "Hračky",
+              "definice": "Zboží pro hru a rozvoj dětí; podléhá přísným bezpečnostním předpisům (značka CE, věkové určení)."
+            },
+            {
+              "pojem": "Sportovní potřeby",
+              "definice": "Náčiní a vybavení pro sport a volný čas: míče, pálky, švihadla, činky."
+            }
+          ]
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 660 250\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rozdělení drobného zboží podle účelu\">\n<defs>\n<marker id=\"dz-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n</defs>\n<rect x=\"230\" y=\"12\" width=\"200\" height=\"42\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"330\" y=\"38\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">DROBNÉ ZBOŽÍ</text>\n<rect x=\"8\" y=\"110\" width=\"150\" height=\"62\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"83\" y=\"136\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Papírnické zboží</text>\n<text x=\"83\" y=\"158\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--info)\">sešity, obálky, čtvrtky</text>\n<rect x=\"170\" y=\"110\" width=\"150\" height=\"62\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"245\" y=\"130\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Psací a rýsovací</text>\n<text x=\"245\" y=\"144\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">potřeby</text>\n<text x=\"245\" y=\"162\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--uspech)\">pera, tužky, kružítka</text>\n<rect x=\"332\" y=\"110\" width=\"150\" height=\"62\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"407\" y=\"136\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Hračky</text>\n<text x=\"407\" y=\"158\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--zlata)\">stavebnice, panenky</text>\n<rect x=\"494\" y=\"110\" width=\"150\" height=\"62\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" />\n<text x=\"569\" y=\"136\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Sportovní potřeby</text>\n<text x=\"569\" y=\"158\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--akcent)\">míče, pálky, švihadla</text>\n<line x1=\"280\" y1=\"54\" x2=\"90\" y2=\"108\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#dz-sipka)\" />\n<line x1=\"310\" y1=\"54\" x2=\"243\" y2=\"108\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#dz-sipka)\" />\n<line x1=\"350\" y1=\"54\" x2=\"405\" y2=\"108\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#dz-sipka)\" />\n<line x1=\"380\" y1=\"54\" x2=\"562\" y2=\"108\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#dz-sipka)\" />\n<text x=\"330\" y=\"226\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.8\">Druhý pohled na třídění: podle materiálu — papír, plast, kov, dřevo, textil.</text>\n</svg>",
+          "popisek": "Drobné zboží se třídí především podle účelu do čtyř velkých skupin; druhým hlediskem je materiál."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď drobné zboží podle převažujícího materiálu",
+            "kategorie": [
+              {
+                "id": "papir",
+                "nazev": "Papír"
+              },
+              {
+                "id": "plast",
+                "nazev": "Plast"
+              },
+              {
+                "id": "kov",
+                "nazev": "Kov"
+              },
+              {
+                "id": "drevo",
+                "nazev": "Dřevo"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "školní sešit",
+                "kategorieId": "papir"
+              },
+              {
+                "text": "obálky",
+                "kategorieId": "papir"
+              },
+              {
+                "text": "pravítko z umělé hmoty",
+                "kategorieId": "plast"
+              },
+              {
+                "text": "míček na stolní tenis",
+                "kategorieId": "plast"
+              },
+              {
+                "text": "kancelářské sponky",
+                "kategorieId": "kov"
+              },
+              {
+                "text": "kružítko",
+                "kategorieId": "kov"
+              },
+              {
+                "text": "pastelky",
+                "kategorieId": "drevo"
+              },
+              {
+                "text": "stavebnice z kostek",
+                "kategorieId": "drevo"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-drobne-zbozi-1",
+            "temaId": "drobne-zbozi",
+            "obtiznost": 2,
+            "zadani": "Běžný kancelářský papír do tiskárny má gramáž přibližně:",
+            "vysvetleni": "Standardní kancelářský papír má 80 g/m². Papír kolem 250 g/m² už je čtvrtka (karton), 20 g/m² je tenoučký hedvábný papír.",
+            "zdroj": "Papírnické zboží",
+            "typ": "vyber",
+            "moznosti": [
+              "80 g/m²",
+              "20 g/m²",
+              "250 g/m²",
+              "800 g/m²"
+            ],
+            "spravna": 0
+          }
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Drobné zboží",
+              "zadni": "Věci denní potřeby: papírnictví, psací a rýsovací potřeby, hračky, sportovní potřeby."
+            },
+            {
+              "predni": "Gramáž papíru",
+              "zadni": "Hmotnost jednoho m² papíru v gramech; kancelářský papír má asi 80 g/m²."
+            },
+            {
+              "predni": "Formát A4",
+              "zadni": "210 × 297 mm. Polovina A3, dvojnásobek A5."
+            },
+            {
+              "predni": "Tvrdost tuhy",
+              "zadni": "H = tvrdá (rýsování), B = měkká (kreslení), HB = střední (běžné psaní)."
+            },
+            {
+              "predni": "Značka CE",
+              "zadni": "Výrobce jí deklaruje shodu výrobku s požadavky EU — u hraček je povinná."
+            },
+            {
+              "predni": "Symbol 0–3 (přeškrtnutý obličej)",
+              "zadni": "Hračka nevhodná pro děti do 3 let — obsahuje malé části, hrozí spolknutí nebo vdechnutí."
+            },
+            {
+              "predni": "Rýsovací potřeby",
+              "zadni": "Kružítko, pravítka, trojúhelník s ryskou, úhloměr, mikrotužka s tuhami."
+            }
+          ]
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Maminka vybírá stavebnici pro dvouletou dceru. Krabice láká nápisem „stovky barevných dílků“. Na co ji jako prodavač musíš upozornit?",
+          "reseni": "Zkontrolovat **věkové určení**: symbol přeškrtnutého obličeje s číslem **0–3** znamená, že hračka není vhodná pro děti do tří let — drobné dílky hrozí **spolknutím nebo vdechnutím**.\n\nPro dvouleté dítě je potřeba vybrat stavebnici s velkými dílky, se značkou **CE** a s údaji výrobce i návodem v češtině."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-drobne-zbozi-2",
+            "temaId": "drobne-zbozi",
+            "obtiznost": 2,
+            "zadani": "Jak se označuje tvrdost tuhy, která je uprostřed mezi tvrdou (H) a měkkou (B) — nejběžnější na psaní?",
+            "vysvetleni": "HB je střední tvrdost — běžná školní tužka č. 2. Tuhy H jsou tvrdší (rýsování), tuhy B měkčí (kreslení a stínování).",
+            "zdroj": "Psací a rýsovací potřeby",
+            "typ": "doplneni",
+            "spravneOdpovedi": [
+              "HB"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "temaId": "obuv-a-galanterie",
+      "nazev": "Obuv a kožená galanterie",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Kupuješ nové tenisky. Prodavač se ptá: „Jaké číslo?“ — a ty víš, že v jedné značce nosíš 42 a v jiné 43. Jak je to možné? Protože **velikost boty není jen jedno číslo**: existuje několik soustav číslování a každá bota se skládá z částí, které rozhodují o pohodlí i trvanlivosti. Po téhle lekci budeš botám rozumět líp než leckterý prodavač."
+        },
+        {
+          "typ": "klicove-pojmy",
+          "polozky": [
+            {
+              "pojem": "Obuv",
+              "definice": "Chrání nohu před terénem, chladem a vlhkem; třídí se podle účelu a materiálu."
+            },
+            {
+              "pojem": "Useň",
+              "definice": "Kůže zpracovaná činěním — hlavní přírodní materiál na obuv a galanterii."
+            },
+            {
+              "pojem": "Svršek",
+              "definice": "Horní část boty: špice, nárt, jazyk, opatek."
+            },
+            {
+              "pojem": "Podešev",
+              "definice": "Spodní část boty, která se dotýká země."
+            },
+            {
+              "pojem": "Stélka",
+              "definice": "Vnitřní část boty, na které stojí chodidlo."
+            },
+            {
+              "pojem": "Číslování obuvi",
+              "definice": "Soustavy velikostí: francouzská (krok 2/3 cm), anglická (krok 1/3 palce), Mondopoint (délka chodidla v mm)."
+            },
+            {
+              "pojem": "Kožená galanterie",
+              "definice": "Doplňky z usní: peněženky, kabelky, pásky, aktovky, kufry, rukavice."
+            }
+          ]
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 660 168\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rozdělení obuvi podle účelu\">\n<text x=\"330\" y=\"24\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"var(--akcent)\">OBUV PODLE ÚČELU</text>\n<rect x=\"8\" y=\"48\" width=\"120\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" />\n<text x=\"68\" y=\"72\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Vycházková</text>\n<text x=\"68\" y=\"90\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">na běžné</text>\n<text x=\"68\" y=\"104\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">denní nošení</text>\n<rect x=\"138\" y=\"48\" width=\"120\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"198\" y=\"68\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">Do nepříznivého</text>\n<text x=\"198\" y=\"82\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">počasí</text>\n<text x=\"198\" y=\"101\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">holínky, sněhule</text>\n<rect x=\"268\" y=\"48\" width=\"120\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"328\" y=\"72\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Sportovní</text>\n<text x=\"328\" y=\"90\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">běžecká, sálová,</text>\n<text x=\"328\" y=\"104\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">kopačky</text>\n<rect x=\"398\" y=\"48\" width=\"120\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"458\" y=\"72\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Domácí</text>\n<text x=\"458\" y=\"90\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">pantofle,</text>\n<text x=\"458\" y=\"104\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">bačkory</text>\n<rect x=\"528\" y=\"48\" width=\"120\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<text x=\"588\" y=\"72\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Pracovní</text>\n<text x=\"588\" y=\"90\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">s ochrannou</text>\n<text x=\"588\" y=\"104\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">špicí</text>\n<text x=\"330\" y=\"148\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.8\">Další třídění: podle materiálu svršku — useň, textil, plast, guma.</text>\n</svg>",
+          "popisek": "Základní třídění obuvi podle účelu; každá skupina má jiné nároky na materiál a provedení."
+        },
+        {
+          "typ": "text",
+          "obsah": "A teď to hlavní — z čeho se bota skládá. Klikej na body na obrázku a poznej všechny části boty; pak si je nech vyzkoušet:"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "popisovacka",
+          "parametry": {
+            "svg": "<svg viewBox=\"0 0 400 220\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Sportovní bota z boku s vyznačenými částmi\">\n<title>Sportovní bota z boku</title>\n<rect x=\"294\" y=\"188\" width=\"86\" height=\"18\" rx=\"5\" fill=\"var(--akcent)\" fill-opacity=\"0.35\" stroke=\"currentColor\" stroke-width=\"2\" />\n<rect x=\"24\" y=\"164\" width=\"358\" height=\"26\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.25\" stroke=\"currentColor\" stroke-width=\"2\" />\n<path d=\"M30,164 C30,138 52,116 94,110 C150,102 178,84 204,66 C226,51 256,46 288,56 C328,68 354,112 362,164 Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" />\n<path d=\"M92,112 C100,130 104,148 104,164\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<path d=\"M316,74 C330,96 340,130 344,164\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<path d=\"M240,60 C246,46 268,42 280,52 C274,60 258,64 248,66 Z\" fill=\"var(--info)\" fill-opacity=\"0.3\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<line x1=\"178\" y1=\"96\" x2=\"224\" y2=\"78\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" stroke-linecap=\"round\" />\n<line x1=\"188\" y1=\"108\" x2=\"234\" y2=\"90\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" stroke-linecap=\"round\" />\n<line x1=\"198\" y1=\"120\" x2=\"244\" y2=\"102\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" stroke-linecap=\"round\" />\n<line x1=\"208\" y1=\"132\" x2=\"254\" y2=\"114\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" stroke-linecap=\"round\" />\n<path d=\"M116,164 C150,138 196,130 240,140\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" opacity=\"0.35\" />\n</svg>",
+            "body": [
+              {
+                "x": 62,
+                "y": 148,
+                "nazev": "Špice",
+                "popis": "Zpevněná přední část svršku — chrání prsty před nárazem."
+              },
+              {
+                "x": 146,
+                "y": 132,
+                "nazev": "Svršek",
+                "popis": "Horní část boty z usně, textilu nebo plastu; obepíná nohu a drží její tvar."
+              },
+              {
+                "x": 214,
+                "y": 104,
+                "nazev": "Šněrování",
+                "popis": "Tkaničky umožňují přizpůsobit botu nártu a pevně ji utáhnout."
+              },
+              {
+                "x": 259,
+                "y": 52,
+                "nazev": "Jazyk",
+                "popis": "Měkký pás pod šněrováním — chrání nárt před tlakem tkaniček."
+              },
+              {
+                "x": 346,
+                "y": 132,
+                "nazev": "Opatek",
+                "popis": "Ztužení zadní části svršku kolem paty — drží patu, aby v botě „neplavala“."
+              },
+              {
+                "x": 200,
+                "y": 177,
+                "nazev": "Podešev",
+                "popis": "Spodní část boty, která se dotýká země; musí být odolná proti oděru a protiskluzová."
+              },
+              {
+                "x": 337,
+                "y": 198,
+                "nazev": "Podpatek",
+                "popis": "Zvýšená část podešve pod patou — tlumí došlap a ovlivňuje držení těla."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obuv-a-galanterie-1",
+            "temaId": "obuv-a-galanterie",
+            "obtiznost": 2,
+            "zadani": "Přiřaď části boty k jejich úloze.",
+            "vysvetleni": "Svršek a spodek (podešev, podpatek, stélka) jsou dvě základní skupiny částí boty. Opatek patří ke svršku — zpevňuje ho kolem paty.",
+            "zdroj": "Hodnocení obuvi, části obuvi",
+            "typ": "prirazovani",
+            "pary": [
+              {
+                "levy": "Podešev",
+                "pravy": "spodní část chránící chodidlo před terénem"
+              },
+              {
+                "levy": "Svršek",
+                "pravy": "horní část obepínající nohu"
+              },
+              {
+                "levy": "Stélka",
+                "pravy": "vnitřní část, na níž chodidlo stojí"
+              },
+              {
+                "levy": "Opatek",
+                "pravy": "ztužení zadní části kolem paty"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Jak se měří velikost boty?**\n- **Francouzské číslování** (běžné u nás): krok mezi čísly je **2/3 cm** (asi 6,7 mm). Číslo boty = délka kopyta v cm × 1,5.\n- **Anglické číslování** (Velká Británie): krok **1/3 palce** (asi 8,5 mm). USA mají vlastní soustavu se stejným krokem, ale posunutým počátkem — americké číslo je zhruba o 1 vyšší než anglické.\n- **Mondopoint**: přímo **délka chodidla v milimetrech** — znáš z lyžařských bot.\n\nProto stejná noha vychází v různých soustavách na různá čísla."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Useň",
+              "zadni": "Kůže zpracovaná činěním; prodyšná, tvárná, trvanlivá — nejcennější obuvnický materiál."
+            },
+            {
+              "predni": "Činění",
+              "zadni": "Zpracování surové kůže (tříslem nebo chromitými solemi), aby byla trvanlivá a vláčná."
+            },
+            {
+              "predni": "Svršek boty",
+              "zadni": "Horní část: špice, nárt, jazyk, opatek."
+            },
+            {
+              "predni": "Spodek boty",
+              "zadni": "Podešev, podpatek a stélka — části, po kterých se chodí."
+            },
+            {
+              "predni": "Francouzské číslování",
+              "zadni": "Krok mezi čísly 2/3 cm (asi 6,7 mm); běžné v ČR a Evropě."
+            },
+            {
+              "predni": "Anglické číslování",
+              "zadni": "Krok mezi čísly 1/3 palce (asi 8,5 mm); Velká Británie. USA mají vlastní soustavu s posunutým počátkem (US ≈ UK + 1)."
+            },
+            {
+              "predni": "Mondopoint",
+              "zadni": "Velikost = délka chodidla v milimetrech; sportovní a vojenská obuv, lyžařské boty."
+            },
+            {
+              "predni": "Ošetřování usňové obuvi",
+              "zadni": "Vysušit volně (ne u topení!), vyčistit, nakrémovat, impregnovat; střídat páry bot."
+            }
+          ]
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Zákazníkovi jsi změřil chodidlo: 26 cm. Jakou francouzskou velikost boty mu doporučíš?",
+          "reseni": "K délce chodidla se přičítá **přídavek asi 1 cm** na pohyb prstů: 26 + 1 = 27 cm — to je potřebná délka kopyta.\n\nFrancouzské číslo = délka kopyta v cm × 1,5 = 27 × 1,5 = **40,5**, doporučíme tedy **velikost 41**.\n\nA praktická rada: boty vždy zkoušet obě a raději odpoledne — noha je přes den větší."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-obuv-a-galanterie-2",
+            "temaId": "obuv-a-galanterie",
+            "obtiznost": 3,
+            "zadani": "O kolik se liší délka mezi dvěma sousedními čísly ve francouzském číslování obuvi?",
+            "vysvetleni": "Francouzský (pařížský) steh měří 2/3 cm. Krok 1/3 palce patří anglickému číslování.",
+            "zdroj": "Velikosti a číslování obuvi",
+            "typ": "vyber",
+            "moznosti": [
+              "O 2/3 cm (asi 6,7 mm)",
+              "O 1 cm",
+              "O 1/3 palce (asi 8,5 mm)",
+              "O 5 mm"
+            ],
+            "spravna": 0
+          }
+        }
+      ]
+    },
+    {
+      "temaId": "textil-a-odivani",
+      "nazev": "Textil a odívání",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Otoč si tričko naruby a najdi etiketu: „100 % bavlna“, „50 % vlna, 50 % polyakryl“… Ta malá cedulka je **rodný list oděvu** — prozradí, z čeho je vyroben, jak ho prát a co od něj čekat. V téhle lekci projdeš celou cestu oděvu: od **vlákna** přes **přízi** a **tkaninu** až po hotové tričko — a naučíš se jednotlivá vlákna rozeznávat."
+        },
+        {
+          "typ": "klicove-pojmy",
+          "polozky": [
+            {
+              "pojem": "Textilní vlákno",
+              "definice": "Základní stavební prvek všech textilií; dělí se na přírodní a chemická."
+            },
+            {
+              "pojem": "Přírodní vlákna",
+              "definice": "Rostlinná (bavlna, len) a živočišná (vlna, přírodní hedvábí)."
+            },
+            {
+              "pojem": "Chemická vlákna",
+              "definice": "Z přírodních polymerů (viskóza) nebo syntetická z ropy (polyester, polyamid, elastan)."
+            },
+            {
+              "pojem": "Příze",
+              "definice": "Délková textilie ze spředených (zakroucených) vláken; skaním dvou a více přízí vzniká nit."
+            },
+            {
+              "pojem": "Tkanina",
+              "definice": "Textilie z dvou kolmých soustav nití — osnovy a útku."
+            },
+            {
+              "pojem": "Pletenina",
+              "definice": "Textilie z oček — pružná a prodyšná."
+            },
+            {
+              "pojem": "Netkaná textilie",
+              "definice": "Vrstva vláken zpevněná mechanicky, chemicky nebo teplem — bez předení a tkaní."
+            },
+            {
+              "pojem": "Kožešina",
+              "definice": "Vyčiněná kůže i se srstí; vedle pravých existují i umělé kožešiny z vláken."
+            }
+          ]
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rozdělení textilních vláken na přírodní a chemická\">\n<defs>\n<marker id=\"tv-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n</defs>\n<rect x=\"240\" y=\"12\" width=\"200\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"340\" y=\"40\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">TEXTILNÍ VLÁKNA</text>\n<rect x=\"60\" y=\"104\" width=\"180\" height=\"42\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"150\" y=\"130\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">PŘÍRODNÍ</text>\n<rect x=\"440\" y=\"104\" width=\"180\" height=\"42\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"530\" y=\"130\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">CHEMICKÁ</text>\n<line x1=\"300\" y1=\"56\" x2=\"160\" y2=\"102\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#tv-sipka)\" />\n<line x1=\"380\" y1=\"56\" x2=\"520\" y2=\"102\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#tv-sipka)\" />\n<rect x=\"10\" y=\"204\" width=\"150\" height=\"72\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"85\" y=\"234\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Rostlinná</text>\n<text x=\"85\" y=\"256\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.8\">bavlna, len, konopí</text>\n<rect x=\"180\" y=\"204\" width=\"150\" height=\"72\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"255\" y=\"234\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Živočišná</text>\n<text x=\"255\" y=\"256\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.8\">vlna, přírodní hedvábí</text>\n<rect x=\"356\" y=\"204\" width=\"150\" height=\"72\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"431\" y=\"226\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Z přírodních</text>\n<text x=\"431\" y=\"240\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">polymerů</text>\n<text x=\"431\" y=\"260\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.8\">viskóza, acetát</text>\n<rect x=\"522\" y=\"204\" width=\"150\" height=\"72\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"597\" y=\"226\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Ze syntetických</text>\n<text x=\"597\" y=\"240\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">polymerů</text>\n<text x=\"597\" y=\"256\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.8\">polyester, polyamid,</text>\n<text x=\"597\" y=\"269\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.8\">elastan</text>\n<line x1=\"130\" y1=\"146\" x2=\"90\" y2=\"202\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#tv-sipka)\" />\n<line x1=\"180\" y1=\"146\" x2=\"248\" y2=\"202\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#tv-sipka)\" />\n<line x1=\"500\" y1=\"146\" x2=\"438\" y2=\"202\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#tv-sipka)\" />\n<line x1=\"560\" y1=\"146\" x2=\"592\" y2=\"202\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#tv-sipka)\" />\n</svg>",
+          "popisek": "Rozdělení textilních vláken: přírodní (rostlinná a živočišná) a chemická (z přírodních polymerů a syntetická)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "srovnavac",
+          "parametry": {
+            "polozky": [
+              {
+                "nazev": "Bavlna",
+                "vlastnosti": {
+                  "Původ": "rostlinné vlákno (tobolky bavlníku)",
+                  "Savost": "výborná — příjemná na kůži",
+                  "Hřejivost": "nízká",
+                  "Mačkavost": "vysoká",
+                  "Údržba": "snese vyšší teploty praní i žehlení"
+                }
+              },
+              {
+                "nazev": "Vlna",
+                "vlastnosti": {
+                  "Původ": "živočišné vlákno (ovčí rouno)",
+                  "Savost": "dobrá, saje vodní páru",
+                  "Hřejivost": "výborná",
+                  "Mačkavost": "nízká — vlákno je pružné",
+                  "Údržba": "jen šetrně a ve vlažné vodě, jinak plstnatí a sráží se"
+                }
+              },
+              {
+                "nazev": "Polyester",
+                "vlastnosti": {
+                  "Původ": "syntetické vlákno (z ropy)",
+                  "Savost": "velmi nízká, rychle schne",
+                  "Hřejivost": "nízká",
+                  "Mačkavost": "minimální",
+                  "Údržba": "snadná, ale žehlit jen mírně — teplem se taví"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-textil-a-odivani-1",
+            "temaId": "textil-a-odivani",
+            "obtiznost": 3,
+            "zadani": "Která z uvedených vláken patří mezi přírodní? (více správných odpovědí)",
+            "vysvetleni": "Bavlna a len jsou přírodní rostlinná vlákna, vlna živočišné. Viskóza je chemické vlákno vyráběné z celulózy a polyester je syntetický z ropy.",
+            "zdroj": "Základní textilní suroviny",
+            "typ": "multi",
+            "moznosti": [
+              "bavlna",
+              "vlna",
+              "polyester",
+              "viskóza",
+              "len"
+            ],
+            "spravne": [
+              0,
+              1,
+              4
+            ]
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Než si oblečeš mikinu, urazí materiál dlouhou cestu — a vždycky stejnou: **vlákno → příze → textilie → oděv**. Projdi si ji krok za krokem:"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Od vlákna k hotovému oděvu",
+            "kroky": [
+              {
+                "nazev": "Získání vlákna",
+                "popis": "Sklizeň bavlny, stříž ovcí, nebo zvlákňování chemických vláken z roztoku.",
+                "ikona": "🌱"
+              },
+              {
+                "nazev": "Předení",
+                "popis": "Vlákna se pročešou, urovnají a zakroutí — vzniká příze. (Nit vznikne až skaním dvou a více přízí.)",
+                "ikona": "🧵"
+              },
+              {
+                "nazev": "Tkaní nebo pletení",
+                "popis": "Z přízí vzniká plošná textilie: tkanina (osnova a útek), nebo pletenina (očka).",
+                "ikona": "🧶"
+              },
+              {
+                "nazev": "Zušlechťování",
+                "popis": "Bělení, barvení, potisk a úpravy — třeba nemačkavost nebo nepromokavost.",
+                "ikona": "🎨"
+              },
+              {
+                "nazev": "Střih a šití",
+                "popis": "Z textilie se nastříhají díly a v šicí dílně se sešije hotový oděv.",
+                "ikona": "👕"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-textil-a-odivani-2",
+            "temaId": "textil-a-odivani",
+            "obtiznost": 2,
+            "zadani": "Jak vzniká tkanina?",
+            "vysvetleni": "Tkanina = osnova (podélné nitě) + útek (příčná nit). Očka tvoří pleteninu, zpevněná vrstva vláken je netkaná textilie.",
+            "zdroj": "Výroba tkanin, pletenin a netkaných textilií",
+            "typ": "vyber",
+            "moznosti": [
+              "Kolmým provázáním dvou soustav nití — osnovy a útku",
+              "Vytvářením oček z jedné soustavy nití",
+              "Zpevněním vrstvy vláken pojivem nebo teplem",
+              "Splétáním tří a více přízí do copánku"
+            ],
+            "spravna": 0
+          }
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Příze",
+              "zadni": "Délková textilie ze spředených (zakroucených) vláken. Nit vzniká až skaním dvou a více přízí."
+            },
+            {
+              "predni": "Osnova a útek",
+              "zadni": "Dvě kolmé soustavy nití tkaniny: osnova podélně, útek napříč."
+            },
+            {
+              "predni": "Pletenina",
+              "zadni": "Textilie z oček — pružná a prodyšná (trička, svetry, ponožky)."
+            },
+            {
+              "predni": "Netkaná textilie",
+              "zadni": "Vrstva vláken zpevněná mechanicky, chemicky nebo teplem (vatelín, čisticí utěrky)."
+            },
+            {
+              "predni": "Viskóza",
+              "zadni": "Chemické vlákno z přírodního polymeru — celulózy; savá a splývavá."
+            },
+            {
+              "predni": "Syntetická vlákna",
+              "zadni": "Vyráběná z ropných produktů: polyester, polyamid, elastan. Pevná, nemačkavá, málo savá."
+            },
+            {
+              "predni": "Kožešina",
+              "zadni": "Vyčiněná kůže i se srstí — přírodní, nebo umělá z vláken."
+            },
+            {
+              "predni": "Plstnatění vlny",
+              "zadni": "Horko, vlhko a tření vlněné výrobky srážejí a zplsťují — proto se vlna pere šetrně."
+            }
+          ]
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Zákaznice reklamuje vlněný svetr: po vyprání v pračce na 60 °C se srazil o dvě velikosti. Uznáš reklamaci?",
+          "reseni": "**Reklamaci nelze uznat.** Vlna horkem, vlhkem a třením **plstnatí** — vlákna se do sebe zaklesnou a výrobek se srazí. Na etiketě svetru je symbol údržby (praní max. 30 °C šetrně, případně jen ručně); praním na 60 °C zákaznice **porušila návod k údržbě**, nejde tedy o vadu výrobku.\n\nSprávný postup prodavače: vysvětlit příčinu, ukázat symboly údržby a poradit, jak o vlnu pečovat (šetrný program, sušení naležato)."
+        }
+      ]
+    }
+  ]
+}

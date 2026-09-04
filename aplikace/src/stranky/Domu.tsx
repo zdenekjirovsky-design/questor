@@ -2,12 +2,13 @@
 // HUD je v hlavičce (App.tsx); tady: velké HRÁT, denní questy, čekající truhly,
 // výzvy od táty a mini statistiky. Vše bez scrollu na 1080p.
 import { useEffect, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import type { RezimTestu, TestKonfigurace, TruhlaTyp } from '@questor/sdilene';
 import { KARTY_VELIKANI, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import TruhlaOdmena from '../hra/TruhlaOdmena';
 import './Domu.css';
+import '../vyuka/vyuka.css';
 
 const REZIMY: { id: RezimTestu; nazev: string; emoji: string; popis: string }[] = [
   { id: 'rozcvicka', nazev: 'Rozcvička', emoji: '🌤️', popis: 'Lehké otázky na rozjezd (1–2)' },
@@ -49,6 +50,8 @@ export default function Domu() {
   const cekajiciTruhly = pouzijStav((s) => s.cekajiciTruhly);
   const vyzvy = pouzijStav((s) => s.vyzvy);
   const banky = pouzijStav((s) => s.banky);
+  const vyuky = pouzijStav((s) => s.vyuky);
+  const postupLekci = pouzijStav((s) => s.postupLekci);
   const obnovDenniQuesty = pouzijStav((s) => s.obnovDenniQuesty);
 
   // Denní obnova questů při zobrazení dashboardu + při změně dne za běhu
@@ -101,6 +104,23 @@ export default function Domu() {
     });
   };
 
+  // Temata, ktera maji lekci — v konfiguraci testu se znaci ikonou
+  // (kontrakt VYUKA.md: propojeni vyuka → test v miste volby temat).
+  const temataSLekci = useMemo(
+    () => new Set(Object.values(vyuky).flatMap((v) => v.lekce.map((l) => l.temaId))),
+    [vyuky],
+  );
+
+  // Souhrn vyuky pro dlazdici „Ucit se".
+  const lekceSouhrn = useMemo(() => {
+    const vsechny = Object.values(vyuky).flatMap((v) => v.lekce);
+    const dokoncene = vsechny.filter((l) => {
+      const p = postupLekci[l.temaId];
+      return p !== undefined && p.dokonceneBloky.length >= l.bloky.length && l.bloky.length > 0;
+    }).length;
+    return { celkem: vsechny.length, dokoncene };
+  }, [vyuky, postupLekci]);
+
   const level = stavLevelu(progres.xp);
   const velikaniZiskani = progres.sbirka.karty.filter((id) =>
     KARTY_VELIKANI.some((k) => k.id === id),
@@ -129,6 +149,29 @@ export default function Domu() {
             ▶ HRÁT
           </button>
         </div>
+
+        {/* Dlaždice „Učit se" — vede na /uceni */}
+        <Link to="/uceni" className="panel domu-uceni">
+          <span className="domu-uceni__znak" aria-hidden="true">📖</span>
+          <span className="domu-uceni__texty">
+            <span className="domu-uceni__titulek">Učit se</span>
+            <span className="domu-uceni__popis">
+              {lekceSouhrn.celkem === 0
+                ? 'Interaktivní lekce — obrázky, kartičky, hry. Brzy tu budou!'
+                : lekceSouhrn.dokoncene >= lekceSouhrn.celkem
+                  ? `Všech ${lekceSouhrn.celkem} lekcí dokončeno. Zopakuj si, co chceš.`
+                  : `${lekceSouhrn.dokoncene}/${lekceSouhrn.celkem} lekcí dokončeno — pokračuj ve výpravě za věděním.`}
+            </span>
+            {lekceSouhrn.celkem > 0 && (
+              <span className="ukazatel domu-uceni__bar">
+                <span
+                  style={{ width: `${Math.round((lekceSouhrn.dokoncene / lekceSouhrn.celkem) * 100)}%` }}
+                />
+              </span>
+            )}
+          </span>
+          <span className="domu-uceni__sipka" aria-hidden="true">→</span>
+        </Link>
 
         {/* Denní questy */}
         <div className="panel domu__questy">
@@ -323,6 +366,9 @@ export default function Domu() {
                       onClick={() => prepniTema(t.id)}
                     >
                       {t.nazev}
+                      {temataSLekci.has(t.id) && (
+                        <span title="K tématu je lekce v Učit se" aria-label="(má lekci)"> 📖</span>
+                      )}
                     </button>
                   ))}
                 </div>

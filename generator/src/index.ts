@@ -17,16 +17,25 @@ export {
   type StatistikyGenerovani,
   type VstupPipeline,
 } from './pipeline';
+export {
+  prevedBlok,
+  sestavLekci,
+  vygenerujVyuku,
+  type StatistikyVyuky,
+  type VstupPipelineVyuky,
+} from './pipeline-vyuka';
 export { vyberPoskytovatele, type VybranyPoskytovatel } from './poskytovatele/vyber';
 export {
   type NazevPoskytovatele,
   type PasmoObtiznosti,
   type Poskytovatel,
+  type VstupLekce,
 } from './poskytovatele/rozhrani';
 export { vytvorPoskytovateleApi, VYCHOZI_MODEL } from './poskytovatele/api';
 export { vytvorPoskytovateleClaudeCli, jeClaudeCliDostupny } from './poskytovatele/claude-cli';
 export { vytvorPoskytovateleMock } from './poskytovatele/mock';
 export { type LlmOtazka } from './llm-schema';
+export { llmLekceSchema, type LlmBlok, type LlmLekce } from './llm-schema-vyuka';
 
 export interface DogenerovaniVstup {
   nazevPredmetu: string;

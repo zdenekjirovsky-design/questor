@@ -1,0 +1,177 @@
+/* Popisovačka — SVG s pulzujícími hotspoty a bublinami. */
+
+.popisovacka__lista {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.popisovacka__instrukce {
+  font-weight: 600;
+}
+
+.popisovacka__hledany {
+  color: var(--zlata);
+  font-family: var(--pismo-display);
+}
+
+.popisovacka__pocitadlo {
+  font-family: var(--pismo-display);
+  color: var(--text-tlumeny);
+  white-space: nowrap;
+}
+
+.popisovacka__scena {
+  position: relative;
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius);
+  background: var(--pozadi-panel-2);
+  overflow: hidden;
+}
+
+.popisovacka__obrazek {
+  color: var(--text); /* currentColor uvnitř SVG */
+}
+
+.popisovacka__obrazek svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Hotspot — pulzující terčík */
+.popisovacka__bod {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.popisovacka__bod-jadro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--akcent);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.7);
+  transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.popisovacka__bod::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(139, 92, 246, 0.7);
+  animation: popisovacka-pulz 1.6s ease-out infinite;
+}
+
+@keyframes popisovacka-pulz {
+  0% { transform: scale(0.55); opacity: 0.9; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.popisovacka__bod:hover .popisovacka__bod-jadro {
+  transform: scale(1.25);
+}
+
+.popisovacka__bod--aktivni .popisovacka__bod-jadro {
+  transform: scale(1.3);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.95);
+}
+
+.popisovacka__bod--prozkoumany::before {
+  animation: none;
+  opacity: 0;
+}
+
+.popisovacka__bod--prozkoumany .popisovacka__bod-jadro {
+  background: var(--uspech);
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
+}
+
+.popisovacka__bod--spatne .popisovacka__bod-jadro {
+  background: var(--chyba);
+  animation: zatreseni 0.4s ease-in-out;
+  box-shadow: 0 0 14px rgba(248, 113, 113, 0.7);
+}
+
+/* Bublina s názvem a popisem */
+.popisovacka__bublina {
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 3;
+  max-width: min(320px, 82%);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 14px;
+  border-radius: var(--radius-maly);
+  background: var(--pozadi-panel);
+  border: 1px solid var(--akcent);
+  box-shadow: var(--stin), var(--zare-akcent);
+  animation: pop 0.25s ease-out both;
+  pointer-events: none;
+}
+
+.popisovacka__bublina-nazev {
+  font-family: var(--pismo-display);
+  color: var(--akcent-svetly);
+}
+
+.popisovacka__bublina-popis {
+  font-size: 0.86rem;
+  color: var(--text);
+}
+
+.popisovacka__paticka {
+  margin-top: 12px;
+  text-align: center;
+  min-height: 30px;
+}
+
+.popisovacka__vazba {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.popisovacka__vazba--spravne {
+  color: var(--uspech);
+}
+
+.popisovacka__vazba--spatne {
+  color: var(--chyba);
+}
+
+.popisovacka__oslava {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.popisovacka__oslava-titul {
+  font-family: var(--pismo-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--zlata);
+  text-shadow: var(--zare-zlata);
+}

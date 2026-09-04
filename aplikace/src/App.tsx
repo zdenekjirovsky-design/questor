@@ -8,10 +8,13 @@ import Vysledek from './stranky/Vysledek';
 import Sbirka from './stranky/Sbirka';
 import Statistiky from './stranky/Statistiky';
 import Nastaveni from './stranky/Nastaveni';
+import Uceni from './vyuka/Uceni';
+import LekceViewer from './vyuka/LekceViewer';
 import './App.css';
 
 const odkazy = [
   { cesta: '/', text: 'Domů' },
+  { cesta: '/uceni', text: 'Učit se' },
   { cesta: '/sbirka', text: 'Sbírka' },
   { cesta: '/statistiky', text: 'Statistiky' },
   { cesta: '/nastaveni', text: 'Nastavení' },
@@ -41,6 +44,8 @@ export default function App() {
       <main className="obsah">
         <Routes>
           <Route path="/" element={<Domu />} />
+          <Route path="/uceni" element={<Uceni />} />
+          <Route path="/uceni/:temaId" element={<LekceViewer />} />
           <Route path="/test" element={<Test />} />
           <Route path="/vysledek" element={<Vysledek />} />
           <Route path="/sbirka" element={<Sbirka />} />

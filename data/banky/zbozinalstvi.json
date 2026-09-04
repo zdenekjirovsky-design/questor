@@ -1,0 +1,956 @@
+{
+  "predmetId": "zbozinalstvi",
+  "nazev": "Zbožíznalství",
+  "verze": 1,
+  "vytvoreno": "2026-09-04",
+  "temata": [
+    { "id": "zaklady-zbozinalstvi", "nazev": "Základy zbožíznalství", "poradi": 0 },
+    { "id": "potravinarske-zbozi", "nazev": "Potravinářské zboží", "poradi": 1 },
+    { "id": "drobne-zbozi", "nazev": "Drobné zboží", "poradi": 2 },
+    { "id": "obuv-a-galanterie", "nazev": "Obuv a kožená galanterie", "poradi": 3 },
+    { "id": "textil-a-odivani", "nazev": "Textil a odívání", "poradi": 4 }
+  ],
+  "otazky": [
+    {
+      "id": "o-zaklady-zbozinalstvi-1",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je jakost (kvalita) zboží?",
+      "moznosti": [
+        "Souhrn vlastností výrobku, které mu dávají schopnost uspokojovat potřeby zákazníka",
+        "Cena výrobku na trhu",
+        "Množství výrobků vyrobených za směnu",
+        "Značka výrobce uvedená na obalu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Jakost je souhrn vlastností výrobku nebo služby — funkčnost, trvanlivost, spolehlivost, bezpečnost i vzhled — díky nimž výrobek uspokojuje potřeby a požadavky zákazníka. S cenou ani množstvím přímo nesouvisí.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-2",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "anone",
+      "obtiznost": 1,
+      "zadani": "Značka skleničky (kalichu) na přepravním obalu upozorňuje, že obsah je křehký.",
+      "spravna": true,
+      "vysvetleni": "Sklenička je mezinárodní manipulační značka pro křehké zboží. Další značky: deštník = chránit před vlhkem, dvě šipky = tímto směrem nahoru.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-3",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Čeho se týká mezinárodní řada norem ISO 9000?",
+      "moznosti": [
+        "Systémů managementu kvality v podniku",
+        "Ochrany životního prostředí",
+        "Bezpečnosti potravin",
+        "Rozměrů přepravních obalů"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Řada norem ISO 9000 popisuje požadavky na systém managementu kvality; podle normy ISO 9001 se podnik nechává certifikovat. Bezpečnost potravin řeší HACCP, životní prostředí jiné řady norem.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-4",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Certifikát podle normy ISO 9001 zaručuje, že každý jednotlivý výrobek podniku je bezvadný.",
+      "spravna": false,
+      "vysvetleni": "Certifikát potvrzuje, že podnik má funkční SYSTÉM řízení kvality — nezaručuje bezvadnost každého kusu. Vadný výrobek může vzniknout i v certifikovaném podniku, systém ho ale má včas odhalit.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-5",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď značky na obalech k jejich významu.",
+      "pary": [
+        { "levy": "sklenička (kalich)", "pravy": "křehký obsah" },
+        { "levy": "deštník", "pravy": "chránit před vlhkem" },
+        { "levy": "dvě šipky", "pravy": "tímto směrem nahoru" },
+        { "levy": "trojúhelník ze šipek", "pravy": "recyklovatelný obal" }
+      ],
+      "vysvetleni": "Manipulační a ekologické značky na obalech řídí zacházení se zbožím: sklenička = křehké, deštník = chránit před vlhkem, šipky = poloha obalu, recyklační trojúhelník = recyklovatelnost a materiál obalu.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-6",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co říká Paretova analýza, používaná jako nástroj řízení jakosti?",
+      "moznosti": [
+        "Přibližně 80 % problémů způsobuje zhruba 20 % příčin",
+        "Každý výrobek je nutné zkontrolovat dvakrát",
+        "Kvalita se musí kontrolovat až na konci výroby",
+        "Polovina výrobků má vždy skryté vady"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Paretovo pravidlo 80/20: většinu problémů (asi 80 %) způsobuje malá část příčin (asi 20 %). Řízení jakosti se proto soustředí na odstranění těch několika nejzávažnějších příčin.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-7",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které funkce plní obal zboží? (více správných odpovědí)",
+      "moznosti": [
+        "ochrannou",
+        "informační",
+        "prodejní (marketingovou)",
+        "výrobní",
+        "daňovou"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Obal chrání zboží před škodlivými vlivy, informuje spotřebitele, podporuje prodej a usnadňuje manipulaci; k tomu má i funkci ekologickou. Výrobní ani daňovou funkci obal neplní.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-8",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se zkráceně nazývá zásada skladování, při níž se zboží naskladněné jako první také jako první vyskladňuje? (anglická zkratka)",
+      "spravneOdpovedi": [
+        "FIFO",
+        "fifo",
+        "first in first out",
+        "first in, first out"
+      ],
+      "vysvetleni": "FIFO (first in, first out) zajišťuje, že starší zboží nezůstává ležet na skladě — vyskladňuje se v pořadí, v jakém bylo naskladněno. U potravin je to zásadní kvůli trvanlivosti.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-9",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Co znamená značka Zelený bod na obalu výrobku?",
+      "moznosti": [
+        "Výrobce zaplatil příspěvek do systému sběru a využití obalů",
+        "Obal je vyroben z recyklovaného materiálu",
+        "Výrobek je ekologicky šetrný a v biokvalitě",
+        "Obal je kompostovatelný v domácím kompostu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zelený bod říká jen to, že výrobce přispěl do systému sběru a využití obalového odpadu. Neznamená, že obal je z recyklátu, ani že výrobek je „bio“ — to je častý omyl.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-10",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které skupiny škodlivých vlivů působí na zboží při skladování a přepravě? (více správných odpovědí)",
+      "moznosti": [
+        "fyzikální (teplota, vlhkost, světlo)",
+        "chemické (oxidace, koroze)",
+        "biologické (mikroorganismy, škůdci)",
+        "právní (změny předpisů)",
+        "estetické (změny módy)"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Zboží poškozují vlivy fyzikální, chemické, biologické a mechanické (náraz, tlak, otřes). Změny předpisů či módy nejsou škodlivé vlivy působící na hmotnou podstatu zboží.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-11",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Jak se nazývá diagram příčin a následků používaný v řízení jakosti, který svým tvarem připomíná rybí kost? (podle japonského autora)",
+      "spravneOdpovedi": [
+        "Ishikawův diagram",
+        "ishikawuv diagram",
+        "Ishikawa",
+        "diagram rybí kosti",
+        "diagram rybi kosti",
+        "diagram příčin a následků",
+        "diagram pricin a nasledku"
+      ],
+      "vysvetleni": "Ishikawův diagram (diagram rybí kosti) přehledně zobrazuje možné příčiny problému seskupené do větví — pomáhá najít skutečnou příčinu nekvality, ne jen její projev.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-12",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "anone",
+      "obtiznost": 5,
+      "zadani": "Statistická kontrola jakosti pomocí výběrových vzorků se ve výrobě rozšířila dříve, než vzniklo komplexní řízení kvality TQM.",
+      "spravna": true,
+      "vysvetleni": "Historický vývoj šel od technické kontroly hotových výrobků přes statistickou kontrolu výběrových vzorků k systémům řízení jakosti a nakonec k TQM, které zapojuje všechny pracovníky podniku.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-13",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "prirazovani",
+      "obtiznost": 5,
+      "zadani": "Přiřaď pojmy z vývoje a nástrojů řízení jakosti k jejich obsahu.",
+      "pary": [
+        { "levy": "technická kontrola", "pravy": "třídění hotových výrobků na dobré a vadné" },
+        { "levy": "Paretova analýza", "pravy": "hledání nejzávažnějších příčin podle pravidla 80/20" },
+        { "levy": "Ishikawův diagram", "pravy": "grafické zobrazení příčin a následků" },
+        { "levy": "TQM", "pravy": "zapojení všech pracovníků podniku do péče o kvalitu" }
+      ],
+      "vysvetleni": "Technická kontrola stála na počátku vývoje (jen třídila hotové výrobky), Paretova analýza a Ishikawův diagram jsou analytické nástroje a TQM je nejvyšší stupeň — kvalita jako věc všech pracovníků.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-potravinarske-zbozi-1",
+      "temaId": "potravinarske-zbozi",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Která živina je pro tělo hlavním a nejrychlejším zdrojem energie?",
+      "moznosti": [
+        "sacharidy",
+        "bílkoviny",
+        "vitamíny",
+        "minerální látky"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Sacharidy (cukry a škroby) jsou hlavním zdrojem energie. Bílkoviny slouží především jako stavební látka, vitamíny a minerální látky energii nedodávají vůbec.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-2",
+      "temaId": "potravinarske-zbozi",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Jedlá sůl patří mezi potraviny nerostného původu.",
+      "spravna": true,
+      "vysvetleni": "Potraviny nerostného původu jsou pitná voda, minerální vody a jedlá sůl. Ostatní potraviny jsou původu živočišného (maso, mléko, vejce) nebo rostlinného (obiloviny, ovoce, zelenina).",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-3",
+      "temaId": "potravinarske-zbozi",
+      "typ": "multi",
+      "obtiznost": 2,
+      "zadani": "Které potraviny jsou živočišného původu? (více správných odpovědí)",
+      "moznosti": [
+        "maso",
+        "mléko",
+        "vejce",
+        "obiloviny",
+        "jedlá sůl"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Maso, mléko a vejce pocházejí ze zvířat — jsou živočišného původu. Obiloviny jsou původu rostlinného a jedlá sůl nerostného.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-4",
+      "temaId": "potravinarske-zbozi",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se zkráceně nazývá systém analýzy nebezpečí a kritických kontrolních bodů, povinný pro všechny potravinářské provozy? (anglická zkratka)",
+      "spravneOdpovedi": [
+        "HACCP",
+        "haccp"
+      ],
+      "vysvetleni": "HACCP (Hazard Analysis and Critical Control Points) určuje místa, kde hrozí ohrožení zdravotní nezávadnosti potravin (např. teplota chlazení), a soustavně je sleduje a dokumentuje.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-5",
+      "temaId": "potravinarske-zbozi",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Která živina je energeticky nejvydatnější — dodá na 1 gram nejvíce energie?",
+      "moznosti": [
+        "tuky (přibližně 38 kJ/g)",
+        "sacharidy (přibližně 17 kJ/g)",
+        "bílkoviny (přibližně 17 kJ/g)",
+        "voda"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Tuky dodají přibližně 38 kJ na gram — více než dvojnásobek oproti sacharidům a bílkovinám (asi 17 kJ/g). Voda energii nedodává.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-6",
+      "temaId": "potravinarske-zbozi",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co je HACCP?",
+      "moznosti": [
+        "Systém analýzy nebezpečí a kritických kontrolních bodů při výrobě a prodeji potravin",
+        "Mezinárodní norma pro certifikaci systému řízení kvality v jakémkoli podniku",
+        "Označení potravin vyrobených v ekologickém zemědělství",
+        "Systém číslování šarží potravin"
+      ],
+      "spravna": 0,
+      "vysvetleni": "HACCP hlídá zdravotní nezávadnost potravin: provoz určí kritické kontrolní body (např. teploty chlazení) a soustavně je sleduje. Certifikaci systémů kvality obecně řeší ISO 9000, ne HACCP.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-7",
+      "temaId": "potravinarske-zbozi",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Vitamín C patří mezi vitamíny rozpustné v tucích.",
+      "spravna": false,
+      "vysvetleni": "V tucích jsou rozpustné vitamíny A, D, E a K. Vitamín C a vitamíny skupiny B jsou rozpustné ve vodě — tělo si je neukládá do zásoby a potřebuje je průběžně.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-8",
+      "temaId": "potravinarske-zbozi",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá živina, která je základní stavební látkou těla — staví svaly, enzymy i hormony?",
+      "spravneOdpovedi": [
+        "bílkoviny",
+        "bilkoviny",
+        "bílkovina",
+        "bilkovina",
+        "proteiny",
+        "protein"
+      ],
+      "vysvetleni": "Bílkoviny (proteiny) jsou stavební látkou těla. Najdeme je hlavně v mase, mléce, vejcích a luštěninách; 1 gram dodá přibližně 17 kJ energie.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-9",
+      "temaId": "potravinarske-zbozi",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Čím se pasterace liší od sterilace?",
+      "moznosti": [
+        "Pasterace je šetrné zahřátí do 100 °C, sterilace záhřev nad 100 °C ničící i spory",
+        "Pasterace používá vyšší teploty než sterilace",
+        "Pasterace je sušení potravin, sterilace jejich zmrazování",
+        "Pasterace se používá jen u masa, sterilace jen u mléka"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Pasterace (obvykle 60–85 °C) zničí většinu mikroorganismů a zachová chuť; sterilace nad 100 °C zničí i spory, ale mění senzorické vlastnosti potraviny.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-10",
+      "temaId": "potravinarske-zbozi",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které vitamíny patří mezi rozpustné v tucích? (více správných odpovědí)",
+      "moznosti": [
+        "A",
+        "C",
+        "D",
+        "B1",
+        "K"
+      ],
+      "spravne": [0, 2, 4],
+      "vysvetleni": "V tucích jsou rozpustné vitamíny A, D, E a K (pomůcka „ADEK“). Vitamín C a vitamíny skupiny B (včetně B1) jsou rozpustné ve vodě.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-11",
+      "temaId": "potravinarske-zbozi",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Zmrazením potravin na −18 °C se mikroorganismy spolehlivě zničí.",
+      "spravna": false,
+      "vysvetleni": "Mráz mikroorganismy nezničí — pouze zastaví jejich činnost. Po rozmrazení se množí dál, proto se rozmrazená potravina nesmí znovu zmrazovat a má se rychle spotřebovat.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-12",
+      "temaId": "potravinarske-zbozi",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď způsoby konzervace potravin k jejich principu.",
+      "pary": [
+        { "levy": "pasterace", "pravy": "šetrné zahřátí do 100 °C" },
+        { "levy": "sterilace", "pravy": "záhřev nad 100 °C ničící i spory" },
+        { "levy": "sušení", "pravy": "odstranění vody z potraviny" },
+        { "levy": "uzení", "pravy": "konzervace kouřem" }
+      ],
+      "vysvetleni": "Konzervace prodlužuje trvanlivost: tepelné metody (pasterace, sterilace) ničí mikroorganismy, sušení jim odebírá vodu nutnou k životu, uzení konzervuje látkami z kouře.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-potravinarske-zbozi-13",
+      "temaId": "potravinarske-zbozi",
+      "typ": "prirazovani",
+      "obtiznost": 5,
+      "zadani": "Přiřaď vitamíny k nemocem, které vyvolává jejich dlouhodobý nedostatek.",
+      "pary": [
+        { "levy": "vitamín C", "pravy": "kurděje" },
+        { "levy": "vitamín D", "pravy": "křivice" },
+        { "levy": "vitamín A", "pravy": "šeroslepost" },
+        { "levy": "vitamín B1", "pravy": "beri-beri" }
+      ],
+      "vysvetleni": "Avitaminózy: nedostatek vitamínu C vede ke kurdějím, vitamínu D ke křivici (poruše kostí), vitamínu A k šerosleposti a vitamínu B1 k nemoci beri-beri.",
+      "zdroj": "Potravinářské zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-1",
+      "temaId": "drobne-zbozi",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Podle čeho se drobné zboží především třídí?",
+      "moznosti": [
+        "podle účelu použití a materiálu",
+        "podle země původu",
+        "podle barvy a velikosti",
+        "podle ceny"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Drobné zboží se třídí podle účelu použití a materiálu — do hlavních skupin patří papírnické zboží, psací a rýsovací potřeby, hračky a sportovní potřeby.",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-2",
+      "temaId": "drobne-zbozi",
+      "typ": "anone",
+      "obtiznost": 1,
+      "zadani": "Formát papíru A5 je polovinou formátu A4.",
+      "spravna": true,
+      "vysvetleni": "Formáty řady A vznikají půlením delší strany předchozího formátu: A5 je polovina A4, A4 polovina A3 atd. Základem řady je A0 o ploše přibližně 1 m².",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-3",
+      "temaId": "drobne-zbozi",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jaké rozměry má formát papíru A4?",
+      "moznosti": [
+        "210 × 297 mm",
+        "297 × 420 mm",
+        "148 × 210 mm",
+        "200 × 300 mm"
+      ],
+      "spravna": 0,
+      "vysvetleni": "A4 měří 210 × 297 mm a je nejužívanějším kancelářským formátem. 297 × 420 mm je A3, 148 × 210 mm je A5.",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-4",
+      "temaId": "drobne-zbozi",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "V jakých jednotkách se udává plošná hmotnost (gramáž) papíru?",
+      "spravneOdpovedi": [
+        "g/m²",
+        "g/m2",
+        "gramy na metr čtvereční",
+        "gramy na metr ctverecni",
+        "gram na metr čtvereční",
+        "gram na metr ctverecni",
+        "v gramech na metr čtvereční",
+        "v gramech na metr ctverecni"
+      ],
+      "vysvetleni": "Gramáž papíru se udává v gramech na metr čtvereční (g/m²). Podle ní rozlišujeme papír (do 150 g/m²), karton (150–250 g/m²) a lepenku (nad 250 g/m²).",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-5",
+      "temaId": "drobne-zbozi",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď výrobky ke skupinám sortimentu drobného zboží.",
+      "pary": [
+        { "levy": "obálka", "pravy": "papírnické zboží" },
+        { "levy": "kružítko", "pravy": "rýsovací potřeby" },
+        { "levy": "stavebnice", "pravy": "hračky" },
+        { "levy": "tenisová raketa", "pravy": "sportovní potřeby" }
+      ],
+      "vysvetleni": "Sortiment drobného zboží se člení podle účelu: obálky patří k papírnickému zboží, kružítka k rýsovacím potřebám, stavebnice k hračkám a rakety ke sportovním potřebám.",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-6",
+      "temaId": "drobne-zbozi",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co znamená písmeno B v označení tvrdosti tužky?",
+      "moznosti": [
+        "měkkou tužku",
+        "tvrdou tužku",
+        "tužku střední tvrdosti",
+        "tužku s pryží na konci"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Tvrdost tužek: B označuje tužky měkké, H tvrdé, HB a F střední tvrdost. Čím vyšší číslo u B (2B, 4B…), tím měkčí stopa.",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-7",
+      "temaId": "drobne-zbozi",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Značka CE na hračce znamená, že hračka byla vyrobena v Evropské unii.",
+      "spravna": false,
+      "vysvetleni": "CE vyjadřuje shodu výrobku s požadavky evropských předpisů (bezpečnost, zdravotní nezávadnost) — o místě výroby neříká nic. Hračka se značkou CE může být vyrobena kdekoli na světě.",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-8",
+      "temaId": "drobne-zbozi",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jakým označením se značí tužka střední tvrdosti, stojící mezi tvrdou řadou H a měkkou řadou B? (dvě písmena)",
+      "spravneOdpovedi": [
+        "HB",
+        "hb"
+      ],
+      "vysvetleni": "HB je střední tvrdost — nejběžnější školní a kancelářská tužka. Mezi střední tvrdosti patří i označení F.",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-9",
+      "temaId": "drobne-zbozi",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Z jaké papíroviny se vyrábějí přepravní krabice a jakou má plošnou hmotnost?",
+      "moznosti": [
+        "z lepenky — nad 250 g/m²",
+        "z kartonu — 150–250 g/m²",
+        "z papíru — do 150 g/m²",
+        "z novinového papíru — do 60 g/m²"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Přepravní krabice se vyrábějí z vlnité lepenky. Lepenka má gramáž nad 250 g/m²; karton má 150–250 g/m² a papír do 150 g/m².",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-10",
+      "temaId": "drobne-zbozi",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které bezpečnostní požadavky platí pro hračky prodávané v EU? (více správných odpovědí)",
+      "moznosti": [
+        "musí nést značku CE",
+        "hračky pro děti do 3 let nesmí mít malé snadno oddělitelné části",
+        "musí být ze zdravotně nezávadných materiálů",
+        "musí být vyrobeny výhradně v EU",
+        "musí být pouze z přírodních materiálů"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Hračka na trhu EU musí nést značku CE, být zdravotně nezávadná a pro nejmenší děti bez malých oddělitelných částí (riziko spolknutí). Místo výroby ani druh materiálu předpisy neomezují.",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-11",
+      "temaId": "drobne-zbozi",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které zásady platí pro skladování papírnického zboží? (více správných odpovědí)",
+      "moznosti": [
+        "chránit před vlhkostí",
+        "chránit před přímým slunečním světlem",
+        "skladovat v suchých, větraných prostorách",
+        "skladovat v mrazicím boxu při −18 °C",
+        "vystavovat slunci, aby papír zbělel"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Papír navlhá a na světle žloutne — skladuje se proto v suchu, temnu a větraných prostorách. Mráz ani slunce papíru neprospívají.",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-12",
+      "temaId": "drobne-zbozi",
+      "typ": "anone",
+      "obtiznost": 5,
+      "zadani": "Základní formát papíru A0 má plochu přibližně 1 m².",
+      "spravna": true,
+      "vysvetleni": "Řada A vychází z formátu A0 o ploše přibližně 1 m² (841 × 1189 mm); každý další formát vzniká půlením delší strany předchozího.",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-drobne-zbozi-13",
+      "temaId": "drobne-zbozi",
+      "typ": "prirazovani",
+      "obtiznost": 5,
+      "zadani": "Přiřaď materiály drobného zboží k jejich typickému stárnutí či poškození.",
+      "pary": [
+        { "levy": "papír", "pravy": "navlhá a na světle žloutne" },
+        { "levy": "plast", "pravy": "křehne mrazem a UV zářením" },
+        { "levy": "pryž", "pravy": "stárne a ztrácí pružnost" },
+        { "levy": "kov", "pravy": "koroduje" }
+      ],
+      "vysvetleni": "Zásady skladování vycházejí z vlastností materiálů: papír chráníme před vlhkem a světlem, plasty před mrazem a UV, pryž stárne i sama a kovy rezaví ve vlhku.",
+      "zdroj": "Drobné zboží"
+    },
+    {
+      "id": "o-obuv-a-galanterie-1",
+      "temaId": "obuv-a-galanterie",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Která obuv je typicky určena do deště a nepříznivého počasí?",
+      "moznosti": [
+        "pryžové holínky",
+        "lodičky",
+        "domácí papuče",
+        "sandály"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Pryžové holínky jsou nepromokavá obuv do nepříznivého počasí. Lodičky jsou vycházková (společenská) obuv, papuče domácí a sandály letní vycházková obuv.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-2",
+      "temaId": "obuv-a-galanterie",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co je useň?",
+      "moznosti": [
+        "vyčiněná zvířecí kůže",
+        "syntetický materiál napodobující kůži",
+        "hustá tkanina z bavlny",
+        "surová nezpracovaná kůže"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Useň je zvířecí kůže zpracovaná činěním (třísločiněním nebo chromočiněním) v trvanlivý a vláčný materiál. Surová kůže ani syntetika usní nejsou.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-3",
+      "temaId": "obuv-a-galanterie",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Do sortimentu kožené galanterie patří kabelky, peněženky a pásky.",
+      "spravna": true,
+      "vysvetleni": "Kožená galanterie zahrnuje kabelky, peněženky, pásky, aktovky, rukavice a kufry — kožedělné výrobky mimo obuv.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-4",
+      "temaId": "obuv-a-galanterie",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Podešev je součástí svršku obuvi.",
+      "spravna": false,
+      "vysvetleni": "Podešev patří ke spodku obuvi (spolu s podpatkem a stélkou) — chrání chodidlo zespodu. Ke svršku patří nárt, jazyk a opatek.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-5",
+      "temaId": "obuv-a-galanterie",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá useň vyrobená z vepřové kůže?",
+      "spravneOdpovedi": [
+        "vepřovice",
+        "veprovice"
+      ],
+      "vysvetleni": "Druhy usní se nazývají podle zvířete: vepřovice z prasat, hovězina ze skotu, teletina z telat, kozina z koz a skopovice z ovcí.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-6",
+      "temaId": "obuv-a-galanterie",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Jaký je krok jednoho čísla ve francouzském číslování obuvi (Paris point)?",
+      "moznosti": [
+        "2/3 cm (přibližně 6,67 mm)",
+        "1/3 palce (přibližně 8,5 mm)",
+        "1 cm",
+        "1 mm"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Francouzské číslování, u nás nejběžnější, má krok 2/3 cm, tedy přibližně 6,67 mm délky kopyta. Krok 1/3 palce používá anglické číslování.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-7",
+      "temaId": "obuv-a-galanterie",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které části patří ke svršku obuvi? (více správných odpovědí)",
+      "moznosti": [
+        "nárt",
+        "jazyk",
+        "opatek",
+        "podešev",
+        "podpatek"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Svršek tvoří nárt, jazyk (kryje nárt pod šněrováním) a opatek (zpevňuje patní část). Podešev a podpatek patří ke spodku obuvi.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-8",
+      "temaId": "obuv-a-galanterie",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď druhy usní ke zvířatům, z jejichž kůže pocházejí.",
+      "pary": [
+        { "levy": "hovězina", "pravy": "skot" },
+        { "levy": "teletina", "pravy": "tele" },
+        { "levy": "kozina", "pravy": "koza" },
+        { "levy": "skopovice", "pravy": "ovce" }
+      ],
+      "vysvetleni": "Názvy usní vycházejí ze zvířete: hovězina ze skotu, teletina z telat (jemnější), kozina z koz a skopovice z ovcí. Z prasat pochází vepřovice.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-9",
+      "temaId": "obuv-a-galanterie",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Čím se liší nubuk od veluru (semiše)?",
+      "moznosti": [
+        "Nubuk se brousí z lícové strany usně a má jemnější vlas",
+        "Nubuk je lakovaná useň s vysokým leskem",
+        "Nubuk je syntetická napodobenina, velur pravá useň",
+        "Nubuk se vyrábí pouze z vepřovice"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Obě jsou broušené usně: velur (semiš) se brousí z rubové (masné) strany a má výraznější vlas, nubuk z lícové strany a jeho vlas je jemnější.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-10",
+      "temaId": "obuv-a-galanterie",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které zásady platí pro ošetřování kožené obuvi? (více správných odpovědí)",
+      "moznosti": [
+        "hladkou useň čistit a krémovat",
+        "promočenou obuv sušit pozvolna, vycpanou papírem",
+        "tvar obuvi udržovat napínáky",
+        "promočenou obuv sušit na radiátoru",
+        "velur pravidelně krémovat"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Krém vyživuje hladkou useň, pozvolné sušení a napínáky chrání tvar. Radiátor useň vysuší a zkroutí; velur a nubuk se nekrémují — čistí se kartáčem s pryžovými štětinami.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-11",
+      "temaId": "obuv-a-galanterie",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Jak se nazývá metrický systém číslování obuvi, který udává přímo délku chodidla v milimetrech?",
+      "spravneOdpovedi": [
+        "Mondopoint",
+        "mondopoint",
+        "mondo point"
+      ],
+      "vysvetleni": "Mondopoint udává délku chodidla v milimetrech — používá se u sportovní a vojenské obuvi. Francouzské číslování má krok 2/3 cm, anglické 1/3 palce.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-12",
+      "temaId": "obuv-a-galanterie",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Anglické číslování obuvi používá krok jednoho čísla 1/3 palce, tedy přibližně 8,5 mm.",
+      "spravna": true,
+      "vysvetleni": "Anglický systém čísluje po 1/3 palce (asi 8,5 mm) a zvlášť pro dětské a dospělé velikosti. Francouzský systém (Paris point) má krok 2/3 cm.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-obuv-a-galanterie-13",
+      "temaId": "obuv-a-galanterie",
+      "typ": "prirazovani",
+      "obtiznost": 5,
+      "zadani": "Přiřaď prostředky a pomůcky pro péči o kožedělné výrobky k jejich účelu.",
+      "pary": [
+        { "levy": "krém na obuv", "pravy": "vyživuje a chrání hladkou useň" },
+        { "levy": "impregnace", "pravy": "zvyšuje odolnost proti vodě" },
+        { "levy": "kartáč s pryžovými štětinami", "pravy": "čištění veluru a nubuku" },
+        { "levy": "napínáky", "pravy": "udržují tvar obuvi" }
+      ],
+      "vysvetleni": "Každá povrchová úprava usně vyžaduje jinou péči: hladká useň krém, broušené usně (velur, nubuk) speciální kartáč — krémovat se nesmí. Impregnace chrání proti vodě, napínáky drží tvar.",
+      "zdroj": "Obuv a kožená galanterie"
+    },
+    {
+      "id": "o-textil-a-odivani-1",
+      "temaId": "textil-a-odivani",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Které z uvedených vláken je přírodní rostlinné?",
+      "moznosti": [
+        "bavlna",
+        "polyester",
+        "viskóza",
+        "polyamid"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Bavlna je nejpoužívanější přírodní rostlinné vlákno. Polyester a polyamid jsou syntetická vlákna z ropy, viskóza je chemické vlákno vyráběné z celulózy.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-2",
+      "temaId": "textil-a-odivani",
+      "typ": "anone",
+      "obtiznost": 1,
+      "zadani": "Kožešina je vyčiněná zvířecí kůže s ponechanou srstí.",
+      "spravna": true,
+      "vysvetleni": "Kožešina se od usně liší tím, že se při činění ponechává srst. Užívá se kožešina králičí, norková, liščí či nutriová a stále častěji kožešiny umělé.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-3",
+      "temaId": "textil-a-odivani",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá podélná soustava nití ve tkanině?",
+      "moznosti": [
+        "osnova",
+        "útek",
+        "očko",
+        "přást"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Tkanina vzniká provázáním dvou kolmých soustav nití: podélná se nazývá osnova, příčná útek. Očka jsou základem pletenin.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-4",
+      "temaId": "textil-a-odivani",
+      "typ": "multi",
+      "obtiznost": 2,
+      "zadani": "Která vlákna jsou přírodní živočišná? (více správných odpovědí)",
+      "moznosti": [
+        "vlna",
+        "přírodní hedvábí",
+        "len",
+        "bavlna",
+        "polyester"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "Živočišná vlákna jsou vlna (ze srsti ovcí) a přírodní hedvábí (ze zámotků bource morušového). Len a bavlna jsou rostlinná vlákna, polyester je syntetický.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-5",
+      "temaId": "textil-a-odivani",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá délková textilie, která vzniká spřádáním (předením) vláken?",
+      "spravneOdpovedi": [
+        "příze",
+        "prize"
+      ],
+      "vysvetleni": "Předením vzniká příze — délková textilie ze spředených vláken. Skaním dvou nebo více přízí dohromady pak vzniká nit.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-6",
+      "temaId": "textil-a-odivani",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co je viskóza?",
+      "moznosti": [
+        "chemické vlákno vyráběné z přírodního polymeru — celulózy",
+        "syntetické vlákno vyráběné z ropných produktů",
+        "přírodní rostlinné vlákno",
+        "přírodní živočišné vlákno"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Viskóza patří mezi chemická vlákna z přírodních polymerů — vyrábí se chemickým zpracováním celulózy (podobně acetát a lyocell). Syntetická vlákna (polyester, polyamid) se vyrábějí z ropy.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-7",
+      "temaId": "textil-a-odivani",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Polyester patří mezi přírodní textilní vlákna.",
+      "spravna": false,
+      "vysvetleni": "Polyester je syntetické chemické vlákno vyráběné z ropných produktů — je pevný a nemačkavý, ale málo savý. Přírodní vlákna jsou např. bavlna, len, vlna a hedvábí.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-8",
+      "temaId": "textil-a-odivani",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá nejjednodušší tkalcovská vazba, v níž se osnova a útek pravidelně střídají po jedné niti?",
+      "spravneOdpovedi": [
+        "plátnová",
+        "platnova",
+        "plátnová vazba",
+        "platnova vazba",
+        "plátno",
+        "platno"
+      ],
+      "vysvetleni": "Plátnová vazba je nejjednodušší a nejhustší ze tří základních vazeb — tkanina je oboustranně stejná a pevná (košiloviny, ložní prádlo). Další základní vazby jsou keprová a atlasová.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-9",
+      "temaId": "textil-a-odivani",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kterou vazbou je utkán satén s hladkým lesklým povrchem?",
+      "moznosti": [
+        "atlasovou",
+        "plátnovou",
+        "keprovou",
+        "zátažnou"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Atlasová (saténová) vazba vytváří dlouhé úseky nití na povrchu, a proto hladký lesk. Keprová vazba dává šikmé řádkování (džínovina), plátnová oboustranně stejnou pevnou tkaninu; zátažná je druh pleteniny, ne vazba tkaniny.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-10",
+      "temaId": "textil-a-odivani",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Co platí o pleteninách? (více správných odpovědí)",
+      "moznosti": [
+        "jsou tvořeny provázanými očky",
+        "jsou pružnější než tkaniny",
+        "vznikají provázáním osnovy a útku",
+        "vyrábějí se vpichováním vrstvy vláken"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "Pleteniny se pletou z oček, proto jsou pružnější a prodyšnější než tkaniny. Osnova a útek jsou soustavy nití tkanin; vpichováním se zpevňují netkané textilie.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-11",
+      "temaId": "textil-a-odivani",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď textilní vlákna ke skupinám, do nichž patří.",
+      "pary": [
+        { "levy": "bavlna", "pravy": "přírodní rostlinné vlákno" },
+        { "levy": "vlna", "pravy": "přírodní živočišné vlákno" },
+        { "levy": "viskóza", "pravy": "chemické vlákno z přírodního polymeru" },
+        { "levy": "polyamid", "pravy": "syntetické vlákno" }
+      ],
+      "vysvetleni": "Vlákna dělíme na přírodní (rostlinná — bavlna, len; živočišná — vlna, hedvábí) a chemická (z přírodních polymerů — viskóza z celulózy; syntetická z ropy — polyamid, polyester, elastan).",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-12",
+      "temaId": "textil-a-odivani",
+      "typ": "anone",
+      "obtiznost": 5,
+      "zadani": "Plsť (filc) patří mezi netkané textilie.",
+      "spravna": true,
+      "vysvetleni": "Netkané textilie nevznikají tkaním ani pletením — vrstva vláken se zpevňuje vpichováním, proplétáním nebo pojením. Patří sem plsť (filc), vatelín a geotextilie.",
+      "zdroj": "Textil a odívání"
+    },
+    {
+      "id": "o-textil-a-odivani-13",
+      "temaId": "textil-a-odivani",
+      "typ": "prirazovani",
+      "obtiznost": 5,
+      "zadani": "Přiřaď textilní technologie k výrobkům, které jimi vznikají.",
+      "pary": [
+        { "levy": "předení", "pravy": "příze" },
+        { "levy": "skaní", "pravy": "nit" },
+        { "levy": "tkaní", "pravy": "tkanina" },
+        { "levy": "vpichování", "pravy": "netkaná textilie" }
+      ],
+      "vysvetleni": "Výrobní řetězec textilu: předením vláken vzniká příze, skaním více přízí nit, tkaním na stavu tkanina. Vpichování je jedna z technologií zpevnění netkaných textilií.",
+      "zdroj": "Textil a odívání"
+    }
+  ]
+}

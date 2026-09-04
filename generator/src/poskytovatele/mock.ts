@@ -4,7 +4,8 @@
 
 import type { Obtiznost } from '@questor/sdilene';
 import type { LlmOtazka } from '../llm-schema';
-import type { Poskytovatel, VstupGenerovani } from './rozhrani';
+import type { LlmLekce } from '../llm-schema-vyuka';
+import type { Poskytovatel, VstupGenerovani, VstupLekce } from './rozhrani';
 
 /** Vytáhne z textu učiva smysluplné věty (deterministicky, v pořadí výskytu). */
 function vetyZKontextu(kontext: string): string[] {
@@ -88,6 +89,98 @@ function vytvorOtazku(vstup: VstupGenerovani, index: number, vety: string[]): Ll
   }
 }
 
+/** Deterministická minimální lekce (režim --vyuka): bez sítě, obsah z učiva. */
+function vytvorLekci(vstup: VstupLekce): LlmLekce {
+  const { tema } = vstup;
+  const vety = vetyZKontextu(vstup.kontext);
+  const v = (i: number) => veta(vety, i, tema.nazev);
+  const pojem = tema.nazev.split(/\s+/)[0].toLowerCase();
+  const doSvg = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+
+  return {
+    nazev: tema.nazev,
+    bloky: [
+      {
+        typ: 'text',
+        obsah:
+          `V této lekci se naučíš základy tématu **${tema.nazev}**.\n\n` +
+          `- ${v(0)}\n- ${v(1)}`,
+      },
+      {
+        typ: 'klicove-pojmy',
+        polozky: [
+          { pojem: tema.nazev, definice: v(0) },
+          { pojem: `${tema.nazev} v praxi`, definice: v(1) },
+        ],
+      },
+      {
+        typ: 'obrazek',
+        svg:
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" role="img" ' +
+          `aria-label="Schéma tématu ${doSvg(tema.nazev)}">` +
+          '<rect x="8" y="8" width="304" height="144" rx="12" fill="none" stroke="currentColor" stroke-width="2" />' +
+          `<text x="160" y="88" text-anchor="middle" font-size="14" fill="currentColor">${doSvg(tema.nazev)}</text>` +
+          '</svg>',
+        popisek: `Schéma tématu ${tema.nazev}`,
+      },
+      {
+        typ: 'mini-kviz',
+        otazka: {
+          typ: 'anone',
+          obtiznost: 1,
+          zadani: `Platí k tématu „${tema.nazev}“ toto tvrzení? ${v(0)}`,
+          vysvetleni: `Vychází z učiva tématu „${tema.nazev}“: ${v(0)}`,
+          zdroj: tema.nazev,
+          spravna: true,
+        },
+      },
+      {
+        typ: 'widget-tridicka',
+        zadani: `Roztřiď tvrzení k tématu „${tema.nazev}“.`,
+        kategorie: [
+          { id: 'plati', nazev: 'Platí' },
+          { id: 'neplati', nazev: 'Neplatí' },
+        ],
+        polozky: [
+          { text: v(0), kategorieId: 'plati' },
+          { text: `Smyšlené tvrzení k tématu ${tema.nazev}.`, kategorieId: 'neplati' },
+          { text: v(1), kategorieId: 'plati' },
+        ],
+      },
+      {
+        typ: 'karticky',
+        polozky: [
+          { predni: `Co víš o: ${tema.nazev}?`, zadni: v(0) },
+          { predni: `${tema.nazev} — souvislost`, zadni: v(1) },
+        ],
+      },
+      {
+        typ: 'widget-srovnavac',
+        polozky: [
+          { nazev: 'Pojem A', vlastnosti: [{ nazev: 'Charakteristika', hodnota: v(0).slice(0, 120) }] },
+          { nazev: 'Pojem B', vlastnosti: [{ nazev: 'Charakteristika', hodnota: v(1).slice(0, 120) }] },
+        ],
+      },
+      {
+        typ: 'priklad',
+        zadani: `Uveď příklad z praxe k tématu „${tema.nazev}“.`,
+        reseni: `Například: ${v(2)}`,
+      },
+      {
+        typ: 'mini-kviz',
+        otazka: {
+          typ: 'doplneni',
+          obtiznost: 2,
+          zadani: `Doplň klíčový pojem: první slovo názvu tématu „${tema.nazev}“.`,
+          vysvetleni: `Klíčový pojem lekce je „${pojem}“.`,
+          zdroj: tema.nazev,
+          spravneOdpovedi: [pojem],
+        },
+      },
+    ],
+  };
+}
+
 export function vytvorPoskytovateleMock(): Poskytovatel {
   return {
     nazev: 'mock',
@@ -113,6 +206,9 @@ export function vytvorPoskytovateleMock(): Poskytovatel {
     async overOtazky(vstup) {
       // Deterministická kontrola bez sítě: otázky projdou beze změny.
       return vstup.otazky;
+    },
+    async vygenerujLekci(vstup) {
+      return vytvorLekci(vstup);
     },
   };
 }

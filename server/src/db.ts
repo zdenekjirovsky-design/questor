@@ -33,6 +33,11 @@ export function otevriDb(cesta: string): DatabaseSync {
       id   TEXT PRIMARY KEY,
       json TEXT NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS vyuka (
+      predmet_id TEXT PRIMARY KEY,
+      verze      INT  NOT NULL,
+      json       TEXT NOT NULL
+    );
   `);
   return db;
 }

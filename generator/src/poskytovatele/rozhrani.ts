@@ -5,6 +5,7 @@
 import type { Obtiznost, Tema } from '@questor/sdilene';
 import type { Kapitola } from '../ingest';
 import type { LlmOtazka } from '../llm-schema';
+import type { LlmLekce } from '../llm-schema-vyuka';
 
 export type NazevPoskytovatele = 'api' | 'claude-cli' | 'mock';
 
@@ -37,6 +38,16 @@ export interface VstupOvereni {
   kontext: string;
 }
 
+export interface VstupLekce {
+  nazevPredmetu: string;
+  tema: Tema;
+  /** Pořadové číslo lekce od 1 (do promptu). */
+  cisloLekce: number;
+  celkemLekci: number;
+  /** Výřez učiva relevantní k tématu. */
+  kontext: string;
+}
+
 export interface Poskytovatel {
   nazev: NazevPoskytovatele;
   /** Z osnovy učiva vytěží názvy témat. */
@@ -51,4 +62,10 @@ export interface Poskytovatel {
    * Vrací null, když ověření neproběhlo (volající si rozhodne, co s neověřenou dávkou).
    */
   overOtazky(vstup: VstupOvereni): Promise<LlmOtazka[] | null>;
+  /**
+   * Vygeneruje JEDNU výukovou lekci k tématu (režim --vyuka; po lekci kvůli
+   * max_tokens). Vrací null, když model lekci odmítl nebo nevrátil použitelný
+   * výstup — lekce se přeskočí.
+   */
+  vygenerujLekci(vstup: VstupLekce): Promise<LlmLekce | null>;
 }

@@ -12,7 +12,7 @@ export const SYSTEM_GENERATOR =
   'věcně správné otázky v češtině přesně podle dodaného učiva. Nikdy si nevymýšlíš ' +
   'fakta, která v učivu nejsou nebo z něj neplynou.';
 
-const POPIS_TYPU = `Typy otázek a jejich pole (kromě společných polí typ, obtiznost, zadani, vysvetleni, zdroj):
+export const POPIS_TYPU = `Typy otázek a jejich pole (kromě společných polí typ, obtiznost, zadani, vysvetleni, zdroj):
 - "vyber": jedna správná z možností — pole "moznosti" (2–6 textů) a "spravna" (index správné možnosti od 0).
 - "multi": více správných — pole "moznosti" (3–6 textů) a "spravne" (indexy VŠECH správných, aspoň jeden, bez duplicit).
 - "anone": ano/ne — pole "spravna" (true = tvrzení platí).

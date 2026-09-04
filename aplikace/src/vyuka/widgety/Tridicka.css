@@ -1,0 +1,191 @@
+/* Třídička — zásobník štítků nahoře, koše kategorií pod ním. */
+
+.tridicka {
+  position: relative;
+}
+
+.tridicka__zadani {
+  margin: 0 0 14px;
+  font-weight: 600;
+}
+
+.tridicka__zasobnik {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  background: var(--pozadi-panel-2);
+  border: 1px dashed var(--okraj);
+  border-radius: var(--radius);
+  min-height: 54px;
+}
+
+.tridicka__polozka {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel);
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.tridicka__polozka:hover {
+  transform: translateY(-2px);
+  border-color: var(--akcent);
+  box-shadow: var(--zare-akcent);
+}
+
+.tridicka__polozka:active {
+  cursor: grabbing;
+}
+
+.tridicka__polozka--vybrana {
+  border-color: var(--akcent);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.35) 0%, rgba(109, 63, 240, 0.35) 100%);
+  box-shadow: var(--zare-akcent);
+  animation: vznaseni 1.6s ease-in-out infinite;
+}
+
+.tridicka__polozka--spatne {
+  border-color: var(--chyba);
+  box-shadow: 0 0 14px rgba(248, 113, 113, 0.45);
+  animation: zatreseni 0.4s ease-in-out;
+}
+
+.tridicka__polozka--zarazena {
+  cursor: default;
+  border-color: var(--uspech);
+  background: rgba(52, 211, 153, 0.12);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.tridicka__polozka--zarazena:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--uspech);
+}
+
+.tridicka__kategorie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.tridicka__kos {
+  background: var(--pozadi-panel);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.tridicka__kos--cil {
+  border-color: var(--akcent);
+}
+
+.tridicka__kos--nad {
+  border-color: var(--akcent-svetly);
+  box-shadow: var(--zare-akcent);
+  transform: scale(1.02);
+}
+
+.tridicka__kos--trese {
+  animation: zatreseni 0.4s ease-in-out;
+  border-color: var(--chyba);
+  box-shadow: 0 0 16px rgba(248, 113, 113, 0.4);
+}
+
+.tridicka__kos-hlavicka {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-bottom: 1px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  color: var(--text);
+  font-family: var(--pismo-display);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.tridicka__kos-hlavicka:hover:not(:disabled) {
+  background: rgba(139, 92, 246, 0.18);
+}
+
+.tridicka__kos-hlavicka:disabled {
+  cursor: default;
+}
+
+.tridicka__kos-pocet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--pozadi-panel);
+  border: 1px solid var(--okraj);
+  font-size: 0.8rem;
+  color: var(--text-tlumeny);
+}
+
+.tridicka__kos-obsah {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px;
+  min-height: 58px;
+  align-content: flex-start;
+}
+
+.tridicka__kos-prazdny {
+  color: var(--text-tlumeny);
+  font-size: 0.85rem;
+  opacity: 0.6;
+  align-self: center;
+}
+
+.tridicka__paticka {
+  margin-top: 14px;
+  text-align: center;
+  min-height: 28px;
+}
+
+.tridicka__zbyva {
+  font-size: 0.88rem;
+  color: var(--text-tlumeny);
+}
+
+.tridicka__oslava {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tridicka__oslava-titul {
+  font-family: var(--pismo-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--zlata);
+  text-shadow: var(--zare-zlata);
+}
+
+.tridicka__oslava-detail {
+  font-size: 0.9rem;
+  color: var(--text-tlumeny);
+}

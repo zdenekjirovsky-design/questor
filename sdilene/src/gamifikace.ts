@@ -26,6 +26,9 @@ import type {
 
 export const ZAKLAD_XP = 10;
 
+/** XP za dokončenou lekci výuky (uděluje se jen při prvním dokončení v daném dni). */
+export const XP_ZA_LEKCI = 40;
+
 /** Násobič za sérii správných odpovědí v jednom testu (comboKrok = kolikátá správná v řadě, od 0). */
 export function comboNasobic(comboKrok: number): number {
   return Math.min(2, 1 + Math.max(0, comboKrok) * 0.1);
@@ -329,6 +332,15 @@ const SABLONY_QUESTU: SablonaQuestu[] = [
       odmenaXp: 75,
     }),
   },
+  {
+    sablona: 'lekce',
+    vytvor: () => ({
+      sablona: 'lekce',
+      popis: 'Projdi dnes 1 lekci',
+      cil: 1,
+      odmenaXp: 60,
+    }),
+  },
 ];
 
 /** Vygeneruje 3 denní questy — deterministicky z data, takže restart aplikace nic nezmění. */
@@ -373,6 +385,20 @@ export function aplikujOdpovedNaQuesty(questy: QuestDenni[], zaznam: OdpovedZazn
     }
     const splneno = postup >= q.cil;
     return { ...q, postup: Math.min(postup, q.cil), splneno };
+  });
+}
+
+/**
+ * Aktualizuje postup questů po dokončené lekci výuky. Vrací nové pole (imutabilně).
+ * Má-li quest v parametrech `temaId`, počítá se jen lekce toho tématu;
+ * bez parametru se počítá jakákoli lekce.
+ */
+export function aplikujLekciNaQuesty(questy: QuestDenni[], temaId: string): QuestDenni[] {
+  return questy.map((q) => {
+    if (q.splneno || q.sablona !== 'lekce') return q;
+    if (q.parametry?.temaId !== undefined && q.parametry.temaId !== temaId) return q;
+    const postup = Math.min(q.postup + 1, q.cil);
+    return { ...q, postup, splneno: postup >= q.cil };
   });
 }
 

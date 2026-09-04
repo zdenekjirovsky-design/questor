@@ -91,6 +91,10 @@ export interface QuestorKlient {
   zdravi(): Promise<{ ok: boolean; verze: string }>;
   seznamBank(): Promise<{ predmetId: string; nazev: string; verze: number }[]>;
   stahniBanku(predmetId: string): Promise<BankaOtazek>;
+  /** Seznam vyuk na serveru (predmetId + verze) — vzor bank. */
+  seznamVyuk(): Promise<{ predmetId: string; verze: number }[]>;
+  /** Cela vyuka predmetu — volajici ji validuje pres validujVyuku. */
+  stahniVyuku(predmetId: string): Promise<unknown>;
   posliProgres(progres: ProgresStudenta): Promise<void>;
   posliUdalost(vysledek: TestVysledek): Promise<void>;
   posliVysledekVyzvy(vyzvaId: string, telo: { uspesnost: number; xp: number }): Promise<void>;
@@ -132,6 +136,8 @@ export function vytvorKlienta(nastaveni: SyncNastaveni, fetchFn?: FetchFunkce): 
     zdravi: () => pozadavek('GET', '/zdravi'),
     seznamBank: () => pozadavek('GET', '/api/banky'),
     stahniBanku: (predmetId) => pozadavek('GET', `/api/banky/${encodeURIComponent(predmetId)}`),
+    seznamVyuk: () => pozadavek('GET', '/api/vyuka'),
+    stahniVyuku: (predmetId) => pozadavek('GET', `/api/vyuka/${encodeURIComponent(predmetId)}`),
     posliProgres: async (progres) => {
       await pozadavek('POST', '/api/progres', progres);
     },

@@ -11,11 +11,13 @@ import {
   otazkaSchema,
   stavLevelu,
   validujBanku,
+  validujVyuku,
   type BankaOtazek,
   type Otazka,
   type ProgresStudenta,
   type Tema,
   type TestVysledek,
+  type VyukaPredmetu,
   type Vyzva,
 } from '@questor/sdilene';
 import {
@@ -182,6 +184,58 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
        ON CONFLICT(predmet_id) DO UPDATE SET verze = excluded.verze, json = excluded.json`,
     ).run(predmetId, banka.verze, JSON.stringify(banka));
     return c.json({ ok: true, verze: banka.verze });
+  });
+
+  // --- Výuka ---------------------------------------------------------------
+  // Stejný vzor jako banky: student čte, admin nahrává, verze musí růst.
+  // Limit 10 MB jako u banky — výuka nese inline SVG obrázky, 2 MB by nestačily.
+
+  app.get('/api/vyuka', overAuth('student'), (c) => {
+    const radky = db
+      .prepare('SELECT predmet_id, verze FROM vyuka ORDER BY predmet_id')
+      .all() as { predmet_id: string; verze: number }[];
+    return c.json(radky.map((r) => ({ predmetId: r.predmet_id, verze: r.verze })));
+  });
+
+  app.get('/api/vyuka/:predmetId', overAuth('student'), (c) => {
+    const radek = db
+      .prepare('SELECT json FROM vyuka WHERE predmet_id = ?')
+      .get(c.req.param('predmetId') ?? '') as { json: string } | undefined;
+    if (!radek) return c.json({ chyba: 'Výuka pro tenhle předmět na serveru není' }, 404);
+    return c.json(JSON.parse(radek.json) as VyukaPredmetu);
+  });
+
+  app.put('/api/vyuka/:predmetId', overAuth('admin'), LIMIT_BANKY, async (c) => {
+    const telo = await prectiJson(c);
+    let vyuka: VyukaPredmetu;
+    try {
+      vyuka = validujVyuku(telo);
+    } catch (chyba) {
+      return c.json({ chyba: chyba instanceof Error ? chyba.message : 'Neplatná výuka' }, 400);
+    }
+    const predmetId = c.req.param('predmetId');
+    if (vyuka.predmetId !== predmetId) {
+      return c.json(
+        { chyba: `predmetId v URL („${predmetId}“) nesouhlasí s výukou („${vyuka.predmetId}“)` },
+        400,
+      );
+    }
+    const stavajici = db
+      .prepare('SELECT verze FROM vyuka WHERE predmet_id = ?')
+      .get(predmetId) as { verze: number } | undefined;
+    if (stavajici && vyuka.verze <= stavajici.verze) {
+      return c.json(
+        {
+          chyba: `Verze výuky musí růst — na serveru je verze ${stavajici.verze}, přišla ${vyuka.verze}`,
+        },
+        409,
+      );
+    }
+    db.prepare(
+      `INSERT INTO vyuka (predmet_id, verze, json) VALUES (?, ?, ?)
+       ON CONFLICT(predmet_id) DO UPDATE SET verze = excluded.verze, json = excluded.json`,
+    ).run(predmetId, vyuka.verze, JSON.stringify(vyuka));
+    return c.json({ ok: true, verze: vyuka.verze });
   });
 
   // --- Progres -------------------------------------------------------------

@@ -3,7 +3,7 @@
 // - pull: banky (jen vyšší verze → merge do testySlice) a výzvy (→ hraSlice).
 // Selhání sítě je TICHÉ — žádné chybové UI uprostřed hry, jen nenápadný
 // indikátor stavu (Nastavení / Domů) přes odběr stavu níže.
-import { validujBanku } from '@questor/sdilene';
+import { validujBanku, validujVyuku } from '@questor/sdilene';
 import type { TestVysledek } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { nactiSyncNastaveni, vytvorKlienta, vychoziUloziste } from './klient';
@@ -91,6 +91,20 @@ async function provedSync(duvod: DuvodSyncu): Promise<void> {
       if (lokalni && zaznam.verze <= lokalni.verze) continue;
       const banka = validujBanku(await klient.stahniBanku(zaznam.predmetId));
       pouzijStav.getState().prijmiBanku(banka);
+    }
+
+    // --- pull: výuka (jen vyšší verze) — drží vzor bank ----------------------
+    // Vlastní try/catch: starší server bez /api/vyuka nesmí shodit zbytek syncu.
+    try {
+      const seznamVyuk = await klient.seznamVyuk();
+      for (const zaznam of seznamVyuk) {
+        const lokalni = pouzijStav.getState().vyuky[zaznam.predmetId];
+        if (lokalni && zaznam.verze <= lokalni.verze) continue;
+        const vyuka = validujVyuku(await klient.stahniVyuku(zaznam.predmetId));
+        pouzijStav.getState().prijmiVyuku(vyuka);
+      }
+    } catch {
+      // Tiché — výuka je bonus, offline-first základ je bundlovaný.
     }
 
     // --- pull: výzvy → hraSlice ---------------------------------------------

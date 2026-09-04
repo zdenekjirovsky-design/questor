@@ -51,9 +51,20 @@ export default function Domu() {
   const banky = pouzijStav((s) => s.banky);
   const obnovDenniQuesty = pouzijStav((s) => s.obnovDenniQuesty);
 
-  // Denní obnova questů při zobrazení dashboardu.
+  // Denní obnova questů při zobrazení dashboardu + při změně dne za běhu
+  // (aplikace otevřená přes půlnoc): minutový interval a návrat do popředí.
+  // Akce je pro stejný den idempotentní, takže časté volání nevadí.
   useEffect(() => {
     obnovDenniQuesty();
+    const interval = setInterval(obnovDenniQuesty, 60_000);
+    const priNavratu = () => {
+      if (!document.hidden) obnovDenniQuesty();
+    };
+    document.addEventListener('visibilitychange', priNavratu);
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', priNavratu);
+    };
   }, [obnovDenniQuesty]);
 
   const [volbaOtevrena, setVolbaOtevrena] = useState(false);

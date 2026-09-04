@@ -21,7 +21,7 @@ questor/
 ├── server/      @questor/server — Hono API + node:sqlite + admin mini-web
 ├── aplikace/    @questor/aplikace — React + Vite (desktop shell: Tauri 2, balí se v CI)
 ├── data/        demo učivo (uciva/) a banky (banky/)
-└── docs/        ARCHITEKTURA.md, DESIGN.md, NAVOD.md, NASAZENI.md
+└── docs/        ARCHITEKTURA.md, DESIGN.md, NAVOD.md, NASAZENI.md, VYUKA.md
 ```
 
 ### Konvence (platí všude)
@@ -31,6 +31,10 @@ questor/
   běží přes `tsx`. Typecheck: `npm run typecheck` (root spustí všechny workspaces).
 - **Žádné nativní závislosti** — DB je vestavěné `node:sqlite` (`DatabaseSync`), Node ≥ 26.
 - **Zod v3** na všechna data překračující hranici procesu (soubor, HTTP, LLM výstup).
+  Jediná výjimka: schémata pro structured output Claude
+  (`generator/src/llm-schema.ts`) importují `zod/v4`, protože to vyžaduje
+  helper `zodOutputFormat` z `@anthropic-ai/sdk` — zbytek systému zůstává na v3
+  (ne „opravovat“ llm-schema.ts zpět na v3, rozbilo by to structured output).
 - Sdílené typy VŽDY z `@questor/sdilene` — nikdy je neduplikovat.
 - Testy: vitest (`test/` v každém workspace). Gamifikační jádro a testový engine
   mají mít slušné pokrytí; náhoda se injektuje (`() => number`), Date se předává.
@@ -60,20 +64,30 @@ Hono na portu `QUESTOR_PORT` (default **8787**). DB: `node:sqlite`, soubor
 (default `student-dev`). Admin token smí všechno studentské. Chybný token → 401
 `{ chyba: '…' }`.
 
+**CORS**: aplikace běží na jiném originu (Vite `:5173`, Tauri
+`http://tauri.localhost`) a vlastní hlavička tokenu vynucuje preflight —
+server proto na všech cestách pouští CORS middleware
+(`allowHeaders: content-type, x-questor-token`, origin `*`; autentizaci
+nesou tokeny, ne origin).
+
+**Limity těla requestu**: `PUT /api/banky/:predmetId` max 10 MB, ostatní
+zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
+
 | Metoda a cesta | Role | Tělo / odpověď |
 |---|---|---|
+| `GET /` | veřejné | redirect na `/admin` |
 | `GET /zdravi` | veřejné | `{ ok, verze }` |
 | `GET /api/banky` | student | `[{ predmetId, nazev, verze }]` |
 | `GET /api/banky/:predmetId` | student | celá `BankaOtazek`; 404 když není |
 | `PUT /api/banky/:predmetId` | admin | tělo `BankaOtazek` (validovat! verze musí růst) → `{ ok, verze }` |
 | `POST /api/progres` | student | tělo `ProgresStudenta` → `{ ok }` (uloží poslední snapshot) |
-| `GET /api/progres` | admin | `{ progres, prijato }` nebo 404 |
-| `POST /api/udalosti` | student | tělo `TestVysledek` → `{ ok }` (append) |
+| `GET /api/progres` | admin | `{ progres, prijato, level }` nebo 404 (`level` = `stavLevelu(xp)` ze sdílené funkce, ať ho admin web neduplikuje) |
+| `POST /api/udalosti` | student | tělo `TestVysledek` → `{ ok }` (append; idempotentní podle `vysledek.id` — duplicitní doručení z retry fronty se tiše ignoruje) |
 | `GET /api/udalosti?limit=50` | admin | poslední výsledky testů (nejnovější první) |
 | `GET /api/vyzvy` | student | `Vyzva[]` se stavem != `dokoncena` |
 | `POST /api/vyzvy` | admin | `{ zprava, konfigurace, cilovaUspesnost? }` → `Vyzva` |
 | `POST /api/vyzvy/:id/vysledek` | student | `{ uspesnost, xp }` → `{ ok }` (nastaví `dokoncena`) |
-| `POST /api/generovani/dogenerovat` | student | `{ predmetId, temaId, obtiznost, pocet }` → `{ otazky }`; **503** když server nemá `ANTHROPIC_API_KEY` (aplikace to bere jako „funkce vypnutá“, žádná chyba uživateli) |
+| `POST /api/generovani/dogenerovat` | student | `{ predmetId, temaId, obtiznost, pocet }` → `{ otazky }`; **503** když server nemá `ANTHROPIC_API_KEY` (aplikace to bere jako „funkce vypnutá“, žádná chyba uživateli). Kontext učiva server skládá ze zadání a vysvětlení existujících otázek tématu v bance (zdrojové učivo na serveru není). **Stav: klientská část v aplikaci zatím NENÍ implementovaná (fáze 2)** — hotová je jen serverová půlka včetně 503. |
 | `GET /admin` | admin (token zadá stránka) | mini admin web (viz níže) |
 
 DB tabulky: `banky(predmet_id TEXT PK, verze INT, json TEXT)`,
@@ -161,7 +175,10 @@ data/       demo-banka.json (kopie data/banky/ekonomika-podnikani.json)
    vyhodnocení až na konci, časomíra.
 4. Konec → `TestVysledek`, truhla `urciTruhlu` → `/vysledek` (otevírání truhly
    je EVENT — animace, viz DESIGN.md), streak `aktualizujStreakPoAktivite`,
-   rekordy, týdenní XP (`pondeliTydne`), sync na server.
+   rekordy, týdenní XP (`pondeliTydne`), sync na server. Jediný zdroj pravdy
+   pro odměny truhel je fronta `cekajiciTruhly` v hraSlice: `otevriTruhluAkce`
+   bez čekající truhly daného typu vrací `null` a nic neuděluje (ochrana proti
+   farmení odměn remountem stránky Výsledek).
 
 ### Sync (offline-first)
 
@@ -170,7 +187,12 @@ Aplikace je plně funkční bez serveru (demo banka bundlovaná v `data/`).
 `http://localhost:8787`), frontu neodeslaných událostí (localStorage),
 při startu a po testu: push progres + události, pull banky (jen vyšší verze),
 pull výzvy. Selhání sítě = ticho, žádné chybové hlášky uprostřed hry (jen
-nenápadný indikátor stavu připojení v Nastavení a na Domů).
+nenápadný indikátor stavu připojení v Nastavení a na Domů). Fronta odesílá
+at-least-once s exponenciálním odkladem; položku, kterou server trvale odmítá
+(4xx mimo 408/429, např. výsledek smazané výzvy), zahodí, aby neblokovala
+zbytek fronty. Bundlovaná demo banka se po startu nabízí přes `prijmiBanku`
+i proti persistovanému stavu (novější verze z aktualizace aplikace se tak
+prosadí i bez serveru).
 
 ### Gamifikace — pravidla (implementace ve `sdilene`, UI v `hra/`)
 

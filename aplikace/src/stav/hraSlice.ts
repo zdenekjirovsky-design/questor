@@ -5,7 +5,10 @@
 //
 // Pozn. k truhlám: zapocitejTest zařadí truhlu z testu do `cekajiciTruhly`;
 // otevriTruhluAkce ji při otevření z fronty zase odebere. Truhla se tak nikdy
-// neztratí (neotevřená z Výsledku čeká na Domů) a nikdy nezdvojí.
+// neztratí (neotevřená z Výsledku čeká na Domů) a nikdy nezdvojí. Když už
+// ve frontě žádná truhla daného typu nečeká, otevriTruhluAkce vrací null
+// a ŽÁDNOU odměnu neuděluje — fronta je jediný zdroj pravdy (jinak by šlo
+// remountem stránky Výsledek farmit odměny donekonečna).
 
 import type { StateCreator } from 'zustand';
 import type {
@@ -154,7 +157,8 @@ export interface HraSlice {
 
   zapocitejOdpoved(zaznam: OdpovedZaznam, comboAktualni: number): void;
   zapocitejTest(vysledek: TestVysledek): void;
-  otevriTruhluAkce(typ: TruhlaTyp): Odmena;
+  /** Otevře truhlu z fronty `cekajiciTruhly`. Vrací null, když tam typ nečeká. */
+  otevriTruhluAkce(typ: TruhlaTyp): Odmena | null;
   prijmiVyzvy(vyzvy: Vyzva[]): void;
   resetujProgres(): void;
   /** Denní obnova questů — volat při startu dne / zobrazení dashboardu. */
@@ -202,18 +206,31 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
       comboAktualni,
     );
 
+    // XP za questy splněné touhle odpovědí — hned, ne až po dokončení testu
+    // (jinak by quest splněný v nedokončeném testu o půlnoci propadl bez odměny).
+    const kOdmene = questy.filter((q) => q.splneno && !stav.questyOdmeneno.includes(q.id));
+    const xpZaQuesty = kOdmene.reduce((s, q) => s + q.odmenaXp, 0);
+    const celkoveXp = xp + xpZaQuesty;
+
     set({
       progres: {
         ...progres,
-        xp: progres.xp + xp,
+        xp: progres.xp + celkoveXp,
         statistikyOtazek: statistiky,
         questy,
         rekordy: {
           ...progres.rekordy,
-          tydenniXp: pridejTydenniXp(progres.rekordy.tydenniXp, dnes, xp),
+          tydenniXp: pridejTydenniXp(progres.rekordy.tydenniXp, dnes, celkoveXp),
         },
         aktualizovano: ted.toISOString(),
       },
+      questyOdmeneno:
+        kOdmene.length > 0
+          ? [
+              ...stav.questyOdmeneno.filter((id) => id.startsWith(dnes)),
+              ...kOdmene.map((q) => q.id),
+            ]
+          : stav.questyOdmeneno,
     });
   },
 
@@ -322,14 +339,13 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
     const stav = get();
     const progres = stav.progres;
 
-    const { odmena, sbirka } = otevriTruhlu(typ, progres.sbirka, KARTY_VELIKANI, Math.random);
-
-    // Odeber jednu truhlu daného typu z fronty (pokud tam čeká).
+    // Bez čekající truhly daného typu ŽÁDNÁ odměna — fronta je jediný zdroj
+    // pravdy (ochrana proti opakovanému otevírání po remountu Výsledku).
     const idx = stav.cekajiciTruhly.indexOf(typ);
-    const cekajiciTruhly =
-      idx >= 0
-        ? stav.cekajiciTruhly.filter((_, i) => i !== idx)
-        : stav.cekajiciTruhly;
+    if (idx < 0) return null;
+
+    const { odmena, sbirka } = otevriTruhlu(typ, progres.sbirka, KARTY_VELIKANI, Math.random);
+    const cekajiciTruhly = stav.cekajiciTruhly.filter((_, i) => i !== idx);
 
     const xp = odmena.typ === 'xp' ? (odmena.xp ?? 0) : 0;
 

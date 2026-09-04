@@ -4,6 +4,8 @@
 
 import { Hono } from 'hono';
 import type { Context, Next } from 'hono';
+import { bodyLimit } from 'hono/body-limit';
+import { cors } from 'hono/cors';
 import type { DatabaseSync } from 'node:sqlite';
 import {
   otazkaSchema,
@@ -100,6 +102,24 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     return c.json({ chyba: 'Interní chyba serveru' }, 500);
   });
 
+  // CORS: aplikace běží na jiném originu (Vite :5173, Tauri http://tauri.localhost)
+  // a hlavička x-questor-token vynucuje preflight OPTIONS — bez CORS by
+  // prohlížeč/WebView všechna volání API zablokoval.
+  app.use(
+    '*',
+    cors({ allowHeaders: ['content-type', 'x-questor-token'] }),
+  );
+
+  // Limity velikosti těla — cizí (i validní token držící) klient nesmí server
+  // shodit na OOM mnohasetmegovým JSONem.
+  const limitTela = (maxSize: number) =>
+    bodyLimit({
+      maxSize,
+      onError: (c) => c.json({ chyba: 'Tělo požadavku je příliš velké' }, 413),
+    });
+  const LIMIT_BANKY = limitTela(10 * 1024 * 1024); // 10 MB — celá banka otázek
+  const LIMIT_BEZNY = limitTela(2 * 1024 * 1024); // 2 MB — progres, události, výzvy
+
   // --- Veřejné -------------------------------------------------------------
 
   app.get('/zdravi', (c) => c.json({ ok: true, verze: VERZE }));
@@ -131,7 +151,7 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     return c.json(JSON.parse(radek.json) as BankaOtazek);
   });
 
-  app.put('/api/banky/:predmetId', overAuth('admin'), async (c) => {
+  app.put('/api/banky/:predmetId', overAuth('admin'), LIMIT_BANKY, async (c) => {
     const telo = await prectiJson(c);
     let banka: BankaOtazek;
     try {
@@ -166,7 +186,7 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
 
   // --- Progres -------------------------------------------------------------
 
-  app.post('/api/progres', overAuth('student'), async (c) => {
+  app.post('/api/progres', overAuth('student'), LIMIT_BEZNY, async (c) => {
     const progres = zvalidujProgres(await prectiJson(c));
     if (!progres) return c.json({ chyba: 'Tělo neodpovídá typu ProgresStudenta' }, 400);
     db.prepare(
@@ -189,10 +209,13 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
 
   // --- Události (výsledky testů) ------------------------------------------
 
-  app.post('/api/udalosti', overAuth('student'), async (c) => {
+  app.post('/api/udalosti', overAuth('student'), LIMIT_BEZNY, async (c) => {
     const vysledek = zvalidujTestVysledek(await prectiJson(c));
     if (!vysledek) return c.json({ chyba: 'Tělo neodpovídá typu TestVysledek' }, 400);
-    db.prepare('INSERT INTO udalosti (cas, json) VALUES (?, ?)').run(
+    // Idempotence podle vysledek.id (unikátní index nad json_extract): klient
+    // posílá at-least-once (timeout + retry fronty) — duplicitní doručení
+    // nesmí výsledek v přehledu zdvojit. OR IGNORE + { ok } i pro duplikát.
+    db.prepare('INSERT OR IGNORE INTO udalosti (cas, json) VALUES (?, ?)').run(
       new Date().toISOString(),
       JSON.stringify(vysledek),
     );
@@ -219,7 +242,7 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     return c.json(otevrene);
   });
 
-  app.post('/api/vyzvy', overAuth('admin'), async (c) => {
+  app.post('/api/vyzvy', overAuth('admin'), LIMIT_BEZNY, async (c) => {
     const telo = novaVyzvaSchema.safeParse(await prectiJson(c));
     if (!telo.success) {
       return c.json({ chyba: 'Výzva potřebuje zprava a konfigurace (TestKonfigurace)' }, 400);
@@ -238,7 +261,7 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     return c.json(vyzva);
   });
 
-  app.post('/api/vyzvy/:id/vysledek', overAuth('student'), async (c) => {
+  app.post('/api/vyzvy/:id/vysledek', overAuth('student'), LIMIT_BEZNY, async (c) => {
     const telo = vysledekVyzvySchema.safeParse(await prectiJson(c));
     if (!telo.success) return c.json({ chyba: 'Tělo musí být { uspesnost, xp }' }, 400);
     const id = c.req.param('id') ?? '';
@@ -262,7 +285,7 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
 
   // --- Dogenerování otázek -------------------------------------------------
 
-  app.post('/api/generovani/dogenerovat', overAuth('student'), async (c) => {
+  app.post('/api/generovani/dogenerovat', overAuth('student'), LIMIT_BEZNY, async (c) => {
     const telo = dogenerovatSchema.safeParse(await prectiJson(c));
     if (!telo.success) {
       return c.json({ chyba: 'Tělo musí být { predmetId, temaId, obtiznost 1–5, pocet 1–20 }' }, 400);
@@ -278,6 +301,15 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     const tema = banka.temata.find((t) => t.id === telo.data.temaId);
     if (!tema) return c.json({ chyba: 'Téma v bance neexistuje' }, 404);
 
+    // Server zdrojové učivo nemá — jako kontext poslouží existující otázky
+    // tématu z banky (zadání + vysvětlení). Bez kontextu by prompt přikazoval
+    // „vycházej výhradně z učiva" nad prázdným učivem.
+    const kontextUciva = banka.otazky
+      .filter((o) => o.temaId === tema.id)
+      .map((o) => `- ${o.zadani}\n  Vysvětlení: ${o.vysvetleni}`)
+      .join('\n')
+      .slice(0, 20_000);
+
     let vygenerovane: Otazka[];
     try {
       const generator = await nactiGenerator();
@@ -286,6 +318,7 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
         tema,
         obtiznost: telo.data.obtiznost,
         pocet: telo.data.pocet,
+        ...(kontextUciva ? { kontextUciva } : {}),
       });
     } catch (chyba) {
       if (jeChybaKlice(chyba)) {

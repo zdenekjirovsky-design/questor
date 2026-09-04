@@ -25,6 +25,10 @@ export function otevriDb(cesta: string): DatabaseSync {
       cas  TEXT NOT NULL,
       json TEXT NOT NULL
     );
+    -- Idempotence POST /api/udalosti: klient posílá at-least-once (timeout
+    -- + retry), duplicitní TestVysledek se pozná podle id uvnitř JSON.
+    CREATE UNIQUE INDEX IF NOT EXISTS udalosti_vysledek_id
+      ON udalosti (json_extract(json, '$.id'));
     CREATE TABLE IF NOT EXISTS vyzvy (
       id   TEXT PRIMARY KEY,
       json TEXT NOT NULL

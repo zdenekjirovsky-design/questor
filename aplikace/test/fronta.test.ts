@@ -2,7 +2,7 @@
 // s exponenciálním odkladem, dedupe progresu a persistence v úložišti.
 import { describe, expect, it, vi } from 'vitest';
 import type { ProgresStudenta, TestVysledek } from '@questor/sdilene';
-import { pametoveUloziste } from '../src/sync/klient';
+import { ChybaSyncu, pametoveUloziste } from '../src/sync/klient';
 import {
   MAX_ODKLAD_MS,
   SyncFronta,
@@ -126,6 +126,56 @@ describe('SyncFronta', () => {
 
     expect(zprava).toEqual({ odeslano: 1, zbyva: 1 });
     expect(fronta.polozky()[0].typ).toBe('progres');
+  });
+
+  it('zápis do fronty během letícího odeslání neztratí žádnou položku', async () => {
+    const fronta = new SyncFronta(pametoveUloziste());
+    fronta.pridejProgres(progres(1));
+
+    const klient = mockKlient();
+    // Během awaitu odeslání P1 přijde dokončený test: událost + nový progres
+    // (pridejProgres odfiltruje letící P1 z indexu 0 a pole přeindexuje).
+    klient.posliProgres.mockImplementationOnce(async () => {
+      fronta.pridejUdalost(vysledek('u1'));
+      fronta.pridejProgres(progres(2));
+    });
+
+    const zprava = await fronta.odesli(klient, 0);
+
+    expect(zprava.zbyva).toBe(0);
+    expect(fronta.velikost()).toBe(0);
+    // Událost u1 nesmí tiše zmizet a novější progres musí odejít taky.
+    expect(klient.posliUdalost).toHaveBeenCalledWith(vysledek('u1'));
+    expect(klient.posliProgres).toHaveBeenCalledWith(progres(2));
+  });
+
+  it('trvale odmítnutá položka (4xx) se zahodí a neblokuje zbytek fronty', async () => {
+    const fronta = new SyncFronta(pametoveUloziste());
+    fronta.pridejVysledekVyzvy('smazana-vyzva', { uspesnost: 1, xp: 10 });
+    fronta.pridejUdalost(vysledek('v1'));
+
+    const klient = mockKlient();
+    klient.posliVysledekVyzvy.mockRejectedValue(new ChybaSyncu('Výzva neexistuje', 404));
+
+    const zprava = await fronta.odesli(klient, 0);
+
+    expect(zprava).toEqual({ odeslano: 1, zbyva: 0 });
+    expect(fronta.velikost()).toBe(0);
+    expect(klient.posliUdalost).toHaveBeenCalledWith(vysledek('v1'));
+    // Zahození není selhání — žádný odklad.
+    expect(fronta.muzeZkusit(1)).toBe(true);
+  });
+
+  it('408/429 se počítají jako dočasné selhání — položka zůstává', async () => {
+    const fronta = new SyncFronta(pametoveUloziste());
+    fronta.pridejUdalost(vysledek('v1'));
+
+    const klient = mockKlient();
+    klient.posliUdalost.mockRejectedValueOnce(new ChybaSyncu('Moc požadavků', 429));
+
+    await expect(fronta.odesli(klient, 0)).resolves.toEqual({ odeslano: 0, zbyva: 1 });
+    expect(fronta.velikost()).toBe(1);
+    expect(fronta.muzeZkusit(ZAKLADNI_ODKLAD_MS - 1)).toBe(false);
   });
 
   it('přežije restart — načte se ze stejného úložiště', async () => {

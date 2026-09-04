@@ -315,6 +315,63 @@ describe('události', () => {
     const odpoved = await app.request('/api/udalosti', { headers: STUDENT });
     expect(odpoved.status).toBe(401);
   });
+
+  it('duplicitní doručení téhož výsledku (retry fronty) výsledek nezdvojí', async () => {
+    const vysledek = vzorovyVysledek(0.8);
+    for (let i = 0; i < 3; i++) {
+      const odpoved = await app.request('/api/udalosti', {
+        method: 'POST',
+        headers: { ...STUDENT, ...JSON_HLAVICKY },
+        body: JSON.stringify(vysledek),
+      });
+      expect(odpoved.status).toBe(200); // idempotentní — i duplikát vrací { ok }
+    }
+    const vsechny = await app.request('/api/udalosti', { headers: ADMIN });
+    const seznam = (await vsechny.json()) as { vysledek: TestVysledek }[];
+    expect(seznam).toHaveLength(1);
+    expect(seznam[0].vysledek.id).toBe(vysledek.id);
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+describe('CORS a limity těla', () => {
+  let app: Hono;
+  beforeEach(() => {
+    app = novaApp();
+  });
+
+  it('preflight OPTIONS projde s CORS hlavičkami (aplikace běží na jiném originu)', async () => {
+    const odpoved = await app.request('/zdravi', {
+      method: 'OPTIONS',
+      headers: {
+        origin: 'http://localhost:5173',
+        'access-control-request-method': 'GET',
+        'access-control-request-headers': 'x-questor-token',
+      },
+    });
+    expect(odpoved.status).toBeLessThan(300);
+    expect(odpoved.headers.get('access-control-allow-origin')).toBe('*');
+    expect(odpoved.headers.get('access-control-allow-headers') ?? '').toMatch(/x-questor-token/i);
+  });
+
+  it('běžné odpovědi API nesou Access-Control-Allow-Origin', async () => {
+    const odpoved = await app.request('/zdravi', {
+      headers: { origin: 'http://tauri.localhost' },
+    });
+    expect(odpoved.status).toBe(200);
+    expect(odpoved.headers.get('access-control-allow-origin')).toBe('*');
+  });
+
+  it('příliš velké tělo vrací 413 a server ho nezpracuje', async () => {
+    const obri = JSON.stringify({ ...vzorovyProgres(), vata: 'x'.repeat(2 * 1024 * 1024 + 1) });
+    const odpoved = await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: obri,
+    });
+    expect(odpoved.status).toBe(413);
+  });
 });
 
 // ---------------------------------------------------------------------------

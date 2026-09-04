@@ -68,7 +68,12 @@ interface TruhlaOdmenaProps {
 
 export default function TruhlaOdmena({ typ, onOtevreno }: TruhlaOdmenaProps) {
   const otevriTruhluAkce = pouzijStav((s) => s.otevriTruhluAkce);
-  const [faze, setFaze] = useState<Faze>('zavrena');
+  // Truhla, která už ve frontě nečeká (typicky remount Výsledku po otevření),
+  // se rovnou ukáže jako otevřená — bez odměny a bez možnosti kliknout.
+  const [uzOtevrena] = useState(
+    () => !pouzijStav.getState().cekajiciTruhly.includes(typ),
+  );
+  const [faze, setFaze] = useState<Faze>(uzOtevrena ? 'otevrena' : 'zavrena');
   const [odmena, setOdmena] = useState<Odmena | null>(null);
   const [konfety, setKonfety] = useState<Konfeta[]>([]);
   const casovac = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -85,6 +90,12 @@ export default function TruhlaOdmena({ typ, onOtevreno }: TruhlaOdmenaProps) {
     setFaze('treses');
     casovac.current = setTimeout(() => {
       const ziskana = otevriTruhluAkce(typ);
+      if (!ziskana) {
+        // Fronta už truhlu tohohle typu nemá (mezitím otevřená jinde) —
+        // žádná odměna, jen otevřený stav bez konfet.
+        setFaze('otevrena');
+        return;
+      }
       setOdmena(ziskana);
       setKonfety(vygenerujKonfety(28));
       setFaze('otevrena');
@@ -205,6 +216,9 @@ export default function TruhlaOdmena({ typ, onOtevreno }: TruhlaOdmenaProps) {
             </>
           )}
           {faze === 'treses' && <div className="truhla__vyzva-klik">…</div>}
+          {faze === 'otevrena' && !odmena && (
+            <div className="truhla__vyzva-klik">Odměna už je vyzvednutá.</div>
+          )}
         </div>
       </div>
     </div>

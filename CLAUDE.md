@@ -1,6 +1,7 @@
 # QUESTOR — herní testovací systém
 
-Osobní projekt Zdeňka (NENÍ součást firmy Sined — žádné odkazy tam ani zpět).
+Osobní projekt Zdeňka — samostatný, nepropojovat s jinými projekty uživatele
+(žádné odkazy tam ani zpět).
 Aplikace pro Windows 11 pro studenta SŠ: z nahraného učiva (primárně ekonomika
 a podnikání, obecně jakýkoli obor) generuje pomocí Claude testové otázky
 v obtížnostech 1–5 a drží studenta herními psychologickými hooky.

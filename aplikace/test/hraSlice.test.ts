@@ -189,6 +189,8 @@ describe('otevriTruhluAkce', () => {
     const pred = pouzijStav.getState().progres;
 
     const odmena = pouzijStav.getState().otevriTruhluAkce('zlata');
+    expect(odmena).not.toBeNull();
+    if (!odmena) throw new Error('odmena nemá být null');
 
     const stav = pouzijStav.getState();
     expect(stav.cekajiciTruhly).toHaveLength(0);
@@ -202,6 +204,26 @@ describe('otevriTruhluAkce', () => {
       expect(stav.progres.sbirka.karty).toContain(odmena.kartaId);
       expect(stav.novaKarty).toContain(odmena.kartaId ?? '');
     }
+  });
+
+  it('bez čekající truhly daného typu odměnu odmítne (žádný farming z prázdné fronty)', () => {
+    pouzijStav.setState({ cekajiciTruhly: ['zlata'] });
+    expect(pouzijStav.getState().otevriTruhluAkce('zlata')).not.toBeNull();
+
+    const pred = pouzijStav.getState().progres;
+    // Fronta je prázdná — opakované otevírání (remount Výsledku) nesmí nic dát.
+    for (let i = 0; i < 5; i++) {
+      expect(pouzijStav.getState().otevriTruhluAkce('zlata')).toBeNull();
+    }
+    const po = pouzijStav.getState().progres;
+    expect(po.xp).toBe(pred.xp);
+    expect(po.streak.zmrazeni).toBe(pred.streak.zmrazeni);
+    expect(po.sbirka.karty).toEqual(pred.sbirka.karty);
+
+    // Ani typ, který ve frontě nikdy nebyl.
+    pouzijStav.setState({ cekajiciTruhly: ['bronzova'] });
+    expect(pouzijStav.getState().otevriTruhluAkce('zlata')).toBeNull();
+    expect(pouzijStav.getState().cekajiciTruhly).toEqual(['bronzova']);
   });
 });
 

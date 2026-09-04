@@ -1,0 +1,59 @@
+# QUESTOR — build Windows instalátoru (Tauri 2, NSIS) + publikace do GitHub Release.
+# Spouští se pushnutím tagu ve tvaru v* (např. v0.1.0). Detail: docs/NASAZENI.md.
+name: windows-build
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Windows instalátor + updater artefakty
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repozitáře
+        uses: actions/checkout@v4
+
+      - name: Node 26
+        uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: npm
+
+      - name: Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Rust buildu
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: aplikace/src-tauri
+
+      - name: Instalace npm závislostí
+        run: npm ci
+
+      - name: Build frontendu (Vite)
+        run: npm run build -w aplikace
+
+      - name: Tauri build + nahrání do GitHub Release
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Podpis updateru — klíče vygenerované přes `npx tauri signer generate`,
+          # uložené v Settings → Secrets and variables → Actions (viz docs/NASAZENI.md).
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        with:
+          # tauri.conf.json je v aplikace/src-tauri/
+          projectPath: aplikace
+          # Frontend je už postavený krokem výš, proto žádný beforeBuildCommand.
+          tagName: ${{ github.ref_name }}
+          releaseName: 'QUESTOR ${{ github.ref_name }}'
+          releaseBody: |
+            Instalátor pro Windows: soubor `*-setup.exe` níže.
+            Nainstalovaná aplikace se dál aktualizuje sama (updater čte `latest.json`).
+          releaseDraft: false
+          prerelease: false

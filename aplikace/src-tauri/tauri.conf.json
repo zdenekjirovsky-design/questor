@@ -26,7 +26,9 @@
   },
   "bundle": {
     "active": true,
-    "targets": ["nsis"],
+    "targets": [
+      "nsis"
+    ],
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
@@ -44,9 +46,9 @@
   "plugins": {
     "updater": {
       "endpoints": [
-        "https://github.com/VYPLNIT/questor/releases/latest/download/latest.json"
+        "https://github.com/zdenekjirovsky-design/questor/releases/latest/download/latest.json"
       ],
-      "pubkey": "PLACEHOLDER-VEREJNY-KLIC-VLOZTE-PODLE-docs/NASAZENI.md"
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEQwNEU2RTM3RjhGM0FCMwpSV1N6T285LzQrWUVEYUlNUXFPT3BYcHA1WlF1R2tOcEdNbmJ0aFFlOWNKbnhsTUt4R25uQWI4QQo="
     }
   }
 }

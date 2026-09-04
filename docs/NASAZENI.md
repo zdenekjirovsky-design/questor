@@ -25,7 +25,7 @@ přesně, spouštěj v Terminálu na Macu ve složce projektu, pokud není řeč
 
    ```bash
    cd /Users/zdenekjirovsky/Questor
-   git remote add origin https://github.com/VYPLNIT/questor.git   # VYPLNIT = tvůj GitHub účet
+   git remote add origin https://github.com/zdenekjirovsky-design/questor.git   # už vyplněno: zdenekjirovsky-design
    git push -u origin main
    ```
 
@@ -34,10 +34,10 @@ přesně, spouštěj v Terminálu na Macu ve složce projektu, pokud není řeč
    placeholder:
 
    ```
-   https://github.com/VYPLNIT/questor/releases/latest/download/latest.json
+   https://github.com/zdenekjirovsky-design/questor/releases/latest/download/latest.json
    ```
 
-   Nahraď `VYPLNIT` svým GitHub uživatelským jménem (stejně jako v kroku 4).
+   URL i pubkey jsou už vyplněné (klíče leží v `~/.questor-keys/` — NIKDY je nedávej do gitu; heslo v `~/.questor-keys/heslo.txt`).
    Adresa `…/releases/latest/download/latest.json` je stálá — vždy míří na
    nejnovější release, nic dalšího se v ní nemění.
 
@@ -151,7 +151,7 @@ na složku `data`, jinak o progres přijdeš při každém redeployi.
 **VPS (bez Dockeru):**
 
 ```bash
-git clone https://github.com/VYPLNIT/questor.git && cd questor
+git clone https://github.com/zdenekjirovsky-design/questor.git && cd questor
 npm ci
 QUESTOR_ADMIN_TOKEN=… QUESTOR_STUDENT_TOKEN=… npm run start -w server
 ```

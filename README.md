@@ -5,8 +5,10 @@ banku otázek v pěti obtížnostech a volitelně interaktivní výukové lekce
 (texty, SVG, hry, mini-kvízy). Aplikace (Windows 11 / web) studenta látku
 nejdřív naučí („Učit se“) a pak z ní staví testy s XP, streaky, denními
 questy, truhlami a sbírkou karet. Na jednom počítači se střídá víc lidí
-přes lokální profily (bez e-mailu, volitelný PIN) a UI je responzivní až
-do šířky telefonu (PWA základ pro výhledovou hostovanou verzi).
+přes profily (bez e-mailu, volitelný PIN); rodinný kód propojí zařízení
+rodiny — profil i herní postup se přes malý server synchronizují mezi
+telefonem a počítačem. UI je responzivní až do šířky telefonu
+(hostovaná webová verze s PWA základem).
 
 ## Rychlý start (vývoj, macOS/Linux)
 
@@ -39,11 +41,19 @@ v `docs/NAVOD.md`, kap. 6 — učivo → banka → výuka → registr → bundle
 
 ## Profily
 
-Lokální profily jako na streamovacích službách — žádný e-mail, žádná
-registrace, všechno zůstává v počítači. Každý profil má vlastní XP,
-level, streak, questy, truhly, sbírku, avatara, postup lekcí i historii
-testů; obsah předmětů je společný. Volitelný PIN (4–6 číslic) je měkký
-zámek soukromí; přepíná se klikem na avatara v hlavičce.
+Profily jako na streamovacích službách — žádný e-mail, žádná
+registrace. Každý profil má vlastní XP, level, streak, questy, truhly,
+sbírku, avatara, postup lekcí i historii testů; obsah předmětů je
+společný. Volitelný PIN (4–6 číslic) je měkký zámek soukromí; přepíná
+se klikem na avatara v hlavičce.
+
+**Rodinný sync:** zadáním rodinného kódu (= studentský token serveru,
+jednou na zařízení) se profily synchronizují mezi zařízeními — profil
+založený na telefonu se i s PINem, studijními bankami a kompletním
+herním postupem (XP, streak, sbírka, statistiky, rekordy) objeví na
+notebooku a naopak. Konflikty řeší „poslední zápis vyhrává“ podle času
+změny; postup lekcí a historie testů zatím zůstávají per zařízení.
+Bez kódu běží aplikace čistě lokálně (offline-first vždy).
 
 Každý profil si navíc vybírá vlastní **studijní banky** (při založení
 v kroku „Co budeš studovat?“ a kdykoli v Nastavení; aspoň jedna vždy).

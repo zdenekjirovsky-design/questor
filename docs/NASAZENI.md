@@ -13,12 +13,15 @@ přesně, spouštěj v Terminálu na Macu ve složce projektu, pokud není řeč
 
 ---
 
-## 1. Založení PRIVÁTNÍHO GitHub repozitáře a push
+## 1. Založení GitHub repozitáře a push
 
 1. Přihlas se na https://github.com → vpravo nahoře **+** → **New repository**.
 2. Vyplň:
    - **Repository name**: `questor`
-   - **Visibility**: **Private** (nutné — v repu jsou učební materiály a konfigurace)
+   - **Visibility**: repo je **Public** (auto-update i nasazení serveru z něj
+     stahují přímo). Ve veřejném repu proto NESMÍ být žádné tokeny ani klíče:
+     tokeny žijí jen v env serveru, updater klíče v `~/.questor-keys/`;
+     přístup rodiny k serveru řeší rodinný kód (krok 6).
    - Nic dalšího nezaškrtávej (žádné README, .gitignore ani licence — už je máme).
 3. Klikni **Create repository**.
 4. V Terminálu na Macu:
@@ -41,14 +44,10 @@ přesně, spouštěj v Terminálu na Macu ve složce projektu, pokud není řeč
    Adresa `…/releases/latest/download/latest.json` je stálá — vždy míří na
    nejnovější release, nic dalšího se v ní nemění.
 
-   > Pozn.: u privátního repa jsou i release soubory privátní. Buď nastav
-   > repo jako Private a **releases stahuj ručně** (auto-update pak nefunguje
-   > bez tokenu), nebo — doporučeno — nech repo Private a vytvoř **druhé,
-   > veřejné repo jen na releases** (např. `questor-releases`, bez kódu)
-   > a endpoint nasměruj tam; workflow pak publikuje release do něj (v
-   > `windows-build.yml` by se doplnil parametr `owner`/`repo` u tauri-action
-   > a token s právy k tomu repu). Nejjednodušší start: **repo s kódem klidně
-   > Private, releases repo Public** — instalátor neobsahuje učivo ani klíče.
+   > Pozn.: repo je veřejné, takže release soubory (instalátor, `latest.json`)
+   > jsou dostupné přímo — auto-update funguje bez tokenů. Instalátor
+   > neobsahuje žádné klíče; podpis updateru zajišťuje, že studentova
+   > aplikace přijme jen release podepsaný tvým privátním klíčem.
 
 ## 2. Updater klíče (podpis aktualizací)
 
@@ -127,18 +126,21 @@ tvým privátním klíčem. Klíče vygeneruješ jednou a uložíš na dvě mís
 
 ## 5. Nasazení serveru
 
-Server (`server/`) je malá Node aplikace: distribuce bank, sběr progresu,
-výzvy, volitelně dogenerování otázek. Poběží kdekoli, kde běží Node 26+
-nebo Docker — VPS, Railway (https://railway.com), Fly.io (https://fly.io).
+Server (`server/`) je malá Node aplikace: distribuce bank a výuky, registr
+profilů rodiny (sync mezi zařízeními), sběr progresu, výzvy, volitelně
+dogenerování otázek. Poběží kdekoli, kde běží Node 26+ nebo Docker — VPS,
+Railway (https://railway.com), Fly.io (https://fly.io). **Produkce běží na
+sdíleném hostingu — přesný postup je v kroku 5a níže.**
 
 **Env proměnné (nastav u poskytovatele v sekci Variables/Secrets):**
 
 | Proměnná | Význam |
 |---|---|
 | `QUESTOR_ADMIN_TOKEN` | tvůj admin token — dlouhý náhodný řetězec (vygeneruj např. `openssl rand -hex 24`) |
-| `QUESTOR_STUDENT_TOKEN` | token studenta — jiný náhodný řetězec, zadá se do aplikace (krok 6) |
+| `QUESTOR_STUDENT_TOKEN` | **rodinný kód** — jiný náhodný řetězec, zadává se jednou na každém zařízení rodiny (krok 6) |
 | `ANTHROPIC_API_KEY` | volitelné — jen pokud má server umět dogenerovat otázky; bez něj funkce prostě není nabízena |
 | `QUESTOR_PORT` | volitelné, default 8787 |
+| `QUESTOR_DUVERUJ_PROXY` | volitelné, default 1 — kolik reverzních proxy stojí před serverem (rate limit bere IP klienta z `X-Forwarded-For` tolikátou adresou od konce); `0` = server vystavený přímo, hlavička se ignoruje a platí adresa soketu |
 
 Defaultní tokeny `admin-dev`/`student-dev` jsou JEN pro vývoj — na internetu
 vždy nastav vlastní.
@@ -164,17 +166,125 @@ takže šifrované spojení je nutnost, ne kosmetika.
 Ověření: otevři `https://tvuj-server/zdravi` — má vrátit `{ "ok": true, … }`.
 Admin rozhraní: `https://tvuj-server/admin` (zadáš admin token).
 
-## 6. Přesměrování studentovy aplikace na server
+## 5a. Server na sdíleném hostingu (produkce)
 
-1. V aplikaci QUESTOR otevři stránku **Nastavení**.
-2. Do pole **URL serveru** zadej adresu z kroku 5 (např.
-   `https://questor.example.com` — bez lomítka na konci),
-   do pole **token** zadej hodnotu `QUESTOR_STUDENT_TOKEN`.
-3. Ulož — aplikace si stáhne aktuální banku otázek a začne posílat progres.
-   Stav připojení je vidět v Nastavení a nenápadně na Domů.
+Produkční server běží na stejném hostingu jako webová verze aplikace:
+veřejná adresa **https://koordinator-server.cz/questor-api** (stejný origin
+jako web `/questor` — projde CSP `connect-src 'self'`, HTTPS řeší hosting).
+Uvnitř hostingu běží Node proces přes **pm2** na portu **10121** a Apache
+`.htaccess` proxy překládá `/questor-api/*` → `127.0.0.1:10121/*`.
 
-Aplikace je offline-first: bez serveru funguje dál (vestavěná demo banka,
-progres lokálně) a po obnovení spojení se sama dosynchronizuje.
+**Předpoklady:** SSH přístup (alias `skull-exon`), Node ≥ 26 na hostingu
+(`node --version` — `node:sqlite` nižší verzi nemá), `pm2` v PATH
+(jinak jednorázově `npm install -g pm2`).
+
+**1) Jednorázová instalace (na hostingu):**
+
+```bash
+ssh skull-exon
+git clone https://github.com/zdenekjirovsky-design/questor.git ~/questor-server
+cd ~/questor-server
+npm ci
+```
+
+**2) Tokeny a start přes pm2** — vygeneruj si dva náhodné řetězce a ZAPIŠ
+si je (admin token pro sebe, studentský token = rodinný kód pro zařízení
+rodiny; kratší, ať se dá opsat na telefonu):
+
+```bash
+openssl rand -hex 24   # → QUESTOR_ADMIN_TOKEN
+openssl rand -hex 8    # → QUESTOR_STUDENT_TOKEN (rodinný kód)
+
+cd ~/questor-server
+QUESTOR_PORT=10121 \
+QUESTOR_ADMIN_TOKEN=<admin-token> \
+QUESTOR_STUDENT_TOKEN=<rodinny-kod> \
+pm2 start npm --name questor-api -- run start -w server
+
+pm2 save    # uloží seznam procesů pro pm2 resurrect
+```
+
+Env proměnné si pm2 pamatuje z prvního startu; při změně tokenů proces
+spusť znovu s novými hodnotami: `pm2 delete questor-api` a zopakuj
+`pm2 start … && pm2 save`. Bez práv na `pm2 startup` (sdílený hosting)
+zajistí start po rebootu stroje cron: `crontab -e` a řádek
+`@reboot ~/.npm-global/bin/pm2 resurrect` (cestu k pm2 ověř `which pm2`).
+
+**3) Proxy v `.htaccess`** — do `.htaccess` v docrootu webu
+(`koordinator-web/.htaccess`, tentýž soubor, který drží zabezpečení webu —
+NEPŘEPISOVAT, jen doplnit) přidej NAD SPA fallback:
+
+```apache
+RewriteEngine On
+RewriteRule ^questor-api/(.*)$ http://127.0.0.1:10121/$1 [P,L]
+```
+
+Vyžaduje `mod_proxy` (na hostingu zapnutý). Rate limit serveru bere IP
+klienta z `X-Forwarded-For`, kterou Apache proxy doplňuje — výchozí
+`QUESTOR_DUVERUJ_PROXY=1` je tady správně, nic nenastavuj.
+
+**4) Ověření:**
+
+```bash
+curl https://koordinator-server.cz/questor-api/zdravi
+# → {"ok":true,"verze":"…"}
+```
+
+**Admin web přes SSH tunel:** stránka `/admin` volá API root-absolutními
+cestami (`/api/…`), takže přes prefixovou proxy `/questor-api` nefunguje —
+otevírej ji tunelem:
+
+```bash
+ssh -L 10121:127.0.0.1:10121 skull-exon
+# pak v prohlížeči: http://localhost:10121/admin
+```
+
+Uploady bank/výuky z terminálu fungují i přes veřejnou adresu — v návodech
+(`docs/NAVOD.md`) dosaď za `https://<server>` plnou bázi
+`https://koordinator-server.cz/questor-api`.
+
+**Aktualizace serveru (po každé změně kódu serveru/sdílené vrstvy):**
+
+```bash
+ssh skull-exon "cd ~/questor-server && git pull && npm ci && pm2 restart questor-api"
+```
+
+**Databáze:** soubor `~/questor-server/server/data/questor.db` (složka
+`data/` je v .gitignore, `git pull` ji nechává být). Obsahuje progres,
+registr profilů, události a výzvy — občas zazálohuj:
+
+```bash
+scp skull-exon:questor-server/server/data/questor.db ~/zalohy/questor-$(date +%F).db
+```
+
+## 6. Připojení aplikace na server (rodinný kód)
+
+Sync zapíná **rodinný kód** (= hodnota `QUESTOR_STUDENT_TOKEN`), zadaný
+JEDNOU na každém zařízení. Adresu serveru aplikace předvyplní sama podle
+prostředí (`urciVychoziNastaveni` v `aplikace/src/sync/klient.ts`):
+
+- desktopová aplikace (Tauri) → `https://koordinator-server.cz/questor-api`,
+- webová verze přes https → stejný origin + `/questor-api`,
+- vývoj (http + localhost) → `http://localhost:8787` s kódem `student-dev`
+  (jediné prostředí s předvyplněným kódem),
+- jinde (http přes LAN) → prázdná adresa, sync vypnutý.
+
+Postup na novém zařízení:
+
+1. Buď na obrazovce výběru profilů klikni na **🔗 Připojit rodinu** a zadej
+   rodinný kód (adresa zůstává předvyplněná), nebo v **Nastavení →
+   Připojení** vyplň pole Rodinný kód (a případně jinou adresu serveru —
+   bez lomítka na konci) a Ulož.
+2. Aplikace hned stáhne registr profilů rodiny — profily založené na jiných
+   zařízeních se objeví jako karty s ☁️ (včetně PINu a studijních bank);
+   aktivace profilu stáhne i jeho herní postup. Dál si aplikace stahuje
+   banky/výuku ze serveru a posílá progres. Stav připojení je vidět
+   v Nastavení a nenápadně na Domů.
+
+**Bez rodinného kódu je sync vypnutý** a aplikace běží čistě lokálně
+(bundlovaný obsah, progres jen v zařízení). Aplikace je offline-first:
+při výpadku serveru funguje dál a po obnovení spojení se sama
+dosynchronizuje. Detaily rodinného provozu: `docs/NAVOD.md`, kap. 4.
 
 ## 7. Vývoj na Macu
 
@@ -196,7 +306,10 @@ progres lokálně) a po obnovení spojení se sama dosynchronizuje.
 |---|---|
 | vydat novou verzi aplikace | zvýšit `version` v `tauri.conf.json`, commit, `git tag vX.Y.Z && git push --tags` |
 | nahrát nové učivo/banku/výuku | `docs/NAVOD.md` (admin web `/admin` nebo generátor CLI) |
-| změnit tokeny | env na serveru + student v Nastavení |
+| aktualizovat produkční server | `ssh skull-exon "cd ~/questor-server && git pull && npm ci && pm2 restart questor-api"` |
+| připojit nové zařízení rodiny | „🔗 Připojit rodinu“ na výběru profilů → rodinný kód (krok 6) |
+| změnit tokeny | pm2 delete + start s novými env (krok 5a) + nový rodinný kód do zařízení |
+| otevřít admin web produkce | `ssh -L 10121:127.0.0.1:10121 skull-exon` → http://localhost:10121/admin |
 | zkontrolovat build | GitHub → Actions → `windows-build` |
 | najít instalátor | GitHub → Releases → Assets → `…-setup.exe` |
 
@@ -204,8 +317,9 @@ progres lokálně) a po obnovení spojení se sama dosynchronizuje.
 
 Hostovaná verze běží na **https://koordinator-server.cz/questor** — čistě
 statické soubory (žádný serverový kód, v docrootu vypnuté PHP, bezpečnostní
-hlavičky + CSP v `.htaccess`). Sync je ve webové verzi ve výchozím stavu
-vypnutý (zapne se vyplněním adresy serveru v Nastavení).
+hlavičky + CSP v `.htaccess`). Adresa serveru je předvyplněná na stejný
+origin (`/questor-api`, viz krok 5a — projde CSP `connect-src 'self'`);
+sync se zapíná zadáním rodinného kódu (krok 6).
 
 Aktualizace webu (po každé změně aplikace):
 

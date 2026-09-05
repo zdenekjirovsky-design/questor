@@ -29,12 +29,17 @@
 // prubezny agregat pro graf ve Statistikach (drive se odvozoval z okna
 // poslednich 10 testu a starsi tydny ukazoval nulove). Startovni hodnoty se
 // seedou z historie testu pracovni sady i snimku, aby graf nezacinal prazdny.
+//
+// Verze 7: sync profilu mezi zarizenimi rodiny. Profil dostava `aktualizovano`
+// (ISO cas posledni zmeny — rozhodci LWW serveroveho registru profilu);
+// existujici profily dostanou soucasny cas. Priznak `naServeru` se NEdoplnuje
+// (profil, ktery na serveru nikdy nebyl, se pri merge nikdy nemaze).
 import { denZData, pondeliTydne, VYCHOZI_AVATAR } from '@questor/sdilene';
 import { BARVY_PROFILU, vytvorIdProfilu } from './profilySlice';
 import { PREDMETY } from '../data/predmety';
 import type { QUESTORStav } from './store';
 
-export const VERZE_PERSISTU = 6;
+export const VERZE_PERSISTU = 7;
 
 /** Klice stavu, ktere se NEpersistuji (obsah predmetu — viz hlavicka souboru). */
 const NEPERSISTOVANE_KLICE = ['banky', 'vyuky'] as const;
@@ -203,6 +208,22 @@ export function migrujPersistovanyStav(stav: unknown, verzeSnapshotu: number): P
             : snimek;
       }
       kopie.dataProfilu = nove;
+    }
+  }
+
+  if (verzeSnapshotu < 7) {
+    // Sync profilu mezi zarizenimi: kazdy profil dostane `aktualizovano`
+    // (soucasny cas — od ted ho udrzuje kazda zmena profilu). Uz pritomna
+    // hodnota (nemelo by nastat) se zachovava.
+    if (Array.isArray(kopie.profily)) {
+      const ted = new Date().toISOString();
+      kopie.profily = kopie.profily.map((p) => {
+        if (p === null || typeof p !== 'object') return p;
+        const profil = p as Record<string, unknown>;
+        return typeof profil.aktualizovano === 'string' && profil.aktualizovano
+          ? profil
+          : { ...profil, aktualizovano: ted };
+      });
     }
   }
 

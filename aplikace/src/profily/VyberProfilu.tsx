@@ -2,11 +2,16 @@
 // profil): velke hrave karty profilu s avatarem a jmenem, „+ Novy profil".
 // PIN je jen MEKKA ochrana soukromi v domacnosti: overuje se lokalne
 // (SHA-256 se soli id profilu), 3 spatne pokusy = 30 s pauza.
+// Se zapnutym syncem se pri otevreni stahne registr profilu rodiny (profil
+// zalozeny na telefonu se objevi i tady — karta s ☁️); bez rodinneho kodu
+// nabizi decentni odkaz „Pripojit rodinu".
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { VYCHOZI_AVATAR } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { BARVY_PROFILU, MAX_DELKA_JMENA, vytvorIdProfilu, type Profil } from '../stav/profilySlice';
 import { PREDMETY } from '../data/predmety';
+import { nactiSyncNastaveni, ulozSyncNastaveni } from '../sync/klient';
+import { synchronizuj } from '../sync/sync';
 import { jePinPodporovan, jePlatnyPin, overPin, zahashujPin, zaznamenejPokus, zbyvaPauzaMs } from './pin';
 import Avatar from '../hra/Avatar';
 import './VyberProfilu.css';
@@ -115,6 +120,78 @@ function PinDialog({ profil, onOdemceno, onZpet }: {
           disabled={zamceno || overuji || pin.length < 4}
         >
           Odemknout
+        </button>
+      </div>
+    </form>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Dialog „Pripojit rodinu" — zadani rodinneho kodu (= studentsky token).
+// Kod se ulozi do nastaveni syncu a hned se stahne registr profilu rodiny.
+
+function PripojitRodinuDialog({ onHotovo, onZpet }: { onHotovo: () => void; onZpet: () => void }) {
+  const [kod, setKod] = useState('');
+  const [chyba, setChyba] = useState<string | null>(null);
+  const vstup = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    vstup.current?.focus();
+  }, []);
+
+  const pripoj = () => {
+    const cisty = kod.trim();
+    if (!cisty) {
+      setChyba('Vyplň rodinný kód.');
+      return;
+    }
+    ulozSyncNastaveni({ ...nactiSyncNastaveni(), token: cisty });
+    // Hned synchronizovat profily — karty rodiny se objevi bez restartu.
+    void synchronizuj('profily');
+    onHotovo();
+  };
+
+  return (
+    <form
+      className="panel vyber-profilu__dialog"
+      role="dialog"
+      aria-label="Připojit rodinu"
+      onSubmit={(e) => {
+        e.preventDefault();
+        pripoj();
+      }}
+    >
+      <h2>
+        <span aria-hidden="true">🔗</span> Připojit rodinu
+      </h2>
+      <p className="vyber-profilu__napoveda">
+        Zadej rodinný kód a profily i postup se propojí přes rodinný server — profil založený na
+        telefonu uvidíš i tady. Kód ti řekne správce serveru (táta).
+      </p>
+      <label className="vyber-profilu__pole">
+        Rodinný kód
+        <input
+          ref={vstup}
+          type="password"
+          autoComplete="off"
+          value={kod}
+          onChange={(e) => {
+            setKod(e.target.value);
+            setChyba(null);
+          }}
+        />
+      </label>
+      {chyba && (
+        <p className="vyber-profilu__chyba" role="alert">
+          {chyba}
+        </p>
+      )}
+      <div className="vyber-profilu__dialog-akce">
+        <button type="button" className="tlacitko" onClick={onZpet}>
+          Zpět
+        </button>
+        <button type="submit" className="tlacitko tlacitko--primarni" disabled={!kod.trim()}>
+          Připojit
         </button>
       </div>
     </form>
@@ -345,6 +422,16 @@ export default function VyberProfilu() {
 
   const [pinProfilId, setPinProfilId] = useState<string | null>(null);
   const [novyOtevreny, setNovyOtevreny] = useState(false);
+  const [rodinaOtevrena, setRodinaOtevrena] = useState(false);
+  // Rodinny kod se cte pri otevreni a po zavreni dialogu (ulozeni ho meni).
+  const [syncNastaveni, setSyncNastaveni] = useState(() => nactiSyncNastaveni());
+  const rodinaPripojena = Boolean(syncNastaveni.url && syncNastaveni.token);
+
+  // Otevreni vyberu profilu = prilezitost stahnout registr profilu rodiny
+  // (provedSync je bez adresy/kodu no-op; selhani site je tiche).
+  useEffect(() => {
+    void synchronizuj('profily');
+  }, []);
 
   const pinProfil = useMemo(
     () => profily.find((p) => p.id === pinProfilId) ?? null,
@@ -376,6 +463,14 @@ export default function VyberProfilu() {
           }}
           onZpet={() => setPinProfilId(null)}
         />
+      ) : rodinaOtevrena ? (
+        <PripojitRodinuDialog
+          onHotovo={() => {
+            setRodinaOtevrena(false);
+            setSyncNastaveni(nactiSyncNastaveni());
+          }}
+          onZpet={() => setRodinaOtevrena(false)}
+        />
       ) : novyOtevreny || zadneProfily ? (
         <NovyProfilFormular prvni={zadneProfily} onZpet={() => setNovyOtevreny(false)} />
       ) : (
@@ -392,6 +487,21 @@ export default function VyberProfilu() {
                   style={{ ['--barva-profilu' as string]: profil.barva, animationDelay: `${i * 60}ms` }}
                   onClick={() => vyberProfil(profil)}
                 >
+                  {rodinaPripojena && (
+                    <span
+                      className="vyber-profilu__sync"
+                      title={
+                        profil.naServeru
+                          ? 'Profil se synchronizuje přes rodinný server'
+                          : 'Profil zatím jen v tomhle zařízení'
+                      }
+                      aria-label={
+                        profil.naServeru ? 'Profil ze serveru rodiny' : 'Jen v tomhle zařízení'
+                      }
+                    >
+                      {profil.naServeru ? '☁️' : '💾'}
+                    </span>
+                  )}
                   <span className="vyber-profilu__avatar">
                     <Avatar konfigurace={avatar} velikost={104} />
                   </span>
@@ -423,6 +533,24 @@ export default function VyberProfilu() {
             v hlavičce.
           </p>
         </>
+      )}
+
+      {/* Rodinny sync: decentni odkaz je videt i bez profilu (nove zarizeni
+          rodiny se nejdriv pripoji a profily si stahne ze serveru). */}
+      {!pinProfil && !rodinaOtevrena && !novyOtevreny && (
+        rodinaPripojena ? (
+          <p className="vyber-profilu__rodina-stav" title="Profily a postup se synchronizují přes rodinný server">
+            ☁️ Rodina připojena
+          </p>
+        ) : (
+          <button
+            type="button"
+            className="vyber-profilu__rodina"
+            onClick={() => setRodinaOtevrena(true)}
+          >
+            🔗 Připojit rodinu
+          </button>
+        )
       )}
     </div>
   );

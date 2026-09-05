@@ -209,6 +209,36 @@ export interface ProgresStudenta {
 }
 
 // ---------------------------------------------------------------------------
+// Registr profilů (sync profilů mezi zařízeními rodiny)
+
+/**
+ * Metadata profilu v serverovém registru — to, co se synchronizuje mezi
+ * zařízeními (profil založený na telefonu se objeví i na notebooku).
+ * PIN cestuje jako hash (pinHash z profily/pin.ts), nikdy v otevřené podobě;
+ * chybějící pinHash = profil bez PINu.
+ */
+export interface ProfilMetadata {
+  jmeno: string;
+  barva: string;
+  pinHash?: string;
+  avatar?: AvatarKonfigurace;
+  /** Studijní banky profilu (id z registru předmětů, v pořadí výběru). */
+  predmety: string[];
+  aktivniPredmetId: string;
+}
+
+/**
+ * Záznam registru profilů, jak ho vrací server (GET /api/profily) a přijímá
+ * PUT /api/profily/:id. Konflikt řeší LWW: zápis projde, jen když je
+ * `aktualizovano` >= uloženému (ISO čas — porovnává se lexikograficky).
+ */
+export interface ProfilRegistrZaznam extends ProfilMetadata {
+  profilId: string;
+  /** ISO čas poslední změny profilu na zdrojovém zařízení. */
+  aktualizovano: string;
+}
+
+// ---------------------------------------------------------------------------
 // Generování
 
 export type StavUlohy = 'ceka' | 'bezi' | 'hotovo' | 'chyba';

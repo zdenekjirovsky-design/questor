@@ -473,6 +473,12 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
           : stav.novaKarty,
     });
 
+    // Push snapshotu progresu (odmena z truhly meni XP/sbirku/vybavu) — at je
+    // server cerstvy pro pull postupu na druhem zarizeni. Tiche, offline-first.
+    void import('../sync/sync')
+      .then((m) => m.zaznamenejZmenuProgresu())
+      .catch(() => {});
+
     return odmena;
   },
 
@@ -536,13 +542,26 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
         vybava[slot as keyof AvatarKonfigurace['vybava']] = id;
       }
     }
+    const ted = new Date().toISOString();
+    const stav = get();
     set({
       progres: {
         ...progres,
         avatar: { ...konfigurace, vybava },
-        aktualizovano: new Date().toISOString(),
+        aktualizovano: ted,
       },
+      // Avatar je soucast zaznamu profilu v serverovem registru — zmena
+      // bumpne aktualizovano profilu (LWW) a naplanuje PUT pres frontu.
+      profily: stav.profily.map((p) =>
+        p.id === stav.aktivniProfilId ? { ...p, aktualizovano: ted } : p,
+      ),
     });
+    if (stav.aktivniProfilId) {
+      const aktivniId = stav.aktivniProfilId;
+      void import('../sync/sync')
+        .then((m) => m.zaznamenejZmenuProfilu(aktivniId))
+        .catch(() => {});
+    }
   },
 
   oznacKartyZaVidene: () => {

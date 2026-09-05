@@ -3,10 +3,16 @@
 // exponenciálně (5 s → 10 s → … → max 5 min). Trvalé odmítnutí serverem
 // (4xx mimo 408/429) položku zahodí, aby „jedovatá" položka neblokovala
 // odesílání všeho za ní.
-import type { ProgresStudenta, TestVysledek } from '@questor/sdilene';
+import type { ProfilRegistrZaznam, ProgresStudenta, TestVysledek } from '@questor/sdilene';
 import { ChybaSyncu, vychoziUloziste, type QuestorKlient, type Uloziste } from './klient';
 
 export const KLIC_FRONTY = 'questor-sync-fronta';
+/**
+ * Fronta operací nad registrem profilů, které NEPATŘÍ žádnému žijícímu
+ * profilu (dnes: smazání profilu na serveru) — nesmí zmizet s frontou
+ * mazaného profilu. 'registr' nekoliduje s id profilů (UUID / p-…).
+ */
+export const KLIC_FRONTY_REGISTRU = `${KLIC_FRONTY}:registr`;
 export const ZAKLADNI_ODKLAD_MS = 5_000;
 export const MAX_ODKLAD_MS = 300_000;
 
@@ -39,7 +45,9 @@ export type PolozkaFronty =
       typ: 'vyzva-vysledek';
       data: { vyzvaId: string; uspesnost: number; xp: number };
       vytvoreno: string;
-    };
+    }
+  | { typ: 'profil'; data: ProfilRegistrZaznam; vytvoreno: string }
+  | { typ: 'smazani-profilu'; data: { profilId: string }; vytvoreno: string };
 
 interface StavFronty {
   polozky: PolozkaFronty[];
@@ -54,7 +62,7 @@ const PRAZDNY_STAV: StavFronty = { polozky: [], selhaniPoSobe: 0, dalsiPokus: nu
 /** Část klienta, kterou fronta potřebuje (testy mockují jen tohle). */
 export type KlientProFrontu = Pick<
   QuestorKlient,
-  'posliUdalost' | 'posliProgres' | 'posliVysledekVyzvy'
+  'posliUdalost' | 'posliProgres' | 'posliVysledekVyzvy' | 'posliProfil' | 'smazProfilNaServeru'
 >;
 
 export class SyncFronta {
@@ -146,6 +154,36 @@ export class SyncFronta {
     this.uloz();
   }
 
+  /**
+   * Záznam registru profilů je snapshot — ve frontě se drží vždy jen ten
+   * nejnovější pro daný profil (stejný vzor jako pridejProgres).
+   */
+  pridejProfil(zaznam: ProfilRegistrZaznam): void {
+    this.stav.polozky = this.stav.polozky.filter(
+      (p) => !(p.typ === 'profil' && p.data.profilId === zaznam.profilId),
+    );
+    this.stav.polozky.push({ typ: 'profil', data: zaznam, vytvoreno: new Date().toISOString() });
+    this.uloz();
+  }
+
+  /**
+   * Smazání profilu na serveru (DELETE je idempotentní — stačí jednou).
+   * Čekající upsert téhož profilu je se smazáním bezpředmětný, zahodí se.
+   */
+  pridejSmazaniProfilu(profilId: string): void {
+    this.stav.polozky = this.stav.polozky.filter(
+      (p) =>
+        !(p.typ === 'profil' && p.data.profilId === profilId) &&
+        !(p.typ === 'smazani-profilu' && p.data.profilId === profilId),
+    );
+    this.stav.polozky.push({
+      typ: 'smazani-profilu',
+      data: { profilId },
+      vytvoreno: new Date().toISOString(),
+    });
+    this.uloz();
+  }
+
   /** Je čas na další pokus? (exponenciální odklad po selháních) */
   muzeZkusit(ted: number = Date.now()): boolean {
     return this.stav.dalsiPokus === null || ted >= this.stav.dalsiPokus;
@@ -192,6 +230,10 @@ export class SyncFronta {
           await klient.posliUdalost(polozka.data);
         } else if (polozka.typ === 'progres') {
           await klient.posliProgres(polozka.data);
+        } else if (polozka.typ === 'profil') {
+          await klient.posliProfil(polozka.data);
+        } else if (polozka.typ === 'smazani-profilu') {
+          await klient.smazProfilNaServeru(polozka.data.profilId);
         } else {
           const { vyzvaId, uspesnost, xp } = polozka.data;
           await klient.posliVysledekVyzvy(vyzvaId, { uspesnost, xp });

@@ -15,6 +15,9 @@ const db = otevriDb(join(slozkaDat, 'questor.db'));
 const app = vytvorApp(db);
 
 const port = Number(process.env.QUESTOR_PORT ?? 8787);
-serve({ fetch: app.fetch, port }, (info) => {
+// QUESTOR_HOST=127.0.0.1 na sdíleném hostingu — server je pak dosažitelný
+// jen přes reverzní proxy, ne přímo z internetu na portu.
+const hostname = process.env.QUESTOR_HOST ?? '0.0.0.0';
+serve({ fetch: app.fetch, port, hostname }, (info) => {
   console.log(`QUESTOR server běží na http://localhost:${info.port} (admin: /admin)`);
 });

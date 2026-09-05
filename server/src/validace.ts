@@ -3,11 +3,35 @@
 // typy ze sdilene/src/typy.ts — kontrakt, ne novou pravdu.
 
 import { z } from 'zod';
-import type { ProgresStudenta, TestVysledek, Vyzva } from '@questor/sdilene';
+import type { ProfilMetadata, ProgresStudenta, TestVysledek, Vyzva } from '@questor/sdilene';
 import { VYCHOZI_AVATAR } from '@questor/sdilene';
 
 const obtiznostSchema = z.number().int().min(1).max(5);
 const podil01Schema = z.number().min(0).max(1);
+
+/**
+ * ISO 8601 UTC čas (výstup Date.toISOString(), zlomky sekund volitelné) pro
+ * pole, která rozhodují LWW. Porovnává se lexikograficky — volný formát
+ * (min(4)) by dovolil hodnotu typu 'zzzz', která navždy vyhraje nad každým
+ * platným časem a zamkne záznam proti všem dalším zápisům.
+ */
+export const isoCasSchema = z
+  .string()
+  .max(35)
+  .regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{1,9})?Z$/);
+
+/** Tolerance hodin klienta vůči serveru — víc už je „čas z budoucnosti“. */
+export const TOLERANCE_BUDOUCNOSTI_MS = 5 * 60_000;
+
+/**
+ * Ořízne čas z budoucnosti na serverové „teď“: LWW jinak zamrzne na špatně
+ * nastavených hodinách zařízení (rok 2030 vyhraje nad každým platným zápisem
+ * i poté, co se hodiny spraví). Čas v toleranci se vrací beze změny.
+ */
+export function orizniCasBudoucnosti(cas: string, ted: Date = new Date()): string {
+  const strop = new Date(ted.getTime() + TOLERANCE_BUDOUCNOSTI_MS).toISOString();
+  return cas > strop ? ted.toISOString() : cas;
+}
 
 export const testKonfiguraceSchema = z.object({
   predmetId: z.string().min(1),
@@ -105,7 +129,8 @@ export const progresStudentaSchema = z.object({
     tydenniXp: z.record(z.number().min(0)),
   }),
   dokonceneTesty: z.number().int().min(0),
-  aktualizovano: z.string().min(4),
+  /** ISO čas poslední změny — LWW rozhodčí pullu/POSTu progresu. */
+  aktualizovano: isoCasSchema,
 });
 
 /**
@@ -118,6 +143,30 @@ export const profilTelaSchema = z.object({
   profilId: z.string().min(1).max(64).optional(),
   profilJmeno: z.string().min(1).max(64).optional(),
 });
+
+/**
+ * Tělo PUT /api/profily/:id — záznam registru profilů (ProfilRegistrZaznam
+ * bez profilId, ten nese URL). Neznámá pole zod stripne (default .strip()),
+ * takže starší server v klidu přijme i budoucí rozšíření klienta.
+ * `predmety` smí být prázdné — klient má vlastní fallback na celý registr.
+ */
+export const profilRegistrSchema = z.object({
+  jmeno: z.string().min(1).max(64),
+  barva: z.string().min(1).max(32),
+  pinHash: z.string().min(1).max(256).optional(),
+  avatar: avatarSchema.optional(),
+  predmety: z.array(z.string().min(1).max(64)).max(64),
+  aktivniPredmetId: z.string().min(1).max(64),
+  /** ISO čas poslední změny — LWW rozhodčí (porovnává se lexikograficky). */
+  aktualizovano: isoCasSchema,
+});
+
+export function zvalidujProfilRegistr(
+  data: unknown,
+): (ProfilMetadata & { aktualizovano: string }) | null {
+  const v = profilRegistrSchema.safeParse(data);
+  return v.success ? (v.data as ProfilMetadata & { aktualizovano: string }) : null;
+}
 
 /** Tělo POST /api/vyzvy (výzvu zakládá admin, zbytek doplní server). */
 export const novaVyzvaSchema = z.object({

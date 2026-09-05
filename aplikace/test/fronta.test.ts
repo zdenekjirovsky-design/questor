@@ -1,7 +1,7 @@
 // Testy offline fronty syncu — odesílání v pořadí, tiché selhání
 // s exponenciálním odkladem, dedupe progresu a persistence v úložišti.
 import { describe, expect, it, vi } from 'vitest';
-import type { ProgresStudenta, TestVysledek } from '@questor/sdilene';
+import type { ProfilRegistrZaznam, ProgresStudenta, TestVysledek } from '@questor/sdilene';
 import { ChybaSyncu, pametoveUloziste } from '../src/sync/klient';
 import {
   MAX_ODKLAD_MS,
@@ -17,6 +17,8 @@ function mockKlient(selze = false): KlientProFrontu & {
   posliUdalost: ReturnType<typeof vi.fn>;
   posliProgres: ReturnType<typeof vi.fn>;
   posliVysledekVyzvy: ReturnType<typeof vi.fn>;
+  posliProfil: ReturnType<typeof vi.fn>;
+  smazProfilNaServeru: ReturnType<typeof vi.fn>;
 } {
   const vysledekVolani = selze
     ? () => Promise.reject(new Error('síť spadla'))
@@ -25,6 +27,8 @@ function mockKlient(selze = false): KlientProFrontu & {
     posliUdalost: vi.fn(vysledekVolani),
     posliProgres: vi.fn(vysledekVolani),
     posliVysledekVyzvy: vi.fn(vysledekVolani),
+    posliProfil: vi.fn(vysledekVolani),
+    smazProfilNaServeru: vi.fn(vysledekVolani),
   };
 }
 
@@ -218,5 +222,52 @@ describe('SyncFronta', () => {
     const klient = mockKlient();
     await podruhe.odesli(klient, 0);
     expect(klient.posliUdalost).toHaveBeenCalledWith(vysledek('v1'));
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+describe('SyncFronta — registr profilu (profil / smazani-profilu)', () => {
+  const zaznam = (profilId: string, jmeno: string): ProfilRegistrZaznam => ({
+    profilId,
+    jmeno,
+    barva: '#8b5cf6',
+    predmety: ['matematika'],
+    aktivniPredmetId: 'matematika',
+    aktualizovano: '2026-09-05T10:00:00.000Z',
+  });
+
+  it('pridejProfil dedupuje na nejnovejsi zaznam DANEHO profilu', () => {
+    const fronta = new SyncFronta(pametoveUloziste());
+    fronta.pridejProfil(zaznam('p1', 'Kuba'));
+    fronta.pridejProfil(zaznam('p2', 'Mama'));
+    fronta.pridejProfil(zaznam('p1', 'Kubis'));
+
+    const profily = fronta.polozky().filter((p) => p.typ === 'profil');
+    expect(profily).toHaveLength(2);
+    expect(profily.map((p) => (p.data as ProfilRegistrZaznam).jmeno)).toEqual(['Mama', 'Kubis']);
+  });
+
+  it('pridejSmazaniProfilu zahodi cekajici upsert tehoz profilu a dedupuje se', () => {
+    const fronta = new SyncFronta(pametoveUloziste());
+    fronta.pridejProfil(zaznam('p1', 'Kuba'));
+    fronta.pridejSmazaniProfilu('p1');
+    fronta.pridejSmazaniProfilu('p1');
+
+    expect(fronta.velikost()).toBe(1);
+    expect(fronta.polozky()[0].typ).toBe('smazani-profilu');
+  });
+
+  it('odesli vola posliProfil a smazProfilNaServeru', async () => {
+    const fronta = new SyncFronta(pametoveUloziste());
+    fronta.pridejProfil(zaznam('p1', 'Kuba'));
+    fronta.pridejSmazaniProfilu('p2');
+
+    const klient = mockKlient();
+    const zprava = await fronta.odesli(klient, 1_000);
+
+    expect(zprava).toEqual({ odeslano: 2, zbyva: 0 });
+    expect(klient.posliProfil).toHaveBeenCalledWith(zaznam('p1', 'Kuba'));
+    expect(klient.smazProfilNaServeru).toHaveBeenCalledWith('p2');
   });
 });

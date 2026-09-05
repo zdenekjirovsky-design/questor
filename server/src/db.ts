@@ -97,6 +97,14 @@ export function otevriDb(cesta: string): DatabaseSync {
       verze      INT  NOT NULL,
       json       TEXT NOT NULL
     );
+    -- Registr profilů (sync mezi zařízeními): json = ProfilMetadata
+    -- (jmeno, barva, pinHash?, avatar?, predmety, aktivniPredmetId),
+    -- aktualizovano = ISO čas poslední změny (rozhodčí LWW zápisů).
+    CREATE TABLE IF NOT EXISTS profily (
+      profil_id     TEXT PRIMARY KEY,
+      json          TEXT NOT NULL,
+      aktualizovano TEXT NOT NULL
+    );
   `);
   zajistiProgresProfilu(db);
   zajistiUdalostiProfilu(db);

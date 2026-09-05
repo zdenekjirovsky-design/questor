@@ -85,6 +85,34 @@ studentských POSTů (řetězce 1–64 znaků; chybí-li, platí výchozí profi
 se drží per profil, události nesou profil a výzva může mít cílový profil
 (`cilovyProfilId` v JSON výzvy; bez něj je pro všechny).
 
+**Registr profilů (sync mezi zařízeními)**: profil založený na telefonu je
+vidět i na notebooku (a naopak), včetně PINu (jen `pinHash`, nikdy otevřený),
+studijních bank a přes pull progresu i postupu (synchronizuje se celý
+`ProgresStudenta` — XP, streak, sbírka, statistiky otázek, rekordy, avatar,
+výbava, questy dne; per-profilová data MIMO něj — postup lekcí, historie
+testů, čekající truhly, týdenní XP per banka — zatím zůstávají lokální per
+zařízení). Záznam = `ProfilRegistrZaznam` ze `sdilene` (`{ profilId, jmeno,
+barva, pinHash?, avatar?, predmety[], aktivniPredmetId, aktualizovano }`;
+neznámá pole server při zápisu stripuje). Konflikt řeší **LWW** podle ISO
+času `aktualizovano` (zápis projde jen s časem >= uloženému) — v rodině se
+u profilu střídají zařízení, souběžná práce není cíl. `aktualizovano` musí
+být ISO 8601 UTC (`…Z`, validuje server — LWW porovnává lexikograficky
+a volný formát by šel „zamknout“ nesmyslem typu `zzzz`); čas z budoucnosti
+(špatně nastavené hodiny zařízení) server ořezává na své „teď“ s tolerancí
+5 minut, aby LWW nezamrzl. Stejné LWW + oříznutí platí pro `POST
+/api/progres` (rozhodčí `progres.aktualizovano`).
+
+**Rate limit**: na celém `/api/*` jednoduchý in-memory limit per IP
+(240 požadavků/min, fixní okno; nadlimit → 429 `{ chyba }` + `retry-after`)
+jako brzda hrubé síly na tokeny na veřejném nasazení. IP se bere
+z `X-Forwarded-For` POSLEDNÍ adresou, kterou tam přidala vlastní důvěryhodná
+proxy (standardní reverzní proxy hodnotu APPENDUJE za hlavičku poslanou
+klientem — první položku ovládá útočník a rotací smyšlených IP by limit
+obešel); počet důvěryhodných proxy řídí env `QUESTOR_DUVERUJ_PROXY`
+(default 1; 0 = hlavičku ignorovat úplně, server vystavený přímo). Bez
+hlavičky platí adresa soketu. Implementace `server/src/limit.ts` —
+injektované hodiny, testy neposouvají reálný čas.
+
 **CORS**: aplikace běží na jiném originu (Vite `:5173`, Tauri
 `http://tauri.localhost`) a vlastní hlavička tokenu vynucuje preflight —
 server proto na všech cestách pouští CORS middleware
@@ -105,8 +133,12 @@ zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
 | `GET /api/vyuka` | student | `[{ predmetId, verze }]` |
 | `GET /api/vyuka/:predmetId` | student | celá `VyukaPredmetu`; 404 když není |
 | `PUT /api/vyuka/:predmetId` | admin | tělo `VyukaPredmetu` (`validujVyuku`; shoda predmetId URL vs. tělo, jinak 400; verze musí růst, jinak 409) → `{ ok, verze }` |
-| `POST /api/progres` | student | tělo `ProgresStudenta` + volitelné `profilId`/`profilJmeno` → `{ ok }` (uloží poslední snapshot daného profilu; neplatná profilová pole → 400) |
+| `GET /api/profily` | student | registr profilů `ProfilRegistrZaznam[]` (naposledy aktualizovaný první; prázdné pole když registr nic nezná) |
+| `PUT /api/profily/:id` | student | tělo = záznam bez `profilId` (ten nese URL, 1–64 znaků). Upsert s LWW: `aktualizovano` >= uložené → zapíše a `{ ok, prijato: true }`; starší → nezapíše a `{ ok, prijato: false, aktualni: <uložený záznam> }` (klient si vezme novější) |
+| `DELETE /api/profily/:id` | student | smaže profil z registru + jeho progres (události zůstávají — jsou to dějiny) → `{ ok }`; idempotentní |
+| `POST /api/progres` | student | tělo `ProgresStudenta` + volitelné `profilId`/`profilJmeno`. LWW podle `progres.aktualizovano` (offline fronta může snapshot doručit dny po vzniku): novější nebo stejný čas → uloží snapshot a `{ ok, prijato: true }`; starší než uložený → nezapíše a `{ ok, prijato: false }` (novější postup si klient vezme pullem). Řádek v DB bez `aktualizovano` (před LWW) prohrává vždy. Neplatná profilová pole → 400 |
 | `GET /api/progres` | admin | pole profilů `[{ profilId, jmeno, progres, prijato, level }]` — naposledy aktivní první, prázdné pole když nic nedorazilo (`level` = `stavLevelu(xp)` ze sdílené funkce, ať ho admin web neduplikuje) |
+| `GET /api/progres/:profilId` | student | pull postupu: `{ progres, prijato }` posledního snapshotu profilu; 404 když server žádný nemá (progres starých klientů je pod `vychozi`) |
 | `POST /api/udalosti` | student | tělo `TestVysledek` + volitelné `profilId`/`profilJmeno` → `{ ok }` (append; idempotentní podle `vysledek.id` — duplicitní doručení z retry fronty se tiše ignoruje) |
 | `GET /api/udalosti?limit=50` | admin | poslední výsledky testů (nejnovější první) jako `{ cas, profilId, profilJmeno, vysledek }` — řádky z dob před profily se hlásí jako `vychozi`/`Student` |
 | `GET /api/vyzvy` | student | `Vyzva[]` se stavem != `dokoncena`; volitelný `?profilId=` vrátí jen výzvy cílené na daný profil + společné. Bez query platí výchozí profil `vychozi` (starý klient bez profilů JE výchozí profil — stejně server atribuuje jeho progres a události): dostane společné výzvy + cílené na `vychozi`, cizí cílené výzvy NEdostane, aby je nemohl „spotřebovat“ (dokončit a globálně uzavřít) místo adresáta |
@@ -120,17 +152,27 @@ DB tabulky: `banky(predmet_id TEXT PK, verze INT, json TEXT)`,
 `progres(profil_id TEXT PK, profil_jmeno TEXT, json TEXT, prijato TEXT)`,
 `udalosti(id INTEGER PK AUTOINCREMENT, cas TEXT, json TEXT, profil_id TEXT,
 profil_jmeno TEXT — NULL u řádků z dob před profily)`,
-`vyzvy(id TEXT PK, json TEXT)`. Migrace schématu dělá `otevriDb`
+`vyzvy(id TEXT PK, json TEXT)`,
+`profily(profil_id TEXT PK, json TEXT, aktualizovano TEXT — json =
+metadata profilu bez profilId, aktualizovano = rozhodčí LWW)`.
+Migrace schématu dělá `otevriDb`
 (`server/src/db.ts`) při startu: starý jednořádkový progres (`id=1`) se
 přelije do profilu `vychozi`/`Student`, událostem se doplní profilové
 sloupce — data přežijí beze změny.
 
 **Admin mini-web** (`/admin`, jedna HTML stránka servírovaná Honem, styl viz
 DESIGN.md): pole na token (uloží localStorage), upload banky a upload výuky
-(JSON soubor, sekce Výuka s tabulkou předmět/verze), přehled progresu VŠECH
-profilů (karty vedle sebe: jméno, level, XP, streak, dokončené testy),
-poslední testy se jménem profilu, formulář na výzvu s výběrem cílového
-profilu (nebo všem). Bez frameworku — vanilla JS + fetch.
+(JSON soubor, sekce Výuka s tabulkou předmět/verze), sekce Profily — karty
+VŠECH profilů (jméno, level, XP, streak, dokončené testy) doplněné o to, co
+ví registr (studijní banky, aktivní banka, čas aktualizace, jestli má PIN;
+profil známý jen z registru má kartu „zatím žádný progres“) a tlačítko
+Smazat profil (potvrzení přes confirm; DELETE /api/profily/:id — progres
+pryč, události zůstanou), poslední testy se jménem profilu, formulář na
+výzvu s výběrem cílového profilu (nebo všem; nabídka je sjednocení profilů
+s progresem a registru). Bez frameworku — vanilla JS + fetch. POZOR:
+stránka volá API root-absolutními cestami (`/api/…`), takže za prefixovou
+proxy (`/questor-api` na produkci) nefunguje — otevírá se přes SSH tunel
+na port serveru (postup v docs/NASAZENI.md, krok 5a).
 
 Dogenerování volá stejnou knihovnu jako generátor (`@questor/generator`),
 poskytovatel `api`.
@@ -186,13 +228,14 @@ Generátor navrhuje jen datové widgety (`tridicka`/`pexeso`/`prubeh-procesu`/
 ## Aplikace — architektura
 
 React 19 + Vite, zustand (persist do localStorage, klíč `questor-stav`,
-verze 6), react-router. Obsah předmětů (banky, výuky) se NEpersistuje
+verze 7), react-router. Obsah předmětů (banky, výuky) se NEpersistuje
 (kvóta localStorage ~5 MB) — drží ho nepersistovaný stav, persist
 `partialize`/`migrate` řeší `stav/migrace.ts` (migrace v1→v2 zahazuje
 banky/výuky ze starých snapshotů; v2→v3 převádí avatar; v3→v4 dělá
 z existujících dat profil „Student“; v4→v5 dává profilům studijní banky
 — aktivní se odvozuje z nejnovějšího testu v historii profilu; v5→v6
-doplňuje týdenní XP z testů per banka, seed z historie testů — progres
+doplňuje týdenní XP z testů per banka, seed z historie testů; v6→v7 dává
+profilům `aktualizovano` pro LWW sync mezi zařízeními — progres
 a postup lekcí se NIKDY neztrácí). Struktura `aplikace/src/`:
 
 ```
@@ -354,11 +397,22 @@ cachovat; doplní se až s nasazením webové verze.
 
 Aplikace je plně funkční bez serveru (obsah všech předmětů bundlovaný
 v `data/predmety/` jako lazy chunky, viz registr výše).
-`sync/` drží: URL serveru + token (stránka Nastavení, default
-`http://localhost:8787`), fronty neodeslaných událostí per PROFIL
+`sync/` drží: URL serveru + **rodinný kód** (= studentský token; stránka
+Nastavení → Připojení, nebo odkaz „🔗 Připojit rodinu" na výběru profilů).
+**Bez rodinného kódu je sync vypnutý** a aplikace běží čistě lokálně.
+Výchozí adresy podle prostředí (`urciVychoziNastaveni` v `sync/klient.ts`,
+čistá funkce): Tauri desktop → `https://koordinator-server.cz/questor-api`
+(detekce `jeTauriProstredi`: interní globály + protokol `tauri:` +
+hostname `tauri.localhost`); web přes https → `${origin}/questor-api`
+(stejný origin, projde CSP connect-src 'self'); dev (http + localhost) →
+`http://localhost:8787` s kódem `student-dev` (jediné prostředí s výchozím
+kódem); jinde (http přes LAN) → prázdná adresa. Dále `sync/` drží
+fronty neodeslaných událostí per PROFIL
 (localStorage, klíč `questor-sync-fronta:<profilId>`; starou společnou
 frontu adoptuje první fronta bez vlastních dat — po migraci profil
-Student), při startu a po testu: push progres + události, pull banky
+Student) + frontu REGISTRU (`questor-sync-fronta:registr` — smazání
+profilů na serveru; žije mimo fronty profilů, aby nezmizela s frontou
+mazaného profilu), při startu a po testu: push progres + události, pull banky
 i výuky (jen vyšší verze; pull výuky má vlastní tichý try/catch kvůli
 starším serverům bez /api/vyuka), pull výzvy (jen s aktivním profilem;
 posílá se `?profilId=<aktivní profil>`, takže server vrací jen výzvy
@@ -383,6 +437,41 @@ at-least-once s exponenciálním odkladem; položku, kterou server trvale odmít
 zbytek fronty. Banky a výuky stažené ze serveru (jen vyšší verze) se navíc
 ukládají do IndexedDB (`sync/uloziste.ts`), takže přežijí restart aplikace
 a při startu přeplácnou bundlovaný obsah, když mají vyšší verzi.
+
+**Sync profilů mezi zařízeními (klientská půlka registru profilů):** Profil
+má `aktualizovano` (ISO čas, bumpne ho KAŽDÁ změna profilu — jméno, PIN,
+banky, aktivní banka, avatar; migrace persistu v6→v7 doplní současný čas)
+a příznak `naServeru` (profil už byl vidět v serverovém registru). Každá
+změna profilu zařadí PUT záznamu registru do fronty profilu (položka
+`profil`, drží se jen nejnovější), smazání profilu zařadí položku
+`smazani-profilu` do fronty registru. Při každém syncu (start, otevření
+výběru profilů, připojení rodiny…) odejdou nejdřív fronty, pak se stáhne
+`GET /api/profily` a provede merge (`aplikujRegistrProfilu` v profilySlice,
+LWW dle `aktualizovano`): server novější → převezmou se metadata (včetně
+zrušení PINu záznamem bez `pinHash`); lokál novější nebo serveru neznámý →
+PUT na server; profil jen na serveru → PŘIDÁ se lokálně (karta s ☁️,
+avatar z registru do snímku); lokální profil s příznakem `naServeru`,
+který server už nezná → smaže se i lokálně (smazání na jiném zařízení;
+byl-li aktivní, aplikace se vrátí na výběr profilu). Profil, který na
+serveru NIKDY nebyl, se lokálně nikdy nemaže. POJISTKA proti plošnému
+výmazu: když by merge měl smazat VŠECHNY lokální profily, nebo server
+vrátil úplně prázdný registr, smazání se neprovede a profily se místo toho
+pushnou — prázdná/cizí odpověď registru (přeinstalovaný server, ztracená
+DB, přepnutá adresa serveru) nesmí smazat lokální data, která jsou v tu
+chvíli poslední zálohou. **Postup přes zařízení:**
+při aktivaci profilu (`prepniProfil` → `stahniPostupProfilu`), při startu
+a při ručním syncu se stáhne `GET /api/progres/:id` a porovná
+`progres.aktualizovano` (LWW): server novější → nahradí se CELÝ lokální
+`ProgresStudenta`, obnoví odvozené (questy dne) a splněné questy snapshotu
+se označí jako odměněné (`questyOdmeneno` se serverem necestuje a splněný
+quest UŽ odměněný je — bez toho by první odpověď odměnila podruhé); lokál
+novější nebo 404 → push. Synchronizuje se jen `ProgresStudenta` — postup
+lekcí, historie testů, čekající truhly a týdenní XP per banka zatím žijí
+lokálně per zařízení (viz Registr profilů výše). Během pullu ukazuje HUD neblokující stav „Načítám postup…"
+(`nacitamPostup` ve `StavSynchronizace`); platí pravidlo pullu osobních
+dat (přepnutí profilu během letu = zahodit). Aby byl server čerstvý,
+pushuje se snapshot progresu i po dokončení lekce a po otevření truhly
+(`zaznamenejZmenuProgresu`).
 
 ### Gamifikace — pravidla (implementace ve `sdilene`, UI v `hra/`)
 
@@ -493,8 +582,12 @@ Aplikace: `npm run dev:aplikace` → http://localhost:5173.
 
 ## Nasazení a patchování (detail v docs/NASAZENI.md)
 
-- **Server**: jakýkoli Node 26+ hosting / VPS (`npm ci && npm run start -w server`),
-  Dockerfile v `server/`. Env: tokeny + volitelně `ANTHROPIC_API_KEY`.
+- **Server**: produkce na sdíleném hostingu — pm2 proces na portu 10121,
+  `.htaccess` proxy `https://koordinator-server.cz/questor-api` →
+  `127.0.0.1:10121` (stejný origin jako web `/questor`); obecně jakýkoli
+  Node 26+ hosting / VPS (`npm ci && npm run start -w server`), Dockerfile
+  v `server/`. Env: tokeny (`QUESTOR_STUDENT_TOKEN` = rodinný kód),
+  volitelně `ANTHROPIC_API_KEY`, `QUESTOR_PORT`, `QUESTOR_DUVERUJ_PROXY`.
 - **Windows aplikace**: Tauri 2 shell (`aplikace/src-tauri/`), build v GitHub
   Actions (windows runner) → NSIS instalátor + updater artefakty; aplikace se
   aktualizuje sama z GitHub Releases. Vývoj na Macu = jen web (`npm run dev:aplikace`).

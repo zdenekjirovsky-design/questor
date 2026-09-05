@@ -102,9 +102,11 @@ instalace se nedělá.
 
 Admin web `https://<server>/admin` (token = `QUESTOR_ADMIN_TOKEN`):
 
-- **Progres profilů** — karta pro každý profil, který kdy poslal progres
-  (naposledy aktivní první): jméno, level, XP bar, streak a počet
-  dokončených testů. Studenta i mámu tak sleduješ vedle sebe (kap. 4).
+- **Profily** — karta pro každý profil rodiny (naposledy aktivní první):
+  jméno, level, XP bar, streak, počet dokončených testů + údaje z registru
+  profilů (studijní banky, aktivní banka, PIN ano/ne, čas poslední změny)
+  a tlačítko Smazat profil. Studenta i mámu tak sleduješ vedle sebe
+  (kap. 4).
 - **Poslední testy** (nejnovější první) — sloupec Profil říká, kdo test
   dokončil; u testu z výzvy je vidět její id.
 - **Poslat výzvu** — vzkaz + konfigurace testu (předmět, režim, počet
@@ -118,9 +120,11 @@ Admin web `https://<server>/admin` (token = `QUESTOR_ADMIN_TOKEN`):
 
 Aplikaci může sdílet celá domácnost (třeba student a jeho máma — dospělá
 studentka vaření). Profily fungují jako na streamovacích službách:
-ŽÁDNÝ e-mail ani registrace, všechno zůstává lokálně v počítači. Server
-profily jen rozlišuje podle id, které aplikace posílá při synchronizaci
-(studentský token je pro všechny profily společný).
+ŽÁDNÝ e-mail ani registrace. Bez rodinného kódu zůstává všechno lokálně
+v zařízení; s rodinným kódem (viz „Rodinný sync“ níže) se profily
+a herní postup synchronizují přes rodinný server na všechna zařízení.
+Server profily rozlišuje podle id, které aplikace posílá při synchronizaci
+(rodinný kód — studentský token — je pro všechny profily společný).
 
 **Založení profilu (např. mámě):**
 
@@ -179,10 +183,48 @@ u aktivního profilu; smazání kteréhokoli profilu kromě posledního
 (dvojité potvrzení + opsání jména — smaže XP, sbírku, statistiky
 i postup lekcí profilu, nejde vrátit).
 
-**Oba profily v admin webu:** každý profil se serverem synchronizuje
-zvlášť, takže v sekci Progres profilů vidíš karty obou vedle sebe
-a u posledních testů, kdo je dokončil (kap. 3). Výzvy jde cílit na
-konkrétní profil („Komu“).
+**Rodinný sync — jeden profil na všech zařízeních:**
+
+Profil založený na telefonu je vidět i na notebooku (a naopak) — stačí,
+aby obě zařízení měla zadaný stejný **rodinný kód** (= studentský token
+serveru, `QUESTOR_STUDENT_TOKEN`).
+
+- **Připojení nového zařízení:** na obrazovce výběru profilů klikni na
+  **🔗 Připojit rodinu** a zadej rodinný kód (adresa serveru je
+  předvyplněná — desktop i web míří na rodinný server automaticky),
+  nebo totéž v **Nastavení → Připojení**. Profily rodiny se hned
+  stáhnou a objeví jako karty s ☁️; karta 💾 znamená profil jen
+  v tomhle zařízení (na server se pushne při nejbližším syncu).
+  Postup nasazení serveru a detail výchozích adres: `docs/NASAZENI.md`,
+  kroky 5a a 6.
+- **Co se synchronizuje:** profil se vším všudy — jméno, barva, PIN
+  (přenáší se jen jeho hash, nikdy PIN samotný), avatar, studijní banky
+  i aktivní banka — a KOMPLETNÍ herní postup (XP, level, streak, denní
+  questy, sbírka karet, statistiky otázek/Leitner, rekordy, vlastněná
+  výbava, počet dokončených testů). Na každém zařízení zvlášť zatím zůstávají:
+  postup lekcí, historie testů, čekající neotevřené truhly a graf
+  týdenního XP per banka.
+- **Kdo vyhraje při rozdílu:** poslední zápis (novější čas změny) —
+  v rodině se u profilu střídají zařízení, takže se prostě pokračuje
+  tam, kde se naposledy skončilo. Při aktivaci profilu se postup ze
+  serveru stáhne (HUD chvíli ukazuje „Načítám postup…“); hraní offline
+  se pushne, až je zařízení zase online.
+- **Smazání profilu** na jednom zařízení ho smaže i na ostatních
+  (a s ním jeho progres na serveru; historie testů v admin webu
+  zůstává). Profil, který na serveru nikdy nebyl, se z jiného zařízení
+  smazat nemůže — a když server vrátí prázdný či cizí registr (např.
+  po přeinstalaci), aplikace lokální profily NEsmaže, naopak jimi
+  server znovu naplní.
+- **Bez rodinného kódu** aplikace běží čistě lokálně jako dřív — sync
+  jde kdykoli zapnout dodatečně.
+
+**Profily v admin webu:** každý profil se serverem synchronizuje
+zvlášť, takže v sekci Profily vidíš karty všech vedle sebe (doplněné
+o studijní banky a stav PINu z registru; profil známý jen z registru má
+kartu „zatím žádný progres“) a u posledních testů, kdo je dokončil
+(kap. 3). Výzvy jde cílit na konkrétní profil („Komu“). Tlačítkem
+**Smazat profil** jde profil odstranit i ze serveru — při dalším syncu
+zmizí i ze zařízení rodiny.
 
 **Mobil:** aplikace je responzivní až k šířce telefonu (~375 px) — na
 mobilu má spodní navigační lištu, dotykové ovládání widgetů (místo
@@ -349,11 +391,16 @@ tématu (zdrojové učivo na serveru není).
 
 - `QUESTOR_ADMIN_TOKEN` a `QUESTOR_STUDENT_TOKEN` se nastavují v env
   serveru; defaulty `admin-dev`/`student-dev` jsou JEN pro lokální vývoj.
-- Admin token zadáváš v admin webu (a u `--server`/curl), studentský token
-  se zadává v aplikaci na stránce Nastavení. Je SPOLEČNÝ pro všechny
-  profily na počítači — kdo je kdo, rozlišuje aplikace sama (`profilId`
-  posílaný se synchronizací, kap. 4). Admin token smí i všechno
-  studentské.
+- Admin token zadáváš v admin webu (a u `--server`/curl). Studentský
+  token je **rodinný kód**: zadává se JEDNOU na každém zařízení
+  („🔗 Připojit rodinu“ na výběru profilů, nebo Nastavení → Připojení)
+  a je SPOLEČNÝ pro všechny profily i zařízení rodiny — kdo je kdo,
+  rozlišuje aplikace sama (`profilId` posílaný se synchronizací, kap. 4).
+  Admin token smí i všechno studentské.
+- Repo je veřejné — tokeny NIKDY nepatří do kódu ani do commitů, žijí
+  jen v env serveru (a rodinný kód v zařízeních rodiny).
+- Server má na `/api/*` rate limit 240 požadavků/min na IP (brzda hrubé
+  síly na tokeny na veřejné adrese) — běžný provoz rodiny se ho nedotkne.
 
 ## 10. Řešení potíží
 
@@ -381,12 +428,26 @@ vrátí 400):
 **Aplikace nesynchronizuje:**
 
 1. V aplikaci Nastavení zkontroluj URL serveru (bez lomítka na konci)
-   a studentský token; stav připojení je vidět tamtéž.
+   a rodinný kód; stav připojení je vidět tamtéž. 401 = špatný rodinný
+   kód; bez kódu je sync schválně vypnutý a aplikace jede jen lokálně.
 2. Ověř server přes `/zdravi` (viz výše). Sync se spouští při startu
-   aplikace a po dokončeném testu; v Nastavení jde vyvolat i ručně.
+   aplikace, po dokončeném testu a při otevření výběru profilů;
+   v Nastavení jde vyvolat i ručně.
 3. Progres se neztrácí — neodeslané položky čekají ve frontě a odejdou po
    obnovení spojení. Položku, kterou server trvale odmítá (4xx, např.
    výsledek mezitím smazané výzvy), fronta zahodí, aby neblokovala zbytek.
+
+**Na druhém zařízení nevidím profil / postup:**
+
+1. Obě zařízení musí mít STEJNÝ rodinný kód a adresu téhož serveru
+   (kap. 4, Rodinný sync). Na výběru profilů má dole svítit
+   „☁️ Rodina připojena“.
+2. Profil se přenáší při syncu — otevři výběr profilů nebo dej
+   v Nastavení „Synchronizovat teď“ na OBOU zařízeních (nejdřív na tom,
+   kde profil vznikl).
+3. Herní postup se stahuje při aktivaci profilu (LWW — vyhrává novější
+   změna). Postup lekcí a historie testů se zatím nepřenášejí — to není
+   chyba.
 
 **Upload banky nebo výuky vrací chybu:**
 

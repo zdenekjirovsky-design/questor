@@ -14,6 +14,7 @@ import {
   validujVyuku,
   type BankaOtazek,
   type Otazka,
+  type ProfilMetadata,
   type ProgresStudenta,
   type Tema,
   type TestVysledek,
@@ -22,12 +23,15 @@ import {
 import {
   dogenerovatSchema,
   novaVyzvaSchema,
+  orizniCasBudoucnosti,
   profilTelaSchema,
   vysledekVyzvySchema,
+  zvalidujProfilRegistr,
   zvalidujProgres,
   zvalidujTestVysledek,
   type VyzvaZaznam,
 } from './validace';
+import { vytvorRateLimit, type MoznostiRateLimit } from './limit';
 import { VYCHOZI_PROFIL_ID, VYCHOZI_PROFIL_JMENO } from './db';
 import { ADMIN_HTML } from './admin';
 
@@ -99,6 +103,8 @@ type DogenerujOtazky = (vstup: {
 export interface MoznostiApp {
   /** Testovací háček — nahrazuje dynamický import '@questor/generator'. */
   nactiGenerator?: () => Promise<{ dogenerujOtazky: DogenerujOtazky }>;
+  /** Nastavení rate limitu na /api/* (testy injektují hodiny a nižší limity). */
+  rateLimit?: MoznostiRateLimit;
 }
 
 // ---------------------------------------------------------------------------
@@ -128,6 +134,11 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     '*',
     cors({ allowHeaders: ['content-type', 'x-questor-token'] }),
   );
+
+  // Rate limit per IP na celém /api/* — server běží veřejně a tokeny jsou
+  // jediná vstupenka; limit brzdí hrubou sílu. Registruje se až ZA CORS,
+  // aby i 429 nesla CORS hlavičky (jinak by ji prohlížeč aplikaci zatajil).
+  app.use('/api/*', vytvorRateLimit(moznosti.rateLimit));
 
   // Limity velikosti těla — cizí (i validní token držící) klient nesmí server
   // shodit na OOM mnohasetmegovým JSONem.
@@ -255,6 +266,77 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     return c.json({ ok: true, verze: vyuka.verze });
   });
 
+  // --- Registr profilů (sync mezi zařízeními) ------------------------------
+  // Rodina sdílí studentský token; profil založený na jednom zařízení se přes
+  // registr objeví i na ostatních (včetně pinHash a studijních bank).
+  // Konflikty řeší LWW podle `aktualizovano` — v rodině se u profilu střídají
+  // zařízení, souběžná práce není cíl.
+
+  app.get('/api/profily', overAuth('student'), (c) => {
+    const radky = db
+      .prepare('SELECT profil_id, json, aktualizovano FROM profily ORDER BY aktualizovano DESC')
+      .all() as { profil_id: string; json: string; aktualizovano: string }[];
+    return c.json(
+      radky.map((r) => ({
+        profilId: r.profil_id,
+        ...(JSON.parse(r.json) as ProfilMetadata),
+        aktualizovano: r.aktualizovano,
+      })),
+    );
+  });
+
+  app.put('/api/profily/:id', overAuth('student'), LIMIT_BEZNY, async (c) => {
+    const zaznam = zvalidujProfilRegistr(await prectiJson(c));
+    if (!zaznam) {
+      return c.json(
+        { chyba: 'Tělo musí být záznam profilu (jmeno, barva, predmety, aktivniPredmetId, aktualizovano)' },
+        400,
+      );
+    }
+    const profilId = c.req.param('id') ?? '';
+    if (profilId.length < 1 || profilId.length > 64) {
+      return c.json({ chyba: 'Id profilu musí mít 1–64 znaků' }, 400);
+    }
+    // Čas z budoucnosti (špatně nastavené hodiny zařízení) se ořízne na
+    // serverové „teď“ — jinak by LWW zamrzl a záznam by šel změnit až
+    // v onom budoucím roce (viz orizniCasBudoucnosti).
+    const { aktualizovano: prichoziCas, ...metadata } = zaznam;
+    const aktualizovano = orizniCasBudoucnosti(prichoziCas);
+    const stavajici = db
+      .prepare('SELECT json, aktualizovano FROM profily WHERE profil_id = ?')
+      .get(profilId) as { json: string; aktualizovano: string } | undefined;
+    // LWW: zapsat jen když příchozí čas >= uloženému (ISO řetězce se
+    // porovnávají lexikograficky). Starší zápis se NEpřijme — klient dostane
+    // aktuální (novější) záznam a vezme si ho.
+    if (stavajici && aktualizovano < stavajici.aktualizovano) {
+      return c.json({
+        ok: true,
+        prijato: false,
+        aktualni: {
+          profilId,
+          ...(JSON.parse(stavajici.json) as ProfilMetadata),
+          aktualizovano: stavajici.aktualizovano,
+        },
+      });
+    }
+    db.prepare(
+      `INSERT INTO profily (profil_id, json, aktualizovano) VALUES (?, ?, ?)
+       ON CONFLICT(profil_id) DO UPDATE SET
+         json = excluded.json, aktualizovano = excluded.aktualizovano`,
+    ).run(profilId, JSON.stringify(metadata), aktualizovano);
+    return c.json({ ok: true, prijato: true });
+  });
+
+  // Smaže profil z registru i jeho progres; události zůstávají (jsou to
+  // dějiny — staré řádky se v přehledech dál hlásí pod svým profilem).
+  // Idempotentní: mazání neexistujícího profilu je taky { ok } (retry-safe).
+  app.delete('/api/profily/:id', overAuth('student'), (c) => {
+    const profilId = c.req.param('id') ?? '';
+    db.prepare('DELETE FROM profily WHERE profil_id = ?').run(profilId);
+    db.prepare('DELETE FROM progres WHERE profil_id = ?').run(profilId);
+    return c.json({ ok: true });
+  });
+
   // --- Progres -------------------------------------------------------------
 
   app.post('/api/progres', overAuth('student'), LIMIT_BEZNY, async (c) => {
@@ -268,12 +350,36 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     if (!profil) {
       return c.json({ chyba: 'profilId a profilJmeno musí být neprázdné řetězce (max 64 znaků)' }, 400);
     }
+    // LWW podle progres.aktualizovano — stejně jako u PUT /api/profily/:id.
+    // Offline fronta může snapshot doručit dny po vzniku; bez porovnání by
+    // zastaralý snapshot přepsal novější postup z jiného zařízení a následný
+    // pull (GET /api/progres/:profilId) by vrátil ten starý — úterní hraní
+    // by nenávratně zmizelo. Čas z budoucnosti se ořezává (viz PUT profilu),
+    // aby LWW nezamrzl na špatně nastavených hodinách. Starší snapshot se
+    // NEpřijme ({ prijato: false }); starý snapshot v DB bez aktualizovano
+    // (řádek z dob před LWW) prohrává vždy.
+    const kUlozeni: ProgresStudenta = {
+      ...progres,
+      aktualizovano: orizniCasBudoucnosti(progres.aktualizovano),
+    };
+    const stavajici = db
+      .prepare('SELECT json FROM progres WHERE profil_id = ?')
+      .get(profil.profilId) as { json: string } | undefined;
+    if (stavajici) {
+      const ulozeny = JSON.parse(stavajici.json) as Partial<ProgresStudenta>;
+      if (
+        typeof ulozeny.aktualizovano === 'string' &&
+        kUlozeni.aktualizovano < ulozeny.aktualizovano
+      ) {
+        return c.json({ ok: true, prijato: false });
+      }
+    }
     db.prepare(
       `INSERT INTO progres (profil_id, profil_jmeno, json, prijato) VALUES (?, ?, ?, ?)
        ON CONFLICT(profil_id) DO UPDATE SET
          profil_jmeno = excluded.profil_jmeno, json = excluded.json, prijato = excluded.prijato`,
-    ).run(profil.profilId, profil.profilJmeno, JSON.stringify(progres), new Date().toISOString());
-    return c.json({ ok: true });
+    ).run(profil.profilId, profil.profilJmeno, JSON.stringify(kUlozeni), new Date().toISOString());
+    return c.json({ ok: true, prijato: true });
   });
 
   app.get('/api/progres', overAuth('admin'), (c) => {
@@ -297,6 +403,19 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
         };
       }),
     );
+  });
+
+  // Pull progresu (druhé zařízení si stáhne KOMPLETNÍ postup profilu).
+  // Push (POST /api/progres výš) zůstává beze změny — starší klienti jedou dál.
+  app.get('/api/progres/:profilId', overAuth('student'), (c) => {
+    const radek = db
+      .prepare('SELECT json, prijato FROM progres WHERE profil_id = ?')
+      .get(c.req.param('profilId') ?? '') as { json: string; prijato: string } | undefined;
+    if (!radek) return c.json({ chyba: 'Progres pro tenhle profil na serveru není' }, 404);
+    return c.json({
+      progres: JSON.parse(radek.json) as ProgresStudenta,
+      prijato: radek.prijato,
+    });
   });
 
   // --- Události (výsledky testů) ------------------------------------------

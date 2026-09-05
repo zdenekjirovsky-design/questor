@@ -402,7 +402,7 @@ describe('progres', () => {
       body: JSON.stringify(progres),
     });
     expect(ulozeni.status).toBe(200);
-    expect(await ulozeni.json()).toEqual({ ok: true });
+    expect(await ulozeni.json()).toEqual({ ok: true, prijato: true });
 
     const odpoved = await app.request('/api/progres', { headers: ADMIN });
     expect(odpoved.status).toBe(200);
@@ -421,7 +421,7 @@ describe('progres', () => {
       headers: { ...STUDENT, ...JSON_HLAVICKY },
       body: JSON.stringify(vzorovyProgres()),
     });
-    const novejsi = { ...vzorovyProgres(), xp: 999 };
+    const novejsi = { ...vzorovyProgres(), xp: 999, aktualizovano: '2026-09-04T11:00:00.000Z' };
     await app.request('/api/progres', {
       method: 'POST',
       headers: { ...STUDENT, ...JSON_HLAVICKY },
@@ -431,6 +431,90 @@ describe('progres', () => {
     const data = (await odpoved.json()) as ProfilProgresu[];
     expect(data).toHaveLength(1);
     expect(data[0].progres.xp).toBe(999);
+  });
+
+  it('LWW: zastaralý snapshot (starší aktualizovano) NEpřepíše novější postup', async () => {
+    // Úterní hraní na telefonu — server má postup T2.
+    await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...vzorovyProgres(), xp: 700, aktualizovano: '2026-09-02T18:00:00.000Z' }),
+    });
+    // Středeční push offline fronty notebooku — snapshot z pondělí (T1 < T2).
+    const zastaraly = await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...vzorovyProgres(), xp: 350, aktualizovano: '2026-09-01T10:00:00.000Z' }),
+    });
+    expect(zastaraly.status).toBe(200);
+    expect(await zastaraly.json()).toEqual({ ok: true, prijato: false });
+
+    // Serverový postup zůstal T2 — pull vrátí úterní hraní, ne pondělní snapshot.
+    const pull = await app.request('/api/progres/vychozi', { headers: STUDENT });
+    const telo = (await pull.json()) as { progres: ProgresStudenta };
+    expect(telo.progres.xp).toBe(700);
+    expect(telo.progres.aktualizovano).toBe('2026-09-02T18:00:00.000Z');
+
+    // Stejný čas (LWW remíza) i novější čas projdou.
+    const stejny = await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...vzorovyProgres(), xp: 701, aktualizovano: '2026-09-02T18:00:00.000Z' }),
+    });
+    expect(await stejny.json()).toEqual({ ok: true, prijato: true });
+  });
+
+  it('LWW: starý řádek v DB bez aktualizovano prohrává (zpětná kompatibilita)', async () => {
+    // Řádek z dob před LWW — progres bez pole aktualizovano přímo v DB.
+    const db = otevriDb(':memory:');
+    const bezCasu = { ...vzorovyProgres() } as Record<string, unknown>;
+    delete bezCasu.aktualizovano;
+    db.prepare(
+      'INSERT INTO progres (profil_id, profil_jmeno, json, prijato) VALUES (?, ?, ?, ?)',
+    ).run('vychozi', 'Student', JSON.stringify(bezCasu), '2026-09-01T08:00:00.000Z');
+    const stara = vytvorApp(db);
+
+    const zapis = await stara.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...vzorovyProgres(), xp: 123 }),
+    });
+    expect(await zapis.json()).toEqual({ ok: true, prijato: true });
+    const pull = await stara.request('/api/progres/vychozi', { headers: STUDENT });
+    expect(((await pull.json()) as { progres: ProgresStudenta }).progres.xp).toBe(123);
+  });
+
+  it('čas z budoucnosti se ořízne na serverové teď (LWW nezamrzne)', async () => {
+    // Telefon s hodinami v roce 2030 — snapshot nesmí zamknout LWW na 4 roky.
+    const zapis = await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...vzorovyProgres(), aktualizovano: '2030-01-01T00:00:00.000Z' }),
+    });
+    expect(await zapis.json()).toEqual({ ok: true, prijato: true });
+
+    const pull = await app.request('/api/progres/vychozi', { headers: STUDENT });
+    const telo = (await pull.json()) as { progres: ProgresStudenta };
+    expect(telo.progres.aktualizovano).not.toBe('2030-01-01T00:00:00.000Z');
+    // Uloženo je serverové „teď“ (s tolerancí 5 minut).
+    expect(telo.progres.aktualizovano < new Date(Date.now() + 6 * 60_000).toISOString()).toBe(true);
+
+    // Zdravé zařízení s aktuálním časem hned potom normálně zapíše.
+    const zdravy = await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...vzorovyProgres(), xp: 400, aktualizovano: new Date().toISOString() }),
+    });
+    expect(await zdravy.json()).toEqual({ ok: true, prijato: true });
+  });
+
+  it('nesmyslné aktualizovano (mimo ISO formát) vrací 400', async () => {
+    const odpoved = await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...vzorovyProgres(), aktualizovano: 'zzzz' }),
+    });
+    expect(odpoved.status).toBe(400);
   });
 });
 
@@ -635,9 +719,268 @@ describe('profily', () => {
   it('admin stránka zobrazuje profily a výběr cíle výzvy', async () => {
     const odpoved = await novaApp().request('/admin');
     const html = await odpoved.text();
-    expect(html).toContain('Progres profilů');
+    expect(html).toContain('Profily');
     expect(html).toContain('vyzva-profil');
     expect(html).toContain('Komu');
+  });
+
+  it('admin stránka umí registr profilů a mazání s potvrzením', async () => {
+    const odpoved = await novaApp().request('/admin');
+    const html = await odpoved.text();
+    expect(html).toContain('/api/profily');
+    expect(html).toContain('Smazat profil');
+    expect(html).toContain('confirm(');
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+describe('registr profilů (sync mezi zařízeními)', () => {
+  let app: Hono;
+  beforeEach(() => {
+    app = novaApp();
+  });
+
+  // Časy v minulosti — server čas z budoucnosti ořezává (LWW nesmí zamrznout).
+  function vzorovyZaznam(aktualizovano = '2026-09-04T10:00:00.000Z') {
+    return {
+      jmeno: 'Marie',
+      barva: '#f5b942',
+      pinHash: 'a1b2c3',
+      predmety: ['ekonomika-podnikani', 'zaklady-vareni'],
+      aktivniPredmetId: 'ekonomika-podnikani',
+      aktualizovano,
+    };
+  }
+
+  async function zapisProfil(profilId: string, telo: Record<string, unknown>) {
+    return app.request(`/api/profily/${profilId}`, {
+      method: 'PUT',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify(telo),
+    });
+  }
+
+  it('endpointy chce studentský token', async () => {
+    expect((await app.request('/api/profily')).status).toBe(401);
+    expect(
+      (
+        await app.request('/api/profily/mama', {
+          method: 'PUT',
+          headers: JSON_HLAVICKY,
+          body: JSON.stringify(vzorovyZaznam()),
+        })
+      ).status,
+    ).toBe(401);
+    expect((await app.request('/api/profily/mama', { method: 'DELETE' })).status).toBe(401);
+  });
+
+  it('prázdný registr vrací [], upsert zapíše a GET vrátí záznam s profilId', async () => {
+    const prazdny = await app.request('/api/profily', { headers: STUDENT });
+    expect(await prazdny.json()).toEqual([]);
+
+    const zapis = await zapisProfil('mama', vzorovyZaznam());
+    expect(zapis.status).toBe(200);
+    expect(await zapis.json()).toEqual({ ok: true, prijato: true });
+
+    const seznam = await app.request('/api/profily', { headers: STUDENT });
+    expect(await seznam.json()).toEqual([{ profilId: 'mama', ...vzorovyZaznam() }]);
+  });
+
+  it('neznámá pole stripne, neplatné tělo a moc dlouhé id odmítne (400)', async () => {
+    const zapis = await zapisProfil('mama', { ...vzorovyZaznam(), navic: 'x', questy: [1, 2] });
+    expect(zapis.status).toBe(200);
+    const seznam = await app.request('/api/profily', { headers: STUDENT });
+    const [zaznam] = (await seznam.json()) as Record<string, unknown>[];
+    expect(zaznam).not.toHaveProperty('navic');
+    expect(zaznam).not.toHaveProperty('questy');
+
+    expect((await zapisProfil('mama', { jmeno: 'X' })).status).toBe(400);
+    expect((await zapisProfil('x'.repeat(65), vzorovyZaznam())).status).toBe(400);
+  });
+
+  it('LWW: starší zápis nepřepíše novější a vrátí aktuální záznam', async () => {
+    await zapisProfil('mama', { ...vzorovyZaznam('2026-09-04T12:00:00.000Z'), jmeno: 'Marie nová' });
+
+    const starsi = await zapisProfil('mama', {
+      ...vzorovyZaznam('2026-09-04T08:00:00.000Z'),
+      jmeno: 'Marie stará',
+    });
+    expect(starsi.status).toBe(200);
+    const telo = (await starsi.json()) as {
+      ok: boolean;
+      prijato: boolean;
+      aktualni: { profilId: string; jmeno: string; aktualizovano: string };
+    };
+    expect(telo.ok).toBe(true);
+    expect(telo.prijato).toBe(false);
+    expect(telo.aktualni.profilId).toBe('mama');
+    expect(telo.aktualni.jmeno).toBe('Marie nová');
+    expect(telo.aktualni.aktualizovano).toBe('2026-09-04T12:00:00.000Z');
+
+    // Uložený záznam zůstal nedotčený.
+    const seznam = await app.request('/api/profily', { headers: STUDENT });
+    const [zaznam] = (await seznam.json()) as { jmeno: string; aktualizovano: string }[];
+    expect(zaznam.jmeno).toBe('Marie nová');
+    expect(zaznam.aktualizovano).toBe('2026-09-04T12:00:00.000Z');
+  });
+
+  it('LWW: stejný i novější čas zápis přijme (>= uložené)', async () => {
+    await zapisProfil('mama', vzorovyZaznam('2026-09-04T10:00:00.000Z'));
+
+    const stejny = await zapisProfil('mama', {
+      ...vzorovyZaznam('2026-09-04T10:00:00.000Z'),
+      jmeno: 'Marie 2',
+    });
+    expect(await stejny.json()).toEqual({ ok: true, prijato: true });
+
+    const novejsi = await zapisProfil('mama', {
+      ...vzorovyZaznam('2026-09-04T11:00:00.000Z'),
+      jmeno: 'Marie 3',
+      pinHash: undefined,
+    });
+    expect(await novejsi.json()).toEqual({ ok: true, prijato: true });
+
+    const seznam = await app.request('/api/profily', { headers: STUDENT });
+    const [zaznam] = (await seznam.json()) as { jmeno: string; pinHash?: string }[];
+    expect(zaznam.jmeno).toBe('Marie 3');
+    // Novější zápis bez pinHash PIN zrušil i na serveru (celý záznam se nahrazuje).
+    expect(zaznam.pinHash).toBeUndefined();
+  });
+
+  it('čas z budoucnosti se ořízne — profil nezamrzne na špatných hodinách', async () => {
+    // Telefon s rokem 2030: zápis projde, ale uloží se serverové „teď“.
+    const zapis = await zapisProfil('mama', {
+      ...vzorovyZaznam('2030-01-01T00:00:00.000Z'),
+      jmeno: 'Marie z budoucnosti',
+    });
+    expect(await zapis.json()).toEqual({ ok: true, prijato: true });
+
+    const seznam = await app.request('/api/profily', { headers: STUDENT });
+    const [zaznam] = (await seznam.json()) as { jmeno: string; aktualizovano: string }[];
+    expect(zaznam.aktualizovano).not.toBe('2030-01-01T00:00:00.000Z');
+    expect(zaznam.aktualizovano < new Date(Date.now() + 6 * 60_000).toISOString()).toBe(true);
+
+    // Zdravé zařízení s aktuálním časem profil hned potom normálně přejmenuje
+    // — bez oříznutí by se k tomu dostalo až v roce 2030.
+    const zdravy = await zapisProfil('mama', {
+      ...vzorovyZaznam(new Date().toISOString()),
+      jmeno: 'Marie zdravá',
+    });
+    expect(await zdravy.json()).toEqual({ ok: true, prijato: true });
+    const po = await app.request('/api/profily', { headers: STUDENT });
+    expect(((await po.json()) as { jmeno: string }[])[0].jmeno).toBe('Marie zdravá');
+  });
+
+  it('nesmyslné aktualizovano (mimo ISO formát) vrací 400 — lexikografické LWW by na něm zamrzlo', async () => {
+    expect((await zapisProfil('mama', vzorovyZaznam('zzzz'))).status).toBe(400);
+    expect((await zapisProfil('mama', vzorovyZaznam('2026-09-04'))).status).toBe(400);
+    // Platný ISO UTC bez zlomků sekund projde.
+    expect((await zapisProfil('mama', vzorovyZaznam('2026-09-04T10:00:00Z'))).status).toBe(200);
+  });
+
+  it('DELETE smaže profil i progres, události nechá; je idempotentní', async () => {
+    await zapisProfil('mama', vzorovyZaznam());
+    await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...vzorovyProgres(), profilId: 'mama', profilJmeno: 'Marie' }),
+    });
+    const vysledek = vzorovyVysledek(0.7);
+    await app.request('/api/udalosti', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...vysledek, profilId: 'mama', profilJmeno: 'Marie' }),
+    });
+
+    const smazani = await app.request('/api/profily/mama', { method: 'DELETE', headers: STUDENT });
+    expect(smazani.status).toBe(200);
+    expect(await smazani.json()).toEqual({ ok: true });
+
+    expect(await (await app.request('/api/profily', { headers: STUDENT })).json()).toEqual([]);
+    expect(await (await app.request('/api/progres', { headers: ADMIN })).json()).toEqual([]);
+    const pull = await app.request('/api/progres/mama', { headers: STUDENT });
+    expect(pull.status).toBe(404);
+
+    // Události jsou dějiny — zůstávají i po smazání profilu.
+    const udalosti = (await (
+      await app.request('/api/udalosti', { headers: ADMIN })
+    ).json()) as { profilId: string }[];
+    expect(udalosti).toHaveLength(1);
+    expect(udalosti[0].profilId).toBe('mama');
+
+    // Druhé smazání nic nerozbije (retry-safe).
+    const znovu = await app.request('/api/profily/mama', { method: 'DELETE', headers: STUDENT });
+    expect(await znovu.json()).toEqual({ ok: true });
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+describe('pull progresu (GET /api/progres/:profilId)', () => {
+  let app: Hono;
+  beforeEach(() => {
+    app = novaApp();
+  });
+
+  it('vyžaduje studentský token a pro neznámý profil vrací 404', async () => {
+    expect((await app.request('/api/progres/mama')).status).toBe(401);
+    const odpoved = await app.request('/api/progres/mama', { headers: STUDENT });
+    expect(odpoved.status).toBe(404);
+    expect(await odpoved.json()).toHaveProperty('chyba');
+  });
+
+  it('vrátí kompletní uložený progres profilu s časem přijetí', async () => {
+    const progres = vzorovyProgres();
+    await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...progres, profilId: 'mama', profilJmeno: 'Marie' }),
+    });
+
+    const odpoved = await app.request('/api/progres/mama', { headers: STUDENT });
+    expect(odpoved.status).toBe(200);
+    const telo = (await odpoved.json()) as { progres: ProgresStudenta; prijato: string };
+    expect(telo.progres).toEqual(progres); // čistý ProgresStudenta, bez profilových polí
+    expect(typeof telo.prijato).toBe('string');
+  });
+
+  it('progres starého klienta (bez profilu) je k mání pod výchozím profilem', async () => {
+    await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify(vzorovyProgres()),
+    });
+    const odpoved = await app.request('/api/progres/vychozi', { headers: STUDENT });
+    expect(odpoved.status).toBe(200);
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+describe('zpětná kompatibilita starých klientů (bez registru profilů)', () => {
+  it('push progresu a událostí funguje beze změny a registr zůstane prázdný', async () => {
+    const app = novaApp();
+    const progres = await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify(vzorovyProgres()),
+    });
+    expect(progres.status).toBe(200);
+
+    const udalost = await app.request('/api/udalosti', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify(vzorovyVysledek()),
+    });
+    expect(udalost.status).toBe(200);
+
+    const vyzvy = await app.request('/api/vyzvy', { headers: STUDENT });
+    expect(vyzvy.status).toBe(200);
+
+    // Starý klient na /api/profily nesahá — registr nic nezaložil.
+    const registr = await app.request('/api/profily', { headers: STUDENT });
+    expect(await registr.json()).toEqual([]);
   });
 });
 

@@ -12,7 +12,14 @@
 // Fronta syncu je take per profil, ale zije mimo zustand (localStorage,
 // viz ../sync/fronta.ts) — smazani profilu ji maze akci smazProfil.
 import type { StateCreator } from 'zustand';
-import type { ProgresStudenta, QuestDenni, TestVysledek, TruhlaTyp, Vyzva } from '@questor/sdilene';
+import type {
+  ProfilRegistrZaznam,
+  ProgresStudenta,
+  QuestDenni,
+  TestVysledek,
+  TruhlaTyp,
+  Vyzva,
+} from '@questor/sdilene';
 import { vychoziProgres } from '@questor/sdilene';
 import type { TestStav } from '../testy/engine';
 import type { PostupLekce } from './vyukaSlice';
@@ -40,6 +47,19 @@ export interface Profil {
   predmety: string[];
   /** Aktivni studijni banka — MUSI byt z predmety; cti pres aktivniPredmetProfilu(). */
   aktivniPredmetId: string;
+  /**
+   * ISO cas posledni zmeny profilu (jmeno, barva, PIN, banky, aktivni banka,
+   * avatar) — rozhodci LWW pri syncu registru profilu mezi zarizenimi.
+   * Udrzuje se pri KAZDE zmene profilu (viz akce nize + hraSlice.zmenAvatara).
+   */
+  aktualizovano: string;
+  /**
+   * Profil uz byl videt na serveru (v registru profilu). Ridi propagaci
+   * smazani: kdyz server profil s timhle priznakem uz NEZNA, byl smazany
+   * na jinem zarizeni a maze se i lokalne. Profil BEZ priznaku se pri merge
+   * NIKDY lokalne nemaze — jen se pushne na server.
+   */
+  naServeru?: boolean;
 }
 
 /** Snimek dennich questu jedne (neaktivni) banky — viz questyPodleBank. */
@@ -153,6 +173,17 @@ function orizniJmeno(jmeno: string): string {
   return jmeno.trim().slice(0, MAX_DELKA_JMENA);
 }
 
+/**
+ * Naplanuje push zmeneneho profilu do registru na serveru (PUT pres offline
+ * frontu). Dynamicky import brani cyklu zavislosti; selhani je tiche —
+ * offline-first, profil se pushne pri pristim syncu z fronty.
+ */
+function naplanujPushProfilu(profilId: string): void {
+  void import('../sync/sync')
+    .then((m) => m.zaznamenejZmenuProfilu(profilId))
+    .catch(() => {});
+}
+
 // ---------------------------------------------------------------------------
 // Studijni banky profilu (ciste funkce — jedina cesta cteni predmetu profilu)
 
@@ -247,6 +278,24 @@ export interface ProfilySlice {
    * false). Dvojite potvrzeni + opsani jmena vyzaduje UI (SpravaProfilu).
    */
   smazProfil(id: string): boolean;
+  /**
+   * Merge serveroveho registru profilu do lokalnich (LWW dle aktualizovano):
+   * - server novejsi → prepise metadata lokalniho profilu (vc. zruseni PINu),
+   * - lokal novejsi nebo server profil nezna → profil se vrati v `pushnout`,
+   * - profil jen na serveru → PRIDA se lokalne (karta „ze serveru", ☁️),
+   * - lokalni profil s priznakem naServeru, ktery server uz NEZNA → smaze se
+   *   i lokalne (smazani na jinem zarizeni); profil bez priznaku se NEMAZE.
+   * POJISTKA: kdyz by se takhle mely smazat VSECHNY lokalni profily, nebo
+   * server vratil prazdny registr, smazani se neprovede a profily se misto
+   * toho pushnou — prazdna/cizi odpoved registru (preinstalovany server,
+   * ztracena DB, prepnuta adresa) nesmi vyvolat plosny vymaz lokalnich dat.
+   * Vraci profily k pushnuti a id lokalne smazanych (volajici jim zapomene
+   * fronty). Cista zmena stavu — zadna sit, vola ji sync po GET /api/profily.
+   */
+  aplikujRegistrProfilu(serverove: ProfilRegistrZaznam[]): {
+    pushnout: Profil[];
+    smazane: string[];
+  };
 }
 
 export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice> = (set, get) => ({
@@ -263,6 +312,7 @@ export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice>
       barva,
       predmety: vybrane,
       aktivniPredmetId: vybrane[0],
+      aktualizovano: new Date().toISOString(),
       ...(pinHash ? { pinHash } : {}),
     };
     const dataProfilu = { ...stav.dataProfilu };
@@ -273,6 +323,7 @@ export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice>
       dataProfilu,
       ...vychoziDataProfilu(),
     });
+    naplanujPushProfilu(profil.id);
     return profil;
   },
 
@@ -288,6 +339,15 @@ export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice>
     const nova = doplnDataProfilu(dataProfilu[id]);
     delete dataProfilu[id];
     set({ aktivniProfilId: id, dataProfilu, ...nova });
+    // Aktivace profilu: pull kompletniho postupu ze serveru (LWW dle
+    // progres.aktualizovano; bez zapnuteho syncu no-op). Tiche, neblokujici —
+    // UI ukazuje jen nenapadny stav „Nacitam postup…". Sit jen v prohlizeci
+    // (testy v Node volaji stahniPostupProfilu primo s mocknutym fetchem).
+    if (typeof window !== 'undefined') {
+      void import('../sync/sync')
+        .then((m) => m.stahniPostupProfilu())
+        .catch(() => {});
+    }
     return true;
   },
 
@@ -310,7 +370,9 @@ export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice>
 
     set({
       profily: stav.profily.map((p) =>
-        p.id === profil.id ? { ...p, aktivniPredmetId: predmetId } : p,
+        p.id === profil.id
+          ? { ...p, aktivniPredmetId: predmetId, aktualizovano: new Date().toISOString() }
+          : p,
       ),
       progres: { ...stav.progres, questy: ulozene?.questy ?? [] },
       questyOdmeneno: ulozene?.questyOdmeneno ?? [],
@@ -319,6 +381,7 @@ export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice>
     // Bez (dnesniho) snimku se questy nove banky rovnou vygeneruji; se
     // snimkem z dneska je akce no-op (zadne nove questy zadarmo).
     get().obnovDenniQuesty();
+    naplanujPushProfilu(profil.id);
     return true;
   },
 
@@ -333,9 +396,12 @@ export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice>
     // cisteni patri vyhradne na cteci cestu (predmetyProfilu).
     set({
       profily: stav.profily.map((p) =>
-        p.id === profil.id ? { ...p, predmety: [...p.predmety, predmetId] } : p,
+        p.id === profil.id
+          ? { ...p, predmety: [...p.predmety, predmetId], aktualizovano: new Date().toISOString() }
+          : p,
       ),
     });
+    naplanujPushProfilu(profil.id);
     return true;
   },
 
@@ -365,11 +431,12 @@ export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice>
         const nove = p.predmety.includes(predmetId)
           ? p.predmety.filter((id) => id !== predmetId)
           : [...p.predmety, ...predmetyProfilu(p).filter((id) => id !== predmetId)];
-        return { ...p, predmety: nove };
+        return { ...p, predmety: nove, aktualizovano: new Date().toISOString() };
       }),
     });
     // Snimek questu odebrane banky se NEmaze — postup „zustane ulozeny
     // a vrati se s ni" (stejne jako Leitner statistiky v progresu).
+    naplanujPushProfilu(profil.id);
     return true;
   },
 
@@ -390,7 +457,12 @@ export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice>
     if (!cistne) return false;
     const stav = get();
     if (!stav.profily.some((p) => p.id === id)) return false;
-    set({ profily: stav.profily.map((p) => (p.id === id ? { ...p, jmeno: cistne } : p)) });
+    set({
+      profily: stav.profily.map((p) =>
+        p.id === id ? { ...p, jmeno: cistne, aktualizovano: new Date().toISOString() } : p,
+      ),
+    });
+    naplanujPushProfilu(id);
     return true;
   },
 
@@ -401,9 +473,11 @@ export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice>
       profily: stav.profily.map((p) => {
         if (p.id !== id) return p;
         const { pinHash: _stary, ...bezPinu } = p;
-        return pinHash ? { ...bezPinu, pinHash } : bezPinu;
+        const zmeneny = { ...bezPinu, aktualizovano: new Date().toISOString() };
+        return pinHash ? { ...zmeneny, pinHash } : zmeneny;
       }),
     });
+    naplanujPushProfilu(id);
     return true;
   },
 
@@ -423,10 +497,128 @@ export const vytvorProfilySlice: StateCreator<QUESTORStav, [], [], ProfilySlice>
     }
     // Fronta syncu profilu zije mimo zustand — zapomenout ji celou (fail-safe):
     // zrusit in-memory instanci (jinak by ji bezici sync po awaitu ulozil
-    // zpatky do localStorage) a smazat ulozeny klic.
+    // zpatky do localStorage) a smazat ulozeny klic. Navic se smazani zaradi
+    // do fronty registru (DELETE /api/profily/:id), aby profil zmizel i na
+    // ostatnich zarizenich — polozka zije MIMO frontu mazaneho profilu.
     void import('../sync/sync')
-      .then((m) => m.zapomenFrontuProfilu(id))
+      .then((m) => m.zaznamenejSmazaniProfilu(id))
       .catch(() => {});
     return true;
+  },
+
+  aplikujRegistrProfilu: (serverove) => {
+    const stav = get();
+    const zeServeru = new Map(serverove.map((z) => [z.profilId, z]));
+    const pushnout: Profil[] = [];
+    const smazane: string[] = [];
+    const vysledne: Profil[] = [];
+    const dataProfilu = { ...stav.dataProfilu };
+    let aktivniSmazan = false;
+    let zmena = false;
+
+    // POJISTKA proti plošnému výmazu: příznak naServeru není vázaný na
+    // konkrétní server/DB, takže prázdný (přeinstalovaný server, ztracená
+    // questor.db) nebo cizí registr (přepnutá adresa serveru se stejným
+    // rodinným kódem) by „smazáním podle absence" vymazal VŠECHNY lokální
+    // profily včetně postupu — a lokální data jsou přitom poslední záloha.
+    // Když by merge měl smazat všechny lokální profily, nebo server vrátil
+    // úplně prázdný registr, smazání se NEPROVEDE a profily se místo toho
+    // pushnou (server se z lokálních dat znovu naplní). Běžné smazání
+    // jednoho profilu z jiného zařízení tím netrpí: server tehdy pořád
+    // vrací ostatní profily rodiny.
+    const kandidatiSmazani = stav.profily.filter((p) => p.naServeru && !zeServeru.has(p.id));
+    const smazaniPodezrele =
+      kandidatiSmazani.length > 0 &&
+      (serverove.length === 0 || kandidatiSmazani.length === stav.profily.length);
+
+    for (const p of stav.profily) {
+      const z = zeServeru.get(p.id);
+      if (z) {
+        zeServeru.delete(p.id);
+        if (z.aktualizovano > p.aktualizovano) {
+          // Server je novejsi → prevzit metadata (LWW). Zaznam BEZ pinHash
+          // rusi i lokalni PIN (zruseni PINu na jinem zarizeni plati vsude).
+          vysledne.push({
+            id: p.id,
+            jmeno: z.jmeno,
+            barva: z.barva,
+            predmety: [...z.predmety],
+            aktivniPredmetId: z.aktivniPredmetId,
+            aktualizovano: z.aktualizovano,
+            naServeru: true,
+            ...(z.pinHash ? { pinHash: z.pinHash } : {}),
+          });
+          zmena = true;
+          // Avatar z registru jen do snimku NEAKTIVNIHO profilu (karta na
+          // vyberu vypada spravne) — avatar aktivniho ridi pull progresu,
+          // aby registr neprepsal novejsi lokalni postup.
+          if (z.avatar && p.id !== stav.aktivniProfilId && dataProfilu[p.id]) {
+            dataProfilu[p.id] = {
+              ...dataProfilu[p.id],
+              progres: { ...dataProfilu[p.id].progres, avatar: z.avatar },
+            };
+          }
+        } else {
+          const znamy = p.naServeru ? p : { ...p, naServeru: true };
+          if (znamy !== p) zmena = true;
+          vysledne.push(znamy);
+          // Lokal je novejsi → server si ma vzit nas zapis.
+          if (p.aktualizovano > z.aktualizovano) pushnout.push(znamy);
+        }
+      } else if (p.naServeru) {
+        if (smazaniPodezrele) {
+          // Podezrele hromadne mazani (viz pojistka vyse) — profil zustava
+          // a pushne se, at se server z lokalnich dat znovu naplni.
+          vysledne.push(p);
+          pushnout.push(p);
+        } else {
+          // Server profil ZNAL a uz ho nezna → smazany na jinem zarizeni.
+          smazane.push(p.id);
+          delete dataProfilu[p.id];
+          if (stav.aktivniProfilId === p.id) aktivniSmazan = true;
+          zmena = true;
+        }
+      } else {
+        // Profil, ktery na serveru nikdy nebyl, se NIKDY nemaze — pushne se.
+        vysledne.push(p);
+        pushnout.push(p);
+      }
+    }
+
+    // Profily zname jen ze serveru → pridat lokalne (karta ☁️ „ze serveru").
+    for (const z of zeServeru.values()) {
+      vysledne.push({
+        id: z.profilId,
+        jmeno: z.jmeno,
+        barva: z.barva,
+        predmety: [...z.predmety],
+        aktivniPredmetId: z.aktivniPredmetId,
+        aktualizovano: z.aktualizovano,
+        naServeru: true,
+        ...(z.pinHash ? { pinHash: z.pinHash } : {}),
+      });
+      // Snimek s avatarem z registru, at karta profilu nema jen vychozi
+      // postavicku; kompletni postup pribude pullem progresu pri aktivaci.
+      // KLICOVE: progres.aktualizovano snimku je EPOCHA (ne „ted") — cerstvy
+      // prazdny snimek nesmi v LWW pullu postupu porazit skutecny postup
+      // profilu na serveru (jinak by nove zarizeni prepsalo serverovy postup
+      // prazdnym progresem).
+      const vychozi = vychoziDataProfilu('1970-01-01T00:00:00.000Z');
+      dataProfilu[z.profilId] = z.avatar
+        ? { ...vychozi, progres: { ...vychozi.progres, avatar: z.avatar } }
+        : vychozi;
+      zmena = true;
+    }
+
+    if (zmena) {
+      set({
+        profily: vysledne,
+        dataProfilu,
+        // Smazani AKTIVNIHO profilu na jinem zarizeni: pracovni sada se
+        // zahazuje a aplikace se vraci na vyber profilu (jako smazProfil).
+        ...(aktivniSmazan ? { aktivniProfilId: null, ...vychoziDataProfilu() } : {}),
+      });
+    }
+    return { pushnout, smazane };
   },
 });

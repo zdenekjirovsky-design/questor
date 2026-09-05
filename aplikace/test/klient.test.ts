@@ -79,6 +79,45 @@ describe('vytvorKlienta', () => {
       'http://server.test:8787/api/banky/ekonomika%2Fpodnikani',
     );
   });
+
+  it('posliProfil PUTuje na /api/profily/:id a tělo je záznam BEZ profilId', async () => {
+    const f = mockFetch({ ok: true, prijato: true });
+    await vytvorKlienta(NASTAVENI, f).posliProfil({
+      profilId: 'p-kuba',
+      jmeno: 'Kuba',
+      barva: '#8b5cf6',
+      predmety: ['matematika'],
+      aktivniPredmetId: 'matematika',
+      aktualizovano: '2026-09-05T10:00:00.000Z',
+      pinHash: 'abc',
+    });
+    const [url, init] = f.mock.calls[0];
+    expect(url).toBe('http://server.test:8787/api/profily/p-kuba');
+    expect(init?.method).toBe('PUT');
+    const telo = JSON.parse(init?.body as string) as Record<string, unknown>;
+    expect('profilId' in telo).toBe(false);
+    expect(telo.jmeno).toBe('Kuba');
+    expect(telo.aktualizovano).toBe('2026-09-05T10:00:00.000Z');
+    expect(telo.pinHash).toBe('abc');
+  });
+
+  it('smazProfilNaServeru posílá DELETE na /api/profily/:id', async () => {
+    const f = mockFetch({ ok: true });
+    await vytvorKlienta(NASTAVENI, f).smazProfilNaServeru('p-kuba');
+    const [url, init] = f.mock.calls[0];
+    expect(url).toBe('http://server.test:8787/api/profily/p-kuba');
+    expect(init?.method).toBe('DELETE');
+  });
+
+  it('stahniProfily a stahniProgres míří na správné cesty', async () => {
+    const f = mockFetch([]);
+    const klient = vytvorKlienta(NASTAVENI, f);
+    await klient.stahniProfily();
+    expect(f.mock.calls[0][0]).toBe('http://server.test:8787/api/profily');
+    const f2 = mockFetch({ progres: {}, prijato: 'x' });
+    await vytvorKlienta(NASTAVENI, f2).stahniProgres('p ku/ba');
+    expect(f2.mock.calls[0][0]).toBe('http://server.test:8787/api/progres/p%20ku%2Fba');
+  });
 });
 
 describe('nastavení připojení', () => {

@@ -1,25 +1,94 @@
 // Fetch klient serveru QUESTORu — tenká vrstva nad API kontraktem
 // (viz docs/ARCHITEKTURA.md). Fetch i úložiště se injektují kvůli testům.
-import type { BankaOtazek, ProgresStudenta, TestVysledek, Vyzva } from '@questor/sdilene';
+import type {
+  BankaOtazek,
+  ProfilRegistrZaznam,
+  ProgresStudenta,
+  TestVysledek,
+  Vyzva,
+} from '@questor/sdilene';
 
 // ---------------------------------------------------------------------------
-// Nastavení připojení (URL + studentský token) — stránka Nastavení
+// Nastavení připojení (URL + rodinný kód) — stránka Nastavení a dialog
+// „Připojit rodinu" na výběru profilů.
 
 export interface SyncNastaveni {
   url: string;
+  /** Rodinný kód (= studentský token serveru). Prázdný = sync vypnutý,
+   * aplikace běží čistě lokálně. */
   token: string;
 }
 
-/** Ve webové (hostované) verzi je sync ve výchozím stavu vypnutý — localhost
- * server tam nedává smysl a CSP by ho stejně zablokovala. Uživatel může URL
- * serveru kdykoli vyplnit v Nastavení. */
-const VYCHOZI_URL =
-  typeof window !== 'undefined' && window.location.protocol === 'https:' ? '' : 'http://localhost:8787';
+/** Prostředí, ve kterém aplikace běží — vstup čisté funkce výchozích adres. */
+export interface ProstrediKlienta {
+  /** window.location.protocol včetně dvojtečky (např. 'https:'). */
+  protocol: string;
+  hostname: string;
+  /** window.location.origin (např. 'https://koordinator-server.cz'). */
+  origin: string;
+  /** Běžíme v Tauri desktop shellu? (viz jeTauriProstredi) */
+  tauri: boolean;
+}
 
-export const VYCHOZI_SYNC_NASTAVENI: SyncNastaveni = {
-  url: VYCHOZI_URL,
-  token: 'student-dev',
-};
+/**
+ * Výchozí adresa serveru a rodinný kód podle prostředí:
+ * - Tauri desktop → veřejný server (aplikace běží mimo web origin),
+ * - web přes https → stejný origin + /questor-api (projde CSP connect-src 'self'),
+ * - dev (http + localhost) → lokální server s dev tokenem,
+ * - jinde (např. http přes LAN) → sync vypnutý, dokud uživatel nevyplní adresu.
+ * Rodinný kód je VŠUDE prázdný (čistě lokální běh) kromě dev prostředí.
+ */
+export function urciVychoziNastaveni(prostredi: ProstrediKlienta): SyncNastaveni {
+  if (prostredi.tauri) {
+    return { url: 'https://koordinator-server.cz/questor-api', token: '' };
+  }
+  if (prostredi.protocol === 'https:') {
+    return { url: `${prostredi.origin}/questor-api`, token: '' };
+  }
+  const lokalni =
+    prostredi.hostname === 'localhost' ||
+    prostredi.hostname === '127.0.0.1' ||
+    prostredi.hostname === '[::1]';
+  if (prostredi.protocol === 'http:' && lokalni) {
+    return { url: 'http://localhost:8787', token: 'student-dev' };
+  }
+  return { url: '', token: '' };
+}
+
+/**
+ * Robustní detekce Tauri desktop shellu: interní globály (Tauri 2 je
+ * injektuje vždy) + fallback na protokol tauri: (macOS/Linux) a hostname
+ * tauri.localhost (Windows servíruje app přes http/https). Fail-safe → false.
+ */
+export function jeTauriProstredi(w: unknown = typeof window !== 'undefined' ? window : undefined): boolean {
+  if (!w || typeof w !== 'object') return false;
+  try {
+    const okno = w as Record<string, unknown> & { location?: Location };
+    if (okno.__TAURI_INTERNALS__ !== undefined || okno.__TAURI__ !== undefined) return true;
+    const protocol = okno.location?.protocol ?? '';
+    const hostname = okno.location?.hostname ?? '';
+    return (
+      protocol === 'tauri:' || hostname === 'tauri.localhost' || hostname.endsWith('.tauri.localhost')
+    );
+  } catch {
+    return false;
+  }
+}
+
+function aktualniProstredi(): ProstrediKlienta {
+  if (typeof window === 'undefined') {
+    // Node (testy, SSR) — chová se jako dev prostředí.
+    return { protocol: 'http:', hostname: 'localhost', origin: 'http://localhost', tauri: false };
+  }
+  return {
+    protocol: window.location.protocol,
+    hostname: window.location.hostname,
+    origin: window.location.origin,
+    tauri: jeTauriProstredi(),
+  };
+}
+
+export const VYCHOZI_SYNC_NASTAVENI: SyncNastaveni = urciVychoziNastaveni(aktualniProstredi());
 
 const KLIC_NASTAVENI = 'questor-sync-nastaveni';
 
@@ -59,8 +128,9 @@ export function nactiSyncNastaveni(uloziste: Uloziste = vychoziUloziste()): Sync
     const data = JSON.parse(raw) as Partial<SyncNastaveni>;
     return {
       url: typeof data.url === 'string' && data.url ? data.url : VYCHOZI_SYNC_NASTAVENI.url,
-      token:
-        typeof data.token === 'string' && data.token ? data.token : VYCHOZI_SYNC_NASTAVENI.token,
+      // Prázdný token je PLATNÁ hodnota (sync vypnutý — rodinný kód zatím
+      // nezadaný), proto se na výchozí spadne jen u chybějícího/vadného pole.
+      token: typeof data.token === 'string' ? data.token : VYCHOZI_SYNC_NASTAVENI.token,
     };
   } catch {
     return { ...VYCHOZI_SYNC_NASTAVENI };
@@ -104,6 +174,18 @@ export interface QuestorKlient {
   posliProgres(progres: ProgresStudenta): Promise<void>;
   posliUdalost(vysledek: TestVysledek): Promise<void>;
   posliVysledekVyzvy(vyzvaId: string, telo: { uspesnost: number; xp: number }): Promise<void>;
+  /** Registr profilů rodiny (GET /api/profily) — naposledy aktualizovaný první. */
+  stahniProfily(): Promise<ProfilRegistrZaznam[]>;
+  /**
+   * Upsert profilu do registru (PUT /api/profily/:id, LWW dle aktualizovano).
+   * Starší zápis server nepřijme (200 + prijato: false) — novější verzi si
+   * klient vezme při příštím pullu registru, tady se nic nevrací.
+   */
+  posliProfil(zaznam: ProfilRegistrZaznam): Promise<void>;
+  /** Smaže profil z registru i jeho progres (DELETE /api/profily/:id, idempotentní). */
+  smazProfilNaServeru(profilId: string): Promise<void>;
+  /** Pull kompletního postupu profilu (GET /api/progres/:profilId); 404 = server nic nemá. */
+  stahniProgres(profilId: string): Promise<{ progres: unknown; prijato: string }>;
   /**
    * Otevrene vyzvy; s profilId server vrati jen vyzvy cilene na dany profil
    * + spolecne (kontrakt GET /api/vyzvy?profilId=). Bez profilId vsechny.
@@ -117,7 +199,11 @@ export function vytvorKlienta(nastaveni: SyncNastaveni, fetchFn?: FetchFunkce): 
   const zakladUrl = nastaveni.url.replace(/\/+$/, '');
   const f: FetchFunkce = fetchFn ?? ((vstup, init) => globalThis.fetch(vstup, init));
 
-  async function pozadavek<T>(metoda: 'GET' | 'POST' | 'PUT', cesta: string, telo?: unknown): Promise<T> {
+  async function pozadavek<T>(
+    metoda: 'GET' | 'POST' | 'PUT' | 'DELETE',
+    cesta: string,
+    telo?: unknown,
+  ): Promise<T> {
     const kontroler = new AbortController();
     const casovac = setTimeout(() => kontroler.abort(), TIMEOUT_MS);
     try {
@@ -157,6 +243,17 @@ export function vytvorKlienta(nastaveni: SyncNastaveni, fetchFn?: FetchFunkce): 
     posliVysledekVyzvy: async (vyzvaId, telo) => {
       await pozadavek('POST', `/api/vyzvy/${encodeURIComponent(vyzvaId)}/vysledek`, telo);
     },
+    stahniProfily: () => pozadavek('GET', '/api/profily'),
+    posliProfil: async (zaznam) => {
+      // profilId nese URL, tělo je záznam bez něj (server by ho stejně stripnul).
+      const { profilId, ...telo } = zaznam;
+      await pozadavek('PUT', `/api/profily/${encodeURIComponent(profilId)}`, telo);
+    },
+    smazProfilNaServeru: async (profilId) => {
+      await pozadavek('DELETE', `/api/profily/${encodeURIComponent(profilId)}`);
+    },
+    stahniProgres: (profilId) =>
+      pozadavek('GET', `/api/progres/${encodeURIComponent(profilId)}`),
     stahniVyzvy: (profilId) =>
       pozadavek(
         'GET',

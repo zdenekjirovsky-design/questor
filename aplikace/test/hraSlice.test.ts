@@ -194,6 +194,7 @@ describe('questy patri AKTIVNI bance profilu (filtr banky)', () => {
           barva: '#8b5cf6',
           predmety: ['matematika', 'fyzika'],
           aktivniPredmetId,
+          aktualizovano: '2026-01-01T00:00:00.000Z',
         },
       ],
       aktivniProfilId: 'p-test',

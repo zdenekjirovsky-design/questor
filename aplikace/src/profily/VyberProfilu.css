@@ -306,3 +306,41 @@
     height: 44px;
   }
 }
+
+/* --- rodinny sync (pripojeni rodiny + indikator ☁️/💾 na karte) --- */
+
+.vyber-profilu__karta {
+  position: relative;
+}
+
+.vyber-profilu__sync {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.vyber-profilu__rodina {
+  background: none;
+  border: none;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--text-tlumeny, var(--text));
+  opacity: 0.75;
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+
+.vyber-profilu__rodina:hover,
+.vyber-profilu__rodina:focus-visible {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.vyber-profilu__rodina-stav {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.65;
+}

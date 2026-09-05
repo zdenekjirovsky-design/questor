@@ -9,6 +9,7 @@
 //   banka se odvozuje z POUZIVANI (nejnovejsi test v historii profilu,
 //   fallback prvni banka registru) a doplni se prazdne questyPodleBank,
 // - migrace v5 → v6 doplni tydenniXpTestuPodleBank (seed z historie testu),
+// - migrace v6 → v7 doplni profilum aktualizovano (LWW sync mezi zarizenimi),
 // - progres, sbirka, streak, XP a postup lekci se NIKDY neztrati.
 import { describe, expect, it } from 'vitest';
 import { VYCHOZI_AVATAR } from '@questor/sdilene';
@@ -22,8 +23,8 @@ import {
 } from '../src/stav/migrace';
 
 describe('persist — partialize', () => {
-  it('verze persistu je 6 (tydenni XP z testu per banka)', () => {
-    expect(VERZE_PERSISTU).toBe(6);
+  it('verze persistu je 7 (sync profilu mezi zarizenimi)', () => {
+    expect(VERZE_PERSISTU).toBe(7);
   });
 
   it('vynechava banky a vyuky, zbytek stavu necha', () => {
@@ -369,11 +370,13 @@ describe('persist — migrace v5 → v6 (tydenni XP z testu per banka)', () => {
     expect(dataProfilu['p-mama'].tydenniXpTestuPodleBank).toEqual({
       'zaklady-vareni': { '2026-08-31': 55 },
     });
-    // Nic jineho se nemeni.
+    // Nic jineho se nemeni (profilum pribyva jen `aktualizovano` z kroku v7).
     expect(migrovane.progres).toBe(snapshotV5.progres);
     expect(migrovane.historieTestu).toBe(snapshotV5.historieTestu);
     expect(dataProfilu['p-mama'].progres).toEqual({ xp: 42 });
-    expect(migrovane.profily).toBe(snapshotV5.profily);
+    expect(migrovane.profily).toEqual([
+      { ...snapshotV5.profily[0], aktualizovano: expect.any(String) },
+    ]);
   });
 
   it('prezije snapshot bez historie (prazdny agregat)', () => {
@@ -392,5 +395,63 @@ describe('persist — migrace v5 → v6 (tydenni XP z testu per banka)', () => {
     expect(migrovane.questyPodleBank).toEqual({});
     expect(migrovane.tydenniXpTestuPodleBank).toEqual({});
     expect((migrovane.progres as Record<string, unknown>).xp).toBe(77);
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+describe('persist — migrace v6 → v7 (sync profilu mezi zarizenimi)', () => {
+  it('kazdy profil dostane aktualizovano (soucasny cas), uz pritomne se zachovava', () => {
+    const snapshotV6 = {
+      profily: [
+        {
+          id: 'p-kuba',
+          jmeno: 'Kuba',
+          barva: '#8b5cf6',
+          predmety: ['matematika'],
+          aktivniPredmetId: 'matematika',
+        },
+        {
+          id: 'p-mama',
+          jmeno: 'Mama',
+          barva: '#f5b942',
+          predmety: ['chemie'],
+          aktivniPredmetId: 'chemie',
+          aktualizovano: '2026-01-01T00:00:00.000Z',
+        },
+      ],
+      progres: { xp: 5 },
+    };
+    const pred = Date.now();
+    const migrovane = migrujPersistovanyStav(snapshotV6, 6) as Record<string, unknown>;
+    const profily = migrovane.profily as Profil[];
+    expect(typeof profily[0].aktualizovano).toBe('string');
+    const cas = new Date(profily[0].aktualizovano).getTime();
+    expect(cas).toBeGreaterThanOrEqual(pred - 1000);
+    expect(cas).toBeLessThanOrEqual(Date.now() + 1000);
+    // Uz pritomna hodnota (nemelo by nastat) zustava.
+    expect(profily[1].aktualizovano).toBe('2026-01-01T00:00:00.000Z');
+    // Priznak naServeru se NEdoplnuje — lokalni profil se pri merge nemaze.
+    expect('naServeru' in profily[0]).toBe(false);
+    // Nic jineho se nemeni.
+    expect(migrovane.progres).toBe(snapshotV6.progres);
+  });
+
+  it('v1 → v7 projde vsemi kroky najednou (profil Student ma aktualizovano)', () => {
+    const staryV1 = {
+      banky: { p: { predmetId: 'p', verze: 1 } },
+      progres: { xp: 77, avatar: { barvaVlasu: '#abcdef' } },
+    };
+    const migrovane = migrujPersistovanyStav(staryV1, 1) as Record<string, unknown>;
+    const profil = (migrovane.profily as Profil[])[0];
+    expect(profil.jmeno).toBe('Student');
+    expect(typeof profil.aktualizovano).toBe('string');
+    expect(profil.aktualizovano.length).toBeGreaterThan(4);
+  });
+
+  it('prezije snapshot bez profily (nesmyslny stav)', () => {
+    const migrovane = migrujPersistovanyStav({ progres: { xp: 1 } }, 6) as Record<string, unknown>;
+    expect(migrovane.profily).toBeUndefined();
+    expect((migrovane.progres as Record<string, unknown>).xp).toBe(1);
   });
 });

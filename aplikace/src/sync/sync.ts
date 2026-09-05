@@ -9,11 +9,17 @@
 // odesláním atribuci nezmění. Selhání sítě je TICHÉ — žádné chybové UI
 // uprostřed hry, jen nenápadný indikátor stavu (Nastavení / Domů).
 import { validujBanku, validujVyuku } from '@questor/sdilene';
-import type { ProgresStudenta, TestVysledek } from '@questor/sdilene';
-import { pouzijStav } from '../stav/store';
+import type { ProfilRegistrZaznam, ProgresStudenta, TestVysledek } from '@questor/sdilene';
+import { pouzijStav, type QUESTORStav } from '../stav/store';
 import { aktivniPredmetProfilu, predmetyProfilu, type Profil } from '../stav/profilySlice';
-import { nactiSyncNastaveni, vytvorKlienta, vychoziUloziste } from './klient';
-import { klicFrontyProfilu, KLIC_FRONTY, smazUlozenouFrontuProfilu, SyncFronta } from './fronta';
+import { ChybaSyncu, nactiSyncNastaveni, vytvorKlienta, vychoziUloziste, type QuestorKlient } from './klient';
+import {
+  klicFrontyProfilu,
+  KLIC_FRONTY,
+  KLIC_FRONTY_REGISTRU,
+  smazUlozenouFrontuProfilu,
+  SyncFronta,
+} from './fronta';
 import { ulozObsah } from './uloziste';
 
 // ---------------------------------------------------------------------------
@@ -46,6 +52,28 @@ function oznacProgres(
   };
 }
 
+/**
+ * Zaznam registru profilu pro PUT /api/profily/:id. `predmety` se posilaji
+ * SUROVE (vc. id docasne mimo registr — druhe zarizeni je muze znat), avatar
+ * se bere z pracovni sady (aktivni profil) nebo snimku (neaktivni).
+ */
+function zaznamRegistru(profil: Profil, stav: QUESTORStav): ProfilRegistrZaznam {
+  const avatar =
+    profil.id === stav.aktivniProfilId
+      ? stav.progres.avatar
+      : stav.dataProfilu[profil.id]?.progres.avatar;
+  return {
+    profilId: profil.id,
+    jmeno: profil.jmeno,
+    barva: profil.barva,
+    predmety: profil.predmety,
+    aktivniPredmetId: profil.aktivniPredmetId,
+    aktualizovano: profil.aktualizovano,
+    ...(profil.pinHash ? { pinHash: profil.pinHash } : {}),
+    ...(avatar ? { avatar } : {}),
+  };
+}
+
 // ---------------------------------------------------------------------------
 // Fronty per profil (lazy; adopce staré společné fronty viz fronta.ts)
 
@@ -58,6 +86,17 @@ function frontaProfilu(profilId: string): SyncFronta {
     fronty.set(profilId, fronta);
   }
   return fronta;
+}
+
+/**
+ * Fronta registru profilu — drzi operace, ktere neprezijou frontu konkretniho
+ * profilu (smazani profilu na serveru). Nikdy se nezapomina.
+ */
+let frontaRegistruInstance: SyncFronta | null = null;
+
+function frontaRegistru(): SyncFronta {
+  frontaRegistruInstance ??= new SyncFronta(vychoziUloziste(), KLIC_FRONTY_REGISTRU);
+  return frontaRegistruInstance;
 }
 
 /**
@@ -78,9 +117,9 @@ function aktivniProfil(): Profil | null {
   return stav.profily.find((p) => p.id === stav.aktivniProfilId) ?? null;
 }
 
-/** Součet čekajících položek přes fronty všech existujících profilů. */
+/** Součet čekajících položek přes fronty všech existujících profilů + registr. */
 function celkemVeFronte(): number {
-  let soucet = 0;
+  let soucet = frontaRegistru().velikost();
   for (const profil of pouzijStav.getState().profily) {
     soucet += frontaProfilu(profil.id).velikost();
   }
@@ -98,6 +137,8 @@ export interface StavSynchronizace {
   posledniChyba: string | null;
   /** Počet položek čekajících ve frontě. */
   veFronte: number;
+  /** Právě letí pull postupu aktivovaného profilu („Načítám postup…" v HUD). */
+  nacitamPostup: boolean;
 }
 
 const KLIC_POSLEDNI_USPECH = 'questor-sync-posledni-uspech';
@@ -113,6 +154,7 @@ let stav: StavSynchronizace = {
   })(),
   posledniChyba: null,
   veFronte: 0,
+  nacitamPostup: false,
 };
 
 const posluchaci = new Set<() => void>();
@@ -135,7 +177,14 @@ export function stavSynchronizace(): StavSynchronizace {
 // ---------------------------------------------------------------------------
 // Vlastní synchronizace
 
-export type DuvodSyncu = 'start' | 'po-testu' | 'rucne';
+export type DuvodSyncu =
+  | 'start'
+  | 'po-testu'
+  | 'rucne'
+  /** Otevření výběru profilů / připojení rodiny — hlavně merge registru. */
+  | 'profily'
+  | 'zmena-profilu'
+  | 'zmena-progresu';
 
 let probihajiciSync: Promise<void> | null = null;
 
@@ -149,26 +198,41 @@ export function synchronizuj(duvod: DuvodSyncu): Promise<void> {
 
 async function provedSync(duvod: DuvodSyncu): Promise<void> {
   const nastaveni = nactiSyncNastaveni();
-  // Bez adresy serveru je sync vypnutý (typicky hostovaná webová verze).
-  if (!nastaveni.url) return;
+  // Bez adresy serveru NEBO bez rodinného kódu je sync vypnutý — aplikace
+  // běží čistě lokálně (server by bez tokenu stejně vracel 401).
+  if (!nastaveni.url || !nastaveni.token) return;
   nastavStav({ bezi: true });
   try {
     const klient = vytvorKlienta(nastaveni);
 
     // --- push ---------------------------------------------------------------
-    const profil = aktivniProfil();
-    if (duvod === 'start' && profil) {
-      // Při startu se pošle aktuální snapshot progresu aktivního profilu.
-      frontaProfilu(profil.id).pridejProgres(
-        oznacProgres(pouzijStav.getState().progres, profil),
-      );
-    }
     // Odesílají se fronty VŠECH profilů (položky nesou profilId/profilJmeno,
-    // takže atribuce nezávisí na tom, kdo je zrovna přihlášený).
+    // takže atribuce nezávisí na tom, kdo je zrovna přihlášený). Snapshot
+    // progresu aktivního profilu při startu NEnahrává napevno — o něj se
+    // stará LWW pull postupu níž (server může mít novější z jiného zařízení).
     for (const p of pouzijStav.getState().profily) {
       const fronta = frontaProfilu(p.id);
       if (duvod === 'rucne') fronta.vynulujOdklad();
       await fronta.odesli(klient); // nikdy nevyhazuje, selhání = položky zůstávají
+    }
+    // Fronta registru (smazání profilů) MUSÍ odejít před pullem registru,
+    // jinak by merge profil smazaný na tomhle zařízení zase přidal.
+    if (duvod === 'rucne') frontaRegistru().vynulujOdklad();
+    await frontaRegistru().odesli(klient);
+
+    // --- registr profilů (LWW merge; viz aplikujRegistrProfilu) --------------
+    // Vlastní try/catch: starší server bez /api/profily nesmí shodit zbytek.
+    try {
+      const serverove = await klient.stahniProfily();
+      const { pushnout, smazane } = pouzijStav.getState().aplikujRegistrProfilu(serverove);
+      // Profil smazaný na jiném zařízení: zapomenout i jeho frontu.
+      for (const id of smazane) zapomenFrontuProfilu(id);
+      // Lokálně novější / server neznámé profily → PUT přes frontu.
+      const stav = pouzijStav.getState();
+      for (const p of pushnout) frontaProfilu(p.id).pridejProfil(zaznamRegistru(p, stav));
+      for (const p of pushnout) await frontaProfilu(p.id).odesli(klient);
+    } catch {
+      // Tiché — registr je bonus, lokální profily jedou dál.
     }
 
     // --- pull: banky (jen vyšší verze) --------------------------------------
@@ -214,6 +278,17 @@ async function provedSync(duvod: DuvodSyncu): Promise<void> {
       }
     }
 
+    // --- pull: kompletní postup aktivního profilu (LWW) ----------------------
+    // Při startu (aplikace se probouzí třeba na jiném zařízení než včera)
+    // a při ručním syncu. Aktivace profilu volá stahniPostupProfilu přímo.
+    if (duvod === 'start' || duvod === 'rucne') {
+      try {
+        await pullPostupAktivnihoProfilu(klient);
+      } catch {
+        // Tiché — starší server bez GET /api/progres/:id nesmí shodit sync.
+      }
+    }
+
     const ted = new Date().toISOString();
     try {
       vychoziUloziste().setItem(KLIC_POSLEDNI_USPECH, ted);
@@ -248,6 +323,142 @@ export function zaznamenejDokoncenyTest(vysledek: TestVysledek): void {
   fronta.pridejProgres(oznacProgres(pouzijStav.getState().progres, profil));
   nastavStav({});
   void synchronizuj('po-testu');
+}
+
+/**
+ * Push snapshotu progresu aktivního profilu po další aktivitě, která server
+ * zajímá (dokončená lekce, otevřená truhla) — ať je serverový postup čerstvý
+ * pro pull na druhém zařízení. Síť se zkouší jen v prohlížeči; v testech se
+ * položka jen zařadí do fronty.
+ */
+export function zaznamenejZmenuProgresu(): void {
+  const profil = aktivniProfil();
+  if (!profil) return;
+  frontaProfilu(profil.id).pridejProgres(oznacProgres(pouzijStav.getState().progres, profil));
+  nastavStav({});
+  if (typeof window !== 'undefined') void synchronizuj('zmena-progresu');
+}
+
+/**
+ * Zařadí PUT změněného profilu do jeho fronty (volá profilySlice po každé
+ * změně profilu — jméno, PIN, barva, banky, aktivní banka; hraSlice po změně
+ * avatara). Ve frontě zůstává vždy jen nejnovější záznam profilu.
+ */
+export function zaznamenejZmenuProfilu(profilId: string): void {
+  const stav = pouzijStav.getState();
+  const profil = stav.profily.find((p) => p.id === profilId);
+  if (!profil) return;
+  frontaProfilu(profilId).pridejProfil(zaznamRegistru(profil, stav));
+  nastavStav({});
+  if (typeof window !== 'undefined') void synchronizuj('zmena-profilu');
+}
+
+/**
+ * Smazání profilu: zapomene jeho frontu (viz zapomenFrontuProfilu) a do
+ * fronty REGISTRU zařadí DELETE na server, aby profil zmizel i na ostatních
+ * zařízeních. Položka žije mimo frontu mazaného profilu, jinak by se smazala
+ * sama se sebou. Volá profilySlice.smazProfil.
+ */
+export function zaznamenejSmazaniProfilu(profilId: string): void {
+  zapomenFrontuProfilu(profilId);
+  frontaRegistru().pridejSmazaniProfilu(profilId);
+  nastavStav({});
+  if (typeof window !== 'undefined') void synchronizuj('zmena-profilu');
+}
+
+// ---------------------------------------------------------------------------
+// Pull kompletního postupu profilu (sync postupu přes zařízení)
+
+/**
+ * Minimální strukturální kontrola progresu ze serveru (server ho při POSTu
+ * validoval zodem, tohle chrání jen proti driftu verzí / vadné odpovědi).
+ */
+function prectiServerovyProgres(data: unknown): ProgresStudenta | null {
+  if (data === null || typeof data !== 'object') return null;
+  const p = data as Record<string, unknown>;
+  if (typeof p.xp !== 'number' || typeof p.aktualizovano !== 'string' || !p.aktualizovano) {
+    return null;
+  }
+  if (p.streak === null || typeof p.streak !== 'object') return null;
+  if (!Array.isArray(p.questy)) return null;
+  if (p.sbirka === null || typeof p.sbirka !== 'object') return null;
+  if (p.avatar === null || typeof p.avatar !== 'object') return null;
+  if (p.statistikyOtazek === null || typeof p.statistikyOtazek !== 'object') return null;
+  if (p.rekordy === null || typeof p.rekordy !== 'object') return null;
+  if (typeof p.dokonceneTesty !== 'number') return null;
+  const progres = data as ProgresStudenta;
+  return Array.isArray(p.vlastnenaVybava) ? progres : { ...progres, vlastnenaVybava: [] };
+}
+
+/**
+ * LWW pull postupu AKTIVNÍHO profilu: serverový snapshot s novějším
+ * `aktualizovano` nahradí celý lokální ProgresStudenta (a obnoví odvozené —
+ * questy dne), lokálně novější postup se naopak pushne. 404 = server o
+ * profilu nic nemá → lokální postup je pravda a pushne se.
+ * PRAVIDLO pullu osobních dat: po každém awaitu se aktivní profil znovu
+ * porovná — přepnutí během letícího požadavku výsledek ZAHODÍ.
+ */
+async function pullPostupAktivnihoProfilu(klient: QuestorKlient): Promise<void> {
+  const profil = aktivniProfil();
+  if (!profil) return;
+  nastavStav({ nacitamPostup: true });
+  try {
+    let odpoved: { progres: unknown; prijato: string };
+    try {
+      odpoved = await klient.stahniProgres(profil.id);
+    } catch (chyba) {
+      if (chyba instanceof ChybaSyncu && chyba.status === 404) {
+        const stav = pouzijStav.getState();
+        if (stav.aktivniProfilId === profil.id) {
+          frontaProfilu(profil.id).pridejProgres(oznacProgres(stav.progres, profil));
+          await frontaProfilu(profil.id).odesli(klient);
+        }
+        return;
+      }
+      throw chyba;
+    }
+    const stav = pouzijStav.getState();
+    if (stav.aktivniProfilId !== profil.id) return; // přepnuto během letu → zahodit
+    const serverovy = prectiServerovyProgres(odpoved.progres);
+    if (!serverovy) return;
+    if (serverovy.aktualizovano > stav.progres.aktualizovano) {
+      // Server je novější (hrálo se na jiném zařízení) → nahradit CELÝ snímek
+      // a obnovit odvozené (questy dne se případně dogenerují pro dnešek).
+      // questyOdmeneno se serverem NEsynchronizuje (žije mimo ProgresStudenta),
+      // proto se odvodí ze splněných questů snapshotu: splneno nastavuje tatáž
+      // akce, která quest hned odměňuje (hraSlice/vyukaSlice), takže splněný
+      // quest ze serveru UŽ odměněný je — bez odvození by ho první
+      // zapocitejOdpoved/dokonciLekci na tomhle zařízení odměnil podruhé.
+      const questyOdmeneno = [
+        ...new Set([
+          ...stav.questyOdmeneno,
+          ...serverovy.questy.filter((q) => q.splneno).map((q) => q.id),
+        ]),
+      ];
+      pouzijStav.setState({ progres: serverovy, questyOdmeneno });
+      pouzijStav.getState().obnovDenniQuesty();
+    } else if (stav.progres.aktualizovano > serverovy.aktualizovano) {
+      // Lokál je novější → server si má vzít náš snapshot.
+      frontaProfilu(profil.id).pridejProgres(oznacProgres(stav.progres, profil));
+      await frontaProfilu(profil.id).odesli(klient);
+    }
+  } finally {
+    nastavStav({ nacitamPostup: false });
+  }
+}
+
+/**
+ * Veřejný vstup pullu postupu — volá ho prepniProfil při aktivaci profilu.
+ * Bez zapnutého syncu (chybí adresa nebo rodinný kód) no-op; selhání tiché.
+ */
+export async function stahniPostupProfilu(): Promise<void> {
+  const nastaveni = nactiSyncNastaveni();
+  if (!nastaveni.url || !nastaveni.token) return;
+  try {
+    await pullPostupAktivnihoProfilu(vytvorKlienta(nastaveni));
+  } catch {
+    // Tiché — offline-first, postup se srovná při příštím syncu.
+  }
 }
 
 // ---------------------------------------------------------------------------

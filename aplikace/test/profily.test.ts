@@ -26,6 +26,11 @@ import {
 } from '../src/profily/pin';
 import { klicFrontyProfilu, KLIC_FRONTY, SyncFronta } from '../src/sync/fronta';
 import { pametoveUloziste, vychoziUloziste } from '../src/sync/klient';
+// Staticky import syncu: slice akce ho importuji dynamicky (fire-and-forget)
+// a zavod s dynamickym importem uvnitr testu umel vratit castecne
+// vyhodnoceny modul (TDZ na module-level konstantach) — staticky import
+// zaruci plne vyhodnoceni pred prvnim testem.
+import { zaznamenejDokoncenyTest } from '../src/sync/sync';
 
 function vynulujProfily(): void {
   pouzijStav.getState().resetujProgres();
@@ -462,7 +467,6 @@ describe('profily — sync (profilId a profilJmeno na payloadech)', () => {
     // Sit je v testu vypnuta — sync selze ticho a polozky zustanou ve fronte.
     vi.stubGlobal('fetch', () => Promise.reject(new Error('sit vypnuta v testu')));
     try {
-      const { zaznamenejDokoncenyTest } = await import('../src/sync/sync');
       const profil = pouzijStav.getState().vytvorProfil('Kuba', BARVY_PROFILU[0]);
       const vysledek = vysledekTestu();
       zaznamenejDokoncenyTest(vysledek);

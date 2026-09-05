@@ -66,6 +66,12 @@ export default function Nastaveni() {
       <div className="nastaveni-sekce">
         <h2>Připojení</h2>
         <div className="panel nastaveni-formular">
+          <p className="nastaveni-stav">
+            Rodinný kód propojí zařízení rodiny: profily, jejich PINy, studijní banky i herní
+            postup (XP, streak, sbírka, statistiky) se synchronizují přes server. Postup lekcí
+            a historie testů zatím zůstávají na každém zařízení zvlášť. Bez kódu běží aplikace
+            čistě lokálně.
+          </p>
           <div className="nastaveni-pole">
             <label htmlFor="sync-url">Adresa serveru</label>
             <input
@@ -77,12 +83,13 @@ export default function Nastaveni() {
             />
           </div>
           <div className="nastaveni-pole">
-            <label htmlFor="sync-token">Studentský token</label>
+            <label htmlFor="sync-token">Rodinný kód</label>
             <input
               id="sync-token"
               type="password"
               value={nastaveni.token}
               autoComplete="off"
+              placeholder="Bez kódu běží aplikace jen lokálně"
               onChange={(e) => setNastaveni({ ...nastaveni, token: e.target.value })}
             />
           </div>

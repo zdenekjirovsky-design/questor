@@ -61,6 +61,10 @@ export const ADMIN_HTML = `<!doctype html>
   button:hover { filter: brightness(1.12); }
   button.zlate { background: var(--zlata); color: #241a04; }
   button.tiche { background: var(--panel-2); border: 1px solid var(--okraj); font-weight: 400; }
+  button.nebezpecne { background: transparent; border: 1px solid var(--chyba); color: var(--chyba); font-weight: 500; }
+  button.nebezpecne:hover { background: rgba(248, 113, 113, 0.12); filter: none; }
+  .odsaz-mala { margin-top: 8px; font-size: 0.85rem; }
+  .profil-karta .akce { margin-top: 10px; display: flex; justify-content: flex-end; }
   table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
   th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--okraj); }
   th { color: var(--text-tlumeny); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -122,8 +126,9 @@ export const ADMIN_HTML = `<!doctype html>
   </section>
 
   <section class="panel" id="panel-progres">
-    <h2>Progres profilů</h2>
+    <h2>Profily</h2>
     <div id="progres-obsah"><span class="tlumene">Načítám…</span></div>
+    <div class="zprava" id="profily-zprava"></div>
     <h2 class="odsaz">Poslední testy</h2>
     <table>
       <thead><tr><th>Kdy</th><th>Profil</th><th>Režim</th><th>Úspěšnost</th><th>XP</th><th>Combo</th><th>Truhla</th></tr></thead>
@@ -317,13 +322,29 @@ export const ADMIN_HTML = `<!doctype html>
     ctecka.readAsText(vstup.files[0]);
   });
 
-  // --- Progres profilů a poslední testy ------------------------------------
+  // --- Profily (progres + registr) a poslední testy ------------------------
   var profily = []; // [{ profilId, jmeno, ... }] z posledního načtení progresu
+  var registr = []; // [{ profilId, jmeno, barva, predmety, ... }] z /api/profily
   function jmenoProfilu(profilId) {
     for (var i = 0; i < profily.length; i++) {
       if (profily[i].profilId === profilId) return profily[i].jmeno;
     }
+    for (var j = 0; j < registr.length; j++) {
+      if (registr[j].profilId === profilId) return registr[j].jmeno;
+    }
     return profilId;
+  }
+  function zaznamRegistru(profilId) {
+    for (var i = 0; i < registr.length; i++) {
+      if (registr[i].profilId === profilId) return registr[i];
+    }
+    return null;
+  }
+  function maProgres(profilId) {
+    for (var i = 0; i < profily.length; i++) {
+      if (profily[i].profilId === profilId) return true;
+    }
+    return false;
   }
   function kpi(hodnota, popisek) {
     var div = document.createElement('div');
@@ -341,16 +362,61 @@ export const ADMIN_HTML = `<!doctype html>
     vsem.value = '';
     vsem.textContent = 'všem';
     vyber.appendChild(vsem);
-    for (var i = 0; i < profily.length; i++) {
+    // Sjednocení: profily s progresem + profily, které zná jen registr.
+    var videne = {};
+    var i;
+    for (i = 0; i < profily.length; i++) videne[profily[i].profilId] = true;
+    for (i = 0; i < profily.length; i++) {
       var opt = document.createElement('option');
       opt.value = profily[i].profilId;
       opt.textContent = profily[i].jmeno;
       vyber.appendChild(opt);
     }
+    for (i = 0; i < registr.length; i++) {
+      if (videne[registr[i].profilId]) continue;
+      var opt2 = document.createElement('option');
+      opt2.value = registr[i].profilId;
+      opt2.textContent = registr[i].jmeno;
+      vyber.appendChild(opt2);
+    }
     vyber.value = vybrane;
     if (vyber.selectedIndex < 0) vyber.value = '';
   }
-  function kartaProfilu(zaznam) {
+  // Řádek s tím, co o profilu ví registr (sync mezi zařízeními): studijní
+  // banky, aktivní banka, čas poslední aktualizace, jestli má PIN.
+  function infoRegistru(reg) {
+    var div = document.createElement('div');
+    div.className = 'tlumene odsaz-mala';
+    var banky = (reg.predmety && reg.predmety.length) ? reg.predmety.join(', ') : '—';
+    var text = 'Banky: ' + banky;
+    if (reg.aktivniPredmetId) text += ' · aktivní: ' + reg.aktivniPredmetId;
+    text += ' · registr ' + datumCas(reg.aktualizovano);
+    if (reg.pinHash) text += ' · má PIN';
+    div.textContent = text;
+    return div;
+  }
+  function tlacitkoSmazat(profilId, jmeno) {
+    var akce = document.createElement('div');
+    akce.className = 'akce';
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'nebezpecne';
+    b.textContent = 'Smazat profil';
+    b.addEventListener('click', function () {
+      var jistota = confirm('Opravdu smazat profil „' + jmeno + '“ ze serveru včetně jeho progresu? Historie testů (události) zůstane.');
+      if (!jistota) return;
+      api('/api/profily/' + encodeURIComponent(profilId), { method: 'DELETE' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          nastavZpravu('profily-zprava', 'Profil „' + jmeno + '“ smazán (události zůstaly).', true);
+          nactiProgres().then(nactiVyzvy);
+        })
+        .catch(function () { nastavZpravu('profily-zprava', 'Smazání se nepovedlo — zkontroluj token.', false); });
+    });
+    akce.appendChild(b);
+    return akce;
+  }
+  function kartaProfilu(zaznam, reg) {
     var p = zaznam.progres;
     var lvl = zaznam.level;
     var karta = document.createElement('div');
@@ -358,6 +424,7 @@ export const ADMIN_HTML = `<!doctype html>
     var jmeno = document.createElement('div');
     jmeno.className = 'profil-jmeno';
     jmeno.textContent = zaznam.jmeno;
+    if (reg && reg.barva) jmeno.style.color = reg.barva;
     karta.appendChild(jmeno);
     var mrizka = document.createElement('div');
     mrizka.className = 'kpi-mrizka';
@@ -374,32 +441,64 @@ export const ADMIN_HTML = `<!doctype html>
     pop.className = 'tlumene';
     pop.textContent = 'Do dalšího levelu: ' + lvl.xpVLevelu + ' / ' + lvl.xpNaDalsiLevel + ' XP · přijato ' + datumCas(zaznam.prijato);
     karta.appendChild(pop);
+    if (reg) karta.appendChild(infoRegistru(reg));
+    karta.appendChild(tlacitkoSmazat(zaznam.profilId, zaznam.jmeno));
     requestAnimationFrame(function () { vypln.style.width = Math.round(lvl.procento * 100) + '%'; });
+    return karta;
+  }
+  // Karta profilu, který zná jen registr (založený na jiném zařízení,
+  // progres ještě nedorazil).
+  function kartaRegistru(reg) {
+    var karta = document.createElement('div');
+    karta.className = 'profil-karta';
+    var jmeno = document.createElement('div');
+    jmeno.className = 'profil-jmeno';
+    jmeno.textContent = reg.jmeno;
+    if (reg.barva) jmeno.style.color = reg.barva;
+    karta.appendChild(jmeno);
+    var pop = document.createElement('div');
+    pop.className = 'tlumene';
+    pop.textContent = 'Zatím žádný progres — profil zná jen registr.';
+    karta.appendChild(pop);
+    karta.appendChild(infoRegistru(reg));
+    karta.appendChild(tlacitkoSmazat(reg.profilId, reg.jmeno));
     return karta;
   }
   function nactiProgres() {
     var obsah = $('progres-obsah');
-    return api('/api/progres').then(function (r) {
+    var pProgres = api('/api/progres').then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json().then(function (data) {
-        profily = data;
-        naplnVyberProfilu();
-        obsah.textContent = '';
-        if (!data.length) {
-          var s = document.createElement('span');
-          s.className = 'tlumene';
-          s.textContent = 'Zatím nic nedorazilo — žádný profil neposlal progres.';
-          obsah.appendChild(s);
-          return;
-        }
-        var mrizka = document.createElement('div');
-        mrizka.className = 'profil-mrizka';
-        for (var i = 0; i < data.length; i++) mrizka.appendChild(kartaProfilu(data[i]));
-        obsah.appendChild(mrizka);
-      });
+      return r.json();
+    });
+    var pRegistr = api('/api/profily').then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+    return Promise.all([pProgres, pRegistr]).then(function (vysledky) {
+      profily = vysledky[0];
+      registr = vysledky[1];
+      naplnVyberProfilu();
+      obsah.textContent = '';
+      if (!profily.length && !registr.length) {
+        var s = document.createElement('span');
+        s.className = 'tlumene';
+        s.textContent = 'Zatím nic nedorazilo — žádný profil neposlal progres ani registraci.';
+        obsah.appendChild(s);
+        return;
+      }
+      var mrizka = document.createElement('div');
+      mrizka.className = 'profil-mrizka';
+      var i;
+      for (i = 0; i < profily.length; i++) {
+        mrizka.appendChild(kartaProfilu(profily[i], zaznamRegistru(profily[i].profilId)));
+      }
+      for (i = 0; i < registr.length; i++) {
+        if (!maProgres(registr[i].profilId)) mrizka.appendChild(kartaRegistru(registr[i]));
+      }
+      obsah.appendChild(mrizka);
     }).catch(function () {
       obsah.textContent = '';
-      var s = document.createElement('span'); s.className = 'chyba'; s.textContent = 'Nepodařilo se načíst progres — zkontroluj token.';
+      var s = document.createElement('span'); s.className = 'chyba'; s.textContent = 'Nepodařilo se načíst profily — zkontroluj token.';
       s.style.color = 'var(--chyba)';
       obsah.appendChild(s);
     });

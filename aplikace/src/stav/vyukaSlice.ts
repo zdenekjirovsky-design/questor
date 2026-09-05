@@ -212,6 +212,13 @@ export const vytvorVyukaSlice: StateCreator<QUESTORStav, [], [], VyukaSlice> = (
         },
       });
 
+      // Push snapshotu progresu (lekce dala XP, streak, questy) — server ma
+      // byt cerstvy pro pull postupu na druhem zarizeni. Dynamicky import
+      // brani cyklu zavislosti, selhani site je tiche (offline-first).
+      void import('../sync/sync')
+        .then((m) => m.zaznamenejZmenuProgresu())
+        .catch(() => {});
+
       return { xp: celkoveXp, poprveDnes: true };
     },
   };

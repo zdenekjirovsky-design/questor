@@ -42,14 +42,14 @@ psychologickými hooky.
    questor-server :8787).
 7. API klíče a tokeny jen v env / `.env` (v .gitignore), nikdy v kódu.
 
-## Stav (2026-09-05 — po vlně 5: studijní banky profilů)
+## Stav (2026-09-05 — po vlně 6: sdílené profily mezi zařízeními)
 
-Vydané verze: tagy `v0.1.0`–`v0.3.1` (v0.3.0 = avatar 2.0, v0.3.1 = CI
-macOS build). Vlny 4 a 5 níže jsou hotové v pracovní kopii, zatím
-NEcommitnuté.
+Vydané verze: tagy `v0.1.0`–`v0.4.0` (v0.3.0 = avatar 2.0, v0.3.1 = CI
+macOS build, v0.4.0 = vlny 4 a 5 + web nasazení). Vlna 6 níže je hotová
+v pracovní kopii, zatím NEcommitnutá.
 
-**Hotové a ověřené** (typecheck 4/4 workspaces, testy 334/334 — sdílené 86,
-generátor 32, server 46, aplikace 170; build aplikace OK ~1 s;
+**Hotové a ověřené** (typecheck 4/4 workspaces, testy 392/392 — sdílené 86,
+generátor 32, server 71, aplikace 203; build aplikace OK ~1 s;
 `npx tsx scripts/kontrola-integrace.ts` → 14 bank, 14 výuk | 86 témat,
 780 otázek, 86 lekcí, 172 mini-kvízů, 92 widgetů — VŠECHNY KONTROLY OK):
 
@@ -124,21 +124,49 @@ generátor 32, server 46, aplikace 170; build aplikace OK ~1 s;
   banky registru, aktivní z nejnovějšího testu historie; v6 = seed
   týdenního XP per banka z historie testů; nic se neztrácí). Progres
   na server nese navíc `predmety` + `aktivniPredmetId` (server je při
-  validaci odstripuje, beze změny serveru).
+  validaci odstripuje, beze změny serveru);
+- vlna 6 — SDÍLENÉ PROFILY MEZI ZAŘÍZENÍMI (profil z telefonu vidět na
+  notebooku a naopak, konflikty LWW dle `aktualizovano` — v rodině se
+  zařízení střídají). Server: registr profilů `GET/PUT/DELETE
+  /api/profily` (tabulka `profily`, LWW s validací ISO UTC času
+  a ořezem času z budoucnosti ±5 min), LWW i na `POST /api/progres`,
+  pull postupu `GET /api/progres/:profilId`, rate limit `/api/*`
+  (`server/src/limit.ts`, 240 req/min per IP, `QUESTOR_DUVERUJ_PROXY`),
+  admin karty obohacené o registr + Smazat profil. Sdílené typy
+  `ProfilMetadata`/`ProfilRegistrZaznam`. Klient: **rodinný kód**
+  (= studentský token; dialog „Připojit rodinu“ na výběru profilů,
+  bez kódu sync vypnutý), výchozí adresy per prostředí
+  (`urciVychoziNastaveni` — Tauri → koordinator-server.cz/questor-api,
+  https web → origin/questor-api, dev → localhost:8787+student-dev),
+  fronta položek `profil`/`smazani-profilu` + samostatná fronta
+  registru, merge `aplikujRegistrProfilu` (LWW; pojistka proti
+  plošnému výmazu při prázdném/cizím registru), pull kompletního
+  `ProgresStudenta` při aktivaci profilu/startu/ručním syncu
+  (postup lekcí, historie testů, čekající truhly a týdenní XP per
+  banka zatím zůstávají per zařízení), persist v6→v7
+  (`Profil.aktualizovano`). Dokumentace: ARCHITEKTURA (Server, Sync),
+  NAVOD kap. 4 Rodinný sync, NASAZENI krok 5a (sdílený hosting: pm2
+  :10121 + `.htaccess` proxy `/questor-api`).
 
 **Připravené, ale neověřené:**
 
 - Tauri build — staví se jen v GitHub Actions (na Macu se Rust část
-  nekompiluje); po commitu vln 4 a 5 je potřeba na GitHubu ověřit běh
+  nekompiluje); po commitu vlny 6 je potřeba na GitHubu ověřit běh
   workflow a auto-update nové verze na Windows (postup
   `docs/NASAZENI.md`);
+- rodinný sync na PRODUKCI — kód ověřený testy a lokálně; nasazení
+  serveru na sdílený hosting (`docs/NASAZENI.md`, krok 5a) a ostrý běh
+  telefon ↔ notebook přes https://koordinator-server.cz/questor-api
+  ještě neproběhly;
 - dogenerování otázek — serverová půlka hotová (bez `ANTHROPIC_API_KEY`
   vrací 503 = „vypnuto“), proti skutečnému Claude API neověřeno;
   klientská část v aplikaci pořád chybí;
 - poskytovatelé `api` a `claude-cli` generátoru neověřeny ostrým během
   (testy jedou na `mock`) — platí i pro režim `--vyuka`.
 
-**Další krok:** commit + push vln 4 a 5 a release nové verze přes CI
-(ověřit auto-update na Windows); nasadit/aktualizovat server (migrace DB
-proběhne sama při startu) a nahrát na něj banku i výuku vaření; poté
-ostré vygenerování dalšího předmětu přes `api` nebo `claude-cli`.
+**Další krok:** commit + push vlny 6 a release nové verze přes CI
+(ověřit auto-update na Windows); nasadit server na sdílený hosting podle
+`docs/NASAZENI.md` krok 5a (pm2 :10121, `.htaccess` proxy `/questor-api`,
+ostré tokeny; migrace DB proběhne sama při startu) a ověřit rodinný sync
+telefon ↔ notebook; poté ostré vygenerování dalšího předmětu přes `api`
+nebo `claude-cli`.

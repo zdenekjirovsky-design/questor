@@ -5,9 +5,10 @@
 //
 // Menu profilů: přepnutí na profil bez PINu je na jeden klik; profil s PINem
 // se přepíná přes odhlášení (PIN se zadává na obrazovce výběru profilu).
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { denZData, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
+import { pripojSeKeStavuSyncu, stavSynchronizace } from '../sync/sync';
 import {
   aktivniPredmetProfilu,
   predmetyProfilu,
@@ -170,6 +171,9 @@ export default function HudHlavicka() {
   const aktivniProfilId = pouzijStav((s) => s.aktivniProfilId);
   const [menuOtevrene, setMenuOtevrene] = useState(false);
   const aktivniProfil = profily.find((p) => p.id === aktivniProfilId) ?? null;
+  // Neblokujici stav „Nacitam postup…" behem pullu postupu po aktivaci
+  // profilu (LWW sync pres zarizeni) — hra bezi dal, zadny spinner pres appku.
+  const stavSyncu = useSyncExternalStore(pripojSeKeStavuSyncu, stavSynchronizace);
 
   const level = stavLevelu(progres.xp);
   const dnes = denZData(new Date());
@@ -217,6 +221,11 @@ export default function HudHlavicka() {
         {menuOtevrene && <MenuProfilu zavri={() => setMenuOtevrene(false)} />}
       </div>
       {aktivniProfil && <ChipBanky profil={aktivniProfil} />}
+      {stavSyncu.nacitamPostup && (
+        <span className="hud__nacitam" role="status">
+          ☁️ Načítám postup…
+        </span>
+      )}
       <div className="hud__level-blok" title={`${progres.xp} XP celkem`}>
         <div className="hud__level-radek">
           <span className="hud__level">LVL {level.level}</span>

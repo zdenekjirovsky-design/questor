@@ -313,6 +313,24 @@ describe('aktualizujTrofeje', () => {
     expect(t.dvojice.syn.serieVyher).toBe(0);
   });
 
+  it('host duelu odkazem nezakládá řádek dvojice, počítadla a série ale běží', () => {
+    // Klíč host:<duelId> je jednorázový — každý duel by založil nový trvalý
+    // řádek vitríny („proti: Bývalý profil“) a snapshot progresu by rostl
+    // bez omezení. Celkem/série/tituly se za duel s hostem počítají normálně.
+    let t = vychoziTrofeje();
+    t = aktualizujTrofeje(t, 'host:duel-1', 'vyhra', obor);
+    t = aktualizujTrofeje(t, 'host:duel-2', 'vyhra', obor);
+    t = aktualizujTrofeje(t, 'host:duel-3', 'vyhra', obor);
+    expect(t.dvojice).toEqual({});
+    expect(t.duelyCelkem).toBe(3);
+    expect(t.serieVyherCelkem).toBe(3);
+    expect(t.seriePodleOboru.ekonomika).toBe(3);
+    expect(t.tituly).toContain(TITUL_VITEZNA_VLNA);
+    // Rodinný soupeř vedle hostů řádek dvojice dostává dál.
+    t = aktualizujTrofeje(t, 'syn', 'vyhra', obor);
+    expect(t.dvojice.syn).toEqual({ vyhry: 1, prohry: 0, remizy: 0, serieVyher: 1 });
+  });
+
   it('remíza i prohra nulují celkovou sérii výher', () => {
     let t = vychoziTrofeje();
     t = aktualizujTrofeje(t, 'syn', 'vyhra', obor);

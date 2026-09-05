@@ -59,7 +59,9 @@ export default function DuelHrani() {
   const poExpiraci = expirujDuel(duel, new Date().toISOString());
   if (jeDokoncenyDuel(poExpiraci)) return <DuelVysledek duel={poExpiraci} profilId={profilId} />;
   if (duel.vysledky[profilId]) return <CekaniNaSoupere duel={duel} profilId={profilId} />;
-  if (!duel.souper) {
+  // Duel odkazem (proOdkaz) hraje vyzyvatel i pred prijetim hosta — handicap
+  // je fixne 1.0 od zalozeni (kontrakt serveru), cekat na hosta nemusi.
+  if (!duel.souper && !duel.proOdkaz) {
     return (
       <section className="duel-hrani">
         <h1>⚔️ Duel</h1>
@@ -85,6 +87,13 @@ export default function DuelHrani() {
 function CekaniNaSoupere({ duel, profilId }: { duel: Duel; profilId: string }) {
   const muj = duel.vysledky[profilId];
   const souper = souperVDuelu(duel, profilId);
+  // Duel odkazem: dokud host odkaz neotevre, souper neexistuje — ceka se na
+  // hosta (jmeno zna duel az po prijeti, stitek „host" nosi seznam duelu).
+  const popisSoupere = souper
+    ? `${souper.jmeno}${duel.proOdkaz ? ' (host)' : ''} má čas do vypršení duelu`
+    : duel.proOdkaz
+      ? 'Čekáme, až host otevře tvůj odkaz — má čas do vypršení duelu'
+      : 'Soupeř má čas do vypršení duelu';
   return (
     <section className="duel-hrani">
       <h1>⚔️ Duel</h1>
@@ -93,7 +102,7 @@ function CekaniNaSoupere({ duel, profilId }: { duel: Duel; profilId: string }) {
         <p className="duely__prazdno-titulek">Odehráno! Čekáme na soupeře…</p>
         <p>
           Tvoje skóre <strong className="duel-cekani__body">{muj?.body ?? 0} b</strong> je zapečetěné.
-          {souper ? ` ${souper.jmeno} má čas do vypršení duelu` : ' Soupeř má čas do vypršení duelu'}
+          {' '}{popisSoupere}
           {' '}({zbyvaDoVyprseni(duel.vyprsi, Date.now())}). Výsledek se odhalí, až dohrají oba.
         </p>
         <Link to="/duely" className="tlacitko tlacitko--primarni">
@@ -204,6 +213,9 @@ function IntroVS({ duel, profilId }: { duel: Duel; profilId: string }) {
     (s) => s.profily.find((p) => p.id === profilId)?.jmeno ?? 'Ty',
   );
   const handicap = popisHandicapu(duel, profilId);
+  // U duelu odkazem pred prijetim hosta souper jeste neexistuje — misto „???"
+  // se ukaze neutralni „Host" (jmeno zada host az pri otevreni odkazu).
+  const jmenoSoupere = souper?.jmeno ?? (duel.proOdkaz ? 'Host' : '???');
 
   return (
     <section className="duel-hrani">
@@ -225,10 +237,13 @@ function IntroVS({ duel, profilId }: { duel: Duel; profilId: string }) {
               <Avatar konfigurace={souperuvAvatar} velikost={84} />
             ) : (
               <div className="duel-intro__silueta" aria-hidden="true">
-                {(souper?.jmeno ?? '?').slice(0, 1).toUpperCase()}
+                {jmenoSoupere.slice(0, 1).toUpperCase()}
               </div>
             )}
-            <div className="duel-intro__jmeno">{souper?.jmeno ?? '???'}</div>
+            <div className="duel-intro__jmeno">
+              {jmenoSoupere}
+              {duel.proOdkaz && <span className="stitek duely__stitek-host">host</span>}
+            </div>
             {handicap.souperuv > 1 && (
               <div className="duel-intro__bonus">
                 ⏱️ čas ×{handicap.souperuv.toFixed(2).replace('.', ',')}
@@ -377,7 +392,9 @@ function PowerupLista({ prubeh, otazka }: { prubeh: DuelPrubeh; otazka: Otazka }
   );
 }
 
-function TeloOtazkyDuelu({
+// Export: telo otazky sdili rodinne hrani (OtazkaDuelu) i hostovsky rezim
+// duelu odkazem (HostDuel) — obe strany hraji IDENTICKE otazky stejnym UI.
+export function TeloOtazkyDuelu({
   otazka,
   skryteMoznosti,
   onOdpoved,

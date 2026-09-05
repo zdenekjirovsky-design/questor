@@ -130,10 +130,11 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
 
   // CORS: aplikace běží na jiném originu (Vite :5173, Tauri http://tauri.localhost)
   // a hlavička x-questor-token vynucuje preflight OPTIONS — bez CORS by
-  // prohlížeč/WebView všechna volání API zablokoval.
+  // prohlížeč/WebView všechna volání API zablokoval. x-questor-host-kod nese
+  // hostovský kód duelu odkazem u GET (kód nesmí do URL → access logů).
   app.use(
     '*',
-    cors({ allowHeaders: ['content-type', 'x-questor-token'] }),
+    cors({ allowHeaders: ['content-type', 'x-questor-token', 'x-questor-host-kod'] }),
   );
 
   // Rate limit per IP na celém /api/* — server běží veřejně a tokeny jsou

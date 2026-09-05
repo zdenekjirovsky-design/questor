@@ -269,14 +269,16 @@ export function casDokonceniDuelu(duel: Duel): string {
  * vysledku, nedokonceny a NEVYPRSELY (lina expirace plati i lokalne — offline
  * nejde hrat po 24h terminu, server by vysledek stejne odmitl). Cilenou vyzvu
  * jde hrat i offline (odevzdani vysledku je zaroven prijeti), pokud uz klient
- * ma sadu otazek; otevrenou az po prijeti (server).
+ * ma sadu otazek; otevrenou az po prijeti (server). VYJIMKA duel odkazem
+ * (proOdkaz): handicap je fixne 1.0 od zalozeni, takze vyzyvatel smi svou
+ * pulku odehrat i driv, nez host odkaz vubec otevre (kontrakt serveru).
  */
 export function muzeHratDuel(duel: Duel, profilId: string, tedIso: string): boolean {
   return (
     !jeDokoncenyDuel(duel) &&
     duel.vyprsi > tedIso &&
     jeUcastnikDuelu(duel, profilId) &&
-    duel.souper !== undefined &&
+    (duel.souper !== undefined || duel.proOdkaz === true) &&
     !duel.vysledky[profilId]
   );
 }
@@ -328,11 +330,13 @@ export function rozdelDuely(
     if (!jeUcastnikDuelu(duel, profilId)) continue;
     if (jeDokoncenyDuel(duel)) {
       vysledek.historie.push(duel);
-    } else if (!duel.souper) {
+    } else if (!duel.souper && !duel.proOdkaz) {
+      // Duel odkazem sem nepatri: vyzyvatel smi hrat i pred prijetim hosta
+      // (handicap 1.0 od zalozeni) — spadne do naTahu / cekameNaSoupere.
       vysledek.cekaNaPrijeti.push(duel);
     } else if (duel.vysledky[profilId]) {
       vysledek.cekameNaSoupere.push(duel);
-    } else if (duel.souper.profilId === profilId && duel.stav === 'cekajici') {
+    } else if (duel.souper?.profilId === profilId && duel.stav === 'cekajici') {
       vysledek.vyzvyProMe.push(duel);
     } else {
       vysledek.naTahu.push(duel);

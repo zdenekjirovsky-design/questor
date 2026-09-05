@@ -16,11 +16,13 @@
 // výsledky přijímají až po přijetí (do té doby handicap není finální).
 
 import type { Hono, MiddlewareHandler } from 'hono';
+import { createHash, randomBytes, timingSafeEqual } from 'node:crypto';
 import type { DatabaseSync } from 'node:sqlite';
 import {
   duelSchema,
   expirujDuel,
   handicapNasobice,
+  hostProfilId,
   nahodaProDuel,
   prepoctiVysledekDuelu,
   vyberOtazekDuelu,
@@ -32,7 +34,13 @@ import {
   type ProgresStudenta,
   type StavDuelu,
 } from '@questor/sdilene';
-import { novyDuelSchema, prijmoutDuelSchema, vysledekDueluTeloSchema } from './validace';
+import {
+  hostPrijmoutSchema,
+  hostVysledekSchema,
+  novyDuelSchema,
+  prijmoutDuelSchema,
+  vysledekDueluTeloSchema,
+} from './validace';
 import { VYCHOZI_PROFIL_ID } from './db';
 
 /** Kolik posledních dokončených duelů profilu vrací GET /api/duely. */
@@ -40,6 +48,51 @@ export const LIMIT_HOTOVYCH_DUELU = 20;
 
 /** Kolik duelů vrací adminí přehled GET /api/duely/prehled. */
 export const LIMIT_PREHLEDU_DUELU = 100;
+
+// ---------------------------------------------------------------------------
+// Hostovský kód duelu odkazem (fáze 2)
+
+/** Kolik náhodných bajtů nese hostovský kód (18 B → přesně 24 znaků base64url). */
+const BAJTU_KODU_HOSTA = 18;
+
+/** Délka hostovského kódu ve znacích (base64url bez paddingu). */
+export const DELKA_KODU_HOSTA = 24;
+
+/** Jednorázový hostovský kód — kryptograficky náhodný, vázaný jen na jeden duel. */
+export function vygenerujKodHosta(): string {
+  return randomBytes(BAJTU_KODU_HOSTA).toString('base64url');
+}
+
+/**
+ * SHA-256 hash hostovského kódu se solí = id duelu. Do DB jde JEN hash: únik
+ * databáze neprozradí platné odkazy a sůl brání přenosu kódu mezi duely
+ * (stejný kód by u jiného duelu měl jiný hash).
+ */
+export function hashKoduHosta(duelId: string, kod: string): string {
+  return createHash('sha256').update(`${duelId}:${kod}`).digest('hex');
+}
+
+/** Porovná příchozí kód s uloženým hashem (konstantní čas, žádné výjimky). */
+function platiKodHosta(duel: Duel, kod: string | undefined): boolean {
+  if (!duel.proOdkaz || !duel.hostKodHash || !kod) return false;
+  const ulozeny = Buffer.from(duel.hostKodHash, 'utf8');
+  const prichozi = Buffer.from(hashKoduHosta(duel.id, kod), 'utf8');
+  return ulozeny.length === prichozi.length && timingSafeEqual(ulozeny, prichozi);
+}
+
+/**
+ * Duel bez hostKodHash pro odpovědi API — hash NIKDY neopouští server
+ * (v žádném seznamu ani detailu; otevřený kód existuje jen jednorázově
+ * v odpovědi na založení).
+ */
+function bezHasheKodu(duel: Duel): Duel {
+  if (duel.hostKodHash === undefined) return duel;
+  const { hostKodHash: _hash, ...verejny } = duel;
+  return verejny as Duel;
+}
+
+/** Jednotné 403 hostovských endpointů — špatný kód nesmí prozradit nic navíc. */
+const CHYBA_ODKAZU = 'Neplatný odkaz na duel';
 
 // ---------------------------------------------------------------------------
 // DB pomocníci
@@ -144,12 +197,14 @@ function zkontrolujVyprseni(db: DatabaseSync, duel: Duel, tedIso: string): Duel 
  * ještě nemá znát — klient má lokálně celou banku včetně klíče správnosti,
  * takže by si hráč z otazkyIds uměl nachystat odpovědi předem. Plnou sadu
  * dostane adresát cílené výzvy až v odpovědi na přijetí; vyzyvatel ji má
- * z odpovědi na založení (potřebuje ji pro hru offline).
+ * z odpovědi na založení (potřebuje ji pro hru offline). Spolu se sadou se
+ * zatajují i VÝSLEDKY: odpovědi vyzyvatele (odpovedi[].otazkaId) by adresátovi
+ * prozradily celou sadu stejně dobře — stejný princip jako hostovský GET.
  */
 function zatajOtazkyPredHrou(duel: Duel, profilId: string): Duel {
   const jeSouperPredPrijetim =
     duel.stav === 'cekajici' && duel.souper?.profilId === profilId && !duel.vysledky[profilId];
-  return jeSouperPredPrijetim ? { ...duel, otazkyIds: [] } : duel;
+  return jeSouperPredPrijetim ? { ...duel, otazkyIds: [], vysledky: {} } : duel;
 }
 
 function jeUcastnik(duel: Duel, profilId: string): boolean {
@@ -180,12 +235,14 @@ export interface MiddlewaryDuelu {
 export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu): void {
   // Vytvoření duelu: server deterministicky vybere sadu otázek (seed = id
   // duelu, čistě rovnoměrně — žádné Leitnerovy váhy) a spočítá handicap ze
-  // snapshotů progresu (u otevřené výzvy až při přijetí).
+  // snapshotů progresu (u otevřené výzvy až při přijetí). S proOdkaz: true
+  // vznikne duel odkazem pro hosta mimo rodinu — server vygeneruje jednorázový
+  // hostovský kód a vrátí ho JEDNOU v odpovědi (dál drží jen hash).
   app.post('/api/duely', mw.student, mw.limitTela, async (c) => {
     const telo = novyDuelSchema.safeParse(await c.req.json().catch(() => undefined));
     if (!telo.success) {
       return c.json(
-        { chyba: 'Tělo musí být { predmetId, temataId?, pocetOtazek 5|10|20, vyzyvatelProfilId, souperProfilId? }' },
+        { chyba: 'Tělo musí být { predmetId, temataId?, pocetOtazek 5|10|20, vyzyvatelProfilId, souperProfilId? | proOdkaz? }' },
         400,
       );
     }
@@ -208,6 +265,9 @@ export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu)
       return c.json({ chyba: 'Pro zadaná témata nejsou v bance žádné otázky' }, 400);
     }
     const vytvoreno = new Date().toISOString();
+    // Duel odkazem: žádný rodinný soupeř, žádná otevřená výzva — soupeřem se
+    // stane host přijetím odkazu. Kód se ukládá JEN jako hash (sůl = id duelu).
+    const kodHosta = zadani.proOdkaz ? vygenerujKodHosta() : undefined;
     const duel: Duel = {
       id,
       predmetId: zadani.predmetId,
@@ -227,7 +287,8 @@ export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu)
             },
           }
         : {}),
-      otevrenyProRodinu: !zadani.souperProfilId,
+      otevrenyProRodinu: !zadani.souperProfilId && !zadani.proOdkaz,
+      ...(kodHosta ? { proOdkaz: true, hostKodHash: hashKoduHosta(id, kodHosta) } : {}),
       handicap: zadani.souperProfilId
         ? spocitejHandicap(db, banka, zadani.vyzyvatelProfilId, zadani.souperProfilId)
         : { [zadani.vyzyvatelProfilId]: 1 },
@@ -243,7 +304,8 @@ export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu)
       return c.json({ chyba: 'Duel se nepodařilo sestavit' }, 500);
     }
     ulozDuel(db, duel);
-    return c.json(duel);
+    // kodHosta jde ven JEDNORÁZOVĚ teď — server ho už nikdy nezopakuje.
+    return c.json(kodHosta ? { ...bezHasheKodu(duel), kodHosta } : duel);
   });
 
   // Adminí přehled všech duelů (registrovaný před dynamickými cestami,
@@ -252,7 +314,8 @@ export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu)
     const ted = new Date().toISOString();
     const duely = nactiVsechnyDuely(db)
       .map((duel) => zkontrolujVyprseni(db, duel, ted))
-      .slice(0, LIMIT_PREHLEDU_DUELU);
+      .slice(0, LIMIT_PREHLEDU_DUELU)
+      .map(bezHasheKodu);
     return c.json(duely);
   });
 
@@ -263,9 +326,11 @@ export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu)
     const profilId = c.req.query('profilId') ?? VYCHOZI_PROFIL_ID;
     const ted = new Date().toISOString();
     const vsechny = nactiVsechnyDuely(db).map((duel) => zkontrolujVyprseni(db, duel, ted));
+    // Duel odkazem vidí vyzyvatel jako každý jiný svůj duel (včetně stavu
+    // hosta v poli host/souper); hash hostovského kódu ale v seznamu NIKDY není.
     const moje = vsechny
       .filter((duel) => jeUcastnik(duel, profilId))
-      .map((duel) => zatajOtazkyPredHrou(duel, profilId));
+      .map((duel) => bezHasheKodu(zatajOtazkyPredHrou(duel, profilId)));
     const bezici = moje.filter((duel) => !jeDokonceny(duel.stav));
     const dokoncene = moje.filter((duel) => jeDokonceny(duel.stav)).slice(0, LIMIT_HOTOVYCH_DUELU);
     // Otevřené výzvy rodiny jdou ven BEZ sady otázek (divák/zájemce ji nemá
@@ -278,7 +343,7 @@ export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu)
           !duel.souper &&
           duel.vyzyvatel.profilId !== profilId,
       )
-      .map((duel) => ({ ...duel, otazkyIds: [] as string[] }));
+      .map((duel) => bezHasheKodu({ ...duel, otazkyIds: [] as string[] }));
     return c.json({ moje: [...bezici, ...dokoncene], otevrene });
   });
 
@@ -297,6 +362,11 @@ export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu)
     const duel = zkontrolujVyprseni(db, nalezeny, ted);
     if (duel.stav === 'vyprsely') return c.json({ chyba: 'Duel už vypršel' }, 409);
     if (duel.stav === 'hotovy') return c.json({ chyba: 'Duel je už dohraný' }, 409);
+    // Duel odkazem není rodinná výzva — přijmout ho smí JEN host s kódem přes
+    // /api/hoste/duely/:id/prijmout (jinak by si ho rodinný profil ukradl).
+    if (duel.proOdkaz) {
+      return c.json({ chyba: 'Duel odkazem může přijmout jen host s odkazem' }, 409);
+    }
     const { profilId, jmeno } = telo.data;
     if (duel.vyzyvatel.profilId === profilId) {
       return c.json({ chyba: 'Vlastní výzvu nejde přijmout' }, 409);
@@ -353,8 +423,10 @@ export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu)
       return c.json({ chyba: 'Profil v tomhle duelu nehraje' }, 400);
     }
     // Otevřenou výzvu musí nejdřív někdo přijmout — teprve přijetím se zmrazí
-    // handicap a duel má definované podmínky pro oba hráče.
-    if (!duel.souper) {
+    // handicap a duel má definované podmínky pro oba hráče. Duel odkazem je
+    // výjimka: handicap je fixně 1.0 od založení, takže vyzyvatel smí svou
+    // půlku odehrát dřív, než host odkaz vůbec otevře.
+    if (!duel.souper && !duel.proOdkaz) {
       return c.json({ chyba: 'Otevřenou výzvu musí nejdřív někdo přijmout' }, 409);
     }
     if (duel.vysledky[profilId]) {
@@ -393,6 +465,143 @@ export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu)
       );
     }
     ulozDuel(db, novy);
-    return c.json(novy);
+    return c.json(bezHasheKodu(novy));
+  });
+
+  // --- Hostovské endpointy duelu odkazem (fáze 2) --------------------------
+  // BEZ rodinného tokenu — jedinou vstupenkou je jednorázový hostovský kód
+  // vázaný na JEDEN duel (v DB jen jako hash se solí = id duelu). IZOLACE:
+  // kód neotevírá nic jiného (profily, progres ani jiné duely mají vlastní
+  // auth); rate limit platí — cesty žijí pod /api/*. Špatný kód, cizí duel
+  // i neexistující duel vrací JEDNOTNÉ 403 (žádná informace navíc).
+
+  /** Načte duel pro hosta: null = neplatný odkaz (jednotné 403 u volajícího). */
+  function nactiDuelProHosta(id: string, kod: string | undefined, tedIso: string): Duel | null {
+    const duel = nactiDuel(db, id);
+    if (!duel || !platiKodHosta(duel, kod)) return null;
+    return zkontrolujVyprseni(db, duel, tedIso);
+  }
+
+  // Stav duelu pro hosta (i výsledek po dohrání obou). ANTI-CHEAT: dokud host
+  // duel nepřijme, sada otázek se zatajuje — a s ní i výsledky (odpovědi
+  // vyzyvatele by sadu prozradily; host má banku s klíčem bundlovanou).
+  // Kód se čte PRIMÁRNĚ z hlavičky x-questor-host-kod: query string končí
+  // v access logu proxy/Apache a popřel by smysl fragmentu # v odkazu.
+  // ?kod= zůstává jen jako fallback pro starší klienty.
+  app.get('/api/hoste/duely/:id', (c) => {
+    const ted = new Date().toISOString();
+    const kod = c.req.header('x-questor-host-kod') ?? c.req.query('kod');
+    const duel = nactiDuelProHosta(c.req.param('id') ?? '', kod, ted);
+    if (!duel) return c.json({ chyba: CHYBA_ODKAZU }, 403);
+    const verejny = duel.host ? duel : { ...duel, otazkyIds: [] as string[], vysledky: {} };
+    return c.json(bezHasheKodu(verejny));
+  });
+
+  // Přijetí duelu hostem: nastaví hosta (profilId host:<duelId>, zadané jméno)
+  // a vrátí plný duel včetně sady otázek. First-wins — odkaz je jednorázový,
+  // druhé přijetí (i se správným kódem) dostane 409.
+  app.post('/api/hoste/duely/:id/prijmout', mw.limitTela, async (c) => {
+    const telo = hostPrijmoutSchema.safeParse(await c.req.json().catch(() => undefined));
+    if (!telo.success) {
+      return c.json(
+        { chyba: 'Tělo musí být { kod, jmeno } — jméno 1–24 znaků bez řídicích znaků' },
+        400,
+      );
+    }
+    const ted = new Date().toISOString();
+    const duel = nactiDuelProHosta(c.req.param('id') ?? '', telo.data.kod, ted);
+    if (!duel) return c.json({ chyba: CHYBA_ODKAZU }, 403);
+    if (duel.stav === 'vyprsely') return c.json({ chyba: 'Duel už vypršel' }, 409);
+    if (duel.stav === 'hotovy') return c.json({ chyba: 'Duel je už dohraný' }, 409);
+    if (duel.host) {
+      // Odolnost proti ztracené odpovědi: opakované přijetí se SPRÁVNÝM kódem
+      // a STEJNÝM jménem je idempotentní (kód je jediný credential — dva
+      // držitele téhož kódu stejně nejde rozlišit). Jiné jméno = závod o odkaz
+      // → first-wins 409.
+      if (duel.host.jmeno === telo.data.jmeno) return c.json(bezHasheKodu(duel));
+      return c.json({ chyba: 'Odkaz už někdo použil — hraje první' }, 409);
+    }
+    // Host nemá handicap: oba hráči dostávají násobič 1.0, zmrazený od teď.
+    const hostId = hostProfilId(duel.id);
+    const prijaty: Duel = {
+      ...duel,
+      souper: { profilId: hostId, jmeno: telo.data.jmeno },
+      host: { jmeno: telo.data.jmeno },
+      handicap: { [duel.vyzyvatel.profilId]: 1, [hostId]: 1 },
+      stav: 'prijaty',
+    };
+    const kontrola = duelSchema.safeParse(prijaty);
+    if (!kontrola.success) {
+      console.error('Přijetí hosta sestavilo nevalidní duel:', kontrola.error.issues);
+      return c.json({ chyba: 'Duel se nepodařilo přijmout' }, 500);
+    }
+    ulozDuel(db, prijaty);
+    return c.json(bezHasheKodu(prijaty));
+  });
+
+  // Výsledek hosta: stejný anti-cheat přepočet jako u rodiny (server bodům
+  // nevěří, přepočítá ze syrových odpovědí; handicap hosta 1.0), first-wins.
+  // Host power-upy NEMÁ — jakýkoli pouzityPowerup je 400.
+  app.post('/api/hoste/duely/:id/vysledek', mw.limitTela, async (c) => {
+    const telo = hostVysledekSchema.safeParse(await c.req.json().catch(() => undefined));
+    if (!telo.success) {
+      return c.json(
+        { chyba: `Tělo musí být { kod, vysledek } — ${popisChybValidace(telo.error.issues)}` },
+        400,
+      );
+    }
+    const ted = new Date().toISOString();
+    const duel = nactiDuelProHosta(c.req.param('id') ?? '', telo.data.kod, ted);
+    if (!duel) return c.json({ chyba: CHYBA_ODKAZU }, 403);
+    if (duel.stav === 'vyprsely') {
+      return c.json({ chyba: 'Duel vypršel — výsledek už nejde odevzdat' }, 409);
+    }
+    if (duel.stav === 'hotovy') return c.json({ chyba: 'Duel je už vyhodnocený' }, 409);
+    if (!duel.host || !duel.souper) {
+      return c.json({ chyba: 'Host musí duel nejdřív přijmout' }, 409);
+    }
+    const hostId = hostProfilId(duel.id);
+    const { vysledek } = telo.data;
+    if (vysledek.odpovedi.some((o) => o.pouzityPowerup !== undefined)) {
+      return c.json({ chyba: 'Host nemá power-upy — výsledek je nesmí používat' }, 400);
+    }
+    // ANTI-CHEAT (jen host — cizí člověk s curl, žádná domácí důvěra):
+    // výsledek musí pokrýt VŠECHNY otázky sady. Vynechané (špatné) odpovědi
+    // by nesnížily body, ale snížily by celkovyCasMs, který rozhoduje
+    // tie-break ve vyhodnotDuel. Poctivý klient odpovídá vždy na celou sadu
+    // (timeout se počítá jako odpověď s časem = limit).
+    if (vysledek.odpovedi.length !== duel.otazkyIds.length) {
+      return c.json(
+        {
+          chyba: `Výsledek hosta musí pokrýt všechny otázky duelu (${vysledek.odpovedi.length}/${duel.otazkyIds.length})`,
+        },
+        400,
+      );
+    }
+    if (duel.vysledky[hostId]) {
+      return c.json({ chyba: 'Výsledek hosta už je odevzdaný — platí první pokus' }, 409);
+    }
+    const banka = nactiBanku(db, duel.predmetId);
+    if (!banka) {
+      return c.json({ chyba: 'Banka duelu už na serveru není — výsledek nejde ověřit' }, 409);
+    }
+    const prepocet = prepoctiVysledekDuelu(duel, hostId, vysledek, banka);
+    if (!prepocet.ok) {
+      return c.json({ chyba: `Výsledek neprošel kontrolou — ${prepocet.chyba}` }, 400);
+    }
+    const vysledky = { ...duel.vysledky, [hostId]: prepocet.vysledek };
+    let novy: Duel = { ...duel, vysledky };
+    if (vysledky[novy.vyzyvatel.profilId] && vysledky[hostId]) {
+      novy = { ...novy, stav: 'hotovy', vitezProfilId: vyhodnotDuel(novy) };
+    }
+    const kontrola = duelSchema.safeParse(novy);
+    if (!kontrola.success) {
+      return c.json(
+        { chyba: `Výsledek neprošel validací — ${popisChybValidace(kontrola.error.issues)}` },
+        400,
+      );
+    }
+    ulozDuel(db, novy);
+    return c.json(bezHasheKodu(novy));
   });
 }

@@ -76,6 +76,9 @@ export default function DuelVysledek({ duel, profilId }: { duel: Duel; profilId:
   const souperuvAvatar = pouzijStav((s) =>
     souper ? s.dataProfilu[souper.profilId]?.progres.avatar : undefined,
   );
+  // Duel odkazem: souperem je host mimo rodinu (stitek „host"); u vyprseleho
+  // duelu bez prijeti host vubec neexistuje — misto „???" se ukaze „Host".
+  const jmenoSoupere = souper?.jmeno ?? (duel.proOdkaz ? (duel.host?.jmeno ?? 'Host') : '???');
 
   // Tituly k oslave zachytit pri prvnim renderu, pak oznacit za videne.
   const [titulyKOslave] = useState<string[]>(() => noveTituly);
@@ -158,10 +161,13 @@ export default function DuelVysledek({ duel, profilId }: { duel: Duel; profilId:
               <Avatar konfigurace={souperuvAvatar} velikost={72} />
             ) : (
               <div className="duel-intro__silueta" aria-hidden="true">
-                {(souper?.jmeno ?? '?').slice(0, 1).toUpperCase()}
+                {jmenoSoupere.slice(0, 1).toUpperCase()}
               </div>
             )}
-            <div className="duel-intro__jmeno">{souper?.jmeno ?? '???'}</div>
+            <div className="duel-intro__jmeno">
+              {jmenoSoupere}
+              {duel.proOdkaz && <span className="stitek duely__stitek-host">host</span>}
+            </div>
             <div className="duel-vysledek__body">{souperovyBody}</div>
             {souperuv && (
               <div className="duel-vysledek__cas">⏱ {formatujCelkovyCas(souperuv.celkovyCasMs)}</div>
@@ -243,7 +249,7 @@ export default function DuelVysledek({ duel, profilId }: { duel: Duel; profilId:
             <div className="duel-osa__radek duel-osa__radek--hlava">
               <span>#</span>
               <span>{mojeJmeno}</span>
-              <span>{souper?.jmeno ?? '???'}</span>
+              <span>{jmenoSoupere}</span>
             </div>
             {duel.otazkyIds.map((otazkaId, i) => {
               const moje = mojeOdpovedi.get(otazkaId);

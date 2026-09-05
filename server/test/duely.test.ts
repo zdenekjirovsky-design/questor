@@ -511,8 +511,17 @@ describe('duely', () => {
       const duel = await zalozDuel({ souperProfilId: 'syn', souperJmeno: 'Syn' });
       expect(duel.otazkyIds).toHaveLength(5); // vyzyvatel ji má ze založení
 
+      // Vyzyvatel hned odehraje svou půlku — jeho odpovedi[].otazkaId by
+      // adresátovi prozradily celou sadu, GET proto zatajuje i vysledky.
+      const odehrani = await post(`/api/duely/${duel.id}/vysledek`, {
+        profilId: 'tata',
+        vysledek: vysledekHrace(duel.otazkyIds, { spravnych: 3 }),
+      });
+      expect(odehrani.status).toBe(200);
+
       const proSyna = await seznamDuelu('syn');
       expect(proSyna.moje.find((d) => d.id === duel.id)?.otazkyIds).toEqual([]);
+      expect(proSyna.moje.find((d) => d.id === duel.id)?.vysledky).toEqual({});
 
       // Vyzyvatel svou sadu v GET vidí dál (hraje offline).
       const proTatu = await seznamDuelu('tata');

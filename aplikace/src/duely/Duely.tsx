@@ -1,14 +1,19 @@
 // Stranka /duely — seznam duelu a dialog „Vyzvat na duel".
 // Duel je nejvetsi adrenalin v aplikaci: vyzvy pro me pulzuji nahore,
 // pod nimi otevrene rodinne vyzvy, rozehrane duely a historie s vysledky.
-import { useEffect, useMemo, useState } from 'react';
+// Faze 2: treti volba soupere „Poslat odkaz komukoli" — duel odkazem pro
+// hosta mimo rodinu (kod hosta prijde JEDNORAZOVE v odpovedi na zalozeni,
+// odkaz se proto ukazuje hned a uz nikdy znovu).
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import type { Duel } from '@questor/sdilene';
 import { vysledekProHrace } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { najdiAktivniProfil, predmetyProfilu, type Profil } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
+import { jeTauriProstredi } from '../sync/klient';
 import { rozdelDuely } from './engine';
+import { odkazProHosta } from './host';
 import { duelovyKlient, souperVDuelu, zbyvaDoVyprseni } from './pomocne';
 import './Duely.css';
 
@@ -157,10 +162,13 @@ function DuelKarta({
   const [chyba, setChyba] = useState<string | null>(null);
 
   const souper = souperVDuelu(duel, profilId);
+  // Duel odkazem: souperem je host mimo rodinu — jmeno zna duel az po prijeti
+  // odkazu (duel.host), do te doby se ceka, „az host otevre odkaz".
+  const jeOdkazovy = duel.proOdkaz === true;
   const jmenoSoupere =
     varianta === 'otevrena'
       ? duel.vyzyvatel.jmeno
-      : (souper?.jmeno ?? 'kdokoli z rodiny');
+      : (souper?.jmeno ?? (jeOdkazovy ? (duel.host?.jmeno ?? 'host s odkazem') : 'kdokoli z rodiny'));
   const zbyva = zbyvaDoVyprseni(duel.vyprsi, Date.now());
 
   // Prijeti OTEVRENE vyzvy jde jen online — server pri nem zmrazi handicap
@@ -225,7 +233,10 @@ function DuelKarta({
         ) : varianta === 'vyzva' ? (
           <><strong>{jmenoSoupere}</strong> tě vyzývá na duel!</>
         ) : (
-          <>proti: <strong>{jmenoSoupere}</strong></>
+          <>
+            proti: <strong>{jmenoSoupere}</strong>
+            {jeOdkazovy && <span className="stitek duely__stitek-host">host</span>}
+          </>
         )}
       </div>
 
@@ -247,13 +258,24 @@ function DuelKarta({
         </button>
       )}
       {varianta === 'na-tahu' && (
-        <button
-          type="button"
-          className="tlacitko tlacitko--primarni duely__karta-akce"
-          onClick={() => navigate(`/duel/${duel.id}`)}
-        >
-          ▶ Hrát svoji půlku
-        </button>
+        <>
+          {jeOdkazovy && (
+            <div className="duely__karta-stav">
+              {!duel.host
+                ? '🔗 Host zatím odkaz neotevřel — hrát můžeš i tak.'
+                : duel.host && souper && duel.vysledky[souper.profilId]
+                  ? `✅ ${duel.host.jmeno} už dohrál(a) — teď ty!`
+                  : `⚔️ ${duel.host?.jmeno ?? 'Host'} výzvu přijal(a) a hraje.`}
+            </div>
+          )}
+          <button
+            type="button"
+            className="tlacitko tlacitko--primarni duely__karta-akce"
+            onClick={() => navigate(`/duel/${duel.id}`)}
+          >
+            ▶ Hrát svoji půlku
+          </button>
+        </>
       )}
       {varianta === 'otevrena' && (
         <button
@@ -266,7 +288,13 @@ function DuelKarta({
         </button>
       )}
       {varianta === 'ceka-souper' && (
-        <div className="duely__karta-stav">⏳ Odehráno — čekáme na soupeře…</div>
+        <div className="duely__karta-stav">
+          {jeOdkazovy
+            ? !duel.host
+              ? '🔗 Čeká, až host otevře odkaz…'
+              : `⏳ ${duel.host.jmeno} hraje — čekáme na výsledek…`
+            : '⏳ Odehráno — čekáme na soupeře…'}
+        </div>
       )}
       {varianta === 'ceka-prijeti' && (
         <div className="duely__karta-stav">📣 Čeká, až výzvu někdo z rodiny přijme…</div>
@@ -296,6 +324,14 @@ function DialogNovehoDuelu({ profil, zavri }: { profil: Profil; zavri: () => voi
   const [pocet, setPocet] = useState<5 | 10 | 20>(10);
   /** null = „kdokoli z rodiny" (otevrena vyzva). */
   const [souperId, setSouperId] = useState<string | null>(null);
+  /** Treti volba soupere: duel odkazem pro hosta MIMO rodinu (faze 2). */
+  const [proOdkaz, setProOdkaz] = useState(false);
+  /**
+   * Odkaz pro hosta slozeny z JEDNORAZOVEHO kodu v odpovedi na zalozeni —
+   * server ho uz nikdy nezopakuje, proto se misto formulare hned ukaze
+   * obrazovka s odkazem (kopirovani + sdileni).
+   */
+  const [odkazHosta, setOdkazHosta] = useState<{ duelId: string; odkaz: string } | null>(null);
   const [zakladam, setZakladam] = useState(false);
   const [chyba, setChyba] = useState<string | null>(null);
 
@@ -306,13 +342,17 @@ function DialogNovehoDuelu({ profil, zavri }: { profil: Profil; zavri: () => voi
     [banky, predmetId],
   );
 
+  // Escape zavira formular; obrazovku s JEDNORAZOVYM odkazem ne — omylem
+  // zavreny odkaz uz nejde znovu zobrazit (zaviraji jen explicitni tlacitka).
+  const odkazZobrazen = odkazHosta !== null;
   useEffect(() => {
+    if (odkazZobrazen) return;
     const zpracuj = (e: KeyboardEvent) => {
       if (e.key === 'Escape') zavri();
     };
     window.addEventListener('keydown', zpracuj);
     return () => window.removeEventListener('keydown', zpracuj);
-  }, [zavri]);
+  }, [zavri, odkazZobrazen]);
 
   const vyzvi = async () => {
     if (!predmetId) return;
@@ -324,8 +364,8 @@ function DialogNovehoDuelu({ profil, zavri }: { profil: Profil; zavri: () => voi
     setZakladam(true);
     setChyba(null);
     try {
-      const souper = souperi.find((p) => p.id === souperId);
-      const duel = await klient.vytvorDuel({
+      const souper = proOdkaz ? undefined : souperi.find((p) => p.id === souperId);
+      const odpoved = await klient.vytvorDuel({
         predmetId,
         pocetOtazek: pocet,
         ...(vybranaTemata.length > 0 && vybranaTemata.length < temata.length
@@ -333,9 +373,38 @@ function DialogNovehoDuelu({ profil, zavri }: { profil: Profil; zavri: () => voi
           : {}),
         vyzyvatelProfilId: profil.id,
         vyzyvatelJmeno: profil.jmeno,
-        ...(souper ? { souperProfilId: souper.id, souperJmeno: souper.jmeno } : {}),
+        ...(proOdkaz
+          ? { proOdkaz: true as const }
+          : souper
+            ? { souperProfilId: souper.id, souperJmeno: souper.jmeno }
+            : {}),
       });
+      // kodHosta do store (persistu) nepatri — do duelu se uklada bez nej.
+      const { kodHosta, ...duel } = odpoved;
+      // Starsi server pole proOdkaz nezna (zod ho stripne) a misto duelu
+      // odkazem tise zalozi OTEVRENOU rodinnou vyzvu bez kodu hosta. Takovy
+      // duel se do store neuklada a uzivatel dostane jasnou chybu — jinak by
+      // bez varovani vznikla vyzva pro celou rodinu a zadny odkaz.
+      if (proOdkaz && !kodHosta) {
+        setChyba(
+          'Server ještě neumí duel odkazem — je potřeba ho aktualizovat. Odkaz nevznikl.',
+        );
+        return;
+      }
       pridejDuel(duel);
+      if (proOdkaz && kodHosta) {
+        // Host otevira VZDY webovou verzi — z Tauri se generuje verejna
+        // adresa aplikace, z webu adresa aktualniho originu (viz host.ts).
+        setOdkazHosta({
+          duelId: duel.id,
+          odkaz: odkazProHosta(duel.id, kodHosta, {
+            tauri: jeTauriProstredi(),
+            origin: window.location.origin,
+            base: import.meta.env.BASE_URL,
+          }),
+        });
+        return;
+      }
       zavri();
       // Vyzyvatel muze hrat hned (u cilene vyzvy); otevrena ceka na prijeti.
       navigate(`/duel/${duel.id}`);
@@ -345,6 +414,30 @@ function DialogNovehoDuelu({ profil, zavri }: { profil: Profil; zavri: () => voi
       setZakladam(false);
     }
   };
+
+  // Po zalozeni duelu odkazem se misto formulare ukaze odkaz pro hosta.
+  // Pozadi ani Escape ho NEzaviraji — odkaz je jednorazovy a omylem zavreny
+  // uz nejde znovu zobrazit; zaviraji jen explicitni tlacitka.
+  if (odkazHosta) {
+    return (
+      <div className="duely__pozadi-modalu">
+        <div
+          className="panel duely__modal animace-naskoceni"
+          role="dialog"
+          aria-label="Odkaz pro soupeře"
+        >
+          <ObrazovkaOdkazuHosta
+            odkaz={odkazHosta.odkaz}
+            zavri={zavri}
+            zahraj={() => {
+              zavri();
+              navigate(`/duel/${odkazHosta.duelId}`);
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="duely__pozadi-modalu" onClick={zavri}>
@@ -430,8 +523,11 @@ function DialogNovehoDuelu({ profil, zavri }: { profil: Profil; zavri: () => voi
             <div className="duely__volby">
               <button
                 type="button"
-                className={`duely__volba${souperId === null ? ' duely__volba--vybrana' : ''}`}
-                onClick={() => setSouperId(null)}
+                className={`duely__volba${!proOdkaz && souperId === null ? ' duely__volba--vybrana' : ''}`}
+                onClick={() => {
+                  setProOdkaz(false);
+                  setSouperId(null);
+                }}
               >
                 🏟️ Kdokoli z rodiny
               </button>
@@ -439,18 +535,34 @@ function DialogNovehoDuelu({ profil, zavri }: { profil: Profil; zavri: () => voi
                 <button
                   key={p.id}
                   type="button"
-                  className={`duely__volba${souperId === p.id ? ' duely__volba--vybrana' : ''}`}
-                  onClick={() => setSouperId(p.id)}
+                  className={`duely__volba${!proOdkaz && souperId === p.id ? ' duely__volba--vybrana' : ''}`}
+                  onClick={() => {
+                    setProOdkaz(false);
+                    setSouperId(p.id);
+                  }}
                 >
                   <span className="duely__volba-tecka" style={{ background: p.barva }} aria-hidden="true" />
                   {p.jmeno}
                 </button>
               ))}
+              <button
+                type="button"
+                className={`duely__volba${proOdkaz ? ' duely__volba--vybrana' : ''}`}
+                onClick={() => setProOdkaz(true)}
+              >
+                🔗 Poslat odkaz komukoli
+              </button>
             </div>
-            {souperi.length === 0 && (
+            {proOdkaz && (
+              <p className="duely__modal-pozn">
+                Vznikne jednorázový odkaz pro kohokoli mimo rodinu — soupeř ho otevře v prohlížeči,
+                zadá jen jméno a hraje stejné otázky. Bez profilu, bez rodinného kódu.
+              </p>
+            )}
+            {!proOdkaz && souperi.length === 0 && (
               <p className="duely__modal-pozn">
                 V rodině zatím není další profil — výzva „kdokoli z rodiny" počká, až se někdo
-                připojí.
+                připojí. Nebo pošli odkaz kamarádovi mimo rodinu.
               </p>
             )}
 
@@ -462,11 +574,107 @@ function DialogNovehoDuelu({ profil, zavri }: { profil: Profil; zavri: () => voi
               disabled={zakladam || !predmetId}
               onClick={() => void vyzvi()}
             >
-              {zakladam ? 'Zakládám duel…' : '⚔️ Vyzvat!'}
+              {zakladam ? 'Zakládám duel…' : proOdkaz ? '🔗 Vytvořit odkaz!' : '⚔️ Vyzvat!'}
             </button>
           </>
         )}
       </div>
     </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Obrazovka s odkazem pro hosta (duel odkazem) — kod je JEDNORAZOVY, odkaz se
+// ukazuje jen ted: velke kopirovani + na mobilu systemove sdileni (Web Share).
+
+function ObrazovkaOdkazuHosta({
+  odkaz,
+  zavri,
+  zahraj,
+}: {
+  odkaz: string;
+  zavri(): void;
+  zahraj(): void;
+}) {
+  const vstup = useRef<HTMLInputElement>(null);
+  const [zkopirovano, setZkopirovano] = useState(false);
+  const [nejdeKopirovat, setNejdeKopirovat] = useState(false);
+  const lzeSdilet = typeof navigator !== 'undefined' && typeof navigator.share === 'function';
+
+  const zkopiruj = async () => {
+    try {
+      await navigator.clipboard.writeText(odkaz);
+      setZkopirovano(true);
+      setNejdeKopirovat(false);
+    } catch {
+      // Fallback: oznacit text v poli, at si ho uzivatel zkopiruje sam.
+      vstup.current?.focus();
+      vstup.current?.select();
+      setNejdeKopirovat(true);
+    }
+  };
+
+  const sdilej = () => {
+    void navigator
+      .share({
+        title: 'Výzva na duel v QUESTORu',
+        text: 'Vyzývám tě na duel — otevři odkaz, zadej jméno a hraj!',
+        url: odkaz,
+      })
+      .catch(() => {
+        // Zruseni sdileni neni chyba.
+      });
+  };
+
+  return (
+    <>
+      <div className="duely__modal-hlava">
+        <h2>🔗 Odkaz pro soupeře</h2>
+        <button type="button" className="duely__modal-zavrit" onClick={zavri} aria-label="Zavřít">
+          ✕
+        </button>
+      </div>
+      <p>
+        Duel je založený! Pošli soupeři tenhle odkaz — otevře ho v prohlížeči, zadá jméno a hraje
+        stejné otázky jako ty.
+      </p>
+      <p className="duely__karta-chyba duely__odkaz-varovani">
+        ⚠️ Odkaz se zobrazuje jen teď — po zavření už ho znovu nezobrazíš. Zkopíruj si ho hned.
+      </p>
+      <input
+        ref={vstup}
+        className="duely__odkaz-vstup"
+        type="text"
+        readOnly
+        value={odkaz}
+        aria-label="Odkaz na duel pro hosta"
+        onFocus={(e) => e.currentTarget.select()}
+      />
+      {nejdeKopirovat && (
+        <p className="duely__modal-pozn">Kopírování se nepovedlo — text je označený, zkopíruj ho ručně.</p>
+      )}
+      <div className="duely__odkaz-akce">
+        <button type="button" className="tlacitko tlacitko--zlate duely__odkaz-hlavni" onClick={() => void zkopiruj()}>
+          {zkopirovano ? '✅ Zkopírováno!' : '📋 Zkopírovat odkaz'}
+        </button>
+        {lzeSdilet && (
+          <button type="button" className="tlacitko tlacitko--primarni" onClick={sdilej}>
+            📤 Sdílet…
+          </button>
+        )}
+      </div>
+      <div className="duely__odkaz-akce">
+        <button type="button" className="tlacitko tlacitko--primarni" onClick={zahraj}>
+          ▶ Zahrát svou půlku hned
+        </button>
+        <button type="button" className="tlacitko" onClick={zavri}>
+          Zahraju později
+        </button>
+      </div>
+      <p className="duely__modal-pozn">
+        Svou půlku můžeš odehrát kdykoli do vypršení duelu (24 h) — nemusíš čekat, až host odkaz
+        otevře.
+      </p>
+    </>
   );
 }

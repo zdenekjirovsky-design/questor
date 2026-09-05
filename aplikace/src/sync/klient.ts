@@ -195,7 +195,10 @@ export interface QuestorKlient {
   stahniVyzvy(profilId?: string): Promise<Vyzva[]>;
   /**
    * Zalozi duel (POST /api/duely) — server deterministicky vybere sadu otazek
-   * (seed = id duelu) a spocita handicap ze snapshotu progresu. Vraci cely Duel.
+   * (seed = id duelu) a spocita handicap ze snapshotu progresu. Vraci cely
+   * Duel. S proOdkaz: true (duel odkazem pro hosta mimo rodinu, vylucuje se
+   * se souperProfilId) nese odpoved JEDNORAZOVE `kodHosta` — server ho uz
+   * nikdy nezopakuje (dal drzi jen hash), odkaz se sklada hned z odpovedi.
    */
   vytvorDuel(telo: {
     predmetId: string;
@@ -205,7 +208,8 @@ export interface QuestorKlient {
     vyzyvatelJmeno?: string;
     souperProfilId?: string;
     souperJmeno?: string;
-  }): Promise<Duel>;
+    proOdkaz?: true;
+  }): Promise<Duel & { kodHosta?: string }>;
   /**
    * Duely profilu: bezici + poslednich 20 dokoncenych (moje) a cizi otevrene
    * rodinne vyzvy (otevrene). Kontrakt GET /api/duely?profilId=.

@@ -42,20 +42,23 @@ psychologickými hooky.
    questor-server :8787).
 7. API klíče a tokeny jen v env / `.env` (v .gitignore), nikdy v kódu.
 
-## Stav (2026-09-05 — po vlně 7: duely)
+## Stav (2026-09-05 — po vlně 7: duely + fáze 2: duel odkazem)
 
-Vydané verze: tagy `v0.1.0`–`v0.5.0` (v0.3.0 = avatar 2.0, v0.3.1 = CI
+Vydané verze: tagy `v0.1.0`–`v0.6.0` (v0.3.0 = avatar 2.0, v0.3.1 = CI
 macOS build, v0.4.0 = vlny 4 a 5 + web nasazení, v0.5.0 = vlna 6 —
-sdílené profily mezi zařízeními). PRODUKCE BĚŽÍ: web
+sdílené profily mezi zařízeními, v0.6.0 = vlna 7 — duely v1 mezi
+profily rodiny). PRODUKCE BĚŽÍ: web
 https://koordinator-server.cz/questor + API `/questor-api` (`/zdravi`
-ok, rodinný sync v provozu) — NIC nerozbít. Vlna 7 (duely) níže je
-hotová v pracovní kopii, zatím NEcommitnutá.
+ok, rodinný sync v provozu, duely v1 mezi profily rodiny fungují) —
+NIC nerozbít. Fáze 2 duelů (duel odkazem) níže je hotová v pracovní
+kopii, zatím NEcommitnutá.
 
-**Hotové a ověřené** (typecheck 4/4 workspaces, testy 503/503 — sdílené
-138, generátor 32, server 101, aplikace 232; build aplikace OK ~1 s;
-`npx tsx scripts/kontrola-integrace.ts` → 14 bank, 14 výuk | 86 témat,
-780 otázek, 86 lekcí, 172 mini-kvízů, 92 widgetů — VŠECHNY KONTROLY OK;
-E2E scénář duelů klient↔server prošel při integrační kontrole):
+**Hotové a ověřené** (typecheck 4/4 workspaces, testy 557/557 — sdílené
+147, generátor 32, server 125, aplikace 253; build aplikace OK ~1 s pro
+`/` i `VITE_ZAKLAD=/questor/`; `npx tsx scripts/kontrola-integrace.ts`
+→ 14 bank, 14 výuk | 86 témat, 780 otázek, 86 lekcí, 172 mini-kvízů,
+92 widgetů — VŠECHNY KONTROLY OK; E2E scénář duelů klient↔server prošel
+při integrační kontrole):
 
 - fáze 1: sdílené jádro (typy, zod schémata, gamifikace jako čisté funkce),
   generátor bank (ingest `.md/.txt/.pdf/.docx` → témata → otázky →
@@ -173,26 +176,54 @@ E2E scénář duelů klient↔server prošel při integrační kontrole):
   `pouzijPowerupAkce`), offline fronta `duel-vysledek` (409 = platí
   první pokus), merge `sloucDuely`; power-upy (50:50, zmrazení času,
   štít) padají z truhel (`OdmenaTyp` `powerup`), trofejní vitrína
-  ve Sbírce.
+  ve Sbírce;
+- duely fáze 2 — DUEL ODKAZEM (host mimo rodinu; kontrakt
+  v ARCHITEKTURA sekce Duely, návod NAVOD kap. 5 „Duel odkazem“).
+  Server: `POST /api/duely` s `proOdkaz: true` vrací JEDNORÁZOVĚ
+  `kodHosta` (24 znaků base64url; v DB jen SHA-256 hash se solí = id
+  duelu), hostovské endpointy `/api/hoste/duely/:id`
+  (+ `/prijmout`, `/vysledek`) jen s kódem — jednotné 403, izolace
+  (kód neotevírá nic jiného), rate limit platí, u GET jde kód
+  hlavičkou `x-questor-host-kod` (query jen fallback, CORS
+  `allowHeaders` rozšířeno); host bez handicapu (oba 1.0) a bez
+  power-upů, výsledek musí pokrýt celou sadu, first-wins s
+  idempotentním opakováním při stejném jménu; vyhrazený profilId
+  `host:<duelId>` (`hostProfilId`/`jeHostProfilId` ve sdilene, rodinná
+  těla ho odmítají), `duelSchema` rozšířeno o hostovská pravidla,
+  hosté se nezapisují do `dvojice` trofejí. Aplikace: třetí volba
+  soupeře „🔗 Poslat odkaz komukoli“ + jednorázová obrazovka odkazu
+  (kopírování/Web Share; `odkazProHosta` — z Tauri vždy veřejný web),
+  hostovský režim `duely/HostDuel.tsx` + čistá logika `duely/host.ts`
+  (hash `#duel=<id>.<kod>` s předností před profilovou bránou
+  v App.tsx, hash se po přečtení čistí; stav v localStorage
+  `questor-host-duel:<duelId>`, žádný profil ani rodinný sync; pojistky
+  na verzi banky, ztracenou odpověď přijetí i starší server bez
+  podpory). Opravná dávka z adversariálního ověření: 9/9 nálezů
+  potvrzeno a opraveno + 4 nové testovací soubory (mj.
+  `sdilene/test/duely-host.test.ts`, `server/test/hoste.test.ts`,
+  `aplikace/test/duelyHost.test.tsx`).
 
 **Připravené, ale neověřené:**
 
 - Tauri build — staví se jen v GitHub Actions (na Macu se Rust část
-  nekompiluje); po commitu vlny 7 je potřeba na GitHubu ověřit běh
-  workflow a auto-update nové verze na Windows (postup
+  nekompiluje); po commitu fáze 2 (duel odkazem) je potřeba na GitHubu
+  ověřit běh workflow a auto-update nové verze na Windows (postup
   `docs/NASAZENI.md`);
-- duely na PRODUKCI — kód ověřený testy, lokálně i E2E, ale produkční
-  server běží ještě bez vlny 7 (je necommitnutá); nasadit až s ní
-  a ověřit ostrý duel telefon ↔ notebook;
+- duel odkazem na PRODUKCI — kód ověřený testy (typecheck, 557 testů,
+  oba buildy), ale je zatím jen v pracovní kopii (necommitnutý);
+  produkční server běží s v0.6.0 bez hostovských endpointů. Nasadit
+  a ověřit ostrý duel odkazem: založit z aplikace, odkaz otevřít
+  v cizím prohlížeči/telefonu jako host;
 - dogenerování otázek — serverová půlka hotová (bez `ANTHROPIC_API_KEY`
   vrací 503 = „vypnuto“), proti skutečnému Claude API neověřeno;
   klientská část v aplikaci pořád chybí;
 - poskytovatelé `api` a `claude-cli` generátoru neověřeny ostrým během
   (testy jedou na `mock`) — platí i pro režim `--vyuka`.
 
-**Další krok:** commit + push vlny 7 (duely), release nové verze přes CI
-(ověřit auto-update na Windows) a nasazení na produkční server
-(`docs/NASAZENI.md`, krok 5a — git pull + restart pm2; migrace DB
-proběhne sama při startu, tabulku `duely` doplní `otevriDb`); pak ostrý
-duel telefon ↔ notebook přes https://koordinator-server.cz/questor-api;
-poté ostré vygenerování dalšího předmětu přes `api` nebo `claude-cli`.
+**Další krok:** commit + push fáze 2 (duel odkazem), release nové verze
+přes CI (ověřit auto-update na Windows) a nasazení na produkční server
+(`docs/NASAZENI.md`, krok 5a — git pull + restart pm2; žádná migrace DB
+není potřeba, hostovská pole žijí v JSON duelu); pak ostrý duel odkazem
+(založit v aplikaci, odkaz otevřít jako host v cizím prohlížeči přes
+https://koordinator-server.cz/questor); poté ostré vygenerování dalšího
+předmětu přes `api` nebo `claude-cli`.

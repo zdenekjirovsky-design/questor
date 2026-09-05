@@ -8,7 +8,8 @@ questy, truhlami a sbírkou karet. Na jednom počítači se střídá víc lidí
 přes profily (bez e-mailu, volitelný PIN); rodinný kód propojí zařízení
 rodiny — profil i herní postup se přes malý server synchronizují mezi
 telefonem a počítačem a členové rodiny se mohou vyzývat na duely
-(stejné otázky, časový limit, power-upy, trofeje). UI je responzivní až
+(stejné otázky, časový limit, power-upy, trofeje); duel jde poslat
+i jednorázovým odkazem komukoli mimo rodinu. UI je responzivní až
 do šířky telefonu (hostovaná webová verze s PWA základem).
 
 ## Rychlý start (vývoj, macOS/Linux)
@@ -80,7 +81,16 @@ bonus času (handicap ×1,0–1,5 zmrazený na celý duel), z truhel padají
 power-upy použitelné jen v duelu (50:50, zmrazení času, štít) a výhry
 se sbírají do trofejní vitríny (bilance dvojic, série, tituly). Server
 výsledky přepočítává ze syrových odpovědí a sadu otázek vydává až při
-přijetí — podvádět se nevyplácí. Postup: `docs/NAVOD.md`, kap. 5.
+přijetí — podvádět se nevyplácí.
+
+**Duel odkazem:** vyzvat jde i kohokoli mimo rodinu — spolužáka,
+kamaráda. Vyzyvatel zvolí „Poslat odkaz komukoli“ a dostane jednorázový
+odkaz; host ho otevře v prohlížeči (bez aplikace, bez registrace
+a rodinného kódu), zadá jen jméno a odehraje identickou sadu otázek
+podle stejných pravidel — jen bez handicapu a power-upů. Kód v odkazu
+je vázaný na jediný duel (server drží jen jeho hash), nic jiného
+neotevírá a platí pro prvního, kdo ho použije. Postup:
+`docs/NAVOD.md`, kap. 5.
 
 ## Generování otázek a výuky z učiva
 

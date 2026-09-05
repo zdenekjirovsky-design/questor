@@ -768,7 +768,9 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
     // Lina expirace i lokalne: po vyprsi duel hrat nejde (kontumace, server
     // by vysledek stejne odmitl 409) — offline hrani po terminu nesmi projit.
     if (duel.vyprsi <= new Date().toISOString()) return false;
-    if (!duel.souper || duel.vysledky[profilId]) return false;
+    // Duel odkazem (proOdkaz) jde hrat i bez soupere — handicap je fixne 1.0
+    // od zalozeni a vyzyvatel smi odehrat svou pulku pred prijetim hosta.
+    if ((!duel.souper && !duel.proOdkaz) || duel.vysledky[profilId]) return false;
     // Vsechny otazky duelu musi znat lokalni banka (jinak pockat na sync).
     if (!otazkyDuelu(duel, stav.banky[duel.predmetId])) return false;
     set({ aktualniDuel: vytvorDuelPrubeh(duel, profilId, new Date().toISOString()) });

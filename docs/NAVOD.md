@@ -241,7 +241,8 @@ STEJNÉ otázky (stejné pořadí i míchání možností) a mají na to 24 hodi
 Bez průběžné zpětné vazby (jako režim zkouška — vysvětlení se ukážou až
 po duelu), s viditelným odpočtem času na každou otázku. Duely potřebují
 připojenou rodinu (rodinný kód, kap. 4) — založení i přijetí výzvy jde
-jen online.
+jen online. Vyzvat jde i kohokoli MIMO rodinu jednorázovým odkazem
+(„Duel odkazem“ na konci kapitoly).
 
 **Jak vyzvat:** stránka **⚔️ Duely** (položka v hlavní navigaci
 s počtem čekajících výzev; na Domů je dlaždice Duely) → tlačítko
@@ -250,8 +251,10 @@ s počtem čekajících výzev; na Domů je dlaždice Duely) → tlačítko
 1. Vyber **obor** — jednu banku ze svých studijních bank.
 2. Volitelně zaškrtni **témata** (bez výběru se hraje celá banka)
    a **počet otázek** (5/10/20).
-3. Vyber **soupeře**: konkrétní profil, nebo **„Kdokoli z rodiny“** —
-   otevřenou výzvu hraje první, kdo ji přijme.
+3. Vyber **soupeře**: konkrétní profil, **„Kdokoli z rodiny“** —
+   otevřenou výzvu hraje první, kdo ji přijme — nebo **„🔗 Poslat odkaz
+   komukoli“** pro soupeře MIMO rodinu (spolužák, kamarád; viz „Duel
+   odkazem“ níže).
 4. **⚔️ Vyzvat!** Svoji půlku můžeš u cílené výzvy odehrát hned;
    otevřená výzva se odemkne, až ji někdo přijme (teprve přijetím se
    férově zamknou časové bonusy obou hráčů).
@@ -300,6 +303,38 @@ půlku CÍLENÉ výzvy jde odehrát offline, jakmile má aplikace sadu
 otázek (vyzyvatel ji má hned od založení, adresát od prvního otevření
 duelu online); výsledek pak odejde frontou, až bude spojení. Otevřenou
 výzvu jde přijmout jen online.
+
+**Duel odkazem — jak poslat duel spolužákovi (mimo rodinu):**
+
+Soupeř nemusí být z rodiny, mít aplikaci ani rodinný kód — stačí mu
+prohlížeč (klidně na telefonu). Otevře odkaz, zadá jméno a hraje.
+
+1. **⚔️ Vyzvat na duel** → obor, případně témata a počet otázek jako
+   obvykle → soupeř **„🔗 Poslat odkaz komukoli“** → **🔗 Vytvořit
+   odkaz!**
+2. Ukáže se **jednorázový odkaz** — hned si ho zkopíruj (**📋
+   Zkopírovat odkaz**, na mobilu i **📤 Sdílet…** do libovolné
+   aplikace). ⚠️ Odkaz se zobrazuje JEN TEĎ: po zavření obrazovky už
+   ho znovu nezobrazíš (server si pamatuje jen jeho otisk). Když ho
+   ztratíš, založ prostě nový duel.
+3. Odkaz pošli spolužákovi (zpráva, e-mail…). Svoji půlku můžeš
+   odehrát hned — nemusíš čekat, až odkaz otevře.
+4. Spolužák otevře odkaz v prohlížeči, zadá jen **jméno** (žádná
+   registrace, žádný profil) a odehraje ÚPLNĚ STEJNÉ otázky podle
+   stejných pravidel: limit na otázku, bez průběžné zpětné vazby,
+   jeden pokus. Výsledek obou uvidí na téže adrese — když se vrátí
+   přes tentýž odkaz, najde svoji rozehranou hru i konečné srovnání.
+5. Ty vidíš duel normálně na stránce Duely — soupeř nese jméno hosta
+   se štítkem **host** a karta říká, jestli už odkaz otevřel a dohrál.
+
+Odlišnosti proti rodinnému duelu: host **nemá handicap** (oba hrají
+s běžnými limity) ani **power-upy**; duel se nepočítá do vzájemné
+bilance ve vitríně (série a tituly ano). Odkaz je **jednorázový**
+(hraje první, kdo ho otevře a přijme — proto ho neposílej do skupinové
+konverzace) a platí **24 hodin** od založení duelu. Kód v odkazu
+neotevírá nic jiného než tenhle jeden duel. Založení vyžaduje
+připojenou rodinu (jako každý duel) a server s podporou duelu odkazem
+— starší server aplikace pozná a odkaz nevytvoří.
 
 ## 6. Aplikace bez serveru (bundlovaný obsah)
 

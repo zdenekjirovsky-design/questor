@@ -5,6 +5,8 @@
 import { z } from 'zod';
 import type { ProfilMetadata, ProgresStudenta, TestVysledek, Vyzva } from '@questor/sdilene';
 import {
+  HOST_PROFIL_PREFIX,
+  jeHostProfilId,
   powerupyProgresuSchema,
   trofejeProfiluSchema,
   VYCHOZI_AVATAR,
@@ -200,27 +202,49 @@ export const vysledekVyzvySchema = z.object({
 // Samotný Duel a jeho výsledek validuje sdílené schéma (sdilene/src/duely.ts);
 // tady jsou jen těla requestů, která Duel teprve zakládají nebo mění.
 
-const duelProfilIdSchema = z.string().min(1).max(64);
+/**
+ * profilId v rodinných duelových tělech. Prefix `host:` je VYHRAZENÝ hostům
+ * duelu odkazem — rodinný klient (s rodinným tokenem, ale BEZ hostovského
+ * kódu) se přes něj nesmí vydávat za hosta a hrát/přijímat jeho půlku duelu.
+ */
+const duelProfilIdSchema = z
+  .string()
+  .min(1)
+  .max(64)
+  .refine((id) => !jeHostProfilId(id), {
+    message: `profilId s prefixem „${HOST_PROFIL_PREFIX}“ je vyhrazený hostům duelu odkazem`,
+  });
 
 /**
  * Tělo POST /api/duely. Sadu otázek, handicap i časy doplňuje server —
  * klient posílá jen zadání výzvy. Jména jsou volitelná: server si je jinak
  * dohledá v registru profilů / u snapshotu progresu.
  */
-export const novyDuelSchema = z.object({
-  predmetId: z
-    .string()
-    .min(1)
-    .max(64)
-    .regex(/^[a-z0-9-]+$/, 'predmetId smí obsahovat jen a–z, 0–9 a pomlčky'),
-  temataId: z.array(z.string().min(1).max(64)).min(1).max(64).optional(),
-  pocetOtazek: z.union([z.literal(5), z.literal(10), z.literal(20)]),
-  vyzyvatelProfilId: duelProfilIdSchema,
-  vyzyvatelJmeno: z.string().min(1).max(64).optional(),
-  /** Bez soupeře je výzva otevřená pro rodinu (první, kdo přijme, hraje). */
-  souperProfilId: duelProfilIdSchema.optional(),
-  souperJmeno: z.string().min(1).max(64).optional(),
-});
+export const novyDuelSchema = z
+  .object({
+    predmetId: z
+      .string()
+      .min(1)
+      .max(64)
+      .regex(/^[a-z0-9-]+$/, 'predmetId smí obsahovat jen a–z, 0–9 a pomlčky'),
+    temataId: z.array(z.string().min(1).max(64)).min(1).max(64).optional(),
+    pocetOtazek: z.union([z.literal(5), z.literal(10), z.literal(20)]),
+    vyzyvatelProfilId: duelProfilIdSchema,
+    vyzyvatelJmeno: z.string().min(1).max(64).optional(),
+    /** Bez soupeře je výzva otevřená pro rodinu (první, kdo přijme, hraje). */
+    souperProfilId: duelProfilIdSchema.optional(),
+    souperJmeno: z.string().min(1).max(64).optional(),
+    /**
+     * true = duel odkazem pro hosta mimo rodinu: server vygeneruje jednorázový
+     * hostovský kód a vrátí ho JEDNOU v odpovědi (dál drží jen hash).
+     * Vylučuje se se souperProfilId.
+     */
+    proOdkaz: z.literal(true).optional(),
+  })
+  .refine((telo) => !(telo.proOdkaz && telo.souperProfilId), {
+    path: ['souperProfilId'],
+    message: 'Duel odkazem (proOdkaz) nemá souperProfilId — soupeřem bude host',
+  });
 
 /** Tělo POST /api/duely/:id/prijmout. */
 export const prijmoutDuelSchema = z.object({
@@ -231,6 +255,58 @@ export const prijmoutDuelSchema = z.object({
 /** Tělo POST /api/duely/:id/vysledek — výsledek půlky duelu jednoho hráče. */
 export const vysledekDueluTeloSchema = z.object({
   profilId: duelProfilIdSchema,
+  vysledek: vysledekDueluSchema,
+});
+
+// --- Hostovské endpointy duelu odkazem (/api/hoste/*) ----------------------
+// Auth je hostovský kód vázaný JEN na jeden duel (žádný rodinný token). Kód se
+// tu validuje jen tvarově a volně — o platnosti rozhoduje výhradně porovnání
+// hashů na endpointu, aby špatný kód dostal VŽDY jednotné 403 (žádná
+// informace navíc z rozdílu 400/403).
+
+const hostKodSchema = z.string().max(128);
+
+/**
+ * Neviditelné/směrové Unicode znaky, které nesmí do jména hosta: ALM (U+061C),
+ * zero-width + značky směru (U+200B–U+200F), oddělovače řádku/odstavce
+ * (U+2028/U+2029), bidi embedding/override (U+202A–U+202E), bidi isolaty
+ * (U+2066–U+2069) a BOM/ZWNBSP (U+FEFF).
+ */
+const REGEX_NEVIDITELNYCH_ZNAKU =
+  /[\u061c\u200b-\u200f\u2028\u2029\u202a-\u202e\u2066-\u2069\ufeff]/;
+
+/**
+ * Jméno hosta: trim, 1–24 znaků, bez řídicích znaků (C0, DEL, C1) a bez
+ * neviditelných/směrových znaků — jde přímo do UI vyzyvatele.
+ */
+export const hostJmenoSchema = z
+  .string()
+  .max(256)
+  .transform((jmeno) => jmeno.trim())
+  .refine((jmeno) => jmeno.length >= 1 && jmeno.length <= 24, {
+    message: 'Jméno hosta musí mít 1–24 znaků',
+  })
+  // eslint-disable-next-line no-control-regex -- záměrný filtr řídicích znaků
+  .refine((jmeno) => !/[\u0000-\u001f\u007f-\u009f]/.test(jmeno), {
+    message: 'Jméno hosta nesmí obsahovat řídicí znaky',
+  })
+  // Neviditelné a směrové Unicode znaky: bidi override (RLO apod.) umí
+  // vizuálně převrátit okolní text karty duelu, zero-width znaky umí vyrobit
+  // dvě „stejná“ jména. ALM, ZWSP–RLM, LS/PS, LRE–RLO+PDF, LRI–PDI, BOM.
+  .refine(
+    (jmeno) => !REGEX_NEVIDITELNYCH_ZNAKU.test(jmeno),
+    { message: 'Jméno hosta nesmí obsahovat neviditelné ani směrové znaky' },
+  );
+
+/** Tělo POST /api/hoste/duely/:id/prijmout. */
+export const hostPrijmoutSchema = z.object({
+  kod: hostKodSchema,
+  jmeno: hostJmenoSchema,
+});
+
+/** Tělo POST /api/hoste/duely/:id/vysledek. */
+export const hostVysledekSchema = z.object({
+  kod: hostKodSchema,
   vysledek: vysledekDueluSchema,
 });
 

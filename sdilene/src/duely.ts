@@ -65,6 +65,26 @@ export function titulPostrach(nazevOboru: string): string {
   return `Postrach: ${nazevOboru}`;
 }
 
+// ---------------------------------------------------------------------------
+// Duel odkazem — host mimo rodinu (fáze 2)
+
+/**
+ * Prefix profilId hosta duelu odkazem. Prefix je VYHRAZENÝ: rodinné endpointy
+ * profilId s tímhle prefixem odmítají, aby se za hosta nedalo hrát bez
+ * hostovského kódu.
+ */
+export const HOST_PROFIL_PREFIX = 'host:';
+
+/** profilId hosta duelu odkazem — vázaný JEN na tento duel. */
+export function hostProfilId(duelId: string): string {
+  return `${HOST_PROFIL_PREFIX}${duelId}`;
+}
+
+/** Je profilId hostovský (prefix host:)? */
+export function jeHostProfilId(profilId: string): boolean {
+  return profilId.startsWith(HOST_PROFIL_PREFIX);
+}
+
 /** Názvy a popisy power-upů pro UI (odměna z truhly, výběr v duelu). */
 export const POWERUP_INFO: Record<PowerupTyp, { nazev: string; popis: string }> = {
   'pade-na-pade': {
@@ -310,6 +330,12 @@ export function vysledekProHrace(
  * - „Postrach: <nazevOboru>“ — 3 výhry v řadě v jednom oboru,
  * - „Duelant“ — 10 dokončených duelů.
  * Titul se uděluje jen jednou (žádné duplicity).
+ *
+ * HOSTÉ duelu odkazem (souperProfilId s prefixem host:) se do `dvojice`
+ * NEZAPISUJÍ: klíč host:<duelId> je jednorázový, každý duel by založil nový
+ * trvalý řádek vitríny („proti: Bývalý profil 1–0“ po vypadnutí z historie)
+ * a snapshot progresu by rostl bez omezení. Celková počítadla, série i tituly
+ * se za duel s hostem počítají normálně.
  */
 export function aktualizujTrofeje(
   trofeje: TrofejeProfilu,
@@ -343,7 +369,9 @@ export function aktualizujTrofeje(
   if (duelyCelkem >= DUELY_PRO_TITUL_DUELANT) pridejTitul(TITUL_DUELANT);
 
   return {
-    dvojice: { ...trofeje.dvojice, [souperProfilId]: novaBilance },
+    dvojice: jeHostProfilId(souperProfilId)
+      ? trofeje.dvojice
+      : { ...trofeje.dvojice, [souperProfilId]: novaBilance },
     tituly,
     serieVyherCelkem,
     seriePodleOboru: { ...trofeje.seriePodleOboru, [obor.predmetId]: serieOboru },
@@ -506,6 +534,12 @@ export const duelSchema = z
     vyzyvatel: ucastnikDueluSchema,
     souper: ucastnikDueluSchema.optional(),
     otevrenyProRodinu: z.boolean(),
+    /** Duel odkazem pro hosta mimo rodinu (fáze 2). */
+    proOdkaz: z.boolean().optional(),
+    /** SHA-256 hash hostovského kódu (sůl = id duelu); nikdy neopouští server. */
+    hostKodHash: z.string().min(1).max(128).optional(),
+    /** Host po přijetí odkazu (jeho profilId je host:<duelId>). */
+    host: z.object({ jmeno: z.string().min(1).max(64) }).optional(),
     handicap: z.record(z.number().min(1).max(1.5)),
     stav: stavDueluSchema,
     vysledky: z.record(vysledekDueluSchema),
@@ -542,6 +576,52 @@ export const duelSchema = z
         message: `Duel ve stavu „${duel.stav}“ musí mít soupeře`,
       });
     }
+    // Duel odkazem: nikdy otevřený pro rodinu, vždy s hashem kódu; soupeřem
+    // smí být jen host tohoto duelu (host:<duelId>). Hostovská pole naopak
+    // nesmí mít duel, který odkazem není.
+    if (duel.proOdkaz) {
+      if (duel.otevrenyProRodinu) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['otevrenyProRodinu'],
+          message: 'Duel odkazem nemůže být zároveň otevřený pro rodinu',
+        });
+      }
+      if (!duel.hostKodHash) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['hostKodHash'],
+          message: 'Duel odkazem musí mít hash hostovského kódu',
+        });
+      }
+      if (duel.souper && duel.souper.profilId !== hostProfilId(duel.id)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['souper', 'profilId'],
+          message: 'Soupeřem duelu odkazem smí být jen host tohoto duelu',
+        });
+      }
+    } else if (duel.hostKodHash || duel.host) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['proOdkaz'],
+        message: 'Hostovská pole smí mít jen duel s příznakem proOdkaz',
+      });
+    }
+    if (duel.host && duel.souper?.profilId !== hostProfilId(duel.id)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['host'],
+        message: 'Duel s hostem musí mít hosta i jako soupeře (host:<duelId>)',
+      });
+    }
+    if (jeHostProfilId(duel.vyzyvatel.profilId)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['vyzyvatel', 'profilId'],
+        message: 'Vyzyvatel nemůže mít vyhrazený hostovský profilId',
+      });
+    }
     const ucastnici = new Set(
       [duel.vyzyvatel.profilId, duel.souper?.profilId].filter((id): id is string => !!id),
     );
@@ -569,6 +649,14 @@ export const duelSchema = z
           code: z.ZodIssueCode.custom,
           path: ['vysledky', profilId, 'odpovedi'],
           message: 'Víc odpovědí než otázek duelu',
+        });
+      }
+      // Host power-upy nemá — jeho výsledek nesmí žádný obsahovat.
+      if (jeHostProfilId(profilId) && vysledek.odpovedi.some((o) => o.pouzityPowerup)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['vysledky', profilId, 'odpovedi'],
+          message: 'Host nemá power-upy — výsledek hosta je nesmí používat',
         });
       }
       vysledek.odpovedi.forEach((odpoved, i) => {

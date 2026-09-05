@@ -116,8 +116,8 @@ injektované hodiny, testy neposouvají reálný čas.
 **CORS**: aplikace běží na jiném originu (Vite `:5173`, Tauri
 `http://tauri.localhost`) a vlastní hlavička tokenu vynucuje preflight —
 server proto na všech cestách pouští CORS middleware
-(`allowHeaders: content-type, x-questor-token`, origin `*`; autentizaci
-nesou tokeny, ne origin).
+(`allowHeaders: content-type, x-questor-token, x-questor-host-kod`,
+origin `*`; autentizaci nesou tokeny/hostovský kód, ne origin).
 
 **Limity těla requestu**: `PUT /api/banky/:predmetId` a `PUT
 /api/vyuka/:predmetId` max 10 MB (content-upload s inline SVG), ostatní
@@ -144,11 +144,14 @@ zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
 | `GET /api/vyzvy` | student | `Vyzva[]` se stavem != `dokoncena`; volitelný `?profilId=` vrátí jen výzvy cílené na daný profil + společné. Bez query platí výchozí profil `vychozi` (starý klient bez profilů JE výchozí profil — stejně server atribuuje jeho progres a události): dostane společné výzvy + cílené na `vychozi`, cizí cílené výzvy NEdostane, aby je nemohl „spotřebovat“ (dokončit a globálně uzavřít) místo adresáta |
 | `POST /api/vyzvy` | admin | `{ zprava, konfigurace, cilovaUspesnost?, cilovyProfilId? }` → `Vyzva` (s `cilovyProfilId` je výzva jen pro daný profil) |
 | `POST /api/vyzvy/:id/vysledek` | student | `{ uspesnost, xp }` → `{ ok }` (nastaví `dokoncena`) |
-| `POST /api/duely` | student | `{ predmetId, temataId?, pocetOtazek 5\|10\|20, vyzyvatelProfilId, vyzyvatelJmeno?, souperProfilId?, souperJmeno? }` → celý `Duel` (vč. `verzeBanky` — verze banky při založení). Server deterministicky vybere sadu otázek (seed = id duelu, ČISTĚ rovnoměrně — žádné Leitnerovy váhy) a u cílené výzvy hned spočítá handicap ze snapshotů progresu; bez `souperProfilId` je výzva otevřená pro rodinu. 404 chybějící banka, 400 cizí témata / duel sám se sebou |
+| `POST /api/duely` | student | `{ predmetId, temataId?, pocetOtazek 5\|10\|20, vyzyvatelProfilId, vyzyvatelJmeno?, souperProfilId?, souperJmeno?, proOdkaz? }` → celý `Duel` (vč. `verzeBanky` — verze banky při založení). Server deterministicky vybere sadu otázek (seed = id duelu, ČISTĚ rovnoměrně — žádné Leitnerovy váhy) a u cílené výzvy hned spočítá handicap ze snapshotů progresu; bez `souperProfilId` je výzva otevřená pro rodinu. `proOdkaz: true` (vylučuje se se `souperProfilId`) založí DUEL ODKAZEM pro hosta mimo rodinu: odpověď nese JEDNORÁZOVĚ `kodHosta` (24 znaků base64url, kryptograficky náhodný) — server si dál drží jen SHA-256 hash se solí = id duelu (`hostKodHash`), který se NIKDY neposílá v žádné odpovědi. 404 chybějící banka, 400 cizí témata / duel sám se sebou |
 | `GET /api/duely?profilId=` | student | `{ moje: Duel[], otevrene: Duel[] }` — moje běžící + posledních 20 dokončených; otevřené = cizí rodinné výzvy k přijetí. Bez query platí výchozí profil. Expirace je líná: čtení překlopí prošlé duely na `vyprsely` (kontumace). ANTI-CHEAT: `otazkyIds` se ZATAJUJE (prázdné pole) u všech otevřených výzev a adresátovi cílené výzvy před přijetím — klient má lokálně banku s klíčem správnosti a sadu předem znát nesmí; plná sada přijde v odpovědi na přijetí (vyzyvatel ji má z odpovědi na založení) |
 | `GET /api/duely/prehled` | admin | posledních 100 duelů (nejnovější první) pro admin web |
 | `POST /api/duely/:id/prijmout` | student | `{ profilId, jmeno }` → `Duel` (s plnou sadou `otazkyIds`). Otevřená výzva: first-wins, při přijetí se ZMRAZÍ handicap obou ze snapshotů progresu; druhý zájemce → 409. Cílená: smí jen adresát (jinak 409), opakované přijetí týmž profilem je idempotentní. Vlastní výzva / vypršelý / dohraný → 409 |
 | `POST /api/duely/:id/vysledek` | student | `{ profilId, vysledek: VysledekDuelu }` → `Duel`. Platí PRVNÍ zápis za profil — opakovaný → 409 (anti-cheat). ANTI-CHEAT přepočet: server klientským `body`/`celkovyCasMs` NEVĚŘÍ — přepočítá je ze syrových odpovědí proti bance (`prepoctiVysledekDuelu` ve sdíleném jádru: limit = `casLimitProHrace` × zmrazený handicap + zmrazení času na otázce s power-upem, štít jen na první špatnou od aktivace) a odmítne 400 `casMs` > limit + 2 s rezerva (`REZERVA_CASU_DUELU_MS`), duplicitní `otazkaId` i otázku mimo banku; banka smazaná ze serveru → 409. Výsledek od cíleného soupeře je zároveň přijetí; do nepřijaté OTEVŘENÉ výzvy výsledek nejde (409 — handicap ještě není zmrazený). Po obou výsledcích server duel vyhodnotí (`vyhodnotDuel`: body → nižší součet časů → remíza) a uzavře jako `hotovy` s `vitezProfilId`. Celý nový stav duelu validuje sdílené `duelSchema` (odpovědi jen na otázky duelu, každá otázka i power-up max 1×) |
+| `GET /api/hoste/duely/:id` | host (jen kód) | Stav duelu odkazem pro hosta (i výsledek po dohrání obou). Kód jde PRIMÁRNĚ hlavičkou `x-questor-host-kod` (query string končí v access logu proxy a popřel by smysl fragmentu `#` v odkazu); `?kod=` zůstává jen jako fallback pro starší klienty. Špatný/chybějící/cizí kód i neexistující duel → JEDNOTNÉ 403 `{ chyba }` (žádná informace navíc). ANTI-CHEAT: dokud host nepřijme, `otazkyIds` je prázdné a `vysledky` prázdný objekt (odpovědi vyzyvatele by sadu prozradily); `hostKodHash` v odpovědi není nikdy. Líná expirace platí |
+| `POST /api/hoste/duely/:id/prijmout` | host (jen kód) | `{ kod, jmeno }` (jméno trim, 1–24 znaků, bez řídicích a neviditelných/směrových Unicode znaků — jde přímo do UI vyzyvatele) → plný `Duel` s `otazkyIds`. Nastaví hosta: `souper = { profilId: 'host:<duelId>', jmeno }` + `host = { jmeno }`, handicap OBOU fixně 1.0, stav `prijaty`. First-wins: druhé přijetí s jiným jménem → 409; opakované přijetí se správným kódem a STEJNÝM jménem je idempotentní (odolnost proti ztracené odpovědi — dva držitele téhož kódu stejně nejde rozlišit). Vypršelý/dohraný → 409 |
+| `POST /api/hoste/duely/:id/vysledek` | host (jen kód) | `{ kod, vysledek }` → `Duel`. Stejný anti-cheat přepočet jako u rodiny (`prepoctiVysledekDuelu`, handicap hosta 1.0); host NEMÁ power-upy — jakýkoli `pouzityPowerup` → 400 (hlídá i sdílené `duelSchema`). NAVÍC (jen host — cizí člověk s curl): výsledek musí pokrýt VŠECHNY otázky sady, jinak 400 — vynechané odpovědi by nesnížily body, ale snížily by `celkovyCasMs` rozhodující tie-break. First-wins (druhý zápis 409); před přijetím 409; po obou výsledcích server duel uzavře (`hotovy` + `vitezProfilId`) |
 | `POST /api/generovani/dogenerovat` | student | `{ predmetId, temaId, obtiznost, pocet }` → `{ otazky }`; **503** když server nemá `ANTHROPIC_API_KEY` (aplikace to bere jako „funkce vypnutá“, žádná chyba uživateli). Kontext učiva server skládá ze zadání a vysvětlení existujících otázek tématu v bance (zdrojové učivo na serveru není). **Stav: klientská část v aplikaci zatím NENÍ implementovaná** — hotová je jen serverová půlka včetně 503. |
 | `GET /admin` | admin (token zadá stránka) | mini admin web (viz níže) |
 
@@ -254,7 +257,10 @@ hra/        gamifikační komponenty (XP, streak, questy, truhla, sbírka, avata
 vyuka/      Uceni (/uceni), LekceViewer (/uceni/:temaId), bloky/, widgety/, registr.ts
 profily/    VyberProfilu (brána aplikace), SpravaProfilu (Nastavení), pin.ts
 duely/      Duely (/duely), DuelHrani (/duel/:id), DuelVysledek, DuelyIndikator,
-            engine.ts (čistý klientský engine průběhu), pomocne.ts
+            engine.ts (čistý klientský engine průběhu), pomocne.ts,
+            HostDuel.tsx (hostovský režim duelu odkazem — celá obrazovka
+            mimo aplikaci) + host.ts (čistá hostovská logika: odkaz, hash,
+            lokální stav, fetch klient /api/hoste/*)
 sync/       klient serveru + offline fronta (per profil) + nastavení připojení
 stranky/    Domu, Test, Vysledek, Sbirka, Statistiky, Nastaveni
 komponenty/ HudHlavicka (+ menu profilů) + sdílené vizuální prvky
@@ -384,7 +390,9 @@ cachovat; doplní se až s nasazením webové verze.
 - **APP-PROFILY**: `profily/`, `stav/profilySlice.ts`, `stav/migrace.ts`.
 - ZMRAZENÉ (nikdo nemění bez dohody): `App.tsx`, `main.tsx`, `stav/store.ts`,
   `styl/tokeny.css`. (Profilová brána v App.tsx a složení profilySlice ve
-  store.ts vznikly dohodou při zavedení profilů — dál platí zmrazení.)
+  store.ts vznikly dohodou při zavedení profilů; hostovská brána v App.tsx
+  — hash `#duel=…` s předností před výběrem profilu — dohodou při duelu
+  odkazem. Dál platí zmrazení.)
 
 ### Tok testu
 
@@ -568,7 +576,58 @@ průběhu v `aplikace/src/duely/engine.ts`. API a DB viz tabulky výše.
   MÁ sadu otázek — adresát ji dostává až přijetím online (GET ji zatajuje,
   DuelHrani proto výzvu při otevření sám přijme; serverová cesta „výsledek
   = přijetí“ zůstává pro starší klienty). Otevřenou výzvu až po přijetí online.
-- Duel odkazem pro cizí (mimo rodinu) = FÁZE 2, teď NE.
+- **Duel odkazem (fáze 2 — hosté, hotové obě půlky)**: vyzyvatel založí duel
+  s `proOdkaz: true` a dostane JEDNORÁZOVĚ `kodHosta` (24 znaků base64url,
+  kryptograficky náhodný) — odkaz má tvar
+  `https://koordinator-server.cz/questor/#duel=<duelId>.<kodHosta>`
+  (fragment `#` nechodí do server logů; tečka je jednoznačný oddělovač).
+  Host (mimo rodinu, bez profilu a rodinného kódu) hraje přes `/api/hoste/*`
+  (tabulka API výše) jen s kódem; zadá jen jméno a vystupuje pod VYHRAZENÝM
+  profilId `host:<duelId>` (`hostProfilId`/`jeHostProfilId` ve sdilene —
+  rodinné duelové endpointy prefix `host:` v tělech odmítají, aby se za
+  hosta nedalo hrát bez kódu). Server ukládá jen SHA-256 hash kódu se solí
+  = id duelu (`hostKodHash`, nikdy neopouští server; porovnání v konstantním
+  čase); únik DB odkazy neprozradí. Kód jde u GET hlavičkou
+  `x-questor-host-kod` (v CORS `allowHeaders`), ne query stringem — nesmí do
+  access logů. Host nemá handicap (oba fixně 1.0 — vyzyvatel proto smí svou
+  půlku odehrát ještě před přijetím hosta) ani power-upy (400 + `duelSchema`);
+  jeho výsledek navíc musí pokrýt celou sadu otázek. IZOLACE: kód neotevírá
+  žádný jiný endpoint (registr profilů, progres ani jiné duely — všude
+  401/403), rate limit platí (cesty žijí pod `/api/*`). Duel odkazem NENÍ
+  otevřená rodinná výzva (`otevrenyProRodinu: false`, rodinné přijetí → 409);
+  vyzyvatel ho vidí normálně ve svých duelech — soupeř nese jméno hosta
+  a pole `host` (UI štítek „host“). Do trofejní vitríny se duel s hostem
+  počítá do celkových počítadel, sérií a titulů, ale NE do `dvojice`
+  (jednorázový klíč `host:<duelId>` by zakládal trvalé řádky bilance).
+  Pravidla, limity, bez feedbacku, serverový přepočet a expirace beze změn.
+- **Duel odkazem — klient (vyzyvatel)**: v dialogu výzvy je třetí volba
+  soupeře „🔗 Poslat odkaz komukoli“. Po založení se místo formuláře ukáže
+  obrazovka s odkazem (kopírování + Web Share na mobilu) — kód přijde
+  v odpovědi JEDNORÁZOVĚ, obrazovku proto nezavírá Escape ani klik do
+  pozadí, jen explicitní tlačítka; `kodHosta` se NIKDY neukládá do store
+  (persistu). Odkaz skládá `odkazProHosta` (`aplikace/src/duely/host.ts`):
+  z Tauri desktopu VŽDY veřejná webová adresa (`WEB_ADRESA_APLIKACE` —
+  host otevírá web, ne desktop shell), z webu aktuální origin + BASE_URL.
+  Starší server bez podpory pole `proOdkaz` stripne a založil by tiše
+  otevřenou rodinnou výzvu — klient to pozná podle chybějícího `kodHosta`,
+  duel neuloží a ukáže srozumitelnou chybu.
+- **Duel odkazem — klient (host)**: hash `#duel=<id>.<kod>` má v App.tsx
+  přednost před profilovou bránou (memoizované `pozvankaZeStartu` + posluchač
+  `hashchange` pro pozvánku vloženou do už otevřeného tabu); hash se po
+  přečtení hned ČISTÍ přes `history.replaceState` (kód nesmí zůstat
+  v adresním řádku, historii ani na screenshotu). Hostovský režim
+  (`duely/HostDuel.tsx`, čistá logika `duely/host.ts`) NEZAKLÁDÁ profil
+  a NESAHÁ na rodinný sync (`sync/sync.ts` se neimportuje; fetch klient
+  hostovských endpointů jede BEZ tokenu na environmentální výchozí adresu,
+  nikdy na uložené rodinné nastavení). Stav hosta žije v localStorage klíči
+  `questor-host-duel:<duelId>` (jméno, kód, duel se sadou, rozehraný průběh,
+  výsledek + příznak odeslání) — návrat přes TENTÝŽ odkaz ukáže rozehranou
+  hru i výsledek. Hraje stejným duelovým enginem (`engine.ts`) bez lišty
+  power-upů. Pojistky: před spálením first-wins odkazu se kontroluje, že
+  bundlovaná banka existuje a není starší než `verzeBanky` duelu; ztracená
+  odpověď na přijetí se pozná podle `jmenoPokus` (uloží se PŘED odesláním —
+  shoda se jménem hosta na serveru = pokračuje se bez chyby); líná expirace
+  platí i lokálně (`expirujDuel` — po termínu se nehraje ani offline).
 
 ## Výuka — kontrakt (fáze 2)
 

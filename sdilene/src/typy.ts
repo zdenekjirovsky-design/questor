@@ -175,6 +175,15 @@ export interface UcastnikDuelu {
   jmeno: string;
 }
 
+/**
+ * Host duelu odkazem (fáze 2) — soupeř MIMO rodinu, bez profilu a rodinného
+ * kódu. Jako účastník vystupuje pod profilId `host:<duelId>` (hostProfilId
+ * v duely.ts) a jménem, které zadal při přijetí odkazu.
+ */
+export interface HostDuelu {
+  jmeno: string;
+}
+
 export interface OdpovedDuelu {
   otazkaId: string;
   spravne: boolean;
@@ -220,6 +229,20 @@ export interface Duel {
   souper?: UcastnikDuelu;
   /** true = výzvu smí přijmout kdokoli z rodiny (první, kdo přijme). */
   otevrenyProRodinu: boolean;
+  /**
+   * true = duel sdílený ODKAZEM pro hosta mimo rodinu (fáze 2). Nikdy není
+   * otevrenyProRodinu; soupeřem se stává host přijetím odkazu (souper.profilId
+   * = host:<duelId>). Rodinné přijetí je u něj zablokované.
+   */
+  proOdkaz?: boolean;
+  /**
+   * SHA-256 hash jednorázového hostovského kódu (sůl = id duelu). Otevřený
+   * kód server NIKDY neukládá a hash se NIKDY neposílá v žádné odpovědi —
+   * únik DB neprozradí platné odkazy.
+   */
+  hostKodHash?: string;
+  /** Host (soupeř mimo rodinu) po přijetí odkazu; handicap má vždy 1.0. */
+  host?: HostDuelu;
   /**
    * Handicap férovosti: profilId → násobič časového limitu na otázku
    * (1.0–1.5, slabší hráč dostává delší limity). Počítá se ze snapshotů

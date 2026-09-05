@@ -19,6 +19,7 @@ import type {
   Tema,
   TestVysledek,
   TruhlaTyp,
+  Vzacnost,
 } from './typy';
 
 // ---------------------------------------------------------------------------
@@ -185,10 +186,13 @@ export function urciTruhlu(uspesnost: number): TruhlaTyp | null {
   return null;
 }
 
-const VAHY_TRUHEL: Record<TruhlaTyp, { xpMin: number; xpMax: number; pKarta: number; pZmrazeni: number }> = {
-  bronzova: { xpMin: 20, xpMax: 40, pKarta: 0.2, pZmrazeni: 0.1 },
-  stribrna: { xpMin: 40, xpMax: 80, pKarta: 0.3, pZmrazeni: 0.15 },
-  zlata: { xpMin: 80, xpMax: 150, pKarta: 0.45, pZmrazeni: 0.15 },
+const VAHY_TRUHEL: Record<
+  TruhlaTyp,
+  { xpMin: number; xpMax: number; pKarta: number; pVybava: number; pZmrazeni: number }
+> = {
+  bronzova: { xpMin: 20, xpMax: 40, pKarta: 0.2, pVybava: 0.12, pZmrazeni: 0.1 },
+  stribrna: { xpMin: 40, xpMax: 80, pKarta: 0.3, pVybava: 0.18, pZmrazeni: 0.15 },
+  zlata: { xpMin: 80, xpMax: 150, pKarta: 0.45, pVybava: 0.25, pZmrazeni: 0.15 },
 };
 
 /** Po kolika truhlách bez karty je karta garantovaná (pity timer). */
@@ -201,43 +205,108 @@ const VAHA_VZACNOSTI: Record<KartaDefinice['vzacnost'], number> = {
   legendarni: 5,
 };
 
+// ---------------------------------------------------------------------------
+// Výbava avataru — kosmetika z truhel (sloty hlava/oci/krk/pozadi)
+
+export interface VybavaDefinice {
+  id: string;
+  nazev: string;
+  popis: string;
+  slot: 'hlava' | 'oci' | 'krk' | 'pozadi';
+  vzacnost: Vzacnost;
+}
+
 /**
- * Otevře truhlu. Vrací odměnu a novou podobu sbírky (imutabilně).
- * `dostupneKarty` = definice karet, které lze vylosovat (vlastněné se filtrují tady).
+ * Katalog kosmetické výbavy avataru. Pozadí „vesmír“ je výchozí pro všechny,
+ * proto v katalogu není. Výbava na vlasy nesahá — střih a barva se nastavují
+ * samostatně v konfiguraci avataru.
+ */
+export const VYBAVA_KATALOG: VybavaDefinice[] = [
+  // hlava
+  { id: 'ksiltovka-dozadu', nazev: 'Kšiltovka dozadu', popis: 'Otočená kšiltem vzad. Okamžitě +10 % frajeřiny.', slot: 'hlava', vzacnost: 'obycejna' },
+  { id: 'celenka', nazev: 'Čelenka', popis: 'Drží vlasy na uzdě, když jede combo.', slot: 'hlava', vzacnost: 'obycejna' },
+  { id: 'piratsky-satek', nazev: 'Pirátský šátek', popis: 'Yarr! Poklady z truhel patří tobě.', slot: 'hlava', vzacnost: 'vzacna' },
+  { id: 'koruna', nazev: 'Koruna', popis: 'Pro vládce žebříčku. Nošení zavazuje.', slot: 'hlava', vzacnost: 'legendarni' },
+  // oci
+  { id: 'bryle-cerne', nazev: 'Černé brýle', popis: 'Klasika. Ty vidíš všechno, tebe nikdo.', slot: 'oci', vzacnost: 'obycejna' },
+  { id: 'pilotky', nazev: 'Pilotky', popis: 'Zrcadlovky jako z filmu. Odlétáš na další level.', slot: 'oci', vzacnost: 'vzacna' },
+  { id: '3d-bryle', nazev: '3D brýle', popis: 'Papírové, červeno-modré. Učivo je najednou plastické.', slot: 'oci', vzacnost: 'vzacna' },
+  { id: 'monokl', nazev: 'Monokl', popis: 'Vskutku vybraný kus. Znamenitě sedí ke správným odpovědím.', slot: 'oci', vzacnost: 'epicka' },
+  // krk
+  { id: 'sluchatka', nazev: 'Sluchátka', popis: 'Visí na krku, aby všichni věděli, že máš vkus.', slot: 'krk', vzacnost: 'obycejna' },
+  { id: 'sala', nazev: 'Šála', popis: 'Proti ofouknutí i pro styl. Dvě funkce, jedna cena.', slot: 'krk', vzacnost: 'obycejna' },
+  { id: 'retizek', nazev: 'Řetízek', popis: 'Decentně se blýskne při každém level-upu.', slot: 'krk', vzacnost: 'vzacna' },
+  { id: 'medaile-borce', nazev: 'Medaile borce', popis: 'Za zásluhy na bojišti testových otázek.', slot: 'krk', vzacnost: 'epicka' },
+  // pozadi
+  { id: 'mesto-v-noci', nazev: 'Město v noci', popis: 'Světla velkoměsta. Někde tam se právě učí šampion.', slot: 'pozadi', vzacnost: 'vzacna' },
+  { id: 'hory', nazev: 'Hory', popis: 'Čerstvý vzduch a rozhled. Na vrchol už to máš kousek.', slot: 'pozadi', vzacnost: 'vzacna' },
+  { id: 'neonova-zed', nazev: 'Neonová zeď', popis: 'Září skoro tak jasně jako tvoje statistiky.', slot: 'pozadi', vzacnost: 'epicka' },
+  { id: 'stadion', nazev: 'Stadion', popis: 'Plné tribuny fandí každé správné odpovědi.', slot: 'pozadi', vzacnost: 'epicka' },
+];
+
+/**
+ * Otevře truhlu. Vrací odměnu, novou podobu sbírky a nový seznam vlastněné
+ * výbavy (vše imutabilně).
+ * `dostupneKarty` = definice karet, které lze vylosovat (vlastněné se filtrují tady);
+ * `vlastnenaVybava` = id už vlastněných položek výbavy (losuje se jen z nevlastněných).
+ *
+ * Pásma losu jdou za sebou: [0, pKarta) karta, dál pVybava výbava, dál pZmrazeni
+ * zmrazení, zbytek XP. Pozice pásem jsou PEVNÉ — když pásmo nemá co dát (vše
+ * vlastněno), propadá jeho los do XP a ostatní pásma se neposouvají.
+ * Pity timer karet zůstává beze změny (počítá truhly bez KARTY).
  */
 export function otevriTruhlu(
   typ: TruhlaTyp,
   sbirka: Sbirka,
   dostupneKarty: KartaDefinice[],
+  vlastnenaVybava: string[],
   nahoda: () => number,
-): { odmena: Odmena; sbirka: Sbirka } {
+  dostupnaVybava: VybavaDefinice[] = VYBAVA_KATALOG,
+): { odmena: Odmena; sbirka: Sbirka; vlastnenaVybava: string[] } {
   const cfg = VAHY_TRUHEL[typ];
-  const nevlastnene = dostupneKarty.filter((k) => !sbirka.karty.includes(k.id));
+  const nevlastneneKarty = dostupneKarty.filter((k) => !sbirka.karty.includes(k.id));
+  const nevlastnenaVybava = dostupnaVybava.filter((v) => !vlastnenaVybava.includes(v.id));
   const pity = sbirka.truhelBezKarty >= PITY_LIMIT;
   const los = nahoda();
 
-  const daKartu = nevlastnene.length > 0 && (pity || los < cfg.pKarta);
+  const daKartu = nevlastneneKarty.length > 0 && (pity || los < cfg.pKarta);
   if (daKartu) {
     const [karta] = vazenyVyber(
-      nevlastnene,
-      nevlastnene.map((k) => VAHA_VZACNOSTI[k.vzacnost]),
+      nevlastneneKarty,
+      nevlastneneKarty.map((k) => VAHA_VZACNOSTI[k.vzacnost]),
       1,
       nahoda,
     );
     return {
       odmena: { typ: 'karta', kartaId: karta.id },
       sbirka: { karty: [...sbirka.karty, karta.id], truhelBezKarty: 0 },
+      vlastnenaVybava,
     };
   }
 
   const novaSbirka: Sbirka = { ...sbirka, truhelBezKarty: sbirka.truhelBezKarty + 1 };
-  // Zmrazení má pevné pásmo [pKarta, pKarta+pZmrazeni) — když karta padnout
-  // nemůže (vše vlastněno), její pásmo připadne XP, ne zmrazení.
-  if (los >= cfg.pKarta && los < cfg.pKarta + cfg.pZmrazeni) {
-    return { odmena: { typ: 'zmrazeni' }, sbirka: novaSbirka };
+  const zacatekVybavy = cfg.pKarta;
+  const zacatekZmrazeni = cfg.pKarta + cfg.pVybava;
+
+  if (los >= zacatekVybavy && los < zacatekZmrazeni && nevlastnenaVybava.length > 0) {
+    const [vybava] = vazenyVyber(
+      nevlastnenaVybava,
+      nevlastnenaVybava.map((v) => VAHA_VZACNOSTI[v.vzacnost]),
+      1,
+      nahoda,
+    );
+    return {
+      odmena: { typ: 'vybava', vybavaId: vybava.id },
+      sbirka: novaSbirka,
+      vlastnenaVybava: [...vlastnenaVybava, vybava.id],
+    };
+  }
+
+  if (los >= zacatekZmrazeni && los < zacatekZmrazeni + cfg.pZmrazeni) {
+    return { odmena: { typ: 'zmrazeni' }, sbirka: novaSbirka, vlastnenaVybava };
   }
   const xp = Math.round(cfg.xpMin + nahoda() * (cfg.xpMax - cfg.xpMin));
-  return { odmena: { typ: 'xp', xp }, sbirka: novaSbirka };
+  return { odmena: { typ: 'xp', xp }, sbirka: novaSbirka, vlastnenaVybava };
 }
 
 // ---------------------------------------------------------------------------
@@ -487,9 +556,15 @@ export function aktualizujStatistiku(
 // Výchozí progres
 
 export const VYCHOZI_AVATAR: AvatarKonfigurace = {
-  // Dlouhé vlasy jsou identita. Nastavení nabízí jen barvy, nikdy nůžky.
+  // Neutrální výchozí podoba — všechno (pohlaví, tvar obličeje, pleť, barva
+  // i střih vlasů včetně krátkých) si hráč libovolně změní v nastavení.
+  pohlavi: 'muz',
+  tvarObliceje: 'ovalny',
+  barvaPleti: '#f2c9a0',
   barvaVlasu: '#6b4a2f',
-  pozadi: 'vesmir',
+  stylVlasu: 'rozpustene',
+  // Prázdná výbava = výchozí pozadí „vesmír“ (není v katalogu, mají ho všichni).
+  vybava: {},
 };
 
 export function vychoziProgres(ted: string): ProgresStudenta {
@@ -499,6 +574,7 @@ export function vychoziProgres(ted: string): ProgresStudenta {
     questy: [],
     sbirka: { karty: [], truhelBezKarty: 0 },
     avatar: VYCHOZI_AVATAR,
+    vlastnenaVybava: [],
     statistikyOtazek: {},
     rekordy: {
       nejlepsiUspesnost: 0,

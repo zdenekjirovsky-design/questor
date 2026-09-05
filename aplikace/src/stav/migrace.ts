@@ -5,9 +5,15 @@
 // stavu (nacita se async pri startu z bundlu — ../data/nacteniObsahu.ts —
 // a obsah ze serveru cachuje IndexedDB pres ../sync/uloziste.ts).
 // Progres studenta, postup lekci a dalsi herni stav se persistuje dal.
+//
+// Verze 3: avatar je plne prizpusobitelny (pohlavi, tvar obliceje, plet,
+// barva a strih vlasu, vybava po slotech) a progres nese vlastnenaVybava.
+// Stary avatar { barvaVlasu, doplnek?, pozadi? } se prevede na novy tvar —
+// barva vlasu se zachova, zbytek dostane vychozi hodnoty.
+import { VYCHOZI_AVATAR } from '@questor/sdilene';
 import type { QUESTORStav } from './store';
 
-export const VERZE_PERSISTU = 2;
+export const VERZE_PERSISTU = 3;
 
 /** Klice stavu, ktere se NEpersistuji (obsah predmetu — viz hlavicka souboru). */
 const NEPERSISTOVANE_KLICE = ['banky', 'vyuky'] as const;
@@ -21,16 +27,40 @@ export function partializujStav(stav: QUESTORStav): PersistovanyStav {
 }
 
 /**
- * Migrace persistovaneho snapshotu na aktualni verzi.
- * v1 → v2: banky a vyuky se ze snapshotu zahodi (obsah uz neni persistovany;
- * nacte se z bundlu/IndexedDB/serveru). Progres, postup lekci, historie
- * testu, truhly atd. se ZACHOVAVAJI beze zmeny.
+ * Migrace persistovaneho snapshotu na aktualni verzi. Nikdy nemutuje vstup.
+ * v1 → v2: banky a vyuky se ze snapshotu zahodi (obsah uz neni persistovany).
+ * v2 → v3: avatar se prevede na novy tvar (barvaVlasu se zachova, pohlavi/
+ * tvar obliceje/plet/strih dostanou vychozi hodnoty, stara pole doplnek
+ * a pozadi se zahodi) a progres dostane vlastnenaVybava: []. XP, streak,
+ * questy, sbirka, statistiky, rekordy atd. se ZACHOVAVAJI beze zmeny.
  */
 export function migrujPersistovanyStav(stav: unknown, verzeSnapshotu: number): PersistovanyStav {
-  if (verzeSnapshotu < 2 && stav !== null && typeof stav === 'object') {
-    const kopie = { ...(stav as Record<string, unknown>) };
-    for (const klic of NEPERSISTOVANE_KLICE) delete kopie[klic];
-    return kopie as PersistovanyStav;
+  if (stav === null || typeof stav !== 'object' || verzeSnapshotu >= VERZE_PERSISTU) {
+    return stav as PersistovanyStav;
   }
-  return stav as PersistovanyStav;
+
+  const kopie = { ...(stav as Record<string, unknown>) };
+
+  if (verzeSnapshotu < 2) {
+    for (const klic of NEPERSISTOVANE_KLICE) delete kopie[klic];
+  }
+
+  if (verzeSnapshotu < 3 && kopie.progres !== null && typeof kopie.progres === 'object') {
+    const progres = kopie.progres as Record<string, unknown>;
+    const staryAvatar =
+      progres.avatar !== null && typeof progres.avatar === 'object'
+        ? (progres.avatar as Record<string, unknown>)
+        : {};
+    const barvaVlasu =
+      typeof staryAvatar.barvaVlasu === 'string'
+        ? staryAvatar.barvaVlasu
+        : VYCHOZI_AVATAR.barvaVlasu;
+    kopie.progres = {
+      ...progres,
+      avatar: { ...VYCHOZI_AVATAR, barvaVlasu, vybava: {} },
+      vlastnenaVybava: Array.isArray(progres.vlastnenaVybava) ? progres.vlastnenaVybava : [],
+    };
+  }
+
+  return kopie as PersistovanyStav;
 }

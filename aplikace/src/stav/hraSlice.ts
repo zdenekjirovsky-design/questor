@@ -12,6 +12,7 @@
 
 import type { StateCreator } from 'zustand';
 import type {
+  AvatarKonfigurace,
   BankaOtazek,
   Odmena,
   OdpovedZaznam,
@@ -163,7 +164,8 @@ export interface HraSlice {
   resetujProgres(): void;
   /** Denní obnova questů — volat při startu dne / zobrazení dashboardu. */
   obnovDenniQuesty(): void;
-  nastavBarvuVlasu(barva: string): void;
+  /** Uloží celou konfiguraci avataru (editor v Nastavení posílá hotový návrh). */
+  zmenAvatara(konfigurace: AvatarKonfigurace): void;
   /** Sbírka zavolá po přehrání flip animací nových karet. */
   oznacKartyZaVidene(): void;
 }
@@ -344,7 +346,13 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
     const idx = stav.cekajiciTruhly.indexOf(typ);
     if (idx < 0) return null;
 
-    const { odmena, sbirka } = otevriTruhlu(typ, progres.sbirka, KARTY_VELIKANI, Math.random);
+    const { odmena, sbirka, vlastnenaVybava } = otevriTruhlu(
+      typ,
+      progres.sbirka,
+      KARTY_VELIKANI,
+      progres.vlastnenaVybava,
+      Math.random,
+    );
     const cekajiciTruhly = stav.cekajiciTruhly.filter((_, i) => i !== idx);
 
     const xp = odmena.typ === 'xp' ? (odmena.xp ?? 0) : 0;
@@ -358,6 +366,7 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
             ? { ...progres.streak, zmrazeni: progres.streak.zmrazeni + 1 }
             : progres.streak,
         sbirka,
+        vlastnenaVybava,
         rekordy: {
           ...progres.rekordy,
           tydenniXp: pridejTydenniXp(progres.rekordy.tydenniXp, dnes, xp),
@@ -417,9 +426,24 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
     });
   },
 
-  nastavBarvuVlasu: (barva) => {
+  zmenAvatara: (konfigurace) => {
     const progres = get().progres;
-    set({ progres: { ...progres, avatar: { ...progres.avatar, barvaVlasu: barva } } });
+    // Invariant: nasazena vybava ⊆ vlastnena. Polozky, ktere hrac nevlastni
+    // (napr. navrh editoru prezivsi reset progresu), se pri zapisu odfiltruji —
+    // tohle je jedine misto zapisu konfigurace avataru, takze invariant plati vsude.
+    const vybava: AvatarKonfigurace['vybava'] = {};
+    for (const [slot, id] of Object.entries(konfigurace.vybava ?? {})) {
+      if (id !== undefined && progres.vlastnenaVybava.includes(id)) {
+        vybava[slot as keyof AvatarKonfigurace['vybava']] = id;
+      }
+    }
+    set({
+      progres: {
+        ...progres,
+        avatar: { ...konfigurace, vybava },
+        aktualizovano: new Date().toISOString(),
+      },
+    });
   },
 
   oznacKartyZaVidene: () => {

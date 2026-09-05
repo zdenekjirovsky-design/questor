@@ -69,6 +69,20 @@ vykřičníkové přehánění na každém kroku — vzácnost dělá hodnotu.
 
 ## Avatar
 
-SVG postavička s dlouhými vlasy (výchozí, neodstranitelné — jen barvy
-a doplňky z truhel). Vlasy jsou vtip i identita: nastavení nabízí barvy,
-nikdy nůžky.
+Plně přizpůsobitelná SVG postavička (vrstvené SVG, viewBox 200×200),
+srozumitelná komukoli: volba muž/žena (jemně odlišná silueta a rysy),
+tři tvary obličeje, 5 barev pleti, 12 barev vlasů a 5 střihů — krátké,
+polodlouhé, rozpuštěné, culík, vlnité. Libovolná kombinace pro obě pohlaví.
+
+Kosmetická výbava padá z truhel (sloty hlava/oči/krk/pozadí, vzácnostní
+barvy stejné jako u karet Velikánů). Vrstvy jsou kreslené tak, aby výbava
+seděla na všech střizích: čepice kryje temeno, u dlouhých střihů vlasy
+přirozeně koukají zpod ní zadní vrstvou. Výchozí pozadí je vesmír Noční
+akademie; varianty (město v noci, hory, neonová zeď, stadion) jsou položky
+výbavy.
+
+Editor v Nastavení: velký živý náhled, výběry jako klikací karty s mini
+náhledy, palety pleti a vlasů, výbava po slotech — vlastněné kusy se
+nasazují/sundávají kliknutím, nevlastněné jsou tmavé siluety s vzácností
+a textem „najdeš v truhle“ (stejný tah „co mi chybí“ jako u sbírky).
+Změny se ukládají tlačítkem Uložit; vše je dostupné klávesnicí.

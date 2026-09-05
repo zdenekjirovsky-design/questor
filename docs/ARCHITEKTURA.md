@@ -273,14 +273,20 @@ a při startu přeplácnou bundlovaný obsah, když mají vyšší verzi.
 - Questy: 3/den, deterministické z data (`vygenerujDenniQuesty`); odměna
   = XP + při splnění všech 3 bronzová truhla navíc.
 - Truhly: po testu dle úspěšnosti (≥50 % bronz, ≥70 % stříbro, ≥90 % zlato),
-  obsah `otevriTruhlu` (XP / zmrazení / karta, pity timer 3).
+  obsah `otevriTruhlu` (XP / zmrazení / karta / výbava avataru; pásma losu
+  pKarta+pVybava dle typu truhly, pity timer karet 3; výbava se losuje jen
+  z nevlastněných položek `VYBAVA_KATALOG`).
 - Sbírka: 12 karet „Velikáni ekonomie“ (`KARTY_VELIKANI`) + mistrovské karty
   za témata (`idMistrovskeKarty`, bronz/stříbro/zlato podle zvládnutí tématu:
   podíl otázek tématu v boxu ≥ 3: 50 %/75 %/95 %).
 - Rekordy + týdenní XP; výzvy od táty (server) se zobrazují jako speciální
   quest se vzkazem.
-- Avatar: SVG s dlouhými vlasy — VÝCHOZÍ A NEODSTRANITELNÉ (mění se jen barva
-  a doplňky z truhel). Tohle je záměr, ne bug.
+- Avatar: plně přizpůsobitelná SVG postavička — pohlaví, tvar obličeje,
+  pleť, barva a střih vlasů (včetně krátkých) v `AvatarKonfigurace`;
+  kosmetická výbava z truhel (`VYBAVA_KATALOG`, sloty hlava/oči/krk/pozadí),
+  vlastněné kusy v `progres.vlastnenaVybava`, editor na stránce Nastavení
+  ukládá akcí `zmenAvatara` — jediné místo zápisu konfigurace; při zápisu
+  odfiltruje výbavu, kterou hráč nevlastní (invariant nasazené ⊆ vlastněné).
 
 ## Výuka — kontrakt (fáze 2)
 

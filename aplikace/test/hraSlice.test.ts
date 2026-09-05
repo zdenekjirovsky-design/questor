@@ -1,6 +1,6 @@
 // Testy gamifikačního slice (hraSlice) — akce nad progresem studenta.
-import { beforeEach, describe, expect, it } from 'vitest';
-import type { BankaOtazek, QuestDenni, TestVysledek } from '@questor/sdilene';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import type { AvatarKonfigurace, BankaOtazek, QuestDenni, TestVysledek } from '@questor/sdilene';
 import { denZData, pondeliTydne } from '@questor/sdilene';
 import { pouzijStav } from '../src/stav/store';
 
@@ -199,10 +199,53 @@ describe('otevriTruhluAkce', () => {
       expect(odmena.xp).toBeGreaterThan(0);
     } else if (odmena.typ === 'zmrazeni') {
       expect(stav.progres.streak.zmrazeni).toBe(pred.streak.zmrazeni + 1);
+    } else if (odmena.typ === 'vybava') {
+      expect(odmena.vybavaId).toBeTruthy();
+      expect(stav.progres.vlastnenaVybava).toContain(odmena.vybavaId);
     } else {
       expect(odmena.kartaId).toBeTruthy();
       expect(stav.progres.sbirka.karty).toContain(odmena.kartaId);
       expect(stav.novaKarty).toContain(odmena.kartaId ?? '');
+    }
+  });
+
+  it('odměna typu výbava se přidá do vlastnenaVybava (deterministická náhoda)', () => {
+    // Zlatá truhla: pásmo výbavy je [0.45, 0.70) — první los 0.5 padne do něj,
+    // druhý los 0 vybere ve váženém výběru první nevlastněnou položku katalogu.
+    const losy = [0.5, 0];
+    const spy = vi.spyOn(Math, 'random').mockImplementation(() => losy.shift() ?? 0);
+    try {
+      pouzijStav.setState({ cekajiciTruhly: ['zlata'] });
+      const odmena = pouzijStav.getState().otevriTruhluAkce('zlata');
+
+      expect(odmena?.typ).toBe('vybava');
+      expect(odmena?.vybavaId).toBeTruthy();
+      const stav = pouzijStav.getState();
+      expect(stav.progres.vlastnenaVybava).toContain(odmena?.vybavaId);
+      expect(stav.progres.vlastnenaVybava).toHaveLength(1);
+      expect(stav.cekajiciTruhly).toHaveLength(0);
+      // Výbava nedává XP ani kartu.
+      expect(stav.progres.xp).toBe(0);
+      expect(stav.progres.sbirka.karty).toHaveLength(0);
+    } finally {
+      spy.mockRestore();
+    }
+  });
+
+  it('už vlastněná výbava se z losu vynechá — stejný los dá jinou položku', () => {
+    const losy = [0.5, 0, 0.5, 0];
+    const spy = vi.spyOn(Math, 'random').mockImplementation(() => losy.shift() ?? 0);
+    try {
+      pouzijStav.setState({ cekajiciTruhly: ['zlata', 'zlata'] });
+      const prvni = pouzijStav.getState().otevriTruhluAkce('zlata');
+      const druha = pouzijStav.getState().otevriTruhluAkce('zlata');
+
+      expect(prvni?.typ).toBe('vybava');
+      expect(druha?.typ).toBe('vybava');
+      expect(druha?.vybavaId).not.toBe(prvni?.vybavaId);
+      expect(pouzijStav.getState().progres.vlastnenaVybava).toHaveLength(2);
+    } finally {
+      spy.mockRestore();
     }
   });
 
@@ -227,6 +270,46 @@ describe('otevriTruhluAkce', () => {
   });
 });
 
+describe('zmenAvatara', () => {
+  it('uloží celou konfiguraci avataru do progresu (vlastněná výbava zůstává)', () => {
+    const progres = pouzijStav.getState().progres;
+    pouzijStav.setState({ progres: { ...progres, vlastnenaVybava: ['bryle-cerne'] } });
+    const nova: AvatarKonfigurace = {
+      pohlavi: 'zena',
+      tvarObliceje: 'kulaty',
+      barvaPleti: '#d9a066',
+      barvaVlasu: '#d16ba5',
+      stylVlasu: 'kratke',
+      vybava: { oci: 'bryle-cerne' },
+    };
+
+    pouzijStav.getState().zmenAvatara(nova);
+
+    expect(pouzijStav.getState().progres.avatar).toEqual(nova);
+  });
+
+  it('odfiltruje nasazenou výbavu, kterou hráč nevlastní (invariant nasazené ⊆ vlastněné)', () => {
+    // Scénář: editor drží návrh s výbavou z doby před resetem progresu —
+    // po resetu je vlastnenaVybava prázdná a zápis ji nesmí obejít.
+    const progres = pouzijStav.getState().progres;
+    pouzijStav.setState({ progres: { ...progres, vlastnenaVybava: ['bryle-cerne'] } });
+    const navrh: AvatarKonfigurace = {
+      pohlavi: 'muz',
+      tvarObliceje: 'ovalny',
+      barvaPleti: '#f2c9a0',
+      barvaVlasu: '#6b4a2f',
+      stylVlasu: 'culik',
+      vybava: { hlava: 'koruna', oci: 'bryle-cerne', pozadi: 'stadion' },
+    };
+
+    pouzijStav.getState().zmenAvatara(navrh);
+
+    // Nevlastněná koruna a stadion zmizely, vlastněné brýle zůstaly.
+    expect(pouzijStav.getState().progres.avatar.vybava).toEqual({ oci: 'bryle-cerne' });
+    expect(pouzijStav.getState().progres.avatar.stylVlasu).toBe('culik');
+  });
+});
+
 describe('obnovDenniQuesty a reset', () => {
   it('vygeneruje questy pro dnešek a reset vše vrátí do výchozího stavu', () => {
     pouzijStav.setState({ banky: { p: testovaciBanka } });
@@ -240,6 +323,8 @@ describe('obnovDenniQuesty a reset', () => {
     const stav = pouzijStav.getState();
     expect(stav.progres.xp).toBe(0);
     expect(stav.progres.questy).toHaveLength(0);
+    expect(stav.progres.vlastnenaVybava).toHaveLength(0);
+    expect(stav.progres.avatar.stylVlasu).toBe('rozpustene'); // reset maže vše vč. avataru
     expect(stav.cekajiciTruhly).toHaveLength(0);
     expect(stav.historieTestu).toHaveLength(0);
   });

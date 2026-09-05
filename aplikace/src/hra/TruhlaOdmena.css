@@ -170,6 +170,36 @@
   color: var(--barva-vzacnosti);
 }
 
+/* Odmena typu vybava — karta polozky s ikonou slotu a odkazem na editor. */
+.truhla__odmena-vybava {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.truhla__odmena-vybava-ikona {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.truhla__odmena-vybava-odkaz {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--akcent-svetly);
+  text-decoration: none;
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+  padding: 5px 12px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.truhla__odmena-vybava-odkaz:hover,
+.truhla__odmena-vybava-odkaz:focus-visible {
+  border-color: var(--akcent);
+  transform: translateY(-1px);
+}
+
 /* Konfety — čisté CSS částice, žádná knihovna */
 .truhla__konfety {
   position: absolute;

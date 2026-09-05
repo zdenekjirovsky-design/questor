@@ -1,26 +1,139 @@
-/* Nastavení avataru — náhled + paleta barev vlasů. */
+/* Nastaveni avataru — editor: zivy nahled + volby (pohlavi, tvar, plet,
+   vlasy, strih, vybava po slotech). Barvy vyhradne z tokenu; vzacnost
+   pres --barva-vzacnosti jako u karet. */
 .nastaveni-avataru {
   display: flex;
-  gap: 28px;
-  align-items: center;
+  gap: 32px;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .nastaveni-avataru__nahled {
+  position: sticky;
+  top: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  min-width: 180px;
+  gap: 12px;
+  min-width: 220px;
+}
+
+.nastaveni-avataru__ulozit {
+  min-width: 140px;
+}
+
+.nastaveni-avataru__stav {
+  min-height: 1.2em;
+  font-size: 0.85rem;
+  color: var(--uspech);
 }
 
 .nastaveni-avataru__pozn {
-  margin: 0;
+  margin: 0 0 10px;
   color: var(--text-tlumeny);
   font-size: 0.85rem;
-  text-align: center;
-  max-width: 200px;
 }
+
+.nastaveni-avataru__volby {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.nastaveni-avataru__sekce h3 {
+  margin: 0 0 10px;
+  font-family: var(--pismo-display);
+  font-size: 1rem;
+}
+
+.nastaveni-avataru__slot h4 {
+  margin: 12px 0 8px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tlumeny);
+}
+
+/* --- Klikaci karty (pohlavi, tvar, strih, vybava) --- */
+
+.nastaveni-avataru__karty {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nastaveni-avataru__karta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 12px;
+  min-width: 92px;
+  background: var(--pozadi-panel-2);
+  border: 2px solid var(--okraj);
+  border-radius: var(--radius-maly);
+  color: var(--text);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nastaveni-avataru__karta:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.nastaveni-avataru__karta:focus-visible {
+  outline: 2px solid var(--akcent-svetly);
+  outline-offset: 2px;
+}
+
+.nastaveni-avataru__karta--vybrana {
+  border-color: var(--zlata);
+  box-shadow: var(--zare-zlata);
+  animation: pop 0.3s ease-out;
+}
+
+/* --- Vybava --- */
+
+.nastaveni-avataru__vybava {
+  border-color: var(--barva-vzacnosti, var(--okraj));
+}
+
+.nastaveni-avataru__vybava.nastaveni-avataru__karta--vybrana {
+  border-color: var(--zlata);
+}
+
+.nastaveni-avataru__vzacnost {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.nastaveni-avataru__truhla-pozn {
+  font-size: 0.72rem;
+  color: var(--text-tlumeny);
+}
+
+/* Nevlastnene kusy — tmave siluety („co mi chybi“ tahne vic nez „co mam“). */
+.nastaveni-avataru__vybava--nevlastnena {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.nastaveni-avataru__vybava--nevlastnena .nastaveni-avataru__vybava-nahled {
+  filter: brightness(0.3) saturate(0.25);
+}
+
+.nastaveni-avataru__vybava-nahled {
+  display: block;
+  line-height: 0;
+  border-radius: 50%;
+}
+
+/* --- Barvove palety (plet, vlasy) --- */
 
 .nastaveni-avataru__barvy {
   display: grid;
@@ -45,6 +158,11 @@
   transform: scale(1.12);
 }
 
+.nastaveni-avataru__barva:focus-visible {
+  outline: 2px solid var(--akcent-svetly);
+  outline-offset: 2px;
+}
+
 .nastaveni-avataru__barva--vybrana {
   border-color: var(--zlata);
   box-shadow: var(--zare-zlata);
@@ -55,4 +173,15 @@
   color: var(--text);
   font-weight: 800;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 720px) {
+  .nastaveni-avataru__nahled {
+    position: static;
+    width: 100%;
+  }
+
+  .nastaveni-avataru__barvy {
+    grid-template-columns: repeat(4, 44px);
+  }
 }

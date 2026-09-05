@@ -112,12 +112,14 @@ export interface TestVysledek {
 
 export type TruhlaTyp = 'bronzova' | 'stribrna' | 'zlata';
 
-export type OdmenaTyp = 'xp' | 'karta' | 'zmrazeni';
+export type OdmenaTyp = 'xp' | 'karta' | 'zmrazeni' | 'vybava';
 
 export interface Odmena {
   typ: OdmenaTyp;
   xp?: number;
   kartaId?: string;
+  /** Id položky výbavy z VYBAVA_KATALOG (jen pro typ 'vybava'). */
+  vybavaId?: string;
 }
 
 export type Vzacnost = 'obycejna' | 'vzacna' | 'epicka' | 'legendarni';
@@ -168,10 +170,14 @@ export interface Sbirka {
 }
 
 export interface AvatarKonfigurace {
-  /** Dlouhé vlasy jsou výchozí a NEODSTRANITELNÉ. Mění se jen barva. */
+  pohlavi: 'muz' | 'zena';
+  tvarObliceje: 'ovalny' | 'hranaty' | 'kulaty';
+  barvaPleti: string;
+  /** Barva a střih vlasů jsou plně volitelné — libovolná kombinace pro obě pohlaví, včetně krátkých střihů. */
   barvaVlasu: string;
-  doplnek?: string;
-  pozadi?: string;
+  stylVlasu: 'kratke' | 'polodlouhe' | 'rozpustene' | 'culik' | 'vlnite';
+  /** Nasazená kosmetická výbava — hodnoty jsou id položek katalogu (VYBAVA_KATALOG). */
+  vybava: { hlava?: string; oci?: string; krk?: string; pozadi?: string };
 }
 
 export interface Streak {
@@ -188,6 +194,8 @@ export interface ProgresStudenta {
   questy: QuestDenni[];
   sbirka: Sbirka;
   avatar: AvatarKonfigurace;
+  /** Id vlastněných položek výbavy avataru (padají z truhel, viz VYBAVA_KATALOG). */
+  vlastnenaVybava: string[];
   statistikyOtazek: Record<string, StatistikaOtazky>;
   rekordy: {
     nejlepsiUspesnost: number;

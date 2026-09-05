@@ -25,6 +25,7 @@ import {
   urciTruhlu,
   vahaOtazkyPodleBoxu,
   vazenyVyber,
+  VYBAVA_KATALOG,
   vyberOtazkyDoTestu,
   vychoziProgres,
   vygenerujDenniQuesty,
@@ -33,6 +34,7 @@ import {
   xpZaOdpoved,
 } from '../src/index';
 import type {
+  AvatarKonfigurace,
   BankaOtazek,
   OdpovedZaznam,
   QuestDenni,
@@ -235,10 +237,12 @@ describe('truhly', () => {
     expect(urciTruhlu(1)).toBe('zlata');
   });
 
+  const VSECHNA_VYBAVA = VYBAVA_KATALOG.map((v) => v.id);
+
   it('pity timer garantuje kartu a vynuluje počítadlo', () => {
     const sbirka: Sbirka = { karty: [], truhelBezKarty: PITY_LIMIT };
     // los 0.99 by kartu normálně nedal — pity ji vynutí
-    const { odmena, sbirka: nova } = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, () => 0.99);
+    const { odmena, sbirka: nova } = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.99);
     expect(odmena.typ).toBe('karta');
     expect(odmena.kartaId).toBeDefined();
     expect(nova.karty).toContain(odmena.kartaId);
@@ -247,7 +251,7 @@ describe('truhly', () => {
 
   it('bez dostupných karet padne odměna na zmrazení/XP a počítadlo roste', () => {
     const sbirka: Sbirka = { karty: KARTY_VELIKANI.map((k) => k.id), truhelBezKarty: PITY_LIMIT };
-    const { odmena, sbirka: nova } = otevriTruhlu('zlata', sbirka, KARTY_VELIKANI, () => 0.99);
+    const { odmena, sbirka: nova } = otevriTruhlu('zlata', sbirka, KARTY_VELIKANI, VSECHNA_VYBAVA, () => 0.99);
     expect(odmena.typ).toBe('xp');
     expect(nova.truhelBezKarty).toBe(PITY_LIMIT + 1);
   });
@@ -255,7 +259,7 @@ describe('truhly', () => {
   it('XP odměna je v rozsahu konfigurace truhly', () => {
     const sbirka: Sbirka = { karty: [], truhelBezKarty: 0 };
     for (let seed = 0; seed < 20; seed++) {
-      const { odmena } = otevriTruhlu('zlata', sbirka, [], vytvorNahodu(seed));
+      const { odmena } = otevriTruhlu('zlata', sbirka, [], VSECHNA_VYBAVA, vytvorNahodu(seed));
       if (odmena.typ === 'xp') {
         expect(odmena.xp).toBeGreaterThanOrEqual(80);
         expect(odmena.xp).toBeLessThanOrEqual(150);
@@ -265,12 +269,60 @@ describe('truhly', () => {
     }
   });
 
-  it('los pod prahem karty dá kartu, mezi prahy zmrazení', () => {
+  it('pásma jdou za sebou: karta → výbava → zmrazení → XP (bronzová)', () => {
     const sbirka: Sbirka = { karty: [], truhelBezKarty: 0 };
-    const karta = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, () => 0.1);
+    // bronzová: karta [0; 0.2), výbava [0.2; 0.32), zmrazení [0.32; 0.42), zbytek XP
+    const karta = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.1);
     expect(karta.odmena.typ).toBe('karta');
-    const zmrazeni = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, () => 0.25);
+    const vybava = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.25);
+    expect(vybava.odmena.typ).toBe('vybava');
+    const zmrazeni = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.35);
     expect(zmrazeni.odmena.typ).toBe('zmrazeni');
+    const xp = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.5);
+    expect(xp.odmena.typ).toBe('xp');
+  });
+
+  it('pásmo výbavy odpovídá typu truhly (stříbrná 0.18, zlatá 0.25)', () => {
+    const sbirka: Sbirka = { karty: KARTY_VELIKANI.map((k) => k.id), truhelBezKarty: 0 };
+    // stříbrná: výbava [0.3; 0.48) — 0.47 ještě dá výbavu, 0.48 už zmrazení
+    expect(otevriTruhlu('stribrna', sbirka, KARTY_VELIKANI, [], () => 0.47).odmena.typ).toBe('vybava');
+    expect(otevriTruhlu('stribrna', sbirka, KARTY_VELIKANI, [], () => 0.48).odmena.typ).toBe('zmrazeni');
+    // zlatá: výbava [0.45; 0.7)
+    expect(otevriTruhlu('zlata', sbirka, KARTY_VELIKANI, [], () => 0.69).odmena.typ).toBe('vybava');
+    expect(otevriTruhlu('zlata', sbirka, KARTY_VELIKANI, [], () => 0.7).odmena.typ).toBe('zmrazeni');
+  });
+
+  it('výbava se losuje jen z nevlastněných a vrací rozšířený seznam', () => {
+    const sbirka: Sbirka = { karty: [], truhelBezKarty: 0 };
+    const vlastnene = VSECHNA_VYBAVA.filter((id) => id !== 'koruna');
+    const { odmena, sbirka: nova, vlastnenaVybava } = otevriTruhlu(
+      'bronzova', sbirka, KARTY_VELIKANI, vlastnene, () => 0.25,
+    );
+    expect(odmena.typ).toBe('vybava');
+    expect(odmena.vybavaId).toBe('koruna'); // jediná nevlastněná
+    expect(vlastnenaVybava).toEqual([...vlastnene, 'koruna']);
+    // Výbava kartu nedává — počítadlo pity timeru roste dál.
+    expect(nova.truhelBezKarty).toBe(1);
+  });
+
+  it('při plné výbavě pásmo výbavy propadá do XP (zmrazení se neposouvá)', () => {
+    const sbirka: Sbirka = { karty: [], truhelBezKarty: 0 };
+    const { odmena, vlastnenaVybava } = otevriTruhlu(
+      'bronzova', sbirka, KARTY_VELIKANI, VSECHNA_VYBAVA, () => 0.25,
+    );
+    expect(odmena.typ).toBe('xp');
+    expect(vlastnenaVybava).toEqual(VSECHNA_VYBAVA);
+    // Pásmo zmrazení zůstává na svém místě i při plném vlastnictví všeho.
+    const plneKarty: Sbirka = { karty: KARTY_VELIKANI.map((k) => k.id), truhelBezKarty: 0 };
+    expect(otevriTruhlu('bronzova', plneKarty, KARTY_VELIKANI, VSECHNA_VYBAVA, () => 0.35).odmena.typ).toBe('zmrazeni');
+  });
+
+  it('při plné sbírce karet pásmo karty propadá do XP, výbava zůstává na svém', () => {
+    const plneKarty: Sbirka = { karty: KARTY_VELIKANI.map((k) => k.id), truhelBezKarty: 0 };
+    // los 0.1 je v pásmu karty — bez dostupné karty spadne do XP, NE do výbavy
+    expect(otevriTruhlu('bronzova', plneKarty, KARTY_VELIKANI, [], () => 0.1).odmena.typ).toBe('xp');
+    // pásmo výbavy [0.2; 0.32) funguje dál
+    expect(otevriTruhlu('bronzova', plneKarty, KARTY_VELIKANI, [], () => 0.25).odmena.typ).toBe('vybava');
   });
 });
 
@@ -286,6 +338,38 @@ describe('sbírka', () => {
 
   it('idMistrovskeKarty skládá stabilní id', () => {
     expect(idMistrovskeKarty('marketing', 'zlato')).toBe('tema:marketing:zlato');
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Katalog výbavy
+
+describe('katalog výbavy', () => {
+  it('má ~16 položek s unikátními id a neprázdnými texty', () => {
+    expect(VYBAVA_KATALOG).toHaveLength(16);
+    expect(new Set(VYBAVA_KATALOG.map((v) => v.id)).size).toBe(16);
+    for (const v of VYBAVA_KATALOG) {
+      expect(v.nazev.length).toBeGreaterThan(0);
+      expect(v.popis.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('používá jen platné sloty a vzácnosti', () => {
+    const sloty = ['hlava', 'oci', 'krk', 'pozadi'];
+    const vzacnosti = ['obycejna', 'vzacna', 'epicka', 'legendarni'];
+    for (const v of VYBAVA_KATALOG) {
+      expect(sloty).toContain(v.slot);
+      expect(vzacnosti).toContain(v.vzacnost);
+    }
+    // Každý slot má co nabídnout.
+    for (const slot of sloty) {
+      expect(VYBAVA_KATALOG.filter((v) => v.slot === slot).length).toBeGreaterThanOrEqual(4);
+    }
+  });
+
+  it('koruna je legendární a výchozí pozadí „vesmír“ v katalogu není', () => {
+    expect(VYBAVA_KATALOG.find((v) => v.id === 'koruna')?.vzacnost).toBe('legendarni');
+    expect(VYBAVA_KATALOG.some((v) => v.id === 'vesmir')).toBe(false);
   });
 });
 
@@ -455,13 +539,32 @@ describe('výběr otázek do testu', () => {
 // Výchozí progres a normalizace odpovědí
 
 describe('výchozí progres', () => {
-  it('začíná na nule s 1 zmrazením a dlouhovlasým avatarem', () => {
+  it('začíná na nule s 1 zmrazením a nastaveným avatarem', () => {
     const p = vychoziProgres('2026-09-04T10:00:00Z');
     expect(p.xp).toBe(0);
     expect(p.streak.zmrazeni).toBe(1);
     expect(p.avatar.barvaVlasu).toBeTruthy();
     expect(p.aktualizovano).toBe('2026-09-04T10:00:00Z');
     expect(p.dokonceneTesty).toBe(0);
+  });
+
+  it('výchozí avatar je neutrální (muž, oválný obličej, rozpuštěné vlasy, prázdná výbava)', () => {
+    const p = vychoziProgres('2026-09-04T10:00:00Z');
+    expect(p.avatar.pohlavi).toBe('muz');
+    expect(p.avatar.tvarObliceje).toBe('ovalny');
+    expect(p.avatar.stylVlasu).toBe('rozpustene');
+    expect(p.avatar.barvaPleti).toBeTruthy();
+    expect(p.avatar.vybava).toEqual({});
+    expect(p.vlastnenaVybava).toEqual([]);
+  });
+
+  it('AvatarKonfigurace dovoluje libovolný střih včetně krátkých (kontrola typu)', () => {
+    const strihy: AvatarKonfigurace['stylVlasu'][] = ['kratke', 'polodlouhe', 'rozpustene', 'culik', 'vlnite'];
+    const zaklad = vychoziProgres('2026-09-04T10:00:00Z').avatar;
+    for (const stylVlasu of strihy) {
+      const avatar: AvatarKonfigurace = { ...zaklad, stylVlasu };
+      expect(avatar.stylVlasu).toBe(stylVlasu);
+    }
   });
 });
 

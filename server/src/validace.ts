@@ -4,6 +4,7 @@
 
 import { z } from 'zod';
 import type { ProgresStudenta, TestVysledek, Vyzva } from '@questor/sdilene';
+import { VYCHOZI_AVATAR } from '@questor/sdilene';
 
 const obtiznostSchema = z.number().int().min(1).max(5);
 const podil01Schema = z.number().min(0).max(1);
@@ -60,10 +61,25 @@ const sbirkaSchema = z.object({
   truhelBezKarty: z.number().int().min(0),
 });
 
+// Nasazená kosmetická výbava — id položek katalogu (VYBAVA_KATALOG ve sdilene).
+const vybavaAvataruSchema = z.object({
+  hlava: z.string().min(1).optional(),
+  oci: z.string().min(1).optional(),
+  krk: z.string().min(1).optional(),
+  pozadi: z.string().min(1).optional(),
+});
+
+// Defaulty drží zpětnou kompatibilitu: starší aplikace posílající jen barvaVlasu
+// dostane doplněné výchozí hodnoty místo 400 (stará pole doplnek/pozadi se zahodí).
 const avatarSchema = z.object({
+  pohlavi: z.enum(['muz', 'zena']).default(VYCHOZI_AVATAR.pohlavi),
+  tvarObliceje: z.enum(['ovalny', 'hranaty', 'kulaty']).default(VYCHOZI_AVATAR.tvarObliceje),
+  barvaPleti: z.string().min(1).default(VYCHOZI_AVATAR.barvaPleti),
   barvaVlasu: z.string().min(1),
-  doplnek: z.string().optional(),
-  pozadi: z.string().optional(),
+  stylVlasu: z
+    .enum(['kratke', 'polodlouhe', 'rozpustene', 'culik', 'vlnite'])
+    .default(VYCHOZI_AVATAR.stylVlasu),
+  vybava: vybavaAvataruSchema.default({}),
 });
 
 const statistikaOtazkySchema = z.object({
@@ -80,6 +96,7 @@ export const progresStudentaSchema = z.object({
   questy: z.array(questDenniSchema),
   sbirka: sbirkaSchema,
   avatar: avatarSchema,
+  vlastnenaVybava: z.array(z.string().min(1)).default([]),
   statistikyOtazek: z.record(statistikaOtazkySchema),
   rekordy: z.object({
     nejlepsiUspesnost: podil01Schema,

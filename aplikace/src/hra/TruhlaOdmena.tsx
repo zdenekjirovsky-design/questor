@@ -2,8 +2,9 @@
 // Zavřená truhla → klik → zatřesení → otevření → odměna s pop + CSS konfety.
 // NIKDY se neotevírá automaticky: klik je součást rituálu.
 import { useEffect, useRef, useState } from 'react';
-import type { Odmena, TruhlaTyp, Vzacnost } from '@questor/sdilene';
-import { KARTY_VELIKANI } from '@questor/sdilene';
+import { Link } from 'react-router-dom';
+import type { Odmena, TruhlaTyp, VybavaDefinice, Vzacnost } from '@questor/sdilene';
+import { KARTY_VELIKANI, VYBAVA_KATALOG } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import './TruhlaOdmena.css';
 
@@ -11,6 +12,20 @@ const NAZVY_TRUHEL: Record<TruhlaTyp, string> = {
   bronzova: 'Bronzová truhla',
   stribrna: 'Stříbrná truhla',
   zlata: 'Zlatá truhla',
+};
+
+const NAZVY_SLOTU: Record<VybavaDefinice['slot'], string> = {
+  hlava: 'hlava',
+  oci: 'oči',
+  krk: 'krk',
+  pozadi: 'pozadí',
+};
+
+const IKONY_SLOTU: Record<VybavaDefinice['slot'], string> = {
+  hlava: '🧢',
+  oci: '🕶️',
+  krk: '🧣',
+  pozadi: '🌌',
 };
 
 const BARVY_VZACNOSTI: Record<Vzacnost, string> = {
@@ -108,6 +123,11 @@ export default function TruhlaOdmena({ typ, onOtevreno }: TruhlaOdmenaProps) {
       ? KARTY_VELIKANI.find((k) => k.id === odmena.kartaId)
       : undefined;
 
+  const vybava =
+    odmena?.typ === 'vybava' && odmena.vybavaId
+      ? VYBAVA_KATALOG.find((v) => v.id === odmena.vybavaId)
+      : undefined;
+
   return (
     <div className={`truhla truhla--${typ} truhla--faze-${faze}`}>
       <div className="truhla__scena">
@@ -157,6 +177,27 @@ export default function TruhlaOdmena({ typ, onOtevreno }: TruhlaOdmenaProps) {
                 <div className="truhla__odmena-karta-vzacnost">
                   {NAZVY_VZACNOSTI[karta?.vzacnost ?? 'obycejna']}
                 </div>
+              </div>
+            )}
+            {odmena.typ === 'vybava' && (
+              <div
+                className="truhla__odmena-karta truhla__odmena-vybava"
+                style={{ '--barva-vzacnosti': BARVY_VZACNOSTI[vybava?.vzacnost ?? 'obycejna'] } as React.CSSProperties}
+              >
+                <div className="truhla__odmena-karta-typ">Nová výbava!</div>
+                <div className="truhla__odmena-vybava-ikona" aria-hidden="true">
+                  {IKONY_SLOTU[vybava?.slot ?? 'hlava']}
+                </div>
+                <div className="truhla__odmena-karta-jmeno">{vybava?.nazev ?? odmena.vybavaId}</div>
+                <div className="truhla__odmena-karta-titul">
+                  {vybava ? `slot ${NAZVY_SLOTU[vybava.slot]}` : ''}
+                </div>
+                <div className="truhla__odmena-karta-vzacnost">
+                  {NAZVY_VZACNOSTI[vybava?.vzacnost ?? 'obycejna']}
+                </div>
+                <Link to="/nastaveni" className="truhla__odmena-vybava-odkaz">
+                  Nasadit v Nastavení →
+                </Link>
               </div>
             )}
           </div>

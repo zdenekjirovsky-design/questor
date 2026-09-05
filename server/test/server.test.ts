@@ -92,7 +92,15 @@ function vzorovyProgres(): ProgresStudenta {
     streak: { aktualni: 3, nejdelsi: 5, posledniDen: '2026-09-04', zmrazeni: 1 },
     questy: [],
     sbirka: { karty: ['smith'], truhelBezKarty: 1 },
-    avatar: { barvaVlasu: '#8b5cf6' },
+    avatar: {
+      pohlavi: 'zena',
+      tvarObliceje: 'ovalny',
+      barvaPleti: '#f2c9a0',
+      barvaVlasu: '#8b5cf6',
+      stylVlasu: 'kratke',
+      vybava: { oci: 'bryle-cerne' },
+    },
+    vlastnenaVybava: ['bryle-cerne'],
     statistikyOtazek: {
       'o-1': { otazkaId: 'o-1', box: 2, spravneCelkem: 3, spatneCelkem: 1, posledniOdpoved: '2026-09-04T10:00:00.000Z' },
     },

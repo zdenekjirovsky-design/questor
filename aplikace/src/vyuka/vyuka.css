@@ -226,7 +226,7 @@
 
 .lekce__hlavicka {
   position: sticky;
-  top: 10px;
+  top: calc(10px + env(safe-area-inset-top, 0px));
   z-index: 5;
   display: flex;
   align-items: center;
@@ -296,6 +296,7 @@
    režimu prohrálo souboj o pořadí s pravidlem .panel { padding: 20px }. */
 .panel.lekce__blok {
   position: relative;
+  scroll-margin-top: calc(96px + env(safe-area-inset-top, 0px));
   padding: 22px 24px 22px 58px;
 }
 

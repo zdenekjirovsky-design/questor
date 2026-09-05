@@ -108,11 +108,24 @@ export const progresStudentaSchema = z.object({
   aktualizovano: z.string().min(4),
 });
 
+/**
+ * Volitelná identifikace profilu ve studentských POST tělech (rodina sdílí
+ * jeden studentský token, profily nemají účty ani e-maily). Chybějící pole
+ * = výchozí profil ('vychozi' / 'Student') — zpětná kompatibilita se
+ * staršími aplikacemi, které profily neznají.
+ */
+export const profilTelaSchema = z.object({
+  profilId: z.string().min(1).max(64).optional(),
+  profilJmeno: z.string().min(1).max(64).optional(),
+});
+
 /** Tělo POST /api/vyzvy (výzvu zakládá admin, zbytek doplní server). */
 export const novaVyzvaSchema = z.object({
   zprava: z.string().min(1),
   konfigurace: testKonfiguraceSchema,
   cilovaUspesnost: podil01Schema.optional(),
+  /** Cílový profil výzvy; bez něj je výzva pro všechny profily. */
+  cilovyProfilId: z.string().min(1).max(64).optional(),
 });
 
 /** Tělo POST /api/vyzvy/:id/vysledek. */
@@ -142,4 +155,10 @@ export function zvalidujTestVysledek(data: unknown): TestVysledek | null {
 }
 
 export type NovaVyzva = z.infer<typeof novaVyzvaSchema>;
-export type VyzvaZaznam = Vyzva;
+
+/**
+ * Výzva, jak ji ukládá server: sdílený typ Vyzva + volitelný cíl na profil
+ * (serverové rozšíření — do sdíleného kontraktu se dostane s klientskou
+ * podporou profilů; starší aplikace pole neznají a ignorují ho).
+ */
+export type VyzvaZaznam = Vyzva & { cilovyProfilId?: string };

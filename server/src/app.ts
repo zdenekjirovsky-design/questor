@@ -18,15 +18,17 @@ import {
   type Tema,
   type TestVysledek,
   type VyukaPredmetu,
-  type Vyzva,
 } from '@questor/sdilene';
 import {
   dogenerovatSchema,
   novaVyzvaSchema,
+  profilTelaSchema,
   vysledekVyzvySchema,
   zvalidujProgres,
   zvalidujTestVysledek,
+  type VyzvaZaznam,
 } from './validace';
+import { VYCHOZI_PROFIL_ID, VYCHOZI_PROFIL_JMENO } from './db';
 import { ADMIN_HTML } from './admin';
 
 export const VERZE = '0.1.0';
@@ -62,6 +64,21 @@ async function prectiJson(c: Context): Promise<unknown> {
   } catch {
     return undefined;
   }
+}
+
+/**
+ * Vytáhne profil z těla studentského POSTu. Chybějící pole = výchozí profil
+ * (zpětná kompatibilita se staršími aplikacemi bez profilů); pole špatného
+ * typu nebo prázdná → null (volající vrací 400, aby se cizí data nezapsala
+ * omylem do výchozího profilu).
+ */
+function prectiProfil(telo: unknown): { profilId: string; profilJmeno: string } | null {
+  const v = profilTelaSchema.safeParse(telo);
+  if (!v.success) return null;
+  return {
+    profilId: v.data.profilId ?? VYCHOZI_PROFIL_ID,
+    profilJmeno: v.data.profilJmeno ?? VYCHOZI_PROFIL_JMENO,
+  };
 }
 
 /** Chyby, které znamenají „chybí/neplatí API klíč“ → kontrakt velí 503. */
@@ -241,38 +258,63 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
   // --- Progres -------------------------------------------------------------
 
   app.post('/api/progres', overAuth('student'), LIMIT_BEZNY, async (c) => {
-    const progres = zvalidujProgres(await prectiJson(c));
+    const telo = await prectiJson(c);
+    const progres = zvalidujProgres(telo);
     if (!progres) return c.json({ chyba: 'Tělo neodpovídá typu ProgresStudenta' }, 400);
+    // Profil vedle progresu: volitelná pole profilId/profilJmeno v témže těle
+    // (zod je při validaci progresu odstriploval, uložený JSON zůstává čistý
+    // ProgresStudenta). Chybí-li, jde o výchozí profil.
+    const profil = prectiProfil(telo);
+    if (!profil) {
+      return c.json({ chyba: 'profilId a profilJmeno musí být neprázdné řetězce (max 64 znaků)' }, 400);
+    }
     db.prepare(
-      `INSERT INTO progres (id, json, prijato) VALUES (1, ?, ?)
-       ON CONFLICT(id) DO UPDATE SET json = excluded.json, prijato = excluded.prijato`,
-    ).run(JSON.stringify(progres), new Date().toISOString());
+      `INSERT INTO progres (profil_id, profil_jmeno, json, prijato) VALUES (?, ?, ?, ?)
+       ON CONFLICT(profil_id) DO UPDATE SET
+         profil_jmeno = excluded.profil_jmeno, json = excluded.json, prijato = excluded.prijato`,
+    ).run(profil.profilId, profil.profilJmeno, JSON.stringify(progres), new Date().toISOString());
     return c.json({ ok: true });
   });
 
   app.get('/api/progres', overAuth('admin'), (c) => {
-    const radek = db.prepare('SELECT json, prijato FROM progres WHERE id = 1').get() as
-      | { json: string; prijato: string }
-      | undefined;
-    if (!radek) return c.json({ chyba: 'Žádný progres zatím nedorazil' }, 404);
-    const progres = JSON.parse(radek.json) as ProgresStudenta;
-    // level navíc (nad rámec kontraktu, aditivně): počítá ho sdílená funkce,
-    // aby admin stránka (vanilla JS) nemusela duplikovat křivku levelů.
-    return c.json({ progres, prijato: radek.prijato, level: stavLevelu(progres.xp) });
+    const radky = db
+      .prepare(
+        'SELECT profil_id, profil_jmeno, json, prijato FROM progres ORDER BY prijato DESC',
+      )
+      .all() as { profil_id: string; profil_jmeno: string | null; json: string; prijato: string }[];
+    // Pole profilů (naposledy aktivní první); žádný progres = prázdné pole.
+    // level navíc (aditivně): počítá ho sdílená funkce, aby admin stránka
+    // (vanilla JS) nemusela duplikovat křivku levelů.
+    return c.json(
+      radky.map((r) => {
+        const progres = JSON.parse(r.json) as ProgresStudenta;
+        return {
+          profilId: r.profil_id,
+          jmeno: r.profil_jmeno ?? VYCHOZI_PROFIL_JMENO,
+          progres,
+          prijato: r.prijato,
+          level: stavLevelu(progres.xp),
+        };
+      }),
+    );
   });
 
   // --- Události (výsledky testů) ------------------------------------------
 
   app.post('/api/udalosti', overAuth('student'), LIMIT_BEZNY, async (c) => {
-    const vysledek = zvalidujTestVysledek(await prectiJson(c));
+    const telo = await prectiJson(c);
+    const vysledek = zvalidujTestVysledek(telo);
     if (!vysledek) return c.json({ chyba: 'Tělo neodpovídá typu TestVysledek' }, 400);
+    const profil = prectiProfil(telo);
+    if (!profil) {
+      return c.json({ chyba: 'profilId a profilJmeno musí být neprázdné řetězce (max 64 znaků)' }, 400);
+    }
     // Idempotence podle vysledek.id (unikátní index nad json_extract): klient
     // posílá at-least-once (timeout + retry fronty) — duplicitní doručení
     // nesmí výsledek v přehledu zdvojit. OR IGNORE + { ok } i pro duplikát.
-    db.prepare('INSERT OR IGNORE INTO udalosti (cas, json) VALUES (?, ?)').run(
-      new Date().toISOString(),
-      JSON.stringify(vysledek),
-    );
+    db.prepare(
+      'INSERT OR IGNORE INTO udalosti (cas, json, profil_id, profil_jmeno) VALUES (?, ?, ?, ?)',
+    ).run(new Date().toISOString(), JSON.stringify(vysledek), profil.profilId, profil.profilJmeno);
     return c.json({ ok: true });
   });
 
@@ -280,18 +322,40 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     const surovy = Number.parseInt(c.req.query('limit') ?? '50', 10);
     const limit = Math.min(Math.max(Number.isNaN(surovy) ? 50 : surovy, 1), 500);
     const radky = db
-      .prepare('SELECT cas, json FROM udalosti ORDER BY id DESC LIMIT ?')
-      .all(limit) as { cas: string; json: string }[];
-    return c.json(radky.map((r) => ({ cas: r.cas, vysledek: JSON.parse(r.json) as TestVysledek })));
+      .prepare('SELECT cas, json, profil_id, profil_jmeno FROM udalosti ORDER BY id DESC LIMIT ?')
+      .all(limit) as {
+      cas: string;
+      json: string;
+      profil_id: string | null;
+      profil_jmeno: string | null;
+    }[];
+    // Staré řádky (před profily) mají NULL — patřily jedinému studentovi,
+    // tedy výchozímu profilu.
+    return c.json(
+      radky.map((r) => ({
+        cas: r.cas,
+        profilId: r.profil_id ?? VYCHOZI_PROFIL_ID,
+        profilJmeno: r.profil_jmeno ?? VYCHOZI_PROFIL_JMENO,
+        vysledek: JSON.parse(r.json) as TestVysledek,
+      })),
+    );
   });
 
   // --- Výzvy ---------------------------------------------------------------
 
   app.get('/api/vyzvy', overAuth('student'), (c) => {
+    // Volitelný ?profilId= vrátí výzvy cílené na daný profil + společné
+    // (bez cilovyProfilId). Bez query platí výchozí profil `vychozi` —
+    // starý klient bez profilů JE výchozí profil (stejně se atribuuje jeho
+    // progres a události). Cizí cílené výzvy starý klient NEsmí dostat:
+    // zobrazil by je jako běžnou výzvu, dokončil a globálně uzavřel
+    // (POST /vysledek profil nezná), takže by adresátovi navždy zmizely.
+    const profilId = c.req.query('profilId') ?? VYCHOZI_PROFIL_ID;
     const radky = db.prepare('SELECT json FROM vyzvy').all() as { json: string }[];
     const otevrene = radky
-      .map((r) => JSON.parse(r.json) as Vyzva)
+      .map((r) => JSON.parse(r.json) as VyzvaZaznam)
       .filter((v) => v.stav !== 'dokoncena')
+      .filter((v) => !v.cilovyProfilId || v.cilovyProfilId === profilId)
       .sort((a, b) => (a.vytvoreno < b.vytvoreno ? 1 : -1));
     return c.json(otevrene);
   });
@@ -301,7 +365,7 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     if (!telo.success) {
       return c.json({ chyba: 'Výzva potřebuje zprava a konfigurace (TestKonfigurace)' }, 400);
     }
-    const vyzva: Vyzva = {
+    const vyzva: VyzvaZaznam = {
       id: crypto.randomUUID(),
       zprava: telo.data.zprava,
       konfigurace: telo.data.konfigurace,
@@ -309,6 +373,9 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
       stav: 'nova',
       ...(telo.data.cilovaUspesnost !== undefined
         ? { cilovaUspesnost: telo.data.cilovaUspesnost }
+        : {}),
+      ...(telo.data.cilovyProfilId !== undefined
+        ? { cilovyProfilId: telo.data.cilovyProfilId }
         : {}),
     };
     db.prepare('INSERT INTO vyzvy (id, json) VALUES (?, ?)').run(vyzva.id, JSON.stringify(vyzva));
@@ -323,8 +390,8 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
       | { json: string }
       | undefined;
     if (!radek) return c.json({ chyba: 'Výzva neexistuje' }, 404);
-    const vyzva = JSON.parse(radek.json) as Vyzva;
-    const hotova: Vyzva = {
+    const vyzva = JSON.parse(radek.json) as VyzvaZaznam;
+    const hotova: VyzvaZaznam = {
       ...vyzva,
       stav: 'dokoncena',
       vysledek: {

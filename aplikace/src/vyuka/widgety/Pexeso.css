@@ -167,3 +167,22 @@
   font-size: 0.9rem;
   color: var(--text-tlumeny);
 }
+
+/* --- Mobil: mrizku pocita JS (sloupcePexesa), na uzke obrazovce ale drzi
+   max 3 sloupce, aby karty zustaly citelne a klikatelne (!important
+   prebiji inline gridTemplateColumns z komponenty). --- */
+@media (max-width: 560px) {
+  .pexeso__mrizka {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px;
+  }
+
+  .pexeso__karta,
+  .pexeso__karta-vnitrek {
+    min-height: 84px;
+  }
+
+  .pexeso__karta-lic {
+    font-size: 0.78rem;
+  }
+}

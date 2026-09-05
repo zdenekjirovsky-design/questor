@@ -98,24 +98,79 @@ Aplikace si novou verzi stáhne sama při nejbližším syncu (start aplikace,
 dokončený test nebo ruční sync v Nastavení) — žádný nový build ani
 instalace se nedělá.
 
-## 3. Přehled o studentovi a výzvy
+## 3. Přehled o studentech a výzvy
 
 Admin web `https://<server>/admin` (token = `QUESTOR_ADMIN_TOKEN`):
 
-- **progres studenta** — level, XP, streak, sbírka (poslední snapshot,
-  který aplikace poslala),
-- **poslední výsledky testů** (nejnovější první; u testu z výzvy je vidět
-  její id),
-- **formulář na výzvu** — vzkaz + konfigurace testu (režim, počet otázek,
-  témata) + volitelný cíl úspěšnosti. Studentovi se ukáže na Domů jako
-  „Výzva od táty“; po dokončení výzva ze studentova seznamu zmizí
-  a výsledek dorazí mezi poslední testy.
+- **Progres profilů** — karta pro každý profil, který kdy poslal progres
+  (naposledy aktivní první): jméno, level, XP bar, streak a počet
+  dokončených testů. Studenta i mámu tak sleduješ vedle sebe (kap. 4).
+- **Poslední testy** (nejnovější první) — sloupec Profil říká, kdo test
+  dokončil; u testu z výzvy je vidět její id.
+- **Poslat výzvu** — vzkaz + konfigurace testu (předmět, režim, počet
+  otázek) + volitelný cíl úspěšnosti + výběr **Komu**: konkrétní profil,
+  nebo „všem“. Adresátovi se ukáže na Domů jako „Výzva od táty“; po
+  dokončení výzva ze seznamu zmizí a výsledek dorazí mezi poslední
+  testy. Výzvu cílenou na jeden profil ostatní profily vůbec nedostanou.
+  Pod formulářem je tabulka otevřených výzev (vč. sloupce Komu).
 
-## 4. Aplikace bez serveru (bundlovaný obsah)
+## 4. Profily — víc lidí na jednom počítači
+
+Aplikaci může sdílet celá domácnost (třeba student a jeho máma — dospělá
+studentka vaření). Profily fungují jako na streamovacích službách:
+ŽÁDNÝ e-mail ani registrace, všechno zůstává lokálně v počítači. Server
+profily jen rozlišuje podle id, které aplikace posílá při synchronizaci
+(studentský token je pro všechny profily společný).
+
+**Založení profilu (např. mámě):**
+
+1. Na obrazovce „Kdo dnes hraje?“ klikni na kartu **+ Nový profil**.
+   (Obrazovka se ukáže po startu aplikace; za běhu se na ni dostaneš
+   přes klik na avatara v hlavičce → „Odhlásit profil“.)
+2. Vyplň jméno (třeba „Máma“), vyber barvu profilu a volitelně zadej
+   **PIN (4–6 číslic)**. Tlačítko **Hrát!** profil založí a rovnou na
+   něj přepne.
+3. Každý profil má VLASTNÍ postup: XP, level, streak, denní questy,
+   truhly, sbírku, avatara, postup lekcí i historii testů. Společný je
+   jen obsah předmětů (banky a výuka) — máma jede Základy
+   profesionálního vaření, student svůj ročník, a nic si nepřepisují.
+
+**Přepínání:** klik na avatara v hlavičce → menu profilů. Profil bez
+PINu se přepne na jeden klik; profil s PINem se přepíná přes odhlášení
+a zadání PINu na obrazovce výběru.
+
+**PIN — měkký zámek soukromí:**
+
+- 4–6 číslic; po 3 špatných pokusech 30 s pauza. Je to ochrana soukromí
+  v domácnosti, ne bezpečnostní opatření — data zůstávají v počítači.
+- Nastavuje se při založení profilu, nebo kdykoli v **Nastavení →
+  Profily** (změna po ověření současného PINu; tamtéž jde PIN zrušit).
+- PIN potřebuje zabezpečený kontext (https, localhost nebo desktopová
+  aplikace). Na nezabezpečeném připojení (výhled: hostovaná webová
+  verze přes http na LAN) se PIN pole schovají s vysvětlením a profil
+  je bez zámku — „zamčený“ profil bez funkčního zámku nikdy nevznikne.
+
+**Správa (Nastavení → Profily):** přejmenování a PIN u aktivního
+profilu; smazání kteréhokoli profilu kromě posledního (dvojité
+potvrzení + opsání jména — smaže XP, sbírku, statistiky i postup lekcí
+profilu, nejde vrátit).
+
+**Oba profily v admin webu:** každý profil se serverem synchronizuje
+zvlášť, takže v sekci Progres profilů vidíš karty obou vedle sebe
+a u posledních testů, kdo je dokončil (kap. 3). Výzvy jde cílit na
+konkrétní profil („Komu“).
+
+**Mobil:** aplikace je responzivní až k šířce telefonu (~375 px) — na
+mobilu má spodní navigační lištu, dotykové ovládání widgetů (místo
+drag & drop klik-klik) a základ PWA (manifest + ikony) pro výhledovou
+hostovanou webovou verzi do telefonu. Desktopové okno se nemění.
+
+## 5. Aplikace bez serveru (bundlovaný obsah)
 
 Aplikace je **offline-first** a plně funkční úplně bez serveru:
 
-- Kompletní 1. ročník — 13 předmětů, každý s bankou otázek i výukou —
+- Kompletní obsah — 14 předmětů (1. ročník + Základy profesionálního
+  vaření), každý s bankou otázek i výukou —
   je zabalený přímo v aplikaci ve složce `aplikace/src/data/predmety/`
   (kopie souborů z `data/banky/` a `data/vyuka/` 1:1; konvence názvů
   `<predmetId>.banka.json` / `<predmetId>.vyuka.json`, viz README v té
@@ -138,13 +193,15 @@ Aplikace je **offline-first** a plně funkční úplně bez serveru:
   (`docs/NASAZENI.md`, krok 3). Novější verze obsahu se prosadí i proti
   obsahu uloženému v existující instalaci.
 
-## 5. Předměty a přidání nového (i dalšího ročníku)
+## 6. Předměty a přidání nového (i dalšího ročníku)
 
-Aktuálně bundlovaných 13 předmětů 1. ročníku (obor Ekonomika
+Aktuálně bundlovaných 14 předmětů — 13 z 1. ročníku (obor Ekonomika
 a podnikání): Ekonomika a podnikání, Písemná a elektronická komunikace,
 Informatika, Český jazyk a literatura, Anglický jazyk, Německý jazyk,
 Matematika, Dějepis, Občanská nauka, Fyzika, Chemie, Biologie a ekologie,
-Zbožíznalství. Volba předmětu je první krok při konfiguraci testu
+Zbožíznalství — plus Základy profesionálního vaření (`zaklady-vareni`,
+předmět mimo obor: QUESTOR je obecný, učí se v něm i dospělí členové
+rodiny). Volba předmětu je první krok při konfiguraci testu
 (modal „Nová výprava“ na Domů i rychlý start na /test); „Učit se“
 a Témata ve Statistikách jsou členěné per předmět.
 
@@ -171,10 +228,10 @@ Přidání nového předmětu — **další ročník = nový předmět s vlastn�
    (`PREDMETY`: id, název, ikona — pořadí v poli = pořadí v UI). Bez
    záznamu předmět funguje taky, jen s názvem z banky a obecnou ikonou 📘.
 5. Má-li předmět fungovat i BEZ serveru, zkopíruj JSONy do
-   `aplikace/src/data/predmety/` a vydej novou verzi aplikace (kap. 4,
+   `aplikace/src/data/predmety/` a vydej novou verzi aplikace (kap. 5,
    poslední bod).
 
-## 6. Výuka — lekce k předmětu
+## 7. Výuka — lekce k předmětu
 
 Výuka jsou interaktivní lekce po tématech (texty, obrázky, hry, kartičky,
 mini-kvízy); student je najde v aplikaci pod „Učit se“. Obsah je JSON
@@ -182,7 +239,7 @@ mini-kvízy); student je najde v aplikaci pod „Učit se“. Obsah je JSON
 zvalidovat → nahrát na server (nebo bundlovat). Didaktická vodítka
 k obsahu: `docs/VYUKA.md`.
 
-### 6a. Vygenerování výuky
+### 7a. Vygenerování výuky
 
 Ke `generuj` přidej přepínač `--vyuka` (ostatní volby vč. poskytovatelů
 a cest platí stejně jako v kap. 1):
@@ -204,7 +261,7 @@ npm run generuj -- --vstup "$PWD/data/uciva/<predmet>.md" \
   `prubeh-procesu`, `srovnavac`); `popisovacka` a `casova-osa` se
   doplňují ručně, když pro ně látka má smysluplná data.
 
-### 6b. Validace a kontrola
+### 7b. Validace a kontrola
 
 Generátor výstup validuje sám (`validujVyuku`). Po RUČNÍ editaci souboru
 zvaliduj z kořene projektu:
@@ -221,7 +278,7 @@ Pak si lekce projdi očima studenta: `npm run dev:aplikace` →
 http://localhost:5173 → „Učit se“. Zkontroluj věcnou správnost textů
 i SVG obrázků (v obou režimech vzhledu) a že mini-kvízy dávají smysl.
 
-### 6c. Nahrání na server
+### 7c. Nahrání na server
 
 - **Rovnou při generování**: přidej `--server https://<server> --token
   <admin-token>` (nahraje se přes `PUT /api/vyuka/<predmet>`).
@@ -240,10 +297,10 @@ Chování stejné jako u banky: validace (400), verze musí růst (409),
 limit 10 MB (413), špatný token (401). Aplikace si novou verzi výuky
 stáhne sama při nejbližším syncu.
 
-### 6d. Lekce pro úplně nový předmět
+### 7d. Lekce pro úplně nový předmět
 
-1. Učivo → banka → nahrání banky: kap. 5.
-2. Výuka: `--vyuka` (kap. 6a) + kontrola (6b) + nahrání (6c).
+1. Učivo → banka → nahrání banky: kap. 6.
+2. Výuka: `--vyuka` (kap. 7a) + kontrola (7b) + nahrání (7c).
 3. Má-li předmět fungovat v aplikaci i BEZ serveru, zkopíruj JSONy 1:1 do
    `aplikace/src/data/predmety/<predmet>.banka.json`
    a `<predmet>.vyuka.json` (konvence viz README v té složce) a vydej
@@ -253,7 +310,7 @@ stáhne sama při nejbližším syncu.
 > („Projít znovu“ na konci lekce). Tlačítko „Otestuj se z tématu“ na
 > konci lekce funguje pro každý předmět.
 
-## 7. Dogenerování otázek (volitelné)
+## 8. Dogenerování otázek (volitelné)
 
 Server umí na vyžádání dogenerovat otázky k tématu
 (`POST /api/generovani/dogenerovat`) — jen když má v prostředí
@@ -263,15 +320,17 @@ implementovaná — endpoint jde volat ručně/skriptem. Kontext pro
 generování si server skládá ze zadání a vysvětlení existujících otázek
 tématu (zdrojové učivo na serveru není).
 
-## 8. Tokeny
+## 9. Tokeny
 
 - `QUESTOR_ADMIN_TOKEN` a `QUESTOR_STUDENT_TOKEN` se nastavují v env
   serveru; defaulty `admin-dev`/`student-dev` jsou JEN pro lokální vývoj.
 - Admin token zadáváš v admin webu (a u `--server`/curl), studentský token
-  student v aplikaci na stránce Nastavení. Admin token smí i všechno
+  se zadává v aplikaci na stránce Nastavení. Je SPOLEČNÝ pro všechny
+  profily na počítači — kdo je kdo, rozlišuje aplikace sama (`profilId`
+  posílaný se synchronizací, kap. 4). Admin token smí i všechno
   studentské.
 
-## 9. Řešení potíží
+## 10. Řešení potíží
 
 **Validace banky selhala** (`validuj-banku.ts` skončí chybou, nebo upload
 vrátí 400):
@@ -292,7 +351,7 @@ vrátí 400):
 - 401 = špatný token (zkontroluj env serveru vs. co zadáváš).
 - Na hostingu zkontroluj logy a env proměnné (`docs/NASAZENI.md`, krok 5);
   po redeployi bez volume je DB prázdná — banku i výuku nahraj znovu.
-- Pro studenta to není havárie: aplikace jede dál offline (bod 4).
+- Pro hráče to není havárie: aplikace jede dál offline (kap. 5).
 
 **Aplikace nesynchronizuje:**
 

@@ -86,3 +86,49 @@ náhledy, palety pleti a vlasů, výbava po slotech — vlastněné kusy se
 nasazují/sundávají kliknutím, nevlastněné jsou tmavé siluety s vzácností
 a textem „najdeš v truhle“ (stejný tah „co mi chybí“ jako u sbírky).
 Změny se ukládají tlačítkem Uložit; vše je dostupné klávesnicí.
+
+## Profily
+
+Výběr profilu je celoobrazovková brána ve stylu streamovacích služeb:
+logo QUESTOR, nadpis „Kdo dnes hraje?“, velké klikací karty (avatar
+v kruhu s okrajem v barvě profilu, jméno, zámeček 🔒 u profilu s PINem)
++ tečkovaná karta „+ Nový profil“. Karty naskakují postupně (`naskoceni`
+se zpožděním), hover = zvednutí + záře v barvě profilu. Paleta barev
+profilů je v `stav/profilySlice.ts` (`BARVY_PROFILU`).
+
+PIN dialog: velký vstup s prostrkanými tečkami, chyby červeně, po 3
+špatných pokusech odpočet 30 s. Vše jde klávesnicí (formuláře odesílá
+Enter). V hlavičce je avatar tlačítko s okrajem v barvě profilu — klik
+otevře menu s profily (tečka barvy, jméno, zámeček, fajfka u aktivního)
+a „Odhlásit profil“. Obrazovky profilů jsou responzivní (mobil: menší
+karty, vše na šířku 375 px).
+
+## Mobil (≤ 760 px)
+
+Aplikace je použitelná na telefonu (~375×812) i tabletu; výhled je
+hostovaná PWA verze. VŠECHNA mobilní pravidla žijí za media query
+`(max-width: 760px)` (dotykové výjimky za `(pointer: coarse)`) —
+desktop/Tauri okno 1280×800 se jimi NESMÍ změnit. Závazné zásady:
+
+1. **Hlavička a navigace**: nahoře zůstává jen logo + HUD (avatar, level,
+   XP bar bez čísla na nejužších displejích, plamínek). Hlavní navigace je
+   fixní spodní lišta s ikonami a mini popisky (styl mobilních her).
+   App.tsx je zmrazený, ikony proto dodává CSS podle `href` odkazu
+   (App.css); obsah stránky má spodní odsazení, aby ho lišta nepřekryla
+   (+ `env(safe-area-inset-bottom)`).
+2. **Mřížky do jednoho sloupce**: dashboard, lekce, klíčové pojmy, témata
+   ve statistikách; sbírka drží 2 sloupce (karty 3:4).
+3. **Modaly přes celou obrazovku** (`100dvh`, bez radiusu): volba výpravy,
+   otevírání truhly, detail karty ve sbírce.
+4. **Dotyková plocha ≥ 44×44 px** pro všechny ovládací prvky (globálně
+   `.tlacitko`, chipy témat, taby, pilulky procesů, štítky třídičky,
+   hotspoty popisovačky přes `pointer: coarse`).
+5. **Inputy min. 16 px písma** (jinak iOS Safari zoomuje při fokusu).
+6. **Žádný horizontální scroll stránky** — široký obsah (tabulka historie,
+   časová osa) scrolluje uvnitř vlastního kontejneru s `overflow-x: auto`;
+   pojistka `overflow-x: clip` na html/body platí jen na mobilu.
+7. **Dotyk místo drag & drop**: HTML5 DnD na dotyku nefunguje — Třídička
+   na hrubém pointeru (`jeDotykoveZarizeni()`,
+   `vyuka/widgety/dotyk.ts`) vypíná `draggable` a jede klik-klik (nápověda
+   koše se přizpůsobí). Hover stavy jsou všude jen ozdoba — každá akce má
+   klikový ekvivalent.

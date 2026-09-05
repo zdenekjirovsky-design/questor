@@ -94,14 +94,19 @@ function kontextQuestu(
   return { temata, nejslabsiTemaId: nejslabsiTema(banky, statistiky) };
 }
 
-/** Vrátí questy platné pro dnešek — když je den nový, vygeneruje čerstvé. */
+/**
+ * Vrátí questy platné pro dnešek — když je den nový, vygeneruje čerstvé.
+ * Seed doplňuje id aktivního profilu, aby dva profily na jednom počítači
+ * neměly identické questy dne.
+ */
 function zajistiQuestyDne(
   questy: QuestDenni[],
   dnes: string,
   ctx: KontextQuestu,
+  profilId?: string | null,
 ): QuestDenni[] {
   if (questy.length > 0 && questy[0].datum === dnes) return questy;
-  return vygenerujDenniQuesty(dnes, ctx);
+  return vygenerujDenniQuesty(dnes, ctx, profilId ?? undefined);
 }
 
 const PRAHY_MISTROVSTVI: { stupen: StupenMistrovstvi; prah: number }[] = [
@@ -203,7 +208,7 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
 
     const ctx = kontextQuestu(stav.banky, statistiky);
     const questy = aplikujOdpovedNaQuesty(
-      zajistiQuestyDne(progres.questy, dnes, ctx),
+      zajistiQuestyDne(progres.questy, dnes, ctx, stav.aktivniProfilId),
       zaznam,
       comboAktualni,
     );
@@ -263,7 +268,7 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
     // Questy po testu + XP za právě splněné (dosud neodměněné) questy.
     const ctx = kontextQuestu(stav.banky, progres.statistikyOtazek);
     const questy = aplikujTestNaQuesty(
-      zajistiQuestyDne(progres.questy, dnes, ctx),
+      zajistiQuestyDne(progres.questy, dnes, ctx, stav.aktivniProfilId),
       vysledek,
     );
     const kOdmene = questy.filter((q) => q.splneno && !stav.questyOdmeneno.includes(q.id));
@@ -421,7 +426,10 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
     if (progres.questy.length > 0 && progres.questy[0].datum === dnes) return;
     const ctx = kontextQuestu(stav.banky, progres.statistikyOtazek);
     set({
-      progres: { ...progres, questy: vygenerujDenniQuesty(dnes, ctx) },
+      progres: {
+        ...progres,
+        questy: vygenerujDenniQuesty(dnes, ctx, stav.aktivniProfilId ?? undefined),
+      },
       questyOdmeneno: stav.questyOdmeneno.filter((id) => id.startsWith(dnes)),
     });
   },

@@ -223,6 +223,9 @@ export default function Statistiky() {
           {historieTestu.length === 0 ? (
             <p className="statistiky__prazdno">Ještě žádný test. Tak na co čekáš? 😉</p>
           ) : (
+            /* Obal s overflow-x: auto — na úzké obrazovce scrolluje tabulka
+               uvnitř panelu, stránka se do šířky nehýbe. */
+            <div className="statistiky__tabulka-obal">
             <table className="statistiky__tabulka">
               <thead>
                 <tr>
@@ -257,6 +260,7 @@ export default function Statistiky() {
                 ))}
               </tbody>
             </table>
+            </div>
           )}
         </div>
       </div>

@@ -178,6 +178,35 @@ describe('SyncFronta', () => {
     expect(fronta.muzeZkusit(ZAKLADNI_ODKLAD_MS - 1)).toBe(false);
   });
 
+  it('zrus() vyprázdní frontu a zakáže zápis — letící odesli() klíč znovu nezaloží', async () => {
+    const uloziste = pametoveUloziste();
+    const klic = 'questor-sync-fronta:smazany-profil';
+    const fronta = new SyncFronta(uloziste, klic);
+    fronta.pridejUdalost(vysledek('v1'));
+    fronta.pridejUdalost(vysledek('v2'));
+    expect(uloziste.getItem(klic)).not.toBeNull();
+
+    const klient = mockKlient();
+    // Během letícího awaitu odeslání v1 se profil smaže: klíč zmizí a fronta
+    // se zruší. Bez příznaku zrusena by odesli() po doběhnutí klíč znovu
+    // zapsal a osobní data smazaného profilu by v localStorage zůstala navždy.
+    klient.posliUdalost.mockImplementationOnce(async () => {
+      uloziste.removeItem(klic);
+      fronta.zrus();
+    });
+
+    await fronta.odesli(klient, 0);
+
+    expect(uloziste.getItem(klic)).toBeNull();
+    expect(fronta.velikost()).toBe(0);
+    // v2 patřila smazanému profilu — po zrušení se už neodesílá.
+    expect(klient.posliUdalost).toHaveBeenCalledTimes(1);
+
+    // Ani další pokusy o zápis klíč nevzkřísí.
+    fronta.pridejUdalost(vysledek('v3'));
+    expect(uloziste.getItem(klic)).toBeNull();
+  });
+
   it('přežije restart — načte se ze stejného úložiště', async () => {
     const uloziste = pametoveUloziste();
     const prvni = new SyncFronta(uloziste);

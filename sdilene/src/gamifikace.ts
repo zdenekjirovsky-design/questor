@@ -412,9 +412,17 @@ const SABLONY_QUESTU: SablonaQuestu[] = [
   },
 ];
 
-/** Vygeneruje 3 denní questy — deterministicky z data, takže restart aplikace nic nezmění. */
-export function vygenerujDenniQuesty(datum: string, ctx: KontextQuestu): QuestDenni[] {
-  const nahoda = vytvorNahodu(hashRetezce(`questy:${datum}`));
+/**
+ * Vygeneruje 3 denní questy — deterministicky z data (restart aplikace nic
+ * nezmění). Volitelná `seedPrisada` (např. id profilu) odliší questy různých
+ * hráčů na jednom počítači; bez ní zůstává chování zpětně kompatibilní.
+ */
+export function vygenerujDenniQuesty(
+  datum: string,
+  ctx: KontextQuestu,
+  seedPrisada?: string,
+): QuestDenni[] {
+  const nahoda = vytvorNahodu(hashRetezce(seedPrisada ? `questy:${datum}:${seedPrisada}` : `questy:${datum}`));
   const vybrane = vazenyVyber(SABLONY_QUESTU, SABLONY_QUESTU.map(() => 1), 3, nahoda);
   const questy: QuestDenni[] = [];
   for (const s of vybrane) {

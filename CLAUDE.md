@@ -42,11 +42,15 @@ psychologickými hooky.
    questor-server :8787).
 7. API klíče a tokeny jen v env / `.env` (v .gitignore), nikdy v kódu.
 
-## Stav (2026-09-04 — po fázi 3: obsah 1. ročníku + přepínač předmětů)
+## Stav (2026-09-05 — po vlně 4: lokální profily, mobil, Základy vaření)
 
-**Hotové a ověřené** (typecheck 4/4 workspaces, testy 248/248 — sdílené 77,
-generátor 32, server 38, aplikace 101; build aplikace OK;
-`npx tsx scripts/kontrola-integrace.ts` → 0 chyb):
+Vydané verze: tagy `v0.1.0`–`v0.3.1` (v0.3.0 = avatar 2.0, v0.3.1 = CI
+macOS build). Vlna 4 níže je hotová v pracovní kopii, zatím NEcommitnutá.
+
+**Hotové a ověřené** (typecheck 4/4 workspaces, testy 307/307 — sdílené 86,
+generátor 32, server 46, aplikace 143; build aplikace OK ~1 s;
+`npx tsx scripts/kontrola-integrace.ts` → 14 bank, 14 výuk | 86 témat,
+780 otázek, 86 lekcí, 172 mini-kvízů, 92 widgetů — VŠECHNY KONTROLY OK):
 
 - fáze 1: sdílené jádro (typy, zod schémata, gamifikace jako čisté funkce),
   generátor bank (ingest `.md/.txt/.pdf/.docx` → témata → otázky →
@@ -62,10 +66,8 @@ generátor 32, server 38, aplikace 101; build aplikace OK;
   gamifikace lekcí (XP 40 jen 1× denně, quest „lekce“, streak aktivita),
   deterministické míchání možností odpovědí; opravná dávka
   z adversariálního review (17 nálezů, 16 opraveno);
-- fáze 3 — OBSAH 1. ROČNÍKU (obor Ekonomika a podnikání): **13 předmětů**
-  bundlovaných v aplikaci, každý s bankou otázek I výukou — celkem
-  77 témat, 708 otázek v bankách, 77 lekcí (1 : 1 k tématům),
-  154 mini-kvízů, 81 widgetů; obsah podle závazné šablony
+- fáze 3 — OBSAH 1. ROČNÍKU (obor Ekonomika a podnikání): 13 předmětů,
+  každý s bankou otázek I výukou, podle závazné šablony
   `docs/DIDAKTIKA.md`; křížové kontroly (unikátní `temaId` a id otázek
   napříč předměty, vazby lekcí na témata banky, povolené widgety) drží
   `scripts/kontrola-integrace.ts` + `aplikace/test/predmety.test.ts`;
@@ -75,25 +77,47 @@ generátor 32, server 38, aplikace 101; build aplikace OK;
   startu na /test; „Učit se“ a Témata ve Statistikách per předmět;
   obsah předmětů MIMO localStorage — lazy async chunky
   (`import.meta.glob` bez eager) + IndexedDB `questor-obsah` pro obsah
-  ze serveru (`sync/uloziste.ts`), persist s `partialize` a migrací
-  v1→v2 (`stav/migrace.ts`). Počáteční JS chunk 414 kB (gzip 125)
-  BEZ obsahu předmětů, obsah = 26 async chunků — dřívější nedostatky
-  „přepínač chybí“, „persist bez partialize“ i varování o velikosti
-  chunku jsou tím vyřešené.
+  ze serveru (`sync/uloziste.ts`), persist s `partialize` a migracemi
+  (`stav/migrace.ts`, aktuálně v1→…→v4). Počáteční JS chunk 457 kB
+  (gzip 137) BEZ obsahu předmětů, obsah = 28 async chunků;
+- avatar 2.0 (`4c60665`, v0.3.0): muž/žena, tvary obličeje, pleť, střihy
+  vlasů; kosmetická výbava ze 4 slotů jako odměna z truhel, editor
+  v Nastavení;
+- vlna 4 — LOKÁLNÍ PROFILY (bez e-mailu, jako na streamovacích službách):
+  `stav/profilySlice.ts` + brána `profily/VyberProfilu` („Kdo dnes
+  hraje?“), správa v Nastavení (`profily/SpravaProfilu` — přejmenování,
+  PIN, mazání s dvojitým potvrzením), PIN 4–6 číslic jako měkký zámek
+  (SHA-256 se solí id, 3 pokusy → 30 s pauza, `jePinPodporovan()` pro
+  nezabezpečený kontext), přepínání přes avatara v hlavičce; VEŠKERÁ
+  osobní data per profil (snímky v `dataProfilu`, migrace v3→v4 udělá
+  z existujících dat profil „Student“), sync fronta per profil; server:
+  `profilId`/`profilJmeno` u progresu a událostí, progres per profil,
+  admin web s kartami všech profilů a výběrem „Komu“ u výzvy
+  (`cilovyProfilId`), migrace DB při startu (`otevriDb`); oprava
+  kontraktu: `stahniVyzvy(profilId)` posílá `?profilId=`, takže cizí
+  cílené výzvy nechodí všem (`aplikace/test/klient.test.ts`);
+- vlna 4 — MOBIL: responzivita k ~375 px za `(max-width: 760px)` (spodní
+  navigační lišta, modaly přes celou obrazovku, dotykové plochy
+  ≥ 44 px), dotyková Třídička klik-klik (`vyuka/widgety/dotyk.ts`),
+  PWA základ (`public/manifest.webmanifest` + ikony) BEZ service
+  workeru — zásady v DESIGN.md, sekce Mobil;
+- vlna 4 — OBSAH: 14. předmět Základy profesionálního vaření
+  (`zaklady-vareni`, mimo obor — učí se i dospělí členové rodiny):
+  učivo + banka + výuka, bundle byte-shodný s `data/`.
 
 **Připravené, ale neověřené:**
 
-- Tauri/Windows build — staví se jen v GitHub Actions (na Macu se Rust
-  část nekompiluje); repo `zdenekjirovsky-design/questor` a tag `v0.1.0`
-  existují, updater pubkey a URL doplněny (`e9ee2a2`) — běh workflow
-  `windows-build` a instalaci na Windows je nutné ověřit na GitHubu
-  (postup `docs/NASAZENI.md`);
+- Tauri build — staví se jen v GitHub Actions (na Macu se Rust část
+  nekompiluje); po commitu vlny 4 je potřeba na GitHubu ověřit běh
+  workflow a auto-update nové verze na Windows (postup
+  `docs/NASAZENI.md`);
 - dogenerování otázek — serverová půlka hotová (bez `ANTHROPIC_API_KEY`
   vrací 503 = „vypnuto“), proti skutečnému Claude API neověřeno;
   klientská část v aplikaci pořád chybí;
 - poskytovatelé `api` a `claude-cli` generátoru neověřeny ostrým během
   (testy jedou na `mock`) — platí i pro režim `--vyuka`.
 
-**Další krok:** commit + push obsahové vlny fáze 3, ověřit CI release
-(`docs/NASAZENI.md`, krok 3) a nasadit server + nahrát na něj obsah;
-poté ostré vygenerování dalšího předmětu přes `api` nebo `claude-cli`.
+**Další krok:** commit + push vlny 4 a release nové verze přes CI
+(ověřit auto-update na Windows); nasadit/aktualizovat server (migrace DB
+proběhne sama při startu) a nahrát na něj banku i výuku vaření; poté
+ostré vygenerování dalšího předmětu přes `api` nebo `claude-cli`.

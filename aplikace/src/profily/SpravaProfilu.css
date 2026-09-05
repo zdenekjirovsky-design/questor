@@ -1,0 +1,111 @@
+/* Sprava profilu v Nastaveni. */
+
+.sprava-profilu {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sprava-profilu h3 {
+  margin: 0 0 4px;
+}
+
+.sprava-profilu__napoveda {
+  color: var(--text-tlumeny);
+  margin: 0 0 8px;
+  font-size: 0.92rem;
+}
+
+.sprava-profilu__radek {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sprava-profilu__radek input {
+  padding: 9px 12px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  color: var(--text);
+  font-size: 0.95rem;
+  min-width: 0;
+}
+
+.sprava-profilu__radek input:focus-visible {
+  outline: 2px solid var(--akcent);
+  outline-offset: 1px;
+}
+
+.sprava-profilu__zprava {
+  margin: 6px 0 0;
+  font-size: 0.92rem;
+}
+
+.sprava-profilu__zprava--ok {
+  color: var(--uspech);
+}
+
+.sprava-profilu__zprava--chyba {
+  color: var(--chyba);
+}
+
+.sprava-profilu__varovani {
+  color: var(--chyba);
+  font-weight: 600;
+}
+
+.sprava-profilu__seznam {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sprava-profilu__polozka {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+}
+
+.sprava-profilu__tecka {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sprava-profilu__jmeno {
+  flex: 1;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.sprava-profilu__stitek {
+  color: var(--zlata);
+  border-color: var(--zlata);
+}
+
+/* --- Mobil (≤ 760 px): inputy ≥ 16 px (iOS zoom), pole přes celou šířku. --- */
+@media (max-width: 760px) {
+  .sprava-profilu__radek input {
+    font-size: 1rem;
+    flex: 1 1 100%;
+    min-height: 44px;
+  }
+
+  .sprava-profilu__radek .tlacitko {
+    flex: 1 1 auto;
+  }
+}

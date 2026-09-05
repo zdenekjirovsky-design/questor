@@ -10,10 +10,17 @@
 // barva a strih vlasu, vybava po slotech) a progres nese vlastnenaVybava.
 // Stary avatar { barvaVlasu, doplnek?, pozadi? } se prevede na novy tvar —
 // barva vlasu se zachova, zbytek dostane vychozi hodnoty.
+//
+// Verze 4: lokalni profily (viz ./profilySlice.ts). Existujici data se stanou
+// profilem „Student" (prejmenovatelnym v Nastaveni) — VSECHNA osobni data
+// (progres, postup lekci, rozehrany test, historie, truhly…) zustavaji beze
+// zmeny v pracovni sade a profil Student se rovnou aktivuje, takze update
+// nic neprerusi a NIC se neztrati. Obsah (banky, vyuky) zustava sdileny.
 import { VYCHOZI_AVATAR } from '@questor/sdilene';
+import { BARVY_PROFILU, vytvorIdProfilu } from './profilySlice';
 import type { QUESTORStav } from './store';
 
-export const VERZE_PERSISTU = 3;
+export const VERZE_PERSISTU = 4;
 
 /** Klice stavu, ktere se NEpersistuji (obsah predmetu — viz hlavicka souboru). */
 const NEPERSISTOVANE_KLICE = ['banky', 'vyuky'] as const;
@@ -33,6 +40,10 @@ export function partializujStav(stav: QUESTORStav): PersistovanyStav {
  * tvar obliceje/plet/strih dostanou vychozi hodnoty, stara pole doplnek
  * a pozadi se zahodi) a progres dostane vlastnenaVybava: []. XP, streak,
  * questy, sbirka, statistiky, rekordy atd. se ZACHOVAVAJI beze zmeny.
+ * v3 → v4: vsechna dosavadni data se stanou profilem „Student" — vznikne
+ * profily: [Student], aktivniProfilId: Student.id a dataProfilu: {};
+ * osobni data ZUSTAVAJI v pracovni sade (aktivni profil je drzi tam),
+ * takze se doslova nic nepresouva a nic nemuze ztratit.
  */
 export function migrujPersistovanyStav(stav: unknown, verzeSnapshotu: number): PersistovanyStav {
   if (stav === null || typeof stav !== 'object' || verzeSnapshotu >= VERZE_PERSISTU) {
@@ -60,6 +71,16 @@ export function migrujPersistovanyStav(stav: unknown, verzeSnapshotu: number): P
       avatar: { ...VYCHOZI_AVATAR, barvaVlasu, vybava: {} },
       vlastnenaVybava: Array.isArray(progres.vlastnenaVybava) ? progres.vlastnenaVybava : [],
     };
+  }
+
+  if (verzeSnapshotu < 4) {
+    // Existujici data → profil „Student" (prejmenovatelny), rovnou aktivni.
+    // Pracovni sada (progres, postup lekci, …) se NEDOTYKA — aktivni profil
+    // ji drzi primo v pracovnich slicech, dataProfilu nese jen neaktivni.
+    const idStudenta = vytvorIdProfilu();
+    kopie.profily = [{ id: idStudenta, jmeno: 'Student', barva: BARVY_PROFILU[0] }];
+    kopie.aktivniProfilId = idStudenta;
+    kopie.dataProfilu = {};
   }
 
   return kopie as PersistovanyStav;

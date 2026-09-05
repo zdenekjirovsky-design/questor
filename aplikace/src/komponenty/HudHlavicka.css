@@ -89,3 +89,139 @@
   0%, 100% { transform: scale(1) rotate(-2deg); }
   50% { transform: scale(1.12) rotate(2deg); }
 }
+
+/* --- Profily: avatar jako tlacitko + menu prepinani --- */
+
+.hud__profil {
+  position: relative;
+}
+
+.hud__avatar-tlacitko {
+  display: grid;
+  place-items: center;
+  padding: 2px;
+  background: var(--pozadi-panel);
+  border: 2px solid var(--okraj);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.15s ease;
+}
+
+.hud__avatar-tlacitko:hover,
+.hud__avatar-tlacitko:focus-visible {
+  transform: scale(1.06);
+  box-shadow: var(--zare-akcent);
+}
+
+.hud__menu-prekryv {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+}
+
+.hud__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 41;
+  min-width: 210px;
+  padding: 6px;
+  background: var(--pozadi-panel);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+  box-shadow: var(--stin);
+  display: flex;
+  flex-direction: column;
+  animation: naskoceni 0.18s ease-out both;
+}
+
+.hud__menu-polozka {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: none;
+  border-radius: var(--radius-maly);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.hud__menu-polozka:hover,
+.hud__menu-polozka:focus-visible {
+  background: var(--pozadi-panel-2);
+}
+
+.hud__menu-polozka--aktivni {
+  color: var(--zlata);
+}
+
+.hud__menu-jmeno {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hud__menu-tecka {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hud__menu-zamek {
+  font-size: 0.85em;
+}
+
+.hud__menu-oddelovac {
+  height: 1px;
+  margin: 4px 8px;
+  background: var(--okraj);
+}
+
+/* --- Mobil (≤ 760 px): HUD se vejde vedle loga do jednoho řádku. --- */
+
+@media (max-width: 760px) {
+  .hud-hlavicka {
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    justify-content: flex-end;
+  }
+
+  .hud__level-blok {
+    min-width: 0;
+    flex: 1;
+    max-width: 170px;
+  }
+
+  .hud__level {
+    font-size: 0.85rem;
+  }
+
+  .hud__plaminek {
+    padding: 5px 10px;
+  }
+
+  /* Menu profilů nesmí přetéct pravý okraj úzké obrazovky. */
+  .hud__menu {
+    max-width: calc(100vw - 24px);
+  }
+
+  /* Dotyková plocha položek menu. */
+  .hud__menu-polozka {
+    min-height: 44px;
+  }
+}
+
+/* Na nejužších displejích se číslo XP schová — level a bar stačí,
+   plné číslo je v title a na stránce Statistiky. */
+@media (max-width: 480px) {
+  .hud__xp-text {
+    display: none;
+  }
+}

@@ -189,3 +189,19 @@
   font-size: 0.9rem;
   color: var(--text-tlumeny);
 }
+
+/* --- Mobil / dotyk: vetsi dotykove plochy stitku a kosu. --- */
+@media (max-width: 760px) {
+  .tridicka__polozka {
+    padding: 10px 16px;
+    min-height: 44px;
+  }
+
+  .tridicka__kos-hlavicka {
+    min-height: 44px;
+  }
+
+  .tridicka__kategorie {
+    grid-template-columns: 1fr;
+  }
+}

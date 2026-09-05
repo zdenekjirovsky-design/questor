@@ -164,3 +164,32 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* --- Mobil (≤ 760 px): společná pravidla pro celou aplikaci ---
+   Desktop (Tauri 1280×800) se těmito pravidly NESMÍ změnit — vše jen
+   za media query. Detailní úpravy stránek jsou v jejich vlastních CSS. */
+
+@media (max-width: 760px) {
+  /* Stránka nikdy nescrolluje do šířky — široký obsah scrolluje uvnitř
+     vlastních kontejnerů (overflow-x: auto). */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  .panel {
+    padding: 14px;
+  }
+
+  /* iOS Safari zoomuje na input s fontem < 16 px — proto minimálně 16 px. */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /* Dotyková plocha ovládacích prvků ≥ 44 px na výšku. */
+  .tlacitko {
+    min-height: 44px;
+  }
+}

@@ -752,4 +752,76 @@
   flex: none;
 }
 
+/* ==========================================================================
+   Mobil (≤ 760 px) — uceni a lekce na sirku telefonu
+   ========================================================================== */
+
+@media (max-width: 760px) {
+  /* Prehled uceni */
+  .uceni__mrizka {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .uceni__doporuceni {
+    gap: 12px;
+  }
+
+  /* Hlavicka lekce: zpet + nazev v radku, lista postupu pod nimi. */
+  .lekce__hlavicka {
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    padding: 10px 12px;
+    top: 6px;
+  }
+
+  .lekce__nazev {
+    font-size: 1.05rem;
+  }
+
+  .lekce__zpet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+  }
+
+  .lekce__postup {
+    min-width: 100%;
+    order: 3;
+  }
+
+  /* Bloky: mensi levy odstavec pro znak. */
+  .panel.lekce__blok {
+    padding: 16px 14px 16px 48px;
+  }
+
+  .lekce__blok-znak {
+    top: 14px;
+    left: 10px;
+  }
+
+  /* Klicove pojmy do jednoho sloupce. */
+  .pojmy__mrizka {
+    grid-template-columns: 1fr;
+  }
+
+  /* Karticky: vyssi karta (delsi definice), tesnejsi sipky. */
+  .karticky__scena {
+    gap: 8px;
+  }
+
+  .karticka {
+    height: 210px;
+  }
+
+  /* Dlazdice Ucit se na Domu */
+  .domu-uceni {
+    gap: 12px;
+    margin-top: 14px;
+  }
+}
+
 /* --- reduced motion: 3D flip bez animace zvladne globalni pravidlo --- */

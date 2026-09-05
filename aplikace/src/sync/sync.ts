@@ -1,14 +1,74 @@
 // Orchestrace synchronizace (offline-first):
-// - push: fronta neodeslaných událostí + snapshot progresu,
-// - pull: banky (jen vyšší verze → merge do testySlice) a výzvy (→ hraSlice).
-// Selhání sítě je TICHÉ — žádné chybové UI uprostřed hry, jen nenápadný
-// indikátor stavu (Nastavení / Domů) přes odběr stavu níže.
+// - push: fronty neodeslaných událostí VŠECH profilů + snapshot progresu
+//   aktivního profilu (události i progres nesou top-level pole profilId
+//   a profilJmeno vedle stávajících dat — starý server je ignoruje),
+// - pull: banky (jen vyšší verze → merge do testySlice) a výzvy (→ hraSlice
+//   aktivního profilu; bez aktivního profilu se výzvy nestahují).
+// Fronta je per PROFIL (osobní data) — klíč v localStorage nese id profilu;
+// položky se do ní řadí už OBOHACENÉ o profil, takže přepnutí profilu před
+// odesláním atribuci nezmění. Selhání sítě je TICHÉ — žádné chybové UI
+// uprostřed hry, jen nenápadný indikátor stavu (Nastavení / Domů).
 import { validujBanku, validujVyuku } from '@questor/sdilene';
 import type { TestVysledek } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
+import type { Profil } from '../stav/profilySlice';
 import { nactiSyncNastaveni, vytvorKlienta, vychoziUloziste } from './klient';
-import { SyncFronta } from './fronta';
+import { klicFrontyProfilu, KLIC_FRONTY, smazUlozenouFrontuProfilu, SyncFronta } from './fronta';
 import { ulozObsah } from './uloziste';
+
+// ---------------------------------------------------------------------------
+// Označení profilu na odesílaných datech (top-level pole vedle stávajících —
+// zpětně kompatibilní: starý server neznámá pole zahodí/ignoruje).
+
+export interface ProfilOznaceni {
+  profilId: string;
+  profilJmeno: string;
+}
+
+function oznacProfilem<T extends object>(data: T, profil: Profil): T & ProfilOznaceni {
+  return { ...data, profilId: profil.id, profilJmeno: profil.jmeno };
+}
+
+// ---------------------------------------------------------------------------
+// Fronty per profil (lazy; adopce staré společné fronty viz fronta.ts)
+
+const fronty = new Map<string, SyncFronta>();
+
+function frontaProfilu(profilId: string): SyncFronta {
+  let fronta = fronty.get(profilId);
+  if (!fronta) {
+    fronta = new SyncFronta(vychoziUloziste(), klicFrontyProfilu(profilId), KLIC_FRONTY);
+    fronty.set(profilId, fronta);
+  }
+  return fronta;
+}
+
+/**
+ * Úplné zapomenutí fronty smazaného profilu: zruší in-memory instanci
+ * (už nikdy nic nezapíše — letící odesli() ji po awaitu najde prázdnou),
+ * odebere ji z mapy a smaže uložený klíč. Volá profilySlice.smazProfil;
+ * bez zrušení instance by běžící sync klíč v localStorage znovu založil
+ * a osobní data smazaného profilu by v něm zůstala navždy.
+ */
+export function zapomenFrontuProfilu(profilId: string): void {
+  fronty.get(profilId)?.zrus();
+  fronty.delete(profilId);
+  smazUlozenouFrontuProfilu(profilId);
+}
+
+function aktivniProfil(): Profil | null {
+  const stav = pouzijStav.getState();
+  return stav.profily.find((p) => p.id === stav.aktivniProfilId) ?? null;
+}
+
+/** Součet čekajících položek přes fronty všech existujících profilů. */
+function celkemVeFronte(): number {
+  let soucet = 0;
+  for (const profil of pouzijStav.getState().profily) {
+    soucet += frontaProfilu(profil.id).velikost();
+  }
+  return soucet;
+}
 
 // ---------------------------------------------------------------------------
 // Stav synchronizace (pro indikátor v UI — useSyncExternalStore)
@@ -25,8 +85,6 @@ export interface StavSynchronizace {
 
 const KLIC_POSLEDNI_USPECH = 'questor-sync-posledni-uspech';
 
-const fronta = new SyncFronta();
-
 let stav: StavSynchronizace = {
   bezi: false,
   posledniUspech: (() => {
@@ -37,13 +95,13 @@ let stav: StavSynchronizace = {
     }
   })(),
   posledniChyba: null,
-  veFronte: fronta.velikost(),
+  veFronte: 0,
 };
 
 const posluchaci = new Set<() => void>();
 
 function nastavStav(zmena: Partial<StavSynchronizace>): void {
-  stav = { ...stav, ...zmena, veFronte: fronta.velikost() };
+  stav = { ...stav, ...zmena, veFronte: celkemVeFronte() };
   for (const p of posluchaci) p();
 }
 
@@ -78,12 +136,20 @@ async function provedSync(duvod: DuvodSyncu): Promise<void> {
     const klient = vytvorKlienta(nactiSyncNastaveni());
 
     // --- push ---------------------------------------------------------------
-    if (duvod === 'start') {
-      // Při startu se pošle aktuální snapshot progresu.
-      fronta.pridejProgres(pouzijStav.getState().progres);
+    const profil = aktivniProfil();
+    if (duvod === 'start' && profil) {
+      // Při startu se pošle aktuální snapshot progresu aktivního profilu.
+      frontaProfilu(profil.id).pridejProgres(
+        oznacProfilem(pouzijStav.getState().progres, profil),
+      );
     }
-    if (duvod === 'rucne') fronta.vynulujOdklad();
-    await fronta.odesli(klient); // nikdy nevyhazuje, selhání = položky zůstávají
+    // Odesílají se fronty VŠECH profilů (položky nesou profilId/profilJmeno,
+    // takže atribuce nezávisí na tom, kdo je zrovna přihlášený).
+    for (const p of pouzijStav.getState().profily) {
+      const fronta = frontaProfilu(p.id);
+      if (duvod === 'rucne') fronta.vynulujOdklad();
+      await fronta.odesli(klient); // nikdy nevyhazuje, selhání = položky zůstávají
+    }
 
     // --- pull: banky (jen vyšší verze) --------------------------------------
     const seznam = await klient.seznamBank();
@@ -111,9 +177,22 @@ async function provedSync(duvod: DuvodSyncu): Promise<void> {
       // Tiché — výuka je bonus, offline-first základ je bundlovaný.
     }
 
-    // --- pull: výzvy → hraSlice ---------------------------------------------
-    const vyzvy = await klient.stahniVyzvy();
-    pouzijStav.getState().prijmiVyzvy(vyzvy);
+    // --- pull: výzvy → hraSlice aktivního profilu ---------------------------
+    // Bez aktivního profilu (obrazovka výběru) se výzvy nestahují — patří
+    // do osobních dat a neměly by přistát v prázdné pracovní sadě. Server
+    // dostává ?profilId= a vrací jen výzvy cílené na aktivní profil + společné.
+    const aktivniId = pouzijStav.getState().aktivniProfilId;
+    if (aktivniId) {
+      const vyzvy = await klient.stahniVyzvy(aktivniId);
+      // Pravidlo pro KAŽDÝ pull osobních dat: mezi čtením profilu a zápisem
+      // leží await — přepne-li se mezitím profil (klik na avatara během
+      // pomalé sítě), výsledek se ZAHODÍ, jinak by výzvy cílené na původní
+      // profil přistály v pracovní sadě jiného. Správný profil si je stáhne
+      // při příštím syncu.
+      if (pouzijStav.getState().aktivniProfilId === aktivniId) {
+        pouzijStav.getState().prijmiVyzvy(vyzvy);
+      }
+    }
 
     const ted = new Date().toISOString();
     try {
@@ -130,16 +209,23 @@ async function provedSync(duvod: DuvodSyncu): Promise<void> {
   }
 }
 
-/** Volá testySlice po dokončení testu: zařadí událost + progres a zkusí sync. */
+/**
+ * Volá testySlice po dokončení testu: zařadí událost + progres do fronty
+ * AKTIVNÍHO profilu (payloady obohacené o profilId/profilJmeno) a zkusí sync.
+ * Bez aktivního profilu (nemělo by nastat — aplikace je za gate) se nic neřadí.
+ */
 export function zaznamenejDokoncenyTest(vysledek: TestVysledek): void {
-  fronta.pridejUdalost(vysledek);
+  const profil = aktivniProfil();
+  if (!profil) return;
+  const fronta = frontaProfilu(profil.id);
+  fronta.pridejUdalost(oznacProfilem(vysledek, profil));
   if (vysledek.vyzvaId) {
     fronta.pridejVysledekVyzvy(vysledek.vyzvaId, {
       uspesnost: vysledek.uspesnost,
       xp: vysledek.ziskaneXp,
     });
   }
-  fronta.pridejProgres(pouzijStav.getState().progres);
+  fronta.pridejProgres(oznacProfilem(pouzijStav.getState().progres, profil));
   nastavStav({});
   void synchronizuj('po-testu');
 }

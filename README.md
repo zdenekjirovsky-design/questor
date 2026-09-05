@@ -4,7 +4,9 @@ Herní výukový a testovací systém: nahraješ učivo, Claude z něj vygeneruj
 banku otázek v pěti obtížnostech a volitelně interaktivní výukové lekce
 (texty, SVG, hry, mini-kvízy). Aplikace (Windows 11 / web) studenta látku
 nejdřív naučí („Učit se“) a pak z ní staví testy s XP, streaky, denními
-questy, truhlami a sbírkou karet.
+questy, truhlami a sbírkou karet. Na jednom počítači se střídá víc lidí
+přes lokální profily (bez e-mailu, volitelný PIN) a UI je responzivní až
+do šířky telefonu (PWA základ pro výhledovou hostovanou verzi).
 
 ## Rychlý start (vývoj, macOS/Linux)
 
@@ -14,23 +16,37 @@ npm run dev:server     # API na http://localhost:8787
 npm run dev:aplikace   # aplikace na http://localhost:5173
 ```
 
-Aplikace funguje i bez serveru — kompletní 1. ročník SŠ (obor Ekonomika
-a podnikání) je bundlovaný přímo v ní: 13 předmětů, každý s bankou otázek
-i výukovými lekcemi.
+Aplikace funguje i bez serveru — kompletní obsah je bundlovaný přímo
+v ní: 14 předmětů, každý s bankou otázek i výukovými lekcemi.
 
-## Předměty (1. ročník)
+## Předměty (14)
 
-Ekonomika a podnikání, Písemná a elektronická komunikace, Informatika,
-Český jazyk a literatura, Anglický jazyk, Německý jazyk, Matematika,
-Dějepis, Občanská nauka, Fyzika, Chemie, Biologie a ekologie,
-Zbožíznalství — celkem 77 témat, 708 otázek v bankách, 77 lekcí
-(154 mini-kvízů, 81 widgetů).
+**1. ročník SŠ, obor Ekonomika a podnikání (13):** Ekonomika
+a podnikání, Písemná a elektronická komunikace, Informatika, Český jazyk
+a literatura, Anglický jazyk, Německý jazyk, Matematika, Dějepis,
+Občanská nauka, Fyzika, Chemie, Biologie a ekologie, Zbožíznalství.
+**Mimo obor (1):** Základy profesionálního vaření (`zaklady-vareni`) —
+QUESTOR je obecný, učí se v něm i dospělí členové rodiny.
+
+Celkem 86 témat, 780 otázek v bankách, 86 lekcí (172 mini-kvízů,
+92 widgetů).
 
 Názvy, ikony a pořadí předmětů v UI drží registr
 `aplikace/src/data/predmety.ts` (`PREDMETY`); obsah se bundluje jako JSON
 v `aplikace/src/data/predmety/`. **Nový předmět nebo další ročník**
 (= nový předmět s vlastním id, např. `matematika-2`): postup
-v `docs/NAVOD.md`, kap. 5 — učivo → banka → výuka → registr → bundle.
+v `docs/NAVOD.md`, kap. 6 — učivo → banka → výuka → registr → bundle.
+
+## Profily
+
+Lokální profily jako na streamovacích službách — žádný e-mail, žádná
+registrace, všechno zůstává v počítači. Každý profil má vlastní XP,
+level, streak, questy, truhly, sbírku, avatara, postup lekcí i historii
+testů; obsah předmětů je společný. Volitelný PIN (4–6 číslic) je měkký
+zámek soukromí; přepíná se klikem na avatara v hlavičce. Server profily
+rozlišuje přes `profilId` posílaný při syncu (studentský token je
+společný): admin web ukazuje progres všech profilů vedle sebe a výzvy
+jde cílit na konkrétní profil. Postupy: `docs/NAVOD.md`, kap. 3 a 4.
 
 ## Generování otázek a výuky z učiva
 

@@ -42,6 +42,7 @@ export const PREDMETY: PredmetMetadata[] = [
   { id: 'chemie', nazev: 'Chemie', ikona: '⚗️' },
   { id: 'biologie-ekologie', nazev: 'Biologie a ekologie', ikona: '🌿' },
   { id: 'zbozinalstvi', nazev: 'Zbožíznalství', ikona: '📦' },
+  { id: 'zaklady-vareni', nazev: 'Základy profesionálního vaření', ikona: '🍳' },
 ];
 
 const METADATA_MAPA = new Map(PREDMETY.map((p) => [p.id, p]));

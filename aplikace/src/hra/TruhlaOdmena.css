@@ -258,3 +258,19 @@
   0%, 100% { opacity: 0.55; }
   50% { opacity: 1; }
 }
+
+/* --- Mobil: odměna se nesmí roztáhnout přes okraj úzké obrazovky
+   a odkaz na editor má dotykovou plochu. --- */
+@media (max-width: 760px) {
+  .truhla__odmena {
+    white-space: normal;
+    max-width: min(92vw, 340px);
+  }
+
+  .truhla__odmena-vybava-odkaz {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 5px 16px;
+  }
+}

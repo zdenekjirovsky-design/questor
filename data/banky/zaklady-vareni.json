@@ -1,0 +1,1047 @@
+{
+  "predmetId": "zaklady-vareni",
+  "nazev": "Základy profesionálního vaření",
+  "verze": 3,
+  "vytvoreno": "2026-09-05",
+  "temata": [
+    { "id": "vareni-hygiena", "nazev": "Hygiena a bezpečnost v kuchyni", "poradi": 0 },
+    { "id": "vareni-noze", "nazev": "Nože a příprava surovin", "poradi": 1 },
+    { "id": "vareni-tepelne-upravy", "nazev": "Tepelné úpravy", "poradi": 2 },
+    { "id": "vareni-vyvary", "nazev": "Vývary a fondy", "poradi": 3 },
+    { "id": "vareni-omacky", "nazev": "Omáčky", "poradi": 4 },
+    { "id": "vareni-polevky", "nazev": "Polévky", "poradi": 5 },
+    { "id": "vareni-maso", "nazev": "Maso a drůbež", "poradi": 6 },
+    { "id": "vareni-prilohy", "nazev": "Zelenina a přílohy", "poradi": 7 },
+    { "id": "vareni-chut", "nazev": "Chuť a dochucování", "poradi": 8 }
+  ],
+  "otazky": [
+    {
+      "id": "o-vareni-hygiena-1",
+      "temaId": "vareni-hygiena",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "V jakém rozmezí teplot se bakterie v potravinách množí nejrychleji (tzv. nebezpečná zóna)?",
+      "moznosti": [
+        "0–20 °C",
+        "5–60 °C",
+        "60–100 °C",
+        "−18–0 °C"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Nebezpečná zóna je 5–60 °C: pod 5 °C se bakterie množí jen pomalu, nad 60 °C hynou. Proto chladíme do 5 °C a teplé pokrmy držíme nad 60 °C.",
+      "zdroj": "Hygiena a bezpečnost v kuchyni"
+    },
+    {
+      "id": "o-vareni-hygiena-2",
+      "temaId": "vareni-hygiena",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá skladová zásada „první do skladu, první ze skladu“? (zkratka nebo celý název)",
+      "spravneOdpovedi": ["FIFO", "fifo", "first in first out", "first in, first out"],
+      "vysvetleni": "FIFO (first in, first out): zboží naskladněné jako první se vyskladňuje jako první, aby ve skladu nestárlo a nepropadala mu trvanlivost.",
+      "zdroj": "Hygiena a bezpečnost v kuchyni"
+    },
+    {
+      "id": "o-vareni-hygiena-3",
+      "temaId": "vareni-hygiena",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Zmražené maso je nejbezpečnější rozmrazovat při pokojové teplotě na kuchyňské lince.",
+      "spravna": false,
+      "vysvetleni": "Ne — povrch masa se na lince dostane do nebezpečné zóny 5–60 °C dlouho předtím, než rozmrzne jádro. Bezpečně se rozmrazuje v lednici (do 5 °C).",
+      "zdroj": "Hygiena a bezpečnost v kuchyni"
+    },
+    {
+      "id": "o-vareni-hygiena-4",
+      "temaId": "vareni-hygiena",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co je podstatou systému HACCP?",
+      "moznosti": [
+        "Předepsaný seznam povolených receptur pro restaurace",
+        "Najít v cestě potraviny kritické body, stanovit jim limity (např. teploty) a hlídat je",
+        "Pravidelný úklid kuchyně podle rozpisu směn",
+        "Certifikát kvality, který se uděluje nejlepším podnikům"
+      ],
+      "spravna": 1,
+      "vysvetleni": "HACCP = analýza rizik a kritické kontrolní body: provoz si popíše cestu potraviny, najde riziková místa (typicky teploty skladování, opracování a výdeje), stanoví limity a vede záznamy. Úklid je jen jedna z podpůrných částí, ne podstata.",
+      "zdroj": "Hygiena a bezpečnost v kuchyni"
+    },
+    {
+      "id": "o-vareni-hygiena-5",
+      "temaId": "vareni-hygiena",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď barvu prkénka k potravině (běžný barevný kód):",
+      "pary": [
+        { "levy": "červená", "pravy": "syrové maso" },
+        { "levy": "bílá", "pravy": "pečivo a mléčné výrobky" },
+        { "levy": "modrá", "pravy": "ryby" },
+        { "levy": "zelená", "pravy": "zelenina a ovoce" }
+      ],
+      "vysvetleni": "Barevný kód prkének brání křížové kontaminaci — každá skupina potravin má své prkénko. Červená (syrové maso), modrá (ryby), zelená (zelenina a ovoce) a bílá (pečivo a mléčné výrobky) platí v běžných kódech shodně. Pozor na žlutou — kódy se v ní liší: mezinárodní (NSF) jí značí syrovou drůbež, britský (v Evropě nejrozšířenější) tepelně opracované maso a hotové pokrmy. Závazný je vždy kód konkrétního provozu.",
+      "zdroj": "Hygiena a bezpečnost v kuchyni"
+    },
+    {
+      "id": "o-vareni-hygiena-6",
+      "temaId": "vareni-hygiena",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Guláš je hotový ve 14:00, vydávat se bude až v 18:00. Jak s ním správně naložíš?",
+      "moznosti": [
+        "Nechám ho ve velkém hrnci na vypnuté plotně a v 17:45 ho prohřeju",
+        "Rychle ho zchladím v mělkých nádobách pod 5 °C a před výdejem prohřeju na min. 70 °C",
+        "Budu ho držet při 40 °C, aby zůstal teplý a nemusel se ohřívat",
+        "Horký hrnec dám rovnou do lednice, ať se stihne zchladit"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Čtyři hodiny mimo bezpečné teploty jsou riziko: buď držet celou dobu nad 60 °C, nebo rychle zchladit (mělké nádoby, vodní lázeň) a před výdejem prohřát na min. 70 °C. Hrnec na plotně i držení při 40 °C je nebezpečná zóna; horký hrnec v lednici chladne pomalu a ohřívá okolní potraviny.",
+      "zdroj": "Hygiena a bezpečnost v kuchyni"
+    },
+    {
+      "id": "o-vareni-hygiena-7",
+      "temaId": "vareni-hygiena",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které zásady skutečně omezují křížovou kontaminaci? (více správných odpovědí)",
+      "moznosti": [
+        "Mytí rukou mezi prací se syrovým masem a hotovým jídlem",
+        "Oddělená prkénka podle druhu potraviny",
+        "Syrové maso skladovat v lednici vždy dole",
+        "Prkénko po syrovém mase stačí otřít suchou utěrkou",
+        "Ochutnávat průběžně stejnou lžičkou šetří nádobí"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Kontaminaci brání mytí rukou, oddělené pomůcky a skladování syrového masa dole (nemůže odkapávat na hotové). Suchá utěrka mikroby jen rozetře a jedna lžička na opakované ochutnávání přenáší mikroby z úst do jídla.",
+      "zdroj": "Hygiena a bezpečnost v kuchyni"
+    },
+    {
+      "id": "o-vareni-hygiena-8",
+      "temaId": "vareni-hygiena",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Ráno zjistíš, že lednice přes noc hlásila 9 °C. Uvnitř je syrové kuře a načatá šlehačka. Co uděláš podle zásad HACCP?",
+      "moznosti": [
+        "Citlivé potraviny posoudím jako rizikové a vyřadím, závadu nahlásím a zapíšu do záznamů",
+        "Stáhnu termostat níž a vařím dál — 9 °C je jen o kousek víc",
+        "Kuře hned tepelně zpracuji a šlehačku spotřebuji do konce dne",
+        "Nic — potraviny vypadají i voní normálně"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Potraviny byly neznámou dobu nad 5 °C — u vysoce rizikových (drůbež, smetana) nelze bezpečnost zaručit ani tepelnou úpravou (některé toxiny teplo přežijí). Kritický bod selhal: potraviny vyřadit, závadu nahlásit a událost zaznamenat — přesně k tomu HACCP slouží.",
+      "zdroj": "Hygiena a bezpečnost v kuchyni"
+    },
+
+    {
+      "id": "o-vareni-noze-1",
+      "temaId": "vareni-noze",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Který nůž je hlavním univerzálem kuchaře na krájení, sekání i plátkování?",
+      "moznosti": [
+        "Filetovací nůž",
+        "Nůž na pečivo",
+        "Šéfkuchařský nůž",
+        "Okrajovací nůž"
+      ],
+      "spravna": 2,
+      "vysvetleni": "Šéfkuchařský nůž (čepel 18–25 cm) zvládne většinu práce v kuchyni. Filetovací je pružný na ryby, vroubkovaný na pečivo a okrajovací na drobné čištění.",
+      "zdroj": "Nože a příprava surovin"
+    },
+    {
+      "id": "o-vareni-noze-2",
+      "temaId": "vareni-noze",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď název řezu k jeho podobě:",
+      "pary": [
+        { "levy": "julienne", "pravy": "tenké nudličky jako zápalky (cca 2 × 2 mm)" },
+        { "levy": "brunoise", "pravy": "drobné kostičky 2–3 mm" },
+        { "levy": "chiffonade", "pravy": "jemné nudličky ze srolovaných listů" },
+        { "levy": "emincé", "pravy": "stejnoměrné tenké plátky" }
+      ],
+      "vysvetleni": "Julienne jsou nudličky, brunoise kostičky krájené příčně z julienne, chiffonade nudličky z listové zeleniny a bylinek, emincé tenké plátky. Jednotné rozměry zajišťují rovnoměrné uvaření.",
+      "zdroj": "Nože a příprava surovin"
+    },
+    {
+      "id": "o-vareni-noze-3",
+      "temaId": "vareni-noze",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Ocílka nahrazuje broušení — po jejím použití má nůž nové ostří.",
+      "spravna": false,
+      "vysvetleni": "Ne. Ocílka ostří jen srovnává (napřimuje ohnutý břit) mezi broušeními. Nové ostří vytvoří jen brousek či kámen, který ubírá materiál.",
+      "zdroj": "Nože a příprava surovin"
+    },
+    {
+      "id": "o-vareni-noze-4",
+      "temaId": "vareni-noze",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá profesionální příprava pracoviště „vše na svém místě“ — nakrájeno, naváženo a rozestavěno dřív, než se začne vařit? (francouzský termín)",
+      "spravneOdpovedi": ["mise en place", "mise-en-place", "mise en place (vše na svém místě)"],
+      "vysvetleni": "Mise en place: před začátkem vaření je vše připravené a rozestavěné v pořadí použití. Během špičky se pak jen vaří — nehledá se a neodbíhá.",
+      "zdroj": "Nože a příprava surovin"
+    },
+    {
+      "id": "o-vareni-noze-5",
+      "temaId": "vareni-noze",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč se surovina při krájení drží tzv. drápkem (špičky prstů podvinuté dovnitř)?",
+      "moznosti": [
+        "Klouby prstů vedou bok čepele a bříška prstů se k ostří nedostanou",
+        "Surovina se tak méně maže a nepouští šťávu",
+        "Vypadá to profesionálně před hosty",
+        "Ruka se tolik neunaví"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Drápek je bezpečnostní technika: čepel se opírá o klouby prstů, které fungují jako vodítko, a bříška prstů jsou schovaná. Na šťavnatost suroviny ani únavu ruky vliv nemá.",
+      "zdroj": "Nože a příprava surovin"
+    },
+    {
+      "id": "o-vareni-noze-6",
+      "temaId": "vareni-noze",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Recept žádá mrkev julienne. Jaké rozměry budou mít nakrájené nudličky?",
+      "moznosti": [
+        "Průřez cca 2 × 2 mm, délka 4–5 cm",
+        "Průřez cca 1 × 1 cm, délka 10 cm",
+        "Kostičky o hraně 5 mm",
+        "Plátky silné 5 mm"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Julienne jsou jemné nudličky jako zápalky: průřez zhruba 2 × 2 mm a délka 4–5 cm. Kostičky jsou brunoise (2–3 mm) či macédoine (větší), plátky jsou jiný řez.",
+      "zdroj": "Nože a příprava surovin"
+    },
+    {
+      "id": "o-vareni-noze-7",
+      "temaId": "vareni-noze",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Co platí o péči o kuchařský nůž? (více správných odpovědí)",
+      "moznosti": [
+        "Myje se v ruce hned po použití a hned se utírá",
+        "Skleněné prkénko je pro ostří šetrné",
+        "Ocílka srovnává břit mezi broušeními",
+        "Myčka nádobí noži neškodí",
+        "Evropské nože se brousí zhruba pod úhlem 20°"
+      ],
+      "spravne": [0, 2, 4],
+      "vysvetleni": "Nůž se myje v ruce a hned utírá; ocílka srovnává, brousek brousí; evropský úhel je ~20° (japonský ~15°). Sklo a kámen ostří okamžitě otupí a myčka ničí ostří i rukojeť.",
+      "zdroj": "Nože a příprava surovin"
+    },
+    {
+      "id": "o-vareni-noze-8",
+      "temaId": "vareni-noze",
+      "typ": "doplneni",
+      "obtiznost": 5,
+      "zadani": "Krájíš brunoise: nudličky julienne o průřezu 2 × 2 mm řežeš příčně tak, aby vznikly pravidelné kostičky. Jakou přibližnou hranu v milimetrech kostičky mají? (odpověz číslem)",
+      "spravneOdpovedi": ["2", "2 mm", "2mm", "2-3", "2–3", "2-3 mm", "2-3mm", "2–3 mm", "2–3mm", "3", "3 mm", "3mm", "dva", "dva milimetry"],
+      "vysvetleni": "Brunoise se krájí příčně z julienne, takže hrana kostičky odpovídá průřezu nudličky — zhruba 2–3 mm. Proto je julienne vždy prvním krokem k pravidelné brunoise.",
+      "zdroj": "Nože a příprava surovin"
+    },
+
+    {
+      "id": "o-vareni-tepelne-upravy-1",
+      "temaId": "vareni-tepelne-upravy",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je Maillardova reakce?",
+      "moznosti": [
+        "Hnědnutí bílkovin a cukrů od cca 140 °C, které tvoří pečenou chuť a kůrku",
+        "Rozpouštění tuku při smažení",
+        "Srážení bílkovin ve vroucí vodě",
+        "Odpařování vody při redukci omáčky"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Maillardova reakce je reakce bílkovin a cukrů od zhruba 140 °C — vzniká při ní hnědá kůrka a stovky chuťových látek. Ve vodě (max 100 °C) proto nikdy neproběhne.",
+      "zdroj": "Tepelné úpravy"
+    },
+    {
+      "id": "o-vareni-tepelne-upravy-2",
+      "temaId": "vareni-tepelne-upravy",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Maso ponořené ve vodě zhnědne a vytvoří kůrku stejně jako na rozpálené pánvi.",
+      "spravna": false,
+      "vysvetleni": "Ne — voda nepřekročí 100 °C a Maillardova reakce potřebuje zhruba 140 °C a suchý povrch. Proto se maso na barvu opéká a vlhké úpravy dávají měkkost, ne kůrku.",
+      "zdroj": "Tepelné úpravy"
+    },
+    {
+      "id": "o-vareni-tepelne-upravy-3",
+      "temaId": "vareni-tepelne-upravy",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď tepelnou úpravu k jejímu popisu:",
+      "pary": [
+        { "levy": "blanšírování", "pravy": "krátké povaření a ledová lázeň" },
+        { "levy": "konfitování", "pravy": "pomalé vaření v tuku při 70–90 °C" },
+        { "levy": "restování", "pravy": "prudké opékání malých kousků na troše tuku" },
+        { "levy": "dušení", "pravy": "opečení a pomalé táhnutí v tekutině pod poklicí" }
+      ],
+      "vysvetleni": "Blanšírování fixuje barvu a texturu, konfitování dělá maso máslově měkké nízkou teplotou v tuku, restování je rychlé suché teplo, dušení kombinuje opečení s vlhkým dotažením.",
+      "zdroj": "Tepelné úpravy"
+    },
+    {
+      "id": "o-vareni-tepelne-upravy-4",
+      "temaId": "vareni-tepelne-upravy",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč se tužší maso s vyšším podílem pojiva duší, místo aby se grilovalo?",
+      "moznosti": [
+        "Dušením se z masa vypéká tuk",
+        "Kolagen se dlouhým vlhkým teplem mění na želatinu a maso změkne",
+        "Grilování ničí vitamíny",
+        "Dušení je rychlejší než grilování"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Pojivová tkáň (kolagen) je tuhá; dlouhé vlhké teplo ji přemění na želatinu — maso je měkké a šťavnaté. Rychlé grilování kolagen rozložit nestihne, výsledek by byl tuhý.",
+      "zdroj": "Tepelné úpravy"
+    },
+    {
+      "id": "o-vareni-tepelne-upravy-5",
+      "temaId": "vareni-tepelne-upravy",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Správná teplota tuku na smažení je 160–180 °C.",
+      "spravna": true,
+      "vysvetleni": "Ano. Ve 160–180 °C se povrch rychle zatáhne a jídlo nenasákne tuk; studenější tuk jídlo promastí, přepálený hořkne a vytváří škodliviny.",
+      "zdroj": "Tepelné úpravy"
+    },
+    {
+      "id": "o-vareni-tepelne-upravy-6",
+      "temaId": "vareni-tepelne-upravy",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Chystáš se smažit řízky, ale teploměr ukazuje, že olej má teprve 120 °C. Co uděláš?",
+      "moznosti": [
+        "Začnu smažit — ušetřím čas a energie",
+        "Počkám, až olej dosáhne cca 170 °C, jinak řízky nasáknou tuk",
+        "Zvýším plamen na maximum a vložím řízky hned",
+        "Přidám do oleje kus másla, tím se ohřeje rychleji"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Ve 120 °C se povrch nezatáhne a strouhanka nasákne tuk — řízek bude mastný a bledý. Vložení studeného masa navíc teplotu ještě sníží; správně je počkat na 160–180 °C. Máslo by se při smažicí teplotě připálilo.",
+      "zdroj": "Tepelné úpravy"
+    },
+    {
+      "id": "o-vareni-tepelne-upravy-7",
+      "temaId": "vareni-tepelne-upravy",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které úpravy patří mezi suché teplo (včetně úprav v tuku)? (více správných odpovědí)",
+      "moznosti": [
+        "Grilování",
+        "Pečení",
+        "Restování",
+        "Blanšírování",
+        "Dušení"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Suché teplo předává horký vzduch, kov nebo tuk: grilování, pečení, restování (a také smažení či konfitování). Blanšírování a dušení pracují s vodou — jsou to vlhké (u dušení kombinované) úpravy.",
+      "zdroj": "Tepelné úpravy"
+    },
+    {
+      "id": "o-vareni-tepelne-upravy-8",
+      "temaId": "vareni-tepelne-upravy",
+      "typ": "doplneni",
+      "obtiznost": 5,
+      "zadani": "Chceš, aby se kuřecí prso nikdy nepřevařilo: zavakuuješ ho a necháš táhnout ve vodní lázni přesně na cílové teplotě jádra. Jak se tato metoda nazývá?",
+      "spravneOdpovedi": ["sous-vide", "sous vide", "sousvide", "metoda sous-vide", "vareni sous-vide"],
+      "vysvetleni": "Sous-vide („ve vakuu“): surovina se táhne ve vodní lázni přesně na cílové teplotě, takže se nemůže převařit. Je to moderní rozvinutí principu šetrného pošírování.",
+      "zdroj": "Tepelné úpravy"
+    },
+
+    {
+      "id": "o-vareni-vyvary-1",
+      "temaId": "vareni-vyvary",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jakou vodou se zalévají kosti na vývar?",
+      "moznosti": [
+        "Vroucí — vývar je rychleji hotový",
+        "Studenou — bílkoviny se uvolňují postupně a vývar zůstane čirý",
+        "Teplou z kohoutku — je to úspornější",
+        "Minerálkou — dodá vývaru minerály"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Kosti se zalévají studenou vodou a pomalu zahřívají: bílkoviny se uvolňují postupně, dají se sebrat jako pěna a vývar zůstane čirý. Vroucí voda povrch zatáhne a vývar ochudí.",
+      "zdroj": "Vývary a fondy"
+    },
+    {
+      "id": "o-vareni-vyvary-2",
+      "temaId": "vareni-vyvary",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Proč se vývar nesmí vařit klokotem?",
+      "moznosti": [
+        "Klokot rozbije tuk a kal do tekutiny a vývar se zakalí",
+        "Klokotem se vývar připálí",
+        "Vývar by se vařil příliš rychle a ztratil objem",
+        "Kosti by při klokotu praskaly"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Prudký var emulguje tuk a rozvíří nečistoty do tekutiny — vývar se nenávratně zakalí. Hladina se má jen lehce chvět (táhnutí) a pěna se průběžně sbírá.",
+      "zdroj": "Vývary a fondy"
+    },
+    {
+      "id": "o-vareni-vyvary-3",
+      "temaId": "vareni-vyvary",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Vývar je správné pořádně osolit hned na začátku táhnutí.",
+      "spravna": false,
+      "vysvetleni": "Ne — vývar se dál redukuje a používá jako základ omáček; sůl by se koncentrovala a výsledek přesolila. Solí se až hotový pokrm, ne fond.",
+      "zdroj": "Vývary a fondy"
+    },
+    {
+      "id": "o-vareni-vyvary-4",
+      "temaId": "vareni-vyvary",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Čím se liší příprava tmavého vývaru od světlého?",
+      "moznosti": [
+        "Tmavý se vaří déle klokotem, tím ztmavne",
+        "Tmavý se barví karamelem",
+        "Kosti a zelenina se před táhnutím zapečou do hněda a přidá se rajčatový protlak",
+        "Do tmavého se dává sójová omáčka"
+      ],
+      "spravna": 2,
+      "vysvetleni": "Tmavý (brun) vývar získává barvu a plnost zapečením kostí a zeleniny (Maillardova reakce) a protlakem. Klokot vývar jen zakalí a karamel či sójovka do klasického fondu nepatří.",
+      "zdroj": "Vývary a fondy"
+    },
+    {
+      "id": "o-vareni-vyvary-5",
+      "temaId": "vareni-vyvary",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď vývar k orientační době táhnutí:",
+      "pary": [
+        { "levy": "rybí fumet", "pravy": "20–30 minut" },
+        { "levy": "zeleninový", "pravy": "30–45 minut" },
+        { "levy": "drůbeží", "pravy": "3–4 hodiny" },
+        { "levy": "hovězí", "pravy": "6–8 hodin" }
+      ],
+      "vysvetleni": "Čím jemnější surovina, tím kratší čas: rybí kosti po půl hodině hořknou, zelenina vydá chuť rychle, drůbeží kosti potřebují hodiny a hovězí nejdéle — uvolňují kolagen a chuť pomalu.",
+      "zdroj": "Vývary a fondy"
+    },
+    {
+      "id": "o-vareni-vyvary-6",
+      "temaId": "vareni-vyvary",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Vývar je kalný a ty potřebuješ na konsomé křišťálově čirý. Jaký je správný postup?",
+      "moznosti": [
+        "Prudce ho povařit, kal se rozpustí",
+        "Do studeného vývaru vmíchat bílky s mletým masem a zeleninou, pomalu zahřát a nechat hmotu navázat kal",
+        "Přecedit ho přes hrubý cedník",
+        "Zahustit ho světlou jíškou"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Čisticí hmota (bílky, mleté maso, zelenina) se při pomalém záhřevu srazí, vyplave jako „raft“ a naváže na sebe kal. Prudký var kalí ještě víc, hrubý cedník jemný kal nezachytí a jíška dělá z čiré polévky zahuštěnou.",
+      "zdroj": "Vývary a fondy"
+    },
+    {
+      "id": "o-vareni-vyvary-7",
+      "temaId": "vareni-vyvary",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Co platí o glace? (více správných odpovědí)",
+      "moznosti": [
+        "Vzniká dlouhou redukcí fondu",
+        "Po vychladnutí díky želatině ztuhne",
+        "Je sirupovitá a chuťově velmi koncentrovaná",
+        "Zahušťuje se moukou",
+        "Solí se hned na začátku redukce"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Glace je esence z redukovaného fondu: sirupovitá, silná, po vychladnutí želíruje. Mouka do ní nepatří (houstne odpařením) a sůl by se redukcí mnohonásobně koncentrovala.",
+      "zdroj": "Vývary a fondy"
+    },
+    {
+      "id": "o-vareni-vyvary-8",
+      "temaId": "vareni-vyvary",
+      "typ": "doplneni",
+      "obtiznost": 5,
+      "zadani": "Chystáš hovězí vývar z 2 kg kostí. Vody se dává 1,5–2 l na 1 kg kostí (kosti mají být právě ponořené). Kolik litrů vody nejméně naliješ? (odpověz číslem)",
+      "spravneOdpovedi": ["3", "3 l", "3l", "3 litry", "tri", "tri litry"],
+      "vysvetleni": "2 kg kostí × 1,5 l = 3 litry vody (nejméně; horní mez je 4 l). Víc vody znamená jen slabší vývar, který by se musel déle redukovat.",
+      "zdroj": "Vývary a fondy"
+    },
+
+    {
+      "id": "o-vareni-omacky-1",
+      "temaId": "vareni-omacky",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je jíška (roux)?",
+      "moznosti": [
+        "Tuk a hladká mouka v poměru 1 : 1, opékané za míchání",
+        "Mouka rozmíchaná ve studené vodě",
+        "Smetana zahuštěná žloutky",
+        "Strouhanka opečená na másle"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Jíška je opékaná směs tuku a mouky 1 : 1 (hmotnostně) — základ bešamelu, velouté i espagnole. Mouka ve vodě je škrobový záhust, smetana se žloutky je liaison.",
+      "zdroj": "Omáčky"
+    },
+    {
+      "id": "o-vareni-omacky-2",
+      "temaId": "vareni-omacky",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď základní (mateřskou) omáčku k jejímu základu:",
+      "pary": [
+        { "levy": "bešamel", "pravy": "mléko + světlá jíška" },
+        { "levy": "velouté", "pravy": "světlý vývar + jíška" },
+        { "levy": "espagnole", "pravy": "tmavý vývar + tmavá jíška + protlak" },
+        { "levy": "holandská", "pravy": "emulze žloutků a přepuštěného másla" }
+      ],
+      "vysvetleni": "Čtyři z pěti matek: bešamel na mléce, velouté na světlém vývaru, espagnole na tmavém vývaru, holandská jako teplá emulze. Pátá matka je rajčatová omáčka.",
+      "zdroj": "Omáčky"
+    },
+    {
+      "id": "o-vareni-omacky-3",
+      "temaId": "vareni-omacky",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Rajčatová omáčka patří mezi pět základních (mateřských) omáček klasické kuchyně.",
+      "spravna": true,
+      "vysvetleni": "Ano — Escoffierova pětice zní: bešamel, velouté, espagnole, holandská a rajčatová. Z nich se odvozují desítky dceřiných omáček.",
+      "zdroj": "Omáčky"
+    },
+    {
+      "id": "o-vareni-omacky-4",
+      "temaId": "vareni-omacky",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč se holandská omáčka nesmí přehřát?",
+      "moznosti": [
+        "Máslo by se z ní vypeklo do kůrky",
+        "Žloutky se nad cca 80 °C srazí a emulze se rozpadne",
+        "Ztratila by barvu",
+        "Zhoustla by tak, že nepůjde nalít"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Holandská je teplá emulze držená lecitinem ze žloutků; nad zhruba 80 °C se žloutky srazí a omáčka se srazí/rozdělí. Proto se šlehá nad mírnou vodní lázní.",
+      "zdroj": "Omáčky"
+    },
+    {
+      "id": "o-vareni-omacky-5",
+      "temaId": "vareni-omacky",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá dokončení omáčky zašleháním kostiček studeného másla do horké, už nevroucí omáčky (pro lesk a plnost)?",
+      "spravneOdpovedi": ["montování", "montovani", "monter au beurre", "montování máslem", "montovani maslem"],
+      "vysvetleni": "Montování máslem (monter au beurre): studené máslo se po kouscích zašlehá do horké omáčky těsně před podáváním — dodá lesk, hladkost a plnost. Omáčka se pak už nesmí vařit.",
+      "zdroj": "Omáčky"
+    },
+    {
+      "id": "o-vareni-omacky-6",
+      "temaId": "vareni-omacky",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Vaříš 3 litry bešamelu střední hustoty: 80 g jíšky na litr, jíška je máslo a mouka 1 : 1. Kolik másla navážíš?",
+      "moznosti": [
+        "240 g",
+        "120 g",
+        "80 g",
+        "60 g"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Na 3 l potřebuješ 3 × 80 = 240 g jíšky; při poměru 1 : 1 je to 120 g másla a 120 g mouky. 240 g je hmotnost celé jíšky — častá chyba, kdy se zapomene dělit dvěma.",
+      "zdroj": "Omáčky"
+    },
+    {
+      "id": "o-vareni-omacky-7",
+      "temaId": "vareni-omacky",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Holandská se ti začíná srážet. Které postupy jsou správné? (více správných odpovědí)",
+      "moznosti": [
+        "Do čisté misky dát nový žloutek se lžící vody a starou omáčku do něj po troškách zašlehat",
+        "Šlehat nad mírnou vodní lázní, ne nad prudkou párou",
+        "Přilít najednou větší dávku horkého másla",
+        "Omáčku krátce povařit, tím se spojí"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "Sraženou emulzi zachrání nový žloutek s trochou vody, do kterého se omáčka znovu postupně zašlehá; prevence je mírná lázeň a máslo po pramínku. Nárazové horké máslo i var žloutky definitivně srazí.",
+      "zdroj": "Omáčky"
+    },
+    {
+      "id": "o-vareni-omacky-8",
+      "temaId": "vareni-omacky",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Host si přeje k rybímu filetu jemnou smetanovou omáčku postavenou na vývaru. Kterou mateřskou omáčku zvolíš jako základ?",
+      "moznosti": [
+        "Espagnole — dodá omáčce sílu",
+        "Bešamel — smetana se k mléku hodí",
+        "Velouté z rybího fondu, dotažené smetanou",
+        "Holandskou — k rybě se podává tradičně"
+      ],
+      "spravna": 2,
+      "vysvetleni": "Smetanová omáčka na vývaru = velouté (zde z rybího fumetu) dotažená smetanou. Bešamel staví na mléce, ne na vývaru; espagnole je tmavá a k jemné rybě těžká; holandská je emulze bez vývaru.",
+      "zdroj": "Omáčky"
+    },
+
+    {
+      "id": "o-vareni-polevky-1",
+      "temaId": "vareni-polevky",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jaký je rozdíl mezi vložkou a zavářkou do polévky?",
+      "moznosti": [
+        "Vložka se připraví zvlášť a vkládá hotová, zavářka se vaří přímo v polévce",
+        "Vložka je z masa, zavářka ze zeleniny",
+        "Zavářka se přidává jen do studených polévek",
+        "Žádný — jsou to dva názvy téhož"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Vložka (nudle, knedlíčky, maso) se uvaří zvlášť a do polévky vkládá hotová; zavářka (kapání, svítek, rýže) se zavaří přímo do polévky. Na složení surovin rozdíl nestojí.",
+      "zdroj": "Polévky"
+    },
+    {
+      "id": "o-vareni-polevky-2",
+      "temaId": "vareni-polevky",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Která z těchto polévek se tradičně zahušťuje jíškou?",
+      "moznosti": [
+        "Dršťková",
+        "Slepičí s nudlemi",
+        "Konsomé",
+        "Gazpacho"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Dršťková je klasická jíškou zahuštěná polévka (jíška tmavší, paprika). Slepičí s nudlemi a konsomé jsou čiré; gazpacho je studená syrová polévka.",
+      "zdroj": "Polévky"
+    },
+    {
+      "id": "o-vareni-polevky-3",
+      "temaId": "vareni-polevky",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Po přidání žloutkovo-smetanové liaison se polévka už nesmí vařit.",
+      "spravna": true,
+      "vysvetleni": "Ano — žloutky se varem srazí a polévka dostane vločky. Liaison se přidává do horké, už nevroucí polévky těsně před výdejem.",
+      "zdroj": "Polévky"
+    },
+    {
+      "id": "o-vareni-polevky-4",
+      "temaId": "vareni-polevky",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Čím je zahuštěná luštěninová polévka typu pyré (hrachová, čočková)?",
+      "moznosti": [
+        "Tmavou jíškou",
+        "Rozmixovanou vlastní hmotou surovin",
+        "Bramborovým škrobem",
+        "Žloutky se smetanou"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Pyré polévky houstnou rozmixováním vlastních surovin — luštěniny mají dost škrobu, mouka není potřeba. Jíška patří ke gulášové či dršťkové, liaison k velouté.",
+      "zdroj": "Polévky"
+    },
+    {
+      "id": "o-vareni-polevky-5",
+      "temaId": "vareni-polevky",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá křišťálově čirá silná polévka z čištěného vývaru?",
+      "spravneOdpovedi": ["konsomé", "konsome", "consommé", "consomme"],
+      "vysvetleni": "Konsomé je čištěný, chuťově koncentrovaný vývar — vyčištěný „raftem“ z bílků, mletého masa a zeleniny. Je to nejčistší podoba čiré polévky.",
+      "zdroj": "Polévky"
+    },
+    {
+      "id": "o-vareni-polevky-6",
+      "temaId": "vareni-polevky",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Chystáš polévku pro 12 hostů, porce 0,3 l, a počítáš s asi 10 % ztrát odparem a ulpěním. Kolik litrů přibližně uvaříš?",
+      "moznosti": [
+        "3 litry",
+        "3,6 litru",
+        "4 litry",
+        "5,5 litru"
+      ],
+      "spravna": 2,
+      "vysvetleni": "12 × 0,3 l = 3,6 l na talíře; s 10% rezervou vychází zhruba 4 litry. 3,6 l by nestačilo (ztráty), 3 l je hrubý podpočet a 5,5 l zbytečně velký přebytek.",
+      "zdroj": "Polévky"
+    },
+    {
+      "id": "o-vareni-polevky-7",
+      "temaId": "vareni-polevky",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které zásady patří k profesionálnímu výdeji polévek? (více správných odpovědí)",
+      "moznosti": [
+        "Dochucovat až na konci, po redukci",
+        "Teplou polévku vydávat nad 60 °C na předehřátém talíři",
+        "Krémovou polévku vymixovat či propasírovat dohladka",
+        "Česnek do česnečky vařit od začátku spolu s vývarem"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Chuť se během redukce koncentruje (dochucovat na konci), teplá polévka patří horká na teplý talíř a krém musí být hladký. Česnek dlouhým varem hořkne a ztrácí aroma — patří až ke konci.",
+      "zdroj": "Polévky"
+    },
+    {
+      "id": "o-vareni-polevky-8",
+      "temaId": "vareni-polevky",
+      "typ": "anone",
+      "obtiznost": 5,
+      "zadani": "Do kulajdy zastíráš vejce: nejlepší je vhodit ho do klokotajícího varu, aby se rychle zatáhlo.",
+      "spravna": false,
+      "vysvetleni": "Ne — vejce se pošíruje při 70–85 °C: bílek se zatáhne jemně a drží tvar. Klokot vejce roztrhá na vlákna a rozbije i strukturu smetanové polévky.",
+      "zdroj": "Polévky"
+    },
+
+    {
+      "id": "o-vareni-maso-1",
+      "temaId": "vareni-maso",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Která hovězí partie je nejjemnější a patří na rychlé úpravy (minutky)?",
+      "moznosti": [
+        "Kližka",
+        "Hrudí",
+        "Svíčková",
+        "Krk"
+      ],
+      "spravna": 2,
+      "vysvetleni": "Svíčková je málo namáhaný sval s minimem pojiva — ideální na rychlé suché teplo. Kližka, hrudí a krk mají hodně kolagenu a patří na dlouhé dušení či vývar.",
+      "zdroj": "Maso a drůbež"
+    },
+    {
+      "id": "o-vareni-maso-2",
+      "temaId": "vareni-maso",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jaká je bezpečná vnitřní teplota drůbeže ve stupních Celsia? (odpověz číslem)",
+      "spravneOdpovedi": ["74", "74 °C", "74°C", "74 stupňů", "74 stupnu"],
+      "vysvetleni": "Drůbež musí mít v jádru 74 °C — při této teplotě spolehlivě hynou salmonely i kampylobakter. Měří se vpichovým teploměrem v nejsilnějším místě, mimo kost.",
+      "zdroj": "Maso a drůbež"
+    },
+    {
+      "id": "o-vareni-maso-3",
+      "temaId": "vareni-maso",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Mleté maso stačí propéct na 55 °C v jádru.",
+      "spravna": false,
+      "vysvetleni": "Ne — mletím se povrchové bakterie dostaly do celého objemu, proto mleté maso potřebuje 71 °C v jádru. 55 °C je teplota pro steak medium rare z celistvého svalu.",
+      "zdroj": "Maso a drůbež"
+    },
+    {
+      "id": "o-vareni-maso-4",
+      "temaId": "vareni-maso",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď partii masa k vhodné úpravě:",
+      "pary": [
+        { "levy": "svíčková", "pravy": "minutkové steaky" },
+        { "levy": "kližka", "pravy": "guláš a dlouhé dušení" },
+        { "levy": "bůček", "pravy": "pomalé pečení či konfit" },
+        { "levy": "kuřecí prsa", "pravy": "rychlé opečení, hlídat vysušení" }
+      ],
+      "vysvetleni": "Pravidlo partie: málo namáhané svaly (svíčková, prsa) na rychlé suché teplo, partie s pojivem a tukem (kližka, bůček) na dlouhé pomalé úpravy — kolagen se změní na želatinu.",
+      "zdroj": "Maso a drůbež"
+    },
+    {
+      "id": "o-vareni-maso-5",
+      "temaId": "vareni-maso",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč se maso po tepelné úpravě nechává odpočinout?",
+      "moznosti": [
+        "Aby vychladlo na bezpečnou teplotu",
+        "Šťáva se rozprostře zpět do svaloviny a nevyteče při krájení",
+        "Maso dojde do vyšší propečenosti, což je vždy cíl",
+        "Je to jen zvyk z klasické kuchyně"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Teplo šťávu zahustí a vytlačí ke středu; odpočinek (steak 5 minut, pečeně 15–20) ji nechá rozprostřít zpět. Maso krájené hned nechá šťávu na prkénku a je sušší.",
+      "zdroj": "Maso a drůbež"
+    },
+    {
+      "id": "o-vareni-maso-6",
+      "temaId": "vareni-maso",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Chceš steak medium (60–63 °C). Počítáš s dobíháním teploty o 3–5 °C během odpočinku. Při jaké teplotě jádra steak stáhneš z pánve?",
+      "moznosti": [
+        "Kolem 57–58 °C",
+        "Přesně na 63 °C",
+        "Kolem 50 °C",
+        "Až na 71 °C"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Jádro po sejmutí z tepla ještě stoupne o 3–5 °C (carry-over): 57–58 + 3–5 = medium. Stažení až na 63 °C znamená po dobíhání převařený steak; 50 °C by skončilo na rare a 71 °C je well done.",
+      "zdroj": "Maso a drůbež"
+    },
+    {
+      "id": "o-vareni-maso-7",
+      "temaId": "vareni-maso",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Co platí o pojivové tkáni (kolagenu) v mase? (více správných odpovědí)",
+      "moznosti": [
+        "Dlouhým vlhkým teplem se mění na želatinu",
+        "Namáhané svaly (krk, kližka, hrudí) jí mají nejvíc",
+        "Svíčková je na kolagen bohatá",
+        "Kližka je ideální partie na minutky",
+        "Pro kližku je vhodnou úpravou dušení"
+      ],
+      "spravne": [0, 1, 4],
+      "vysvetleni": "Kolagen sedí v namáhaných svalech a dlouhé vlhké teplo ho mění na želatinu — proto se kližka dusí. Svíčková má pojiva minimum a minutka z kližky by byla tuhá jako podrážka.",
+      "zdroj": "Maso a drůbež"
+    },
+    {
+      "id": "o-vareni-maso-8",
+      "temaId": "vareni-maso",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Vaříš nedělní oběd pro 20 hostů a máš k dispozici hovězí kližku. Jakou úpravu zvolíš?",
+      "moznosti": [
+        "Rychlé grilování na rare, ať je maso šťavnaté",
+        "Dlouhé pomalé dušení — kolagen se promění na želatinu a maso změkne",
+        "Krátké orestování nudliček na prudkém ohni",
+        "Vaření 20 minut v klokotající vodě"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Kližka je plná kolagenu — jedině dlouhé vlhké teplo (dušení, případně pomalé pečení) ji udělá měkkou a lesklou. Rychlé úpravy kolagen nerozloží (maso zůstane tuhé) a krátký klokot ho jen vysuší.",
+      "zdroj": "Maso a drůbež"
+    },
+
+    {
+      "id": "o-vareni-prilohy-1",
+      "temaId": "vareni-prilohy",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co znamená uvařit těstoviny „al dente“?",
+      "moznosti": [
+        "Rozvařené doměkka",
+        "Na skus — vlákno klade mírný odpor",
+        "Poloviční dobu varu, uvnitř tvrdé",
+        "Uvařené předem a proplachované studenou vodou"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Al dente = „na zub/na skus“: těstovina je provařená, ale v jádru klade mírný odpor. Není to syrový střed a rozvařená těstovina už se zachránit nedá.",
+      "zdroj": "Zelenina a přílohy"
+    },
+    {
+      "id": "o-vareni-prilohy-2",
+      "temaId": "vareni-prilohy",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď surovinu k typickému použití:",
+      "pary": [
+        { "levy": "brambory typ A (pevné)", "pravy": "bramborový salát" },
+        { "levy": "brambory typ B (univerzální)", "pravy": "vařená příloha a opékání" },
+        { "levy": "brambory typ C (moučnaté)", "pravy": "kaše a pyré" },
+        { "levy": "rýže arborio", "pravy": "rizoto" }
+      ],
+      "vysvetleni": "Varný typ řídí použití: A drží tvar (saláty), B je univerzál, C se rozpadá a má hodně škrobu (kaše, těsta). Kulatozrnné arborio uvolňuje škrob — základ krémového rizota.",
+      "zdroj": "Zelenina a přílohy"
+    },
+    {
+      "id": "o-vareni-prilohy-3",
+      "temaId": "vareni-prilohy",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Čočka se před vařením musí namáčet 8–12 hodin stejně jako fazole.",
+      "spravna": false,
+      "vysvetleni": "Ne — čočka je drobná a tenkoslupká, vaří se bez namáčení. Dlouhé namáčení potřebují velké luštěniny: fazole a cizrna (8–12 hodin).",
+      "zdroj": "Zelenina a přílohy"
+    },
+    {
+      "id": "o-vareni-prilohy-4",
+      "temaId": "vareni-prilohy",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč se blanšírovaná zelená zelenina hned zchlazuje v ledové lázni?",
+      "moznosti": [
+        "Aby se dala skladovat při pokojové teplotě",
+        "Zchlazení zafixuje barvu a zastaví dovařování",
+        "Ledová voda zeleninu dosolí",
+        "Aby zelenina nasákla vodu a zvětšila objem"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Šokové zchlazení okamžitě zastaví tepelnou úpravu — zelenina zůstane křupavá a zářivě zelená (chlorofyl dlouhým teplem šedne). Se solením ani skladováním při pokojové teplotě to nesouvisí.",
+      "zdroj": "Zelenina a přílohy"
+    },
+    {
+      "id": "o-vareni-prilohy-5",
+      "temaId": "vareni-prilohy",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Kolik gramů soli patří orientačně do 1 litru vody na těstoviny? (odpověz číslem)",
+      "spravneOdpovedi": ["10", "10 g", "10g", "10 gramů", "10 gramu", "deset"],
+      "vysvetleni": "Pravidlo zní: na 100 g těstovin 1 litr vody a 10 g soli. Těstoviny se dochucují už při vaření — nedosolená voda se později nedožene.",
+      "zdroj": "Zelenina a přílohy"
+    },
+    {
+      "id": "o-vareni-prilohy-6",
+      "temaId": "vareni-prilohy",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Vaříš 400 g těstovin na rodinný oběd. Kolik vody podle pravidla použiješ?",
+      "moznosti": [
+        "1 litr",
+        "2 litry",
+        "4 litry",
+        "8 litrů"
+      ],
+      "spravna": 2,
+      "vysvetleni": "Na 100 g těstovin patří 1 l vody → 400 g = 4 litry (a 40 g soli). V málu vody se těstoviny lepí a škrob udělá z vody lepidlo.",
+      "zdroj": "Zelenina a přílohy"
+    },
+    {
+      "id": "o-vareni-prilohy-7",
+      "temaId": "vareni-prilohy",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Co platí pro přípravu rizota? (více správných odpovědí)",
+      "moznosti": [
+        "Používá se kulatozrnná rýže s vyšším obsahem škrobu (arborio, carnaroli)",
+        "Podlévá se postupně horkým vývarem za stálého míchání",
+        "Zrno má zůstat al dente a výsledek krémový",
+        "Rýže se předem důkladně propláchne od škrobu",
+        "Všechna tekutina se nalije najednou a nemíchá se"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Krémovost rizota dělá právě uvolněný škrob — proto kulatozrnná rýže, postupné podlévání a míchání. Proplach by škrob spláchl a jednorázové zalití bez míchání dá pilaf, ne rizoto.",
+      "zdroj": "Zelenina a přílohy"
+    },
+    {
+      "id": "o-vareni-prilohy-8",
+      "temaId": "vareni-prilohy",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Bramborová kaše vyšla mazlavá a táhne se jako lepidlo. Kde se nejspíš stala chyba?",
+      "moznosti": [
+        "Brambory se rozmixovaly ponorným mixérem, který rozbil škrob",
+        "Použil se varný typ C",
+        "Brambory se pasírovaly horké",
+        "Do kaše se zašlehalo máslo"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Ponorný mixér škrobová zrna roztrhá a uvolněný škrob udělá z kaše lepidlo. Typ C, pasírování za horka i máslo jsou naopak správný postup nadýchané kaše.",
+      "zdroj": "Zelenina a přílohy"
+    },
+
+    {
+      "id": "o-vareni-chut-1",
+      "temaId": "vareni-chut",
+      "typ": "doplneni",
+      "obtiznost": 1,
+      "zadani": "Jak se nazývá pátá základní chuť — „masová plnost“, kterou nese glutamát?",
+      "spravneOdpovedi": ["umami"],
+      "vysvetleni": "Umami je pátá základní chuť vedle sladké, slané, kyselé a hořké. Nesou ji glutamát a příbuzné látky — najdeš je v parmazánu, rajčatech, houbách či sójovce.",
+      "zdroj": "Chuť a dochucování"
+    },
+    {
+      "id": "o-vareni-chut-2",
+      "temaId": "vareni-chut",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jakou roli má v jídle kyselina (citron, ocet, víno)?",
+      "moznosti": [
+        "Rozjasní chuť a vyváží tučnost",
+        "Zvýší pocit slanosti natolik, že nahradí sůl",
+        "Zahustí omáčku",
+        "Dodá jídlu umami"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kyselina jídlo „rozsvítí“ a protne tučnost — pár kapek na konci často pomůže víc než další sůl. Nezahušťuje a umami nese glutamát, ne kyselost.",
+      "zdroj": "Chuť a dochucování"
+    },
+    {
+      "id": "o-vareni-chut-3",
+      "temaId": "vareni-chut",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Syrová brambora vhozená do hrnce spolehlivě vytáhne sůl z přesolené polévky.",
+      "spravna": false,
+      "vysvetleni": "Ne — je to rozšířený mýtus. Brambora nasaje jen trochu slaného roztoku, koncentraci soli znatelně nesníží. Přesolené jídlo spolehlivě zachrání jen zředění nebo zvětšení objemu surovin.",
+      "zdroj": "Chuť a dochucování"
+    },
+    {
+      "id": "o-vareni-chut-4",
+      "temaId": "vareni-chut",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč se cibule a koření na začátku vaření restují na tuku?",
+      "moznosti": [
+        "Tuk zabrání připálení hrnce",
+        "Řada aromatických látek se rozpouští jen v tuku a restováním se rozvinou",
+        "Cibule na tuku pustí víc vody",
+        "Je to jen estetika — jídlo je pak lesklejší"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Tuk je nosič chuti: mnoho aromat je rozpustných jen v něm. Restování na začátku proto vybuduje chuťový základ jídla — samotná voda by aromata neuvolnila.",
+      "zdroj": "Chuť a dochucování"
+    },
+    {
+      "id": "o-vareni-chut-5",
+      "temaId": "vareni-chut",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které suroviny jsou přirozeně bohaté na umami? (více správných odpovědí)",
+      "moznosti": [
+        "Parmazán",
+        "Sušené houby",
+        "Sójová omáčka",
+        "Citronová šťáva",
+        "Krystalový cukr"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Parmazán, sušené houby i sójovka jsou plné glutamátu — špetka prohloubí i bezmasá jídla. Citron nese kyselost a cukr sladkost, umami nemají.",
+      "zdroj": "Chuť a dochucování"
+    },
+    {
+      "id": "o-vareni-chut-6",
+      "temaId": "vareni-chut",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Guláš je po zredukování překyselený od rajčat. Jak ho nejlépe vyvážíš?",
+      "moznosti": [
+        "Přidám lžíci octa, kyselost se srovná",
+        "Zjemním ho tukem (máslo, smetana) nebo špetkou cukru, případně naředím",
+        "Přidám víc mleté papriky",
+        "Nechám ho redukovat ještě déle"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Kyselost vyvažuje tuk a sladkost (nebo ředění). Ocet by ji prohloubil, další redukce ji ještě koncentruje a mletá paprika kyselost neřeší — navíc delším vařením hořkne.",
+      "zdroj": "Chuť a dochucování"
+    },
+    {
+      "id": "o-vareni-chut-7",
+      "temaId": "vareni-chut",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Podlití výpeku vínem či vývarem a seškrábání zkaramelizovaných zbytků ze dna pánve (základ omáčky) se odborně nazývá…",
+      "spravneOdpovedi": ["deglazování", "deglazovani", "deglasování", "deglasovani", "deglaze", "deglazing"],
+      "vysvetleni": "Deglazování: zkaramelizované zbytky po opékání (sucs) jsou koncentrovaná chuť — podlitím se uvolní a stanou se základem omáčky. Vylít je s pánví je řemeslný hřích.",
+      "zdroj": "Chuť a dochucování"
+    },
+    {
+      "id": "o-vareni-chut-8",
+      "temaId": "vareni-chut",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Krémovou polévku dochucuješ vroucí přímo u plotny. Při výdeji (kolem 65 °C) je znát, že je přesolená. Čím to je?",
+      "moznosti": [
+        "Sůl se během chladnutí koncentruje odparem",
+        "Za vysoké teploty vnímáme slanost méně — dochucovat se má při výdejní teplotě",
+        "Smetana při chladnutí slanost zvýrazňuje chemickou reakcí se solí",
+        "To nelze vysvětlit, jde o náhodu"
+      ],
+      "spravna": 1,
+      "vysvetleni": "Vnímání slanosti s vysokou teplotou klesá — vroucí polévka chutná méně slaně, než jaká opravdu je, a tak se snadno přesolí. Profesionál dochucuje při teplotě, na které se jídlo podává. Odpar během chladnutí je zanedbatelný.",
+      "zdroj": "Chuť a dochucování"
+    }
+  ]
+}

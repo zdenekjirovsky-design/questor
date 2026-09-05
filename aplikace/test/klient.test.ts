@@ -61,6 +61,17 @@ describe('vytvorKlienta', () => {
     await expect(klient.zdravi()).rejects.toBeInstanceOf(ChybaSyncu);
   });
 
+  it('stahniVyzvy posílá ?profilId= (escapované), bez profilu čistou cestu', async () => {
+    const f = mockFetch([]);
+    const klient = vytvorKlienta(NASTAVENI, f);
+    await klient.stahniVyzvy('máma/1');
+    expect(f.mock.calls[0][0]).toBe(
+      'http://server.test:8787/api/vyzvy?profilId=m%C3%A1ma%2F1',
+    );
+    await klient.stahniVyzvy();
+    expect(f.mock.calls[1][0]).toBe('http://server.test:8787/api/vyzvy');
+  });
+
   it('escapuje predmetId v cestě', async () => {
     const f = mockFetch({ predmetId: 'x', nazev: 'X', verze: 1 });
     await vytvorKlienta(NASTAVENI, f).stahniBanku('ekonomika/podnikani');

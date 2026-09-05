@@ -280,3 +280,31 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* --- Mobil (≤ 760 px): těsnější mřížka, detail karty přes celou obrazovku. --- */
+@media (max-width: 760px) {
+  .sbirka__mrizka {
+    gap: 10px;
+  }
+
+  .sbirka__mrizka--mistrovska {
+    grid-template-columns: 1fr;
+  }
+
+  .sbirka__pozadi-modalu {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .sbirka__detail {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    border-radius: 0;
+    justify-content: center;
+  }
+
+  .sbirka__detail-zavrit {
+    min-width: 60%;
+  }
+}

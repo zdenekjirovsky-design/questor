@@ -1,7 +1,13 @@
 // Testy serveru QUESTOR — přes app.request() bez poslouchání na portu,
-// DB vždy ':memory:'. Pokrývá auth, banky (včetně kontroly verze), progres,
-// události, životní cyklus výzev a dogenerování (503 + zapnutá cesta).
+// DB ':memory:' (migrace schématu jedou nad dočasným souborem). Pokrývá auth,
+// banky (včetně kontroly verze), progres a události per profil (včetně migrace
+// staré DB a zpětné kompatibility bez profilId), životní cyklus výzev včetně
+// cílení na profil a dogenerování (503 + zapnutá cesta).
 
+import { mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { DatabaseSync } from 'node:sqlite';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import type { Hono } from 'hono';
 import type {
@@ -359,15 +365,24 @@ describe('výuka', () => {
 
 // ---------------------------------------------------------------------------
 
+type ProfilProgresu = {
+  profilId: string;
+  jmeno: string;
+  progres: ProgresStudenta;
+  prijato: string;
+  level: { level: number };
+};
+
 describe('progres', () => {
   let app: Hono;
   beforeEach(() => {
     app = novaApp();
   });
 
-  it('GET bez uloženého progresu vrací 404', async () => {
+  it('GET bez uloženého progresu vrací prázdné pole profilů', async () => {
     const odpoved = await app.request('/api/progres', { headers: ADMIN });
-    expect(odpoved.status).toBe(404);
+    expect(odpoved.status).toBe(200);
+    expect(await odpoved.json()).toEqual([]);
   });
 
   it('POST neplatného progresu vrací 400', async () => {
@@ -379,7 +394,7 @@ describe('progres', () => {
     expect(odpoved.status).toBe(400);
   });
 
-  it('uloží snapshot a admin ho přečte i s levelem', async () => {
+  it('uloží snapshot bez profilu jako výchozí profil a admin ho přečte i s levelem', async () => {
     const progres = vzorovyProgres();
     const ulozeni = await app.request('/api/progres', {
       method: 'POST',
@@ -391,17 +406,16 @@ describe('progres', () => {
 
     const odpoved = await app.request('/api/progres', { headers: ADMIN });
     expect(odpoved.status).toBe(200);
-    const data = (await odpoved.json()) as {
-      progres: ProgresStudenta;
-      prijato: string;
-      level: { level: number };
-    };
-    expect(data.progres).toEqual(progres);
-    expect(typeof data.prijato).toBe('string');
-    expect(data.level.level).toBeGreaterThanOrEqual(2); // 350 XP ≈ level 3 (sdílená křivka)
+    const data = (await odpoved.json()) as ProfilProgresu[];
+    expect(data).toHaveLength(1);
+    expect(data[0].profilId).toBe('vychozi');
+    expect(data[0].jmeno).toBe('Student');
+    expect(data[0].progres).toEqual(progres);
+    expect(typeof data[0].prijato).toBe('string');
+    expect(data[0].level.level).toBeGreaterThanOrEqual(2); // 350 XP ≈ level 3 (sdílená křivka)
   });
 
-  it('novější snapshot přepíše starší (drží se jen poslední)', async () => {
+  it('novější snapshot téhož profilu přepíše starší (drží se jen poslední)', async () => {
     await app.request('/api/progres', {
       method: 'POST',
       headers: { ...STUDENT, ...JSON_HLAVICKY },
@@ -414,8 +428,216 @@ describe('progres', () => {
       body: JSON.stringify(novejsi),
     });
     const odpoved = await app.request('/api/progres', { headers: ADMIN });
-    const data = (await odpoved.json()) as { progres: ProgresStudenta };
-    expect(data.progres.xp).toBe(999);
+    const data = (await odpoved.json()) as ProfilProgresu[];
+    expect(data).toHaveLength(1);
+    expect(data[0].progres.xp).toBe(999);
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+describe('profily', () => {
+  type RadekUdalosti = { cas: string; profilId: string; profilJmeno: string; vysledek: TestVysledek };
+
+  describe('migrace staré DB', () => {
+    let slozka: string;
+    beforeEach(() => {
+      slozka = mkdtempSync(join(tmpdir(), 'questor-db-'));
+    });
+    afterEach(() => {
+      rmSync(slozka, { recursive: true, force: true });
+    });
+
+    it('progres id=1 a staré události přežijí jako výchozí profil', async () => {
+      const cesta = join(slozka, 'questor.db');
+      // Stará DB se schématem před profily — přesně jak ho zakládal starý server.
+      const stara = new DatabaseSync(cesta);
+      stara.exec(`
+        CREATE TABLE progres (id INT PRIMARY KEY CHECK (id = 1), json TEXT NOT NULL, prijato TEXT NOT NULL);
+        CREATE TABLE udalosti (id INTEGER PRIMARY KEY AUTOINCREMENT, cas TEXT NOT NULL, json TEXT NOT NULL);
+        CREATE UNIQUE INDEX udalosti_vysledek_id ON udalosti (json_extract(json, '$.id'));
+      `);
+      const progres = vzorovyProgres();
+      const vysledek = vzorovyVysledek(0.7);
+      stara
+        .prepare('INSERT INTO progres (id, json, prijato) VALUES (1, ?, ?)')
+        .run(JSON.stringify(progres), '2026-09-01T08:00:00.000Z');
+      stara
+        .prepare('INSERT INTO udalosti (cas, json) VALUES (?, ?)')
+        .run('2026-09-01T08:05:00.000Z', JSON.stringify(vysledek));
+      stara.close();
+
+      const app = vytvorApp(otevriDb(cesta));
+
+      const progresOdpoved = await app.request('/api/progres', { headers: ADMIN });
+      expect(progresOdpoved.status).toBe(200);
+      const profily = (await progresOdpoved.json()) as ProfilProgresu[];
+      expect(profily).toHaveLength(1);
+      expect(profily[0].profilId).toBe('vychozi');
+      expect(profily[0].jmeno).toBe('Student');
+      expect(profily[0].prijato).toBe('2026-09-01T08:00:00.000Z');
+      expect(profily[0].progres).toEqual(progres);
+
+      const udalostiOdpoved = await app.request('/api/udalosti', { headers: ADMIN });
+      const radky = (await udalostiOdpoved.json()) as RadekUdalosti[];
+      expect(radky).toHaveLength(1);
+      expect(radky[0].profilId).toBe('vychozi');
+      expect(radky[0].profilJmeno).toBe('Student');
+      expect(radky[0].vysledek).toEqual(vysledek);
+    });
+
+    it('otevření nové i už zmigrované DB je idempotentní', async () => {
+      const cesta = join(slozka, 'questor.db');
+      otevriDb(cesta).close(); // založení nové DB
+      otevriDb(cesta).close(); // druhé otevření nesmí nic rozbít
+      const app = vytvorApp(otevriDb(cesta));
+      const ulozeni = await app.request('/api/progres', {
+        method: 'POST',
+        headers: { ...STUDENT, ...JSON_HLAVICKY },
+        body: JSON.stringify({ ...vzorovyProgres(), profilId: 'mama', profilJmeno: 'Marie' }),
+      });
+      expect(ulozeni.status).toBe(200);
+      const odpoved = await app.request('/api/progres', { headers: ADMIN });
+      const profily = (await odpoved.json()) as ProfilProgresu[];
+      expect(profily.map((p) => p.profilId)).toEqual(['mama']);
+    });
+  });
+
+  describe('per-profil progres a události', () => {
+    let app: Hono;
+    beforeEach(() => {
+      app = novaApp();
+    });
+
+    it('drží progres každého profilu zvlášť a vrací je v jednom poli', async () => {
+      await app.request('/api/progres', {
+        method: 'POST',
+        headers: { ...STUDENT, ...JSON_HLAVICKY },
+        body: JSON.stringify({ ...vzorovyProgres(), profilId: 'mama', profilJmeno: 'Marie', xp: 120 }),
+      });
+      await app.request('/api/progres', {
+        method: 'POST',
+        headers: { ...STUDENT, ...JSON_HLAVICKY },
+        body: JSON.stringify(vzorovyProgres()), // bez profilu → 'vychozi' / 'Student'
+      });
+
+      const odpoved = await app.request('/api/progres', { headers: ADMIN });
+      const profily = (await odpoved.json()) as ProfilProgresu[];
+      expect(profily).toHaveLength(2);
+      const mama = profily.find((p) => p.profilId === 'mama');
+      const vychozi = profily.find((p) => p.profilId === 'vychozi');
+      expect(mama?.jmeno).toBe('Marie');
+      expect(mama?.progres.xp).toBe(120);
+      expect(vychozi?.jmeno).toBe('Student');
+      expect(vychozi?.progres.xp).toBe(350);
+      // Uložený progres zůstává čistý ProgresStudenta — bez profilových polí.
+      expect(mama?.progres).not.toHaveProperty('profilId');
+    });
+
+    it('neplatná profilová pole vrací 400 (nic se nezapíše do výchozího profilu)', async () => {
+      for (const spatne of [{ profilId: 42 }, { profilId: '' }, { profilJmeno: '' }]) {
+        const odpoved = await app.request('/api/progres', {
+          method: 'POST',
+          headers: { ...STUDENT, ...JSON_HLAVICKY },
+          body: JSON.stringify({ ...vzorovyProgres(), ...spatne }),
+        });
+        expect(odpoved.status).toBe(400);
+      }
+      const odpoved = await app.request('/api/progres', { headers: ADMIN });
+      expect(await odpoved.json()).toEqual([]);
+    });
+
+    it('události nesou profil; bez profilu patří výchozímu', async () => {
+      const mamin = vzorovyVysledek(0.9);
+      const studentuv = vzorovyVysledek(0.6);
+      await app.request('/api/udalosti', {
+        method: 'POST',
+        headers: { ...STUDENT, ...JSON_HLAVICKY },
+        body: JSON.stringify({ ...mamin, profilId: 'mama', profilJmeno: 'Marie' }),
+      });
+      await app.request('/api/udalosti', {
+        method: 'POST',
+        headers: { ...STUDENT, ...JSON_HLAVICKY },
+        body: JSON.stringify(studentuv),
+      });
+
+      const odpoved = await app.request('/api/udalosti', { headers: ADMIN });
+      const radky = (await odpoved.json()) as RadekUdalosti[];
+      expect(radky).toHaveLength(2);
+      expect(radky[0].profilId).toBe('vychozi'); // nejnovější první
+      expect(radky[0].profilJmeno).toBe('Student');
+      expect(radky[0].vysledek).toEqual(studentuv);
+      expect(radky[1].profilId).toBe('mama');
+      expect(radky[1].profilJmeno).toBe('Marie');
+      expect(radky[1].vysledek).toEqual(mamin); // JSON výsledku bez profilových polí
+    });
+  });
+
+  describe('výzvy cílené na profil', () => {
+    let app: Hono;
+    beforeEach(() => {
+      app = novaApp();
+    });
+
+    async function zalozVyzvu(telo: Record<string, unknown>): Promise<Vyzva & { cilovyProfilId?: string }> {
+      const odpoved = await app.request('/api/vyzvy', {
+        method: 'POST',
+        headers: { ...ADMIN, ...JSON_HLAVICKY },
+        body: JSON.stringify({
+          zprava: 'Zkus to!',
+          konfigurace: { predmetId: 'ekonomika-podnikani', rezim: 'standard', pocetOtazek: 10 },
+          ...telo,
+        }),
+      });
+      expect(odpoved.status).toBe(200);
+      return (await odpoved.json()) as Vyzva & { cilovyProfilId?: string };
+    }
+
+    it('výzva pro profil se vrací jen jemu, společná všem', async () => {
+      const spolecna = await zalozVyzvu({});
+      const mamina = await zalozVyzvu({ cilovyProfilId: 'mama' });
+      const proVychozi = await zalozVyzvu({ cilovyProfilId: 'vychozi' });
+      expect(spolecna.cilovyProfilId).toBeUndefined();
+      expect(mamina.cilovyProfilId).toBe('mama');
+
+      const proMamu = await app.request('/api/vyzvy?profilId=mama', { headers: STUDENT });
+      expect(((await proMamu.json()) as Vyzva[]).map((v) => v.id).sort()).toEqual(
+        [spolecna.id, mamina.id].sort(),
+      );
+
+      const proStudenta = await app.request('/api/vyzvy?profilId=vychozi', { headers: STUDENT });
+      expect(((await proStudenta.json()) as Vyzva[]).map((v) => v.id).sort()).toEqual(
+        [proVychozi.id, spolecna.id].sort(),
+      );
+
+      // Bez profilId (stará aplikace) platí výchozí profil `vychozi`: společné
+      // + cílené na `vychozi`. Cizí cílené výzvy starý klient NEsmí dostat —
+      // dokončil by je (POST /vysledek profil nezná) a adresátovi by zmizely.
+      const bezProfilu = await app.request('/api/vyzvy', { headers: STUDENT });
+      expect(((await bezProfilu.json()) as Vyzva[]).map((v) => v.id).sort()).toEqual(
+        [proVychozi.id, spolecna.id].sort(),
+      );
+    });
+
+    it('dokončení cílené výzvy funguje beze změny', async () => {
+      const mamina = await zalozVyzvu({ cilovyProfilId: 'mama' });
+      const dokonceni = await app.request(`/api/vyzvy/${mamina.id}/vysledek`, {
+        method: 'POST',
+        headers: { ...STUDENT, ...JSON_HLAVICKY },
+        body: JSON.stringify({ uspesnost: 0.9, xp: 100 }),
+      });
+      expect(dokonceni.status).toBe(200);
+      const otevrene = await app.request('/api/vyzvy?profilId=mama', { headers: STUDENT });
+      expect(await otevrene.json()).toEqual([]);
+    });
+  });
+
+  it('admin stránka zobrazuje profily a výběr cíle výzvy', async () => {
+    const odpoved = await novaApp().request('/admin');
+    const html = await odpoved.text();
+    expect(html).toContain('Progres profilů');
+    expect(html).toContain('vyzva-profil');
+    expect(html).toContain('Komu');
   });
 });
 

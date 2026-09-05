@@ -1,0 +1,247 @@
+/* Vyber profilu — celoobrazovkova brana ve stylu Nocni akademie. */
+
+.vyber-profilu {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.vyber-profilu__logo {
+  font-family: var(--pismo-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--zlata);
+  text-shadow: var(--zare-zlata);
+}
+
+.vyber-profilu__nadpis {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.vyber-profilu__karty {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 760px;
+}
+
+.vyber-profilu__karta {
+  --barva-profilu: var(--akcent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 168px;
+  padding: 22px 14px 18px;
+  background: var(--pozadi-panel);
+  border: 2px solid var(--okraj);
+  border-radius: var(--radius);
+  box-shadow: var(--stin);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  animation: naskoceni 0.3s ease-out both;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.vyber-profilu__karta:hover,
+.vyber-profilu__karta:focus-visible {
+  transform: translateY(-4px) scale(1.03);
+  border-color: var(--barva-profilu);
+  box-shadow: var(--stin), 0 0 18px color-mix(in srgb, var(--barva-profilu) 40%, transparent);
+}
+
+.vyber-profilu__avatar {
+  display: grid;
+  place-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--pozadi-panel-2);
+  border: 3px solid var(--barva-profilu);
+  overflow: hidden;
+}
+
+.vyber-profilu__jmeno {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--pismo-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vyber-profilu__zamek {
+  font-size: 0.9em;
+}
+
+.vyber-profilu__karta--novy {
+  border-style: dashed;
+  color: var(--text-tlumeny);
+}
+
+.vyber-profilu__plus {
+  display: grid;
+  place-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px dashed var(--okraj);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--text-tlumeny);
+}
+
+.vyber-profilu__karta--novy:hover .vyber-profilu__plus,
+.vyber-profilu__karta--novy:focus-visible .vyber-profilu__plus {
+  border-color: var(--akcent);
+  color: var(--akcent-svetly);
+}
+
+.vyber-profilu__napoveda {
+  color: var(--text-tlumeny);
+  max-width: 440px;
+  margin: 0;
+}
+
+/* --- dialogy (PIN, novy profil) --- */
+
+.vyber-profilu__dialog {
+  width: min(420px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+  animation: naskoceni 0.25s ease-out both;
+}
+
+.vyber-profilu__dialog h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.vyber-profilu__dialog .vyber-profilu__napoveda {
+  text-align: center;
+  max-width: none;
+}
+
+.vyber-profilu__pole {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.vyber-profilu__pole input,
+.vyber-profilu__pin-vstup {
+  padding: 12px 14px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.vyber-profilu__pin-vstup {
+  font-family: var(--pismo-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.5em;
+  text-align: center;
+}
+
+.vyber-profilu__pole input:focus-visible,
+.vyber-profilu__pin-vstup:focus-visible {
+  outline: 2px solid var(--akcent);
+  outline-offset: 1px;
+}
+
+.vyber-profilu__barvy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+.vyber-profilu__barvy legend {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.vyber-profilu__barva {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+.vyber-profilu__barva:hover {
+  transform: scale(1.12);
+}
+
+.vyber-profilu__barva--vybrana {
+  border-color: var(--text);
+  box-shadow: 0 0 0 3px var(--pozadi-panel), 0 0 12px rgba(255, 255, 255, 0.35);
+  transform: scale(1.12);
+}
+
+.vyber-profilu__chyba {
+  color: var(--chyba);
+  margin: 0;
+  text-align: center;
+}
+
+.vyber-profilu__dialog-akce {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+/* --- mobil --- */
+
+@media (max-width: 560px) {
+  .vyber-profilu__nadpis {
+    font-size: 1.5rem;
+  }
+
+  .vyber-profilu__karty {
+    gap: 12px;
+  }
+
+  .vyber-profilu__karta {
+    width: 140px;
+    padding: 16px 10px 14px;
+  }
+
+  .vyber-profilu__avatar,
+  .vyber-profilu__plus {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+/* --- dotyk: volba barvy profilu s plochou ≥ 44 px --- */
+@media (pointer: coarse) {
+  .vyber-profilu__barva {
+    width: 44px;
+    height: 44px;
+  }
+}

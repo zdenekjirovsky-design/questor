@@ -6,9 +6,10 @@ import { persist } from 'zustand/middleware';
 import { vytvorTestySlice, type TestySlice } from './testySlice';
 import { vytvorHraSlice, type HraSlice } from './hraSlice';
 import { vytvorVyukaSlice, type VyukaSlice } from './vyukaSlice';
+import { vytvorProfilySlice, type ProfilySlice } from './profilySlice';
 import { migrujPersistovanyStav, partializujStav, VERZE_PERSISTU } from './migrace';
 
-export type QUESTORStav = TestySlice & HraSlice & VyukaSlice;
+export type QUESTORStav = TestySlice & HraSlice & VyukaSlice & ProfilySlice;
 
 export const pouzijStav = create<QUESTORStav>()(
   persist(
@@ -16,6 +17,7 @@ export const pouzijStav = create<QUESTORStav>()(
       ...vytvorTestySlice(...a),
       ...vytvorHraSlice(...a),
       ...vytvorVyukaSlice(...a),
+      ...vytvorProfilySlice(...a),
     }),
     {
       name: 'questor-stav',

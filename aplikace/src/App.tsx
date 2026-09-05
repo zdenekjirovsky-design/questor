@@ -1,6 +1,10 @@
 // Kostra aplikace — routing a hlavička. Tenhle soubor je „zmrazený“:
 // stránky se mění ve svých souborech, ne tady.
+// Výjimka po dohodě (lokální profily): bez aktivního profilu se místo
+// aplikace ukáže výběr profilu (VyberProfilu) — brána celé aplikace.
 import { NavLink, Route, Routes } from 'react-router-dom';
+import { pouzijStav } from './stav/store';
+import VyberProfilu from './profily/VyberProfilu';
 import HudHlavicka from './komponenty/HudHlavicka';
 import Domu from './stranky/Domu';
 import Test from './stranky/Test';
@@ -21,6 +25,14 @@ const odkazy = [
 ];
 
 export default function App() {
+  const aktivniProfilId = pouzijStav((s) => s.aktivniProfilId);
+
+  // Brána profilů: bez aktivního profilu se ukáže výběr (jako na streamovacích
+  // službách). Osobní data neaktivních profilů drží stav/profilySlice.ts.
+  if (!aktivniProfilId) {
+    return <VyberProfilu />;
+  }
+
   return (
     <div className="rozvrzeni">
       <header className="hlavicka">

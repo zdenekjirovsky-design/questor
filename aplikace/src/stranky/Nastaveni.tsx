@@ -1,5 +1,6 @@
 // Nastavení — VLASTNÍ agent APP-TESTY (sekce Připojení a Data);
-// sekci Vzhled dodává komponenta NastaveniAvataru z hra/ (agent APP-HRA).
+// sekci Vzhled dodává komponenta NastaveniAvataru z hra/ (agent APP-HRA),
+// sekci Profily komponenta SpravaProfilu z profily/ (agent PROFILY).
 import { useState, useSyncExternalStore } from 'react';
 import { pouzijStav } from '../stav/store';
 import {
@@ -10,6 +11,7 @@ import {
 } from '../sync/klient';
 import { pripojSeKeStavuSyncu, stavSynchronizace, synchronizuj } from '../sync/sync';
 import NastaveniAvataru from '../hra/NastaveniAvataru';
+import SpravaProfilu from '../profily/SpravaProfilu';
 import '../testy/testy.css';
 
 export default function Nastaveni() {
@@ -45,7 +47,7 @@ export default function Nastaveni() {
 
   const smazPostup = () => {
     const jistota = window.confirm(
-      'Opravdu smazat celý lokální postup? Přijdeš o XP, streak, sbírku i statistiky. Tohle nejde vrátit.',
+      'Opravdu smazat celý postup aktivního profilu? Přijdeš o XP, streak, sbírku i statistiky. Tohle nejde vrátit.',
     );
     if (!jistota) return;
     // Akci garantuje hraSlice; guard kvůli souběžnému vývoji slices.
@@ -114,6 +116,11 @@ export default function Nastaveni() {
       </div>
 
       <div className="nastaveni-sekce">
+        <h2>Profily</h2>
+        <SpravaProfilu />
+      </div>
+
+      <div className="nastaveni-sekce">
         <h2>Vzhled</h2>
         <NastaveniAvataru />
       </div>
@@ -122,8 +129,8 @@ export default function Nastaveni() {
         <h2>Data</h2>
         <div className="panel nastaveni-formular">
           <p className="nastaveni-stav">
-            Smaže XP, streak, questy, sbírku i statistiky otázek v tomhle počítači. Banky otázek
-            zůstanou.
+            Smaže XP, streak, questy, sbírku i statistiky otázek AKTIVNÍHO profilu v tomhle
+            počítači. Ostatní profily a banky otázek zůstanou.
           </p>
           <div className="nastaveni-akce">
             <button type="button" className="tlacitko tlacitko--nebezpecne" onClick={smazPostup}>

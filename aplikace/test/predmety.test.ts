@@ -34,6 +34,7 @@ const OCEKAVANE_ID = [
   'chemie',
   'biologie-ekologie',
   'zbozinalstvi',
+  'zaklady-vareni',
 ];
 
 const SLOZKA_PREDMETU = fileURLToPath(new URL('../src/data/predmety', import.meta.url));

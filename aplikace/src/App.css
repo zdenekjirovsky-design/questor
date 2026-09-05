@@ -50,3 +50,76 @@
 .obsah {
   min-height: 60vh;
 }
+
+/* --- Mobil (≤ 760 px): logo + HUD nahoře, navigace jako fixní spodní
+   lišta s ikonami (App.tsx je zmrazený — ikony dodává CSS podle cíle
+   odkazu). Obsah dostává spodní odsazení, aby ho lišta nepřekryla. --- */
+
+@media (max-width: 760px) {
+  .rozvrzeni {
+    padding: 0 12px calc(76px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .hlavicka {
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding: 10px 0;
+    margin-bottom: 16px;
+  }
+
+  .hlavicka__logo {
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hlavicka__nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    gap: 0;
+    padding: 4px 6px calc(4px + env(safe-area-inset-bottom, 0px));
+    background: var(--pozadi-panel);
+    border-top: 1px solid var(--okraj);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.45);
+  }
+
+  .nav-odkaz {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-height: 52px;
+    padding: 5px 2px;
+    border-radius: var(--radius-maly);
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .nav-odkaz::before {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  /* Ikony podle cesty odkazu (BrowserRouter → href = cesta). */
+  .nav-odkaz[href='/']::before { content: '🏠'; }
+  .nav-odkaz[href='/uceni']::before { content: '📖'; }
+  .nav-odkaz[href='/sbirka']::before { content: '🃏'; }
+  .nav-odkaz[href='/statistiky']::before { content: '📊'; }
+  .nav-odkaz[href='/nastaveni']::before { content: '⚙️'; }
+
+  .nav-odkaz:hover {
+    background: transparent;
+  }
+
+  .nav-odkaz--aktivni {
+    background: transparent;
+    box-shadow: none;
+    color: var(--akcent-svetly);
+  }
+}

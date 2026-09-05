@@ -3,10 +3,13 @@
 // - migrace v1 → v2 zahodi banky/vyuky ze stareho snapshotu,
 // - migrace v2 → v3 prevede stary avatar { barvaVlasu, doplnek?, pozadi? }
 //   na novy plne prizpusobitelny tvar a doplni vlastnenaVybava: [],
+// - migrace v3 → v4 udela z existujicich dat profil „Student" (rovnou
+//   aktivni) a osobni data necha v pracovni sade beze zmeny,
 // - progres, sbirka, streak, XP a postup lekci se NIKDY neztrati.
 import { describe, expect, it } from 'vitest';
 import { VYCHOZI_AVATAR } from '@questor/sdilene';
 import { pouzijStav } from '../src/stav/store';
+import type { Profil } from '../src/stav/profilySlice';
 import {
   migrujPersistovanyStav,
   partializujStav,
@@ -14,8 +17,8 @@ import {
 } from '../src/stav/migrace';
 
 describe('persist — partialize', () => {
-  it('verze persistu je 3 (obsah mimo localStorage, novy avatar + vybava)', () => {
-    expect(VERZE_PERSISTU).toBe(3);
+  it('verze persistu je 4 (lokalni profily)', () => {
+    expect(VERZE_PERSISTU).toBe(4);
   });
 
   it('vynechava banky a vyuky, zbytek stavu necha', () => {
@@ -28,6 +31,10 @@ describe('persist — partialize', () => {
     expect(persistovane.postupLekci).toBe(stav.postupLekci);
     expect(persistovane.cekajiciTruhly).toBe(stav.cekajiciTruhly);
     expect(persistovane.historieTestu).toBe(stav.historieTestu);
+    // Profily se persistuji (jsou soucasti stavu, ne obsahu predmetu).
+    expect(persistovane.profily).toBe(stav.profily);
+    expect(persistovane.aktivniProfilId).toBe(stav.aktivniProfilId);
+    expect(persistovane.dataProfilu).toBe(stav.dataProfilu);
   });
 });
 
@@ -121,5 +128,72 @@ describe('persist — migrace v1/v2 → v3', () => {
     expect(progres.avatar).toEqual({ ...VYCHOZI_AVATAR, vybava: {} });
     expect(progres.vlastnenaVybava).toEqual([]);
     expect(progres.xp).toBe(3);
+  });
+});
+
+describe('persist — migrace v3 → v4 (lokalni profily)', () => {
+  const snapshotV3 = {
+    progres: {
+      xp: 2500,
+      dokonceneTesty: 12,
+      streak: { aktualni: 4, nejdelsi: 8, posledniDen: '2026-09-03', zmrazeni: 1 },
+      sbirka: { karty: ['smith'], truhelBezKarty: 2 },
+      avatar: { ...VYCHOZI_AVATAR, barvaVlasu: '#123456', vybava: {} },
+      vlastnenaVybava: ['bryle-kulate'],
+      statistikyOtazek: {
+        o1: { otazkaId: 'o1', box: 3, spravneCelkem: 5, spatneCelkem: 1, posledniOdpoved: 'x' },
+      },
+    },
+    postupLekci: { 'zakladni-pojmy': { dokonceneBloky: [0, 1, 2], pocetDokonceni: 2 } },
+    aktualniTest: null,
+    posledniVysledek: null,
+    questyOdmeneno: ['2026-09-03:odpovez'],
+    historieTestu: [{ id: 't-1' }],
+    cekajiciTruhly: ['zlata'],
+  };
+
+  it('existujici data se stanou profilem Student a ten je rovnou aktivni', () => {
+    const migrovane = migrujPersistovanyStav(snapshotV3, 3) as Record<string, unknown>;
+    const profily = migrovane.profily as Profil[];
+    expect(profily).toHaveLength(1);
+    expect(profily[0].jmeno).toBe('Student');
+    expect(profily[0].id).toBeTruthy();
+    expect(profily[0].pinHash).toBeUndefined();
+    expect(migrovane.aktivniProfilId).toBe(profily[0].id);
+    // Snimky neaktivnich profilu zacinaji prazdne — data aktivniho profilu
+    // ziji dal v pracovni sade.
+    expect(migrovane.dataProfilu).toEqual({});
+  });
+
+  it('NIC se neztrati — osobni data zustavaji v pracovni sade beze zmeny', () => {
+    const migrovane = migrujPersistovanyStav(snapshotV3, 3) as Record<string, unknown>;
+    expect(migrovane.progres).toBe(snapshotV3.progres);
+    expect(migrovane.postupLekci).toBe(snapshotV3.postupLekci);
+    expect(migrovane.questyOdmeneno).toBe(snapshotV3.questyOdmeneno);
+    expect(migrovane.historieTestu).toBe(snapshotV3.historieTestu);
+    expect(migrovane.cekajiciTruhly).toBe(snapshotV3.cekajiciTruhly);
+    const progres = migrovane.progres as Record<string, unknown>;
+    expect(progres.xp).toBe(2500);
+    expect(progres.vlastnenaVybava).toEqual(['bryle-kulate']);
+  });
+
+  it('v1 → v4 projde vsemi kroky (banky pryc, novy avatar, profil Student)', () => {
+    const staryV1 = {
+      banky: { p: { predmetId: 'p', verze: 1 } },
+      progres: { xp: 77, avatar: { barvaVlasu: '#abcdef' } },
+    };
+    const migrovane = migrujPersistovanyStav(staryV1, 1) as Record<string, unknown>;
+    expect('banky' in migrovane).toBe(false);
+    const progres = migrovane.progres as Record<string, unknown>;
+    expect(progres.xp).toBe(77);
+    expect((progres.avatar as Record<string, unknown>).barvaVlasu).toBe('#abcdef');
+    expect((migrovane.profily as Profil[])[0].jmeno).toBe('Student');
+    expect(migrovane.aktivniProfilId).toBe((migrovane.profily as Profil[])[0].id);
+  });
+
+  it('id profilu Student je nahodne (dve migrace = dva ruzne id)', () => {
+    const a = migrujPersistovanyStav(snapshotV3, 3) as Record<string, unknown>;
+    const b = migrujPersistovanyStav(snapshotV3, 3) as Record<string, unknown>;
+    expect((a.profily as Profil[])[0].id).not.toBe((b.profily as Profil[])[0].id);
   });
 });

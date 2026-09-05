@@ -98,7 +98,11 @@ export interface QuestorKlient {
   posliProgres(progres: ProgresStudenta): Promise<void>;
   posliUdalost(vysledek: TestVysledek): Promise<void>;
   posliVysledekVyzvy(vyzvaId: string, telo: { uspesnost: number; xp: number }): Promise<void>;
-  stahniVyzvy(): Promise<Vyzva[]>;
+  /**
+   * Otevrene vyzvy; s profilId server vrati jen vyzvy cilene na dany profil
+   * + spolecne (kontrakt GET /api/vyzvy?profilId=). Bez profilId vsechny.
+   */
+  stahniVyzvy(profilId?: string): Promise<Vyzva[]>;
 }
 
 export type FetchFunkce = (vstup: string, init?: RequestInit) => Promise<Response>;
@@ -147,6 +151,10 @@ export function vytvorKlienta(nastaveni: SyncNastaveni, fetchFn?: FetchFunkce): 
     posliVysledekVyzvy: async (vyzvaId, telo) => {
       await pozadavek('POST', `/api/vyzvy/${encodeURIComponent(vyzvaId)}/vysledek`, telo);
     },
-    stahniVyzvy: () => pozadavek('GET', '/api/vyzvy'),
+    stahniVyzvy: (profilId) =>
+      pozadavek(
+        'GET',
+        profilId ? `/api/vyzvy?profilId=${encodeURIComponent(profilId)}` : '/api/vyzvy',
+      ),
   };
 }

@@ -66,6 +66,12 @@ export const ADMIN_HTML = `<!doctype html>
   th { color: var(--text-tlumeny); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
   .kpi-mrizka { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 16px; }
   .kpi { background: var(--panel-2); border: 1px solid var(--okraj); border-radius: 8px; padding: 12px 14px; }
+  .profil-mrizka { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .profil-karta { background: var(--panel-2); border: 1px solid var(--okraj); border-radius: 8px; padding: 14px; }
+  .profil-karta .profil-jmeno { font-size: 1.1rem; font-weight: 700; color: var(--zlata); margin-bottom: 10px; }
+  .profil-karta .kpi-mrizka { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 10px; }
+  .profil-karta .kpi { background: var(--panel); padding: 8px 10px; }
+  .profil-karta .kpi .hodnota { font-size: 1.15rem; }
   .kpi .hodnota { font-size: 1.5rem; font-weight: 700; color: var(--zlata); }
   .kpi .popisek { font-size: 0.75rem; color: var(--text-tlumeny); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
   .xp-bar { height: 10px; border-radius: 5px; background: var(--panel-2); border: 1px solid var(--okraj); overflow: hidden; margin: 6px 0 4px; }
@@ -116,12 +122,12 @@ export const ADMIN_HTML = `<!doctype html>
   </section>
 
   <section class="panel" id="panel-progres">
-    <h2>Progres studenta</h2>
+    <h2>Progres profilů</h2>
     <div id="progres-obsah"><span class="tlumene">Načítám…</span></div>
     <h2 class="odsaz">Poslední testy</h2>
     <table>
-      <thead><tr><th>Kdy</th><th>Režim</th><th>Úspěšnost</th><th>XP</th><th>Combo</th><th>Truhla</th></tr></thead>
-      <tbody id="testy-telo"><tr><td colspan="6" class="tlumene">Načítám…</td></tr></tbody>
+      <thead><tr><th>Kdy</th><th>Profil</th><th>Režim</th><th>Úspěšnost</th><th>XP</th><th>Combo</th><th>Truhla</th></tr></thead>
+      <tbody id="testy-telo"><tr><td colspan="7" class="tlumene">Načítám…</td></tr></tbody>
     </table>
   </section>
 
@@ -149,6 +155,8 @@ export const ADMIN_HTML = `<!doctype html>
         </select>
         <label for="vyzva-cil">Cíl (%)</label>
         <input id="vyzva-cil" type="number" min="1" max="100" step="1" placeholder="—" style="width:80px">
+        <label for="vyzva-profil">Komu</label>
+        <select id="vyzva-profil"><option value="">všem</option></select>
       </div>
       <div class="radek">
         <button type="submit">Odeslat výzvu</button>
@@ -157,8 +165,8 @@ export const ADMIN_HTML = `<!doctype html>
     <div class="zprava" id="vyzva-zprava-stav"></div>
     <h2 class="odsaz">Otevřené výzvy</h2>
     <table>
-      <thead><tr><th>Vytvořeno</th><th>Vzkaz</th><th>Předmět</th><th>Stav</th></tr></thead>
-      <tbody id="vyzvy-telo"><tr><td colspan="4" class="tlumene">Načítám…</td></tr></tbody>
+      <thead><tr><th>Vytvořeno</th><th>Vzkaz</th><th>Předmět</th><th>Komu</th><th>Stav</th></tr></thead>
+      <tbody id="vyzvy-telo"><tr><td colspan="5" class="tlumene">Načítám…</td></tr></tbody>
     </table>
   </section>
 </main>
@@ -309,7 +317,14 @@ export const ADMIN_HTML = `<!doctype html>
     ctecka.readAsText(vstup.files[0]);
   });
 
-  // --- Progres a poslední testy -------------------------------------------
+  // --- Progres profilů a poslední testy ------------------------------------
+  var profily = []; // [{ profilId, jmeno, ... }] z posledního načtení progresu
+  function jmenoProfilu(profilId) {
+    for (var i = 0; i < profily.length; i++) {
+      if (profily[i].profilId === profilId) return profily[i].jmeno;
+    }
+    return profilId;
+  }
   function kpi(hodnota, popisek) {
     var div = document.createElement('div');
     div.className = 'kpi';
@@ -318,32 +333,69 @@ export const ADMIN_HTML = `<!doctype html>
     div.appendChild(h); div.appendChild(p);
     return div;
   }
+  function naplnVyberProfilu() {
+    var vyber = $('vyzva-profil');
+    var vybrane = vyber.value;
+    vyber.textContent = '';
+    var vsem = document.createElement('option');
+    vsem.value = '';
+    vsem.textContent = 'všem';
+    vyber.appendChild(vsem);
+    for (var i = 0; i < profily.length; i++) {
+      var opt = document.createElement('option');
+      opt.value = profily[i].profilId;
+      opt.textContent = profily[i].jmeno;
+      vyber.appendChild(opt);
+    }
+    vyber.value = vybrane;
+    if (vyber.selectedIndex < 0) vyber.value = '';
+  }
+  function kartaProfilu(zaznam) {
+    var p = zaznam.progres;
+    var lvl = zaznam.level;
+    var karta = document.createElement('div');
+    karta.className = 'profil-karta';
+    var jmeno = document.createElement('div');
+    jmeno.className = 'profil-jmeno';
+    jmeno.textContent = zaznam.jmeno;
+    karta.appendChild(jmeno);
+    var mrizka = document.createElement('div');
+    mrizka.className = 'kpi-mrizka';
+    mrizka.appendChild(kpi('Lvl ' + lvl.level, 'level'));
+    mrizka.appendChild(kpi(p.xp + ' XP', 'celkové XP'));
+    mrizka.appendChild(kpi(p.streak.aktualni + ' 🔥', 'streak (nejdelší ' + p.streak.nejdelsi + ')'));
+    mrizka.appendChild(kpi(String(p.dokonceneTesty), 'dokončených testů'));
+    karta.appendChild(mrizka);
+    var bar = document.createElement('div'); bar.className = 'xp-bar';
+    var vypln = document.createElement('div');
+    bar.appendChild(vypln);
+    karta.appendChild(bar);
+    var pop = document.createElement('div');
+    pop.className = 'tlumene';
+    pop.textContent = 'Do dalšího levelu: ' + lvl.xpVLevelu + ' / ' + lvl.xpNaDalsiLevel + ' XP · přijato ' + datumCas(zaznam.prijato);
+    karta.appendChild(pop);
+    requestAnimationFrame(function () { vypln.style.width = Math.round(lvl.procento * 100) + '%'; });
+    return karta;
+  }
   function nactiProgres() {
     var obsah = $('progres-obsah');
     return api('/api/progres').then(function (r) {
-      if (r.status === 404) { obsah.textContent = ''; var s = document.createElement('span'); s.className = 'tlumene'; s.textContent = 'Student zatím nic neposlal.'; obsah.appendChild(s); return; }
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json().then(function (data) {
+        profily = data;
+        naplnVyberProfilu();
         obsah.textContent = '';
-        var p = data.progres;
-        var lvl = data.level;
+        if (!data.length) {
+          var s = document.createElement('span');
+          s.className = 'tlumene';
+          s.textContent = 'Zatím nic nedorazilo — žádný profil neposlal progres.';
+          obsah.appendChild(s);
+          return;
+        }
         var mrizka = document.createElement('div');
-        mrizka.className = 'kpi-mrizka';
-        mrizka.appendChild(kpi('Lvl ' + lvl.level, 'level'));
-        mrizka.appendChild(kpi(p.xp + ' XP', 'celkové XP'));
-        mrizka.appendChild(kpi(p.streak.aktualni + ' 🔥', 'streak (nejdelší ' + p.streak.nejdelsi + ')'));
-        mrizka.appendChild(kpi(String(p.dokonceneTesty), 'dokončených testů'));
-        mrizka.appendChild(kpi(String(p.sbirka.karty.length), 'karet ve sbírce'));
+        mrizka.className = 'profil-mrizka';
+        for (var i = 0; i < data.length; i++) mrizka.appendChild(kartaProfilu(data[i]));
         obsah.appendChild(mrizka);
-        var bar = document.createElement('div'); bar.className = 'xp-bar';
-        var vypln = document.createElement('div');
-        bar.appendChild(vypln);
-        obsah.appendChild(bar);
-        var pop = document.createElement('div');
-        pop.className = 'tlumene';
-        pop.textContent = 'Do dalšího levelu: ' + lvl.xpVLevelu + ' / ' + lvl.xpNaDalsiLevel + ' XP · přijato ' + datumCas(data.prijato);
-        obsah.appendChild(pop);
-        requestAnimationFrame(function () { vypln.style.width = Math.round(lvl.procento * 100) + '%'; });
       });
     }).catch(function () {
       obsah.textContent = '';
@@ -358,12 +410,13 @@ export const ADMIN_HTML = `<!doctype html>
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     }).then(function (udalosti) {
-      if (!udalosti.length) { prazdnyRadek(telo, 6, 'Zatím žádné dokončené testy.'); return; }
+      if (!udalosti.length) { prazdnyRadek(telo, 7, 'Zatím žádné dokončené testy.'); return; }
       telo.textContent = '';
       for (var i = 0; i < udalosti.length; i++) {
         var v = udalosti[i].vysledek;
         telo.appendChild(radekTabulky([
           datumCas(udalosti[i].cas),
+          udalosti[i].profilJmeno || '—',
           v.konfigurace.rezim,
           procenta(v.uspesnost),
           '+' + v.ziskaneXp,
@@ -371,7 +424,7 @@ export const ADMIN_HTML = `<!doctype html>
           v.truhla || '—'
         ]));
       }
-    }).catch(function () { prazdnyRadek(telo, 6, 'Nepodařilo se načíst.'); });
+    }).catch(function () { prazdnyRadek(telo, 7, 'Nepodařilo se načíst.'); });
   }
 
   // --- Výzvy ---------------------------------------------------------------
@@ -381,17 +434,18 @@ export const ADMIN_HTML = `<!doctype html>
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     }).then(function (vyzvy) {
-      if (!vyzvy.length) { prazdnyRadek(telo, 4, 'Žádná otevřená výzva.'); return; }
+      if (!vyzvy.length) { prazdnyRadek(telo, 5, 'Žádná otevřená výzva.'); return; }
       telo.textContent = '';
       for (var i = 0; i < vyzvy.length; i++) {
         telo.appendChild(radekTabulky([
           datumCas(vyzvy[i].vytvoreno),
           vyzvy[i].zprava,
           vyzvy[i].konfigurace.predmetId,
+          vyzvy[i].cilovyProfilId ? jmenoProfilu(vyzvy[i].cilovyProfilId) : 'všem',
           vyzvy[i].stav
         ]));
       }
-    }).catch(function () { prazdnyRadek(telo, 4, 'Nepodařilo se načíst.'); });
+    }).catch(function () { prazdnyRadek(telo, 5, 'Nepodařilo se načíst.'); });
   }
 
   $('form-vyzva').addEventListener('submit', function (udalost) {
@@ -408,6 +462,8 @@ export const ADMIN_HTML = `<!doctype html>
     };
     var cil = $('vyzva-cil').value;
     if (cil) telo.cilovaUspesnost = Number(cil) / 100;
+    var cilovyProfil = $('vyzva-profil').value;
+    if (cilovyProfil) telo.cilovyProfilId = cilovyProfil;
     api('/api/vyzvy', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -427,7 +483,8 @@ export const ADMIN_HTML = `<!doctype html>
   });
 
   // --- Token a start -------------------------------------------------------
-  function nactiVse() { nactiBanky(); nactiVyuku(); nactiProgres(); nactiTesty(); nactiVyzvy(); }
+  // Výzvy až po progresu — jména profilů ve sloupci „Komu“ se berou z profilů.
+  function nactiVse() { nactiBanky(); nactiVyuku(); nactiTesty(); nactiProgres().then(nactiVyzvy); }
   $('ulozToken').addEventListener('click', function () {
     try { localStorage.setItem(KLIC_TOKENU, $('token').value); } catch (e) { /* soukromý režim */ }
     nactiVse();

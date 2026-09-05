@@ -227,8 +227,44 @@
   margin: 0;
 }
 
+/* Obal tabulky historie: široká tabulka scrolluje uvnitř, ne celá stránka. */
+.statistiky__tabulka-obal {
+  overflow-x: auto;
+}
+
 @media (max-width: 900px) {
   .statistiky__mrizka {
     grid-template-columns: 1fr;
+  }
+}
+
+/* --- Mobil (≤ 760 px): dotykové taby, těsnější rekordy a graf. --- */
+@media (max-width: 760px) {
+  .statistiky__mrizka {
+    gap: 14px;
+  }
+
+  .statistiky__rekordy-mrizka {
+    gap: 6px;
+  }
+
+  .statistiky__tab {
+    min-height: 44px;
+    padding: 8px 14px;
+  }
+
+  .statistiky__graf {
+    height: 130px;
+    gap: 6px;
+  }
+
+  .statistiky__tabulka {
+    font-size: 0.8rem;
+  }
+
+  .statistiky__tabulka th,
+  .statistiky__tabulka td {
+    padding: 6px;
+    white-space: nowrap;
   }
 }

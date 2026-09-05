@@ -160,3 +160,21 @@
   font-size: 0.9rem;
   color: var(--text-tlumeny);
 }
+
+/* --- Mobil: těsnější buňky, řádky vlastností s dotykovou plochou. --- */
+@media (max-width: 760px) {
+  .srovnavac__mrizka {
+    gap: 6px;
+  }
+
+  .srovnavac__vlastnost {
+    min-height: 44px;
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+
+  .srovnavac__hodnota {
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+}

@@ -41,7 +41,8 @@
   height: auto;
 }
 
-/* Hotspot — pulzující terčík */
+/* Hotspot — pulzující terčík. Na dotyku je klikací plocha větší (44 px),
+   vizuální jádro zůstává malé (pravidlo níže). */
 .popisovacka__bod {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -174,4 +175,18 @@
   font-weight: 700;
   color: var(--zlata);
   text-shadow: var(--zare-zlata);
+}
+
+/* --- Dotyk: hotspot má klikací plochu ≥ 44 px (jádro i pulz zůstávají
+   vizuálně malé — jádro 18 px, pulzující kroužek přes ::before má pevný
+   rozměr vůči středu). --- */
+@media (pointer: coarse) {
+  .popisovacka__bod {
+    width: 44px;
+    height: 44px;
+  }
+
+  .popisovacka__bod::before {
+    inset: 7px;
+  }
 }

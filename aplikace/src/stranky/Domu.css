@@ -518,3 +518,77 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* --- Mobil (≤ 760 px): hero pod sebe, modaly přes celou obrazovku,
+   dotykové plochy ≥ 44 px. --- */
+@media (max-width: 760px) {
+  .domu {
+    gap: 14px;
+  }
+
+  .domu__sloupec-hlavni,
+  .domu__sloupec-vedlejsi {
+    gap: 14px;
+  }
+
+  .domu__hero {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .domu__pozdrav {
+    font-size: 1.3rem;
+  }
+
+  .domu__hrat {
+    width: 100%;
+    padding: 16px 20px;
+  }
+
+  /* Modal přes celou obrazovku (dvh kvůli liště prohlížeče na mobilu). */
+  .domu__pozadi-modalu {
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  .domu__modal {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .domu__modal--truhla {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Dotykové plochy voleb. */
+  .domu__modal-zavrit {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .domu__pocet,
+  .domu__rezim,
+  .domu__predmet {
+    min-height: 44px;
+  }
+
+  .domu__tema {
+    min-height: 44px;
+    padding: 8px 16px;
+  }
+
+  .domu__truhla-chip {
+    width: 64px;
+    height: 52px;
+  }
+}

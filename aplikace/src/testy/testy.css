@@ -459,3 +459,84 @@
 .tlacitko--nebezpecne:hover {
   background: rgba(248, 113, 113, 0.1);
 }
+
+/* --- Mobil (≤ 760 px): test, výsledek a nastavení na šířku telefonu. --- */
+
+@media (max-width: 760px) {
+  .test-hlavicka {
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .test-zadani {
+    font-size: 1.15rem;
+    margin: 8px 0 14px;
+  }
+
+  .moznosti {
+    gap: 10px;
+  }
+
+  .moznost {
+    padding: 12px 14px;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+
+  /* Páry pod sebe — dva sloupce se na 375 px nevejdou čitelně. */
+  .parovani {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .parovani__akce {
+    flex-wrap: wrap;
+  }
+
+  /* Doplňovací pole + tlačítko pod sebe. */
+  .doplneni {
+    flex-direction: column;
+  }
+
+  /* Výsledek */
+  .vysledek-hero {
+    padding: 24px 14px;
+  }
+
+  .vysledek-hero__cislo {
+    font-size: 2.6rem;
+  }
+
+  .vysledek-akce {
+    flex-wrap: wrap;
+  }
+
+  .vysledek-akce .tlacitko {
+    flex: 1 1 45%;
+  }
+
+  /* Řádek tématu: název + poměr nahoře, bar přes celou šířku pod nimi. */
+  .vysledek-tema {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+
+  .vysledek-tema__nazev {
+    order: 1;
+    flex: 1;
+  }
+
+  .vysledek-tema__pomer {
+    order: 2;
+  }
+
+  .vysledek-tema .ukazatel {
+    order: 3;
+    width: 100%;
+  }
+
+  /* Nastavení */
+  .nastaveni-akce .tlacitko {
+    flex: 1 1 auto;
+  }
+}

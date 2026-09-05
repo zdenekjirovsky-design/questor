@@ -1,10 +1,13 @@
 // Třídička — drag & drop třídění položek do kategorií.
 // Myš: přetáhni štítek do kategorie. Dotyk/klávesnice: klikni štítek → klikni
-// kategorii. Špatně = zatřesení a návrat, správně = pop; vše roztříděno =
+// kategorii. Na dotykovém zařízení (pointer: coarse) se drag & drop vypíná
+// (HTML5 DnD na dotyku nefunguje) a widget jede čistě v režimu klik-klik.
+// Špatně = zatřesení a návrat, správně = pop; vše roztříděno =
 // konfety + onSplneno.
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { TridickaParametry } from '@questor/sdilene';
 import { hashRetezce, vytvorNahodu } from '@questor/sdilene';
+import { jeDotykoveZarizeni } from './dotyk';
 import {
   tridickaHotovo,
   vytvorTridickaStav,
@@ -21,6 +24,9 @@ interface Props {
 }
 
 export default function Tridicka({ parametry, onSplneno }: Props) {
+  // Dotykove zarizeni: drag & drop vypnuty, plati rezim klik-klik.
+  const dotykove = useMemo(() => jeDotykoveZarizeni(), []);
+
   // Zamíchané pořadí zásobníku — deterministické podle obsahu, aby se
   // při re-renderu nepřeskupovalo.
   const uvodniPoradi = useMemo(() => {
@@ -92,7 +98,7 @@ export default function Tridicka({ parametry, onSplneno }: Props) {
             <button
               key={index}
               type="button"
-              draggable
+              draggable={!dotykove}
               className={[
                 'tridicka__polozka',
                 vybrana === index ? 'tridicka__polozka--vybrana' : '',
@@ -167,7 +173,7 @@ export default function Tridicka({ parametry, onSplneno }: Props) {
               ))}
               {(stav.zarazeno[kat.id] ?? []).length === 0 && (
                 <span className="tridicka__kos-prazdny" aria-hidden="true">
-                  Přetáhni sem…
+                  {dotykove ? 'Klepni na položku a pak sem…' : 'Přetáhni sem…'}
                 </span>
               )}
             </div>

@@ -77,6 +77,14 @@ Hono na portu `QUESTOR_PORT` (default **8787**). DB: `node:sqlite`, soubor
 (default `student-dev`). Admin token smí všechno studentské. Chybný token → 401
 `{ chyba: '…' }`.
 
+**Profily**: aplikaci sdílí víc lidí na jednom počítači se SPOLEČNÝM
+studentským tokenem — bez účtů a e-mailů. Server rozlišuje jen dvojici
+`profilId`/`profilJmeno`, kterou klient posílá jako volitelná pole v tělech
+studentských POSTů (řetězce 1–64 znaků; chybí-li, platí výchozí profil
+`vychozi` / `Student` — zpětná kompatibilita se staršími aplikacemi). Progres
+se drží per profil, události nesou profil a výzva může mít cílový profil
+(`cilovyProfilId` v JSON výzvy; bez něj je pro všechny).
+
 **CORS**: aplikace běží na jiném originu (Vite `:5173`, Tauri
 `http://tauri.localhost`) a vlastní hlavička tokenu vynucuje preflight —
 server proto na všech cestách pouští CORS middleware
@@ -97,27 +105,32 @@ zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
 | `GET /api/vyuka` | student | `[{ predmetId, verze }]` |
 | `GET /api/vyuka/:predmetId` | student | celá `VyukaPredmetu`; 404 když není |
 | `PUT /api/vyuka/:predmetId` | admin | tělo `VyukaPredmetu` (`validujVyuku`; shoda predmetId URL vs. tělo, jinak 400; verze musí růst, jinak 409) → `{ ok, verze }` |
-| `POST /api/progres` | student | tělo `ProgresStudenta` → `{ ok }` (uloží poslední snapshot) |
-| `GET /api/progres` | admin | `{ progres, prijato, level }` nebo 404 (`level` = `stavLevelu(xp)` ze sdílené funkce, ať ho admin web neduplikuje) |
-| `POST /api/udalosti` | student | tělo `TestVysledek` → `{ ok }` (append; idempotentní podle `vysledek.id` — duplicitní doručení z retry fronty se tiše ignoruje) |
-| `GET /api/udalosti?limit=50` | admin | poslední výsledky testů (nejnovější první) |
-| `GET /api/vyzvy` | student | `Vyzva[]` se stavem != `dokoncena` |
-| `POST /api/vyzvy` | admin | `{ zprava, konfigurace, cilovaUspesnost? }` → `Vyzva` |
+| `POST /api/progres` | student | tělo `ProgresStudenta` + volitelné `profilId`/`profilJmeno` → `{ ok }` (uloží poslední snapshot daného profilu; neplatná profilová pole → 400) |
+| `GET /api/progres` | admin | pole profilů `[{ profilId, jmeno, progres, prijato, level }]` — naposledy aktivní první, prázdné pole když nic nedorazilo (`level` = `stavLevelu(xp)` ze sdílené funkce, ať ho admin web neduplikuje) |
+| `POST /api/udalosti` | student | tělo `TestVysledek` + volitelné `profilId`/`profilJmeno` → `{ ok }` (append; idempotentní podle `vysledek.id` — duplicitní doručení z retry fronty se tiše ignoruje) |
+| `GET /api/udalosti?limit=50` | admin | poslední výsledky testů (nejnovější první) jako `{ cas, profilId, profilJmeno, vysledek }` — řádky z dob před profily se hlásí jako `vychozi`/`Student` |
+| `GET /api/vyzvy` | student | `Vyzva[]` se stavem != `dokoncena`; volitelný `?profilId=` vrátí jen výzvy cílené na daný profil + společné. Bez query platí výchozí profil `vychozi` (starý klient bez profilů JE výchozí profil — stejně server atribuuje jeho progres a události): dostane společné výzvy + cílené na `vychozi`, cizí cílené výzvy NEdostane, aby je nemohl „spotřebovat“ (dokončit a globálně uzavřít) místo adresáta |
+| `POST /api/vyzvy` | admin | `{ zprava, konfigurace, cilovaUspesnost?, cilovyProfilId? }` → `Vyzva` (s `cilovyProfilId` je výzva jen pro daný profil) |
 | `POST /api/vyzvy/:id/vysledek` | student | `{ uspesnost, xp }` → `{ ok }` (nastaví `dokoncena`) |
 | `POST /api/generovani/dogenerovat` | student | `{ predmetId, temaId, obtiznost, pocet }` → `{ otazky }`; **503** když server nemá `ANTHROPIC_API_KEY` (aplikace to bere jako „funkce vypnutá“, žádná chyba uživateli). Kontext učiva server skládá ze zadání a vysvětlení existujících otázek tématu v bance (zdrojové učivo na serveru není). **Stav: klientská část v aplikaci zatím NENÍ implementovaná** — hotová je jen serverová půlka včetně 503. |
 | `GET /admin` | admin (token zadá stránka) | mini admin web (viz níže) |
 
 DB tabulky: `banky(predmet_id TEXT PK, verze INT, json TEXT)`,
 `vyuka(predmet_id TEXT PK, verze INT, json TEXT)`,
-`progres(id INT PK CHECK(id=1), json TEXT, prijato TEXT)`,
-`udalosti(id INTEGER PK AUTOINCREMENT, cas TEXT, json TEXT)`,
-`vyzvy(id TEXT PK, json TEXT)`.
+`progres(profil_id TEXT PK, profil_jmeno TEXT, json TEXT, prijato TEXT)`,
+`udalosti(id INTEGER PK AUTOINCREMENT, cas TEXT, json TEXT, profil_id TEXT,
+profil_jmeno TEXT — NULL u řádků z dob před profily)`,
+`vyzvy(id TEXT PK, json TEXT)`. Migrace schématu dělá `otevriDb`
+(`server/src/db.ts`) při startu: starý jednořádkový progres (`id=1`) se
+přelije do profilu `vychozi`/`Student`, událostem se doplní profilové
+sloupce — data přežijí beze změny.
 
 **Admin mini-web** (`/admin`, jedna HTML stránka servírovaná Honem, styl viz
 DESIGN.md): pole na token (uloží localStorage), upload banky a upload výuky
-(JSON soubor, sekce Výuka s tabulkou předmět/verze), přehled progresu studenta
-(level, XP, streak, poslední testy), formulář na výzvu. Bez frameworku —
-vanilla JS + fetch.
+(JSON soubor, sekce Výuka s tabulkou předmět/verze), přehled progresu VŠECH
+profilů (karty vedle sebe: jméno, level, XP, streak, dokončené testy),
+poslední testy se jménem profilu, formulář na výzvu s výběrem cílového
+profilu (nebo všem). Bez frameworku — vanilla JS + fetch.
 
 Dogenerování volá stejnou knihovnu jako generátor (`@questor/generator`),
 poskytovatel `api`.
@@ -173,27 +186,61 @@ Generátor navrhuje jen datové widgety (`tridicka`/`pexeso`/`prubeh-procesu`/
 ## Aplikace — architektura
 
 React 19 + Vite, zustand (persist do localStorage, klíč `questor-stav`,
-verze 2), react-router. Obsah předmětů (banky, výuky) se NEpersistuje
+verze 4), react-router. Obsah předmětů (banky, výuky) se NEpersistuje
 (kvóta localStorage ~5 MB) — drží ho nepersistovaný stav, persist
 `partialize`/`migrate` řeší `stav/migrace.ts` (migrace v1→v2 zahazuje
-banky/výuky ze starých snapshotů, progres a postup lekcí zachovává).
-Struktura `aplikace/src/`:
+banky/výuky ze starých snapshotů; v2→v3 převádí avatar; v3→v4 dělá
+z existujících dat profil „Student“ — progres a postup lekcí se NIKDY
+neztrácí). Struktura `aplikace/src/`:
 
 ```
-stav/       store.ts (ZMRAZENÝ — skládá slices), testySlice.ts, hraSlice.ts, vyukaSlice.ts
+stav/       store.ts (ZMRAZENÝ — skládá slices), testySlice.ts, hraSlice.ts,
+            vyukaSlice.ts, profilySlice.ts
 testy/      engine testu (čistá logika) + komponenty typů otázek
 hra/        gamifikační komponenty (XP, streak, questy, truhla, sbírka, avatar, rekordy)
 vyuka/      Uceni (/uceni), LekceViewer (/uceni/:temaId), bloky/, widgety/, registr.ts
-sync/       klient serveru + offline fronta + nastavení připojení
+profily/    VyberProfilu (brána aplikace), SpravaProfilu (Nastavení), pin.ts
+sync/       klient serveru + offline fronta (per profil) + nastavení připojení
 stranky/    Domu, Test, Vysledek, Sbirka, Statistiky, Nastaveni
-komponenty/ HudHlavicka + sdílené vizuální prvky
+komponenty/ HudHlavicka (+ menu profilů) + sdílené vizuální prvky
 styl/       tokeny.css, global.css (viz DESIGN.md)
 data/       predmety.ts (registr předmětů) + nacteniObsahu.ts + predmety/*.json
 ```
 
+### Lokální profily (jako na streamovacích službách)
+
+Aplikaci sdílí víc lidí na jednom počítači — ŽÁDNÝ e-mail ani síťové
+ověřování. Kontrakt (`stav/profilySlice.ts`):
+
+- `Profil { id (náhodné), jmeno, barva, pinHash? }` v `profily[]`,
+  `aktivniProfilId | null`. Bez aktivního profilu App.tsx místo aplikace
+  ukáže `profily/VyberProfilu` (celoobrazovková brána — karty profilů,
+  „+ Nový profil“); přepínání za běhu přes klik na avatara v hlavičce.
+- VEŠKERÁ osobní data jsou per profil: progres (vč. avatara a výbavy),
+  postup lekcí, aktualniTest, posledniVysledek, questyOdmeneno,
+  historieTestu, čekající truhly, výzvy i fronta syncu. AKTIVNÍ profil je
+  drží přímo v pracovních slicech (aplikace funguje beze změn), neaktivní
+  mají snímek v `dataProfilu[id]`; přepnutí = uložit + nahrát snímek.
+  Obsah (banky, výuky) zůstává SDÍLENÝ.
+- PIN je jen MĚKKÁ ochrana soukromí: SHA-256 přes `crypto.subtle` se solí
+  id profilu (`profily/pin.ts`), 3 špatné pokusy = 30 s pauza (in-memory).
+  `crypto.subtle` existuje jen v zabezpečeném kontextu (https/localhost/
+  Tauri) — `jePinPodporovan()` to hlídá: při nepodpoře (výhled: hostovaná
+  verze přes `http://<ip>` na LAN) formuláře PIN pole schovají s hláškou
+  a hash se počítá PŘED založením profilu (id předem přes
+  `vytvorIdProfilu`), takže selhání hashe profil nezaloží — nikdy nesmí
+  tiše vzniknout „zamčený“ profil bez zámku.
+- Správa v Nastavení (`profily/SpravaProfilu`): přejmenovat a měnit/rušit
+  PIN jde u aktivního profilu (změna PINu po ověření současného), smazat
+  jde kterýkoli profil kromě posledního (dvojité potvrzení + opsání jména).
+- Denní questy se generují per profil: `vygenerujDenniQuesty(datum, ctx,
+  seedPrisada?)` dostává id aktivního profilu, takže dva profily nemají
+  identické questy. `resetujProgres` maže jen aktivní profil.
+
 Registr předmětů: `data/predmety.ts` drží ručně psaná metadata VŠECH
 očekávaných předmětů (`PREDMETY`: id, nazev, ikona — určují názvy, ikony
-a pořadí v UI) a lazy načítání obsahu ze souborů
+a pořadí v UI; aktuálně 14 předmětů — 13 z 1. ročníku oboru + Základy
+profesionálního vaření `zaklady-vareni`, obecný předmět mimo obor) a lazy načítání obsahu ze souborů
 `data/predmety/<predmetId>.banka.json` / `<predmetId>.vyuka.json` přes
 `import.meta.glob` BEZ eager (každý JSON = samostatný async chunk, počáteční
 bundle se obsahem nenafukuje; kopie z kořenového `data/`, konvence viz README
@@ -223,14 +270,31 @@ maže i `postupLekci`. Obsah načtený z IndexedDB se při startu revaliduje
 (např. z novější verze aplikace po rollbacku) se tiše přeskočí ve
 prospěch bundlu.
 
+### Mobil a PWA základ
+
+Aplikace je responzivní až k šířce telefonu (~375 px): breakpoint
+`(max-width: 760px)`, všechna mobilní pravidla VÝHRADNĚ za media query
+(desktop/Tauri se nemění) — závazné zásady drží DESIGN.md, sekce Mobil.
+Dotyková detekce pro widgety: `vyuka/widgety/dotyk.ts`
+(`jeHrubyPointer(matchMedia)` čistá a testovaná, `jeDotykoveZarizeni()`
+čte window; fail-safe → false = desktopové chování). PWA základ pro
+budoucí hostovanou verzi: `aplikace/public/manifest.webmanifest`
+(name QUESTOR, display standalone, theme_color `#0f0d1a`, lang cs)
++ ikony `aplikace/public/ikony/` (kopie PNG z `src-tauri/icons/`)
++ `<link rel="manifest">`, `<meta name="theme-color">` a apple-touch-icon
+v `index.html`. Service worker ZÁMĚRNĚ žádný — bez hostingu nemá co
+cachovat; doplní se až s nasazením webové verze.
+
 ### Vlastnictví souborů (paralelní práce)
 
 - **APP-TESTY**: `testy/`, `sync/`, `stav/testySlice.ts`, `stranky/Test.tsx`,
   `stranky/Vysledek.tsx`, `stranky/Nastaveni.tsx`.
 - **APP-HRA**: `hra/`, `stav/hraSlice.ts`, `komponenty/`, `stranky/Domu.tsx`,
   `stranky/Sbirka.tsx`, `stranky/Statistiky.tsx`.
+- **APP-PROFILY**: `profily/`, `stav/profilySlice.ts`, `stav/migrace.ts`.
 - ZMRAZENÉ (nikdo nemění bez dohody): `App.tsx`, `main.tsx`, `stav/store.ts`,
-  `styl/tokeny.css`.
+  `styl/tokeny.css`. (Profilová brána v App.tsx a složení profilySlice ve
+  store.ts vznikly dohodou při zavedení profilů — dál platí zmrazení.)
 
 ### Tok testu
 
@@ -254,10 +318,26 @@ prospěch bundlu.
 Aplikace je plně funkční bez serveru (obsah všech předmětů bundlovaný
 v `data/predmety/` jako lazy chunky, viz registr výše).
 `sync/` drží: URL serveru + token (stránka Nastavení, default
-`http://localhost:8787`), frontu neodeslaných událostí (localStorage),
-při startu a po testu: push progres + události, pull banky i výuky (jen vyšší
-verze; pull výuky má vlastní tichý try/catch kvůli starším serverům bez
-/api/vyuka), pull výzvy. Selhání sítě = ticho, žádné chybové hlášky uprostřed hry (jen
+`http://localhost:8787`), fronty neodeslaných událostí per PROFIL
+(localStorage, klíč `questor-sync-fronta:<profilId>`; starou společnou
+frontu adoptuje první fronta bez vlastních dat — po migraci profil
+Student), při startu a po testu: push progres + události, pull banky
+i výuky (jen vyšší verze; pull výuky má vlastní tichý try/catch kvůli
+starším serverům bez /api/vyuka), pull výzvy (jen s aktivním profilem;
+posílá se `?profilId=<aktivní profil>`, takže server vrací jen výzvy
+cílené na tenhle profil + společné). PRAVIDLO pro každý pull osobních
+dat: mezi čtením aktivního profilu a zápisem výsledku leží await — po
+návratu se profil znovu porovná a při neshodě (přepnutí během letícího
+požadavku) se výsledek ZAHODÍ, jinak by osobní data jednoho profilu
+přistála v pracovní sadě jiného; správný profil si je stáhne příštím
+syncem. Smazání profilu volá `zapomenFrontuProfilu` (sync.ts): zruší
+in-memory frontu (příznak, po kterém už nikdy nezapisuje — ani z letícího
+`odesli()`) a smaže její klíč v localStorage.
+Události (`POST /api/udalosti`) i progres (`POST /api/progres`) nesou
+NAVÍC top-level pole `profilId` a `profilJmeno` vedle stávajících dat —
+zpětně kompatibilní (starý server neznámá pole ignoruje); označení se
+přidává už při zařazení do fronty, takže přepnutí profilu před odesláním
+atribuci nezmění. Odesílají se fronty všech profilů, ne jen aktivního. Selhání sítě = ticho, žádné chybové hlášky uprostřed hry (jen
 nenápadný indikátor stavu připojení v Nastavení a na Domů). Fronta odesílá
 at-least-once s exponenciálním odkladem; položku, kterou server trvale odmítá
 (4xx mimo 408/429, např. výsledek smazané výzvy), zahodí, aby neblokovala
@@ -270,7 +350,8 @@ a při startu přeplácnou bundlovaný obsah, když mají vyšší verzi.
 - XP: `xpZaOdpoved(obtiznost, comboKrok)` — 10×obtížnost × combo (max 2×).
   Levely: `stavLevelu(xp)` (křivka 100·n^1.6).
 - Streak: den se počítá při ≥ 1 dokončeném testu; `zmrazeni` zachrání 1 den.
-- Questy: 3/den, deterministické z data (`vygenerujDenniQuesty`); odměna
+- Questy: 3/den, deterministické z data + id aktivního profilu
+  (`vygenerujDenniQuesty(datum, ctx, seedPrisada?)`); odměna
   = XP + při splnění všech 3 bronzová truhla navíc.
 - Truhly: po testu dle úspěšnosti (≥50 % bronz, ≥70 % stříbro, ≥90 % zlato),
   obsah `otevriTruhlu` (XP / zmrazení / karta / výbava avataru; pásma losu

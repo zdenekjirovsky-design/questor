@@ -4,8 +4,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { Odmena, TruhlaTyp, VybavaDefinice, Vzacnost } from '@questor/sdilene';
-import { KARTY_VELIKANI, VYBAVA_KATALOG } from '@questor/sdilene';
+import { KARTY_VELIKANI, POWERUP_INFO, VYBAVA_KATALOG } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
+import { IKONY_POWERUPU } from '../duely/pomocne';
 import './TruhlaOdmena.css';
 
 const NAZVY_TRUHEL: Record<TruhlaTyp, string> = {
@@ -177,6 +178,26 @@ export default function TruhlaOdmena({ typ, onOtevreno }: TruhlaOdmenaProps) {
                 <div className="truhla__odmena-karta-vzacnost">
                   {NAZVY_VZACNOSTI[karta?.vzacnost ?? 'obycejna']}
                 </div>
+              </div>
+            )}
+            {odmena.typ === 'powerup' && odmena.powerupTyp && (
+              <div
+                className="truhla__odmena-karta truhla__odmena-vybava"
+                style={{ '--barva-vzacnosti': 'var(--info)' } as React.CSSProperties}
+              >
+                <div className="truhla__odmena-karta-typ">Power-up do duelů!</div>
+                <div className="truhla__odmena-vybava-ikona" aria-hidden="true">
+                  {IKONY_POWERUPU[odmena.powerupTyp]}
+                </div>
+                <div className="truhla__odmena-karta-jmeno">
+                  {POWERUP_INFO[odmena.powerupTyp].nazev}
+                </div>
+                <div className="truhla__odmena-karta-titul">
+                  {POWERUP_INFO[odmena.powerupTyp].popis}
+                </div>
+                <Link to="/duely" className="truhla__odmena-vybava-odkaz">
+                  Použiješ v duelu →
+                </Link>
               </div>
             )}
             {odmena.typ === 'vybava' && (

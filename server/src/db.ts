@@ -105,6 +105,14 @@ export function otevriDb(cesta: string): DatabaseSync {
       json          TEXT NOT NULL,
       aktualizovano TEXT NOT NULL
     );
+    -- Duely (asynchronní výzvy mezi profily rodiny): json = celý sdílený typ
+    -- Duel (zdroj pravdy), stav a vytvoreno jsou zrcadlo pro řazení a přehledy.
+    CREATE TABLE IF NOT EXISTS duely (
+      id        TEXT PRIMARY KEY,
+      json      TEXT NOT NULL,
+      stav      TEXT NOT NULL,
+      vytvoreno TEXT NOT NULL
+    );
   `);
   zajistiProgresProfilu(db);
   zajistiUdalostiProfilu(db);

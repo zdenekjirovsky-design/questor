@@ -174,6 +174,14 @@ export const ADMIN_HTML = `<!doctype html>
       <tbody id="vyzvy-telo"><tr><td colspan="5" class="tlumene">Načítám…</td></tr></tbody>
     </table>
   </section>
+
+  <section class="panel" id="panel-duely">
+    <h2>Duely</h2>
+    <table>
+      <thead><tr><th>Vytvořeno</th><th>Předmět</th><th>Hráči</th><th>Otázek</th><th>Stav</th><th>Body</th><th>Vítěz</th></tr></thead>
+      <tbody id="duely-telo"><tr><td colspan="7" class="tlumene">Načítám…</td></tr></tbody>
+    </table>
+  </section>
 </main>
 <script>
 (function () {
@@ -581,9 +589,55 @@ export const ADMIN_HTML = `<!doctype html>
       .catch(function () { nastavZpravu('vyzva-zprava-stav', 'Server neodpovídá.', false); });
   });
 
+  // --- Duely ---------------------------------------------------------------
+  // Přehled duelů mezi profily rodiny (GET /api/duely/prehled, jen admin):
+  // kdo s kým, stav (cekajici/prijaty/hotovy/vyprsely), body a vítěz.
+  function popisHracuDuelu(duel) {
+    var vyzyvatel = duel.vyzyvatel ? duel.vyzyvatel.jmeno : '?';
+    var souper = duel.souper ? duel.souper.jmeno : (duel.otevrenyProRodinu ? 'kdokoli z rodiny' : '?');
+    return vyzyvatel + ' vs ' + souper;
+  }
+  function popisBoduDuelu(duel) {
+    var vysledky = duel.vysledky || {};
+    var a = duel.vyzyvatel ? vysledky[duel.vyzyvatel.profilId] : null;
+    var b = duel.souper ? vysledky[duel.souper.profilId] : null;
+    if (!a && !b) return '—';
+    return (a ? String(a.body) : '—') + ' : ' + (b ? String(b.body) : '—');
+  }
+  function popisVitezeDuelu(duel) {
+    if (duel.stav !== 'hotovy' && duel.stav !== 'vyprsely') return '—';
+    if (duel.vitezProfilId === null || duel.vitezProfilId === undefined) {
+      return duel.stav === 'hotovy' ? 'remíza' : 'bez vítěze';
+    }
+    if (duel.vyzyvatel && duel.vyzyvatel.profilId === duel.vitezProfilId) return duel.vyzyvatel.jmeno;
+    if (duel.souper && duel.souper.profilId === duel.vitezProfilId) return duel.souper.jmeno;
+    return duel.vitezProfilId;
+  }
+  function nactiDuely() {
+    var telo = $('duely-telo');
+    return api('/api/duely/prehled').then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).then(function (duely) {
+      if (!duely.length) { prazdnyRadek(telo, 7, 'Zatím žádný duel.'); return; }
+      telo.textContent = '';
+      for (var i = 0; i < duely.length; i++) {
+        telo.appendChild(radekTabulky([
+          datumCas(duely[i].vytvoreno),
+          duely[i].predmetId,
+          popisHracuDuelu(duely[i]),
+          String(duely[i].otazkyIds ? duely[i].otazkyIds.length : 0),
+          duely[i].stav,
+          popisBoduDuelu(duely[i]),
+          popisVitezeDuelu(duely[i])
+        ]));
+      }
+    }).catch(function () { prazdnyRadek(telo, 7, 'Nepodařilo se načíst.'); });
+  }
+
   // --- Token a start -------------------------------------------------------
   // Výzvy až po progresu — jména profilů ve sloupci „Komu“ se berou z profilů.
-  function nactiVse() { nactiBanky(); nactiVyuku(); nactiTesty(); nactiProgres().then(nactiVyzvy); }
+  function nactiVse() { nactiBanky(); nactiVyuku(); nactiTesty(); nactiDuely(); nactiProgres().then(nactiVyzvy); }
   $('ulozToken').addEventListener('click', function () {
     try { localStorage.setItem(KLIC_TOKENU, $('token').value); } catch (e) { /* soukromý režim */ }
     nactiVse();

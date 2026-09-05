@@ -144,6 +144,11 @@ zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
 | `GET /api/vyzvy` | student | `Vyzva[]` se stavem != `dokoncena`; volitelný `?profilId=` vrátí jen výzvy cílené na daný profil + společné. Bez query platí výchozí profil `vychozi` (starý klient bez profilů JE výchozí profil — stejně server atribuuje jeho progres a události): dostane společné výzvy + cílené na `vychozi`, cizí cílené výzvy NEdostane, aby je nemohl „spotřebovat“ (dokončit a globálně uzavřít) místo adresáta |
 | `POST /api/vyzvy` | admin | `{ zprava, konfigurace, cilovaUspesnost?, cilovyProfilId? }` → `Vyzva` (s `cilovyProfilId` je výzva jen pro daný profil) |
 | `POST /api/vyzvy/:id/vysledek` | student | `{ uspesnost, xp }` → `{ ok }` (nastaví `dokoncena`) |
+| `POST /api/duely` | student | `{ predmetId, temataId?, pocetOtazek 5\|10\|20, vyzyvatelProfilId, vyzyvatelJmeno?, souperProfilId?, souperJmeno? }` → celý `Duel` (vč. `verzeBanky` — verze banky při založení). Server deterministicky vybere sadu otázek (seed = id duelu, ČISTĚ rovnoměrně — žádné Leitnerovy váhy) a u cílené výzvy hned spočítá handicap ze snapshotů progresu; bez `souperProfilId` je výzva otevřená pro rodinu. 404 chybějící banka, 400 cizí témata / duel sám se sebou |
+| `GET /api/duely?profilId=` | student | `{ moje: Duel[], otevrene: Duel[] }` — moje běžící + posledních 20 dokončených; otevřené = cizí rodinné výzvy k přijetí. Bez query platí výchozí profil. Expirace je líná: čtení překlopí prošlé duely na `vyprsely` (kontumace). ANTI-CHEAT: `otazkyIds` se ZATAJUJE (prázdné pole) u všech otevřených výzev a adresátovi cílené výzvy před přijetím — klient má lokálně banku s klíčem správnosti a sadu předem znát nesmí; plná sada přijde v odpovědi na přijetí (vyzyvatel ji má z odpovědi na založení) |
+| `GET /api/duely/prehled` | admin | posledních 100 duelů (nejnovější první) pro admin web |
+| `POST /api/duely/:id/prijmout` | student | `{ profilId, jmeno }` → `Duel` (s plnou sadou `otazkyIds`). Otevřená výzva: first-wins, při přijetí se ZMRAZÍ handicap obou ze snapshotů progresu; druhý zájemce → 409. Cílená: smí jen adresát (jinak 409), opakované přijetí týmž profilem je idempotentní. Vlastní výzva / vypršelý / dohraný → 409 |
+| `POST /api/duely/:id/vysledek` | student | `{ profilId, vysledek: VysledekDuelu }` → `Duel`. Platí PRVNÍ zápis za profil — opakovaný → 409 (anti-cheat). ANTI-CHEAT přepočet: server klientským `body`/`celkovyCasMs` NEVĚŘÍ — přepočítá je ze syrových odpovědí proti bance (`prepoctiVysledekDuelu` ve sdíleném jádru: limit = `casLimitProHrace` × zmrazený handicap + zmrazení času na otázce s power-upem, štít jen na první špatnou od aktivace) a odmítne 400 `casMs` > limit + 2 s rezerva (`REZERVA_CASU_DUELU_MS`), duplicitní `otazkaId` i otázku mimo banku; banka smazaná ze serveru → 409. Výsledek od cíleného soupeře je zároveň přijetí; do nepřijaté OTEVŘENÉ výzvy výsledek nejde (409 — handicap ještě není zmrazený). Po obou výsledcích server duel vyhodnotí (`vyhodnotDuel`: body → nižší součet časů → remíza) a uzavře jako `hotovy` s `vitezProfilId`. Celý nový stav duelu validuje sdílené `duelSchema` (odpovědi jen na otázky duelu, každá otázka i power-up max 1×) |
 | `POST /api/generovani/dogenerovat` | student | `{ predmetId, temaId, obtiznost, pocet }` → `{ otazky }`; **503** když server nemá `ANTHROPIC_API_KEY` (aplikace to bere jako „funkce vypnutá“, žádná chyba uživateli). Kontext učiva server skládá ze zadání a vysvětlení existujících otázek tématu v bance (zdrojové učivo na serveru není). **Stav: klientská část v aplikaci zatím NENÍ implementovaná** — hotová je jen serverová půlka včetně 503. |
 | `GET /admin` | admin (token zadá stránka) | mini admin web (viz níže) |
 
@@ -153,6 +158,8 @@ DB tabulky: `banky(predmet_id TEXT PK, verze INT, json TEXT)`,
 `udalosti(id INTEGER PK AUTOINCREMENT, cas TEXT, json TEXT, profil_id TEXT,
 profil_jmeno TEXT — NULL u řádků z dob před profily)`,
 `vyzvy(id TEXT PK, json TEXT)`,
+`duely(id TEXT PK, json TEXT, stav TEXT, vytvoreno TEXT — json = celý sdílený
+typ Duel jako zdroj pravdy, stav/vytvoreno zrcadlo pro řazení a přehledy)`,
 `profily(profil_id TEXT PK, json TEXT, aktualizovano TEXT — json =
 metadata profilu bez profilId, aktualizovano = rozhodčí LWW)`.
 Migrace schématu dělá `otevriDb`
@@ -169,7 +176,8 @@ profil známý jen z registru má kartu „zatím žádný progres“) a tlačí
 Smazat profil (potvrzení přes confirm; DELETE /api/profily/:id — progres
 pryč, události zůstanou), poslední testy se jménem profilu, formulář na
 výzvu s výběrem cílového profilu (nebo všem; nabídka je sjednocení profilů
-s progresem a registru). Bez frameworku — vanilla JS + fetch. POZOR:
+s progresem a registru), sekce Duely (tabulka z GET /api/duely/prehled —
+hráči, stav, body, vítěz). Bez frameworku — vanilla JS + fetch. POZOR:
 stránka volá API root-absolutními cestami (`/api/…`), takže za prefixovou
 proxy (`/questor-api` na produkci) nefunguje — otevírá se přes SSH tunel
 na port serveru (postup v docs/NASAZENI.md, krok 5a).
@@ -245,6 +253,8 @@ testy/      engine testu (čistá logika) + komponenty typů otázek
 hra/        gamifikační komponenty (XP, streak, questy, truhla, sbírka, avatar, rekordy)
 vyuka/      Uceni (/uceni), LekceViewer (/uceni/:temaId), bloky/, widgety/, registr.ts
 profily/    VyberProfilu (brána aplikace), SpravaProfilu (Nastavení), pin.ts
+duely/      Duely (/duely), DuelHrani (/duel/:id), DuelVysledek, DuelyIndikator,
+            engine.ts (čistý klientský engine průběhu), pomocne.ts
 sync/       klient serveru + offline fronta (per profil) + nastavení připojení
 stranky/    Domu, Test, Vysledek, Sbirka, Statistiky, Nastaveni
 komponenty/ HudHlavicka (+ menu profilů) + sdílené vizuální prvky
@@ -462,7 +472,8 @@ chvíli poslední zálohou. **Postup přes zařízení:**
 při aktivaci profilu (`prepniProfil` → `stahniPostupProfilu`), při startu
 a při ručním syncu se stáhne `GET /api/progres/:id` a porovná
 `progres.aktualizovano` (LWW): server novější → nahradí se CELÝ lokální
-`ProgresStudenta`, obnoví odvozené (questy dne) a splněné questy snapshotu
+`ProgresStudenta` (VÝJIMKA: duelové trofeje se mergují — `sloucTrofeje`,
+viz sekce Duely), obnoví odvozené (questy dne) a splněné questy snapshotu
 se označí jako odměněné (`questyOdmeneno` se serverem necestuje a splněný
 quest UŽ odměněný je — bez toho by první odpověď odměnila podruhé); lokál
 novější nebo 404 → push. Synchronizuje se jen `ProgresStudenta` — postup
@@ -502,6 +513,62 @@ pushuje se snapshot progresu i po dokončení lekce a po otevření truhly
   vlastněné kusy v `progres.vlastnenaVybava`, editor na stránce Nastavení
   ukládá akcí `zmenAvatara` — jediné místo zápisu konfigurace; při zápisu
   odfiltruje výbavu, kterou hráč nevlastní (invariant nasazené ⊆ vlastněné).
+
+## Duely — kontrakt (v1)
+
+Asynchronní výzvy mezi profily JEDNÉ rodiny (sdílený rodinný kód). Čistá
+pravidla žijí ve `sdilene/src/duely.ts` (+ typy v `typy.ts`), serverová HTTP
++ SQLite vrstva v `server/src/duely.ts` (`registrujDuely`), klientský engine
+průběhu v `aplikace/src/duely/engine.ts`. API a DB viz tabulky výše.
+
+- **Průběh**: vyzyvatel zvolí obor (jednu banku), volitelně témata, počet
+  (5/10/20) a soupeře (konkrétní profil, nebo otevřená výzva „kdokoli
+  z rodiny“ — first-wins). OBA hrají IDENTICKOU sadu otázek (výběr i míchání
+  možností ze seedu = id duelu) do 24 h (`vyprsiDuelu`); bez průběžné zpětné
+  vazby a vysvětlení (jako zkouška), s viditelným odpočtem limitu na otázku.
+  Životní cyklus: `cekajici → prijaty → hotovy`, líně `vyprsely` (kontumace:
+  kdo odehrál, vyhrává; nikdo → bez vítěze; sdílené `expirujDuel`). Líná
+  expirace platí i NA KLIENTU (`rozdelDuely`, `zacniDuelAkce`, `muzeHratDuel`
+  dostávají „teď“): po termínu duel nejde spustit ani dohrát — dohrání po
+  vypršení (`odpovezVDueluAkce`) provede lokálně tutéž kontumaci BEZ mého
+  pozdního výsledku (nic se neodesílá, server by vrátil 409) a trofeje se
+  počítají z kontumace, ne z neplatné „výhry“.
+- **Bodování**: správně = 100 + round(50 × zbývajícíČas/limit); špatně nebo
+  timeout = 0; při shodě bodů rozhoduje nižší součet časů (`bodyZaOdpoved`,
+  `vyhodnotDuel`). Limit na otázku: (10 + 4×obtížnost) s (`casLimitOtazky`).
+- **Handicap férovosti**: hráč se slabším zvládnutím oboru (podíl otázek
+  banky v Leitner boxu ≥ 3, `zvladnutiOboru`) dostává násobič limitu
+  1 + 0.5×(zvládnutíSoupeře − zvládnutíMoje), ořez <1.0; 1.5>. Počítá se ze
+  snapshotů progresu NA SERVERU při vytvoření (cílená) / přijetí (otevřená)
+  a je NEMĚNNÝ po celý duel; oběma se ukáže. Chybí-li snapshot, oba 1.0.
+- **Power-upy**: padají z truhel (`OdmenaTyp` `powerup`), hromadí se
+  v `progres.powerupy`, použitelné JEN v duelu, každý typ max 1× za duel
+  a max 1 power-up na otázku: `pade-na-pade` (50:50 u výběrovky),
+  `zmrazeni-casu` (+10 s na aktuální otázku), `stit` (první špatná odpověď
+  za 50 bodů místo 0). Server vynucuje max 1× přes `duelSchema`.
+- **Trofeje a rivalita**: `progres.trofeje` (`TrofejeProfilu`) — head-to-head
+  bilance dvojic, série výher, tituly („Vítězná vlna“ = 3 výhry v řadě,
+  „Postrach: <obor>“ = 3 v řadě v oboru, „Duelant“ = 10 dokončených duelů;
+  `aktualizujTrofeje`); vitrína v Sbírce. Dávka nově dokončených duelů se
+  započítává chronologicky podle ČASU DOKONČENÍ (`casDokonceniDuelu`:
+  u kontumace `vyprsi`, jinak nejpozdější `dokonceno`), ne podle založení —
+  série výher jinak vyjdou špatně. Starší snapshoty progresu bez
+  duelových polí doplňuje `doplnDuelovyProgres` (pole jsou volitelná —
+  zpětná kompatibilita, starší klienti je neposílají a server je nestripuje:
+  `powerupy`/`trofeje` jsou výslovně v `progresStudentaSchema`, jinak by je
+  zod v defaultním strip režimu zahodil). Při LWW pullu progresu se trofeje
+  MERGUJÍ (`sloucTrofeje` — max počítadel, sjednocení titulů; `prinasiTrofejeNavic`
+  řídí bump `aktualizovano` + push), aby novější snapshot z druhého zařízení
+  trofej nenávratně nesmazal.
+- **Offline**: odevzdání výsledku jde přes frontu syncu (položka
+  `duel-vysledek`, at-least-once; 409 = trvale odmítnuto → zahodit, platí
+  první pokus). Merge duelů ze serveru s lokálně odehranými dělá `sloucDuely`
+  (lokální neodeslaný výsledek se nesmí ztratit; zatajená sada z GET nesmí
+  přepsat lokálně známou). Cílenou výzvu jde hrát offline, jen když už klient
+  MÁ sadu otázek — adresát ji dostává až přijetím online (GET ji zatajuje,
+  DuelHrani proto výzvu při otevření sám přijme; serverová cesta „výsledek
+  = přijetí“ zůstává pro starší klienty). Otevřenou výzvu až po přijetí online.
+- Duel odkazem pro cizí (mimo rodinu) = FÁZE 2, teď NE.
 
 ## Výuka — kontrakt (fáze 2)
 

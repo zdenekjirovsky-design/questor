@@ -122,7 +122,10 @@ desktop/Tauri okno 1280×800 se jimi NESMÍ změnit. Závazné zásady:
 2. **Mřížky do jednoho sloupce**: dashboard, lekce, klíčové pojmy, témata
    ve statistikách; sbírka drží 2 sloupce (karty 3:4).
 3. **Modaly přes celou obrazovku** (`100dvh`, bez radiusu): volba výpravy,
-   otevírání truhly, detail karty ve sbírce.
+   otevírání truhly, detail karty ve sbírce, výzva na duel. Fullscreen modal
+   si MUSÍ sám přidat safe-area padding (`calc(… + env(safe-area-inset-top/
+   bottom))` — viewport-fit=cover, jinak hlavička zajede pod výřez iPhonu
+   a spodní tlačítko pod home indikátor; vzor `.duely__modal` v Duely.css).
 4. **Dotyková plocha ≥ 44×44 px** pro všechny ovládací prvky (globálně
    `.tlacitko`, chipy témat, taby, pilulky procesů, štítky třídičky,
    hotspoty popisovačky přes `pointer: coarse`).

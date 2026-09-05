@@ -31,10 +31,16 @@
 }
 
 .nav-odkaz {
+  position: relative; /* kotva indikatoru duelu (badge) na mobilu */
   padding: 8px 14px;
   border-radius: var(--radius-maly);
   color: var(--text-tlumeny);
   font-weight: 600;
+}
+
+.nav-odkaz__text {
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-odkaz:hover {
@@ -88,18 +94,25 @@
 
   .nav-odkaz {
     flex: 1;
+    min-width: 0; /* 6 položek se musí vejít na 375 px — položka smí zúžit */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2px;
     min-height: 52px;
-    padding: 5px 2px;
+    padding: 5px 1px;
     border-radius: var(--radius-maly);
-    font-size: 0.62rem;
-    letter-spacing: 0.02em;
+    font-size: 0.58rem; /* 6 položek: „Statistiky" se musí vejít do ~56 px */
+    letter-spacing: 0;
     text-align: center;
     white-space: nowrap;
+  }
+
+  .nav-odkaz__text {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .nav-odkaz::before {
@@ -110,9 +123,19 @@
   /* Ikony podle KONCE cesty — funguje i pod bází (/questor/…). */
   .hlavicka__nav .nav-odkaz:first-child::before { content: '🏠'; } /* Domů je vždy první (href je bez lomítka pod bází) */
   .nav-odkaz[href$='/uceni']::before { content: '📖'; }
+  .nav-odkaz[href$='/duely']::before { content: '⚔️'; }
   .nav-odkaz[href$='/sbirka']::before { content: '🃏'; }
   .nav-odkaz[href$='/statistiky']::before { content: '📊'; }
   .nav-odkaz[href$='/nastaveni']::before { content: '⚙️'; }
+
+  /* Indikátor duelů na mobilu sedí nad ikonou (nesmí rozšířit popisek). */
+  .nav-odkaz .duely-indikator {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(6px);
+    margin-left: 0;
+  }
 
   .nav-odkaz:hover {
     background: transparent;

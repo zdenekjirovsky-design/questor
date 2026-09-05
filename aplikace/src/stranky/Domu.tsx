@@ -8,6 +8,7 @@ import { KARTY_VELIKANI, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
+import { pocetCekajicichVyzev } from '../duely/engine';
 import TruhlaOdmena from '../hra/TruhlaOdmena';
 import './Domu.css';
 import '../vyuka/vyuka.css';
@@ -194,6 +195,15 @@ export default function Domu() {
   const aktivniVyzvy = vyzvy.filter((v) => v.stav !== 'dokoncena');
   const splnenoQuestu = progres.questy.filter((q) => q.splneno).length;
 
+  // Cekajici duelove vyzvy (cilene na me + otevrene rodinne) — karta Duely.
+  const cekajiciDuelu = pouzijStav((s) =>
+    s.aktivniProfilId
+      ? pocetCekajicichVyzev(s.duely, s.otevreneDuely, s.aktivniProfilId, new Date().toISOString())
+      : 0,
+  );
+  const slovoVyzvy =
+    cekajiciDuelu === 1 ? 'výzva' : cekajiciDuelu >= 2 && cekajiciDuelu <= 4 ? 'výzvy' : 'výzev';
+
   return (
     <section className="domu">
       <div className="domu__sloupec-hlavni">
@@ -242,6 +252,28 @@ export default function Domu() {
                 />
               </span>
             )}
+          </span>
+          <span className="domu-uceni__sipka" aria-hidden="true">→</span>
+        </Link>
+
+        {/* Dlaždice „Duely" — vede na /duely, pulzuje s čekajícími výzvami */}
+        <Link
+          to="/duely"
+          className={`panel domu-uceni domu-duely${cekajiciDuelu > 0 ? ' domu-duely--pulzuje' : ''}`}
+        >
+          <span className="domu-uceni__znak" aria-hidden="true">⚔️</span>
+          <span className="domu-uceni__texty">
+            <span className="domu-uceni__titulek">
+              Duely
+              {cekajiciDuelu > 0 && (
+                <span className="duely-indikator" aria-hidden="true">{cekajiciDuelu}</span>
+              )}
+            </span>
+            <span className="domu-uceni__popis">
+              {cekajiciDuelu > 0
+                ? `Čeká na tebe ${cekajiciDuelu} ${slovoVyzvy} — přijmi souboj!`
+                : 'Vyzvi rodinu na souboj: stejné otázky, vyhrává přesnost a rychlost.'}
+            </span>
           </span>
           <span className="domu-uceni__sipka" aria-hidden="true">→</span>
         </Link>

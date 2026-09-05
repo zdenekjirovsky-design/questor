@@ -415,6 +415,30 @@ describe('progres', () => {
     expect(data[0].level.level).toBeGreaterThanOrEqual(2); // 350 XP ≈ level 3 (sdílená křivka)
   });
 
+  it('duelová pole progresu (powerupy, trofeje) se ukládají a vrací — server je NEstripuje', async () => {
+    const progres = {
+      ...vzorovyProgres(),
+      powerupy: { 'pade-na-pade': 2, 'zmrazeni-casu': 0, stit: 1 },
+      trofeje: {
+        dvojice: { tata: { vyhry: 3, prohry: 1, remizy: 0, serieVyher: 2 } },
+        tituly: ['Vítězná vlna'],
+        serieVyherCelkem: 2,
+        seriePodleOboru: { 'ekonomika-podnikani': 2 },
+        duelyCelkem: 4,
+      },
+    };
+    const ulozeni = await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify(progres),
+    });
+    expect(ulozeni.status).toBe(200);
+    const pull = await app.request('/api/progres/vychozi', { headers: STUDENT });
+    const telo = (await pull.json()) as { progres: ProgresStudenta };
+    expect(telo.progres.powerupy).toEqual(progres.powerupy);
+    expect(telo.progres.trofeje).toEqual(progres.trofeje);
+  });
+
   it('novější snapshot téhož profilu přepíše starší (drží se jen poslední)', async () => {
     await app.request('/api/progres', {
       method: 'POST',

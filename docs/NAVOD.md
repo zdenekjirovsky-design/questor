@@ -115,6 +115,9 @@ Admin web `https://<server>/admin` (token = `QUESTOR_ADMIN_TOKEN`):
   dokončení výzva ze seznamu zmizí a výsledek dorazí mezi poslední
   testy. Výzvu cílenou na jeden profil ostatní profily vůbec nedostanou.
   Pod formulářem je tabulka otevřených výzev (vč. sloupce Komu).
+- **Duely** — tabulka posledních duelů rodiny (hráči, stav, body, vítěz).
+  Duely si mezi sebou zakládají profily přímo v aplikaci (kap. 5); tady je
+  jen přehled pro dohled.
 
 ## 4. Profily — víc lidí na jednom počítači
 
@@ -231,7 +234,74 @@ mobilu má spodní navigační lištu, dotykové ovládání widgetů (místo
 drag & drop klik-klik) a základ PWA (manifest + ikony) pro výhledovou
 hostovanou webovou verzi do telefonu. Desktopové okno se nemění.
 
-## 5. Aplikace bez serveru (bundlovaný obsah)
+## 5. Duely — souboje v rodině
+
+Duel je asynchronní výzva mezi dvěma profily rodiny: oba hrají ÚPLNĚ
+STEJNÉ otázky (stejné pořadí i míchání možností) a mají na to 24 hodin.
+Bez průběžné zpětné vazby (jako režim zkouška — vysvětlení se ukážou až
+po duelu), s viditelným odpočtem času na každou otázku. Duely potřebují
+připojenou rodinu (rodinný kód, kap. 4) — založení i přijetí výzvy jde
+jen online.
+
+**Jak vyzvat:** stránka **⚔️ Duely** (položka v hlavní navigaci
+s počtem čekajících výzev; na Domů je dlaždice Duely) → tlačítko
+**⚔️ Vyzvat na duel**:
+
+1. Vyber **obor** — jednu banku ze svých studijních bank.
+2. Volitelně zaškrtni **témata** (bez výběru se hraje celá banka)
+   a **počet otázek** (5/10/20).
+3. Vyber **soupeře**: konkrétní profil, nebo **„Kdokoli z rodiny“** —
+   otevřenou výzvu hraje první, kdo ji přijme.
+4. **⚔️ Vyzvat!** Svoji půlku můžeš u cílené výzvy odehrát hned;
+   otevřená výzva se odemkne, až ji někdo přijme (teprve přijetím se
+   férově zamknou časové bonusy obou hráčů).
+
+Adresát vidí výzvu nahoře na stránce Duely („🔥 Výzvy pro tebe“,
+karta pulzuje) — **Přijmout a hrát**. Otázky výzvy drží server pod
+zámkem až do přijetí, proto je k přijetí potřeba připojení.
+
+**Průběh a bodování:** každá otázka má limit **(10 + 4×obtížnost)
+sekund** (násobený případným handicapem, viz níž). Správná odpověď
+= **100 bodů + až 50 za rychlost**; špatná odpověď nebo vypršení času
+= 0 bodů. Průběžně vidíš jen svoje skóre — soupeřovo se odhalí, až
+dohrají oba. Vyhrává vyšší součet bodů; při shodě rozhoduje nižší
+součet časů, shoda obojího je remíza. **Hraje se na jeden pokus** —
+odehraný výsledek je zapečetěný a opakovat ho nejde (server bere první
+odevzdání; podvržené skóre neprojde, výsledek si přepočítává sám ze
+syrových odpovědí).
+
+**Handicap férovosti:** kdo daný obor zvládá hůř (méně naučených
+otázek banky), dostane na každou otázku víc času — násobič ×1,00 až
+×1,50. Počítá ho server z uloženého postupu obou hráčů při vytvoření
+(cílená výzva) / přijetí (otevřená) a po celý duel se NEMĚNÍ; oba
+hráči ho vidí na úvodní obrazovce VS. Táta tak může férově duelovat
+se synem, který látku teprve dohání — a naopak.
+
+**Power-upy:** padají z truhel jako nový druh odměny, hromadí se
+v zásobě a použít je jde JEN v duelu — každý typ nejvýš jednou za duel
+a jen jeden na otázku:
+
+| Power-up | Co dělá |
+|---|---|
+| ✂️ **50 : 50** | skryje dvě špatné možnosti u výběrové otázky |
+| 🧊 **Zmrazení času** | přidá 10 sekund na aktuální otázku |
+| 🛡️ **Štít** | první špatná odpověď od aktivace se počítá za 50 bodů místo 0 |
+
+**Trofeje a rivalita:** dokončené duely se zapisují do **trofejní
+vitríny** ve Sbírce — vzájemná bilance s každým soupeřem (výhry /
+prohry / remízy, série), a tituly: **„Vítězná vlna“** za 3 výhry
+v řadě, **„Postrach: \<obor\>“** za 3 výhry v řadě v jednom oboru,
+**„Duelant“** za 10 dokončených duelů.
+
+**Vypršení a offline:** na duel je 24 hodin od založení. Kdo do
+termínu odehrál, vyhrává kontumačně; když nehraje nikdo, duel je bez
+vítěze. Po termínu duel nejde spustit ani dohrát (ani offline). Svoji
+půlku CÍLENÉ výzvy jde odehrát offline, jakmile má aplikace sadu
+otázek (vyzyvatel ji má hned od založení, adresát od prvního otevření
+duelu online); výsledek pak odejde frontou, až bude spojení. Otevřenou
+výzvu jde přijmout jen online.
+
+## 6. Aplikace bez serveru (bundlovaný obsah)
 
 Aplikace je **offline-first** a plně funkční úplně bez serveru:
 
@@ -259,7 +329,7 @@ Aplikace je **offline-first** a plně funkční úplně bez serveru:
   (`docs/NASAZENI.md`, krok 3). Novější verze obsahu se prosadí i proti
   obsahu uloženému v existující instalaci.
 
-## 6. Předměty a přidání nového (i dalšího ročníku)
+## 7. Předměty a přidání nového (i dalšího ročníku)
 
 Aktuálně bundlovaných 14 předmětů — 13 z 1. ročníku (obor Ekonomika
 a podnikání): Ekonomika a podnikání, Písemná a elektronická komunikace,
@@ -295,10 +365,10 @@ Přidání nového předmětu — **další ročník = nový předmět s vlastn�
    (`PREDMETY`: id, název, ikona — pořadí v poli = pořadí v UI). Bez
    záznamu předmět funguje taky, jen s názvem z banky a obecnou ikonou 📘.
 5. Má-li předmět fungovat i BEZ serveru, zkopíruj JSONy do
-   `aplikace/src/data/predmety/` a vydej novou verzi aplikace (kap. 5,
+   `aplikace/src/data/predmety/` a vydej novou verzi aplikace (kap. 6,
    poslední bod).
 
-## 7. Výuka — lekce k předmětu
+## 8. Výuka — lekce k předmětu
 
 Výuka jsou interaktivní lekce po tématech (texty, obrázky, hry, kartičky,
 mini-kvízy); student je najde v aplikaci pod „Učit se“. Obsah je JSON
@@ -306,7 +376,7 @@ mini-kvízy); student je najde v aplikaci pod „Učit se“. Obsah je JSON
 zvalidovat → nahrát na server (nebo bundlovat). Didaktická vodítka
 k obsahu: `docs/VYUKA.md`.
 
-### 7a. Vygenerování výuky
+### 8a. Vygenerování výuky
 
 Ke `generuj` přidej přepínač `--vyuka` (ostatní volby vč. poskytovatelů
 a cest platí stejně jako v kap. 1):
@@ -328,7 +398,7 @@ npm run generuj -- --vstup "$PWD/data/uciva/<predmet>.md" \
   `prubeh-procesu`, `srovnavac`); `popisovacka` a `casova-osa` se
   doplňují ručně, když pro ně látka má smysluplná data.
 
-### 7b. Validace a kontrola
+### 8b. Validace a kontrola
 
 Generátor výstup validuje sám (`validujVyuku`). Po RUČNÍ editaci souboru
 zvaliduj z kořene projektu:
@@ -345,7 +415,7 @@ Pak si lekce projdi očima studenta: `npm run dev:aplikace` →
 http://localhost:5173 → „Učit se“. Zkontroluj věcnou správnost textů
 i SVG obrázků (v obou režimech vzhledu) a že mini-kvízy dávají smysl.
 
-### 7c. Nahrání na server
+### 8c. Nahrání na server
 
 - **Rovnou při generování**: přidej `--server https://<server> --token
   <admin-token>` (nahraje se přes `PUT /api/vyuka/<predmet>`).
@@ -364,10 +434,10 @@ Chování stejné jako u banky: validace (400), verze musí růst (409),
 limit 10 MB (413), špatný token (401). Aplikace si novou verzi výuky
 stáhne sama při nejbližším syncu.
 
-### 7d. Lekce pro úplně nový předmět
+### 8d. Lekce pro úplně nový předmět
 
-1. Učivo → banka → nahrání banky: kap. 6.
-2. Výuka: `--vyuka` (kap. 7a) + kontrola (7b) + nahrání (7c).
+1. Učivo → banka → nahrání banky: kap. 7.
+2. Výuka: `--vyuka` (kap. 8a) + kontrola (8b) + nahrání (8c).
 3. Má-li předmět fungovat v aplikaci i BEZ serveru, zkopíruj JSONy 1:1 do
    `aplikace/src/data/predmety/<predmet>.banka.json`
    a `<predmet>.vyuka.json` (konvence viz README v té složce) a vydej
@@ -377,7 +447,7 @@ stáhne sama při nejbližším syncu.
 > („Projít znovu“ na konci lekce). Tlačítko „Otestuj se z tématu“ na
 > konci lekce funguje pro každý předmět.
 
-## 8. Dogenerování otázek (volitelné)
+## 9. Dogenerování otázek (volitelné)
 
 Server umí na vyžádání dogenerovat otázky k tématu
 (`POST /api/generovani/dogenerovat`) — jen když má v prostředí
@@ -387,7 +457,7 @@ implementovaná — endpoint jde volat ručně/skriptem. Kontext pro
 generování si server skládá ze zadání a vysvětlení existujících otázek
 tématu (zdrojové učivo na serveru není).
 
-## 9. Tokeny
+## 10. Tokeny
 
 - `QUESTOR_ADMIN_TOKEN` a `QUESTOR_STUDENT_TOKEN` se nastavují v env
   serveru; defaulty `admin-dev`/`student-dev` jsou JEN pro lokální vývoj.
@@ -402,7 +472,7 @@ tématu (zdrojové učivo na serveru není).
 - Server má na `/api/*` rate limit 240 požadavků/min na IP (brzda hrubé
   síly na tokeny na veřejné adrese) — běžný provoz rodiny se ho nedotkne.
 
-## 10. Řešení potíží
+## 11. Řešení potíží
 
 **Validace banky selhala** (`validuj-banku.ts` skončí chybou, nebo upload
 vrátí 400):
@@ -423,7 +493,7 @@ vrátí 400):
 - 401 = špatný token (zkontroluj env serveru vs. co zadáváš).
 - Na hostingu zkontroluj logy a env proměnné (`docs/NASAZENI.md`, krok 5);
   po redeployi bez volume je DB prázdná — banku i výuku nahraj znovu.
-- Pro hráče to není havárie: aplikace jede dál offline (kap. 5).
+- Pro hráče to není havárie: aplikace jede dál offline (kap. 6).
 
 **Aplikace nesynchronizuje:**
 

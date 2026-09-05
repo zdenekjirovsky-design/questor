@@ -251,7 +251,7 @@ describe('truhly', () => {
 
   it('bez dostupných karet padne odměna na zmrazení/XP a počítadlo roste', () => {
     const sbirka: Sbirka = { karty: KARTY_VELIKANI.map((k) => k.id), truhelBezKarty: PITY_LIMIT };
-    const { odmena, sbirka: nova } = otevriTruhlu('zlata', sbirka, KARTY_VELIKANI, VSECHNA_VYBAVA, () => 0.99);
+    const { odmena, sbirka: nova } = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, VSECHNA_VYBAVA, () => 0.99);
     expect(odmena.typ).toBe('xp');
     expect(nova.truhelBezKarty).toBe(PITY_LIMIT + 1);
   });
@@ -264,32 +264,72 @@ describe('truhly', () => {
         expect(odmena.xp).toBeGreaterThanOrEqual(80);
         expect(odmena.xp).toBeLessThanOrEqual(150);
       } else {
-        expect(odmena.typ).toBe('zmrazeni');
+        expect(['zmrazeni', 'powerup']).toContain(odmena.typ);
       }
     }
   });
 
-  it('pásma jdou za sebou: karta → výbava → zmrazení → XP (bronzová)', () => {
+  it('pásma jdou za sebou: karta → výbava → power-up → zmrazení → XP (bronzová)', () => {
     const sbirka: Sbirka = { karty: [], truhelBezKarty: 0 };
-    // bronzová: karta [0; 0.2), výbava [0.2; 0.32), zmrazení [0.32; 0.42), zbytek XP
+    // bronzová: karta [0; 0.2), výbava [0.2; 0.32), power-up [0.32; 0.42),
+    // zmrazení [0.42; 0.52), zbytek XP
     const karta = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.1);
     expect(karta.odmena.typ).toBe('karta');
     const vybava = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.25);
     expect(vybava.odmena.typ).toBe('vybava');
-    const zmrazeni = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.35);
+    const powerup = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.35);
+    expect(powerup.odmena.typ).toBe('powerup');
+    expect(powerup.odmena.powerupTyp).toBeDefined();
+    const zmrazeni = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.45);
     expect(zmrazeni.odmena.typ).toBe('zmrazeni');
-    const xp = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.5);
+    const xp = otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.6);
     expect(xp.odmena.typ).toBe('xp');
   });
 
   it('pásmo výbavy odpovídá typu truhly (stříbrná 0.18, zlatá 0.25)', () => {
     const sbirka: Sbirka = { karty: KARTY_VELIKANI.map((k) => k.id), truhelBezKarty: 0 };
-    // stříbrná: výbava [0.3; 0.48) — 0.47 ještě dá výbavu, 0.48 už zmrazení
+    // stříbrná: výbava [0.3; 0.48) — 0.47 ještě dá výbavu, 0.48 už power-up
     expect(otevriTruhlu('stribrna', sbirka, KARTY_VELIKANI, [], () => 0.47).odmena.typ).toBe('vybava');
-    expect(otevriTruhlu('stribrna', sbirka, KARTY_VELIKANI, [], () => 0.48).odmena.typ).toBe('zmrazeni');
+    expect(otevriTruhlu('stribrna', sbirka, KARTY_VELIKANI, [], () => 0.48).odmena.typ).toBe('powerup');
     // zlatá: výbava [0.45; 0.7)
     expect(otevriTruhlu('zlata', sbirka, KARTY_VELIKANI, [], () => 0.69).odmena.typ).toBe('vybava');
-    expect(otevriTruhlu('zlata', sbirka, KARTY_VELIKANI, [], () => 0.7).odmena.typ).toBe('zmrazeni');
+    expect(otevriTruhlu('zlata', sbirka, KARTY_VELIKANI, [], () => 0.7).odmena.typ).toBe('powerup');
+  });
+
+  it('pásmo power-upů odpovídá typu truhly (bronz 0.10, stříbro 0.12, zlato 0.15)', () => {
+    const sbirka: Sbirka = { karty: KARTY_VELIKANI.map((k) => k.id), truhelBezKarty: 0 };
+    // bronzová: power-up [0.32; 0.42), zmrazení od 0.42
+    expect(otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.41).odmena.typ).toBe('powerup');
+    expect(otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], () => 0.42).odmena.typ).toBe('zmrazeni');
+    // stříbrná: power-up [0.48; 0.60), zmrazení od 0.60
+    expect(otevriTruhlu('stribrna', sbirka, KARTY_VELIKANI, [], () => 0.59).odmena.typ).toBe('powerup');
+    expect(otevriTruhlu('stribrna', sbirka, KARTY_VELIKANI, [], () => 0.6).odmena.typ).toBe('zmrazeni');
+    // zlatá: power-up [0.70; 0.85), zmrazení od 0.85
+    expect(otevriTruhlu('zlata', sbirka, KARTY_VELIKANI, [], () => 0.84).odmena.typ).toBe('powerup');
+    expect(otevriTruhlu('zlata', sbirka, KARTY_VELIKANI, [], () => 0.85).odmena.typ).toBe('zmrazeni');
+  });
+
+  it('typ power-upu se losuje rovnoměrně ze tří a nevyčerpává se', () => {
+    const sbirka: Sbirka = { karty: [], truhelBezKarty: 0 };
+    // První los = pásmo (0.35 → power-up), druhý los = typ (třetiny).
+    const sekvence = (hodnoty: number[]) => {
+      let i = 0;
+      return () => hodnoty[Math.min(i++, hodnoty.length - 1)];
+    };
+    expect(otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], sekvence([0.35, 0.1])).odmena.powerupTyp)
+      .toBe('pade-na-pade');
+    expect(otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], sekvence([0.35, 0.5])).odmena.powerupTyp)
+      .toBe('zmrazeni-casu');
+    expect(otevriTruhlu('bronzova', sbirka, KARTY_VELIKANI, [], sekvence([0.35, 0.9])).odmena.powerupTyp)
+      .toBe('stit');
+    // Vlastnictví truhla nezná — power-up padá i „sběrateli“ (nevyčerpává se)
+    // a počítadlo pity timeru karet roste dál.
+    const bohata: Sbirka = { karty: KARTY_VELIKANI.map((k) => k.id), truhelBezKarty: 2 };
+    const { odmena, sbirka: nova } = otevriTruhlu(
+      'bronzova', bohata, KARTY_VELIKANI, VYBAVA_KATALOG.map((v) => v.id), sekvence([0.35, 0.9]),
+    );
+    expect(odmena).toEqual({ typ: 'powerup', powerupTyp: 'stit' });
+    expect(nova.truhelBezKarty).toBe(3);
   });
 
   it('výbava se losuje jen z nevlastněných a vrací rozšířený seznam', () => {
@@ -314,7 +354,7 @@ describe('truhly', () => {
     expect(vlastnenaVybava).toEqual(VSECHNA_VYBAVA);
     // Pásmo zmrazení zůstává na svém místě i při plném vlastnictví všeho.
     const plneKarty: Sbirka = { karty: KARTY_VELIKANI.map((k) => k.id), truhelBezKarty: 0 };
-    expect(otevriTruhlu('bronzova', plneKarty, KARTY_VELIKANI, VSECHNA_VYBAVA, () => 0.35).odmena.typ).toBe('zmrazeni');
+    expect(otevriTruhlu('bronzova', plneKarty, KARTY_VELIKANI, VSECHNA_VYBAVA, () => 0.45).odmena.typ).toBe('zmrazeni');
   });
 
   it('při plné sbírce karet pásmo karty propadá do XP, výbava zůstává na svém', () => {

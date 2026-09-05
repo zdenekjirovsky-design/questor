@@ -4,7 +4,7 @@ Výuková část (fáze 2) je IMPLEMENTOVANÁ. Technický kontrakt (datový mode
 widget registr, API, generátor `--vyuka`, gamifikace lekcí) je závazně
 v `docs/ARCHITEKTURA.md` (sekce Výuka + Datový kontrakt, Server, Generátor);
 provozní postup „vygenerovat → zvalidovat → nahrát“ v `docs/NAVOD.md`
-(kap. 6). Tenhle dokument drží jen DIDAKTICKÉ zásady — čím se řídí obsah
+(kap. 8). Tenhle dokument drží jen DIDAKTICKÉ zásady — čím se řídí obsah
 lekcí, ať ho generuje Claude, nebo vzniká ručně.
 
 ## Zásady obsahu lekcí

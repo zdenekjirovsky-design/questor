@@ -14,31 +14,56 @@ import type { StateCreator } from 'zustand';
 import type {
   AvatarKonfigurace,
   BankaOtazek,
+  Duel,
   Odmena,
   OdpovedZaznam,
+  PowerupTyp,
   ProgresStudenta,
   QuestDenni,
   StatistikaOtazky,
   TestVysledek,
+  TrofejeProfilu,
   TruhlaTyp,
   Vyzva,
 } from '@questor/sdilene';
 import {
   aktualizujStatistiku,
   aktualizujStreakPoAktivite,
+  aktualizujTrofeje,
   aplikujOdpovedNaQuesty,
   aplikujTestNaQuesty,
   denZData,
+  doplnDuelovyProgres,
+  expirujDuel,
   idMistrovskeKarty,
   KARTY_VELIKANI,
   otevriTruhlu,
   pondeliTydne,
+  vychoziPowerupy,
   vychoziProgres,
   vygenerujDenniQuesty,
+  vyhodnotDuel,
+  vysledekProHrace,
   xpZaOdpoved,
   type KontextQuestu,
   type StupenMistrovstvi,
 } from '@questor/sdilene';
+import {
+  casDokonceniDuelu,
+  jeDokoncenyDuel,
+  jeUcastnikDuelu,
+  odpovezVPrubehu,
+  odstartujPrubeh,
+  otazkyDuelu,
+  pouzijPowerupVPrubehu,
+  sloucDuely,
+  timeoutVPrubehu,
+  vysledekZPrubehu,
+  vytvorDuelPrubeh,
+  type DuelPrubeh,
+} from '../duely/engine';
+import { vyhodnotOdpoved, type OdpovedHodnota } from '../testy/engine';
+import { nazevPredmetu } from '../data/predmety';
 import {
   aktivniPredmetProfilu,
   najdiAktivniProfil,
@@ -169,6 +194,51 @@ function noveMistrovskeKarty(
   return nove;
 }
 
+/**
+ * Zapocita dane duely do trofejni vitriny (bilance dvojic, serie, tituly).
+ * Kandidati se radi od nejstarsiho podle CASU DOKONCENI (serie vyher musi
+ * jit chronologicky podle toho, kdy duely skoncily — poradi zalozeni muze
+ * byt jine; casDokonceniDuelu, remiza radi vytvoreno). Preskakuji se duely
+ * bez soupere a duely, kde nikdo neodehral (vyprsela vyzva bez jedine
+ * odpovedi neni rivalita). Cista funkce.
+ */
+function zapoctiTrofejeZDuelu(
+  vychozi: TrofejeProfilu,
+  duely: Duel[],
+  profilId: string,
+  banky: Record<string, BankaOtazek>,
+): { trofeje: TrofejeProfilu; zapocitane: string[]; noveTituly: string[] } {
+  let trofeje = vychozi;
+  const zapocitane: string[] = [];
+  const noveTituly: string[] = [];
+  const chronologicky = [...duely].sort(
+    (a, b) =>
+      casDokonceniDuelu(a).localeCompare(casDokonceniDuelu(b)) ||
+      a.vytvoreno.localeCompare(b.vytvoreno),
+  );
+  for (const duel of chronologicky) {
+    if (!jeDokoncenyDuel(duel) || !duel.souper || !jeUcastnikDuelu(duel, profilId)) continue;
+    if (Object.keys(duel.vysledky).length === 0) continue; // nikdo nehral
+    const souper = duel.vyzyvatel.profilId === profilId ? duel.souper : duel.vyzyvatel;
+    const vitez = duel.vitezProfilId !== undefined ? duel.vitezProfilId : vyhodnotDuel(duel);
+    const predchoziTituly = trofeje.tituly;
+    trofeje = aktualizujTrofeje(trofeje, souper.profilId, vysledekProHrace(vitez, profilId), {
+      predmetId: duel.predmetId,
+      nazev: nazevPredmetu(duel.predmetId, banky[duel.predmetId]?.nazev),
+    });
+    for (const titul of trofeje.tituly) {
+      if (!predchoziTituly.includes(titul)) noveTituly.push(titul);
+    }
+    zapocitane.push(duel.id);
+  }
+  return { trofeje, zapocitane, noveTituly };
+}
+
+/** Seznam zapocitanych duelu s ochranou proti neomezenemu rustu. */
+function orizniZapocitane(zapocitane: string[]): string[] {
+  return zapocitane.length > 100 ? zapocitane.slice(-100) : zapocitane;
+}
+
 // ---------------------------------------------------------------------------
 // Slice
 
@@ -201,6 +271,16 @@ export interface HraSlice {
    * historieTestu drží jen posledních 10 testů, na graf 8 týdnů nestačí.
    */
   tydenniXpTestuPodleBank: Record<string, Record<string, number>>;
+  /** Moje duely (běžící + historie) ze serveru, s lokálně doplněnými výsledky. */
+  duely: Duel[];
+  /** Otevřené rodinné výzvy jiných hráčů (jdou přijmout). */
+  otevreneDuely: Duel[];
+  /** Rozehraný průběh duelu (null = žádný neběží). Přežívá restart. */
+  aktualniDuel: DuelPrubeh | null;
+  /** Id duelů už započítaných do trofejí (každý duel se počítá jen jednou). */
+  duelyZapocitane: string[];
+  /** Tituly získané a ještě neoslavené na výsledkové obrazovce. */
+  noveTituly: string[];
 
   zapocitejOdpoved(zaznam: OdpovedZaznam, comboAktualni: number): void;
   zapocitejTest(vysledek: TestVysledek): void;
@@ -214,6 +294,37 @@ export interface HraSlice {
   zmenAvatara(konfigurace: AvatarKonfigurace): void;
   /** Sbírka zavolá po přehrání flip animací nových karet. */
   oznacKartyZaVidene(): void;
+
+  /**
+   * Merge duelů ze serveru (pull při syncu). Lokálně odehraný výsledek,
+   * který na server ještě nedorazil (offline fronta), se neztrácí; nově
+   * dokončené duely se hned započítají do trofejí (každý jen jednou).
+   */
+  prijmiDuely(moje: Duel[], otevrene: Duel[]): void;
+  /** Upsert jednoho duelu (odpověď serveru na založení/přijetí výzvy). */
+  pridejDuel(duel: Duel): void;
+  /**
+   * Založí průběh duelu (obrazovka VS — čas ještě neběží). Vrací false,
+   * když duel nejde hrát (chybí soupeř/handicap, už odehráno, banka nezná
+   * otázky). Rozehraný průběh TÉHOŽ duelu se neresetuje (pokračuje se).
+   */
+  zacniDuelAkce(duelId: string): boolean;
+  /** Odstartuje čas první otázky (klik na „Do boje!" na intru). */
+  odstartujDuelAkce(): void;
+  /**
+   * Odpověď v duelu; hodnota null = timeout (0 bodů). Po poslední otázce
+   * uloží můj výsledek do duelu, zařadí ho do offline fronty a případně
+   * duel lokálně vyhodnotí (trofeje, tituly).
+   */
+  odpovezVDueluAkce(hodnota: OdpovedHodnota | null, casMs: number): void;
+  /**
+   * Použije power-up v běžícím duelu (ubere kus ze zásoby v progresu).
+   * Vrací false, když použít nejde (došla zásoba, už použitý, špatný typ
+   * otázky…). Náhoda jen pro los skrytých možností 50:50.
+   */
+  pouzijPowerupAkce(typ: PowerupTyp, nahoda?: () => number): boolean;
+  /** Výsledková obrazovka zavolá po oslavě nových titulů. */
+  oznacTitulyZaVidene(): void;
 }
 
 export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set, get) => ({
@@ -227,6 +338,11 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
   historieTestu: [],
   questyPodleBank: {},
   tydenniXpTestuPodleBank: {},
+  duely: [],
+  otevreneDuely: [],
+  aktualniDuel: null,
+  duelyZapocitane: [],
+  noveTituly: [],
 
   zapocitejOdpoved: (zaznam, comboAktualni) => {
     const ted = new Date();
@@ -450,9 +566,17 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
 
     const xp = odmena.typ === 'xp' ? (odmena.xp ?? 0) : 0;
 
+    // Zaklad s doplnenymi duelovymi poli (starsi snapshoty powerupy nemaji);
+    // odmena typu powerup pricte kus do zasoby (spotrebovava se jen v duelu).
+    const zaklad = doplnDuelovyProgres(progres);
+    const powerupy = { ...(zaklad.powerupy ?? vychoziPowerupy()) };
+    if (odmena.typ === 'powerup' && odmena.powerupTyp) {
+      powerupy[odmena.powerupTyp] = (powerupy[odmena.powerupTyp] ?? 0) + 1;
+    }
+
     set({
       progres: {
-        ...progres,
+        ...zaklad,
         xp: progres.xp + xp,
         streak:
           odmena.typ === 'zmrazeni'
@@ -460,6 +584,7 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
             : progres.streak,
         sbirka,
         vlastnenaVybava,
+        powerupy,
         rekordy: {
           ...progres.rekordy,
           tydenniXp: pridejTydenniXp(progres.rekordy.tydenniXp, dnes, xp),
@@ -509,6 +634,11 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
       historieTestu: [],
       questyPodleBank: {},
       tydenniXpTestuPodleBank: {},
+      duely: [],
+      otevreneDuely: [],
+      aktualniDuel: null,
+      duelyZapocitane: [],
+      noveTituly: [],
       // Postup lekci (vyukaSlice) je soucast progresu studenta — obsah
       // (vyuky, banky) naopak zustava.
       postupLekci: {},
@@ -566,5 +696,215 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
 
   oznacKartyZaVidene: () => {
     if (get().novaKarty.length > 0) set({ novaKarty: [] });
+  },
+
+  // -------------------------------------------------------------------------
+  // Duely
+
+  prijmiDuely: (moje, otevrene) => {
+    const stav = get();
+    const profilId = stav.aktivniProfilId;
+    if (!profilId) return;
+    const sloucene = sloucDuely(moje, stav.duely, profilId);
+
+    // Trofeje se zapocitavaji jen za dokonceni, ktere tohle zarizeni „vidi"
+    // (duel lokalne znamy jako nedokonceny je ted dokonceny). Duel dokonceny
+    // uz pri PRVNIM stazeni se jen oznaci za zapocitany — jeho trofeje uz
+    // pripocitalo zarizeni, ktere ho dohralo, a sem dorazi LWW syncem progresu
+    // (jinak by cerstva instalace pripocitala celou historii podruhe).
+    const driveNedokoncene = new Set(
+      stav.duely.filter((d) => !jeDokoncenyDuel(d)).map((d) => d.id),
+    );
+    const kZapocteni: Duel[] = [];
+    const jenOznacit: string[] = [];
+    for (const duel of sloucene) {
+      if (!jeDokoncenyDuel(duel) || stav.duelyZapocitane.includes(duel.id)) continue;
+      if (driveNedokoncene.has(duel.id)) kZapocteni.push(duel);
+      else jenOznacit.push(duel.id);
+    }
+
+    const zakladProgres = doplnDuelovyProgres(stav.progres);
+    const { trofeje, zapocitane, noveTituly } = zapoctiTrofejeZDuelu(
+      zakladProgres.trofeje!,
+      kZapocteni,
+      profilId,
+      stav.banky,
+    );
+
+    set({
+      duely: sloucene,
+      otevreneDuely: otevrene.filter((d) => d.vyzyvatel.profilId !== profilId && !d.souper),
+      duelyZapocitane: orizniZapocitane([
+        ...stav.duelyZapocitane,
+        ...zapocitane,
+        ...jenOznacit,
+      ]),
+      ...(zapocitane.length > 0
+        ? {
+            progres: { ...zakladProgres, trofeje, aktualizovano: new Date().toISOString() },
+            noveTituly: [...stav.noveTituly, ...noveTituly],
+          }
+        : {}),
+    });
+  },
+
+  pridejDuel: (duel) => {
+    const stav = get();
+    const bezNej = stav.duely.filter((d) => d.id !== duel.id);
+    set({
+      duely: [duel, ...bezNej],
+      otevreneDuely: stav.otevreneDuely.filter((d) => d.id !== duel.id),
+    });
+  },
+
+  zacniDuelAkce: (duelId) => {
+    const stav = get();
+    const profilId = stav.aktivniProfilId;
+    if (!profilId) return false;
+    // Rozehrany prubeh tehoz duelu pokracuje (reload cas nevraci).
+    if (stav.aktualniDuel?.duelId === duelId && !stav.aktualniDuel.dokonceno) return true;
+    const duel = stav.duely.find((d) => d.id === duelId);
+    if (!duel || jeDokoncenyDuel(duel) || !jeUcastnikDuelu(duel, profilId)) return false;
+    // Lina expirace i lokalne: po vyprsi duel hrat nejde (kontumace, server
+    // by vysledek stejne odmitl 409) — offline hrani po terminu nesmi projit.
+    if (duel.vyprsi <= new Date().toISOString()) return false;
+    if (!duel.souper || duel.vysledky[profilId]) return false;
+    // Vsechny otazky duelu musi znat lokalni banka (jinak pockat na sync).
+    if (!otazkyDuelu(duel, stav.banky[duel.predmetId])) return false;
+    set({ aktualniDuel: vytvorDuelPrubeh(duel, profilId, new Date().toISOString()) });
+    return true;
+  },
+
+  odstartujDuelAkce: () => {
+    const prubeh = get().aktualniDuel;
+    if (!prubeh || prubeh.zahajeno) return;
+    set({ aktualniDuel: odstartujPrubeh(prubeh, Date.now()) });
+  },
+
+  odpovezVDueluAkce: (hodnota, casMs) => {
+    const stav = get();
+    const prubeh = stav.aktualniDuel;
+    if (!prubeh || !prubeh.zahajeno || prubeh.dokonceno) return;
+    const duel = stav.duely.find((d) => d.id === prubeh.duelId);
+    const otazky = duel ? otazkyDuelu(duel, stav.banky[duel.predmetId]) : null;
+    const otazka = otazky?.[prubeh.index];
+    if (!duel || !otazka) return;
+
+    const ted = new Date();
+    const novyPrubeh =
+      hodnota === null
+        ? timeoutVPrubehu(prubeh, otazka, ted.getTime())
+        : odpovezVPrubehu(prubeh, otazka, vyhodnotOdpoved(otazka, hodnota), casMs, ted.getTime());
+
+    if (!novyPrubeh.dokonceno) {
+      set({ aktualniDuel: novyPrubeh });
+      return;
+    }
+
+    // Duel mezitim VYPRSEL (hrani zacalo pred terminem, dokoncilo se po nem —
+    // typicky offline): muj pozdni vysledek uz neplati (server by ho odmitl
+    // 409 a frontovou polozku zahodil), takze se NEodesila ani lokalne
+    // nezapisuje. Misto toho probehne stejna kontumace jako na serveru — BEZ
+    // meho vysledku — a trofeje se zapocitaji z ni (vcasna vyhra soupere je
+    // platna rivalita; bez jedine odpovedi se nepocita nic).
+    const tedIso = ted.toISOString();
+    if (duel.vyprsi <= tedIso) {
+      const vyprsely = expirujDuel(duel, tedIso);
+      const zakladPoVyprseni = doplnDuelovyProgres(stav.progres);
+      const zapocistPoVyprseni =
+        jeDokoncenyDuel(vyprsely) && !stav.duelyZapocitane.includes(vyprsely.id);
+      const poVyprseni = zapocistPoVyprseni
+        ? zapoctiTrofejeZDuelu(zakladPoVyprseni.trofeje!, [vyprsely], prubeh.profilId, stav.banky)
+        : { trofeje: zakladPoVyprseni.trofeje!, zapocitane: [], noveTituly: [] };
+      set({
+        aktualniDuel: null,
+        duely: stav.duely.map((d) => (d.id === vyprsely.id ? vyprsely : d)),
+        ...(poVyprseni.zapocitane.length > 0
+          ? {
+              progres: {
+                ...zakladPoVyprseni,
+                trofeje: poVyprseni.trofeje,
+                aktualizovano: tedIso,
+              },
+              duelyZapocitane: orizniZapocitane([
+                ...stav.duelyZapocitane,
+                ...poVyprseni.zapocitane,
+              ]),
+              noveTituly: [...stav.noveTituly, ...poVyprseni.noveTituly],
+            }
+          : {}),
+      });
+      return;
+    }
+
+    // Moje pulka je dohrana: vysledek do duelu, pripadne lokalni vyhodnoceni
+    // (souper uz hral) vcetne trofeji, a odeslani pres offline frontu.
+    const vysledek = vysledekZPrubehu(novyPrubeh, ted.toISOString());
+    const vysledky = { ...duel.vysledky, [prubeh.profilId]: vysledek };
+    let novyDuel: Duel = {
+      ...duel,
+      // Vysledek cileneho soupere je zaroven prijeti vyzvy (kontrakt serveru).
+      stav:
+        duel.stav === 'cekajici' && duel.souper?.profilId === prubeh.profilId
+          ? 'prijaty'
+          : duel.stav,
+      vysledky,
+    };
+    if (novyDuel.souper && vysledky[novyDuel.vyzyvatel.profilId] && vysledky[novyDuel.souper.profilId]) {
+      novyDuel = { ...novyDuel, stav: 'hotovy', vitezProfilId: vyhodnotDuel(novyDuel) };
+    }
+
+    const zakladProgres = doplnDuelovyProgres(stav.progres);
+    const dokoncen = jeDokoncenyDuel(novyDuel) && !stav.duelyZapocitane.includes(novyDuel.id);
+    const { trofeje, zapocitane, noveTituly } = dokoncen
+      ? zapoctiTrofejeZDuelu(zakladProgres.trofeje!, [novyDuel], prubeh.profilId, stav.banky)
+      : { trofeje: zakladProgres.trofeje!, zapocitane: [], noveTituly: [] };
+
+    set({
+      aktualniDuel: null,
+      duely: stav.duely.map((d) => (d.id === novyDuel.id ? novyDuel : d)),
+      ...(zapocitane.length > 0
+        ? {
+            progres: { ...zakladProgres, trofeje, aktualizovano: ted.toISOString() },
+            duelyZapocitane: orizniZapocitane([...stav.duelyZapocitane, ...zapocitane]),
+            noveTituly: [...stav.noveTituly, ...noveTituly],
+          }
+        : {}),
+    });
+
+    // Push vysledku pres offline frontu (typ 'duel-vysledek') — dynamicky
+    // import brani cyklu zavislosti, selhani site je tiche (offline-first).
+    void import('../sync/sync')
+      .then((m) => m.zaznamenejVysledekDuelu(novyDuel.id, vysledek))
+      .catch(() => {});
+  },
+
+  pouzijPowerupAkce: (typ, nahoda = Math.random) => {
+    const stav = get();
+    const prubeh = stav.aktualniDuel;
+    if (!prubeh || prubeh.dokonceno) return false;
+    const zakladProgres = doplnDuelovyProgres(stav.progres);
+    const zasoba = zakladProgres.powerupy?.[typ] ?? 0;
+    if (zasoba <= 0) return false;
+    const duel = stav.duely.find((d) => d.id === prubeh.duelId);
+    const otazka = duel
+      ? (otazkyDuelu(duel, stav.banky[duel.predmetId])?.[prubeh.index] ?? null)
+      : null;
+    if (!otazka) return false;
+    const novyPrubeh = pouzijPowerupVPrubehu(prubeh, typ, otazka, nahoda);
+    if (!novyPrubeh) return false;
+    set({
+      aktualniDuel: novyPrubeh,
+      progres: {
+        ...zakladProgres,
+        powerupy: { ...zakladProgres.powerupy!, [typ]: zasoba - 1 },
+        aktualizovano: new Date().toISOString(),
+      },
+    });
+    return true;
+  },
+
+  oznacTitulyZaVidene: () => {
+    if (get().noveTituly.length > 0) set({ noveTituly: [] });
   },
 });

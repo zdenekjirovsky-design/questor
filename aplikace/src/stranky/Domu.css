@@ -593,3 +593,10 @@
     height: 52px;
   }
 }
+
+/* --- Dlazdice „Duely" (layout sdili s .domu-uceni ve vyuka.css) --- */
+
+.domu-duely--pulzuje {
+  border-color: var(--zlata);
+  animation: pulz-zare-zlata 1.6s ease-in-out infinite;
+}

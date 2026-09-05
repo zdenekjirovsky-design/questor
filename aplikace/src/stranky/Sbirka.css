@@ -308,3 +308,88 @@
     min-width: 60%;
   }
 }
+
+/* --- Trofejni vitrina duelu --- */
+
+.sbirka__vitrina {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.sbirka__tituly {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sbirka__titul {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--zlata);
+  color: var(--zlata);
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: var(--zare-zlata);
+}
+
+.sbirka__dvojice-mrizka {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.sbirka__dvojice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+}
+
+.sbirka__dvojice-kruh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  font-family: var(--pismo-display);
+  font-size: 1.4rem;
+  color: var(--text-tlumeny);
+}
+
+.sbirka__dvojice-jmeno {
+  font-weight: 700;
+}
+
+.sbirka__dvojice-bilance {
+  font-family: var(--pismo-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.sbirka__dvojice-vyhry {
+  color: var(--zlata);
+}
+
+.sbirka__dvojice-popisek {
+  font-family: var(--pismo);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-tlumeny);
+}
+
+.sbirka__dvojice-serie {
+  font-size: 0.85rem;
+  color: var(--chyba);
+}
+
+@media (max-width: 760px) {
+  .sbirka__dvojice-mrizka {
+    grid-template-columns: 1fr;
+  }
+}

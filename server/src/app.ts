@@ -33,6 +33,7 @@ import {
 } from './validace';
 import { vytvorRateLimit, type MoznostiRateLimit } from './limit';
 import { VYCHOZI_PROFIL_ID, VYCHOZI_PROFIL_JMENO } from './db';
+import { registrujDuely } from './duely';
 import { ADMIN_HTML } from './admin';
 
 export const VERZE = '0.1.0';
@@ -521,6 +522,16 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     };
     db.prepare('UPDATE vyzvy SET json = ? WHERE id = ?').run(JSON.stringify(hotova), id);
     return c.json({ ok: true });
+  });
+
+  // --- Duely ---------------------------------------------------------------
+  // Asynchronní výzvy mezi profily rodiny — routy a pravidla v src/duely.ts
+  // (čisté jádro ve @questor/sdilene).
+
+  registrujDuely(app, db, {
+    student: overAuth('student'),
+    admin: overAuth('admin'),
+    limitTela: LIMIT_BEZNY,
   });
 
   // --- Dogenerování otázek -------------------------------------------------

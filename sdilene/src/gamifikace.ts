@@ -10,6 +10,7 @@ import type {
   Odmena,
   OdpovedZaznam,
   Otazka,
+  PowerupTyp,
   ProgresStudenta,
   QuestDenni,
   RezimTestu,
@@ -18,6 +19,7 @@ import type {
   Streak,
   Tema,
   TestVysledek,
+  TrofejeProfilu,
   TruhlaTyp,
   Vzacnost,
 } from './typy';
@@ -186,13 +188,19 @@ export function urciTruhlu(uspesnost: number): TruhlaTyp | null {
   return null;
 }
 
+/**
+ * Power-upy do duelů — pořadí je závazné pro rovnoměrný los z truhly
+ * (deterministické testy). Detail viz PowerupTyp v typy.ts a duely.ts.
+ */
+export const POWERUP_TYPY: PowerupTyp[] = ['pade-na-pade', 'zmrazeni-casu', 'stit'];
+
 const VAHY_TRUHEL: Record<
   TruhlaTyp,
-  { xpMin: number; xpMax: number; pKarta: number; pVybava: number; pZmrazeni: number }
+  { xpMin: number; xpMax: number; pKarta: number; pVybava: number; pPowerup: number; pZmrazeni: number }
 > = {
-  bronzova: { xpMin: 20, xpMax: 40, pKarta: 0.2, pVybava: 0.12, pZmrazeni: 0.1 },
-  stribrna: { xpMin: 40, xpMax: 80, pKarta: 0.3, pVybava: 0.18, pZmrazeni: 0.15 },
-  zlata: { xpMin: 80, xpMax: 150, pKarta: 0.45, pVybava: 0.25, pZmrazeni: 0.15 },
+  bronzova: { xpMin: 20, xpMax: 40, pKarta: 0.2, pVybava: 0.12, pPowerup: 0.1, pZmrazeni: 0.1 },
+  stribrna: { xpMin: 40, xpMax: 80, pKarta: 0.3, pVybava: 0.18, pPowerup: 0.12, pZmrazeni: 0.15 },
+  zlata: { xpMin: 80, xpMax: 150, pKarta: 0.45, pVybava: 0.25, pPowerup: 0.15, pZmrazeni: 0.15 },
 };
 
 /** Po kolika truhlách bez karty je karta garantovaná (pity timer). */
@@ -250,9 +258,11 @@ export const VYBAVA_KATALOG: VybavaDefinice[] = [
  * `dostupneKarty` = definice karet, které lze vylosovat (vlastněné se filtrují tady);
  * `vlastnenaVybava` = id už vlastněných položek výbavy (losuje se jen z nevlastněných).
  *
- * Pásma losu jdou za sebou: [0, pKarta) karta, dál pVybava výbava, dál pZmrazeni
- * zmrazení, zbytek XP. Pozice pásem jsou PEVNÉ — když pásmo nemá co dát (vše
- * vlastněno), propadá jeho los do XP a ostatní pásma se neposouvají.
+ * Pásma losu jdou za sebou: [0, pKarta) karta, dál pVybava výbava, dál pPowerup
+ * power-up do duelů, dál pZmrazeni zmrazení, zbytek XP. Pozice pásem jsou
+ * PEVNÉ — když pásmo nemá co dát (vše vlastněno), propadá jeho los do XP
+ * a ostatní pásma se neposouvají. Power-upy se vlastnictvím NEVYČERPÁVAJÍ —
+ * typ se losuje vždy rovnoměrně ze tří (počty v progresu drží volající).
  * Pity timer karet zůstává beze změny (počítá truhly bez KARTY).
  */
 export function otevriTruhlu(
@@ -285,10 +295,14 @@ export function otevriTruhlu(
   }
 
   const novaSbirka: Sbirka = { ...sbirka, truhelBezKarty: sbirka.truhelBezKarty + 1 };
+  // Hranice pásem se zaokrouhlují na 3 desetinná místa — součty pravděpodobností
+  // v plovoucí čárce (0.2 + 0.12 + 0.1 = 0.42000…04) nesmí posouvat pásma.
+  const na3 = (x: number) => Math.round(x * 1000) / 1000;
   const zacatekVybavy = cfg.pKarta;
-  const zacatekZmrazeni = cfg.pKarta + cfg.pVybava;
+  const zacatekPowerupu = na3(cfg.pKarta + cfg.pVybava);
+  const zacatekZmrazeni = na3(zacatekPowerupu + cfg.pPowerup);
 
-  if (los >= zacatekVybavy && los < zacatekZmrazeni && nevlastnenaVybava.length > 0) {
+  if (los >= zacatekVybavy && los < zacatekPowerupu && nevlastnenaVybava.length > 0) {
     const [vybava] = vazenyVyber(
       nevlastnenaVybava,
       nevlastnenaVybava.map((v) => VAHA_VZACNOSTI[v.vzacnost]),
@@ -302,7 +316,17 @@ export function otevriTruhlu(
     };
   }
 
-  if (los >= zacatekZmrazeni && los < zacatekZmrazeni + cfg.pZmrazeni) {
+  if (los >= zacatekPowerupu && los < zacatekZmrazeni) {
+    // Power-upy se nevyčerpávají — typ se losuje rovnoměrně ze tří vždy.
+    const idx = Math.min(POWERUP_TYPY.length - 1, Math.floor(nahoda() * POWERUP_TYPY.length));
+    return {
+      odmena: { typ: 'powerup', powerupTyp: POWERUP_TYPY[idx] },
+      sbirka: novaSbirka,
+      vlastnenaVybava,
+    };
+  }
+
+  if (los >= zacatekZmrazeni && los < na3(zacatekZmrazeni + cfg.pZmrazeni)) {
     return { odmena: { typ: 'zmrazeni' }, sbirka: novaSbirka, vlastnenaVybava };
   }
   const xp = Math.round(cfg.xpMin + nahoda() * (cfg.xpMax - cfg.xpMin));
@@ -575,6 +599,22 @@ export const VYCHOZI_AVATAR: AvatarKonfigurace = {
   vybava: {},
 };
 
+/** Prázdná zásoba power-upů (všechny typy na nule). */
+export function vychoziPowerupy(): Record<PowerupTyp, number> {
+  return { 'pade-na-pade': 0, 'zmrazeni-casu': 0, stit: 0 };
+}
+
+/** Prázdná trofejní vitrína duelů. */
+export function vychoziTrofeje(): TrofejeProfilu {
+  return {
+    dvojice: {},
+    tituly: [],
+    serieVyherCelkem: 0,
+    seriePodleOboru: {},
+    duelyCelkem: 0,
+  };
+}
+
 export function vychoziProgres(ted: string): ProgresStudenta {
   return {
     xp: 0,
@@ -591,6 +631,8 @@ export function vychoziProgres(ted: string): ProgresStudenta {
       tydenniXp: {},
     },
     dokonceneTesty: 0,
+    powerupy: vychoziPowerupy(),
+    trofeje: vychoziTrofeje(),
     aktualizovano: ted,
   };
 }

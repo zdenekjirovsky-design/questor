@@ -2,9 +2,11 @@
 // Nezískané karty jsou tmavé siluety („co mi chybí“ táhne víc než „co mám“);
 // nové karty se při prvním zobrazení otočí flip animací.
 import { useEffect, useState } from 'react';
-import type { KartaDefinice, StupenMistrovstvi, Vzacnost } from '@questor/sdilene';
+import type { KartaDefinice, StupenMistrovstvi, TrofejeProfilu, Vzacnost } from '@questor/sdilene';
 import { KARTY_VELIKANI } from '@questor/sdilene';
+import { Link } from 'react-router-dom';
 import { pouzijStav } from '../stav/store';
+import Avatar from '../hra/Avatar';
 import './Sbirka.css';
 
 const NAZVY_VZACNOSTI: Record<Vzacnost, string> = {
@@ -26,6 +28,89 @@ const IKONY_STUPNU: Record<StupenMistrovstvi, string> = {
   zlato: '🥇',
 };
 
+/**
+ * Trofejni vitrina duelu: head-to-head bilance dvojic (avatar, skore serie)
+ * a ziskane tituly. Data drzi progres.trofeje (aktualizuje hraSlice po
+ * kazdem dokoncenem duelu pres sdilenou funkci aktualizujTrofeje).
+ */
+function TrofejniVitrina({ trofeje }: { trofeje: TrofejeProfilu | undefined }) {
+  const profily = pouzijStav((s) => s.profily);
+  const dataProfilu = pouzijStav((s) => s.dataProfilu);
+  const duely = pouzijStav((s) => s.duely);
+
+  const dvojice = Object.entries(trofeje?.dvojice ?? {});
+  const tituly = trofeje?.tituly ?? [];
+
+  // Jmeno soupere: registr profilu → jmena zaznamenana primo v duelech
+  // (soupere z jineho zarizeni nemusi lokalni registr znat) → zaloha.
+  const jmenaZDuelu = new Map<string, string>();
+  for (const duel of duely) {
+    jmenaZDuelu.set(duel.vyzyvatel.profilId, duel.vyzyvatel.jmeno);
+    if (duel.souper) jmenaZDuelu.set(duel.souper.profilId, duel.souper.jmeno);
+  }
+
+  if (dvojice.length === 0 && tituly.length === 0) {
+    return (
+      <p className="sbirka__prazdno panel">
+        Vitrína čeká na první duel. <Link to="/duely">Vyzvi někoho z rodiny ⚔️</Link>
+      </p>
+    );
+  }
+
+  return (
+    <div className="sbirka__vitrina">
+      {tituly.length > 0 && (
+        <div className="sbirka__tituly">
+          {tituly.map((titul) => (
+            <span key={titul} className="sbirka__titul">
+              👑 {titul}
+            </span>
+          ))}
+        </div>
+      )}
+      {dvojice.length > 0 && (
+        <div className="sbirka__dvojice-mrizka">
+          {dvojice.map(([souperId, bilance]) => {
+            const profil = profily.find((p) => p.id === souperId);
+            const avatar = dataProfilu[souperId]?.progres.avatar;
+            const jmeno = profil?.jmeno ?? jmenaZDuelu.get(souperId) ?? 'Bývalý profil';
+            return (
+              <div key={souperId} className="panel sbirka__dvojice">
+                <div className="sbirka__dvojice-avatar" aria-hidden="true">
+                  {avatar ? (
+                    <Avatar konfigurace={avatar} velikost={56} />
+                  ) : (
+                    <span
+                      className="sbirka__dvojice-kruh"
+                      style={profil ? { borderColor: profil.barva } : undefined}
+                    >
+                      {jmeno.slice(0, 1).toUpperCase()}
+                    </span>
+                  )}
+                </div>
+                <div className="sbirka__dvojice-texty">
+                  <div className="sbirka__dvojice-jmeno">proti: {jmeno}</div>
+                  <div className="sbirka__dvojice-bilance">
+                    <span className="sbirka__dvojice-vyhry">{bilance.vyhry}</span>
+                    –<span>{bilance.prohry}</span>
+                    {bilance.remizy > 0 && <>–<span>{bilance.remizy}</span></>}
+                    <span className="sbirka__dvojice-popisek">
+                      {' '}(výhry–prohry{bilance.remizy > 0 ? '–remízy' : ''})
+                    </span>
+                  </div>
+                  {bilance.serieVyher >= 2 && (
+                    <div className="sbirka__dvojice-serie">🔥 série {bilance.serieVyher} výher</div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function monogram(jmeno: string): string {
   const casti = jmeno.split(' ').filter(Boolean);
   const prvni = casti[0]?.[0] ?? '?';
@@ -42,6 +127,7 @@ interface MistrovskaKarta {
 
 export default function Sbirka() {
   const sbirka = pouzijStav((s) => s.progres.sbirka);
+  const trofeje = pouzijStav((s) => s.progres.trofeje);
   const banky = pouzijStav((s) => s.banky);
   const novaKarty = pouzijStav((s) => s.novaKarty);
   const oznacKartyZaVidene = pouzijStav((s) => s.oznacKartyZaVidene);
@@ -147,6 +233,9 @@ export default function Sbirka() {
           ))}
         </div>
       )}
+
+      <h2 className="sbirka__nadpis-sekce">⚔️ Trofejní vitrína</h2>
+      <TrofejniVitrina trofeje={trofeje} />
 
       {/* Detail karty */}
       {detail && (

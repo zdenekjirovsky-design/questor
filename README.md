@@ -7,8 +7,9 @@ nejdřív naučí („Učit se“) a pak z ní staví testy s XP, streaky, denn�
 questy, truhlami a sbírkou karet. Na jednom počítači se střídá víc lidí
 přes profily (bez e-mailu, volitelný PIN); rodinný kód propojí zařízení
 rodiny — profil i herní postup se přes malý server synchronizují mezi
-telefonem a počítačem. UI je responzivní až do šířky telefonu
-(hostovaná webová verze s PWA základem).
+telefonem a počítačem a členové rodiny se mohou vyzývat na duely
+(stejné otázky, časový limit, power-upy, trofeje). UI je responzivní až
+do šířky telefonu (hostovaná webová verze s PWA základem).
 
 ## Rychlý start (vývoj, macOS/Linux)
 
@@ -37,7 +38,7 @@ Názvy, ikony a pořadí předmětů v UI drží registr
 `aplikace/src/data/predmety.ts` (`PREDMETY`); obsah se bundluje jako JSON
 v `aplikace/src/data/predmety/`. **Nový předmět nebo další ročník**
 (= nový předmět s vlastním id, např. `matematika-2`): postup
-v `docs/NAVOD.md`, kap. 6 — učivo → banka → výuka → registr → bundle.
+v `docs/NAVOD.md`, kap. 7 — učivo → banka → výuka → registr → bundle.
 
 ## Profily
 
@@ -66,6 +67,20 @@ nemaže a s opětovným přidáním se vrací. Server profily
 rozlišuje přes `profilId` posílaný při syncu (studentský token je
 společný): admin web ukazuje progres všech profilů vedle sebe a výzvy
 jde cílit na konkrétní profil. Postupy: `docs/NAVOD.md`, kap. 3 a 4.
+
+## Duely
+
+Asynchronní souboje mezi profily jedné rodiny: vyzyvatel zvolí obor
+(banku), volitelně témata, počet otázek (5/10/20) a soupeře — konkrétní
+profil, nebo otevřenou výzvu „kdokoli z rodiny“ (hraje první, kdo
+přijme). Oba hrají do 24 hodin identickou sadu otázek s časovým limitem
+na otázku a viditelným odpočtem, bez průběžné zpětné vazby; správně
+= 100 bodů + bonus za rychlost. Slabší hráč v oboru dostává férový
+bonus času (handicap ×1,0–1,5 zmrazený na celý duel), z truhel padají
+power-upy použitelné jen v duelu (50:50, zmrazení času, štít) a výhry
+se sbírají do trofejní vitríny (bilance dvojic, série, tituly). Server
+výsledky přepočítává ze syrových odpovědí a sadu otázek vydává až při
+přijetí — podvádět se nevyplácí. Postup: `docs/NAVOD.md`, kap. 5.
 
 ## Generování otázek a výuky z učiva
 

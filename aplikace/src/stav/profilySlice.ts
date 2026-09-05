@@ -13,6 +13,7 @@
 // viz ../sync/fronta.ts) — smazani profilu ji maze akci smazProfil.
 import type { StateCreator } from 'zustand';
 import type {
+  Duel,
   ProfilRegistrZaznam,
   ProgresStudenta,
   QuestDenni,
@@ -22,6 +23,7 @@ import type {
 } from '@questor/sdilene';
 import { vychoziProgres } from '@questor/sdilene';
 import type { TestStav } from '../testy/engine';
+import type { DuelPrubeh } from '../duely/engine';
 import type { PostupLekce } from './vyukaSlice';
 import { PREDMETY } from '../data/predmety';
 import type { QUESTORStav } from './store';
@@ -93,6 +95,16 @@ export interface DataProfilu {
    * hraSlice.zapocitejTest).
    */
   tydenniXpTestuPodleBank: Record<string, Record<string, number>>;
+  /** Moje duely (bezici + historie) — osobni data, viz hraSlice. */
+  duely: Duel[];
+  /** Otevrene rodinne vyzvy jinych hracu (server je filtruje per profil). */
+  otevreneDuely: Duel[];
+  /** Rozehrany prubeh duelu (cas bezi dal i pres prepnuti profilu). */
+  aktualniDuel: DuelPrubeh | null;
+  /** Id duelu uz zapocitanych do trofeji (kazdy jen jednou). */
+  duelyZapocitane: string[];
+  /** Tituly ziskane a jeste neoslavene. */
+  noveTituly: string[];
 }
 
 /** Paleta barev profilu (karty na vyberu, krouzek v hlavicce). */
@@ -138,6 +150,11 @@ export function vychoziDataProfilu(ted: string = new Date().toISOString()): Data
     postupLekci: {},
     questyPodleBank: {},
     tydenniXpTestuPodleBank: {},
+    duely: [],
+    otevreneDuely: [],
+    aktualniDuel: null,
+    duelyZapocitane: [],
+    noveTituly: [],
   };
 }
 
@@ -166,6 +183,11 @@ export function sejmiDataProfilu(stav: QUESTORStav): DataProfilu {
     postupLekci: stav.postupLekci,
     questyPodleBank: stav.questyPodleBank,
     tydenniXpTestuPodleBank: stav.tydenniXpTestuPodleBank,
+    duely: stav.duely,
+    otevreneDuely: stav.otevreneDuely,
+    aktualniDuel: stav.aktualniDuel,
+    duelyZapocitane: stav.duelyZapocitane,
+    noveTituly: stav.noveTituly,
   };
 }
 

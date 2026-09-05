@@ -112,7 +112,7 @@ export interface TestVysledek {
 
 export type TruhlaTyp = 'bronzova' | 'stribrna' | 'zlata';
 
-export type OdmenaTyp = 'xp' | 'karta' | 'zmrazeni' | 'vybava';
+export type OdmenaTyp = 'xp' | 'karta' | 'zmrazeni' | 'vybava' | 'powerup';
 
 export interface Odmena {
   typ: OdmenaTyp;
@@ -120,6 +120,8 @@ export interface Odmena {
   kartaId?: string;
   /** Id položky výbavy z VYBAVA_KATALOG (jen pro typ 'vybava'). */
   vybavaId?: string;
+  /** Typ power-upu do duelů (jen pro typ 'powerup'). */
+  powerupTyp?: PowerupTyp;
 }
 
 export type Vzacnost = 'obycejna' | 'vzacna' | 'epicka' | 'legendarni';
@@ -152,6 +154,109 @@ export interface Vyzva {
   stav: 'nova' | 'prijata' | 'dokoncena';
   cilovaUspesnost?: number; // 0–1
   vysledek?: { uspesnost: number; xp: number; dokonceno: string };
+}
+
+// ---------------------------------------------------------------------------
+// Duely — asynchronní výzvy mezi profily jedné rodiny (stejný rodinný kód).
+// Oba hráči hrají IDENTICKOU sadu otázek (stejné pořadí, míchání možností ze
+// seedu = id duelu) do 24 hodin, bez průběžné zpětné vazby (jako režim zkouška).
+
+/**
+ * Power-upy do duelů — padají z truhel, hromadí se v progresu a použít je lze
+ * JEN v duelu, každý typ max 1× za duel:
+ * - 'pade-na-pade'  = 50:50, skryje 2 špatné možnosti u výběrové otázky,
+ * - 'zmrazeni-casu' = +10 s na aktuální otázku,
+ * - 'stit'          = první špatná odpověď se počítá za 50 bodů místo 0.
+ */
+export type PowerupTyp = 'pade-na-pade' | 'zmrazeni-casu' | 'stit';
+
+export interface UcastnikDuelu {
+  profilId: string;
+  jmeno: string;
+}
+
+export interface OdpovedDuelu {
+  otazkaId: string;
+  spravne: boolean;
+  /** Čas strávený na otázce (timeout = čas limitu, spravne false). */
+  casMs: number;
+  /** Power-up použitý na této otázce (každý typ max 1× za duel). */
+  pouzityPowerup?: PowerupTyp;
+}
+
+export interface VysledekDuelu {
+  odpovedi: OdpovedDuelu[];
+  /** Součet bodů dle bodyZaOdpoved (100 + časový bonus, štít 50 za první chybu). */
+  body: number;
+  /** Součet časů odpovědí — rozhoduje při shodě bodů (nižší vyhrává). */
+  celkovyCasMs: number;
+  /** ISO čas dokončení duelu hráčem. */
+  dokonceno: string;
+}
+
+export type StavDuelu = 'cekajici' | 'prijaty' | 'hotovy' | 'vyprsely';
+
+export interface Duel {
+  id: string;
+  /** Obor duelu = jedna banka otázek. */
+  predmetId: string;
+  /** Volitelné zúžení na témata banky; undefined = celá banka. */
+  temataId?: string[];
+  pocetOtazek: 5 | 10 | 20;
+  /**
+   * Identická sada otázek pro oba hráče (pořadí závazné, výběr ze seedu
+   * = id duelu). POZOR: GET /api/duely sadu ZATAJUJE (prázdné pole) adresátovi
+   * cílené výzvy před přijetím a u otevřených výzev rodiny — anti-cheat, aby
+   * si hráč nemohl odpovědi nachystat předem; plná sada přijde s přijetím.
+   */
+  otazkyIds: string[];
+  /**
+   * Verze banky, proti které duel vznikl (server ji zapíše při založení).
+   * Server proti ní přepočítává výsledek; volitelná kvůli starším duelům.
+   */
+  verzeBanky?: number;
+  vyzyvatel: UcastnikDuelu;
+  /** Vyzvaný soupeř; u výzvy „kdokoli z rodiny“ chybí, dokud ji někdo nepřijme. */
+  souper?: UcastnikDuelu;
+  /** true = výzvu smí přijmout kdokoli z rodiny (první, kdo přijme). */
+  otevrenyProRodinu: boolean;
+  /**
+   * Handicap férovosti: profilId → násobič časového limitu na otázku
+   * (1.0–1.5, slabší hráč dostává delší limity). Počítá se ze snapshotů
+   * progresu na serveru při vytvoření/přijetí duelu a je NEMĚNNÝ po celý duel.
+   */
+  handicap: Record<string, number>;
+  stav: StavDuelu;
+  /** profilId → výsledek hráče (zapisuje se po dokončení jeho půlky duelu). */
+  vysledky: Record<string, VysledekDuelu>;
+  /** Vítěz duelu; null = remíza, undefined = ještě nevyhodnoceno. */
+  vitezProfilId?: string | null;
+  vytvoreno: string; // ISO
+  /** ISO čas vypršení duelu (vytvořeno + 24 h). */
+  vyprsi: string;
+}
+
+/** Head-to-head bilance vůči jednomu soupeři (klíč v TrofejeProfilu.dvojice). */
+export interface BilanceDvojice {
+  vyhry: number;
+  prohry: number;
+  remizy: number;
+  /** Aktuální série výher proti tomuto soupeři (prohra i remíza ji nulují). */
+  serieVyher: number;
+}
+
+/** Trofejní vitrína profilu — bilance dvojic, série a získané tituly. */
+export interface TrofejeProfilu {
+  /** souperProfilId → bilance vzájemných duelů. */
+  dvojice: Record<string, BilanceDvojice>;
+  /** Získané tituly (např. „Vítězná vlna“, „Postrach: <obor>“, „Duelant“). */
+  tituly: string[];
+  /** Aktuální série výher přes všechny duely (titul „Vítězná vlna“). */
+  serieVyherCelkem: number;
+  /** predmetId → aktuální série výher v daném oboru (titul „Postrach: <obor>“). */
+  seriePodleOboru: Record<string, number>;
+  /** Celkový počet dokončených duelů (titul „Duelant“). */
+  duelyCelkem: number;
 }
 
 export interface StatistikaOtazky {
@@ -205,6 +310,17 @@ export interface ProgresStudenta {
     tydenniXp: Record<string, number>;
   };
   dokonceneTesty: number;
+  /**
+   * Zásoba power-upů do duelů (padají z truhel). VOLITELNÉ kvůli zpětné
+   * kompatibilitě se staršími snapshoty — chybějící pole doplní
+   * doplnDuelovyProgres (sdilene/src/duely.ts).
+   */
+  powerupy?: Record<PowerupTyp, number>;
+  /**
+   * Duelové trofeje a head-to-head bilance. VOLITELNÉ kvůli zpětné
+   * kompatibilitě — chybějící pole doplní doplnDuelovyProgres.
+   */
+  trofeje?: TrofejeProfilu;
   aktualizovano: string; // ISO
 }
 

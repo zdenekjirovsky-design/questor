@@ -13,23 +13,34 @@ interface Props {
   odeslana: OdpovedHodnota | null;
   /** Ukázat správně/špatně (mimo režim zkouška). */
   zobrazVyhodnoceni: boolean;
+  /** Datové indexy možností skryté power-upem 50:50 (jen v duelu). */
+  skryteIndexy?: number[];
   onOdpoved(hodnota: OdpovedHodnota): void;
 }
 
-export default function VyberOtazka({ otazka, odeslana, zobrazVyhodnoceni, onOdpoved }: Props) {
+export default function VyberOtazka({
+  otazka,
+  odeslana,
+  zobrazVyhodnoceni,
+  skryteIndexy,
+  onOdpoved,
+}: Props) {
   const zamceno = odeslana !== null;
   const vybrana = odeslana?.typ === 'vyber' ? odeslana.vybrana : null;
-  // Zobrazovací pořadí možností: pozice → datový index.
-  const poradi = useMemo(
-    () => zamichaneIndexy(`vyber:${otazka.id}`, otazka.moznosti.length),
-    [otazka],
-  );
+  // Zobrazovací pořadí možností: pozice → datový index. Možnosti skryté
+  // power-upem 50:50 vypadnou úplně (klávesy se přečíslují na viditelné).
+  const poradi = useMemo(() => {
+    const zamichane = zamichaneIndexy(`vyber:${otazka.id}`, otazka.moznosti.length);
+    return skryteIndexy && skryteIndexy.length > 0
+      ? zamichane.filter((i) => !skryteIndexy.includes(i))
+      : zamichane;
+  }, [otazka, skryteIndexy]);
 
   useEffect(() => {
     if (zamceno) return;
     const zpracuj = (e: KeyboardEvent) => {
       if (jeVstupniPole(e.target) || e.metaKey || e.ctrlKey || e.altKey) return;
-      const pozice = indexZKlavesy(e.key, otazka.moznosti.length);
+      const pozice = indexZKlavesy(e.key, poradi.length);
       if (pozice === null) return;
       e.preventDefault();
       onOdpoved({ typ: 'vyber', vybrana: poradi[pozice] });

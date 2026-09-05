@@ -8,8 +8,19 @@
 // položky se do ní řadí už OBOHACENÉ o profil, takže přepnutí profilu před
 // odesláním atribuci nezmění. Selhání sítě je TICHÉ — žádné chybové UI
 // uprostřed hry, jen nenápadný indikátor stavu (Nastavení / Domů).
-import { validujBanku, validujVyuku } from '@questor/sdilene';
-import type { ProfilRegistrZaznam, ProgresStudenta, TestVysledek } from '@questor/sdilene';
+import {
+  doplnDuelovyProgres,
+  prinasiTrofejeNavic,
+  sloucTrofeje,
+  validujBanku,
+  validujVyuku,
+} from '@questor/sdilene';
+import type {
+  ProfilRegistrZaznam,
+  ProgresStudenta,
+  TestVysledek,
+  VysledekDuelu,
+} from '@questor/sdilene';
 import { pouzijStav, type QUESTORStav } from '../stav/store';
 import { aktivniPredmetProfilu, predmetyProfilu, type Profil } from '../stav/profilySlice';
 import { ChybaSyncu, nactiSyncNastaveni, vytvorKlienta, vychoziUloziste, type QuestorKlient } from './klient';
@@ -276,6 +287,20 @@ async function provedSync(duvod: DuvodSyncu): Promise<void> {
       if (pouzijStav.getState().aktivniProfilId === aktivniId) {
         pouzijStav.getState().prijmiVyzvy(vyzvy);
       }
+
+      // --- pull: duely aktivniho profilu -----------------------------------
+      // Vlastni try/catch: starsi server bez /api/duely nesmi shodit sync.
+      // Plati pravidlo pullu osobnich dat (prepnuti profilu behem letu =
+      // zahodit). Nove vyzvy se propisi do indikatoru na Domu i v navigaci
+      // (odvozuji se ze store — pocetCekajicichVyzev).
+      try {
+        const duely = await klient.stahniDuely(aktivniId);
+        if (pouzijStav.getState().aktivniProfilId === aktivniId) {
+          pouzijStav.getState().prijmiDuely(duely.moje, duely.otevrene);
+        }
+      } catch {
+        // Tiche — duely jsou bonus, zbytek syncu jede dal.
+      }
     }
 
     // --- pull: kompletní postup aktivního profilu (LWW) ----------------------
@@ -323,6 +348,22 @@ export function zaznamenejDokoncenyTest(vysledek: TestVysledek): void {
   fronta.pridejProgres(oznacProgres(pouzijStav.getState().progres, profil));
   nastavStav({});
   void synchronizuj('po-testu');
+}
+
+/**
+ * Volá hraSlice po dokončení mé půlky duelu: zařadí výsledek do fronty
+ * AKTIVNÍHO profilu (typ 'duel-vysledek' — at-least-once, přežije offline)
+ * spolu se snapshotem progresu (spotřebované power-upy) a zkusí sync.
+ * Síť se zkouší jen v prohlížeči; v testech se položky jen zařadí.
+ */
+export function zaznamenejVysledekDuelu(duelId: string, vysledek: VysledekDuelu): void {
+  const profil = aktivniProfil();
+  if (!profil) return;
+  const fronta = frontaProfilu(profil.id);
+  fronta.pridejVysledekDuelu(duelId, profil.id, vysledek);
+  fronta.pridejProgres(oznacProgres(pouzijStav.getState().progres, profil));
+  nastavStav({});
+  if (typeof window !== 'undefined') void synchronizuj('po-testu');
 }
 
 /**
@@ -435,8 +476,30 @@ async function pullPostupAktivnihoProfilu(klient: QuestorKlient): Promise<void> 
           ...serverovy.questy.filter((q) => q.splneno).map((q) => q.id),
         ]),
       ];
-      pouzijStav.setState({ progres: serverovy, questyOdmeneno });
+      // TROFEJE se pri LWW nahrade MERGUJI (max citacu, sjednoceni titulu,
+      // sloucTrofeje) — novejsi snapshot z druheho zarizeni, ktery trofej z
+      // mistne dohraneho duelu jeste nema, by ji jinak NENAVRATNE smazal
+      // (duelyZapocitane blokuje prepocet). Kdyz merge neco prida, bumpne se
+      // aktualizovano a snapshot se pushne, at trofej dorazi i na server
+      // a ostatni zarizeni; jinak se serverovy snapshot prebira beze zmeny.
+      const lokalniTrofeje = doplnDuelovyProgres(stav.progres).trofeje!;
+      const serverovyDoplneny = doplnDuelovyProgres(serverovy);
+      const mergovat = prinasiTrofejeNavic(lokalniTrofeje, serverovyDoplneny.trofeje!);
+      const prijaty = mergovat
+        ? {
+            ...serverovyDoplneny,
+            trofeje: sloucTrofeje(serverovyDoplneny.trofeje!, lokalniTrofeje),
+            aktualizovano: new Date().toISOString(),
+          }
+        : serverovy;
+      pouzijStav.setState({ progres: prijaty, questyOdmeneno });
       pouzijStav.getState().obnovDenniQuesty();
+      if (mergovat) {
+        frontaProfilu(profil.id).pridejProgres(
+          oznacProgres(pouzijStav.getState().progres, profil),
+        );
+        await frontaProfilu(profil.id).odesli(klient);
+      }
     } else if (stav.progres.aktualizovano > serverovy.aktualizovano) {
       // Lokál je novější → server si má vzít náš snapshot.
       frontaProfilu(profil.id).pridejProgres(oznacProgres(stav.progres, profil));

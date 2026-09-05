@@ -349,6 +349,13 @@ describe('otevriTruhluAkce', () => {
     } else if (odmena.typ === 'vybava') {
       expect(odmena.vybavaId).toBeTruthy();
       expect(stav.progres.vlastnenaVybava).toContain(odmena.vybavaId);
+    } else if (odmena.typ === 'powerup') {
+      expect(odmena.powerupTyp).toBeTruthy();
+      if (odmena.powerupTyp) {
+        expect(stav.progres.powerupy?.[odmena.powerupTyp]).toBe(
+          (pred.powerupy?.[odmena.powerupTyp] ?? 0) + 1,
+        );
+      }
     } else {
       expect(odmena.kartaId).toBeTruthy();
       expect(stav.progres.sbirka.karty).toContain(odmena.kartaId);

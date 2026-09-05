@@ -19,6 +19,7 @@ function mockKlient(selze = false): KlientProFrontu & {
   posliVysledekVyzvy: ReturnType<typeof vi.fn>;
   posliProfil: ReturnType<typeof vi.fn>;
   smazProfilNaServeru: ReturnType<typeof vi.fn>;
+  posliVysledekDuelu: ReturnType<typeof vi.fn>;
 } {
   const vysledekVolani = selze
     ? () => Promise.reject(new Error('síť spadla'))
@@ -29,6 +30,7 @@ function mockKlient(selze = false): KlientProFrontu & {
     posliVysledekVyzvy: vi.fn(vysledekVolani),
     posliProfil: vi.fn(vysledekVolani),
     smazProfilNaServeru: vi.fn(vysledekVolani),
+    posliVysledekDuelu: vi.fn(vysledekVolani),
   };
 }
 
@@ -82,6 +84,27 @@ describe('SyncFronta', () => {
     await fronta.odesli(rozbity, ted2);
     expect(fronta.muzeZkusit(ted2 + 2 * ZAKLADNI_ODKLAD_MS - 1)).toBe(false);
     expect(fronta.muzeZkusit(ted2 + 2 * ZAKLADNI_ODKLAD_MS)).toBe(true);
+  });
+
+  it('výsledek duelu se odešle (typ duel-vysledek) a dedupuje podle duelId', async () => {
+    const fronta = new SyncFronta(pametoveUloziste());
+    const vysledekDuelu = {
+      odpovedi: [{ otazkaId: 'o1', spravne: true, casMs: 4_000 }],
+      body: 130,
+      celkovyCasMs: 4_000,
+      dokonceno: '2026-09-04T11:00:00.000Z',
+    };
+    fronta.pridejVysledekDuelu('d1', 'ja', vysledekDuelu);
+    // Duplikat tehoz duelu se neradi — server stejne bere jen prvni pokus.
+    fronta.pridejVysledekDuelu('d1', 'ja', { ...vysledekDuelu, body: 999 });
+    expect(fronta.velikost()).toBe(1);
+
+    const klient = mockKlient();
+    await expect(fronta.odesli(klient, 0)).resolves.toEqual({ odeslano: 1, zbyva: 0 });
+    expect(klient.posliVysledekDuelu).toHaveBeenCalledWith('d1', {
+      profilId: 'ja',
+      vysledek: vysledekDuelu,
+    });
   });
 
   it('odklad je zastropovaný na 5 minutách', async () => {

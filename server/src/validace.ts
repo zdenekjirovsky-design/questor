@@ -4,7 +4,12 @@
 
 import { z } from 'zod';
 import type { ProfilMetadata, ProgresStudenta, TestVysledek, Vyzva } from '@questor/sdilene';
-import { VYCHOZI_AVATAR } from '@questor/sdilene';
+import {
+  powerupyProgresuSchema,
+  trofejeProfiluSchema,
+  VYCHOZI_AVATAR,
+  vysledekDueluSchema,
+} from '@questor/sdilene';
 
 const obtiznostSchema = z.number().int().min(1).max(5);
 const podil01Schema = z.number().min(0).max(1);
@@ -129,6 +134,14 @@ export const progresStudentaSchema = z.object({
     tydenniXp: z.record(z.number().min(0)),
   }),
   dokonceneTesty: z.number().int().min(0),
+  /**
+   * Duelová pole (volitelná — starší klienti je neposílají). MUSÍ tu být:
+   * zod v defaultním režimu neznámé klíče STRIPUJE a uložený snapshot by
+   * o zásobu power-upů a trofejní vitrínu přišel — pull na druhém zařízení
+   * by je pak nenávratně smazal.
+   */
+  powerupy: powerupyProgresuSchema.optional(),
+  trofeje: trofejeProfiluSchema.optional(),
   /** ISO čas poslední změny — LWW rozhodčí pullu/POSTu progresu. */
   aktualizovano: isoCasSchema,
 });
@@ -181,6 +194,44 @@ export const novaVyzvaSchema = z.object({
 export const vysledekVyzvySchema = z.object({
   uspesnost: podil01Schema,
   xp: z.number().int().min(0),
+});
+
+// --- Duely -----------------------------------------------------------------
+// Samotný Duel a jeho výsledek validuje sdílené schéma (sdilene/src/duely.ts);
+// tady jsou jen těla requestů, která Duel teprve zakládají nebo mění.
+
+const duelProfilIdSchema = z.string().min(1).max(64);
+
+/**
+ * Tělo POST /api/duely. Sadu otázek, handicap i časy doplňuje server —
+ * klient posílá jen zadání výzvy. Jména jsou volitelná: server si je jinak
+ * dohledá v registru profilů / u snapshotu progresu.
+ */
+export const novyDuelSchema = z.object({
+  predmetId: z
+    .string()
+    .min(1)
+    .max(64)
+    .regex(/^[a-z0-9-]+$/, 'predmetId smí obsahovat jen a–z, 0–9 a pomlčky'),
+  temataId: z.array(z.string().min(1).max(64)).min(1).max(64).optional(),
+  pocetOtazek: z.union([z.literal(5), z.literal(10), z.literal(20)]),
+  vyzyvatelProfilId: duelProfilIdSchema,
+  vyzyvatelJmeno: z.string().min(1).max(64).optional(),
+  /** Bez soupeře je výzva otevřená pro rodinu (první, kdo přijme, hraje). */
+  souperProfilId: duelProfilIdSchema.optional(),
+  souperJmeno: z.string().min(1).max(64).optional(),
+});
+
+/** Tělo POST /api/duely/:id/prijmout. */
+export const prijmoutDuelSchema = z.object({
+  profilId: duelProfilIdSchema,
+  jmeno: z.string().min(1).max(64),
+});
+
+/** Tělo POST /api/duely/:id/vysledek — výsledek půlky duelu jednoho hráče. */
+export const vysledekDueluTeloSchema = z.object({
+  profilId: duelProfilIdSchema,
+  vysledek: vysledekDueluSchema,
 });
 
 /** Tělo POST /api/generovani/dogenerovat. */

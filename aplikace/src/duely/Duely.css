@@ -1,0 +1,673 @@
+/* Duely — nejvetsi adrenalin v aplikaci. Vyzvy pulzuji, odpocet tepe,
+   vysledek se odhaluje jako event. Animace jen transform/opacity. */
+
+/* --- Seznam ------------------------------------------------------------- */
+
+.duely__hlava {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.duely__hlava h1 {
+  margin: 0;
+}
+
+.duely__sekce {
+  margin-bottom: 26px;
+}
+
+.duely__sekce-titulek {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: var(--text-tlumeny);
+}
+
+.duely__sekce--zvyraznena .duely__sekce-titulek {
+  color: var(--zlata);
+}
+
+.duely__mrizka {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.duely__karta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.duely__karta--vyzva {
+  border-color: var(--zlata);
+  animation: pulz-zare-zlata 1.6s ease-in-out infinite;
+}
+
+.duely__karta--historie {
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+.duely__karta--historie:hover {
+  transform: translateY(-2px);
+}
+
+.duely__karta-hlava {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.duely__karta-obor {
+  font-weight: 700;
+  font-family: var(--pismo-display);
+}
+
+.duely__karta-souper {
+  color: var(--text);
+}
+
+.duely__karta-detaily {
+  font-size: 0.85rem;
+  color: var(--text-tlumeny);
+}
+
+.duely__karta-akce {
+  align-self: flex-start;
+}
+
+.duely__karta-stav {
+  color: var(--text-tlumeny);
+  font-size: 0.9rem;
+}
+
+.duely__karta-chyba {
+  color: var(--chyba);
+  font-size: 0.85rem;
+}
+
+.duely__vysledek-stitek--vyhra {
+  color: var(--zlata);
+  border-color: var(--zlata);
+}
+
+.duely__vysledek-stitek--prohra {
+  color: var(--text-tlumeny);
+}
+
+.duely__prazdno {
+  max-width: 640px;
+}
+
+.duely__prazdno-titulek {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.duely__prazdno-pozn,
+.duely__modal-pozn {
+  color: var(--text-tlumeny);
+  font-size: 0.9rem;
+}
+
+/* --- Indikator cekajicich vyzev (nav + karta na Domu) -------------------- */
+
+.duely-indikator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  margin-left: 6px;
+  border-radius: 999px;
+  background: var(--chyba);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  animation: pulz-zare 1.8s ease-in-out infinite;
+}
+
+/* --- Modal „Vyzvat na duel" ---------------------------------------------- */
+
+.duely__pozadi-modalu {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(8, 6, 18, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.duely__modal {
+  width: min(680px, 100%);
+  max-height: min(86vh, 860px);
+  overflow-y: auto;
+}
+
+.duely__modal-hlava {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.duely__modal-hlava h2 {
+  margin: 0;
+}
+
+.duely__modal-zavrit {
+  border: none;
+  background: transparent;
+  color: var(--text-tlumeny);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+.duely__modal-nadpis {
+  margin: 18px 0 8px;
+  font-size: 0.95rem;
+}
+
+.duely__modal-pozn {
+  font-weight: 400;
+}
+
+.duely__volby {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.duely__volba {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.duely__volba:hover {
+  transform: translateY(-1px);
+}
+
+.duely__volba--vybrana {
+  border-color: var(--akcent);
+  box-shadow: var(--zare-akcent);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(109, 63, 240, 0.15));
+}
+
+.duely__volba-tecka {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.duely__modal-start {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* --- Intro VS ------------------------------------------------------------ */
+
+.duel-intro {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.duel-intro__obor {
+  color: var(--text-tlumeny);
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+.duel-intro__vs,
+.duel-vysledek__vs {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 18px;
+  margin: 10px 0 14px;
+}
+
+.duel-intro__hrac,
+.duel-vysledek__hrac {
+  flex: 1;
+  max-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.duel-intro__jmeno {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+}
+
+.duel-intro__bonus {
+  font-size: 0.8rem;
+  color: var(--info);
+}
+
+.duel-intro__blesk {
+  align-self: center;
+  font-family: var(--pismo-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--zlata);
+  text-shadow: var(--zare-zlata);
+  animation: pulz-zare-zlata 1.4s ease-in-out infinite;
+  border-radius: 50%;
+  padding: 10px 12px;
+}
+
+.duel-intro__silueta {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  font-family: var(--pismo-display);
+  font-size: 2rem;
+  color: var(--text-tlumeny);
+}
+
+.duel-intro__handicap {
+  color: var(--info);
+  font-size: 0.9rem;
+}
+
+.duel-intro__pravidla {
+  text-align: left;
+  color: var(--text-tlumeny);
+  font-size: 0.9rem;
+  margin: 14px auto;
+  max-width: 460px;
+  padding-left: 20px;
+}
+
+.duel-intro__pravidla li {
+  margin-bottom: 4px;
+}
+
+.duel-intro__start {
+  font-size: 1.1rem;
+  padding: 12px 30px;
+}
+
+/* --- Hrani — hlavicka s odpoctem a skore --------------------------------- */
+
+.duel-hlavicka {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.duel-odpocet {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.duel-odpocet__bar {
+  flex: 1;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  overflow: hidden;
+}
+
+.duel-odpocet__bar > div {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--akcent) 0%, var(--akcent-svetly) 100%);
+  /* Sirka se meni 10× za sekundu — zadna transition, at bar nedrhne. */
+}
+
+.duel-odpocet__bar--dochazi > div {
+  background: linear-gradient(90deg, #b91c1c 0%, var(--chyba) 100%);
+}
+
+.duel-odpocet__cas {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 76px;
+  text-align: right;
+}
+
+.duel-odpocet__cas--dochazi {
+  color: var(--chyba);
+  animation: pulz-zare 0.8s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+.duel-skore {
+  position: relative;
+  font-family: var(--pismo-display);
+  font-weight: 800;
+  color: var(--zlata);
+  white-space: nowrap;
+}
+
+.duel-skore__let {
+  right: 0;
+}
+
+/* --- Power-upy ------------------------------------------------------------ */
+
+.duel-powerupy {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.duel-powerup {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.duel-powerup:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--zare-akcent);
+}
+
+.duel-powerup:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.duel-powerup--aktivovany {
+  animation: pop 0.35s ease-out both;
+  border-color: var(--akcent);
+  box-shadow: var(--zare-akcent);
+}
+
+.duel-powerup__ikona {
+  font-size: 1.05rem;
+}
+
+.duel-powerup__pocet {
+  color: var(--text-tlumeny);
+}
+
+.duel-stitek-stitu {
+  color: var(--info);
+  border-color: var(--info);
+}
+
+/* --- Cekani na soupere ---------------------------------------------------- */
+
+.duel-cekani {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.duel-cekani__hodiny {
+  font-size: 2.4rem;
+  animation: vznaseni 2.4s ease-in-out infinite;
+}
+
+.duel-cekani__body {
+  color: var(--zlata);
+  font-family: var(--pismo-display);
+}
+
+/* --- Vysledkova obrazovka -------------------------------------------------- */
+
+.duel-vysledek {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.duel-vysledek__body {
+  font-family: var(--pismo-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+}
+
+.duel-vysledek__hrac--vitez .duel-vysledek__body {
+  color: var(--zlata);
+  text-shadow: var(--zare-zlata);
+}
+
+.duel-vysledek__hrac--vitez {
+  animation: pop 0.4s ease-out both;
+}
+
+.duel-vysledek__cas {
+  font-size: 0.8rem;
+  color: var(--text-tlumeny);
+}
+
+.duel-vysledek__titulek {
+  font-family: var(--pismo-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.duel-vysledek__titulek--vyhra {
+  color: var(--zlata);
+  text-shadow: var(--zare-zlata);
+}
+
+.duel-vysledek__bilance {
+  color: var(--text-tlumeny);
+  font-size: 0.9rem;
+}
+
+.duel-vysledek__akce {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* Konfety (vlastni, at nezavisi na trude) */
+.duel-konfety {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  pointer-events: none;
+}
+
+.duel-konfeta {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: duel-konfeta-let 1.2s ease-out both;
+  animation-delay: var(--zpozdeni, 0s);
+}
+
+@keyframes duel-konfeta-let {
+  0% {
+    transform: translate(0, 0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx, 0), calc(var(--dy, -120px) + 240px)) rotate(var(--rot, 360deg));
+    opacity: 0;
+  }
+}
+
+/* Tituly */
+.duel-tituly {
+  margin-top: 14px;
+}
+
+.duel-tituly__titulek {
+  font-family: var(--pismo-display);
+  font-weight: 800;
+  color: var(--zlata);
+}
+
+.duel-titul {
+  display: inline-block;
+  margin: 6px 4px 0;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--zlata);
+  color: var(--zlata);
+  font-weight: 700;
+  box-shadow: var(--zare-zlata);
+}
+
+.duel-tituly__pozn {
+  color: var(--text-tlumeny);
+  font-size: 0.85rem;
+}
+
+/* Casova osa po otazkach */
+.duel-osa {
+  max-width: 640px;
+  margin: 20px auto 0;
+}
+
+.duel-osa__legenda {
+  color: var(--text-tlumeny);
+  font-size: 0.85rem;
+  margin-top: -6px;
+}
+
+.duel-osa__tabulka {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.duel-osa__radek {
+  display: grid;
+  grid-template-columns: 32px 1fr 1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 4px 6px;
+  border-radius: var(--radius-maly);
+}
+
+.duel-osa__radek:nth-child(even) {
+  background: var(--pozadi-panel-2);
+}
+
+.duel-osa__radek--hlava,
+.duel-osa__radek--soucet {
+  font-weight: 700;
+  font-family: var(--pismo-display);
+}
+
+.duel-osa__radek--soucet {
+  border-top: 1px solid var(--okraj);
+  margin-top: 4px;
+  padding-top: 8px;
+}
+
+.duel-osa__cislo {
+  color: var(--text-tlumeny);
+}
+
+.duel-osa__bunka--spravne {
+  color: var(--uspech);
+}
+
+.duel-osa__bunka--spatne {
+  color: var(--chyba);
+}
+
+.duel-osa__bunka--chybi {
+  color: var(--text-tlumeny);
+}
+
+/* --- Mobil (<= 760 px) ----------------------------------------------------- */
+
+@media (max-width: 760px) {
+  .duely__mrizka {
+    grid-template-columns: 1fr;
+  }
+
+  .duely__pozadi-modalu {
+    padding: 0;
+  }
+
+  .duely__modal {
+    width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+    /* viewport-fit=cover: fullscreen modal si musi safe-area resit sam —
+       jinak hlavicka s krizkem zajede pod vyrez a tlacitko „Vyzvat!" pod
+       home indikator (stejny vzor jako spodni navigace v App.css). */
+    padding-top: calc(14px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .duely__volba,
+  .duel-powerup {
+    min-height: 44px;
+  }
+
+  .duel-hlavicka {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .duel-odpocet {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .duel-intro__vs,
+  .duel-vysledek__vs {
+    gap: 8px;
+  }
+
+  .duel-osa__radek {
+    grid-template-columns: 24px 1fr 1fr;
+    font-size: 0.85rem;
+  }
+}

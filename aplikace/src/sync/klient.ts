@@ -2,9 +2,11 @@
 // (viz docs/ARCHITEKTURA.md). Fetch i úložiště se injektují kvůli testům.
 import type {
   BankaOtazek,
+  Duel,
   ProfilRegistrZaznam,
   ProgresStudenta,
   TestVysledek,
+  VysledekDuelu,
   Vyzva,
 } from '@questor/sdilene';
 
@@ -191,6 +193,38 @@ export interface QuestorKlient {
    * + spolecne (kontrakt GET /api/vyzvy?profilId=). Bez profilId vsechny.
    */
   stahniVyzvy(profilId?: string): Promise<Vyzva[]>;
+  /**
+   * Zalozi duel (POST /api/duely) — server deterministicky vybere sadu otazek
+   * (seed = id duelu) a spocita handicap ze snapshotu progresu. Vraci cely Duel.
+   */
+  vytvorDuel(telo: {
+    predmetId: string;
+    temataId?: string[];
+    pocetOtazek: 5 | 10 | 20;
+    vyzyvatelProfilId: string;
+    vyzyvatelJmeno?: string;
+    souperProfilId?: string;
+    souperJmeno?: string;
+  }): Promise<Duel>;
+  /**
+   * Duely profilu: bezici + poslednich 20 dokoncenych (moje) a cizi otevrene
+   * rodinne vyzvy (otevrene). Kontrakt GET /api/duely?profilId=.
+   */
+  stahniDuely(profilId: string): Promise<{ moje: Duel[]; otevrene: Duel[] }>;
+  /**
+   * Prijeti vyzvy (POST /api/duely/:id/prijmout) — u otevrene first-wins,
+   * server pri nem zmrazi handicap obou. Vraci aktualizovany Duel;
+   * 409 = uz prijal nekdo jiny / vyprselo.
+   */
+  prijmiDuelNaServeru(duelId: string, telo: { profilId: string; jmeno: string }): Promise<Duel>;
+  /**
+   * Odevzdani vysledku pulky duelu (POST /api/duely/:id/vysledek) — plati
+   * PRVNI zapis za profil, opakovany je 409. Posila offline fronta.
+   */
+  posliVysledekDuelu(
+    duelId: string,
+    telo: { profilId: string; vysledek: VysledekDuelu },
+  ): Promise<void>;
 }
 
 export type FetchFunkce = (vstup: string, init?: RequestInit) => Promise<Response>;
@@ -259,5 +293,13 @@ export function vytvorKlienta(nastaveni: SyncNastaveni, fetchFn?: FetchFunkce): 
         'GET',
         profilId ? `/api/vyzvy?profilId=${encodeURIComponent(profilId)}` : '/api/vyzvy',
       ),
+    vytvorDuel: (telo) => pozadavek('POST', '/api/duely', telo),
+    stahniDuely: (profilId) =>
+      pozadavek('GET', `/api/duely?profilId=${encodeURIComponent(profilId)}`),
+    prijmiDuelNaServeru: (duelId, telo) =>
+      pozadavek('POST', `/api/duely/${encodeURIComponent(duelId)}/prijmout`, telo),
+    posliVysledekDuelu: async (duelId, telo) => {
+      await pozadavek('POST', `/api/duely/${encodeURIComponent(duelId)}/vysledek`, telo);
+    },
   };
 }

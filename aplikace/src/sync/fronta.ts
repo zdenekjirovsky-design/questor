@@ -3,7 +3,12 @@
 // exponenciálně (5 s → 10 s → … → max 5 min). Trvalé odmítnutí serverem
 // (4xx mimo 408/429) položku zahodí, aby „jedovatá" položka neblokovala
 // odesílání všeho za ní.
-import type { ProfilRegistrZaznam, ProgresStudenta, TestVysledek } from '@questor/sdilene';
+import type {
+  ProfilRegistrZaznam,
+  ProgresStudenta,
+  TestVysledek,
+  VysledekDuelu,
+} from '@questor/sdilene';
 import { ChybaSyncu, vychoziUloziste, type QuestorKlient, type Uloziste } from './klient';
 
 export const KLIC_FRONTY = 'questor-sync-fronta';
@@ -47,7 +52,12 @@ export type PolozkaFronty =
       vytvoreno: string;
     }
   | { typ: 'profil'; data: ProfilRegistrZaznam; vytvoreno: string }
-  | { typ: 'smazani-profilu'; data: { profilId: string }; vytvoreno: string };
+  | { typ: 'smazani-profilu'; data: { profilId: string }; vytvoreno: string }
+  | {
+      typ: 'duel-vysledek';
+      data: { duelId: string; profilId: string; vysledek: VysledekDuelu };
+      vytvoreno: string;
+    };
 
 interface StavFronty {
   polozky: PolozkaFronty[];
@@ -62,7 +72,12 @@ const PRAZDNY_STAV: StavFronty = { polozky: [], selhaniPoSobe: 0, dalsiPokus: nu
 /** Část klienta, kterou fronta potřebuje (testy mockují jen tohle). */
 export type KlientProFrontu = Pick<
   QuestorKlient,
-  'posliUdalost' | 'posliProgres' | 'posliVysledekVyzvy' | 'posliProfil' | 'smazProfilNaServeru'
+  | 'posliUdalost'
+  | 'posliProgres'
+  | 'posliVysledekVyzvy'
+  | 'posliProfil'
+  | 'smazProfilNaServeru'
+  | 'posliVysledekDuelu'
 >;
 
 export class SyncFronta {
@@ -155,6 +170,25 @@ export class SyncFronta {
   }
 
   /**
+   * Vysledek pulky duelu (POST /api/duely/:id/vysledek). Server bere PRVNI
+   * zapis za profil — pripadny duplikat ve fronte se dedupuje podle duelId
+   * (opakovane odeslani by server stejne odmitl 409 a fronta by ho zahodila).
+   */
+  pridejVysledekDuelu(duelId: string, profilId: string, vysledek: VysledekDuelu): void {
+    if (
+      this.stav.polozky.some((p) => p.typ === 'duel-vysledek' && p.data.duelId === duelId)
+    ) {
+      return;
+    }
+    this.stav.polozky.push({
+      typ: 'duel-vysledek',
+      data: { duelId, profilId, vysledek },
+      vytvoreno: new Date().toISOString(),
+    });
+    this.uloz();
+  }
+
+  /**
    * Záznam registru profilů je snapshot — ve frontě se drží vždy jen ten
    * nejnovější pro daný profil (stejný vzor jako pridejProgres).
    */
@@ -234,6 +268,9 @@ export class SyncFronta {
           await klient.posliProfil(polozka.data);
         } else if (polozka.typ === 'smazani-profilu') {
           await klient.smazProfilNaServeru(polozka.data.profilId);
+        } else if (polozka.typ === 'duel-vysledek') {
+          const { duelId, profilId, vysledek } = polozka.data;
+          await klient.posliVysledekDuelu(duelId, { profilId, vysledek });
         } else {
           const { vyzvaId, uspesnost, xp } = polozka.data;
           await klient.posliVysledekVyzvy(vyzvaId, { uspesnost, xp });

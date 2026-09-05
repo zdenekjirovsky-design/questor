@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { VYCHOZI_AVATAR } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { BARVY_PROFILU, MAX_DELKA_JMENA, vytvorIdProfilu, type Profil } from '../stav/profilySlice';
+import { PREDMETY } from '../data/predmety';
 import { jePinPodporovan, jePlatnyPin, overPin, zahashujPin, zaznamenejPokus, zbyvaPauzaMs } from './pin';
 import Avatar from '../hra/Avatar';
 import './VyberProfilu.css';
@@ -125,15 +126,22 @@ function PinDialog({ profil, onOdemceno, onZpet }: {
 
 function NovyProfilFormular({ prvni, onZpet }: { prvni: boolean; onZpet: () => void }) {
   const vytvorProfil = pouzijStav((s) => s.vytvorProfil);
+  const [krok, setKrok] = useState<'udaje' | 'predmety'>('udaje');
   const [jmeno, setJmeno] = useState('');
   const [barva, setBarva] = useState<string>(BARVY_PROFILU[0]);
   const [pin, setPin] = useState('');
+  // Vybrane studijni banky V PORADI VYBERU — prvni vybrana bude aktivni.
+  const [vybranePredmety, setVybranePredmety] = useState<string[]>([]);
   const [chyba, setChyba] = useState<string | null>(null);
   const [zakladam, setZakladam] = useState(false);
   const pinPodporovan = jePinPodporovan();
 
-  const zaloz = async () => {
-    if (zakladam) return;
+  const prepniPredmet = (id: string) => {
+    setChyba(null);
+    setVybranePredmety((v) => (v.includes(id) ? v.filter((p) => p !== id) : [...v, id]));
+  };
+
+  const dalsi = () => {
     const cistne = jmeno.trim();
     if (!cistne) {
       setChyba('Vyplň jméno profilu.');
@@ -141,6 +149,16 @@ function NovyProfilFormular({ prvni, onZpet }: { prvni: boolean; onZpet: () => v
     }
     if (pin && !jePlatnyPin(pin)) {
       setChyba('PIN má 4–6 číslic (nebo ho nech prázdný).');
+      return;
+    }
+    setChyba(null);
+    setKrok('predmety');
+  };
+
+  const zaloz = async () => {
+    if (zakladam) return;
+    if (vybranePredmety.length === 0) {
+      setChyba('Vyber si aspoň jednu studijní banku.');
       return;
     }
     setZakladam(true);
@@ -152,9 +170,9 @@ function NovyProfilFormular({ prvni, onZpet }: { prvni: boolean; onZpet: () => v
         // misto profilu, ktery tise zustal bez zamku.
         const id = vytvorIdProfilu();
         const hash = await zahashujPin(pin, id);
-        vytvorProfil(cistne, barva, hash, id);
+        vytvorProfil(jmeno.trim(), barva, hash, id, vybranePredmety);
       } else {
-        vytvorProfil(cistne, barva);
+        vytvorProfil(jmeno.trim(), barva, undefined, undefined, vybranePredmety);
       }
       // Zalozeni profil rovnou aktivuje — App.tsx branu sam schova.
     } catch {
@@ -164,6 +182,70 @@ function NovyProfilFormular({ prvni, onZpet }: { prvni: boolean; onZpet: () => v
     }
   };
 
+  if (krok === 'predmety') {
+    return (
+      <form
+        className="panel vyber-profilu__dialog vyber-profilu__dialog--siroky"
+        role="dialog"
+        aria-label="Co budeš studovat?"
+        onSubmit={(e) => {
+          e.preventDefault();
+          void zaloz();
+        }}
+      >
+        <h2>Co budeš studovat?</h2>
+        <p className="vyber-profilu__napoveda">
+          Vyber si aspoň jednu studijní banku — kdykoli později přidáš nebo odebereš další
+          v Nastavení. První vybraná bude aktivní.
+        </p>
+        <div className="vyber-profilu__predmety" role="group" aria-label="Studijní banky">
+          {PREDMETY.map((p) => {
+            const poradi = vybranePredmety.indexOf(p.id);
+            const vybrany = poradi >= 0;
+            return (
+              <button
+                key={p.id}
+                type="button"
+                className={
+                  vybrany
+                    ? 'vyber-profilu__predmet vyber-profilu__predmet--vybrany'
+                    : 'vyber-profilu__predmet'
+                }
+                aria-pressed={vybrany}
+                onClick={() => prepniPredmet(p.id)}
+              >
+                <span className="vyber-profilu__predmet-ikona" aria-hidden="true">
+                  {p.ikona}
+                </span>
+                <span className="vyber-profilu__predmet-nazev">{p.nazev}</span>
+                {poradi === 0 && (
+                  <span className="stitek vyber-profilu__predmet-stitek">aktivní</span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+        {chyba && (
+          <p className="vyber-profilu__chyba" role="alert">
+            {chyba}
+          </p>
+        )}
+        <div className="vyber-profilu__dialog-akce">
+          <button type="button" className="tlacitko" onClick={() => setKrok('udaje')}>
+            Zpět
+          </button>
+          <button
+            type="submit"
+            className="tlacitko tlacitko--zlate"
+            disabled={zakladam || vybranePredmety.length === 0}
+          >
+            {zakladam ? 'Zakládám…' : 'Hrát!'}
+          </button>
+        </div>
+      </form>
+    );
+  }
+
   return (
     <form
       className="panel vyber-profilu__dialog"
@@ -171,7 +253,7 @@ function NovyProfilFormular({ prvni, onZpet }: { prvni: boolean; onZpet: () => v
       aria-label="Nový profil"
       onSubmit={(e) => {
         e.preventDefault();
-        void zaloz();
+        dalsi();
       }}
     >
       <h2>{prvni ? 'Vytvoř si profil' : 'Nový profil'}</h2>
@@ -245,8 +327,8 @@ function NovyProfilFormular({ prvni, onZpet }: { prvni: boolean; onZpet: () => v
             Zpět
           </button>
         )}
-        <button type="submit" className="tlacitko tlacitko--zlate" disabled={zakladam}>
-          {zakladam ? 'Zakládám…' : 'Hrát!'}
+        <button type="submit" className="tlacitko tlacitko--primarni">
+          Pokračovat →
         </button>
       </div>
     </form>

@@ -1,11 +1,115 @@
 // Sprava profilu v Nastaveni: prejmenovani a PIN (po overeni) AKTIVNIHO
-// profilu, mazani libovolneho profilu s dvojitym potvrzenim + opsanim jmena.
-// Posledni profil smazat nejde (aplikace by nemela koho hrat).
+// profilu, studijni banky aktivniho profilu (pridat / odebrat / prepnout
+// aktivni), mazani libovolneho profilu s dvojitym potvrzenim + opsanim
+// jmena. Posledni profil smazat nejde (aplikace by nemela koho hrat).
 import { useState } from 'react';
 import { pouzijStav } from '../stav/store';
-import { MAX_DELKA_JMENA, type Profil } from '../stav/profilySlice';
+import {
+  aktivniPredmetProfilu,
+  MAX_DELKA_JMENA,
+  predmetyProfilu,
+  type Profil,
+} from '../stav/profilySlice';
+import { ikonaPredmetu, nazevPredmetu, PREDMETY } from '../data/predmety';
 import { jePinPodporovan, jePlatnyPin, overPin, zahashujPin } from './pin';
 import './SpravaProfilu.css';
+
+// ---------------------------------------------------------------------------
+// Studijni banky aktivniho profilu (pridat / odebrat / prepnout aktivni)
+
+function BankySekce({ profil }: { profil: Profil }) {
+  const prepniAktivniPredmet = pouzijStav((s) => s.prepniAktivniPredmet);
+  const pridejPredmetProfilu = pouzijStav((s) => s.pridejPredmetProfilu);
+  const odeberPredmetProfilu = pouzijStav((s) => s.odeberPredmetProfilu);
+  // Potvrzeni odebrani: id banky, ktera na nej ceka (null = zadne).
+  const [odebiranaBanka, setOdebiranaBanka] = useState<string | null>(null);
+
+  const predmety = predmetyProfilu(profil);
+  const aktivni = aktivniPredmetProfilu(profil);
+  const kPridani = PREDMETY.filter((p) => !predmety.includes(p.id));
+
+  return (
+    <div className="sprava-profilu__pin">
+      <h3>Studijní banky</h3>
+      <p className="sprava-profilu__napoveda">
+        Co studuješ. Aktivní banka řídí denní questy, doporučené lekce a statistiky —
+        přepneš ji i chipem vedle avatara v hlavičce.
+      </p>
+      <ul className="sprava-profilu__seznam">
+        {predmety.map((id) => (
+          <li key={id} className="sprava-profilu__polozka">
+            <span aria-hidden="true">{ikonaPredmetu(id)}</span>
+            <span className="sprava-profilu__jmeno">
+              {nazevPredmetu(id)}
+              {id === aktivni && <span className="stitek sprava-profilu__stitek">aktivní</span>}
+            </span>
+            {odebiranaBanka === id ? (
+              <span className="sprava-profilu__radek">
+                <span className="sprava-profilu__varovani">
+                  Postup v bance zůstane uložený a vrátí se s ní.
+                </span>
+                <button type="button" className="tlacitko" onClick={() => setOdebiranaBanka(null)}>
+                  Zpět
+                </button>
+                <button
+                  type="button"
+                  className="tlacitko tlacitko--nebezpecne"
+                  onClick={() => {
+                    odeberPredmetProfilu(id);
+                    setOdebiranaBanka(null);
+                  }}
+                >
+                  Odebrat
+                </button>
+              </span>
+            ) : (
+              <span className="sprava-profilu__radek">
+                {id !== aktivni && (
+                  <button
+                    type="button"
+                    className="tlacitko"
+                    onClick={() => prepniAktivniPredmet(id)}
+                  >
+                    Aktivovat
+                  </button>
+                )}
+                {predmety.length > 1 && (
+                  <button
+                    type="button"
+                    className="tlacitko"
+                    onClick={() => setOdebiranaBanka(id)}
+                  >
+                    Odebrat…
+                  </button>
+                )}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+      {predmety.length <= 1 && (
+        <p className="sprava-profilu__napoveda">Poslední banka odebrat nejde — aspoň jednu musíš studovat.</p>
+      )}
+      {kPridani.length > 0 && (
+        <>
+          <h4 className="sprava-profilu__podnadpis">Přidat banku</h4>
+          <div className="sprava-profilu__pridani">
+            {kPridani.map((p) => (
+              <button
+                key={p.id}
+                type="button"
+                className="tlacitko sprava-profilu__pridat"
+                onClick={() => pridejPredmetProfilu(p.id)}
+              >
+                <span aria-hidden="true">{p.ikona}</span> {p.nazev} +
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 // ---------------------------------------------------------------------------
 // PIN sekce aktivniho profilu (zmena / zruseni po overeni, nastaveni noveho)
@@ -261,6 +365,7 @@ export default function SpravaProfilu() {
               </button>
             </div>
           </div>
+          <BankySekce profil={aktivni} />
           <PinSekce profil={aktivni} />
         </>
       )}

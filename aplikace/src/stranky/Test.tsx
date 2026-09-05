@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { comboNasobic } from '@questor/sdilene';
 import type { Otazka, RezimTestu, TestKonfigurace } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
+import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import {
   aktualniOtazka,
@@ -40,15 +41,25 @@ const REZIMY: RezimTestu[] = ['rozcvicka', 'standard', 'hardcore', 'adaptivni', 
 function RychlyStart() {
   const banky = pouzijStav((s) => s.banky);
   const zacniTest = pouzijStav((s) => s.zacniTest);
+  const profil = pouzijStav((s) => najdiAktivniProfil(s));
   const [rezim, setRezim] = useState<RezimTestu>('standard');
   const [pocet, setPocet] = useState<5 | 10 | 20>(10);
-  // Predmety s prítomnou bankou, seřazené podle registru (../data/predmety.ts).
-  const dostupnePredmety = seradPredmety(Object.keys(banky));
+  // JEN studijní banky profilu s přítomnou bankou otázek, v pořadí registru.
+  const bankyProfilu = predmetyProfilu(profil);
+  const dostupnePredmety = seradPredmety(Object.keys(banky)).filter((id) =>
+    bankyProfilu.includes(id),
+  );
+  const aktivniPredmet = aktivniPredmetProfilu(profil);
   const [vybranyPredmet, setVybranyPredmet] = useState<string | null>(null);
-  // Volba předmětu je PRVNÍ krok; dokud banky nedoběhnou (async načtení při
-  // startu) nebo předmět zmizí, spadne výběr na první dostupný.
+  // Volba předmětu je PRVNÍ krok; předvybraná je AKTIVNÍ banka profilu.
+  // Dokud banky nedoběhnou (async načtení při startu) nebo předmět zmizí,
+  // spadne výběr na aktivní/první dostupný.
   const predmetId =
-    vybranyPredmet && banky[vybranyPredmet] ? vybranyPredmet : (dostupnePredmety[0] ?? null);
+    vybranyPredmet && banky[vybranyPredmet] && bankyProfilu.includes(vybranyPredmet)
+      ? vybranyPredmet
+      : aktivniPredmet && dostupnePredmety.includes(aktivniPredmet)
+        ? aktivniPredmet
+        : (dostupnePredmety[0] ?? null);
 
   if (!predmetId) {
     return (

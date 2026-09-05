@@ -1,7 +1,8 @@
 // Testy gamifikačního slice (hraSlice) — akce nad progresem studenta.
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { AvatarKonfigurace, BankaOtazek, QuestDenni, TestVysledek } from '@questor/sdilene';
 import { denZData, pondeliTydne } from '@questor/sdilene';
+import type { TestStav } from '../src/testy/engine';
 import { pouzijStav } from '../src/stav/store';
 
 const dnes = denZData(new Date());
@@ -180,6 +181,151 @@ describe('zapocitejTest', () => {
     const vyzva = pouzijStav.getState().vyzvy.find((v) => v.id === 'v1');
     expect(vyzva?.stav).toBe('dokoncena');
     expect(vyzva?.vysledek?.uspesnost).toBe(0.9);
+  });
+});
+
+describe('questy patri AKTIVNI bance profilu (filtr banky)', () => {
+  function nastavProfil(aktivniPredmetId: string): void {
+    pouzijStav.setState({
+      profily: [
+        {
+          id: 'p-test',
+          jmeno: 'Kuba',
+          barva: '#8b5cf6',
+          predmety: ['matematika', 'fyzika'],
+          aktivniPredmetId,
+        },
+      ],
+      aktivniProfilId: 'p-test',
+    });
+  }
+
+  function beziciTest(predmetId: string): TestStav {
+    return {
+      konfigurace: { predmetId, rezim: 'standard', pocetOtazek: 5 },
+      zacatek: new Date().toISOString(),
+      otazky: [],
+      pool: [],
+      index: 0,
+      odpovedi: [],
+      combo: 1,
+      nejdelsiCombo: 1,
+      ziskaneXp: 0,
+      posledniXp: 0,
+      cilovaObtiznost: 2,
+      dokonceno: false,
+    };
+  }
+
+  afterEach(() => {
+    pouzijStav.setState({ profily: [], aktivniProfilId: null, dataProfilu: {}, aktualniTest: null });
+  });
+
+  it('test z JINE banky neplni quest uspesnost ani nedava jeho XP', () => {
+    nastavProfil('matematika');
+    pouzijStav.setState((s) => ({
+      progres: { ...s.progres, questy: [quest('uspesnost', 1, 80)] },
+    }));
+
+    pouzijStav.getState().zapocitejTest(
+      vysledekTestu({
+        konfigurace: { predmetId: 'fyzika', rezim: 'standard', pocetOtazek: 5 },
+        truhla: undefined,
+      }),
+    );
+
+    const stav = pouzijStav.getState();
+    expect(stav.progres.questy[0].splneno).toBe(false); // quest matematiky se nehnul
+    expect(stav.progres.xp).toBe(0); // zadne XP za cizi quest
+    // Streak, pocitadla a historie bezi dal — filtr je JEN na questech.
+    expect(stav.progres.streak.aktualni).toBe(1);
+    expect(stav.progres.dokonceneTesty).toBe(1);
+    expect(stav.historieTestu).toHaveLength(1);
+
+    // Test AKTIVNI banky quest splni normalne.
+    pouzijStav.getState().zapocitejTest(
+      vysledekTestu({
+        konfigurace: { predmetId: 'matematika', rezim: 'standard', pocetOtazek: 5 },
+        truhla: undefined,
+      }),
+    );
+    expect(pouzijStav.getState().progres.questy[0].splneno).toBe(true);
+    expect(pouzijStav.getState().progres.xp).toBe(80);
+  });
+
+  it('test z JINE banky nedava ani bonusovou truhlu za vsechny 3 questy', () => {
+    nastavProfil('matematika');
+    pouzijStav.setState((s) => ({
+      progres: {
+        ...s.progres,
+        questy: [quest('odpovez', 3, 50, true), quest('obtiznost', 5, 60, true), quest('lekce', 1, 60, true)],
+      },
+    }));
+
+    pouzijStav.getState().zapocitejTest(
+      vysledekTestu({
+        konfigurace: { predmetId: 'fyzika', rezim: 'standard', pocetOtazek: 5 },
+        truhla: undefined,
+      }),
+    );
+    expect(pouzijStav.getState().cekajiciTruhly).toEqual([]);
+
+    // Test aktivni banky bonus udeli.
+    pouzijStav.getState().zapocitejTest(
+      vysledekTestu({
+        konfigurace: { predmetId: 'matematika', rezim: 'standard', pocetOtazek: 5 },
+        truhla: undefined,
+      }),
+    );
+    expect(pouzijStav.getState().cekajiciTruhly).toEqual(['bronzova']);
+  });
+
+  it('odpoved v testu JINE banky neplni questy (prepnuti chipu uprostred testu)', () => {
+    nastavProfil('matematika');
+    pouzijStav.setState((s) => ({
+      progres: { ...s.progres, questy: [quest('odpovez', 3, 50)] },
+      aktualniTest: beziciTest('fyzika'),
+    }));
+
+    pouzijStav.getState().zapocitejOdpoved(
+      { otazkaId: 'o1', temaId: 't1', obtiznost: 3, spravne: true, casMs: 4000 },
+      1,
+    );
+
+    const stav = pouzijStav.getState();
+    expect(stav.progres.questy[0].postup).toBe(0); // quest matematiky se nehnul
+    expect(stav.progres.xp).toBe(30); // XP za odpoved se pocita dal
+    expect(stav.progres.statistikyOtazek['o1'].box).toBe(3); // Leitner bezi dal
+
+    // Odpoved v testu AKTIVNI banky quest plni.
+    pouzijStav.setState({ aktualniTest: beziciTest('matematika') });
+    pouzijStav.getState().zapocitejOdpoved(
+      { otazkaId: 'o2', temaId: 't1', obtiznost: 3, spravne: true, casMs: 4000 },
+      1,
+    );
+    expect(pouzijStav.getState().progres.questy[0].postup).toBe(1);
+  });
+});
+
+describe('tydenniXpTestuPodleBank (agregat pro graf Statistik)', () => {
+  it('scita ziskaneXp podle banky testu a tydne konce', () => {
+    pouzijStav.getState().zapocitejTest(vysledekTestu({ truhla: undefined })); // banka p, 100 XP
+    pouzijStav.getState().zapocitejTest(vysledekTestu({ truhla: undefined }));
+    pouzijStav.getState().zapocitejTest(
+      vysledekTestu({
+        konfigurace: { predmetId: 'fyzika', rezim: 'standard', pocetOtazek: 5 },
+        ziskaneXp: 40,
+        truhla: undefined,
+      }),
+    );
+
+    const agregat = pouzijStav.getState().tydenniXpTestuPodleBank;
+    expect(agregat['p'][pondeliTydne(dnes)]).toBe(200);
+    expect(agregat['fyzika'][pondeliTydne(dnes)]).toBe(40);
+
+    // Reset agregat maze.
+    pouzijStav.getState().resetujProgres();
+    expect(pouzijStav.getState().tydenniXpTestuPodleBank).toEqual({});
   });
 });
 

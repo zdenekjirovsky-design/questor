@@ -9,7 +9,13 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { TestVysledek } from '@questor/sdilene';
 import { vygenerujDenniQuesty } from '@questor/sdilene';
 import { pouzijStav } from '../src/stav/store';
-import { BARVY_PROFILU } from '../src/stav/profilySlice';
+import {
+  aktivniPredmetProfilu,
+  BARVY_PROFILU,
+  najdiAktivniProfil,
+  predmetyProfilu,
+} from '../src/stav/profilySlice';
+import { PREDMETY } from '../src/data/predmety';
 import {
   jePlatnyPin,
   overPin,
@@ -237,16 +243,201 @@ describe('profily — denni questy per profil', () => {
     expect(vygenerujDenniQuesty(datum, ctx)).toEqual(vygenerujDenniQuesty(datum, ctx, undefined));
   });
 
-  it('obnovDenniQuesty seeduje questy id aktivniho profilu', () => {
+  it('obnovDenniQuesty seeduje questy profilem × aktivni bankou', () => {
     pouzijStav.getState().vytvorProfil('Kuba', BARVY_PROFILU[0]);
     pouzijStav.getState().obnovDenniQuesty();
     const kubovy = pouzijStav.getState().progres.questy;
     expect(kubovy.length).toBeGreaterThan(0);
     const idKuby = pouzijStav.getState().aktivniProfilId!;
-    // Prima kontrola: stejny vysledek jako generator se seedem id profilu.
+    const aktivniBanka = aktivniPredmetProfilu(najdiAktivniProfil(pouzijStav.getState()))!;
+    // Prima kontrola: stejny vysledek jako generator se seedem profil:banka.
     expect(kubovy).toEqual(
-      vygenerujDenniQuesty(kubovy[0].datum, { temata: [], nejslabsiTemaId: undefined }, idKuby),
+      vygenerujDenniQuesty(
+        kubovy[0].datum,
+        { temata: [], nejslabsiTemaId: undefined },
+        `${idKuby}:${aktivniBanka}`,
+      ),
     );
+  });
+});
+
+// ---------------------------------------------------------------------------
+
+describe('profily — studijni banky', () => {
+  const vsechna = PREDMETY.map((p) => p.id);
+
+  it('vyber pri zalozeni: poradi vyberu se drzi, prvni vybrana je aktivni', () => {
+    const profil = pouzijStav
+      .getState()
+      .vytvorProfil('Kuba', BARVY_PROFILU[0], undefined, undefined, ['matematika', 'fyzika']);
+    expect(profil.predmety).toEqual(['matematika', 'fyzika']);
+    expect(profil.aktivniPredmetId).toBe('matematika');
+    expect(aktivniPredmetProfilu(profil)).toBe('matematika');
+  });
+
+  it('zalozeni bez vyberu (fail-safe) → vsechny banky registru, min. 1 vzdy plati', () => {
+    const profil = pouzijStav.getState().vytvorProfil('Kuba', BARVY_PROFILU[0]);
+    expect(profil.predmety).toEqual(vsechna);
+    expect(profil.aktivniPredmetId).toBe(vsechna[0]);
+    const prazdny = pouzijStav
+      .getState()
+      .vytvorProfil('Máma', BARVY_PROFILU[1], undefined, undefined, []);
+    expect(prazdny.predmety).toEqual(vsechna);
+  });
+
+  it('neznama id se pri zalozeni tise ignoruji (banka odebrana z aplikace)', () => {
+    const profil = pouzijStav
+      .getState()
+      .vytvorProfil('Kuba', BARVY_PROFILU[0], undefined, undefined, [
+        'uz-neexistuje',
+        'chemie',
+        'chemie', // duplicita se zahazuje
+      ]);
+    expect(profil.predmety).toEqual(['chemie']);
+    expect(profil.aktivniPredmetId).toBe('chemie');
+  });
+
+  it('profil s neexistujici aktivni bankou NESPADNE — cteni spadne na prvni platnou', () => {
+    pouzijStav
+      .getState()
+      .vytvorProfil('Kuba', BARVY_PROFILU[0], undefined, undefined, ['dejepis', 'chemie']);
+    // Simulace budouciho stavu: aktivni banka i cast predmetu uz v registru neni.
+    pouzijStav.setState({
+      profily: pouzijStav.getState().profily.map((p) => ({
+        ...p,
+        predmety: ['zrusena-banka', 'chemie'],
+        aktivniPredmetId: 'zrusena-banka',
+      })),
+    });
+    const profil = najdiAktivniProfil(pouzijStav.getState())!;
+    expect(predmetyProfilu(profil)).toEqual(['chemie']);
+    expect(aktivniPredmetProfilu(profil)).toBe('chemie');
+    // Questy dne se generuji bez padu (seed profil:chemie).
+    pouzijStav.getState().obnovDenniQuesty();
+    expect(pouzijStav.getState().progres.questy.length).toBeGreaterThan(0);
+  });
+
+  it('prepnuti aktivni banky prehodi questy dne a zpetne prepnuti NEgeneruje nove', () => {
+    pouzijStav
+      .getState()
+      .vytvorProfil('Kuba', BARVY_PROFILU[0], undefined, undefined, ['matematika', 'fyzika']);
+    pouzijStav.getState().obnovDenniQuesty();
+    const questyMat = pouzijStav.getState().progres.questy;
+    expect(questyMat.length).toBeGreaterThan(0);
+    // Odmenime prvni quest, at je videt, ze se snimkuje i questyOdmeneno.
+    pouzijStav.setState({ questyOdmeneno: [questyMat[0].id] });
+
+    expect(pouzijStav.getState().prepniAktivniPredmet('fyzika')).toBe(true);
+    const stavFyzika = pouzijStav.getState();
+    expect(aktivniPredmetProfilu(najdiAktivniProfil(stavFyzika))).toBe('fyzika');
+    const questyFyz = stavFyzika.progres.questy;
+    // Questy fyziky jsou vygenerovane cerstve (seed profil:fyzika, viz test
+    // seedu vyse) a nic z nich neni odmenene.
+    expect(questyFyz.length).toBeGreaterThan(0);
+    expect(stavFyzika.questyOdmeneno).toEqual([]);
+    // Snimek matematiky ceka pod klicem banky.
+    expect(stavFyzika.questyPodleBank.matematika.questy).toEqual(questyMat);
+
+    // Zpet na matematiku: STEJNE questy i odmeny — zadne nove zadarmo.
+    expect(pouzijStav.getState().prepniAktivniPredmet('matematika')).toBe(true);
+    const zpet = pouzijStav.getState();
+    expect(zpet.progres.questy).toEqual(questyMat);
+    expect(zpet.questyOdmeneno).toEqual([questyMat[0].id]);
+    expect(zpet.questyPodleBank.fyzika.questy).toEqual(questyFyz);
+    expect(zpet.questyPodleBank.matematika).toBeUndefined();
+  });
+
+  it('prepnuti na banku mimo profil nebo na aktivni vraci false', () => {
+    pouzijStav
+      .getState()
+      .vytvorProfil('Kuba', BARVY_PROFILU[0], undefined, undefined, ['matematika', 'fyzika']);
+    expect(pouzijStav.getState().prepniAktivniPredmet('chemie')).toBe(false);
+    expect(pouzijStav.getState().prepniAktivniPredmet('matematika')).toBe(false);
+  });
+
+  it('pridani a odebrani banky; posledni banka odebrat NEJDE', () => {
+    pouzijStav
+      .getState()
+      .vytvorProfil('Kuba', BARVY_PROFILU[0], undefined, undefined, ['matematika']);
+    expect(pouzijStav.getState().odeberPredmetProfilu('matematika')).toBe(false);
+
+    expect(pouzijStav.getState().pridejPredmetProfilu('fyzika')).toBe(true);
+    expect(pouzijStav.getState().pridejPredmetProfilu('fyzika')).toBe(false); // uz je
+    expect(pouzijStav.getState().pridejPredmetProfilu('neznama')).toBe(false); // mimo registr
+    expect(predmetyProfilu(najdiAktivniProfil(pouzijStav.getState()))).toEqual([
+      'matematika',
+      'fyzika',
+    ]);
+
+    expect(pouzijStav.getState().odeberPredmetProfilu('fyzika')).toBe(true);
+    expect(predmetyProfilu(najdiAktivniProfil(pouzijStav.getState()))).toEqual(['matematika']);
+  });
+
+  it('pridani/odebrani banky zachovava ulozena neznama id (vrati se s navratem banky)', () => {
+    pouzijStav
+      .getState()
+      .vytvorProfil('Kuba', BARVY_PROFILU[0], undefined, undefined, ['matematika', 'chemie']);
+    // Simulace: banka „docasne-pryc" byla docasne odebrana z registru —
+    // v ulozenem poli profilu ale zustava (cteni ji jen tise ignoruje).
+    pouzijStav.setState({
+      profily: pouzijStav.getState().profily.map((p) => ({
+        ...p,
+        predmety: ['matematika', 'docasne-pryc', 'chemie'],
+      })),
+    });
+
+    expect(pouzijStav.getState().pridejPredmetProfilu('fyzika')).toBe(true);
+    expect(najdiAktivniProfil(pouzijStav.getState())!.predmety).toEqual([
+      'matematika',
+      'docasne-pryc',
+      'chemie',
+      'fyzika',
+    ]);
+
+    expect(pouzijStav.getState().odeberPredmetProfilu('chemie')).toBe(true);
+    expect(najdiAktivniProfil(pouzijStav.getState())!.predmety).toEqual([
+      'matematika',
+      'docasne-pryc',
+      'fyzika',
+    ]);
+    // Cteci cesta nezname id dal tise ignoruje.
+    expect(predmetyProfilu(najdiAktivniProfil(pouzijStav.getState()))).toEqual([
+      'matematika',
+      'fyzika',
+    ]);
+  });
+
+  it('odebrani AKTIVNI banky prepne na prvni zbylou a jeji questy zustanou ulozene', () => {
+    pouzijStav
+      .getState()
+      .vytvorProfil('Kuba', BARVY_PROFILU[0], undefined, undefined, ['matematika', 'fyzika']);
+    pouzijStav.getState().obnovDenniQuesty();
+    const questyMat = pouzijStav.getState().progres.questy;
+
+    expect(pouzijStav.getState().odeberPredmetProfilu('matematika')).toBe(true);
+    const stav = pouzijStav.getState();
+    const profil = najdiAktivniProfil(stav)!;
+    expect(predmetyProfilu(profil)).toEqual(['fyzika']);
+    expect(aktivniPredmetProfilu(profil)).toBe('fyzika');
+    // Postup (questy dne) odebrane banky zustava ulozeny — vrati se s ni.
+    expect(stav.questyPodleBank.matematika.questy).toEqual(questyMat);
+  });
+
+  it('questy bank se snimkuji per profil (prepnuti profilu je nemicha)', () => {
+    pouzijStav
+      .getState()
+      .vytvorProfil('Kuba', BARVY_PROFILU[0], undefined, undefined, ['matematika', 'fyzika']);
+    pouzijStav.getState().obnovDenniQuesty();
+    pouzijStav.getState().prepniAktivniPredmet('fyzika');
+    const kubuvSnimek = pouzijStav.getState().questyPodleBank;
+    expect(Object.keys(kubuvSnimek)).toEqual(['matematika']);
+    const kuba = pouzijStav.getState().aktivniProfilId!;
+
+    pouzijStav.getState().vytvorProfil('Máma', BARVY_PROFILU[1], undefined, undefined, ['chemie']);
+    expect(pouzijStav.getState().questyPodleBank).toEqual({});
+
+    pouzijStav.getState().prepniProfil(kuba);
+    expect(pouzijStav.getState().questyPodleBank).toEqual(kubuvSnimek);
   });
 });
 
@@ -294,6 +485,10 @@ describe('profily — sync (profilId a profilJmeno na payloadech)', () => {
       expect(dataProgresu.profilId).toBe(profil.id);
       expect(dataProgresu.profilJmeno).toBe('Kuba');
       expect(dataProgresu.xp).toBe(pouzijStav.getState().progres.xp);
+      // Snapshot progresu nese i studijni banky profilu (dalsi top-level
+      // pole v JSON blobu — server je pri validaci odstripuje, POST projde).
+      expect(dataProgresu.predmety).toEqual(predmetyProfilu(profil));
+      expect(dataProgresu.aktivniPredmetId).toBe(aktivniPredmetProfilu(profil));
     } finally {
       vi.unstubAllGlobals();
     }

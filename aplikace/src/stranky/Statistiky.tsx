@@ -1,9 +1,14 @@
-// Statistiky — rekordy, týdenní XP graf, témata (per předmět) a historie testů.
+// Statistiky — nahoře globální gamifikační řádek (level, XP, streak, sbírka
+// — identita je jedna) a rekordy; pod tím přepínač studijní banky (výchozí
+// aktivní) a K NÍ filtrované panely: témata (úspěšnost + zvládnutí), týdenní
+// XP (z průběžného agregátu per banka) a poslední testy banky.
 import { useMemo, useState } from 'react';
 import type { RezimTestu } from '@questor/sdilene';
 import { denZData, pondeliTydne, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
-import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
+import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../stav/profilySlice';
+import { ikonaPredmetu, nazevPredmetu } from '../data/predmety';
+import { testyBanky, tydenniXpBanky } from './statistikyVypocty';
 import './Statistiky.css';
 
 const NAZVY_REZIMU: Record<RezimTestu, string> = {
@@ -41,10 +46,24 @@ export default function Statistiky() {
   const progres = pouzijStav((s) => s.progres);
   const banky = pouzijStav((s) => s.banky);
   const historieTestu = pouzijStav((s) => s.historieTestu);
+  const tydenniXpTestuPodleBank = pouzijStav((s) => s.tydenniXpTestuPodleBank);
+  const profil = pouzijStav((s) => najdiAktivniProfil(s));
 
   const level = stavLevelu(progres.xp);
 
-  // Posledních 8 týdnů pro sloupcový graf.
+  // Přepínač studijní banky — banky PROFILU v pořadí registru, výchozí AKTIVNÍ.
+  const predmety = useMemo(() => predmetyProfilu(profil), [profil]);
+  const aktivniPredmet = aktivniPredmetProfilu(profil);
+  const [vybranyTab, setVybranyTab] = useState<string | null>(null);
+  const vybranyPredmet =
+    vybranyTab && predmety.includes(vybranyTab) ? vybranyTab : (aktivniPredmet ?? predmety[0] ?? null);
+
+  // Posledních 8 týdnů pro sloupcový graf — XP z testů VYBRANÉ banky
+  // (průběžný agregát z hraSlice; globální týdenní XP zůstává v rekordech).
+  const tydenniXpVybrane = useMemo(
+    () => tydenniXpBanky(tydenniXpTestuPodleBank, vybranyPredmet),
+    [tydenniXpTestuPodleBank, vybranyPredmet],
+  );
   const tydny = useMemo(() => {
     const tentoTyden = pondeliTydne(denZData(new Date()));
     const vysledek: { pondeli: string; xp: number }[] = [];
@@ -52,19 +71,17 @@ export default function Statistiky() {
       const d = new Date(`${tentoTyden}T12:00:00`);
       d.setDate(d.getDate() - i * 7);
       const klic = denZData(d);
-      vysledek.push({ pondeli: klic, xp: progres.rekordy.tydenniXp[klic] ?? 0 });
+      vysledek.push({ pondeli: klic, xp: tydenniXpVybrane[klic] ?? 0 });
     }
     return vysledek;
-  }, [progres.rekordy.tydenniXp]);
+  }, [tydenniXpVybrane]);
   const maxTydenniXp = Math.max(1, ...tydny.map((t) => t.xp));
 
-  // Sekce Témata je rozdělená podle předmětů (taby) — předměty s bankou,
-  // v pořadí registru (../data/predmety.ts).
-  const predmety = useMemo(() => seradPredmety(Object.keys(banky)), [banky]);
-  const [vybranyTab, setVybranyTab] = useState<string | null>(null);
-  // Dokud se banky nenačtou (async při startu), spadne výběr na první dostupný.
-  const vybranyPredmet =
-    vybranyTab && banky[vybranyTab] ? vybranyTab : (predmety[0] ?? null);
+  // Poslední testy VYBRANÉ banky (podle konfigurace.predmetId).
+  const historieBanky = useMemo(
+    () => testyBanky(historieTestu, vybranyPredmet),
+    [historieTestu, vybranyPredmet],
+  );
 
   // Statistiky po tématech vybraného předmětu.
   const temata = useMemo(() => {
@@ -122,6 +139,63 @@ export default function Statistiky() {
     <section className="statistiky">
       <h1>Statistiky</h1>
 
+      {/* Globální gamifikační řádek — level, XP, streak, sbírka jsou JEDNY
+          napříč všemi bankami (identita hráče se přepínáním banky nemění). */}
+      <div className="panel statistiky__globalni">
+        <div className="statistiky__rekordy-mrizka statistiky__globalni-mrizka">
+          <div className="statistiky__rekord">
+            <span className="statistiky__rekord-ikona" aria-hidden="true">🏅</span>
+            <span className="statistiky__rekord-hodnota">{level.level}</span>
+            <span className="statistiky__rekord-popis">Level</span>
+          </div>
+          <div className="statistiky__rekord">
+            <span className="statistiky__rekord-ikona" aria-hidden="true">⭐</span>
+            <span className="statistiky__rekord-hodnota">{progres.xp}</span>
+            <span className="statistiky__rekord-popis">Celkem XP</span>
+          </div>
+          <div className="statistiky__rekord">
+            <span className="statistiky__rekord-ikona" aria-hidden="true">🔥</span>
+            <span className="statistiky__rekord-hodnota">{progres.streak.aktualni} dní</span>
+            <span className="statistiky__rekord-popis">Streak</span>
+          </div>
+          <div className="statistiky__rekord">
+            <span className="statistiky__rekord-ikona" aria-hidden="true">🃏</span>
+            <span className="statistiky__rekord-hodnota">{progres.sbirka.karty.length}</span>
+            <span className="statistiky__rekord-popis">Sbírka karet</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Přepínač studijní banky — všechno níž je filtrované na vybranou. */}
+      {predmety.length > 1 && (
+        <div className="statistiky__taby statistiky__prepinac" role="tablist" aria-label="Studijní banky">
+          {predmety.map((id) => (
+            <button
+              key={id}
+              type="button"
+              role="tab"
+              aria-selected={id === vybranyPredmet}
+              className={
+                id === vybranyPredmet
+                  ? 'statistiky__tab statistiky__tab--aktivni'
+                  : 'statistiky__tab'
+              }
+              onClick={() => setVybranyTab(id)}
+            >
+              <span aria-hidden="true">{ikonaPredmetu(id)}</span>{' '}
+              {nazevPredmetu(id, banky[id]?.nazev)}
+              {id === aktivniPredmet && <span aria-hidden="true"> ●</span>}
+            </button>
+          ))}
+        </div>
+      )}
+      {predmety.length === 1 && vybranyPredmet && (
+        <p className="statistiky__tema-predmet">
+          <span aria-hidden="true">{ikonaPredmetu(vybranyPredmet)}</span>{' '}
+          {nazevPredmetu(vybranyPredmet, banky[vybranyPredmet]?.nazev)}
+        </p>
+      )}
+
       <div className="statistiky__mrizka">
         {/* Rekordy */}
         <div className="panel statistiky__rekordy">
@@ -137,9 +211,9 @@ export default function Statistiky() {
           </div>
         </div>
 
-        {/* Týdenní XP */}
+        {/* Týdenní XP vybrané banky (průběžný agregát per banka) */}
         <div className="panel statistiky__tydny">
-          <h2>Týdenní XP</h2>
+          <h2>Týdenní XP z testů</h2>
           <div className="statistiky__graf" role="img" aria-label="Sloupcový graf XP za posledních 8 týdnů">
             {tydny.map((t, i) => (
               <div key={t.pondeli} className="statistiky__sloupec-blok">
@@ -159,36 +233,9 @@ export default function Statistiky() {
           </div>
         </div>
 
-        {/* Témata — rozdělená podle předmětů (taby) */}
+        {/* Témata vybrané banky */}
         <div className="panel statistiky__temata">
           <h2>Témata</h2>
-          {predmety.length > 1 && (
-            <div className="statistiky__taby" role="tablist" aria-label="Předměty">
-              {predmety.map((id) => (
-                <button
-                  key={id}
-                  type="button"
-                  role="tab"
-                  aria-selected={id === vybranyPredmet}
-                  className={
-                    id === vybranyPredmet
-                      ? 'statistiky__tab statistiky__tab--aktivni'
-                      : 'statistiky__tab'
-                  }
-                  onClick={() => setVybranyTab(id)}
-                >
-                  <span aria-hidden="true">{ikonaPredmetu(id)}</span>{' '}
-                  {nazevPredmetu(id, banky[id]?.nazev)}
-                </button>
-              ))}
-            </div>
-          )}
-          {predmety.length === 1 && vybranyPredmet && (
-            <p className="statistiky__tema-predmet">
-              <span aria-hidden="true">{ikonaPredmetu(vybranyPredmet)}</span>{' '}
-              {nazevPredmetu(vybranyPredmet, banky[vybranyPredmet]?.nazev)}
-            </p>
-          )}
           {temata.length === 0 && (
             <p className="statistiky__prazdno">Zatím žádná data — banka otázek se teprve načte.</p>
           )}
@@ -217,11 +264,15 @@ export default function Statistiky() {
           )}
         </div>
 
-        {/* Historie testů */}
+        {/* Historie testů vybrané banky */}
         <div className="panel statistiky__historie">
           <h2>Poslední testy</h2>
-          {historieTestu.length === 0 ? (
-            <p className="statistiky__prazdno">Ještě žádný test. Tak na co čekáš? 😉</p>
+          {historieBanky.length === 0 ? (
+            <p className="statistiky__prazdno">
+              {historieTestu.length === 0
+                ? 'Ještě žádný test. Tak na co čekáš? 😉'
+                : 'Z téhle banky zatím žádný test v poslední historii.'}
+            </p>
           ) : (
             /* Obal s overflow-x: auto — na úzké obrazovce scrolluje tabulka
                uvnitř panelu, stránka se do šířky nehýbe. */
@@ -238,7 +289,7 @@ export default function Statistiky() {
                 </tr>
               </thead>
               <tbody>
-                {historieTestu.map((v) => (
+                {historieBanky.map((v) => (
                   <tr key={v.id}>
                     <td>{formatujDatum(v.konec)}</td>
                     <td>{NAZVY_REZIMU[v.konfigurace.rezim]}</td>

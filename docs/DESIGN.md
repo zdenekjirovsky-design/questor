@@ -110,8 +110,11 @@ hostovaná PWA verze. VŠECHNA mobilní pravidla žijí za media query
 `(max-width: 760px)` (dotykové výjimky za `(pointer: coarse)`) —
 desktop/Tauri okno 1280×800 se jimi NESMÍ změnit. Závazné zásady:
 
-1. **Hlavička a navigace**: nahoře zůstává jen logo + HUD (avatar, level,
-   XP bar bez čísla na nejužších displejích, plamínek). Hlavní navigace je
+1. **Hlavička a navigace**: nahoře zůstává jen logo + HUD (avatar, chip
+   aktivní banky, level, XP bar bez čísla na nejužších displejích,
+   plamínek). Chip banky se smršťuje přednostně (level + XP bar mají
+   min-width a nikdy nekolabují); na ≤ 480 px chip ukazuje jen ikonu —
+   název zůstává v title/aria-label. Hlavní navigace je
    fixní spodní lišta s ikonami a mini popisky (styl mobilních her).
    App.tsx je zmrazený, ikony proto dodává CSS podle `href` odkazu
    (App.css); obsah stránky má spodní odsazení, aby ho lišta nepřekryla

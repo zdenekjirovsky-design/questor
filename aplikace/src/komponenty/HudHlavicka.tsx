@@ -1,13 +1,19 @@
-// HUD v hlavičce: mini avatar (klik = menu profilů), level + animovaný XP bar,
-// streak plamínek. Plamínek pohasíná, dokud dnes nebyla aktivita; ledová
-// varianta, když streak zachránilo zmrazení.
+// HUD v hlavičce: mini avatar (klik = menu profilů), chip aktivní studijní
+// banky (klik = menu bank profilu, přepnutí okamžitě), level + animovaný XP
+// bar, streak plamínek. Plamínek pohasíná, dokud dnes nebyla aktivita;
+// ledová varianta, když streak zachránilo zmrazení.
 //
 // Menu profilů: přepnutí na profil bez PINu je na jeden klik; profil s PINem
 // se přepíná přes odhlášení (PIN se zadává na obrazovce výběru profilu).
 import { useEffect, useRef, useState } from 'react';
 import { denZData, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
-import type { Profil } from '../stav/profilySlice';
+import {
+  aktivniPredmetProfilu,
+  predmetyProfilu,
+  type Profil,
+} from '../stav/profilySlice';
+import { ikonaPredmetu, nazevPredmetu } from '../data/predmety';
 import Avatar from '../hra/Avatar';
 import './HudHlavicka.css';
 
@@ -81,6 +87,82 @@ function MenuProfilu({ zavri }: { zavri: () => void }) {
   );
 }
 
+// ---------------------------------------------------------------------------
+// Chip aktivni studijni banky + menu prepinani bank profilu
+
+function MenuBank({ profil, zavri }: { profil: Profil; zavri: () => void }) {
+  const prepniAktivniPredmet = pouzijStav((s) => s.prepniAktivniPredmet);
+  const banky = pouzijStav((s) => s.banky);
+  const aktivni = aktivniPredmetProfilu(profil);
+  const predmety = predmetyProfilu(profil);
+
+  useEffect(() => {
+    const naKlavesu = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') zavri();
+    };
+    window.addEventListener('keydown', naKlavesu);
+    return () => window.removeEventListener('keydown', naKlavesu);
+  }, [zavri]);
+
+  return (
+    <>
+      <div className="hud__menu-prekryv" onClick={zavri} aria-hidden="true" />
+      <div className="hud__menu hud__menu--banky" role="menu" aria-label="Studijní banky">
+        {predmety.map((id) => (
+          <button
+            key={id}
+            type="button"
+            role="menuitem"
+            className={
+              id === aktivni ? 'hud__menu-polozka hud__menu-polozka--aktivni' : 'hud__menu-polozka'
+            }
+            onClick={() => {
+              zavri();
+              prepniAktivniPredmet(id);
+            }}
+          >
+            <span aria-hidden="true">{ikonaPredmetu(id)}</span>
+            <span className="hud__menu-jmeno">{nazevPredmetu(id, banky[id]?.nazev)}</span>
+            {id === aktivni && <span aria-hidden="true">✓</span>}
+          </button>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function ChipBanky({ profil }: { profil: Profil }) {
+  const [menuOtevrene, setMenuOtevrene] = useState(false);
+  const banky = pouzijStav((s) => s.banky);
+  const aktivni = aktivniPredmetProfilu(profil);
+  if (!aktivni) return null;
+  const nazev = nazevPredmetu(aktivni, banky[aktivni]?.nazev);
+
+  return (
+    <div className="hud__banka">
+      <button
+        type="button"
+        className="hud__banka-chip"
+        title={`Studuješ: ${nazev} — přepnout banku`}
+        aria-label={`Aktivní studijní banka ${nazev} — otevřít menu bank`}
+        aria-haspopup="menu"
+        aria-expanded={menuOtevrene}
+        onClick={() => setMenuOtevrene((o) => !o)}
+      >
+        {/* key = aktivni banka: po přepnutí obsah chipu „popne" (animace). */}
+        <span className="hud__banka-obsah animace-pop" key={aktivni}>
+          <span className="hud__banka-ikona" aria-hidden="true">
+            {ikonaPredmetu(aktivni)}
+          </span>
+          <span className="hud__banka-nazev">{nazev}</span>
+        </span>
+        <span className="hud__banka-sipka" aria-hidden="true">▾</span>
+      </button>
+      {menuOtevrene && <MenuBank profil={profil} zavri={() => setMenuOtevrene(false)} />}
+    </div>
+  );
+}
+
 export default function HudHlavicka() {
   const progres = pouzijStav((s) => s.progres);
   const zmrazeniPouzitoDen = pouzijStav((s) => s.zmrazeniPouzitoDen);
@@ -134,6 +216,7 @@ export default function HudHlavicka() {
         </button>
         {menuOtevrene && <MenuProfilu zavri={() => setMenuOtevrene(false)} />}
       </div>
+      {aktivniProfil && <ChipBanky profil={aktivniProfil} />}
       <div className="hud__level-blok" title={`${progres.xp} XP celkem`}>
         <div className="hud__level-radek">
           <span className="hud__level">LVL {level.level}</span>

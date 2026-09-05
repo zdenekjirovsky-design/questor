@@ -9,9 +9,9 @@
 // odesláním atribuci nezmění. Selhání sítě je TICHÉ — žádné chybové UI
 // uprostřed hry, jen nenápadný indikátor stavu (Nastavení / Domů).
 import { validujBanku, validujVyuku } from '@questor/sdilene';
-import type { TestVysledek } from '@questor/sdilene';
+import type { ProgresStudenta, TestVysledek } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
-import type { Profil } from '../stav/profilySlice';
+import { aktivniPredmetProfilu, predmetyProfilu, type Profil } from '../stav/profilySlice';
 import { nactiSyncNastaveni, vytvorKlienta, vychoziUloziste } from './klient';
 import { klicFrontyProfilu, KLIC_FRONTY, smazUlozenouFrontuProfilu, SyncFronta } from './fronta';
 import { ulozObsah } from './uloziste';
@@ -27,6 +27,23 @@ export interface ProfilOznaceni {
 
 function oznacProfilem<T extends object>(data: T, profil: Profil): T & ProfilOznaceni {
   return { ...data, profilId: profil.id, profilJmeno: profil.jmeno };
+}
+
+/**
+ * Snapshot progresu navic nese studijni banky profilu (predmety +
+ * aktivniPredmetId) — dalsi top-level pole vedle profilId/profilJmeno
+ * v temze JSON blobu. Server je pri validaci progresu odstripuje (zod),
+ * POST projde beze zmeny — serverova cast se NEMENI.
+ */
+function oznacProgres(
+  progres: ProgresStudenta,
+  profil: Profil,
+): ProgresStudenta & ProfilOznaceni & { predmety: string[]; aktivniPredmetId: string | null } {
+  return {
+    ...oznacProfilem(progres, profil),
+    predmety: predmetyProfilu(profil),
+    aktivniPredmetId: aktivniPredmetProfilu(profil),
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -143,7 +160,7 @@ async function provedSync(duvod: DuvodSyncu): Promise<void> {
     if (duvod === 'start' && profil) {
       // Při startu se pošle aktuální snapshot progresu aktivního profilu.
       frontaProfilu(profil.id).pridejProgres(
-        oznacProfilem(pouzijStav.getState().progres, profil),
+        oznacProgres(pouzijStav.getState().progres, profil),
       );
     }
     // Odesílají se fronty VŠECH profilů (položky nesou profilId/profilJmeno,
@@ -228,7 +245,7 @@ export function zaznamenejDokoncenyTest(vysledek: TestVysledek): void {
       xp: vysledek.ziskaneXp,
     });
   }
-  fronta.pridejProgres(oznacProfilem(pouzijStav.getState().progres, profil));
+  fronta.pridejProgres(oznacProgres(pouzijStav.getState().progres, profil));
   nastavStav({});
   void synchronizuj('po-testu');
 }

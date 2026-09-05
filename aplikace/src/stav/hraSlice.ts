@@ -39,6 +39,11 @@ import {
   type KontextQuestu,
   type StupenMistrovstvi,
 } from '@questor/sdilene';
+import {
+  aktivniPredmetProfilu,
+  najdiAktivniProfil,
+  type QuestyBanky,
+} from './profilySlice';
 import type { QUESTORStav } from './store';
 
 // ---------------------------------------------------------------------------
@@ -82,16 +87,39 @@ function nejslabsiTema(
   return vitez;
 }
 
+/**
+ * Kontext questu dne. S aktivni bankou (`predmetId`) se temata i nejslabsi
+ * tema berou JEN z ni — denni questy se vztahuji k aktivni bance profilu.
+ * Bez aktivni banky (zadny profil, napr. testy) zustava puvodni chovani
+ * pres vsechny banky.
+ */
 function kontextQuestu(
   banky: Record<string, BankaOtazek>,
   statistiky: Record<string, StatistikaOtazky>,
+  predmetId: string | null,
 ): KontextQuestu {
+  const zdroj: Record<string, BankaOtazek> =
+    predmetId === null ? banky : banky[predmetId] ? { [predmetId]: banky[predmetId] } : {};
   const videna = new Set<string>();
-  const temata = Object.values(banky)
+  const temata = Object.values(zdroj)
     .flatMap((b) => b.temata)
     .filter((t) => (videna.has(t.id) ? false : (videna.add(t.id), true)))
     .sort((a, b) => a.poradi - b.poradi);
-  return { temata, nejslabsiTemaId: nejslabsiTema(banky, statistiky) };
+  return { temata, nejslabsiTemaId: nejslabsiTema(zdroj, statistiky) };
+}
+
+/** Aktivni banka aktivniho profilu (null bez profilu). */
+function aktivniPredmetZeStavu(stav: QUESTORStav): string | null {
+  return aktivniPredmetProfilu(najdiAktivniProfil(stav));
+}
+
+/**
+ * Seed generatoru questu dne: profil × banka (questy jsou per profil × banka
+ * × den). Bez profilu zustava seed prazdny (zpetne kompatibilni chovani).
+ */
+function seedQuestu(profilId: string | null, predmetId: string | null): string | undefined {
+  if (!profilId) return undefined;
+  return predmetId ? `${profilId}:${predmetId}` : profilId;
 }
 
 /**
@@ -160,6 +188,19 @@ export interface HraSlice {
   zmrazeniPouzitoDen: string | null;
   /** Posledních 10 dokončených testů (pro Statistiky). */
   historieTestu: TestVysledek[];
+  /**
+   * Questy dne NEAKTIVNÍCH bank profilu (aktivní banka je drží v
+   * progres.questy + questyOdmeneno). Klíč = predmetId; přepínání bank
+   * (profilySlice.prepniAktivniPredmet) sem questy ukládá a zase je nahrává,
+   * takže přepnutí tam a zpět NEgeneruje nové questy zadarmo.
+   */
+  questyPodleBank: Record<string, QuestyBanky>;
+  /**
+   * Týdenní XP z testů PER BANKA: predmetId → pondělí týdne (YYYY-MM-DD)
+   * → součet ziskaneXp. Přesný průběžný agregát pro graf ve Statistikách —
+   * historieTestu drží jen posledních 10 testů, na graf 8 týdnů nestačí.
+   */
+  tydenniXpTestuPodleBank: Record<string, Record<string, number>>;
 
   zapocitejOdpoved(zaznam: OdpovedZaznam, comboAktualni: number): void;
   zapocitejTest(vysledek: TestVysledek): void;
@@ -184,6 +225,8 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
   denBonusoveTruhly: null,
   zmrazeniPouzitoDen: null,
   historieTestu: [],
+  questyPodleBank: {},
+  tydenniXpTestuPodleBank: {},
 
   zapocitejOdpoved: (zaznam, comboAktualni) => {
     const ted = new Date();
@@ -206,16 +249,28 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
       ),
     };
 
-    const ctx = kontextQuestu(stav.banky, statistiky);
-    const questy = aplikujOdpovedNaQuesty(
-      zajistiQuestyDne(progres.questy, dnes, ctx, stav.aktivniProfilId),
-      zaznam,
-      comboAktualni,
-    );
+    // Questy dne patří AKTIVNÍ bance profilu — odpověď z testu JINÉ banky je
+    // plnit nesmí (přepínáním chipu, i uprostřed testu, by šlo jedním testem
+    // sbírat odměny questů více bank). Bez profilu nebo bez běžícího testu
+    // zůstává původní chování (žádný filtr).
+    const aktivniPredmet = aktivniPredmetZeStavu(stav);
+    const bankaTestu = stav.aktualniTest?.konfigurace.predmetId ?? null;
+    const plnitQuesty =
+      aktivniPredmet === null || bankaTestu === null || bankaTestu === aktivniPredmet;
 
-    // XP za questy splněné touhle odpovědí — hned, ne až po dokončení testu
-    // (jinak by quest splněný v nedokončeném testu o půlnoci propadl bez odměny).
-    const kOdmene = questy.filter((q) => q.splneno && !stav.questyOdmeneno.includes(q.id));
+    let questy = progres.questy;
+    let kOdmene: QuestDenni[] = [];
+    if (plnitQuesty) {
+      const ctx = kontextQuestu(stav.banky, statistiky, aktivniPredmet);
+      questy = aplikujOdpovedNaQuesty(
+        zajistiQuestyDne(progres.questy, dnes, ctx, seedQuestu(stav.aktivniProfilId, aktivniPredmet)),
+        zaznam,
+        comboAktualni,
+      );
+      // XP za questy splněné touhle odpovědí — hned, ne až po dokončení testu
+      // (jinak by quest splněný v nedokončeném testu o půlnoci propadl bez odměny).
+      kOdmene = questy.filter((q) => q.splneno && !stav.questyOdmeneno.includes(q.id));
+    }
     const xpZaQuesty = kOdmene.reduce((s, q) => s + q.odmenaXp, 0);
     const celkoveXp = xp + xpZaQuesty;
 
@@ -266,25 +321,57 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
     };
 
     // Questy po testu + XP za právě splněné (dosud neodměněné) questy.
-    const ctx = kontextQuestu(stav.banky, progres.statistikyOtazek);
-    const questy = aplikujTestNaQuesty(
-      zajistiQuestyDne(progres.questy, dnes, ctx, stav.aktivniProfilId),
-      vysledek,
-    );
-    const kOdmene = questy.filter((q) => q.splneno && !stav.questyOdmeneno.includes(q.id));
+    // Questy dne patří AKTIVNÍ bance profilu — test JINÉ banky je plnit nesmí
+    // (šablona `uspesnost` nemá vlastní filtr banky); bez profilu beze změny.
+    const aktivniPredmet = aktivniPredmetZeStavu(stav);
+    const plnitQuesty =
+      aktivniPredmet === null || vysledek.konfigurace.predmetId === aktivniPredmet;
+    let questy = progres.questy;
+    let kOdmene: QuestDenni[] = [];
+    if (plnitQuesty) {
+      const ctx = kontextQuestu(stav.banky, progres.statistikyOtazek, aktivniPredmet);
+      questy = aplikujTestNaQuesty(
+        zajistiQuestyDne(progres.questy, dnes, ctx, seedQuestu(stav.aktivniProfilId, aktivniPredmet)),
+        vysledek,
+      );
+      kOdmene = questy.filter((q) => q.splneno && !stav.questyOdmeneno.includes(q.id));
+    }
     const xpZaQuesty = kOdmene.reduce((s, q) => s + q.odmenaXp, 0);
-    const questyOdmeneno = [
-      ...stav.questyOdmeneno.filter((id) => id.startsWith(dnes)),
-      ...kOdmene.map((q) => q.id),
-    ];
+    const questyOdmeneno = plnitQuesty
+      ? [
+          ...stav.questyOdmeneno.filter((id) => id.startsWith(dnes)),
+          ...kOdmene.map((q) => q.id),
+        ]
+      : stav.questyOdmeneno;
 
-    // Bonusová bronzová truhla za všechny 3 splněné questy (1× denně).
+    // Bonusová bronzová truhla za všechny 3 splněné questy (1× denně) — jen
+    // po testu aktivní banky (jinak by hlídka `datum` questů nebyla zaručená).
     const cekajiciTruhly = [...stav.cekajiciTruhly];
     let denBonusoveTruhly = stav.denBonusoveTruhly;
-    if (questy.length >= 3 && questy.every((q) => q.splneno) && denBonusoveTruhly !== dnes) {
+    if (
+      plnitQuesty &&
+      questy.length >= 3 &&
+      questy.every((q) => q.splneno) &&
+      denBonusoveTruhly !== dnes
+    ) {
       cekajiciTruhly.push('bronzova');
       denBonusoveTruhly = dnes;
     }
+
+    // Týdenní XP z testů per banka (graf ve Statistikách) — přesný průběžný
+    // agregát; klíčem je týden KONCE testu.
+    const predmetTestu = vysledek.konfigurace.predmetId;
+    const tydenniXpTestuPodleBank =
+      vysledek.ziskaneXp > 0
+        ? {
+            ...stav.tydenniXpTestuPodleBank,
+            [predmetTestu]: pridejTydenniXp(
+              stav.tydenniXpTestuPodleBank[predmetTestu] ?? {},
+              denZData(new Date(vysledek.konec)),
+              vysledek.ziskaneXp,
+            ),
+          }
+        : stav.tydenniXpTestuPodleBank;
 
     // Truhla z testu do fronty (otevře ji stránka Výsledek, viz otevriTruhluAkce).
     if (vysledek.truhla) cekajiciTruhly.push(vysledek.truhla);
@@ -337,6 +424,7 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
       novaKarty: mistrovske.length > 0 ? [...stav.novaKarty, ...mistrovske] : stav.novaKarty,
       zmrazeniPouzitoDen: zmrazeniPouzito ? dnes : stav.zmrazeniPouzitoDen,
       historieTestu: [vysledek, ...stav.historieTestu].slice(0, 10),
+      tydenniXpTestuPodleBank,
     });
   },
 
@@ -413,6 +501,8 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
       denBonusoveTruhly: null,
       zmrazeniPouzitoDen: null,
       historieTestu: [],
+      questyPodleBank: {},
+      tydenniXpTestuPodleBank: {},
       // Postup lekci (vyukaSlice) je soucast progresu studenta — obsah
       // (vyuky, banky) naopak zustava.
       postupLekci: {},
@@ -424,11 +514,12 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
     const stav = get();
     const progres = stav.progres;
     if (progres.questy.length > 0 && progres.questy[0].datum === dnes) return;
-    const ctx = kontextQuestu(stav.banky, progres.statistikyOtazek);
+    const aktivniPredmet = aktivniPredmetZeStavu(stav);
+    const ctx = kontextQuestu(stav.banky, progres.statistikyOtazek, aktivniPredmet);
     set({
       progres: {
         ...progres,
-        questy: vygenerujDenniQuesty(dnes, ctx, stav.aktivniProfilId ?? undefined),
+        questy: vygenerujDenniQuesty(dnes, ctx, seedQuestu(stav.aktivniProfilId, aktivniPredmet)),
       },
       questyOdmeneno: stav.questyOdmeneno.filter((id) => id.startsWith(dnes)),
     });

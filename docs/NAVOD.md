@@ -128,16 +128,40 @@ profily jen rozlišuje podle id, které aplikace posílá při synchronizaci
    (Obrazovka se ukáže po startu aplikace; za běhu se na ni dostaneš
    přes klik na avatara v hlavičce → „Odhlásit profil“.)
 2. Vyplň jméno (třeba „Máma“), vyber barvu profilu a volitelně zadej
-   **PIN (4–6 číslic)**. Tlačítko **Hrát!** profil založí a rovnou na
-   něj přepne.
-3. Každý profil má VLASTNÍ postup: XP, level, streak, denní questy,
-   truhly, sbírku, avatara, postup lekcí i historii testů. Společný je
-   jen obsah předmětů (banky a výuka) — máma jede Základy
-   profesionálního vaření, student svůj ročník, a nic si nepřepisují.
+   **PIN (4–6 číslic)**; tlačítko **Pokračovat →** vede na druhý krok.
+3. V kroku **„Co budeš studovat?“** vyber studijní banky profilu —
+   aspoň jednu, první vybraná bude aktivní (máma si vybere jen Základy
+   profesionálního vaření, student předměty svého ročníku). Tlačítko
+   **Hrát!** profil založí a rovnou na něj přepne.
+4. Každý profil má VLASTNÍ postup: XP, level, streak, denní questy,
+   truhly, sbírku, avatara, postup lekcí i historii testů — a vlastní
+   výběr studijních bank. Společný je jen obsah předmětů (banky
+   a výuka), takže si nikdo nic nepřepisuje.
 
 **Přepínání:** klik na avatara v hlavičce → menu profilů. Profil bez
 PINu se přepne na jeden klik; profil s PINem se přepíná přes odhlášení
 a zadání PINu na obrazovce výběru.
+
+**Studijní banky profilu:**
+
+- Výběr z založení jde kdykoli změnit v **Nastavení → Profily →
+  Studijní banky**: přidat banku ze zbytku nabídky, odebrat, aktivovat.
+  Poslední banka odebrat nejde (aspoň jedna se studuje vždy); postup
+  v odebrané bance — statistiky otázek, zvládnutí témat i rozdělané
+  questy dne — zůstává uložený a s opětovným přidáním se vrátí.
+- **Aktivní banka** se přepíná chipem vedle avataru v hlavičce (ikona
+  + název, klik → menu bank) nebo v Nastavení. Řídí denní questy,
+  doporučené lekce a předvýběr předmětu testu: questy dne se generují
+  z témat aktivní banky a plní je JEN testy a lekce z ní — test nebo
+  lekce z jiné banky dává normálně XP, streak i statistiky, jen questy
+  nehýbe. Každá banka má vlastní questy dne; přepínání tam a zpět nic
+  nezahazuje ani negeneruje znovu.
+- Volba předmětu testu (modal „Nová výprava“ i rychlý start na /test)
+  a přehled „Učit se“ nabízejí jen banky profilu (aktivní předvybraná,
+  resp. první). Ve Statistikách je přepínač bank profilu (výchozí
+  aktivní) — témata, graf týdenního XP z testů a poslední testy jsou
+  za vybranou banku; level, XP, streak a sbírka zůstávají společné za
+  celý profil.
 
 **PIN — měkký zámek soukromí:**
 
@@ -150,10 +174,10 @@ a zadání PINu na obrazovce výběru.
   verze přes http na LAN) se PIN pole schovají s vysvětlením a profil
   je bez zámku — „zamčený“ profil bez funkčního zámku nikdy nevznikne.
 
-**Správa (Nastavení → Profily):** přejmenování a PIN u aktivního
-profilu; smazání kteréhokoli profilu kromě posledního (dvojité
-potvrzení + opsání jména — smaže XP, sbírku, statistiky i postup lekcí
-profilu, nejde vrátit).
+**Správa (Nastavení → Profily):** přejmenování, studijní banky a PIN
+u aktivního profilu; smazání kteréhokoli profilu kromě posledního
+(dvojité potvrzení + opsání jména — smaže XP, sbírku, statistiky
+i postup lekcí profilu, nejde vrátit).
 
 **Oba profily v admin webu:** každý profil se serverem synchronizuje
 zvlášť, takže v sekci Progres profilů vidíš karty obou vedle sebe
@@ -203,7 +227,8 @@ Zbožíznalství — plus Základy profesionálního vaření (`zaklady-vareni`,
 předmět mimo obor: QUESTOR je obecný, učí se v něm i dospělí členové
 rodiny). Volba předmětu je první krok při konfiguraci testu
 (modal „Nová výprava“ na Domů i rychlý start na /test); „Učit se“
-a Témata ve Statistikách jsou členěné per předmět.
+a Témata ve Statistikách jsou členěné per předmět. Nabízejí se přitom
+jen studijní banky daného profilu (kap. 4).
 
 Přidání nového předmětu — **další ročník = nový předmět s vlastním id**
 (např. `matematika-2` pro matematiku 2. ročníku; id je kebab-case slug):

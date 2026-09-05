@@ -16,11 +16,25 @@
 // (progres, postup lekci, rozehrany test, historie, truhly…) zustavaji beze
 // zmeny v pracovni sade a profil Student se rovnou aktivuje, takze update
 // nic neprerusi a NIC se neztrati. Obsah (banky, vyuky) zustava sdileny.
-import { VYCHOZI_AVATAR } from '@questor/sdilene';
+//
+// Verze 5: studijni banky per profil. Profil dostava `predmety` (vybrane
+// banky) a `aktivniPredmetId`; existujici profily dostanou VSECHNY banky
+// registru (v4 zadny vyber nemel — nabidka se zachovava). Aktivni banka
+// ridi denni questy, doporucene lekce i HUD, proto se odvozuje z POUZIVANI:
+// banka nejnovejsiho testu v historii profilu (fallback prvni banka
+// registru). Snimky dataProfilu i pracovni sada dostanou prazdne
+// `questyPodleBank` (questy dne neaktivnich bank). NIC se nemeni ani neztraci.
+//
+// Verze 6: tydenni XP z testu per banka (`tydenniXpTestuPodleBank`) — presny
+// prubezny agregat pro graf ve Statistikach (drive se odvozoval z okna
+// poslednich 10 testu a starsi tydny ukazoval nulove). Startovni hodnoty se
+// seedou z historie testu pracovni sady i snimku, aby graf nezacinal prazdny.
+import { denZData, pondeliTydne, VYCHOZI_AVATAR } from '@questor/sdilene';
 import { BARVY_PROFILU, vytvorIdProfilu } from './profilySlice';
+import { PREDMETY } from '../data/predmety';
 import type { QUESTORStav } from './store';
 
-export const VERZE_PERSISTU = 4;
+export const VERZE_PERSISTU = 6;
 
 /** Klice stavu, ktere se NEpersistuji (obsah predmetu — viz hlavicka souboru). */
 const NEPERSISTOVANE_KLICE = ['banky', 'vyuky'] as const;
@@ -31,6 +45,48 @@ export type PersistovanyStav = Omit<QUESTORStav, (typeof NEPERSISTOVANE_KLICE)[n
 export function partializujStav(stav: QUESTORStav): PersistovanyStav {
   const { banky: _banky, vyuky: _vyuky, ...zbytek } = stav;
   return zbytek;
+}
+
+/**
+ * Nejnovejsi pouzita banka z historie testu (historie je razena od
+ * nejnovejsiho — hraSlice.zapocitejTest predrazuje). Id mimo registr se
+ * preskakuje; null = zadny pouzitelny zaznam.
+ */
+function predmetZHistorie(historie: unknown, registr: ReadonlySet<string>): string | null {
+  if (!Array.isArray(historie)) return null;
+  for (const zaznam of historie) {
+    if (zaznam === null || typeof zaznam !== 'object') continue;
+    const konfigurace = (zaznam as Record<string, unknown>).konfigurace;
+    if (konfigurace === null || typeof konfigurace !== 'object') continue;
+    const predmetId = (konfigurace as Record<string, unknown>).predmetId;
+    if (typeof predmetId === 'string' && registr.has(predmetId)) return predmetId;
+  }
+  return null;
+}
+
+/**
+ * Seed agregatu tydenniho XP per banka z historie testu (migrace v6).
+ * Defenzivni nad nedoverovanymi daty snapshotu — vadny zaznam se preskoci.
+ */
+function tydenniXpZHistorieTestu(historie: unknown): Record<string, Record<string, number>> {
+  const agregat: Record<string, Record<string, number>> = {};
+  if (!Array.isArray(historie)) return agregat;
+  for (const zaznam of historie) {
+    if (zaznam === null || typeof zaznam !== 'object') continue;
+    const v = zaznam as Record<string, unknown>;
+    const konfigurace = v.konfigurace;
+    if (konfigurace === null || typeof konfigurace !== 'object') continue;
+    const predmetId = (konfigurace as Record<string, unknown>).predmetId;
+    if (typeof predmetId !== 'string') continue;
+    if (typeof v.ziskaneXp !== 'number' || !(v.ziskaneXp > 0)) continue;
+    if (typeof v.konec !== 'string') continue;
+    const konec = new Date(v.konec);
+    if (Number.isNaN(konec.getTime())) continue;
+    const klic = pondeliTydne(denZData(konec));
+    const banka = (agregat[predmetId] ??= {});
+    banka[klic] = (banka[klic] ?? 0) + v.ziskaneXp;
+  }
+  return agregat;
 }
 
 /**
@@ -81,6 +137,73 @@ export function migrujPersistovanyStav(stav: unknown, verzeSnapshotu: number): P
     kopie.profily = [{ id: idStudenta, jmeno: 'Student', barva: BARVY_PROFILU[0] }];
     kopie.aktivniProfilId = idStudenta;
     kopie.dataProfilu = {};
+  }
+
+  if (verzeSnapshotu < 5) {
+    // Studijni banky per profil: existujici profily studuji VSECHNY banky
+    // registru (v4 zadny vyber nemel). Aktivni banka ridi denni questy,
+    // doporucene lekce i HUD — odvozuje se proto z POUZIVANI: banka
+    // nejnovejsiho testu v historii profilu (aktivni profil ma historii
+    // v pracovni sade, neaktivni ve svem snimku), fallback prvni banka
+    // registru. Snimky profilu a pracovni sada dostanou prazdne questyPodleBank.
+    const vsechny = PREDMETY.map((p) => p.id);
+    const registr = new Set(vsechny);
+    const snimky =
+      kopie.dataProfilu !== null && typeof kopie.dataProfilu === 'object'
+        ? (kopie.dataProfilu as Record<string, unknown>)
+        : {};
+    if (Array.isArray(kopie.profily)) {
+      kopie.profily = kopie.profily.map((p) => {
+        if (p === null || typeof p !== 'object') return p;
+        const profil = p as Record<string, unknown>;
+        const snimek =
+          profil.id !== undefined && profil.id === kopie.aktivniProfilId
+            ? kopie
+            : snimky[String(profil.id)];
+        const historie =
+          snimek !== null && typeof snimek === 'object'
+            ? (snimek as Record<string, unknown>).historieTestu
+            : undefined;
+        return {
+          ...profil,
+          predmety: vsechny,
+          aktivniPredmetId: predmetZHistorie(historie, registr) ?? vsechny[0],
+        };
+      });
+    }
+    if (kopie.dataProfilu !== null && typeof kopie.dataProfilu === 'object') {
+      const nove: Record<string, unknown> = {};
+      for (const [id, snimek] of Object.entries(kopie.dataProfilu as Record<string, unknown>)) {
+        nove[id] =
+          snimek !== null && typeof snimek === 'object'
+            ? { questyPodleBank: {}, ...(snimek as Record<string, unknown>) }
+            : snimek;
+      }
+      kopie.dataProfilu = nove;
+    }
+    kopie.questyPodleBank = {};
+  }
+
+  if (verzeSnapshotu < 6) {
+    // Tydenni XP z testu per banka — presny agregat vede zapocitejTest;
+    // startovni hodnoty se seedou z historie testu (poslednich 10), aby graf
+    // ve Statistikach po updatu nezacinal prazdny. Pracovni sada i snimky.
+    kopie.tydenniXpTestuPodleBank = tydenniXpZHistorieTestu(kopie.historieTestu);
+    if (kopie.dataProfilu !== null && typeof kopie.dataProfilu === 'object') {
+      const nove: Record<string, unknown> = {};
+      for (const [id, snimek] of Object.entries(kopie.dataProfilu as Record<string, unknown>)) {
+        nove[id] =
+          snimek !== null && typeof snimek === 'object'
+            ? {
+                tydenniXpTestuPodleBank: tydenniXpZHistorieTestu(
+                  (snimek as Record<string, unknown>).historieTestu,
+                ),
+                ...(snimek as Record<string, unknown>),
+              }
+            : snimek;
+      }
+      kopie.dataProfilu = nove;
+    }
   }
 
   return kopie as PersistovanyStav;

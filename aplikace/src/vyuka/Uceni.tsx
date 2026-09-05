@@ -7,6 +7,7 @@ import type { Lekce, VyukaPredmetu } from '@questor/sdilene';
 import { XP_ZA_LEKCI } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import type { PostupLekce } from '../stav/vyukaSlice';
+import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import './vyuka.css';
 
@@ -81,11 +82,19 @@ export default function Uceni() {
   const vyuky = pouzijStav((s) => s.vyuky);
   const banky = pouzijStav((s) => s.banky);
   const postupLekci = pouzijStav((s) => s.postupLekci);
+  const profil = pouzijStav((s) => najdiAktivniProfil(s));
 
-  // Sekce per předmět (jen předměty, které výuku opravdu mají),
-  // v pořadí registru předmětů (../data/predmety.ts).
+  // Sekce per předmět: JEN studijní banky profilu, které výuku opravdu mají,
+  // v pořadí registru předmětů (../data/predmety.ts) — AKTIVNÍ banka první.
   const predmety = useMemo(() => {
-    return seradPredmety(Object.keys(vyuky)).map((predmetId) => {
+    const bankyProfilu = predmetyProfilu(profil);
+    const aktivni = aktivniPredmetProfilu(profil);
+    const serazene = seradPredmety(Object.keys(vyuky)).filter((id) => bankyProfilu.includes(id));
+    if (aktivni && serazene.includes(aktivni)) {
+      serazene.splice(serazene.indexOf(aktivni), 1);
+      serazene.unshift(aktivni);
+    }
+    return serazene.map((predmetId) => {
       const vyuka = vyuky[predmetId];
       const nazev = nazevPredmetu(predmetId, banky[predmetId]?.nazev);
       const lekce = vyuka.lekce
@@ -94,11 +103,12 @@ export default function Uceni() {
         .map((l) => souhrnLekce(vyuka, nazev, l, postupLekci[l.temaId]));
       return { predmetId, nazev, ikona: ikonaPredmetu(predmetId), lekce };
     });
-  }, [vyuky, banky, postupLekci]);
+  }, [vyuky, banky, postupLekci, profil]);
 
   const vsechnyLekce = predmety.flatMap((p) => p.lekce);
   const dokoncenych = vsechnyLekce.filter((l) => l.hotovo).length;
   // Doporuceni: prvni rozdelana lekce; kdyz zadna neni, prvni nezacata.
+  // Aktivni banka je v seznamu prvni, takze doporuceni miri nejdriv do ni.
   const doporucena =
     vsechnyLekce.find((l) => l.zacata && !l.hotovo) ?? vsechnyLekce.find((l) => !l.hotovo) ?? null;
 

@@ -43,7 +43,16 @@ Lokální profily jako na streamovacích službách — žádný e-mail, žádn�
 registrace, všechno zůstává v počítači. Každý profil má vlastní XP,
 level, streak, questy, truhly, sbírku, avatara, postup lekcí i historii
 testů; obsah předmětů je společný. Volitelný PIN (4–6 číslic) je měkký
-zámek soukromí; přepíná se klikem na avatara v hlavičce. Server profily
+zámek soukromí; přepíná se klikem na avatara v hlavičce.
+
+Každý profil si navíc vybírá vlastní **studijní banky** (při založení
+v kroku „Co budeš studovat?“ a kdykoli v Nastavení; aspoň jedna vždy).
+**Aktivní banka** — přepínaná chipem vedle avataru v hlavičce — řídí
+denní questy (generují se z jejích témat a plní je jen testy a lekce
+z ní; každá banka má vlastní questy dne), doporučené lekce a předvýběr
+předmětu testu; Statistiky mají přepínač bank. Level, XP, streak
+a sbírka zůstávají společné za celý profil; postup v odebrané bance se
+nemaže a s opětovným přidáním se vrací. Server profily
 rozlišuje přes `profilId` posílaný při syncu (studentský token je
 společný): admin web ukazuje progres všech profilů vedle sebe a výzvy
 jde cílit na konkrétní profil. Postupy: `docs/NAVOD.md`, kap. 3 a 4.

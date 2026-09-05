@@ -5,11 +5,16 @@
 //   na novy plne prizpusobitelny tvar a doplni vlastnenaVybava: [],
 // - migrace v3 → v4 udela z existujicich dat profil „Student" (rovnou
 //   aktivni) a osobni data necha v pracovni sade beze zmeny,
+// - migrace v4 → v5 da profilum VSECHNY studijni banky registru; aktivni
+//   banka se odvozuje z POUZIVANI (nejnovejsi test v historii profilu,
+//   fallback prvni banka registru) a doplni se prazdne questyPodleBank,
+// - migrace v5 → v6 doplni tydenniXpTestuPodleBank (seed z historie testu),
 // - progres, sbirka, streak, XP a postup lekci se NIKDY neztrati.
 import { describe, expect, it } from 'vitest';
 import { VYCHOZI_AVATAR } from '@questor/sdilene';
 import { pouzijStav } from '../src/stav/store';
 import type { Profil } from '../src/stav/profilySlice';
+import { PREDMETY } from '../src/data/predmety';
 import {
   migrujPersistovanyStav,
   partializujStav,
@@ -17,8 +22,8 @@ import {
 } from '../src/stav/migrace';
 
 describe('persist — partialize', () => {
-  it('verze persistu je 4 (lokalni profily)', () => {
-    expect(VERZE_PERSISTU).toBe(4);
+  it('verze persistu je 6 (tydenni XP z testu per banka)', () => {
+    expect(VERZE_PERSISTU).toBe(6);
   });
 
   it('vynechava banky a vyuky, zbytek stavu necha', () => {
@@ -195,5 +200,197 @@ describe('persist — migrace v3 → v4 (lokalni profily)', () => {
     const a = migrujPersistovanyStav(snapshotV3, 3) as Record<string, unknown>;
     const b = migrujPersistovanyStav(snapshotV3, 3) as Record<string, unknown>;
     expect((a.profily as Profil[])[0].id).not.toBe((b.profily as Profil[])[0].id);
+  });
+});
+
+describe('persist — migrace v4 → v5 (studijni banky per profil)', () => {
+  const snapshotV4 = {
+    profily: [
+      { id: 'p-kuba', jmeno: 'Kuba', barva: '#8b5cf6' },
+      { id: 'p-mama', jmeno: 'Máma', barva: '#f472b6', pinHash: 'abc' },
+    ],
+    aktivniProfilId: 'p-kuba',
+    dataProfilu: {
+      'p-mama': {
+        progres: { xp: 42 },
+        postupLekci: { tema: { dokonceneBloky: [0] } },
+        questyOdmeneno: ['2026-09-04:odpovez'],
+      },
+    },
+    progres: { xp: 900 },
+    postupLekci: {},
+    questyOdmeneno: [],
+    historieTestu: [],
+    cekajiciTruhly: [],
+  };
+
+  it('kazdy profil dostane VSECHNY banky registru a aktivni je prvni (zadna zmena chovani)', () => {
+    const migrovane = migrujPersistovanyStav(snapshotV4, 4) as Record<string, unknown>;
+    const profily = migrovane.profily as Profil[];
+    const vsechna = PREDMETY.map((p) => p.id);
+    expect(profily).toHaveLength(2);
+    for (const profil of profily) {
+      expect(profil.predmety).toEqual(vsechna);
+      expect(profil.aktivniPredmetId).toBe(vsechna[0]);
+    }
+    // Ostatni pole profilu zustavaji (vc. pinHash).
+    expect(profily[1].pinHash).toBe('abc');
+    expect(profily[0].jmeno).toBe('Kuba');
+    expect(migrovane.aktivniProfilId).toBe('p-kuba');
+  });
+
+  it('snimky dataProfilu i pracovni sada dostanou prazdne questyPodleBank, NIC se neztrati', () => {
+    const migrovane = migrujPersistovanyStav(snapshotV4, 4) as Record<string, unknown>;
+    const dataProfilu = migrovane.dataProfilu as Record<string, Record<string, unknown>>;
+    expect(dataProfilu['p-mama'].questyPodleBank).toEqual({});
+    // Osobni data snimku zustavaji beze zmeny.
+    expect(dataProfilu['p-mama'].progres).toEqual({ xp: 42 });
+    expect(dataProfilu['p-mama'].questyOdmeneno).toEqual(['2026-09-04:odpovez']);
+    expect(dataProfilu['p-mama'].postupLekci).toEqual({ tema: { dokonceneBloky: [0] } });
+    // Pracovni sada aktivniho profilu netknuta + prazdny slovnik questu bank.
+    expect(migrovane.progres).toBe(snapshotV4.progres);
+    expect(migrovane.questyPodleBank).toEqual({});
+  });
+
+  it('v1 → v5 projde vsemi kroky najednou', () => {
+    const staryV1 = {
+      banky: { p: { predmetId: 'p', verze: 1 } },
+      progres: { xp: 77, avatar: { barvaVlasu: '#abcdef' } },
+    };
+    const migrovane = migrujPersistovanyStav(staryV1, 1) as Record<string, unknown>;
+    const profily = migrovane.profily as Profil[];
+    expect(profily[0].jmeno).toBe('Student');
+    expect(profily[0].predmety).toEqual(PREDMETY.map((p) => p.id));
+    expect(profily[0].aktivniPredmetId).toBe(PREDMETY[0].id);
+    expect(migrovane.questyPodleBank).toEqual({});
+    expect((migrovane.progres as Record<string, unknown>).xp).toBe(77);
+  });
+
+  it('prezije i nesmyslny snapshot v4 (chybejici profily/dataProfilu)', () => {
+    const migrovane = migrujPersistovanyStav({ progres: { xp: 1 } }, 4) as Record<string, unknown>;
+    expect(migrovane.questyPodleBank).toEqual({});
+    expect((migrovane.progres as Record<string, unknown>).xp).toBe(1);
+  });
+
+  it('aktivni banka se odvozuje z historie testu profilu (nejnovejsi test)', () => {
+    const snapshot = {
+      ...snapshotV4,
+      // Pracovni sada aktivniho profilu (p-kuba): nejnovejsi test je PRVNI
+      // (zapocitejTest predrazuje); neznamy predmet se preskakuje.
+      historieTestu: [
+        { id: 't3', konfigurace: { predmetId: 'uz-neexistuje' } },
+        { id: 't2', konfigurace: { predmetId: 'fyzika' } },
+        { id: 't1', konfigurace: { predmetId: 'matematika' } },
+      ],
+      dataProfilu: {
+        'p-mama': {
+          ...snapshotV4.dataProfilu['p-mama'],
+          historieTestu: [{ id: 't9', konfigurace: { predmetId: 'zaklady-vareni' } }],
+        },
+      },
+    };
+    const migrovane = migrujPersistovanyStav(snapshot, 4) as Record<string, unknown>;
+    const profily = migrovane.profily as Profil[];
+    expect(profily[0].aktivniPredmetId).toBe('fyzika'); // p-kuba (aktivni, pracovni sada)
+    expect(profily[1].aktivniPredmetId).toBe('zaklady-vareni'); // p-mama (snimek)
+    // Nabidka bank zustava plna (v4 zadny vyber nemel).
+    expect(profily[0].predmety).toEqual(PREDMETY.map((p) => p.id));
+  });
+
+  it('bez pouzitelne historie spadne aktivni banka na prvni z registru', () => {
+    const snapshot = {
+      ...snapshotV4,
+      historieTestu: [{ id: 't1', konfigurace: { predmetId: 'neznamy-predmet' } }, null, 'vadny'],
+    };
+    const migrovane = migrujPersistovanyStav(snapshot, 4) as Record<string, unknown>;
+    const profily = migrovane.profily as Profil[];
+    expect(profily[0].aktivniPredmetId).toBe(PREDMETY[0].id);
+    expect(profily[1].aktivniPredmetId).toBe(PREDMETY[0].id);
+  });
+});
+
+describe('persist — migrace v5 → v6 (tydenni XP z testu per banka)', () => {
+  const snapshotV5 = {
+    profily: [
+      {
+        id: 'p-kuba',
+        jmeno: 'Kuba',
+        barva: '#8b5cf6',
+        predmety: ['matematika', 'fyzika'],
+        aktivniPredmetId: 'matematika',
+      },
+    ],
+    aktivniProfilId: 'p-kuba',
+    dataProfilu: {
+      'p-mama': {
+        progres: { xp: 42 },
+        historieTestu: [
+          {
+            id: 'm1',
+            konfigurace: { predmetId: 'zaklady-vareni' },
+            ziskaneXp: 55,
+            konec: '2026-09-01T10:00:00.000Z',
+          },
+        ],
+      },
+    },
+    progres: { xp: 900 },
+    historieTestu: [
+      {
+        id: 't1',
+        konfigurace: { predmetId: 'matematika' },
+        ziskaneXp: 100,
+        konec: '2026-09-01T10:00:00.000Z', // pondeli tydne 2026-08-31
+      },
+      {
+        id: 't2',
+        konfigurace: { predmetId: 'matematika' },
+        ziskaneXp: 50,
+        konec: '2026-08-25T10:00:00.000Z', // pondeli tydne 2026-08-24
+      },
+      {
+        id: 't3',
+        konfigurace: { predmetId: 'fyzika' },
+        ziskaneXp: 70,
+        konec: '2026-09-01T12:00:00.000Z',
+      },
+      { id: 'vadny', konfigurace: { predmetId: 'fyzika' }, ziskaneXp: 10, konec: 'neni-datum' },
+    ],
+    questyPodleBank: {},
+  };
+
+  it('seedne agregat z historie testu pracovni sady i snimku', () => {
+    const migrovane = migrujPersistovanyStav(snapshotV5, 5) as Record<string, unknown>;
+    expect(migrovane.tydenniXpTestuPodleBank).toEqual({
+      matematika: { '2026-08-31': 100, '2026-08-24': 50 },
+      fyzika: { '2026-08-31': 70 },
+    });
+    const dataProfilu = migrovane.dataProfilu as Record<string, Record<string, unknown>>;
+    expect(dataProfilu['p-mama'].tydenniXpTestuPodleBank).toEqual({
+      'zaklady-vareni': { '2026-08-31': 55 },
+    });
+    // Nic jineho se nemeni.
+    expect(migrovane.progres).toBe(snapshotV5.progres);
+    expect(migrovane.historieTestu).toBe(snapshotV5.historieTestu);
+    expect(dataProfilu['p-mama'].progres).toEqual({ xp: 42 });
+    expect(migrovane.profily).toBe(snapshotV5.profily);
+  });
+
+  it('prezije snapshot bez historie (prazdny agregat)', () => {
+    const migrovane = migrujPersistovanyStav({ progres: { xp: 1 } }, 5) as Record<string, unknown>;
+    expect(migrovane.tydenniXpTestuPodleBank).toEqual({});
+    expect((migrovane.progres as Record<string, unknown>).xp).toBe(1);
+  });
+
+  it('v1 → v6 projde vsemi kroky najednou', () => {
+    const staryV1 = {
+      banky: { p: { predmetId: 'p', verze: 1 } },
+      progres: { xp: 77, avatar: { barvaVlasu: '#abcdef' } },
+    };
+    const migrovane = migrujPersistovanyStav(staryV1, 1) as Record<string, unknown>;
+    expect((migrovane.profily as Profil[])[0].jmeno).toBe('Student');
+    expect(migrovane.questyPodleBank).toEqual({});
+    expect(migrovane.tydenniXpTestuPodleBank).toEqual({});
+    expect((migrovane.progres as Record<string, unknown>).xp).toBe(77);
   });
 });

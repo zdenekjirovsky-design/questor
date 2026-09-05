@@ -1,6 +1,7 @@
 // Testy slice vyuky (vyukaSlice) — verze obsahu, postup bloku a pravidla
-// odmen: XP_ZA_LEKCI jen 1x denne na lekci, streak aktivita, questy `lekce`.
-import { beforeEach, describe, expect, it } from 'vitest';
+// odmen: XP_ZA_LEKCI jen 1x denne na lekci, streak aktivita, questy `lekce`
+// (jen lekce AKTIVNI banky profilu).
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import type { QuestDenni, VyukaPredmetu } from '@questor/sdilene';
 import { denZData, XP_ZA_LEKCI } from '@questor/sdilene';
 import { pouzijStav } from '../src/stav/store';
@@ -57,6 +58,11 @@ function nastavQuesty(questy: QuestDenni[]): void {
 beforeEach(() => {
   pouzijStav.getState().resetujProgres();
   pouzijStav.setState({ vyuky: {}, postupLekci: {} });
+});
+
+afterEach(() => {
+  // Testy s profily po sobe uklizeji (ostatni testy bezi bez profilu).
+  pouzijStav.setState({ profily: [], aktivniProfilId: null, dataProfilu: {} });
 });
 
 describe('prijmiVyuku', () => {
@@ -182,6 +188,37 @@ describe('dokonciLekci', () => {
 
     expect(pouzijStav.getState().postupLekci).toEqual({});
     expect(pouzijStav.getState().vyuky['testovy-predmet']).toBeDefined();
+  });
+
+  it('lekce z JINE nez aktivni banky neplni questy (XP za lekci ale pripise)', () => {
+    // Vyuka fyziky; aktivni banka profilu je matematika.
+    pouzijStav.getState().prijmiVyuku(vzorovaVyuka({ predmetId: 'fyzika' }));
+    pouzijStav.setState({
+      profily: [
+        {
+          id: 'p-test',
+          jmeno: 'Kuba',
+          barva: '#8b5cf6',
+          predmety: ['matematika', 'fyzika'],
+          aktivniPredmetId: 'matematika',
+        },
+      ],
+      aktivniProfilId: 'p-test',
+    });
+    nastavQuesty([questDne('lekce', { odmenaXp: 60 })]);
+
+    const cizi = pouzijStav.getState().dokonciLekci('t1');
+    expect(cizi.xp).toBe(XP_ZA_LEKCI); // quest matematiky se nehnul
+    expect(pouzijStav.getState().progres.questy[0].splneno).toBe(false);
+    expect(pouzijStav.getState().progres.streak.aktualni).toBe(1); // streak bezi dal
+
+    // Po prepnuti na banku lekce quest plni normalne.
+    pouzijStav.setState({
+      profily: pouzijStav.getState().profily.map((p) => ({ ...p, aktivniPredmetId: 'fyzika' })),
+    });
+    const domaci = pouzijStav.getState().dokonciLekci('t2');
+    expect(domaci.xp).toBe(XP_ZA_LEKCI + 60);
+    expect(pouzijStav.getState().progres.questy[0].splneno).toBe(true);
   });
 
   it('quest `lekce` s parametrem temaId pocita jen lekce daneho tematu', () => {

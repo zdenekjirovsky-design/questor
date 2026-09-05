@@ -42,13 +42,14 @@ psychologickými hooky.
    questor-server :8787).
 7. API klíče a tokeny jen v env / `.env` (v .gitignore), nikdy v kódu.
 
-## Stav (2026-09-05 — po vlně 4: lokální profily, mobil, Základy vaření)
+## Stav (2026-09-05 — po vlně 5: studijní banky profilů)
 
 Vydané verze: tagy `v0.1.0`–`v0.3.1` (v0.3.0 = avatar 2.0, v0.3.1 = CI
-macOS build). Vlna 4 níže je hotová v pracovní kopii, zatím NEcommitnutá.
+macOS build). Vlny 4 a 5 níže jsou hotové v pracovní kopii, zatím
+NEcommitnuté.
 
-**Hotové a ověřené** (typecheck 4/4 workspaces, testy 307/307 — sdílené 86,
-generátor 32, server 46, aplikace 143; build aplikace OK ~1 s;
+**Hotové a ověřené** (typecheck 4/4 workspaces, testy 334/334 — sdílené 86,
+generátor 32, server 46, aplikace 170; build aplikace OK ~1 s;
 `npx tsx scripts/kontrola-integrace.ts` → 14 bank, 14 výuk | 86 témat,
 780 otázek, 86 lekcí, 172 mini-kvízů, 92 widgetů — VŠECHNY KONTROLY OK):
 
@@ -103,12 +104,32 @@ generátor 32, server 46, aplikace 143; build aplikace OK ~1 s;
   workeru — zásady v DESIGN.md, sekce Mobil;
 - vlna 4 — OBSAH: 14. předmět Základy profesionálního vaření
   (`zaklady-vareni`, mimo obor — učí se i dospělí členové rodiny):
-  učivo + banka + výuka, bundle byte-shodný s `data/`.
+  učivo + banka + výuka, bundle byte-shodný s `data/`;
+- vlna 5 — STUDIJNÍ BANKY PROFILŮ: každý profil studuje vlastní výběr
+  bank (`Profil.predmety` + `aktivniPredmetId`; čtení výhradně přes
+  `predmetyProfilu`/`aktivniPredmetProfilu` — neznámá id se tiše
+  ignorují, min. 1 banka vždy). Výběr při založení (dvoukrokový
+  formulář `profily/VyberProfilu`, krok „Co budeš studovat?“), správa
+  v Nastavení (přidat/odebrat/aktivovat — postup odebrané banky se
+  nemaže a vrací se s ní), přepínání chipem v hlavičce
+  (`komponenty/HudHlavicka`). Denní questy per profil × banka × den
+  (seed `${profilId}:${predmetId}`, kontext jen z aktivní banky; snímky
+  neaktivních bank v `questyPodleBank` — přepínání tam a zpět
+  negeneruje nové) a plní je JEN testy a lekce AKTIVNÍ banky (filtr
+  v `zapocitejOdpoved`/`zapocitejTest`/`dokonciLekci`; XP, Leitner,
+  streak a statistiky běží vždy). UI filtrované na banky profilu
+  (Domů, /test, Učit se — aktivní první; Statistiky s přepínačem bank
+  a přesným grafem týdenního XP z agregátu `tydenniXpTestuPodleBank`).
+  Persist v4→v5→v6 (`stav/migrace.ts`: v5 = profily dostanou všechny
+  banky registru, aktivní z nejnovějšího testu historie; v6 = seed
+  týdenního XP per banka z historie testů; nic se neztrácí). Progres
+  na server nese navíc `predmety` + `aktivniPredmetId` (server je při
+  validaci odstripuje, beze změny serveru).
 
 **Připravené, ale neověřené:**
 
 - Tauri build — staví se jen v GitHub Actions (na Macu se Rust část
-  nekompiluje); po commitu vlny 4 je potřeba na GitHubu ověřit běh
+  nekompiluje); po commitu vln 4 a 5 je potřeba na GitHubu ověřit běh
   workflow a auto-update nové verze na Windows (postup
   `docs/NASAZENI.md`);
 - dogenerování otázek — serverová půlka hotová (bez `ANTHROPIC_API_KEY`
@@ -117,7 +138,7 @@ generátor 32, server 46, aplikace 143; build aplikace OK ~1 s;
 - poskytovatelé `api` a `claude-cli` generátoru neověřeny ostrým během
   (testy jedou na `mock`) — platí i pro režim `--vyuka`.
 
-**Další krok:** commit + push vlny 4 a release nové verze přes CI
+**Další krok:** commit + push vln 4 a 5 a release nové verze přes CI
 (ověřit auto-update na Windows); nasadit/aktualizovat server (migrace DB
 proběhne sama při startu) a nahrát na něj banku i výuku vaření; poté
 ostré vygenerování dalšího předmětu přes `api` nebo `claude-cli`.

@@ -7,6 +7,20 @@
   align-items: start;
 }
 
+/* --- Globalni gamifikacni radek (level, XP, streak, sbirka — jedna identita) --- */
+.statistiky__globalni {
+  margin-bottom: 16px;
+}
+
+.statistiky__globalni .statistiky__globalni-mrizka {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* --- Prepinac studijni banky (vsechno pod nim je filtrovane) --- */
+.statistiky__prepinac {
+  margin-bottom: 16px;
+}
+
 /* --- Rekordy --- */
 .statistiky__rekordy-mrizka {
   display: grid;
@@ -246,6 +260,10 @@
 
   .statistiky__rekordy-mrizka {
     gap: 6px;
+  }
+
+  .statistiky__globalni .statistiky__globalni-mrizka {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .statistiky__tab {

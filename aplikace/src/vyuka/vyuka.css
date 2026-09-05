@@ -728,6 +728,14 @@
   font-weight: 700;
 }
 
+/* Aktivni studijni banka v titulku dlazdice „Ucit se". */
+.domu-uceni__banka {
+  font-family: var(--pismo);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-tlumeny);
+}
+
 .domu-uceni__popis {
   color: var(--text-tlumeny);
   font-size: 0.88rem;

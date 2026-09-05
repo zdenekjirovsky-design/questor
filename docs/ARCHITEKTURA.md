@@ -186,12 +186,14 @@ Generátor navrhuje jen datové widgety (`tridicka`/`pexeso`/`prubeh-procesu`/
 ## Aplikace — architektura
 
 React 19 + Vite, zustand (persist do localStorage, klíč `questor-stav`,
-verze 4), react-router. Obsah předmětů (banky, výuky) se NEpersistuje
+verze 6), react-router. Obsah předmětů (banky, výuky) se NEpersistuje
 (kvóta localStorage ~5 MB) — drží ho nepersistovaný stav, persist
 `partialize`/`migrate` řeší `stav/migrace.ts` (migrace v1→v2 zahazuje
 banky/výuky ze starých snapshotů; v2→v3 převádí avatar; v3→v4 dělá
-z existujících dat profil „Student“ — progres a postup lekcí se NIKDY
-neztrácí). Struktura `aplikace/src/`:
+z existujících dat profil „Student“; v4→v5 dává profilům studijní banky
+— aktivní se odvozuje z nejnovějšího testu v historii profilu; v5→v6
+doplňuje týdenní XP z testů per banka, seed z historie testů — progres
+a postup lekcí se NIKDY neztrácí). Struktura `aplikace/src/`:
 
 ```
 stav/       store.ts (ZMRAZENÝ — skládá slices), testySlice.ts, hraSlice.ts,
@@ -212,16 +214,38 @@ data/       predmety.ts (registr předmětů) + nacteniObsahu.ts + predmety/*.js
 Aplikaci sdílí víc lidí na jednom počítači — ŽÁDNÝ e-mail ani síťové
 ověřování. Kontrakt (`stav/profilySlice.ts`):
 
-- `Profil { id (náhodné), jmeno, barva, pinHash? }` v `profily[]`,
-  `aktivniProfilId | null`. Bez aktivního profilu App.tsx místo aplikace
-  ukáže `profily/VyberProfilu` (celoobrazovková brána — karty profilů,
-  „+ Nový profil“); přepínání za běhu přes klik na avatara v hlavičce.
+- `Profil { id (náhodné), jmeno, barva, pinHash?, predmety[], aktivniPredmetId }`
+  v `profily[]`, `aktivniProfilId | null`. Bez aktivního profilu App.tsx
+  místo aplikace ukáže `profily/VyberProfilu` (celoobrazovková brána — karty
+  profilů, „+ Nový profil“ = dvoukrokový formulář: jméno/barva/PIN → krok
+  „Co budeš studovat?“ — mřížka bank registru, multi-select, min. 1, první
+  vybraná = aktivní); přepínání za běhu přes klik na avatara v hlavičce.
 - VEŠKERÁ osobní data jsou per profil: progres (vč. avatara a výbavy),
   postup lekcí, aktualniTest, posledniVysledek, questyOdmeneno,
-  historieTestu, čekající truhly, výzvy i fronta syncu. AKTIVNÍ profil je
+  historieTestu, čekající truhly, výzvy, questy neaktivních bank
+  (`questyPodleBank`), týdenní XP z testů per banka
+  (`tydenniXpTestuPodleBank`) i fronta syncu. AKTIVNÍ profil je
   drží přímo v pracovních slicech (aplikace funguje beze změn), neaktivní
   mají snímek v `dataProfilu[id]`; přepnutí = uložit + nahrát snímek.
   Obsah (banky, výuky) zůstává SDÍLENÝ.
+- **Studijní banky per profil:** `predmety` (id z registru předmětů, pořadí
+  = pořadí výběru) + `aktivniPredmetId`. Číst VÝHRADNĚ přes čisté funkce
+  `predmetyProfilu()` / `aktivniPredmetProfilu()` (uvnitř
+  `vycistiPredmetyProfilu`): id mimo registr se tiše ignoruje, prázdný
+  výsledek spadne na všechny banky registru (min. 1 banka vždy platí)
+  a aktivní banka mimo seznam spadne na první z něj. Zápisy zachovávají
+  PŮVODNÍ uložené pole — id dočasně mimo registr se s návratem banky do
+  aplikace samo obnoví. Aktivní banka řídí denní questy, chip v hlavičce
+  (ikona + název vedle avataru, klik = menu bank profilu,
+  `komponenty/HudHlavicka`), předvýběr předmětu testu, pořadí sekcí
+  v Učit se a výchozí tab Statistik. `prepniAktivniPredmet` přehazuje
+  questy dne přes snímky `questyPodleBank` (predmetId →
+  `{ questy, questyOdmeneno }`, neaktivní banky; aktivní je drží
+  v pracovní sadě) — přepínání tam a zpět NEgeneruje nové questy zadarmo.
+  `pridejPredmetProfilu` / `odeberPredmetProfilu`: přidat jde jen banka
+  z registru, odebrat všechny kromě poslední (odebrání aktivní nejdřív
+  přepne na první zbylou); postup v odebrané bance (Leitnerovy statistiky,
+  mistrovství, snímek questů dne) se NEmaže a s opětovným přidáním se vrací.
 - PIN je jen MĚKKÁ ochrana soukromí: SHA-256 přes `crypto.subtle` se solí
   id profilu (`profily/pin.ts`), 3 špatné pokusy = 30 s pauza (in-memory).
   `crypto.subtle` existuje jen v zabezpečeném kontextu (https/localhost/
@@ -230,12 +254,17 @@ ověřování. Kontrakt (`stav/profilySlice.ts`):
   a hash se počítá PŘED založením profilu (id předem přes
   `vytvorIdProfilu`), takže selhání hashe profil nezaloží — nikdy nesmí
   tiše vzniknout „zamčený“ profil bez zámku.
-- Správa v Nastavení (`profily/SpravaProfilu`): přejmenovat a měnit/rušit
-  PIN jde u aktivního profilu (změna PINu po ověření současného), smazat
-  jde kterýkoli profil kromě posledního (dvojité potvrzení + opsání jména).
-- Denní questy se generují per profil: `vygenerujDenniQuesty(datum, ctx,
-  seedPrisada?)` dostává id aktivního profilu, takže dva profily nemají
-  identické questy. `resetujProgres` maže jen aktivní profil.
+- Správa v Nastavení (`profily/SpravaProfilu`): přejmenovat, spravovat
+  studijní banky (sekce Studijní banky — přidat ze zbytku registru,
+  odebrat s potvrzením, aktivovat) a měnit/rušit PIN jde u aktivního
+  profilu (změna PINu po ověření současného), smazat jde kterýkoli profil
+  kromě posledního (dvojité potvrzení + opsání jména).
+- Denní questy se generují per profil × aktivní banka:
+  `vygenerujDenniQuesty(datum, ctx, seedPrisada?)` dostává seed
+  `${profilId}:${predmetId}` (`seedQuestu` v hraSlice) a kontext (témata,
+  nejslabší téma) se skládá JEN z aktivní banky — dva profily ani dvě
+  banky téhož profilu nemají identické questy. `resetujProgres` maže jen
+  aktivní profil.
 
 Registr předmětů: `data/predmety.ts` drží ručně psaná metadata VŠECH
 očekávaných předmětů (`PREDMETY`: id, nazev, ikona — určují názvy, ikony
@@ -250,8 +279,16 @@ zaloguje a přeskočí. Obsah do store nabízí při startu `data/nacteniObsahu.
 (bundle → IndexedDB, verze hlídají `prijmiBanku`/`prijmiVyuku`); obsah
 stažený ze serveru cachuje `sync/uloziste.ts` (IndexedDB `questor-obsah`,
 bez závislostí, fail-safe). Volba předmětu je první krok modalu „Nová
-výprava“ na Domů i rychlého startu na /test; Učit se a sekce Témata ve
-Statistikách jsou členěné per předmět. HUD a gamifikace zůstávají globální.
+výprava“ na Domů i rychlého startu na /test — nabízejí se JEN studijní
+banky profilu s reálně přítomnou bankou, předvybraná AKTIVNÍ (jediná
+dostupná banka krok přeskočí). Učit se ukazuje jen banky profilu (aktivní
+sekce první, doporučení „pokračuj tady“ míří nejdřív do ní) a dlaždice
+Učit se na Domů shrnuje lekce aktivní banky. Statistiky mají nahoře
+globální řádek (level, XP, streak, sbírka — identita hráče je JEDNA) a pod
+ním přepínač bank profilu (výchozí aktivní; `stranky/statistikyVypocty.ts`),
+který filtruje témata, graf týdenního XP z testů (z agregátu
+`tydenniXpTestuPodleBank`) i poslední testy. HUD a gamifikace (XP, streak,
+truhly, sbírka) zůstávají globální za profil.
 Výukové widgety (6 obecných komponent) žijí ve
 `vyuka/widgety/`, UI je bere výhradně přes `vyuka/registr.ts`. Postup lekcí
 drží `vyukaSlice` klíčovaný `temaId` — temaId proto NESMÍ kolidovat napříč
@@ -337,7 +374,9 @@ Události (`POST /api/udalosti`) i progres (`POST /api/progres`) nesou
 NAVÍC top-level pole `profilId` a `profilJmeno` vedle stávajících dat —
 zpětně kompatibilní (starý server neznámá pole ignoruje); označení se
 přidává už při zařazení do fronty, takže přepnutí profilu před odesláním
-atribuci nezmění. Odesílají se fronty všech profilů, ne jen aktivního. Selhání sítě = ticho, žádné chybové hlášky uprostřed hry (jen
+atribuci nezmění. Progres nese NAVÍC `predmety` a `aktivniPredmetId`
+profilu (`oznacProgres` v sync.ts) — server je při zod validaci
+odstripuje, POST projde beze změny (serverová část se neměnila). Odesílají se fronty všech profilů, ne jen aktivního. Selhání sítě = ticho, žádné chybové hlášky uprostřed hry (jen
 nenápadný indikátor stavu připojení v Nastavení a na Domů). Fronta odesílá
 at-least-once s exponenciálním odkladem; položku, kterou server trvale odmítá
 (4xx mimo 408/429, např. výsledek smazané výzvy), zahodí, aby neblokovala
@@ -352,7 +391,13 @@ a při startu přeplácnou bundlovaný obsah, když mají vyšší verzi.
 - Streak: den se počítá při ≥ 1 dokončeném testu; `zmrazeni` zachrání 1 den.
 - Questy: 3/den, deterministické z data + id aktivního profilu
   (`vygenerujDenniQuesty(datum, ctx, seedPrisada?)`); odměna
-  = XP + při splnění všech 3 bronzová truhla navíc.
+  = XP + při splnění všech 3 bronzová truhla navíc. Questy dne patří
+  AKTIVNÍ bance profilu — odpověď/test/lekce z JINÉ banky je NEPLNÍ
+  (filtr v `zapocitejOdpoved`/`zapocitejTest`/`dokonciLekci` podle
+  predmetId testu resp. lekce; XP, Leitner, streak a statistiky běží dál).
+- Týdenní XP z testů per banka: `tydenniXpTestuPodleBank` (hraSlice,
+  predmetId → pondělí týdne → součet ziskaneXp) — přesný průběžný agregát
+  pro graf ve Statistikách (historieTestu drží jen posledních 10 testů).
 - Truhly: po testu dle úspěšnosti (≥50 % bronz, ≥70 % stříbro, ≥90 % zlato),
   obsah `otevriTruhlu` (XP / zmrazení / karta / výbava avataru; pásma losu
   pKarta+pVybava dle typu truhly, pity timer karet 3; výbava se losuje jen

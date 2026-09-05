@@ -7,7 +7,7 @@
 // Postup je klicovany temaId (lekce se vaze na tema banky otazek a routa
 // /uceni/:temaId nese jen temaId) — temaId vzorovych predmetu jsou unikatni.
 import type { StateCreator } from 'zustand';
-import type { Lekce, VyukaPredmetu } from '@questor/sdilene';
+import type { Lekce, QuestDenni, VyukaPredmetu } from '@questor/sdilene';
 import {
   aktualizujStreakPoAktivite,
   aplikujLekciNaQuesty,
@@ -15,6 +15,7 @@ import {
   pondeliTydne,
   XP_ZA_LEKCI,
 } from '@questor/sdilene';
+import { aktivniPredmetProfilu, najdiAktivniProfil } from './profilySlice';
 import type { QUESTORStav } from './store';
 
 // ---------------------------------------------------------------------------
@@ -162,8 +163,17 @@ export const vytvorVyukaSlice: StateCreator<QUESTORStav, [], [], VyukaSlice> = (
       const progres = stav.progres;
 
       // Questy sablony `lekce` + XP za prave splnene (dosud neodmenene) questy.
-      const questy = aplikujLekciNaQuesty(progres.questy, temaId);
-      const kOdmene = questy.filter((q) => q.splneno && !stav.questyOdmeneno.includes(q.id));
+      // Questy dne patri AKTIVNI bance profilu — lekce z JINE banky je plnit
+      // nesmi (Uceni ukazuje lekce vsech bank profilu). Bez profilu nebo bez
+      // dohledatelne lekce zustava puvodni chovani.
+      const aktivniPredmet = aktivniPredmetProfilu(najdiAktivniProfil(stav));
+      const predmetLekce = najdiLekci(stav.vyuky, temaId)?.predmetId ?? null;
+      const plnitQuesty =
+        aktivniPredmet === null || predmetLekce === null || predmetLekce === aktivniPredmet;
+      const questy = plnitQuesty ? aplikujLekciNaQuesty(progres.questy, temaId) : progres.questy;
+      const kOdmene: QuestDenni[] = plnitQuesty
+        ? questy.filter((q) => q.splneno && !stav.questyOdmeneno.includes(q.id))
+        : [];
       const xpZaQuesty = kOdmene.reduce((s, q) => s + q.odmenaXp, 0);
       const celkoveXp = XP_ZA_LEKCI + xpZaQuesty;
 

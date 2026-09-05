@@ -183,6 +183,69 @@
   background: var(--okraj);
 }
 
+/* --- Studijni banky: chip aktivni banky + menu prepinani --- */
+
+.hud__banka {
+  position: relative;
+}
+
+.hud__banka-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 220px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--pozadi-panel);
+  border: 1px solid var(--okraj);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+}
+
+.hud__banka-chip:hover,
+.hud__banka-chip:focus-visible {
+  border-color: var(--akcent);
+  box-shadow: var(--zare-akcent);
+  transform: translateY(-1px);
+}
+
+.hud__banka-obsah {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.hud__banka-ikona {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.hud__banka-nazev {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hud__banka-sipka {
+  font-size: 0.7rem;
+  color: var(--text-tlumeny);
+  flex-shrink: 0;
+}
+
+.hud__menu--banky {
+  max-height: min(60vh, 420px);
+  overflow-y: auto;
+  min-width: 240px;
+  /* Chip je v pravé části hlavičky — menu se kotví doprava, ať nepřetéká. */
+  left: auto;
+  right: 0;
+}
+
 /* --- Mobil (≤ 760 px): HUD se vejde vedle loga do jednoho řádku. --- */
 
 @media (max-width: 760px) {
@@ -193,8 +256,10 @@
     justify-content: flex-end;
   }
 
+  /* Level + XP bar NIKDY nekolabuje na nulu (min-width) — o místo se
+     přednostně dělí chip banky (flex-shrink níže). */
   .hud__level-blok {
-    min-width: 0;
+    min-width: 96px;
     flex: 1;
     max-width: 170px;
   }
@@ -216,6 +281,21 @@
   .hud__menu-polozka {
     min-height: 44px;
   }
+
+  /* Chip banky na mobilu: jen ikona + zkrácený název (vejde se do řádku).
+     Smršťuje se PŘEDNOSTNĚ (flex-shrink 2) a min-width přebíjí automatické
+     minimum obsahu — jinak by chip stlačil level blok na nulu. */
+  .hud__banka-chip {
+    max-width: 118px;
+    min-width: 44px;
+    flex-shrink: 2;
+    padding: 6px 8px;
+    min-height: 44px;
+  }
+
+  .hud__banka-sipka {
+    display: none;
+  }
 }
 
 /* Na nejužších displejích se číslo XP schová — level a bar stačí,
@@ -223,5 +303,19 @@
 @media (max-width: 480px) {
   .hud__xp-text {
     display: none;
+  }
+
+  /* Chip banky jen jako ikona — název zůstává v title a aria-label. */
+  .hud__banka-nazev {
+    display: none;
+  }
+
+  /* Těsnější HUD, ať se level bloku vejde aspoň minimum (i na ~360 px). */
+  .hud-hlavicka {
+    gap: 6px;
+  }
+
+  .hud__level-blok {
+    min-width: 64px;
   }
 }

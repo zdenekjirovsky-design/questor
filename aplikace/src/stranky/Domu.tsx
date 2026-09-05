@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import type { RezimTestu, TestKonfigurace, TruhlaTyp } from '@questor/sdilene';
 import { KARTY_VELIKANI, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
+import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import TruhlaOdmena from '../hra/TruhlaOdmena';
 import './Domu.css';
@@ -80,16 +81,34 @@ export default function Domu() {
   const [otviranaTruhla, setOtviranaTruhla] = useState<TruhlaTyp | null>(null);
   const [truhlaOtevrena, setTruhlaOtevrena] = useState(false);
 
-  // Predmety s reálně přítomnou bankou otázek (bundle/IndexedDB/server),
-  // seřazené podle registru (../data/predmety.ts).
-  const dostupnePredmety = useMemo(() => seradPredmety(Object.keys(banky)), [banky]);
+  // Studijni banky aktivního profilu + jeho aktivní banka.
+  const profil = pouzijStav((s) => najdiAktivniProfil(s));
+  const bankyProfilu = useMemo(() => predmetyProfilu(profil), [profil]);
+  const aktivniPredmet = aktivniPredmetProfilu(profil);
+
+  // Banky profilu s reálně přítomnou bankou otázek (bundle/IndexedDB/server),
+  // seřazené podle registru (../data/predmety.ts) — nic jiného se nenabízí.
+  const dostupnePredmety = useMemo(
+    () => seradPredmety(Object.keys(banky)).filter((id) => bankyProfilu.includes(id)),
+    [banky, bankyProfilu],
+  );
 
   const otevriVolbu = () => {
     if (dostupnePredmety.length === 1) {
-      // Jediný předmět — krok volby předmětu nemá co nabídnout, přeskočí se.
+      // Jediná banka profilu — krok volby předmětu nemá co nabídnout, přeskočí se.
+      if (dostupnePredmety[0] !== predmetId) setVybranaTemata([]);
       setPredmetId(dostupnePredmety[0]);
       setKrokVolby('volby');
     } else {
+      // Předvybraná je AKTIVNÍ banka profilu (když má obsah).
+      const vychozi =
+        aktivniPredmet && dostupnePredmety.includes(aktivniPredmet)
+          ? aktivniPredmet
+          : (dostupnePredmety[0] ?? null);
+      if (vychozi && vychozi !== predmetId) {
+        setVybranaTemata([]);
+        setPredmetId(vychozi);
+      }
       setKrokVolby('predmet');
     }
     setVolbaOtevrena(true);
@@ -158,15 +177,15 @@ export default function Domu() {
     [vyuky],
   );
 
-  // Souhrn vyuky pro dlazdici „Ucit se".
+  // Souhrn vyuky pro dlazdici „Ucit se" — jen lekce AKTIVNÍ banky profilu.
   const lekceSouhrn = useMemo(() => {
-    const vsechny = Object.values(vyuky).flatMap((v) => v.lekce);
+    const vsechny = aktivniPredmet ? (vyuky[aktivniPredmet]?.lekce ?? []) : [];
     const dokoncene = vsechny.filter((l) => {
       const p = postupLekci[l.temaId];
       return p !== undefined && p.dokonceneBloky.length >= l.bloky.length && l.bloky.length > 0;
     }).length;
     return { celkem: vsechny.length, dokoncene };
-  }, [vyuky, postupLekci]);
+  }, [vyuky, postupLekci, aktivniPredmet]);
 
   const level = stavLevelu(progres.xp);
   const velikaniZiskani = progres.sbirka.karty.filter((id) =>
@@ -201,10 +220,17 @@ export default function Domu() {
         <Link to="/uceni" className="panel domu-uceni">
           <span className="domu-uceni__znak" aria-hidden="true">📖</span>
           <span className="domu-uceni__texty">
-            <span className="domu-uceni__titulek">Učit se</span>
+            <span className="domu-uceni__titulek">
+              Učit se
+              {aktivniPredmet && (
+                <span className="domu-uceni__banka">
+                  {' '}· {ikonaPredmetu(aktivniPredmet)} {nazevPredmetu(aktivniPredmet)}
+                </span>
+              )}
+            </span>
             <span className="domu-uceni__popis">
               {lekceSouhrn.celkem === 0
-                ? 'Interaktivní lekce — obrázky, kartičky, hry. Brzy tu budou!'
+                ? 'Interaktivní lekce — obrázky, kartičky, hry. Pro tuhle banku se chystají!'
                 : lekceSouhrn.dokoncene >= lekceSouhrn.celkem
                   ? `Všech ${lekceSouhrn.celkem} lekcí dokončeno. Zopakuj si, co chceš.`
                   : `${lekceSouhrn.dokoncene}/${lekceSouhrn.celkem} lekcí dokončeno — pokračuj ve výpravě za věděním.`}

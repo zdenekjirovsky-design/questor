@@ -1,4 +1,5 @@
-# QUESTOR — build Windows instalátoru (Tauri 2, NSIS) + publikace do GitHub Release.
+# QUESTOR — build instalátorů (Tauri 2): Windows NSIS + macOS DMG (universal)
+# + updater artefakty, publikace do GitHub Release.
 # Spouští se pushnutím tagu ve tvaru v* (např. v0.1.0). Detail: docs/NASAZENI.md.
 name: windows-build
 
@@ -12,8 +13,22 @@ permissions:
 
 jobs:
   build:
-    name: Windows instalátor + updater artefakty
-    runs-on: windows-latest
+    name: Instalátor ${{ matrix.platforma }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platforma: windows
+            runner: windows-latest
+            rust-targets: ''
+            tauri-args: '--bundles nsis'
+          - platforma: macos
+            runner: macos-latest
+            # Universal binárka: Intel i Apple Silicon v jednom .dmg.
+            # (bundle targets se řídí tímhle přepínačem, ne tauri.conf.json)
+            rust-targets: 'aarch64-apple-darwin,x86_64-apple-darwin'
+            tauri-args: '--target universal-apple-darwin --bundles app,dmg'
     steps:
       - name: Checkout repozitáře
         uses: actions/checkout@v4
@@ -26,6 +41,8 @@ jobs:
 
       - name: Rust stable
         uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.rust-targets }}
 
       - name: Cache Rust buildu
         uses: swatinem/rust-cache@v2
@@ -50,10 +67,13 @@ jobs:
           # tauri.conf.json je v aplikace/src-tauri/
           projectPath: aplikace
           # Frontend je už postavený krokem výš, proto žádný beforeBuildCommand.
+          args: ${{ matrix.tauri-args }}
           tagName: ${{ github.ref_name }}
           releaseName: 'QUESTOR ${{ github.ref_name }}'
           releaseBody: |
-            Instalátor pro Windows: soubor `*-setup.exe` níže.
-            Nainstalovaná aplikace se dál aktualizuje sama (updater čte `latest.json`).
+            **Windows:** soubor `*-setup.exe` níže (aplikace se pak aktualizuje sama).
+            **macOS:** soubor `*.dmg` níže — po instalaci při prvním otevření povolit
+            v Nastavení systému → Soukromí a zabezpečení → „Přesto otevřít"
+            (aplikace není notarizovaná u Applu).
           releaseDraft: false
           prerelease: false

@@ -302,6 +302,7 @@
     min-height: 100dvh;
     border-radius: 0;
     justify-content: center;
+    padding-top: calc(20px + env(safe-area-inset-top, 0px));
   }
 
   .sbirka__detail-zavrit {

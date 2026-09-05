@@ -10,7 +10,7 @@
 
 .nastaveni-avataru__nahled {
   position: sticky;
-  top: 16px;
+  top: calc(16px + env(safe-area-inset-top, 0px));
   display: flex;
   flex-direction: column;
   align-items: center;

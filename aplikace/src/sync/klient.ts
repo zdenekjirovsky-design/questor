@@ -10,8 +10,14 @@ export interface SyncNastaveni {
   token: string;
 }
 
+/** Ve webové (hostované) verzi je sync ve výchozím stavu vypnutý — localhost
+ * server tam nedává smysl a CSP by ho stejně zablokovala. Uživatel může URL
+ * serveru kdykoli vyplnit v Nastavení. */
+const VYCHOZI_URL =
+  typeof window !== 'undefined' && window.location.protocol === 'https:' ? '' : 'http://localhost:8787';
+
 export const VYCHOZI_SYNC_NASTAVENI: SyncNastaveni = {
-  url: 'http://localhost:8787',
+  url: VYCHOZI_URL,
   token: 'student-dev',
 };
 

@@ -131,9 +131,12 @@ export function synchronizuj(duvod: DuvodSyncu): Promise<void> {
 }
 
 async function provedSync(duvod: DuvodSyncu): Promise<void> {
+  const nastaveni = nactiSyncNastaveni();
+  // Bez adresy serveru je sync vypnutý (typicky hostovaná webová verze).
+  if (!nastaveni.url) return;
   nastavStav({ bezi: true });
   try {
-    const klient = vytvorKlienta(nactiSyncNastaveni());
+    const klient = vytvorKlienta(nastaveni);
 
     // --- push ---------------------------------------------------------------
     const profil = aktivniProfil();

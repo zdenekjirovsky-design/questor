@@ -10,7 +10,7 @@ import './styl/global.css';
 
 ReactDOM.createRoot(document.getElementById('koren')!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
       <App />
     </BrowserRouter>
   </React.StrictMode>,

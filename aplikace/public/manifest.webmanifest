@@ -3,30 +3,30 @@
   "short_name": "QUESTOR",
   "description": "Herní výukový systém — lekce, testy, XP a sbírka.",
   "lang": "cs",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "orientation": "portrait-primary",
   "theme_color": "#0f0d1a",
   "background_color": "#0f0d1a",
   "icons": [
     {
-      "src": "/ikony/ikona-32.png",
+      "src": "ikony/ikona-32.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/ikony/ikona-128.png",
+      "src": "ikony/ikona-128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "/ikony/ikona-256.png",
+      "src": "ikony/ikona-256.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "/ikony/ikona-512.png",
+      "src": "ikony/ikona-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

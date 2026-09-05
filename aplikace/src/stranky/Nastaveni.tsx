@@ -11,6 +11,7 @@ import {
 } from '../sync/klient';
 import { pripojSeKeStavuSyncu, stavSynchronizace, synchronizuj } from '../sync/sync';
 import NastaveniAvataru from '../hra/NastaveniAvataru';
+import PridatNaPlochu from '../komponenty/PridatNaPlochu';
 import SpravaProfilu from '../profily/SpravaProfilu';
 import '../testy/testy.css';
 
@@ -119,6 +120,8 @@ export default function Nastaveni() {
         <h2>Profily</h2>
         <SpravaProfilu />
       </div>
+
+      <PridatNaPlochu />{/* sekce „Aplikace v telefonu" — jen ve webové verzi */}
 
       <div className="nastaveni-sekce">
         <h2>Vzhled</h2>

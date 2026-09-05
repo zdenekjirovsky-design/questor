@@ -106,12 +106,12 @@
     line-height: 1;
   }
 
-  /* Ikony podle cesty odkazu (BrowserRouter → href = cesta). */
-  .nav-odkaz[href='/']::before { content: '🏠'; }
-  .nav-odkaz[href='/uceni']::before { content: '📖'; }
-  .nav-odkaz[href='/sbirka']::before { content: '🃏'; }
-  .nav-odkaz[href='/statistiky']::before { content: '📊'; }
-  .nav-odkaz[href='/nastaveni']::before { content: '⚙️'; }
+  /* Ikony podle KONCE cesty — funguje i pod bází (/questor/…). */
+  .hlavicka__nav .nav-odkaz:first-child::before { content: '🏠'; } /* Domů je vždy první (href je bez lomítka pod bází) */
+  .nav-odkaz[href$='/uceni']::before { content: '📖'; }
+  .nav-odkaz[href$='/sbirka']::before { content: '🃏'; }
+  .nav-odkaz[href$='/statistiky']::before { content: '📊'; }
+  .nav-odkaz[href$='/nastaveni']::before { content: '⚙️'; }
 
   .nav-odkaz:hover {
     background: transparent;

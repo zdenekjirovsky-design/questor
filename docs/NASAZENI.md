@@ -199,3 +199,22 @@ progres lokálně) a po obnovení spojení se sama dosynchronizuje.
 | změnit tokeny | env na serveru + student v Nastavení |
 | zkontrolovat build | GitHub → Actions → `windows-build` |
 | najít instalátor | GitHub → Releases → Assets → `…-setup.exe` |
+
+## Webová verze (PWA) na sdíleném hostingu
+
+Hostovaná verze běží na **https://koordinator-server.cz/questor** — čistě
+statické soubory (žádný serverový kód, v docrootu vypnuté PHP, bezpečnostní
+hlavičky + CSP v `.htaccess`). Sync je ve webové verzi ve výchozím stavu
+vypnutý (zapne se vyplněním adresy serveru v Nastavení).
+
+Aktualizace webu (po každé změně aplikace):
+
+```bash
+VITE_ZAKLAD=/questor/ npm run build -w aplikace
+rsync -az --delete --exclude='.htaccess' aplikace/dist/ skull-exon:koordinator-web/questor/
+```
+
+`.htaccess` v `koordinator-web/` a `koordinator-web/questor/` se NEPŘEPISUJÍ
+(drží zabezpečení a SPA fallback). „Přidat na plochu": Android/Chrome nabídne
+tlačítko v Nastavení → Aplikace v telefonu; iPhone: Safari → Sdílet → Přidat
+na plochu.

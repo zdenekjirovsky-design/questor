@@ -142,6 +142,13 @@ export default function Tridicka({ parametry, onSplneno }: Props) {
               setPretahovanaNad(kat.id);
             }}
             onDragLeave={() => setPretahovanaNad((n) => (n === kat.id ? null : n))}
+            // Klik-klik rezim: cilem je CELY kos (na dotyku uzivatel klepne
+            // tam, kde je napoveda „pak sem…"), ne jen hlavicka. Hlavicka ma
+            // vlastni handler (klavesnice) — jeji klik se sem nepropaguje.
+            onClick={(e) => {
+              if ((e.target as HTMLElement).closest('.tridicka__kos-hlavicka')) return;
+              klikniKategorii(kat.id);
+            }}
             onDrop={(e) => {
               e.preventDefault();
               setPretahovanaNad(null);

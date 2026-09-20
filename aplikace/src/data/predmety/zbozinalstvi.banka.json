@@ -1,14 +1,16 @@
 {
   "predmetId": "zbozinalstvi",
   "nazev": "Zbožíznalství",
-  "verze": 1,
-  "vytvoreno": "2026-09-04",
+  "verze": 2,
+  "vytvoreno": "2026-09-20",
   "temata": [
     { "id": "zaklady-zbozinalstvi", "nazev": "Základy zbožíznalství", "poradi": 0 },
-    { "id": "potravinarske-zbozi", "nazev": "Potravinářské zboží", "poradi": 1 },
-    { "id": "drobne-zbozi", "nazev": "Drobné zboží", "poradi": 2 },
-    { "id": "obuv-a-galanterie", "nazev": "Obuv a kožená galanterie", "poradi": 3 },
-    { "id": "textil-a-odivani", "nazev": "Textil a odívání", "poradi": 4 }
+    { "id": "jakost-a-rizeni-jakosti", "nazev": "Jakost a řízení jakosti", "poradi": 1 },
+    { "id": "norma-iso-9001", "nazev": "Norma jakosti ISO 9001", "poradi": 2 },
+    { "id": "potravinarske-zbozi", "nazev": "Potravinářské zboží", "poradi": 3 },
+    { "id": "drobne-zbozi", "nazev": "Drobné zboží", "poradi": 4 },
+    { "id": "obuv-a-galanterie", "nazev": "Obuv a kožená galanterie", "poradi": 5 },
+    { "id": "textil-a-odivani", "nazev": "Textil a odívání", "poradi": 6 }
   ],
   "otazky": [
     {
@@ -201,6 +203,501 @@
       ],
       "vysvetleni": "Technická kontrola stála na počátku vývoje (jen třídila hotové výrobky), Paretova analýza a Ishikawův diagram jsou analytické nástroje a TQM je nejvyšší stupeň — kvalita jako věc všech pracovníků.",
       "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-14",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je zbožíznalství?",
+      "moznosti": [
+        "Nauka o zboží, jeho vlastnostech, jakosti, výrobě, používání, skladování, přepravě a ochraně",
+        "Nauka o cenách zboží a vedení účetnictví prodejny",
+        "Nauka o prodejních technikách a přesvědčování zákazníka",
+        "Nauka o reklamě a propagaci výrobků"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zbožíznalství zkoumá zboží samotné — co to je, jaké má vlastnosti a jakost, jak se vyrábí, používá, skladuje, přepravuje a chrání. Ceny a účetnictví řeší ekonomika, prodejní techniky a reklama patří do obchodní komunikace a marketingu.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-15",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Spotřebitel je člověk, který zboží prodává zákazníkům.",
+      "spravna": false,
+      "vysvetleni": "Spotřebitel je člověk, který výrobek používá pro svou potřebu — tedy ten, kdo si energy drink vypije nebo v teniskách chodí. Ten, kdo zboží prodává, je prodávající (obchodník).",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-16",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá schopnost zboží uspokojit určitou potřebu? (dvě slova)",
+      "spravneOdpovedi": [
+        "užitná hodnota",
+        "uzitna hodnota",
+        "užitnou hodnotu",
+        "uzitnou hodnotu"
+      ],
+      "vysvetleni": "Užitná hodnota je schopnost zboží uspokojit určitou potřebu: bunda hřeje, mobil volá a fotí. Nezaměňuj s cenou — drahá věc může mít nízkou užitnou hodnotu (nepotřebuješ ji) a naopak.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-17",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá soubor druhů zboží nabízených v určité prodejně nebo oboru?",
+      "spravneOdpovedi": [
+        "sortiment",
+        "Sortiment"
+      ],
+      "vysvetleni": "Sortiment je soubor druhů zboží, které prodejna nebo obor nabízí — třeba sortiment sportovního obchodu: tenisky, dresy, míče. Šířka a hloubka sortimentu rozhoduje o tom, co si u nich vybereš.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-18",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "multi",
+      "obtiznost": 2,
+      "zadani": "Které z uvedených položek patří mezi nepotravinářské zboží? (více správných odpovědí)",
+      "moznosti": [
+        "tenisky",
+        "mobilní telefon",
+        "energetický nápoj",
+        "kosmetika",
+        "balení sušenek"
+      ],
+      "spravne": [0, 1, 3],
+      "vysvetleni": "Zboží dělíme na potravinářské (potraviny a nápoje — energetický nápoj, sušenky) a nepotravinářské (oděvy, obuv, nábytek, elektronika, kosmetika). Tenisky, mobil i kosmetika jsou nepotravinářské zboží.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-19",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Truhlář si vyrobil stůl do vlastní dílny a nechá si ho. Je ten stůl zbožím?",
+      "moznosti": [
+        "Ne — je to výrobek (výsledek výrobního procesu); zbožím se stane, až bude určen k prodeji",
+        "Ano — každý výrobek je automaticky zboží",
+        "Ano — má užitnou hodnotu, a to k zboží stačí",
+        "Ne — nábytek se mezi zboží nepočítá"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Výrobek je výsledek výrobního procesu. Zboží je výrobek nebo předmět určený k prodeji a uspokojování potřeb zákazníka — rozhoduje tedy určení k prodeji. Užitnou hodnotu má i věc, kterou nikdo neprodává, proto samotná užitná hodnota ze stolu zboží nedělá.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-zaklady-zbozinalstvi-20",
+      "temaId": "zaklady-zbozinalstvi",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co patří k úkolům zbožíznalství? (více správných odpovědí)",
+      "moznosti": [
+        "poznat zboží a jeho vlastnosti",
+        "znát správný způsob prodeje zboží",
+        "znát správné skladování a ochranu zboží",
+        "stanovit výši DPH u jednotlivých druhů zboží",
+        "vést účetnictví prodejny"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Úkol zbožíznalství: poznat zboží, jeho vlastnosti, správný způsob prodeje, skladování a ochrany. Sazby DPH určuje zákon a účetnictví je samostatný obor — se znalostí zboží samotného nesouvisí.",
+      "zdroj": "Základy zbožíznalství"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-1",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co vyjadřuje jakost zboží?",
+      "moznosti": [
+        "Jak dobře výrobek splňuje požadavky zákazníka a stanovené požadavky",
+        "Jak vysokou má výrobek cenu",
+        "Jak hezky výrobek vypadá",
+        "Jak známá je značka výrobku"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Jakost říká, jak dobře výrobek splňuje požadavky zákazníka a stanovené (předepsané) požadavky. Cena ani známost značky kvalitu nezaručují a vzhled je jen jeden z deseti faktorů jakosti — jakost není pouze vzhled výrobku.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-2",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Jakost zboží je pouze vzhled výrobku — když věc dobře vypadá, je kvalitní.",
+      "spravna": false,
+      "vysvetleni": "Jakost není pouze vzhled výrobku. Důležitá je také funkčnost, bezpečnost a schopnost dlouhodobě plnit svůj účel. Krásné tenisky, které se po týdnu rozpadnou, kvalitní nejsou.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-3",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co je řízení jakosti?",
+      "moznosti": [
+        "Soubor činností, kterými organizace zajišťuje, že výrobky a služby budou odpovídat požadované úrovni",
+        "Kontrola hotových výrobků na konci výroby",
+        "Vyřizování reklamací od zákazníků",
+        "Získání certifikátu od nezávislé firmy"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Řízení jakosti je celý soubor činností organizace — od návrhu přes výrobu po skladování — aby výrobky odpovídaly požadované úrovni. Kontrola, reklamace i certifikace jsou jen jednotlivé nástroje řízení jakosti, ne řízení jakosti samo.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-4",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá druh jakosti daný měřitelnými vlastnostmi výrobku (rozměry, hmotnost, výdrž baterie)? Jakost ___ (jedno přídavné jméno).",
+      "spravneOdpovedi": [
+        "objektivní",
+        "objektivni",
+        "objektivní jakost",
+        "objektivni jakost"
+      ],
+      "vysvetleni": "Objektivní jakost tvoří měřitelné vlastnosti — dají se změřit a porovnat se standardem. Subjektivní jakost je vnímání zákazníkem (chuť, design, pocit z používání), které se měřit nedá.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-5",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z uvedených patří mezi faktory ovlivňující jakost výrobku? (více správných odpovědí)",
+      "moznosti": [
+        "materiál",
+        "konstrukce výrobku",
+        "výrobní postup",
+        "výše ceny",
+        "množství reklamy"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Deset faktorů jakosti: materiál, konstrukce výrobku, výrobní postup, vzhled, funkčnost, bezpečnost, trvanlivost, spolehlivost, hygienická nezávadnost a způsob skladování a přepravy. Cena a reklama ovlivňují prodej, ne vlastnosti výrobku.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-6",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z uvedených položek jsou nástroje a metody řízení jakosti? (více správných odpovědí)",
+      "moznosti": [
+        "kontrola",
+        "zkouška",
+        "certifikace",
+        "sleva na zboží",
+        "reklamní kampaň"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Sedm nástrojů a metod řízení jakosti: 1) kontrola, 2) měření — metrologie, 3) zkouška, 4) normalizace, 5) certifikace, 6) prevence, 7) reklamace. Sleva a reklama kvalitu výrobku nezmění — jen podporují prodej.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-7",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď čtyři druhy jakosti k tomu, co vyjadřují.",
+      "pary": [
+        { "levy": "užitná jakost", "pravy": "schopnost plnit základní funkci" },
+        { "levy": "technická jakost", "pravy": "soulad s technickými parametry" },
+        { "levy": "obchodní jakost", "pravy": "spokojenost zákazníka na trhu" },
+        { "levy": "spotřební jakost", "pravy": "hodnocení z pohledu uživatele — recenze" }
+      ],
+      "vysvetleni": "Užitná jakost = funguje to; technická = odpovídá to parametrům; obchodní = prodává se to a zákazníci na trhu jsou spokojení; spotřební = jak to hodnotí uživatel po používání, typicky v recenzích. Obchodní a spotřební se pletou nejčastěji.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-8",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co je standard jakosti zboží?",
+      "moznosti": [
+        "Zboží, jehož měřitelné vlastnosti jsou definovány v právním předpisu — slouží jako referenční bod pro porovnávání",
+        "Nejdražší a nejluxusnější výrobek v dané kategorii",
+        "Zboží s nejlepšími recenzemi na internetu",
+        "Certifikát ISO 9001 vydaný pro konkrétní výrobek"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Standard jakosti je referenční bod: měřitelné vlastnosti definované v právním předpisu, se kterými se výrobek porovnává. Bez referenčního bodu nelze kvalitu objektivně hodnotit. Recenze jsou spotřební (subjektivní) jakost a ISO 9001 je norma pro systém řízení firmy, ne standard konkrétního zboží.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-9",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Tenisky za 1 800 Kč se po týdnu běžného nošení roztrhly ve švu — přestaly plnit svůj účel. Který faktor jakosti selhal?",
+      "moznosti": [
+        "trvanlivost",
+        "vzhled",
+        "hygienická nezávadnost",
+        "způsob skladování a přepravy"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Trvanlivost je schopnost výrobku dlouhodobě plnit svůj účel — a to tenisky po týdnu nesplnily. Vzhled byl v pořádku, hygienická nezávadnost (škodlivé látky) ani skladování se švu netýkají. Příčina selhání může být v materiálu nebo výrobním postupu, projevem je ale nedostatečná trvanlivost.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-10",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Na e-shopu má bezdrátové sluchátko 4,6 hvězdičky ze 2 300 recenzí zákazníků, kteří ho používají. O který druh jakosti jde?",
+      "moznosti": [
+        "spotřební jakost",
+        "obchodní jakost",
+        "technická jakost",
+        "užitná jakost"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Spotřební jakost je hodnocení z pohledu uživatele — a recenze jsou přesně to. Obchodní jakost je spokojenost zákazníka na trhu (jak se výrobek prodává), technická jakost je soulad s parametry (výdrž baterie v hodinách) a užitná jakost je schopnost plnit základní funkci (hraje hudbu).",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-11",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Do obchodu, kde máš brigádu, přijde úředník ověřit, zda váha u pultu váží přesně. Který nástroj řízení jakosti (č. 2 v pořadí) uplatňuje? Napiš jeho odborný název.",
+      "spravneOdpovedi": [
+        "metrologie",
+        "Metrologie",
+        "měření",
+        "mereni",
+        "měření - metrologie",
+        "měření — metrologie",
+        "mereni - metrologie"
+      ],
+      "vysvetleni": "Ověřování přesnosti vah je měření — metrologie, druhý nástroj řízení jakosti. Bez přesného měření by nešlo porovnat výrobek se standardem (referenčním bodem). Kontrola (č. 1) je obecné porovnání se zadáním, zkouška (č. 3) vystavuje výrobek zátěži.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-12",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Levné tenisky za 400 Kč se po měsíci rozpadnou a letí do popelnice. Tahle nekvalita se týká jen zákazníka (přišel o peníze) a výrobce (přijde o pověst) — státu ani životního prostředí se netýká.",
+      "spravna": false,
+      "vysvetleni": "Kvalita je důležitá pro pět stran: zákazníka, výrobce, obchod, stát i životní prostředí. Obchod řeší reklamaci, stát hlídá bezpečnost a ochranu spotřebitele (předpisy, dozor) a rozpadlé tenisky skončí na skládce — zatěžují životní prostředí. Nekvalita se tedy netýká jen kupujícího a výrobce.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-jakost-a-rizeni-jakosti-13",
+      "temaId": "jakost-a-rizeni-jakosti",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Nový energetický nápoj splňuje všechny normy (složení, obal, označení), přesto ho zákazníci nekupují — podle recenzí chutná odporně. Co z toho plyne?",
+      "moznosti": [
+        "Jakost je širší pojem než shoda s normami — nápoj má technickou jakost, ale ne spotřební ani obchodní",
+        "Nápoj je kvalitní, protože splňuje normy; zákazníci se mýlí",
+        "Normy byly nastaveny špatně a je třeba je změnit",
+        "Chuť není součástí jakosti, takže o jakost nejde"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Shoda s normami je jen technická jakost. Jakost zboží je širší — zahrnuje i spotřební jakost (hodnocení uživatele, recenze) a obchodní jakost (spokojenost na trhu). Chuť je subjektivní jakost a součástí jakosti je; normy tu selhat nemusely, jen nepokrývají všechno.",
+      "zdroj": "Jakost a řízení jakosti"
+    },
+    {
+      "id": "o-norma-iso-9001-1",
+      "temaId": "norma-iso-9001",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je norma ISO 9001?",
+      "moznosti": [
+        "Všeobecná norma stanovující požadavky na systém managementu kvality (QMS) organizace",
+        "Oborová norma platná jen pro potravinářské výrobky",
+        "Zákon, který určuje záruční dobu zboží",
+        "Značka kvality tištěná na obal každého výrobku"
+      ],
+      "spravna": 0,
+      "vysvetleni": "ISO 9001 je všeobecná (univerzální) norma — základ pro oborové normy. Stanovuje požadavky na systém managementu kvality celé organizace, ne na jeden výrobek. Není to zákon ani značka na obalu.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-2",
+      "temaId": "norma-iso-9001",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Norma ISO 9001 se vyvíjí od 80. let 20. století a aktualizuje se zhruba jednou za pět let.",
+      "spravna": true,
+      "vysvetleni": "Řada ISO 9000 vznikala v 80. letech (první vydání 1987) a norma se reviduje přibližně jednou za pět let (1994, 2000, 2008, 2015), aby odpovídala vývoji praxe.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-3",
+      "temaId": "norma-iso-9001",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Která kapitola stojí ve schématu normy ISO 9001 uprostřed a všechny ostatní ji obklopují?",
+      "moznosti": [
+        "vedení",
+        "provoz",
+        "plánování",
+        "zlepšování"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Uprostřed schématu kapitol 4–10 je vedení — řídí a spojuje kontext organizace, plánování, podporu, provoz, hodnocení výkonnosti i zlepšování. Bez zapojení vedení systém managementu kvality nefunguje.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-4",
+      "temaId": "norma-iso-9001",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se zkráceně (anglická zkratka, 3 písmena) označuje systém managementu kvality, na který ISO 9001 stanovuje požadavky?",
+      "spravneOdpovedi": [
+        "QMS",
+        "qms"
+      ],
+      "vysvetleni": "QMS = Quality Management System, systém managementu kvality. Norma ISO 9001 popisuje, co takový systém ve firmě musí obsahovat (kapitoly 4–10).",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-5",
+      "temaId": "norma-iso-9001",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co norma ISO 9001 ve firmě dělá? (více správných odpovědí)",
+      "moznosti": [
+        "nastavuje procesy",
+        "dává systematický, univerzální rámec",
+        "zahrnuje dokumentaci — dokumenty a záznamy",
+        "předepisuje přesnou recepturu každého výrobku",
+        "zaručuje, že žádný výrobek nebude vadný"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "ISO 9001 nastavuje procesy, je systematická, dává všeobecný rámec a vyžaduje dokumentaci (dokumenty + záznamy). Je všeobecná — receptury výrobků nepředepisuje, ty si firma aplikuje na míru. Bezvadnost každého kusu nezaručuje; zaručuje systém, který vady odhalí.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-6",
+      "temaId": "norma-iso-9001",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co znamená pojem best practice, ze kterého norma ISO 9001 vychází?",
+      "moznosti": [
+        "To, co se osvědčilo v praxi — zkušenost",
+        "Nejlevnější možný postup výroby",
+        "Postup přesně předepsaný zákonem",
+        "Nejnovější dostupná technologie"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Best practice je osvědčená praxe — postupy, které se v mnoha firmách ukázaly jako funkční. Norma je sbírá do univerzálního rámce. Nejde o nejlevnější ani nejnovější řešení a zákon to nepředepisuje.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-7",
+      "temaId": "norma-iso-9001",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď principy ISO 9001 k jejich obsahu.",
+      "pary": [
+        { "levy": "zaměření na zákazníka", "pravy": "firma dělá to, co zákazník skutečně potřebuje" },
+        { "levy": "procesní přístup", "pravy": "činnosti se řídí jako navazující procesy" },
+        { "levy": "rozhodování", "pravy": "závisí na kvalitě informací a dat" },
+        { "levy": "management vztahů", "pravy": "dodavatelsko-odběratelské vztahy" }
+      ],
+      "vysvetleni": "Sedm principů ISO 9001: 1) zaměření na zákazníka, 2) vedení, 3) angažovanost lidí, 4) procesní přístup, 5) zlepšování, 6) rozhodování na základě dat, 7) management vztahů (s dodavateli). Rozhodování „od stolu“ bez dat princip 6 porušuje.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-8",
+      "temaId": "norma-iso-9001",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Malá firma na potisk triček se chce přihlásit do tenderu (výběrového řízení) na dresy pro sportovní kluby. Zadavatel požaduje ISO 9001. Co firma potřebuje?",
+      "moznosti": [
+        "Zavést systém managementu kvality podle normy a projít certifikačním auditem — získat certifikát",
+        "Koupit text normy a založit ho do šanonu v kanceláři",
+        "Nechat každé tričko otestovat ve státní zkušebně",
+        "Nahlásit na úřadě, že firma vyrábí kvalitně"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Do tenderů, kde zadavatel vyžaduje ISO 9001, se firma dostane jen s certifikátem — ten vydá nezávislý certifikační orgán po certifikačním auditu. Norma v šanonu nic nedokazuje; testování jednotlivých výrobků je zkouška (jiný nástroj) a nahlášení na úřadě neexistuje.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-9",
+      "temaId": "norma-iso-9001",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Co potvrzuje certifikační audit podle ISO 9001?",
+      "moznosti": [
+        "Že organizace splňuje požadavky normy a zajišťuje efektivní řízení procesů",
+        "Že každý jednotlivý výrobek firmy je bezvadný",
+        "Že firma má nejnižší ceny na trhu",
+        "Že výrobky firmy splňují oborovou normu pro svůj obor"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Certifikační audit potvrzuje, že organizace splňuje požadavky normy — má funkční systém řízení procesů, lépe uspokojuje zákazníky a je konkurenceschopnější. Nepotvrzuje bezvadnost každého kusu ani ceny; ISO 9001 je všeobecná norma, ne oborová.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-10",
+      "temaId": "norma-iso-9001",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Teta má malou tiskárnu na potisk triček a spočítala, že zavedení a certifikace ISO 9001 ji vyjde na 120 000 Kč. Co jí za ty peníze certifikace reálně přinese? (více správných odpovědí)",
+      "moznosti": [
+        "úspora nákladů firmy",
+        "možnost účastnit se tenderů, kde je certifikát vyžadován",
+        "deklarace kvality vůči zákazníkům („nálepka ISO“)",
+        "osvobození od daně z příjmů",
+        "zákazníci nesmějí zboží reklamovat"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Účel ISO 9001: management kvality ⇒ úspora nákladů (méně zmetků a reklamací), certifikace ⇒ účast v tenderech, „nálepka ISO“ ⇒ deklarace kvality vůči zákazníkům — tyhle tři věci se tetě za 120 000 Kč vracejí. Daňové úlevy s normou nesouvisí a právo na reklamaci dává zákon — certifikát ho nezruší.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-11",
+      "temaId": "norma-iso-9001",
+      "typ": "doplneni",
+      "obtiznost": 4,
+      "zadani": "Na brigádě ve firmě s certifikátem ISO 9001 ti šéf dá vyplnit list: datum, podpis a „zkontrolováno 40 balíků, 0 vad“. Za rok ho bude chtít vidět auditor jako důkaz, že se kontrola opravdu dělala. Do které ze dvou částí dokumentace ISO 9001 takový list patří — dokumenty, nebo ___? Doplň.",
+      "spravneOdpovedi": [
+        "záznamy",
+        "zaznamy",
+        "záznam",
+        "zaznam"
+      ],
+      "vysvetleni": "Dokumenty popisují, co a jak se má dělat (třeba pracovní postup balení); záznamy dokazují, že se to skutečně udělalo — vyplněný list o kontrole je záznam. Bez záznamů firma při auditu neprokáže, že podle dokumentů opravdu pracuje.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-12",
+      "temaId": "norma-iso-9001",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "ISO 9001 je oborová norma, která firmě přesně předepíše, jak má vyrábět svůj konkrétní výrobek.",
+      "spravna": false,
+      "vysvetleni": "Naopak: ISO 9001 je všeobecná norma — základ pro oborové normy. Dává univerzální rámec řízení kvality a každá firma si ho aplikuje na míru (konkrétní aplikace, specifikace, specializace). Jak vyrábět konkrétní výrobek říkají oborové normy a firemní dokumenty.",
+      "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-norma-iso-9001-13",
+      "temaId": "norma-iso-9001",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Šéf malé firmy (6 lidí) prohlásí: „ISO 9001? Koupíme normu, sepíšeme pár směrnic do šanonu a máme hotovo.“ V čem se mýlí?",
+      "moznosti": [
+        "Implementace není jen dokumentace — vyžaduje aktivní řízení procesů, zapojení vedení a neustálé zlepšování; certifikát vydá až nezávislý audit",
+        "Nemýlí se — pro malou firmu stačí mít normu a směrnice",
+        "Mýlí se jen v tom, že normu si nemůže koupit; jinak má pravdu",
+        "Malé firmy ISO 9001 zavést nemohou, norma je jen pro velké podniky"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Norma vyžaduje dokumenty i záznamy, ale hlavně živý systém: procesy se skutečně řídí, vedení je zapojené (je uprostřed schématu) a firma se zlepšuje. Certifikát potvrdí až certifikační audit. Normu si koupit lze a velikost firmy nerozhoduje — rámec je univerzální a aplikuje se na míru.",
+      "zdroj": "Norma jakosti ISO 9001"
     },
     {
       "id": "o-potravinarske-zbozi-1",

@@ -1,7 +1,7 @@
 {
   "predmetId": "zbozinalstvi",
-  "verze": 2,
-  "vytvoreno": "2026-09-04",
+  "verze": 3,
+  "vytvoreno": "2026-09-20",
   "lekce": [
     {
       "temaId": "zaklady-zbozinalstvi",
@@ -13,19 +13,43 @@
           "obsah": "Představ si, že máš letní brigádu v samoobsluze. Ráno přijede dodávka: bedny s čokoládou, banány a prací prášek. Vedoucí na tebe mávne: „Ukliď to do skladu!“ Kam co dáš? Čokoládu k topení? Banány do mrazáku? Prášek vedle sušenek?\n\nPřesně tohle řeší **zbožíznalství** — nauka o zboží. Učí nás:\n- **co** zboží je a **jaké má vlastnosti**,\n- **co ho ničí** a jak ho chránit (obaly, správné skladování),\n- **jak poznat jakost** — a co dělat, když ji zboží nemá (reklamace).\n\nKdo zboží rozumí, umí ho prodat i skladovat, poradí zákazníkovi — a nespálí se ani při vlastním nákupu."
         },
         {
+          "typ": "text",
+          "obsah": "**Zbožíznalství je nauka o zboží, jeho vlastnostech, jakosti, výrobě, používání, skladování, přepravě a ochraně.** Je to vědní disciplína — a celá je o jediné věci: o **ZBOŽÍ**. Co všechno u něj zkoumáme?\n- **reklamace** a **správné zacházení**,\n- **druh** a **vlastnosti**,\n- **jakost**,\n- **skladování**, **označení** a **obal**,\n- **způsob výroby**.\n\n**Šest základních pojmů** — nauč se je v tomhle znění, přesně tak se zkoušejí:\n- **Zboží** — výrobek nebo předmět určený k prodeji a uspokojování potřeb zákazníka.\n- **Výrobek** — výsledek výrobního procesu.\n- **Spotřebitel** — člověk, který výrobek používá pro svou potřebu.\n- **Užitná hodnota** — schopnost zboží uspokojit určitou potřebu.\n- **Jakost** — souhrn vlastností výrobku, které ovlivňují jeho schopnost splnit požadavky zákazníka.\n- **Sortiment** — soubor druhů zboží nabízených v určité prodejně nebo oboru.\n\nZboží můžeme rozdělovat například na **potravinářské** (potraviny, nápoje) a **nepotravinářské** (oděvy, obuv, nábytek, elektronika, kosmetika apod.).\n\n**Úkol zbožíznalství:** poznat zboží, jeho vlastnosti, správný způsob prodeje, skladování a ochrany."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Mobil, který máš v kapse, byl ve fabrice jen **výrobek** — výsledek výrobního procesu. Ve chvíli, kdy ho obchod dal do nabídky, stal se **zbožím**, a ty jsi jeho **spotřebitel**. Když ti po měsíci přestane nabíjet, řešíš **jakost** a jdeš na **reklamaci**. A až na brigádě v obchodě dostaneš za úkol doplnit regál, budeš pracovat se **sortimentem** a hlídat **skladování** (energy drinky ne na výsluní u výlohy). Zbožíznalství je o tom, abys tyhle situace zvládl s přehledem — jako zákazník i jako prodavač."
+        },
+        {
           "typ": "klicove-pojmy",
           "polozky": [
             {
               "pojem": "Zbožíznalství",
-              "definice": "Nauka o zboží: sleduje jeho vlastnosti, jakost, vady, balení, skladování i správné použití."
+              "definice": "Nauka o zboží, jeho vlastnostech, jakosti, výrobě, používání, skladování, přepravě a ochraně."
             },
             {
               "pojem": "Zboží",
-              "definice": "Výrobek určený k prodeji na trhu."
+              "definice": "Výrobek nebo předmět určený k prodeji a uspokojování potřeb zákazníka."
             },
             {
-              "pojem": "Jakost (kvalita)",
-              "definice": "Souhrn vlastností, díky kterým zboží uspokojuje potřeby zákazníka."
+              "pojem": "Výrobek",
+              "definice": "Výsledek výrobního procesu."
+            },
+            {
+              "pojem": "Spotřebitel",
+              "definice": "Člověk, který výrobek používá pro svou potřebu."
+            },
+            {
+              "pojem": "Užitná hodnota",
+              "definice": "Schopnost zboží uspokojit určitou potřebu."
+            },
+            {
+              "pojem": "Jakost",
+              "definice": "Souhrn vlastností výrobku, které ovlivňují jeho schopnost splnit požadavky zákazníka."
+            },
+            {
+              "pojem": "Sortiment",
+              "definice": "Soubor druhů zboží nabízených v určité prodejně nebo oboru."
             },
             {
               "pojem": "Řízení jakosti",
@@ -47,26 +71,62 @@
         },
         {
           "typ": "obrazek",
-          "svg": "<svg viewBox=\"0 0 560 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Příklady vlivů působících na zboží\">\n<defs>\n<marker id=\"vz-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n</defs>\n<rect x=\"210\" y=\"140\" width=\"140\" height=\"50\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"280\" y=\"171\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">ZBOŽÍ</text>\n<rect x=\"8\" y=\"16\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"94\" y=\"37\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Teplota a vlhkost</text>\n<text x=\"94\" y=\"56\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--info)\">fyzikální vliv</text>\n<rect x=\"8\" y=\"139\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"94\" y=\"160\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Světlo a záření</text>\n<text x=\"94\" y=\"179\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--info)\">fyzikální vliv</text>\n<rect x=\"8\" y=\"262\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<text x=\"94\" y=\"283\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Náraz, tlak, otřesy</text>\n<text x=\"94\" y=\"302\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.7\">mechanický vliv</text>\n<rect x=\"380\" y=\"16\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"466\" y=\"37\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Mikroby a škůdci</text>\n<text x=\"466\" y=\"56\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--uspech)\">biologický vliv</text>\n<rect x=\"380\" y=\"139\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"466\" y=\"160\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Koroze, žluknutí</text>\n<text x=\"466\" y=\"179\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--zlata)\">chemický vliv</text>\n<rect x=\"380\" y=\"262\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<text x=\"466\" y=\"283\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Čas — stárnutí zboží</text>\n<text x=\"466\" y=\"302\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.7\">důsledek působení vlivů</text>\n<line x1=\"182\" y1=\"52\" x2=\"226\" y2=\"140\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"182\" y1=\"165\" x2=\"206\" y2=\"165\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"182\" y1=\"278\" x2=\"226\" y2=\"192\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"378\" y1=\"52\" x2=\"334\" y2=\"140\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"378\" y1=\"165\" x2=\"354\" y2=\"165\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"378\" y1=\"278\" x2=\"334\" y2=\"192\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n</svg>",
-          "popisek": "Na zboží při přepravě a skladování útočí čtyři skupiny vlivů: fyzikální, chemické, biologické a mechanické — a čas jejich působení sčítá."
+          "svg": "<svg viewBox=\"0 0 680 400\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Mapa: co všechno zbožíznalství u zboží zkoumá\">\n<defs>\n<marker id=\"zm-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n</defs>\n<line x1=\"340\" y1=\"175\" x2=\"340\" y2=\"72\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#zm-sipka)\" />\n<line x1=\"378\" y1=\"175\" x2=\"484\" y2=\"107\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#zm-sipka)\" />\n<line x1=\"405\" y1=\"194\" x2=\"542\" y2=\"180\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#zm-sipka)\" />\n<line x1=\"405\" y1=\"221\" x2=\"510\" y2=\"254\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#zm-sipka)\" />\n<line x1=\"356\" y1=\"225\" x2=\"418\" y2=\"319\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#zm-sipka)\" />\n<line x1=\"324\" y1=\"225\" x2=\"262\" y2=\"319\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#zm-sipka)\" />\n<line x1=\"275\" y1=\"221\" x2=\"170\" y2=\"254\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#zm-sipka)\" />\n<line x1=\"275\" y1=\"194\" x2=\"138\" y2=\"180\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#zm-sipka)\" />\n<line x1=\"302\" y1=\"175\" x2=\"197\" y2=\"107\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#zm-sipka)\" />\n<rect x=\"275\" y=\"175\" width=\"130\" height=\"50\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"340\" y=\"206\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">ZBOŽÍ</text>\n<rect x=\"278\" y=\"30\" width=\"124\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"340\" y=\"55\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">reklamace</text>\n<rect x=\"440\" y=\"65\" width=\"148\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"514\" y=\"90\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">správné zacházení</text>\n<rect x=\"544\" y=\"154\" width=\"124\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"606\" y=\"179\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">druh</text>\n<rect x=\"512\" y=\"255\" width=\"124\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"574\" y=\"280\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">vlastnosti</text>\n<rect x=\"370\" y=\"321\" width=\"124\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" />\n<text x=\"432\" y=\"346\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">jakost</text>\n<rect x=\"186\" y=\"321\" width=\"124\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"248\" y=\"346\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">skladování</text>\n<rect x=\"44\" y=\"255\" width=\"124\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"106\" y=\"280\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">označení</text>\n<rect x=\"12\" y=\"154\" width=\"124\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"74\" y=\"179\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">obal</text>\n<rect x=\"92\" y=\"65\" width=\"148\" height=\"40\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"166\" y=\"90\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">způsob výroby</text>\n<text x=\"340\" y=\"388\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.8\">Zbožíznalství = nauka o zboží: vlastnosti, jakost, výroba, používání, skladování, přeprava, ochrana</text>\n</svg>",
+          "popisek": "Zbožíznalství zkoumá u zboží devět věcí: reklamace, správné zacházení, druh, vlastnosti, jakost, skladování, označení, obal a způsob výroby."
         },
         {
           "typ": "mini-kviz",
           "otazka": {
-            "id": "mk-zaklady-zbozinalstvi-1",
+            "id": "mk-zaklady-zbozinalstvi-3",
             "temaId": "zaklady-zbozinalstvi",
-            "obtiznost": 1,
-            "zadani": "Jak se nazývá souhrn vlastností, díky kterým zboží dokáže uspokojit potřeby zákazníka?",
-            "vysvetleni": "Jakost (kvalita) je souhrn užitných vlastností zboží. Cena je peněžní vyjádření hodnoty, sortiment je skladba nabídky a poptávka je zájem kupujících.",
-            "zdroj": "Jakost a řízení jakosti",
+            "obtiznost": 2,
+            "zadani": "Bunda hřeje, mobil volá a fotí. Jak se ve zbožíznalství nazývá tahle schopnost zboží uspokojit určitou potřebu?",
+            "vysvetleni": "Užitná hodnota = schopnost zboží uspokojit určitou potřebu. Jakost říká, JAK DOBŘE výrobek splňuje požadavky; sortiment je soubor druhů zboží v prodejně; cena je jen peněžní vyjádření — drahá věc může mít pro tebe nulovou užitnou hodnotu.",
+            "zdroj": "Základy zbožíznalství",
             "typ": "vyber",
             "moznosti": [
+              "Užitná hodnota",
               "Jakost",
-              "Cena",
               "Sortiment",
-              "Poptávka"
+              "Cena"
             ],
             "spravna": 0
+          }
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              {
+                "a": "Zbožíznalství",
+                "b": "Nauka o zboží, jeho vlastnostech, jakosti, výrobě, používání, skladování, přepravě a ochraně"
+              },
+              {
+                "a": "Zboží",
+                "b": "Výrobek nebo předmět určený k prodeji a uspokojování potřeb zákazníka"
+              },
+              {
+                "a": "Výrobek",
+                "b": "Výsledek výrobního procesu"
+              },
+              {
+                "a": "Spotřebitel",
+                "b": "Člověk, který výrobek používá pro svou potřebu"
+              },
+              {
+                "a": "Užitná hodnota",
+                "b": "Schopnost zboží uspokojit určitou potřebu"
+              },
+              {
+                "a": "Jakost",
+                "b": "Souhrn vlastností výrobku, které ovlivňují jeho schopnost splnit požadavky zákazníka"
+              },
+              {
+                "a": "Sortiment",
+                "b": "Soubor druhů zboží nabízených v určité prodejně nebo oboru"
+              }
+            ]
           }
         },
         {
@@ -113,7 +173,7 @@
             "dvojice": [
               {
                 "a": "Jakost",
-                "b": "Souhrn vlastností, díky kterým zboží uspokojí potřeby zákazníka"
+                "b": "Souhrn vlastností výrobku, které ovlivňují jeho schopnost splnit požadavky zákazníka"
               },
               {
                 "a": "Norma",
@@ -137,6 +197,30 @@
               }
             ]
           }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-zaklady-zbozinalstvi-1",
+            "temaId": "zaklady-zbozinalstvi",
+            "obtiznost": 1,
+            "zadani": "Jak se nazývá souhrn vlastností výrobku, které ovlivňují jeho schopnost splnit požadavky zákazníka?",
+            "vysvetleni": "Jakost (kvalita) = souhrn vlastností výrobku, které ovlivňují jeho schopnost splnit požadavky zákazníka. Cena je peněžní vyjádření hodnoty, sortiment je skladba nabídky a poptávka je zájem kupujících.",
+            "zdroj": "Jakost a řízení jakosti",
+            "typ": "vyber",
+            "moznosti": [
+              "Jakost",
+              "Cena",
+              "Sortiment",
+              "Poptávka"
+            ],
+            "spravna": 0
+          }
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Příklady vlivů působících na zboží\">\n<defs>\n<marker id=\"vz-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n</defs>\n<rect x=\"210\" y=\"140\" width=\"140\" height=\"50\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"280\" y=\"171\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">ZBOŽÍ</text>\n<rect x=\"8\" y=\"16\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"94\" y=\"37\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Teplota a vlhkost</text>\n<text x=\"94\" y=\"56\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--info)\">fyzikální vliv</text>\n<rect x=\"8\" y=\"139\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"94\" y=\"160\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Světlo a záření</text>\n<text x=\"94\" y=\"179\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--info)\">fyzikální vliv</text>\n<rect x=\"8\" y=\"262\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<text x=\"94\" y=\"283\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Náraz, tlak, otřesy</text>\n<text x=\"94\" y=\"302\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.7\">mechanický vliv</text>\n<rect x=\"380\" y=\"16\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"466\" y=\"37\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Mikroby a škůdci</text>\n<text x=\"466\" y=\"56\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--uspech)\">biologický vliv</text>\n<rect x=\"380\" y=\"139\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"466\" y=\"160\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Koroze, žluknutí</text>\n<text x=\"466\" y=\"179\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--zlata)\">chemický vliv</text>\n<rect x=\"380\" y=\"262\" width=\"172\" height=\"52\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<text x=\"466\" y=\"283\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Čas — stárnutí zboží</text>\n<text x=\"466\" y=\"302\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.7\">důsledek působení vlivů</text>\n<line x1=\"182\" y1=\"52\" x2=\"226\" y2=\"140\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"182\" y1=\"165\" x2=\"206\" y2=\"165\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"182\" y1=\"278\" x2=\"226\" y2=\"192\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"378\" y1=\"52\" x2=\"334\" y2=\"140\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"378\" y1=\"165\" x2=\"354\" y2=\"165\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n<line x1=\"378\" y1=\"278\" x2=\"334\" y2=\"192\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#vz-sipka)\" />\n</svg>",
+          "popisek": "Na zboží při přepravě a skladování útočí čtyři skupiny vlivů: fyzikální, chemické, biologické a mechanické — a čas jejich působení sčítá."
         },
         {
           "typ": "text",
@@ -191,15 +275,53 @@
           }
         },
         {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-zaklady-zbozinalstvi-2",
+            "temaId": "zaklady-zbozinalstvi",
+            "obtiznost": 2,
+            "zadani": "Které funkce plní obal zboží? (více správných odpovědí)",
+            "vysvetleni": "Obal plní pět funkcí: ochrannou, manipulační, informační, prodejní (marketingovou) a ekologickou. Záruční dobu stanovuje zákon — obal ji změnit nedokáže.",
+            "zdroj": "Ochrana zboží, obaly, obalová technika",
+            "typ": "multi",
+            "moznosti": [
+              "Chrání zboží před poškozením a zkázou",
+              "Informuje o složení, použití a výrobci",
+              "Usnadňuje manipulaci a přepravu",
+              "Láká zákazníka ke koupi — podporuje prodej",
+              "Prodlužuje zákonnou záruční dobu"
+            ],
+            "spravne": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Nový skladník uložil krabice s čokoládou ke stoupačkám topení a hned vedle postavil paletu pracích prášků. Najdeš obě chyby a vysvětlíš, co zboží hrozí?",
+          "reseni": "1) **Teplo od topení** — čokoláda nad cca 25 °C měkne a taje; po opětovném ztuhnutí se objeví šedavý tukový výkvět. Působí tu nepříznivý **fyzikální vliv** (teplota).\n2) **Sousedství pracího prášku** — tuk v čokoládě snadno **přijímá cizí pachy**; jde o **chemický vliv**.\n\nZásada správného skladování: potraviny nikdy neskladovat společně s drogerií a vždy hlídat teplotu i vlhkost skladu."
+        },
+        {
           "typ": "karticky",
           "polozky": [
             {
               "predni": "Zbožíznalství",
-              "zadni": "Nauka o zboží — o jeho vlastnostech, jakosti, vadách, skladování a použití."
+              "zadni": "Nauka o zboží, jeho vlastnostech, jakosti, výrobě, používání, skladování, přepravě a ochraně."
+            },
+            {
+              "predni": "Zboží × výrobek",
+              "zadni": "Výrobek = výsledek výrobního procesu. Zboží = výrobek nebo předmět určený k prodeji a uspokojování potřeb zákazníka."
             },
             {
               "predni": "Jakost",
-              "zadni": "Souhrn vlastností, díky kterým zboží uspokojí potřeby zákazníka."
+              "zadni": "Souhrn vlastností výrobku, které ovlivňují jeho schopnost splnit požadavky zákazníka."
+            },
+            {
+              "predni": "Užitná hodnota a sortiment",
+              "zadni": "Užitná hodnota = schopnost zboží uspokojit určitou potřebu. Sortiment = soubor druhů zboží nabízených v určité prodejně nebo oboru."
             },
             {
               "predni": "Čtyři skupiny vlivů působících na zboží",
@@ -228,41 +350,523 @@
           ]
         },
         {
-          "typ": "priklad",
-          "zadani": "Nový skladník uložil krabice s čokoládou ke stoupačkám topení a hned vedle postavil paletu pracích prášků. Najdeš obě chyby a vysvětlíš, co zboží hrozí?",
-          "reseni": "1) **Teplo od topení** — čokoláda nad cca 25 °C měkne a taje; po opětovném ztuhnutí se objeví šedavý tukový výkvět. Působí tu nepříznivý **fyzikální vliv** (teplota).\n2) **Sousedství pracího prášku** — tuk v čokoládě snadno **přijímá cizí pachy**; jde o **chemický vliv**.\n\nZásada správného skladování: potraviny nikdy neskladovat společně s drogerií a vždy hlídat teplotu i vlhkost skladu."
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Zbožíznalství = nauka o zboží, jeho vlastnostech, jakosti, výrobě, používání, skladování, přepravě a ochraně. Úkol: poznat zboží, jeho vlastnosti, správný způsob prodeje, skladování a ochrany.\n- Šest pojmů: zboží, výrobek, spotřebitel, užitná hodnota, jakost, sortiment.\n- Zboží dělíme na potravinářské a nepotravinářské.\n- Na zboží útočí vlivy fyzikální, chemické, biologické a mechanické — chrání ho obal (5 funkcí) a správné skladování (FIFO).\n- Kvalitu hlídá řízení jakosti — od cechů přes Baťu po normy ISO 9000 a TQM."
+        }
+      ]
+    },
+    {
+      "temaId": "jakost-a-rizeni-jakosti",
+      "nazev": "Jakost a řízení jakosti",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Koupil sis tenisky za 1 800 Kč. Vypadají skvěle, kámoši závidí. Po týdnu se roztrhly ve švu. Kámoš má stejný model už dva roky — a nic. Kde se stala chyba: u tebe, v obchodě, nebo ve fabrice?\n\nPřesně na to odpovídá **jakost** a její **řízení**. A na konci lekce budeš vědět, s čím jít na reklamaci."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Jakost** zboží vyjadřuje, jak dobře výrobek splňuje požadavky zákazníka a stanovené požadavky.\n\n**Jakost ovlivňuje například** (10 faktorů, v tomhle pořadí):\n- **1.** materiál\n- **2.** konstrukce výrobku\n- **3.** výrobní postup\n- **4.** vzhled\n- **5.** funkčnost\n- **6.** bezpečnost\n- **7.** trvanlivost\n- **8.** spolehlivost\n- **9.** hygienická nezávadnost\n- **10.** způsob skladování a přepravy\n\n**Jakost není pouze „vzhled výrobku\"** — důležitá je také jeho funkčnost, bezpečnost a schopnost dlouhodobě plnit svůj účel. (Tenisky z úvodu: vzhled skvělý, trvanlivost nula.)\n\n**Řízení jakosti** je soubor činností, kterými organizace zajišťuje, že výrobky a služby budou odpovídat požadované úrovni. Není to jen kontrola na konci — je to všechno od nákupu materiálu po expedici.\n\nJakost se dělí na:\n- **objektivní** — měřitelné vlastnosti (výdrž baterie 14 h, pevnost švu),\n- **subjektivní** — vnímání zákazníkem (chuť energy drinku, design)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Až budeš psát recenzi na sluchátka, hodnotíš **spotřební jakost**. Až půjdeš reklamovat roztrhané tenisky, použiješ nástroj č. 7 — **reklamaci** — a prodavač bude zkoumat, který **faktor jakosti** selhal (materiál? výrobní postup? trvanlivost?). Na brigádě v obchodě jednou za čas přijde úředník ověřit váhu u pultu — to je **měření (metrologie)**, nástroj č. 2. Kdo zná faktory, druhy a nástroje jakosti, hádá se s obchodem argumenty, ne emocemi."
+        },
+        {
+          "typ": "klicove-pojmy",
+          "polozky": [
+            {
+              "pojem": "Jakost",
+              "definice": "Vyjadřuje, jak dobře výrobek splňuje požadavky zákazníka a stanovené požadavky."
+            },
+            {
+              "pojem": "Řízení jakosti",
+              "definice": "Soubor činností, kterými organizace zajišťuje, že výrobky a služby budou odpovídat požadované úrovni."
+            },
+            {
+              "pojem": "Objektivní jakost",
+              "definice": "Měřitelné vlastnosti výrobku."
+            },
+            {
+              "pojem": "Subjektivní jakost",
+              "definice": "Vnímání jakosti zákazníkem."
+            },
+            {
+              "pojem": "Standard jakosti",
+              "definice": "Zboží, jehož měřitelné vlastnosti jsou definovány v právním předpisu — vzor pro porovnávání."
+            },
+            {
+              "pojem": "Referenční bod",
+              "definice": "Standard, se kterým se jakost porovnává; bez něj nelze kvalitu objektivně hodnotit."
+            },
+            {
+              "pojem": "Druhy jakosti",
+              "definice": "Užitná, technická, obchodní, spotřební (⇒ recenze)."
+            },
+            {
+              "pojem": "Nástroje řízení jakosti",
+              "definice": "1) kontrola, 2) měření — metrologie, 3) zkouška, 4) normalizace, 5) certifikace, 6) prevence, 7) reklamace."
+            }
+          ]
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 700 370\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Deset faktorů ovlivňuje jakost; jakost se posuzuje ve čtyřech druzích\">\n<defs>\n<marker id=\"jk-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n</defs>\n<rect x=\"10\" y=\"30\" width=\"290\" height=\"236\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"155\" y=\"52\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--info)\">10 FAKTORŮ OVLIVŇUJÍCÍCH JAKOST</text>\n<text x=\"24\" y=\"74\" font-size=\"11\" fill=\"currentColor\">1. materiál</text>\n<text x=\"24\" y=\"92\" font-size=\"11\" fill=\"currentColor\">2. konstrukce výrobku</text>\n<text x=\"24\" y=\"110\" font-size=\"11\" fill=\"currentColor\">3. výrobní postup</text>\n<text x=\"24\" y=\"128\" font-size=\"11\" fill=\"currentColor\">4. vzhled</text>\n<text x=\"24\" y=\"146\" font-size=\"11\" fill=\"currentColor\">5. funkčnost</text>\n<text x=\"24\" y=\"164\" font-size=\"11\" fill=\"currentColor\">6. bezpečnost</text>\n<text x=\"24\" y=\"182\" font-size=\"11\" fill=\"currentColor\">7. trvanlivost</text>\n<text x=\"24\" y=\"200\" font-size=\"11\" fill=\"currentColor\">8. spolehlivost</text>\n<text x=\"24\" y=\"218\" font-size=\"11\" fill=\"currentColor\">9. hygienická nezávadnost</text>\n<text x=\"24\" y=\"236\" font-size=\"11\" fill=\"currentColor\">10. způsob skladování a přepravy</text>\n<text x=\"155\" y=\"256\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">jakost není jen vzhled (č. 4)</text>\n<line x1=\"302\" y1=\"148\" x2=\"318\" y2=\"148\" stroke=\"currentColor\" stroke-width=\"2\" opacity=\"0.7\" marker-end=\"url(#jk-sipka)\" />\n<rect x=\"322\" y=\"112\" width=\"146\" height=\"72\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"395\" y=\"140\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">JAKOST</text>\n<text x=\"395\" y=\"158\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--akcent)\">splnění požadavků</text>\n<text x=\"395\" y=\"172\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--akcent)\">zákazníka</text>\n<text x=\"592\" y=\"20\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--zlata)\">4 DRUHY JAKOSTI</text>\n<line x1=\"470\" y1=\"140\" x2=\"488\" y2=\"52\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#jk-sipka)\" />\n<line x1=\"470\" y1=\"146\" x2=\"488\" y2=\"122\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#jk-sipka)\" />\n<line x1=\"470\" y1=\"152\" x2=\"488\" y2=\"192\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#jk-sipka)\" />\n<line x1=\"470\" y1=\"158\" x2=\"488\" y2=\"262\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#jk-sipka)\" />\n<rect x=\"492\" y=\"30\" width=\"200\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"592\" y=\"48\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">užitná</text>\n<text x=\"592\" y=\"64\" text-anchor=\"middle\" font-size=\"9.5\" fill=\"currentColor\" opacity=\"0.8\">plní základní funkci</text>\n<rect x=\"492\" y=\"100\" width=\"200\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"592\" y=\"118\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">technická</text>\n<text x=\"592\" y=\"134\" text-anchor=\"middle\" font-size=\"9.5\" fill=\"currentColor\" opacity=\"0.8\">soulad s technickými parametry</text>\n<rect x=\"492\" y=\"170\" width=\"200\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"592\" y=\"188\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">obchodní</text>\n<text x=\"592\" y=\"204\" text-anchor=\"middle\" font-size=\"9.5\" fill=\"currentColor\" opacity=\"0.8\">spokojenost zákazníka na trhu</text>\n<rect x=\"492\" y=\"240\" width=\"200\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"592\" y=\"258\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">spotřební ⇒ recenze</text>\n<text x=\"592\" y=\"274\" text-anchor=\"middle\" font-size=\"9.5\" fill=\"currentColor\" opacity=\"0.8\">hodnocení z pohledu uživatele</text>\n<rect x=\"322\" y=\"206\" width=\"146\" height=\"70\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"395\" y=\"226\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"var(--uspech)\">MĚŘÍ SE</text>\n<text x=\"395\" y=\"244\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">porovnáním se</text>\n<text x=\"395\" y=\"259\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">standardem = ref. bod</text>\n<line x1=\"395\" y1=\"186\" x2=\"395\" y2=\"202\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#jk-sipka)\" />\n<text x=\"350\" y=\"318\" text-anchor=\"middle\" font-size=\"11.5\" fill=\"currentColor\">Objektivní jakost = měřitelné vlastnosti · Subjektivní jakost = vnímání zákazníkem</text>\n<text x=\"350\" y=\"342\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">Jakost zboží je ŠIRŠÍ pojem než shoda s normami.</text>\n</svg>",
+          "popisek": "Deset faktorů (materiál až způsob skladování a přepravy) tvoří jakost; jakost se měří porovnáním se standardem a posuzuje ve čtyřech druzích — užitná, technická, obchodní a spotřební."
         },
         {
           "typ": "mini-kviz",
           "otazka": {
-            "id": "mk-zaklady-zbozinalstvi-2",
-            "temaId": "zaklady-zbozinalstvi",
+            "id": "mk-jakost-a-rizeni-jakosti-1",
+            "temaId": "jakost-a-rizeni-jakosti",
             "obtiznost": 2,
-            "zadani": "Které funkce plní obal zboží? (více správných odpovědí)",
-            "vysvetleni": "Obal plní pět funkcí: ochrannou, manipulační, informační, prodejní (marketingovou) a ekologickou. Záruční dobu stanovuje zákon — obal ji změnit nedokáže.",
-            "zdroj": "Ochrana zboží, obaly, obalová technika",
-            "typ": "multi",
+            "zadani": "Který z výroků popisuje OBJEKTIVNÍ jakost?",
+            "vysvetleni": "Objektivní jakost = měřitelné vlastnosti — výdrž baterie se dá změřit stopkami a porovnat se standardem. Nudný design, chuť i pocit „boží\" jsou vnímání zákazníkem, tedy subjektivní jakost.",
+            "zdroj": "Jakost a řízení jakosti",
+            "typ": "vyber",
             "moznosti": [
-              "Chrání zboží před poškozením a zkázou",
-              "Informuje o složení, použití a výrobci",
-              "Usnadňuje manipulaci a přepravu",
-              "Láká zákazníka ke koupi — podporuje prodej",
-              "Prodlužuje zákonnou záruční dobu"
+              "Baterie mobilu vydrží 14 hodin přehrávání videa",
+              "Design toho mobilu mi přijde nudný",
+              "Energy drink chutná jako rozpuštění gumoví medvídci",
+              "Tyhle tenisky jsou prostě boží"
             ],
-            "spravne": [
-              0,
-              1,
-              2,
-              3
+            "spravna": 0
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Pro koho je kvalita důležitá?** Pro pět stran: **zákazníka**, **výrobce**, **obchod**, **stát** a **životní prostředí**.\n\n**Standard jakosti** je zboží, jehož měřitelné vlastnosti jsou definovány v právním předpisu. Slouží jako vzor pro porovnávání — tzv. **referenční bod**. Jakost se měří porovnáním se standardem: **bez referenčního bodu nelze kvalitu objektivně hodnotit.** (Kolik kofeinu smí mít energy drink? Říká to předpis — a s ním se nápoj porovná.)\n\n**Čtyři druhy jakosti:**\n- **užitná** — schopnost plnit základní funkci,\n- **technická** — soulad s technickými parametry,\n- **obchodní** — spokojenost zákazníka na trhu,\n- **spotřební** — hodnocení z pohledu uživatele ⇒ **recenze**.\n\n**Jakost zboží je ŠIRŠÍ pojem než shoda s normami.** Výrobek může splnit všechny předpisy — a stejně zklamat.\n\n**Nástroje a metody řízení jakosti** (7, v tomhle pořadí a číslování):\n- **1.** KONTROLA\n- **2.** MĚŘENÍ — METROLOGIE\n- **3.** ZKOUŠKA\n- **4.** NORMALIZACE ⇒ normy\n- **5.** CERTIFIKACE ⇒ certifikát / licence\n- **6.** PREVENCE\n- **7.** REKLAMACE"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Sedm nástrojů řízení jakosti — v pořadí, jak se zkoušejí",
+            "kroky": [
+              {
+                "nazev": "1. Kontrola",
+                "popis": "Porovnání skutečných vlastností výrobku s tím, co má mít. Prodavač prohlédne reklamované tenisky, kontrolor na lince šev.",
+                "ikona": "🔍"
+              },
+              {
+                "nazev": "2. Měření — metrologie",
+                "popis": "Nauka o měření a jeho přesnosti. Ověřená váha v obchodě, změřený obsah plechovky, tloušťka podešve.",
+                "ikona": "📏"
+              },
+              {
+                "nazev": "3. Zkouška",
+                "popis": "Výrobek se vystaví zátěži: ohýbání podešve, pád mobilu, teplo a voda. Zjistí se, co vydrží.",
+                "ikona": "🧪"
+              },
+              {
+                "nazev": "4. Normalizace ⇒ normy",
+                "popis": "Tvorba norem — jednotných pravidel, jak má výrobek nebo postup vypadat (rozměry, složení, značení).",
+                "ikona": "📐"
+              },
+              {
+                "nazev": "5. Certifikace ⇒ certifikát / licence",
+                "popis": "Nezávislé ověření, že výrobek nebo firma normu splňuje. Výsledek: certifikát nebo licence.",
+                "ikona": "📜"
+              },
+              {
+                "nazev": "6. Prevence",
+                "popis": "Předcházení vadám dřív, než vzniknou: lepší nit, školení, kontrola dodavatelů.",
+                "ikona": "🛡️"
+              },
+              {
+                "nazev": "7. Reklamace",
+                "popis": "Uplatnění vady u prodávajícího. Pro firmu zpětná vazba — ze které se učí a vrací se k prevenci.",
+                "ikona": "↩️"
+              }
             ]
           }
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď: faktor jakosti × druh jakosti × nástroj řízení jakosti",
+            "kategorie": [
+              {
+                "id": "faktor",
+                "nazev": "Faktor ovlivňující jakost"
+              },
+              {
+                "id": "druh",
+                "nazev": "Druh jakosti"
+              },
+              {
+                "id": "nastroj",
+                "nazev": "Nástroj řízení jakosti"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "materiál",
+                "kategorieId": "faktor"
+              },
+              {
+                "text": "trvanlivost",
+                "kategorieId": "faktor"
+              },
+              {
+                "text": "hygienická nezávadnost",
+                "kategorieId": "faktor"
+              },
+              {
+                "text": "konstrukce výrobku",
+                "kategorieId": "faktor"
+              },
+              {
+                "text": "užitná jakost",
+                "kategorieId": "druh"
+              },
+              {
+                "text": "spotřební jakost (recenze)",
+                "kategorieId": "druh"
+              },
+              {
+                "text": "obchodní jakost",
+                "kategorieId": "druh"
+              },
+              {
+                "text": "technická jakost",
+                "kategorieId": "druh"
+              },
+              {
+                "text": "metrologie",
+                "kategorieId": "nastroj"
+              },
+              {
+                "text": "certifikace",
+                "kategorieId": "nastroj"
+              },
+              {
+                "text": "reklamace",
+                "kategorieId": "nastroj"
+              },
+              {
+                "text": "prevence",
+                "kategorieId": "nastroj"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-jakost-a-rizeni-jakosti-2",
+            "temaId": "jakost-a-rizeni-jakosti",
+            "obtiznost": 3,
+            "zadani": "Přiřaď nástroje řízení jakosti k tomu, co znamenají nebo co je jejich výsledkem.",
+            "vysvetleni": "Normalizace vytváří normy, certifikace končí certifikátem nebo licencí, měření je odborně metrologie a reklamace je uplatnění vady u prodávajícího. Časté záměny: normalizace × certifikace (norma se nejdřív napíše, teprve pak se podle ní certifikuje).",
+            "zdroj": "Jakost a řízení jakosti",
+            "typ": "prirazovani",
+            "pary": [
+              {
+                "levy": "normalizace",
+                "pravy": "výsledkem jsou normy"
+              },
+              {
+                "levy": "certifikace",
+                "pravy": "výsledkem je certifikát nebo licence"
+              },
+              {
+                "levy": "měření",
+                "pravy": "metrologie"
+              },
+              {
+                "levy": "reklamace",
+                "pravy": "uplatnění vady u prodávajícího"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Tenisky za 1 800 Kč se ti po týdnu roztrhly ve švu. Projdi reklamaci krok za krokem pohledem zbožíznalství: který faktor jakosti selhal, které nástroje řízení jakosti se použijí a co s tím udělá výrobce?",
+          "reseni": "1) **Faktor jakosti:** tenisky nevydržely — selhala **trvanlivost** (č. 7: schopnost dlouhodobě plnit účel). Příčina bude nejspíš v **materiálu** (č. 1, slabá nit) nebo ve **výrobním postupu** (č. 3, špatné šití). Vzhled (č. 4) byl v pořádku — a přesto nejde o kvalitní boty.\n\n2) **Nástroje řízení jakosti:** jdeš do obchodu s účtenkou a uplatníš **reklamaci** (nástroj č. 7). Prodavač boty prohlédne — to je **kontrola** (č. 1). U sporných případů pošle boty na odborné posouzení — **zkouška** (č. 3).\n\n3) **Řízení jakosti u výrobce:** reklamace je zpětná vazba. Výrobce zjistí, že ve stejné šarži praská šev u desítek párů, a zavede **prevenci** (č. 6): vymění nit, upraví postup šití, přidá kontrolu pevnosti švu. To je ten **soubor činností, kterými organizace zajišťuje požadovanou úroveň** — řízení jakosti v praxi.\n\nA ty? Dostaneš opravu, nový pár, nebo peníze zpět. Příště se před nákupem podíváš i na **spotřební jakost** (recenze), ne jen na **vzhled**."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Jakost",
+              "zadni": "Vyjadřuje, jak dobře výrobek splňuje požadavky zákazníka a stanovené požadavky."
+            },
+            {
+              "predni": "10 faktorů ovlivňujících jakost",
+              "zadni": "Materiál, konstrukce výrobku, výrobní postup, vzhled, funkčnost, bezpečnost, trvanlivost, spolehlivost, hygienická nezávadnost, způsob skladování a přepravy."
+            },
+            {
+              "predni": "Řízení jakosti",
+              "zadni": "Soubor činností, kterými organizace zajišťuje, že výrobky a služby budou odpovídat požadované úrovni."
+            },
+            {
+              "predni": "Objektivní × subjektivní jakost",
+              "zadni": "Objektivní = měřitelné vlastnosti. Subjektivní = vnímání zákazníkem."
+            },
+            {
+              "predni": "Pro koho je kvalita důležitá",
+              "zadni": "Zákazník, výrobce, obchod, stát, životní prostředí."
+            },
+            {
+              "predni": "Standard jakosti",
+              "zadni": "Zboží, jehož měřitelné vlastnosti jsou definovány v právním předpisu; vzor pro porovnávání = referenční bod. Bez něj nelze kvalitu objektivně hodnotit."
+            },
+            {
+              "predni": "4 druhy jakosti",
+              "zadni": "Užitná (plní základní funkci), technická (soulad s parametry), obchodní (spokojenost zákazníka na trhu), spotřební (hodnocení uživatele ⇒ recenze)."
+            },
+            {
+              "predni": "Jakost × normy",
+              "zadni": "Jakost zboží je širší pojem než shoda s normami."
+            },
+            {
+              "predni": "7 nástrojů řízení jakosti",
+              "zadni": "1) kontrola, 2) měření — metrologie, 3) zkouška, 4) normalizace ⇒ normy, 5) certifikace ⇒ certifikát/licence, 6) prevence, 7) reklamace."
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Jakost = jak dobře výrobek splňuje požadavky zákazníka a stanovené požadavky; ovlivňuje ji 10 faktorů (materiál … způsob skladování a přepravy) a není to jen vzhled.\n- Řízení jakosti = soubor činností organizace, aby výrobky a služby odpovídaly požadované úrovni.\n- Objektivní (měřitelná) × subjektivní (vnímaná) jakost; kvalita je důležitá pro zákazníka, výrobce, obchod, stát i životní prostředí.\n- Standard jakosti = referenční bod z právního předpisu; 4 druhy jakosti: užitná, technická, obchodní, spotřební (recenze). Jakost je širší než shoda s normami.\n- 7 nástrojů: kontrola, měření — metrologie, zkouška, normalizace, certifikace, prevence, reklamace."
+        }
+      ]
+    },
+    {
+      "temaId": "norma-iso-9001",
+      "nazev": "Norma jakosti ISO 9001",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Tvoje teta má malou firmu na potisk triček. Přišla nabídka snů: dresy pro celou krajskou fotbalovou ligu. Jenže v podmínkách tenderu stojí: „Uchazeč doloží certifikát ISO 9001.“ Teta na tebe kouká: „Ty to máš ve škole — co to vlastně je a kde to seženu?“"
+        },
+        {
+          "typ": "text",
+          "obsah": "**ISO 9001 — norma jakosti**\n- Vyvíjí se od **80. let 20. století** (první vydání 1987) a aktualizuje se **zhruba 1× za 5 let** (revize 1994, 2000, 2008, 2015).\n- Je to **VŠEOBECNÁ norma** → základ pro **OBOROVÉ** (konkrétní) normy — třeba pro automobilky nebo zdravotnické prostředky.\n- **Cíl:** obecný rámec normy pro řízení kvality — použitelný v jakékoli firmě, od tiskárny triček po banku.\n\nNorma stanovuje požadavky na **systém managementu kvality (QMS)** organizace. Klíčové **kapitoly 4–10**:\n- **4** kontext organizace\n- **5** vedení — stojí **uprostřed schématu**, všechno řídí\n- **6** plánování\n- **7** podpora\n- **8** provoz\n- **9** hodnocení výkonnosti\n- **10** zlepšování\n\nDíky tomu firma může **monitorovat výkonnost** jednotlivých procesů i celého systému managementu kvality. Implementace zahrnuje nejen dokumentaci, ale i **aktivní řízení procesů, zapojení vedení a neustálé zlepšování** kvality produktů a služeb."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Až budeš na brigádě ve firmě s „nálepkou ISO“, dostaneš do ruky **dokumenty** (jak se co dělá) a budeš vyplňovat **záznamy** (že jsi to udělal) — a budeš vědět proč. Jako zákazník poznáš, co logo ISO 9001 na webu e-shopu znamená: firma má **funkční systém řízení kvality**, ne že každý kus je dokonalý. A až budeš pomáhat tetě s tendrem nebo jednou podnikat sám, budeš vědět, že bez certifikátu se dveře některých zakázek prostě neotevřou."
+        },
+        {
+          "typ": "klicove-pojmy",
+          "polozky": [
+            {
+              "pojem": "ISO 9001",
+              "definice": "Všeobecná norma stanovující požadavky na systém managementu kvality organizace; základ pro oborové normy."
+            },
+            {
+              "pojem": "QMS",
+              "definice": "Quality Management System — systém managementu kvality."
+            },
+            {
+              "pojem": "Kapitoly 4–10",
+              "definice": "Kontext organizace, vedení, plánování, podpora, provoz, hodnocení výkonnosti, zlepšování."
+            },
+            {
+              "pojem": "Best practice",
+              "definice": "To, co se osvědčilo v praxi (zkušenost)."
+            },
+            {
+              "pojem": "Dokumenty + záznamy",
+              "definice": "Dokumenty popisují, co a jak se má dělat; záznamy dokazují, že se to udělalo."
+            },
+            {
+              "pojem": "Certifikace",
+              "definice": "Certifikační audit potvrzuje, že organizace splňuje požadavky normy — „nálepka ISO“ jako deklarace kvality."
+            },
+            {
+              "pojem": "Tender",
+              "definice": "Výběrové řízení na zakázku; zadavatel často vyžaduje certifikát ISO 9001."
+            }
+          ]
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 560 420\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Schéma kapitol 4 až 10 normy ISO 9001 s vedením uprostřed\">\n<defs>\n<marker id=\"iso-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n</defs>\n<text x=\"280\" y=\"20\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--akcent)\">ISO 9001 — SYSTÉM MANAGEMENTU KVALITY (QMS)</text>\n<line x1=\"280\" y1=\"148\" x2=\"280\" y2=\"86\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#iso-sipka)\" />\n<line x1=\"334\" y1=\"179\" x2=\"370\" y2=\"158\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#iso-sipka)\" />\n<line x1=\"334\" y1=\"241\" x2=\"370\" y2=\"262\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#iso-sipka)\" />\n<line x1=\"280\" y1=\"272\" x2=\"280\" y2=\"334\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#iso-sipka)\" />\n<line x1=\"226\" y1=\"241\" x2=\"190\" y2=\"262\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#iso-sipka)\" />\n<line x1=\"226\" y1=\"179\" x2=\"190\" y2=\"158\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" marker-end=\"url(#iso-sipka)\" />\n<circle cx=\"280\" cy=\"210\" r=\"62\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"280\" y=\"204\" text-anchor=\"middle\" font-size=\"12\" fill=\"var(--akcent)\">kapitola 5</text>\n<text x=\"280\" y=\"226\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"currentColor\">VEDENÍ</text>\n<rect x=\"200\" y=\"38\" width=\"160\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"280\" y=\"56\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--info)\">kapitola 4</text>\n<text x=\"280\" y=\"73\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Kontext organizace</text>\n<rect x=\"340\" y=\"113\" width=\"140\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"410\" y=\"131\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--uspech)\">kapitola 6</text>\n<text x=\"410\" y=\"148\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Plánování</text>\n<rect x=\"340\" y=\"263\" width=\"140\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"410\" y=\"281\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--zlata)\">kapitola 7</text>\n<text x=\"410\" y=\"298\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Podpora</text>\n<rect x=\"200\" y=\"338\" width=\"160\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"280\" y=\"356\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--info)\">kapitola 8</text>\n<text x=\"280\" y=\"373\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Provoz</text>\n<rect x=\"70\" y=\"263\" width=\"160\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"150\" y=\"281\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--uspech)\">kapitola 9</text>\n<text x=\"150\" y=\"298\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">Hodnocení výkonnosti</text>\n<rect x=\"70\" y=\"113\" width=\"160\" height=\"44\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"150\" y=\"131\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--zlata)\">kapitola 10</text>\n<text x=\"150\" y=\"148\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Zlepšování</text>\n<text x=\"280\" y=\"408\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.8\">Vedení řídí všechny ostatní kapitoly — bez zapojení vedení systém nefunguje.</text>\n</svg>",
+          "popisek": "Kapitoly 4–10 normy ISO 9001: uprostřed vedení (5), kolem něj kontext organizace (4), plánování (6), podpora (7), provoz (8), hodnocení výkonnosti (9) a zlepšování (10)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-norma-iso-9001-1",
+            "temaId": "norma-iso-9001",
+            "obtiznost": 2,
+            "zadani": "ISO 9001 je oborová norma určená jen pro výrobce potravin.",
+            "vysvetleni": "Naopak — ISO 9001 je VŠEOBECNÁ norma: dává univerzální rámec řízení kvality pro jakoukoli firmu a je základem, ze kterého vycházejí oborové (konkrétní) normy.",
+            "zdroj": "Norma jakosti ISO 9001",
+            "typ": "anone",
+            "spravna": false
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Co ISO 9001 dělá:**\n- **nastavuje procesy**,\n- je **systematická**,\n- dává **všeobecný, univerzální rámec**,\n- zahrnuje **dokumentaci** — soubor předepsaných dokumentů: **dokumenty + záznamy**.\n\n**Best practice** = to, co se osvědčilo v praxi (zkušenost). Norma to sbírá — a každá firma si to aplikuje **na míru**: konkrétní aplikace, specifikace, specializace.\n\n**Účel a cíl:**\n- management kvality ⇒ **ÚSPORA NÁKLADŮ FIRMY** (méně zmetků, méně reklamací, míň chaosu),\n- certifikace firmy ISO 9001 ⇒ **ÚČAST V TENDERECH** (výběrových řízeních),\n- „nálepka ISO“ ⇒ **deklarace kvality** vůči zákazníkům.\n\n**Certifikace** probíhá **certifikačním auditem**: nezávislý auditor potvrzuje, že organizace **splňuje požadavky normy** a zajišťuje efektivní řízení procesů, lepší uspokojování zákazníků a zvýšení konkurenceschopnosti. Certifikát nezaručuje bezvadnost každého kusu — potvrzuje funkční systém, který vady odhalí.\n\n**7 principů ISO 9001** (v tomhle pořadí a číslování):\n- **1.** zaměření na zákazníka\n- **2.** vedení (leadership)\n- **3.** angažovanost lidí\n- **4.** procesní přístup\n- **5.** zlepšování\n- **6.** rozhodování ⇒ na základě dat (závisí na kvalitě informací a dat)\n- **7.** management vztahů — s dodavateli (dodavatelsko-odběratelské vztahy)"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "popisovacka",
+          "parametry": {
+            "svg": "<svg viewBox=\"0 0 480 250\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Sedm očíslovaných dlaždic s principy ISO 9001\">\n<title>7 principů ISO 9001</title>\n<text x=\"240\" y=\"20\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--akcent)\">7 PRINCIPŮ ISO 9001 — klikni na dlaždici</text>\n<rect x=\"20\" y=\"36\" width=\"100\" height=\"62\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"70\" y=\"62\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--info)\">1</text>\n<text x=\"70\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">zákazník</text>\n<rect x=\"135\" y=\"36\" width=\"100\" height=\"62\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"185\" y=\"62\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--akcent)\">2</text>\n<text x=\"185\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">vedení</text>\n<rect x=\"250\" y=\"36\" width=\"100\" height=\"62\" rx=\"10\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"300\" y=\"62\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--uspech)\">3</text>\n<text x=\"300\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">lidé</text>\n<rect x=\"365\" y=\"36\" width=\"100\" height=\"62\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"415\" y=\"62\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--zlata)\">4</text>\n<text x=\"415\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">procesy</text>\n<rect x=\"77\" y=\"150\" width=\"100\" height=\"62\" rx=\"10\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"127\" y=\"176\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--uspech)\">5</text>\n<text x=\"127\" y=\"198\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">zlepšování</text>\n<rect x=\"192\" y=\"150\" width=\"100\" height=\"62\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"242\" y=\"176\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--info)\">6</text>\n<text x=\"242\" y=\"198\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">data</text>\n<rect x=\"307\" y=\"150\" width=\"100\" height=\"62\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"357\" y=\"176\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--zlata)\">7</text>\n<text x=\"357\" y=\"198\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">vztahy</text>\n<text x=\"240\" y=\"238\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.75\">pořadí 1–7 je závazné — tak se zkouší</text>\n</svg>",
+            "body": [
+              {
+                "x": 70,
+                "y": 67,
+                "nazev": "1. Zaměření na zákazníka",
+                "popis": "Firma dělá to, co zákazník skutečně potřebuje — jeho požadavky jsou na prvním místě."
+              },
+              {
+                "x": 185,
+                "y": 67,
+                "nazev": "2. Vedení (leadership)",
+                "popis": "Vedení určuje směr, jde příkladem a zapojuje se — proto je uprostřed schématu kapitol."
+              },
+              {
+                "x": 300,
+                "y": 67,
+                "nazev": "3. Angažovanost lidí",
+                "popis": "Kvalitu tvoří všichni zaměstnanci, ne jen kontrolor na konci linky."
+              },
+              {
+                "x": 415,
+                "y": 67,
+                "nazev": "4. Procesní přístup",
+                "popis": "Činnosti firmy se řídí jako navazující procesy s jasnými vstupy a výstupy."
+              },
+              {
+                "x": 127,
+                "y": 181,
+                "nazev": "5. Zlepšování",
+                "popis": "Firma se neustále zlepšuje — každá reklamace a každé měření je podnět ke zlepšení."
+              },
+              {
+                "x": 242,
+                "y": 181,
+                "nazev": "6. Rozhodování na základě dat",
+                "popis": "Kvalita rozhodnutí závisí na kvalitě informací a dat — ne na pocitu „od stolu“."
+              },
+              {
+                "x": 357,
+                "y": 181,
+                "nazev": "7. Management vztahů",
+                "popis": "Vztahy s dodavateli — dodavatelsko-odběratelské vztahy; kvalita začíná u dodaného materiálu."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Cesta firmy k certifikátu ISO 9001 — krok za krokem",
+            "kroky": [
+              {
+                "nazev": "Rozhodnutí vedení",
+                "popis": "Vedení firmy se zaváže, že systém managementu kvality zavede a bude ho řídit (kapitola 5 — vedení uprostřed).",
+                "ikona": "🧭"
+              },
+              {
+                "nazev": "Popsat procesy",
+                "popis": "Firma popíše, jak u ní věci probíhají: objednávka → nákup materiálu → potisk → kontrola → expedice (procesní přístup).",
+                "ikona": "🔗"
+              },
+              {
+                "nazev": "Dokumenty a záznamy",
+                "popis": "Sepíší se dokumenty (co a jak se dělá) a zavedou záznamy (důkaz, že se to dělá) — aplikace normy na míru firmě.",
+                "ikona": "📋"
+              },
+              {
+                "nazev": "Zavést do praxe",
+                "popis": "Lidé se proškolí a podle dokumentů opravdu pracují; sbírají se data o výkonnosti procesů.",
+                "ikona": "🛠️"
+              },
+              {
+                "nazev": "Interní audit a zlepšování",
+                "popis": "Firma si sama zkontroluje, kde systém drhne, a odstraní nedostatky (hodnocení výkonnosti, zlepšování).",
+                "ikona": "🔄"
+              },
+              {
+                "nazev": "Certifikační audit ⇒ certifikát",
+                "popis": "Nezávislý auditor potvrdí, že organizace splňuje požadavky normy. Firma získá certifikát — a může do tenderu.",
+                "ikona": "🏅"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-norma-iso-9001-2",
+            "temaId": "norma-iso-9001",
+            "obtiznost": 3,
+            "zadani": "E-shop má na webu logo „certifikováno ISO 9001“. Co to o firmě říká?",
+            "vysvetleni": "Certifikát potvrzuje, že organizace splňuje požadavky normy — má funkční systém managementu kvality ověřený certifikačním auditem. Neříká nic o bezvadnosti každého kusu, ISO 9001 není oborová norma a s výhrou v tenderu certifikát jen pomáhá.",
+            "zdroj": "Norma jakosti ISO 9001",
+            "typ": "vyber",
+            "moznosti": [
+              "Prošla certifikačním auditem — má funkční systém managementu kvality",
+              "Každý její výrobek je bezvadný",
+              "Splnila oborovou normu pro svůj obor",
+              "Vyhrála státní tender"
+            ],
+            "spravna": 0
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Teta s firmou na potisk triček (6 lidí) chce do tenderu na ligové dresy. Zadavatel požaduje certifikát ISO 9001. Poraď jí krok za krokem, co potřebuje a co jí to přinese.",
+          "reseni": "1) **Co je ISO 9001:** všeobecná norma pro **systém managementu kvality (QMS)** — dá se aplikovat na míru i šestičlenné tiskárně. Nepředepisuje, jak tisknout trička; předepisuje, jak firmu **řídit**.\n\n2) **Co musí teta udělat:** vedení (teta) se rozhodne a zapojí (kapitola 5); popíše **procesy** (objednávka → nákup triček a barev → potisk → kontrola → expedice); sepíše **dokumenty** a zavede **záznamy**; proškolí lidi a začne sbírat **data** o výkonnosti; udělá interní audit a nedostatky odstraní.\n\n3) **Certifikace:** objedná **certifikační audit** u nezávislého certifikačního orgánu. Auditor potvrdí, že firma **splňuje požadavky normy** — teta dostane **certifikát**.\n\n4) **Co jí to přinese:** může se **účastnit tenderu** (bez certifikátu by ji vyřadili), má **deklaraci kvality** vůči zákazníkům („nálepku ISO“) a díky nastaveným procesům **šetří náklady** — míň zmetků, míň reklamací.\n\nČasté omyly: „koupím normu do šanonu a hotovo“ (ne — implementace vyžaduje aktivní řízení procesů, zapojení vedení a zlepšování) a „certifikát zaručí, že žádné tričko nebude vadné“ (ne — zaručuje systém, který vadu odhalí a napraví)."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "ISO 9001",
+              "zadni": "Všeobecná norma stanovující požadavky na systém managementu kvality (QMS) organizace; základ pro oborové normy."
+            },
+            {
+              "predni": "Vývoj ISO 9001",
+              "zadni": "Od 80. let 20. století (první vydání 1987); aktualizace zhruba 1× za 5 let (1994, 2000, 2008, 2015)."
+            },
+            {
+              "predni": "Kapitoly 4–10",
+              "zadni": "4 kontext organizace, 5 vedení (uprostřed), 6 plánování, 7 podpora, 8 provoz, 9 hodnocení výkonnosti, 10 zlepšování."
+            },
+            {
+              "predni": "Co ISO 9001 dělá",
+              "zadni": "Nastavuje procesy, je systematická, dává univerzální rámec, zahrnuje dokumentaci (dokumenty + záznamy)."
+            },
+            {
+              "predni": "Best practice",
+              "zadni": "To, co se osvědčilo v praxi (zkušenost). Firma si normu aplikuje na míru."
+            },
+            {
+              "predni": "Účel ISO 9001",
+              "zadni": "Management kvality ⇒ úspora nákladů firmy; certifikace ⇒ účast v tenderech; „nálepka ISO“ ⇒ deklarace kvality vůči zákazníkům."
+            },
+            {
+              "predni": "Certifikační audit",
+              "zadni": "Potvrzuje, že organizace splňuje požadavky normy a zajišťuje efektivní řízení procesů, lepší uspokojování zákazníků a zvýšení konkurenceschopnosti."
+            },
+            {
+              "predni": "7 principů ISO 9001",
+              "zadni": "1) zaměření na zákazníka, 2) vedení, 3) angažovanost lidí, 4) procesní přístup, 5) zlepšování, 6) rozhodování na základě dat, 7) management vztahů (dodavatelsko-odběratelské)."
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- ISO 9001 = všeobecná norma pro systém managementu kvality (QMS), základ pro oborové normy; od 80. let, aktualizace ~1× za 5 let.\n- Kapitoly 4–10: kontext, vedení (uprostřed), plánování, podpora, provoz, hodnocení výkonnosti, zlepšování.\n- Norma nastavuje procesy, je systematická, univerzální a vyžaduje dokumenty + záznamy; staví na best practice a aplikuje se na míru.\n- Přínosy: úspora nákladů, účast v tenderech, deklarace kvality; certifikační audit potvrzuje splnění požadavků normy.\n- 7 principů: zákazník, vedení, lidé, procesy, zlepšování, rozhodování na základě dat, management vztahů."
         }
       ]
     },
     {
       "temaId": "potravinarske-zbozi",
       "nazev": "Potravinářské zboží",
-      "poradi": 1,
+      "poradi": 3,
       "bloky": [
         {
           "typ": "text",
@@ -502,7 +1106,7 @@
     {
       "temaId": "drobne-zbozi",
       "nazev": "Drobné zboží",
-      "poradi": 2,
+      "poradi": 4,
       "bloky": [
         {
           "typ": "text",
@@ -678,7 +1282,7 @@
     {
       "temaId": "obuv-a-galanterie",
       "nazev": "Obuv a kožená galanterie",
-      "poradi": 3,
+      "poradi": 5,
       "bloky": [
         {
           "typ": "text",
@@ -877,7 +1481,7 @@
     {
       "temaId": "textil-a-odivani",
       "nazev": "Textil a odívání",
-      "poradi": 4,
+      "poradi": 6,
       "bloky": [
         {
           "typ": "text",

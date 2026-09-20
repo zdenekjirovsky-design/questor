@@ -214,6 +214,38 @@
   color: var(--akcent-svetly);
 }
 
+.parovani__sloupec {
+  min-width: 0;
+}
+
+.parovani__nadpis {
+  margin: 0 0 8px;
+  font-family: var(--pismo-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tlumeny);
+  /* scroll-margin: po vyberu pojmu na mobilu se sem odscrolluje — pod sticky prvky */
+  scroll-margin-top: calc(12px + env(safe-area-inset-top, 0px));
+}
+
+.parovani__vybrano {
+  display: block;
+  margin-top: 6px;
+  padding: 8px 12px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--akcent);
+  background: rgba(139, 92, 246, 0.14);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  animation: naskoceni 0.25s ease-out both;
+}
+
 .parovani__akce {
   margin-top: 16px;
   display: flex;

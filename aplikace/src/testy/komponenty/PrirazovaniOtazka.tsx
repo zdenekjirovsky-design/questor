@@ -1,7 +1,7 @@
 // Přiřazovací otázka — klikací párování: vyber vlevo → vyber vpravo.
 // Pravá strana je zamíchaná (deterministicky podle id otázky). Správně je
 // jen test, kde sedí VŠECHNY páry.
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { OtazkaPrirazovani } from '@questor/sdilene';
 import type { OdpovedHodnota, ParovaniOdpoved } from '../engine';
 import { jeVstupniPole } from './klavesy';
@@ -106,13 +106,24 @@ export default function PrirazovaniOtazka({
     return tridy.join(' ');
   };
 
+  // Na mobilu jsou sloupce pod sebou — po vyberu pojmu se protejsky odscrolluji
+  // do zorneho pole a nad nimi visi pripominka, co je vybrane.
+  const pravyNadpis = useRef<HTMLParagraphElement | null>(null);
+  useEffect(() => {
+    if (vybranyLevy === null || zamceno) return;
+    if (typeof window === 'undefined' || window.innerWidth > 760) return;
+    pravyNadpis.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [vybranyLevy, zamceno]);
+
   return (
     <div>
       <p className="parovani__napoveda">
-        Klikni na pojem vlevo a pak na jeho protějšek vpravo. Kliknutím na hotový pár ho zrušíš.
+        Klepni na pojem a pak na jeho protějšek. Klepnutím na hotový pár ho zrušíš.
       </p>
       <div className="parovani" role="group" aria-label="Párování pojmů">
-        <div className="moznosti">
+        <div className="parovani__sloupec">
+          <p className="parovani__nadpis">Pojmy</p>
+          <div className="moznosti">
           {otazka.pary.map((par, levy) => (
             <button
               key={levy}
@@ -127,8 +138,18 @@ export default function PrirazovaniOtazka({
               <span>{par.levy}</span>
             </button>
           ))}
+          </div>
         </div>
-        <div className="moznosti">
+        <div className="parovani__sloupec">
+          <p className="parovani__nadpis" ref={pravyNadpis}>
+            Protějšky
+            {vybranyLevy !== null && !zamceno && (
+              <span className="parovani__vybrano">
+                Vybráno: <strong>{otazka.pary[vybranyLevy].levy}</strong> → klepni na protějšek
+              </span>
+            )}
+          </p>
+          <div className="moznosti">
           {pravePoradi.map((pravy) => (
             <button
               key={pravy}
@@ -143,6 +164,7 @@ export default function PrirazovaniOtazka({
               <span>{otazka.pary[pravy].pravy}</span>
             </button>
           ))}
+          </div>
         </div>
       </div>
       {!zamceno && (

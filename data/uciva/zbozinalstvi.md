@@ -6,6 +6,23 @@ a ošetřování v celém oběhu od výrobce ke spotřebiteli.
 
 ## Základy zbožíznalství
 
+Zbožíznalství je nauka o zboží, jeho vlastnostech, jakosti, výrobě, používání,
+skladování, přepravě a ochraně. Je to vědní disciplína, která u zboží zkoumá
+všechno podstatné: reklamace a správné zacházení, druh, vlastnosti, jakost,
+skladování, označení, obal a způsob výroby. Úkolem zbožíznalství je poznat
+zboží, jeho vlastnosti, správný způsob prodeje, skladování a ochrany.
+
+Základní pojmy zbožíznalství: zboží je výrobek nebo předmět určený k prodeji
+a uspokojování potřeb zákazníka. Výrobek je výsledek výrobního procesu —
+zbožím se stává teprve ve chvíli, kdy je určen k prodeji. Spotřebitel je
+člověk, který výrobek používá pro svou potřebu. Užitná hodnota je schopnost
+zboží uspokojit určitou potřebu. Jakost je souhrn vlastností výrobku, které
+ovlivňují jeho schopnost splnit požadavky zákazníka. Sortiment je soubor
+druhů zboží nabízených v určité prodejně nebo oboru.
+
+Zboží můžeme rozdělovat například na potravinářské (potraviny, nápoje)
+a nepotravinářské (oděvy, obuv, nábytek, elektronika, kosmetika apod.).
+
 Jakost (kvalita) je souhrn vlastností výrobku nebo služby, které mu dávají
 schopnost uspokojovat potřeby a požadavky zákazníka. Patří sem funkčnost,
 trvanlivost, spolehlivost, bezpečnost, zdravotní nezávadnost i vzhled. Řízení
@@ -41,6 +58,86 @@ skladování: vhodná teplota a vlhkost, čistota, oddělené skladování
 neslučitelného zboží (potraviny nikdy vedle drogerie) a vyskladňování podle
 zásady FIFO (first in, first out) — zboží naskladněné jako první se
 vyskladňuje jako první, aby nestárlo na skladě.
+
+## Jakost a řízení jakosti
+
+Jakost zboží vyjadřuje, jak dobře výrobek splňuje požadavky zákazníka
+a stanovené požadavky. Jakost ovlivňuje deset hlavních faktorů: materiál,
+konstrukce výrobku, výrobní postup, vzhled, funkčnost, bezpečnost,
+trvanlivost, spolehlivost, hygienická nezávadnost a způsob skladování
+a přepravy. Jakost není pouze vzhled výrobku — důležitá je také jeho
+funkčnost, bezpečnost a schopnost dlouhodobě plnit svůj účel. Tenisky, které
+skvěle vypadají, ale po týdnu se rozpadnou, kvalitní nejsou.
+
+Řízení jakosti je soubor činností, kterými organizace zajišťuje, že výrobky
+a služby budou odpovídat požadované úrovni. Nejde tedy jen o kontrolu na
+konci výroby, ale o všechno, co firma dělá, aby kvalita vznikala už při
+návrhu, nákupu materiálu, výrobě i skladování.
+
+Jakost se dělí na objektivní (měřitelné vlastnosti — rozměry, hmotnost,
+výdrž baterie, pevnost švu) a subjektivní (vnímání zákazníkem — chuť,
+design, pocit z používání). Kvalita je důležitá pro pět stran: pro
+zákazníka, výrobce, obchod, stát i životní prostředí.
+
+Standard jakosti je zboží, jehož měřitelné vlastnosti jsou definovány
+v právním předpisu. Slouží jako vzor pro porovnávání — tzv. referenční bod.
+Jakost se měří porovnáním se standardem; bez referenčního bodu nelze kvalitu
+objektivně hodnotit. Předpis například stanoví, kolik smí mít energetický
+nápoj kofeinu nebo jak přesně musí vážit obchodní váha.
+
+Druhy jakosti jsou čtyři: užitná jakost je schopnost plnit základní funkci,
+technická jakost je soulad s technickými parametry, obchodní jakost je
+spokojenost zákazníka na trhu a spotřební jakost je hodnocení z pohledu
+uživatele — typicky recenze na e-shopu. Jakost zboží je širší pojem než shoda
+s normami: výrobek může splňovat všechny předpisy, a přesto zákazníka
+zklamat.
+
+Nástroje a metody řízení jakosti jsou v tomto pořadí: 1) kontrola, 2) měření
+— metrologie (nauka o měření a jeho přesnosti), 3) zkouška (výrobek se
+vystaví zátěži, teplu, vodě), 4) normalizace, jejímž výsledkem jsou normy,
+5) certifikace, jejímž výsledkem je certifikát nebo licence, 6) prevence
+(předcházení vadám dřív, než vzniknou) a 7) reklamace (uplatnění vady
+u prodávajícího — zpětná vazba, ze které se firma učí).
+
+## Norma jakosti ISO 9001
+
+Normy řady ISO 9000 se vyvíjejí od 80. let 20. století (první vydání 1987)
+a aktualizují se zhruba jednou za pět let (revize 1994, 2000, 2008, 2015).
+ISO 9001 je všeobecná norma — základ, z něhož vycházejí oborové (konkrétní)
+normy, například pro automobilový průmysl nebo zdravotnické prostředky. Jejím
+cílem je obecný rámec pro řízení kvality použitelný v jakékoli firmě.
+
+Norma ISO 9001 stanovuje požadavky na systém managementu kvality (QMS)
+organizace. Klíčové kapitoly 4–10 pokrývají kontext organizace (4), vedení
+(5), plánování (6), podporu (7), provoz (8), hodnocení výkonnosti (9)
+a zlepšování (10). Ve schématu stojí vedení uprostřed a ostatní kapitoly ho
+obklopují — vedení všechno řídí a spojuje. Norma tak umožňuje monitorovat
+výkonnost jednotlivých procesů i celého systému managementu kvality.
+Implementace zahrnuje nejen dokumentaci, ale i aktivní řízení procesů,
+zapojení vedení a neustálé zlepšování kvality produktů a služeb.
+
+Co ISO 9001 dělá: nastavuje procesy, je systematická, dává všeobecný,
+univerzální rámec a zahrnuje dokumentaci — soubor předepsaných dokumentů
+(popisují, co a jak se má dělat) a záznamů (dokazují, že se to opravdu
+udělalo). Norma přebírá best practice — to, co se osvědčilo v praxi
+(zkušenost). Každá firma si normu aplikuje na míru: konkrétní aplikace,
+specifikace a specializace podle vlastního oboru a velikosti.
+
+Účel a cíl: management kvality přináší úsporu nákladů firmy (méně zmetků,
+méně reklamací, méně chaosu). Certifikace firmy podle ISO 9001 umožňuje
+účast v tenderech (výběrových řízeních), kde zadavatel certifikát vyžaduje,
+a „nálepka ISO" je deklarací kvality vůči zákazníkům. Certifikace probíhá
+certifikačním auditem: nezávislý auditor potvrzuje, že organizace splňuje
+požadavky normy a zajišťuje efektivní řízení procesů, lepší uspokojování
+zákazníků a zvýšení konkurenceschopnosti. Certifikát nezaručuje bezvadnost
+každého kusu — potvrzuje, že firma má funkční systém, který vady odhaluje
+a odstraňuje.
+
+Sedm principů ISO 9001 v tomto pořadí: 1) zaměření na zákazníka, 2) vedení
+(leadership), 3) angažovanost lidí, 4) procesní přístup, 5) zlepšování,
+6) rozhodování na základě dat — kvalita rozhodnutí závisí na kvalitě
+informací a dat, 7) management vztahů — s dodavateli, tedy
+dodavatelsko-odběratelské vztahy.
 
 ## Potravinářské zboží
 

@@ -89,6 +89,12 @@
 
 .tridicka__kos--cil {
   border-color: var(--akcent);
+  cursor: pointer;
+}
+
+.tridicka__kos--cil .tridicka__kos-prazdny {
+  opacity: 1;
+  color: var(--akcent-svetly);
 }
 
 .tridicka__kos--nad {

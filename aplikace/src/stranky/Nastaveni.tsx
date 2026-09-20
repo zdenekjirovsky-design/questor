@@ -118,7 +118,11 @@ export default function Nastaveni() {
           <p className="nastaveni-stav">
             Poslední úspěšný sync: {posledniSync}
             {stavSyncu.veFronte > 0 && ` · ve frontě čeká ${stavSyncu.veFronte}`}
-            {stavSyncu.posledniChyba && !stavSyncu.bezi && ' · server je teď offline (hra jede dál)'}
+            {stavSyncu.posledniChyba &&
+              !stavSyncu.bezi &&
+              (/\b40[13]\b/.test(stavSyncu.posledniChyba)
+                ? ' · ⚠️ rodinný kód neplatí — zadej aktuální kód výše'
+                : ' · server je teď offline (hra jede dál)')}
           </p>
         </div>
       </div>

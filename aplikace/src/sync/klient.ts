@@ -163,6 +163,21 @@ export class ChybaSyncu extends Error {
   }
 }
 
+/**
+ * Lidský popis selhání požadavku pro UI: neplatný rodinný kód (401/403) a
+ * přetížení (429) se musí říct jasně — obecné „zkontroluj připojení" by
+ * uživatele poslalo hledat problém s internetem, který nemá.
+ */
+export function popisChybuSpojeni(chyba: unknown, vychozi: string): string {
+  const status = chyba instanceof ChybaSyncu ? chyba.status : undefined;
+  if (status === 401 || status === 403) {
+    return 'Rodinný kód neplatí — zadej aktuální kód v Nastavení → Připojení a zkus to znovu.';
+  }
+  if (status === 429) return 'Server má teď moc požadavků od vaší sítě — zkus to za minutu.';
+  if (status === 404) return 'Server tuhle funkci ještě nezná — je potřeba ho aktualizovat.';
+  return vychozi;
+}
+
 const TIMEOUT_MS = 8000;
 
 export interface QuestorKlient {

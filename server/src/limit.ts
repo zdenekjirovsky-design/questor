@@ -24,7 +24,14 @@ export interface MoznostiRateLimit {
   duverujProxy?: number;
 }
 
-export const VYCHOZI_MAX_POZADAVKU = 240;
+// 600/min: celá rodina (3–4 zařízení) sdílí jednu domácí IP a každá návštěva
+// stránky spouští sync (~8–16 požadavků); proti hrubé síle na 24znakové
+// tokeny je i tenhle strop bezvýznamný. Přepis env QUESTOR_RATE_LIMIT_MAX.
+export const VYCHOZI_MAX_POZADAVKU = (() => {
+  const raw = process.env.QUESTOR_RATE_LIMIT_MAX;
+  const n = raw === undefined || raw === '' ? Number.NaN : Number.parseInt(raw, 10);
+  return Number.isInteger(n) && n > 0 ? n : 600;
+})();
 export const VYCHOZI_OKNO_MS = 60_000;
 
 /** Strop počtu držených IP — nad ním se při dalším požadavku vymetou propadlá okna. */

@@ -11,7 +11,7 @@ import { vysledekProHrace } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { najdiAktivniProfil, predmetyProfilu, type Profil } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
-import { jeTauriProstredi } from '../sync/klient';
+import { jeTauriProstredi, popisChybuSpojeni } from '../sync/klient';
 import { rozdelDuely } from './engine';
 import { odkazProHosta } from './host';
 import { duelovyKlient, souperVDuelu, zbyvaDoVyprseni } from './pomocne';
@@ -188,8 +188,13 @@ function DuelKarta({
       });
       pridejDuel(prijaty);
       navigate(`/duel/${prijaty.id}`);
-    } catch {
-      setChyba('Výzvu se nepodařilo přijmout — možná ji už vzal někdo jiný. Zkus obnovit.');
+    } catch (chyba) {
+      setChyba(
+        popisChybuSpojeni(
+          chyba,
+          'Výzvu se nepodařilo přijmout — možná ji už vzal někdo jiný. Zkus obnovit.',
+        ),
+      );
     } finally {
       setPrijimam(false);
     }
@@ -408,8 +413,10 @@ function DialogNovehoDuelu({ profil, zavri }: { profil: Profil; zavri: () => voi
       zavri();
       // Vyzyvatel muze hrat hned (u cilene vyzvy); otevrena ceka na prijeti.
       navigate(`/duel/${duel.id}`);
-    } catch {
-      setChyba('Duel se nepodařilo založit — zkontroluj připojení a zkus to znovu.');
+    } catch (chyba) {
+      setChyba(
+        popisChybuSpojeni(chyba, 'Duel se nepodařilo založit — zkontroluj připojení a zkus to znovu.'),
+      );
     } finally {
       setZakladam(false);
     }

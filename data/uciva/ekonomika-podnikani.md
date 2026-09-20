@@ -1,5 +1,106 @@
 # Ekonomika a podnikání — učivo (SŠ, ČR, stav 2026)
 
+## Potřeby
+
+**Ekonomie** je věda. Její předmět se dá zapsat šipkou **ZDROJE → POTŘEBY**:
+ekonomie zkoumá a analyzuje, jakým způsobem se využívají zdroje k uspokojování
+potřeb. Obecnější definice: ekonomie je věda, která zkoumá hospodářské stránky
+života společnosti. Člení se na dvě části: **mikroekonomie** se zabývá
+ekonomickými subjekty (domácnosti, firmy a stát) a trhy; **makroekonomie**
+zkoumá jednotlivá odvětví národního hospodářství a hospodářství jako celek —
+HDP, inflaci, nezaměstnanost. **Ekonomika** je jiné slovo pro **hospodářství**;
+v sešitě je u ní věta „zkoumá jednotlivá odvětví národního hospodářství“ —
+stejná slova jako u makroekonomie. Rozdíl je věda × praxe: zatímco ekonomie
+(a její část makroekonomie) je věda, která hospodářství a jeho odvětví zkoumá
+a měří, ekonomika je praxe — skutečné hospodaření státu, firmy či domácnosti
+a jeho jednotlivá odvětví (průmysl, zemědělství, služby). Proto říkáme
+„ekonomika ČR roste“, ale „ekonomie je věda“.
+
+**Potřeby** jsou pocity nedostatku, které si lidé uvědomují a snaží se je
+odstranit. Základní členění: **hmotné (materiální)** — potřeba mít a užívat věci
+(mobil, kolo, jídlo); **nehmotné (nemateriální, duševní)** — naše zkušenosti,
+dovednosti, znalosti, vlastnosti (umět anglicky, mít kamarády, být zdravý).
+
+Podrobnější členění potřeb tvoří **pět dvojic**; v každé má první pojem číslo 1
+a druhý číslo 2:
+
+1. **hmotné (1) / nehmotné (2)** — věc × dovednost, znalost, vztah;
+2. **biologické (1) / kulturní (2)** — biologické plynou z těla (jídlo, spánek,
+   teplo), kulturní vznikají životem ve společnosti (hudba, vzdělání, cestování);
+3. **současné (1) / budoucí (2)** — chci to teď × bude to třeba později (důchod,
+   byt po škole);
+4. **zbytné (1) / nezbytné (2)** — bez zbytných se obejdu (nová hra), nezbytné
+   musím uspokojit (jídlo, spánek, zdraví);
+5. **individuální (1) / společenské (2)** — potřeba jednotlivce × potřeba, kterou
+   uspokojujeme společně pro všechny (bezpečné ulice, silnice, čistý vzduch).
+
+**Metoda:** každou potřebu zařadíme postupně do všech pěti dvojic a výsledek
+zapíšeme jako řadu čísel. Příklad ze sešitu: potřeba mít pevné zdraví →
+**2 → 1 → 1,2 → 2 → 1** (nehmotná, biologická, současná i budoucí, nezbytná,
+individuální). Stejně zařadíme nový mobil na hraní (1 → 2 → 1 → 1 → 1), potřebu
+vyspat se před zítřejší písemkou (2 → 1 → 1 → 2 → 1; spánek není věc, kterou lze
+mít a užívat — je nehmotný jako zdraví) nebo dovolenou u moře příští léto
+(2 → 2 → 2 → 1 → 1). U dvojice současné/budoucí rozhoduje situace: „před
+zítřejší písemkou“ je teď (1), „příští léto“ později (2); trvalé potřeby, které
+chceme teď i napořád (zdraví, spánek obecně), dostávají obě čísla 1,2 — přesně
+jako v sešitě u zdraví. Častá chyba: zdraví se týká těla, ale hmotné není —
+hmotné jsou jen věci, které lze mít a užívat.
+
+**Teorie motivace — Maslowova pyramida.** Psycholog A. Maslow rozdělil potřeby
+člověka do stupňů pyramidy (odspodu nahoru):
+
+1. **biologické potřeby** — jídlo, spánek;
+2. **jistota** — bezpečí, dostatek;
+3. **sociální potřeby** — přátelství, láska;
+4. **uznání (uspokojení)** — uznání a prospěšnost;
+5. **seberealizace** — rozvoj osobnosti.
+
+Nižší stupně uspokojujeme dřív než vyšší; s růstem kvality života a rozvojem
+osobnosti se rozvíjejí potřeby ve vyšší míře na vyšších stupních pyramidy.
+Brigádník, který má najíst, jistou výplatu i partu kolegů, začne postrádat
+pochvalu (uznání) — a teprve potom prostor rozvíjet vlastní nápady.
+
+## Statky a služby
+
+Potřeby uspokojujeme statky a službami. **Statek** je předmět lidské činnosti,
+kterým lze uspokojit lidské potřeby. **Hmotný statek** je každá věc, kterou lze
+uspokojit lidské potřeby (koloběžka, záchod, rohlík, mobil). **Nehmotný statek**
+je každý duševní výtvor člověka, jeho znalosti, dovednosti…, kterými lze
+uspokojit lidské potřeby (znalost angličtiny, recept, písnička, aplikace).
+
+**Služby** jsou cizí činnosti, kterými lze uspokojit lidské potřeby — něco pro
+nás udělá někdo jiný. **Věcné služby** se týkají věci: její úprava nebo oprava
+(oprava mobilu, čistírna, myčka aut, přeprava zboží). **Osobní služby** směřují
+přímo k člověku (kadeřník, lékař, výuka, přeprava osob taxíkem). Pomůcka: ptej
+se, co se po službě změnilo — věc, nebo člověk?
+
+Statky členíme ze **čtyř hledisek** a jeden statek zařazujeme ze všech čtyř
+najednou:
+
+1. **Podle způsobu dosažení (získání)**: **ekonomické (hospodářské)** statky
+   jsou omezené — vzácné, protože je musíme vyrobit z omezených zdrojů (rohlík,
+   mobil, dům, elektřina); **volné** statky nejsou vzácné, jsou součástí přírody
+   a nikdo je nevyrábí (vzduch, sluneční světlo, déšť). Pozor: pitná voda
+   z kohoutku už je statek ekonomický — musela se upravit a dopravit. Peníze
+   nejsou volný statek: jsou vzácné a samy o sobě potřebu neuspokojují, jen za
+   ně statky a služby pořizujeme.
+2. **Podle podstaty**: **materiální (hmotné)** — věci; **nemateriální
+   (nehmotné)** — výtvory a vlastnosti člověka (znalosti, dovednosti, software,
+   hudba).
+3. **Podle účelu použití**: **kapitálové** — majetek, který slouží k další
+   výrobě (pec v pekárně, dodávka kurýra, nástroje); **spotřební** — konečná
+   spotřeba (rohlík, tenisky, mobil na hraní). O zařazení rozhoduje účel, ne věc
+   sama: stejný notebook je pro grafičku kapitálový statek, pro hráče spotřební.
+4. **Podle pohyblivosti**: **nemovité** — pozemky a stavby pevně spojené se
+   zemí (pole, dům, výrobní hala); **movité** — vše, co lze přemístit (auto,
+   koloběžka, stroj, zásoby).
+
+Příklad pekárny: pec a hnětač jsou ekonomické, materiální, kapitálové a movité
+statky; budova pekárny je kapitálový statek nemovitý; recept na kváskový chleba
+je nehmotný statek sloužící výrobě; čerstvý rohlík na pultu je statek spotřební;
+rozvoz pečiva do restaurací a oprava pece jsou věcné služby, kurz pečení pro
+veřejnost služba osobní.
+
 ## Základní ekonomické pojmy
 
 Ekonomie zkoumá, jak společnost využívá omezené zdroje k uspokojování potřeb.

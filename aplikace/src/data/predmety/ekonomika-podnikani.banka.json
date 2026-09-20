@@ -1,20 +1,484 @@
 {
   "predmetId": "ekonomika-podnikani",
   "nazev": "Ekonomika a podnikání",
-  "verze": 2,
+  "verze": 3,
   "vytvoreno": "2026-09-04",
   "temata": [
-    { "id": "zakladni-pojmy", "nazev": "Základní ekonomické pojmy", "poradi": 0 },
-    { "id": "trh-a-trzni-mechanismus", "nazev": "Trh a tržní mechanismus", "poradi": 1 },
-    { "id": "podnikani-a-pravni-formy", "nazev": "Podnikání a právní formy", "poradi": 2 },
-    { "id": "podnik-a-hospodareni", "nazev": "Podnik a jeho hospodaření", "poradi": 3 },
-    { "id": "marketing", "nazev": "Marketing", "poradi": 4 },
-    { "id": "management", "nazev": "Management", "poradi": 5 },
-    { "id": "zamestnanci-a-mzdy", "nazev": "Zaměstnanci a mzdy", "poradi": 6 },
-    { "id": "dane-a-pojisteni", "nazev": "Daně a pojištění", "poradi": 7 },
-    { "id": "penize-a-financni-trh", "nazev": "Peníze a finanční trh", "poradi": 8 }
+    { "id": "potreby", "nazev": "Potřeby", "poradi": 0 },
+    { "id": "statky-a-sluzby", "nazev": "Statky a služby", "poradi": 1 },
+    { "id": "zakladni-pojmy", "nazev": "Základní ekonomické pojmy", "poradi": 2 },
+    { "id": "trh-a-trzni-mechanismus", "nazev": "Trh a tržní mechanismus", "poradi": 3 },
+    { "id": "podnikani-a-pravni-formy", "nazev": "Podnikání a právní formy", "poradi": 4 },
+    { "id": "podnik-a-hospodareni", "nazev": "Podnik a jeho hospodaření", "poradi": 5 },
+    { "id": "marketing", "nazev": "Marketing", "poradi": 6 },
+    { "id": "management", "nazev": "Management", "poradi": 7 },
+    { "id": "zamestnanci-a-mzdy", "nazev": "Zaměstnanci a mzdy", "poradi": 8 },
+    { "id": "dane-a-pojisteni", "nazev": "Daně a pojištění", "poradi": 9 },
+    { "id": "penize-a-financni-trh", "nazev": "Peníze a finanční trh", "poradi": 10 }
   ],
   "otazky": [
+    {
+      "id": "o-potreby-1",
+      "temaId": "potreby",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co jsou podle definice potřeby?",
+      "moznosti": [
+        "Pocity nedostatku, které si lidé uvědomují a snaží se je odstranit",
+        "Věci, které si můžeme koupit za peníze",
+        "Přání, která nelze nikdy splnit",
+        "Zboží nabízené v obchodech a na internetu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Potřeba je pocit nedostatku (hlad, nuda, chybějící mobil), který si uvědomujeme a chceme odstranit. Věci a zboží jsou statky — těmi potřeby teprve uspokojujeme. A potřeby splnit lze, jinak by nás k ničemu nehnaly.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-2",
+      "temaId": "potreby",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co je předmětem zkoumání ekonomie?",
+      "moznosti": [
+        "Jakým způsobem se využívají zdroje k uspokojování potřeb",
+        "Jak vydělat co nejvíc peněz na burze",
+        "Jak správně vést účetnictví firmy",
+        "Jaké zákony platí pro podnikání"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Předmět ekonomie je vztah ZDROJE → POTŘEBY: věda zkoumá a analyzuje, jakým způsobem se využívají zdroje. Burza, účetnictví i právo jsou jen dílčí praktické obory, ne předmět celé vědy.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-3",
+      "temaId": "potreby",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Mikroekonomie zkoumá HDP, inflaci a nezaměstnanost celého státu.",
+      "spravna": false,
+      "vysvetleni": "HDP, inflace a nezaměstnanost jsou ukazatele celého národního hospodářství — to je makroekonomie. Mikroekonomie se zabývá ekonomickými subjekty (domácnosti, firmy, stát) a trhy.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-4",
+      "temaId": "potreby",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Která z potřeb je NEHMOTNÁ (nemateriální, duševní)?",
+      "moznosti": [
+        "Naučit se hrát na kytaru",
+        "Mít nová sluchátka",
+        "Mít teplou bundu na zimu",
+        "Mít vlastní kolo"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Nehmotné potřeby se týkají našich zkušeností, dovedností, znalostí a vlastností — umět hrát na kytaru je dovednost. Sluchátka, bunda i kolo jsou věci, které chceme mít a užívat — potřeby hmotné (materiální).",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-5",
+      "temaId": "potreby",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď pojem k tomu, čím se zabývá.",
+      "pary": [
+        {
+          "levy": "ekonomie",
+          "pravy": "věda, která zkoumá hospodářské stránky života společnosti"
+        },
+        {
+          "levy": "ekonomika",
+          "pravy": "hospodářství samo a jeho jednotlivá odvětví — praxe: ekonomika ČR, ekonomika firmy"
+        },
+        {
+          "levy": "mikroekonomie",
+          "pravy": "ekonomické subjekty (domácnosti, firmy, stát) a trhy"
+        },
+        {
+          "levy": "makroekonomie",
+          "pravy": "celé národní hospodářství — HDP, inflace, nezaměstnanost"
+        }
+      ],
+      "vysvetleni": "Ekonomie je věda (teorie), ekonomika je hospodářství samo (praxe). V sešitě máš „jednotlivá odvětví národního hospodářství“ u ekonomiky i u makroekonomie — rozliš je takhle: makroekonomie je část VĚDY, která odvětví a celek zkoumá a měří (HDP, inflace, nezaměstnanost); ekonomika je to, co se zkoumá — hospodářství a jeho odvětví. Mikroekonomie se dívá zblízka na jednotlivé subjekty (domácnosti, firmy, stát) a trhy.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-6",
+      "temaId": "potreby",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá část ekonomie, která se zabývá ekonomickými subjekty (domácnosti, firmy, stát) a trhy?",
+      "spravneOdpovedi": [
+        "mikroekonomie",
+        "mikro-ekonomie",
+        "mikro ekonomie",
+        "mikro"
+      ],
+      "vysvetleni": "Mikroekonomie = pohled „zblízka“ na jednotlivé subjekty a trhy (jak se rozhoduje domácnost, firma, jak funguje trh s mobily). Makroekonomie se dívá „zdálky“ na celé hospodářství — HDP, inflaci, nezaměstnanost.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-7",
+      "temaId": "potreby",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď druh potřeby k jeho charakteristice.",
+      "pary": [
+        {
+          "levy": "biologické",
+          "pravy": "plynou z fungování těla — jídlo, spánek, teplo"
+        },
+        {
+          "levy": "kulturní",
+          "pravy": "vznikají životem ve společnosti — hudba, vzdělání, cestování"
+        },
+        {
+          "levy": "nezbytné",
+          "pravy": "musíme je uspokojit, jinak nelze žít nebo normálně fungovat"
+        },
+        {
+          "levy": "společenské",
+          "pravy": "uspokojují se společně pro všechny — bezpečné ulice, silnice"
+        },
+        {
+          "levy": "budoucí",
+          "pravy": "začnou tlačit až později — důchod, bydlení po škole"
+        }
+      ],
+      "vysvetleni": "Podrobnější členění potřeb tvoří pět dvojic: hmotné/nehmotné, biologické/kulturní, současné/budoucí, zbytné/nezbytné, individuální/společenské. Každá potřeba se dá zařadit do všech pěti najednou.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-8",
+      "temaId": "potreby",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které příklady patří na NEJNIŽŠÍ stupeň Maslowovy pyramidy (biologické potřeby)?",
+      "moznosti": [
+        "jídlo",
+        "spánek",
+        "pití",
+        "přátelství",
+        "pochvala od trenéra",
+        "rozvoj vlastního talentu"
+      ],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
+      "vysvetleni": "Základnu pyramidy tvoří biologické potřeby — jídlo, pití, spánek. Přátelství je sociální potřeba (3. stupeň), pochvala patří k uznání (4. stupeň) a rozvoj talentu k seberealizaci (5. stupeň).",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-9",
+      "temaId": "potreby",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Na kterém stupni Maslowovy pyramidy je potřeba přátelství a lásky? (napiš název stupně)",
+      "spravneOdpovedi": [
+        "sociální potřeby",
+        "socialni potreby",
+        "sociální",
+        "socialni",
+        "sociální potřeba",
+        "socialni potreba",
+        "3. stupeň",
+        "3. stupen",
+        "třetí stupeň",
+        "treti stupen",
+        "třetí",
+        "treti",
+        "3"
+      ],
+      "vysvetleni": "Sociální potřeby (přátelství, láska, někam patřit) jsou třetí stupeň odspodu — nad biologickými potřebami a jistotou, pod uznáním a seberealizací.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-10",
+      "temaId": "potreby",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Zařaď potřebu „mít pevné zdraví“ do všech pěti dvojic (hmotné 1 / nehmotné 2 → biologické 1 / kulturní 2 → současné 1 / budoucí 2 → zbytné 1 / nezbytné 2 → individuální 1 / společenské 2). Která řada čísel je správně?",
+      "moznosti": [
+        "2 → 1 → 1,2 → 2 → 1",
+        "1 → 1 → 1 → 2 → 1",
+        "2 → 2 → 2 → 1 → 1",
+        "1 → 1 → 1,2 → 2 → 2"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zdraví není věc (nehmotná = 2), plyne z těla (biologická = 1), chceme ho teď i v budoucnu (1,2), bez něj se nedá žít (nezbytná = 2) a je to potřeba každého jednotlivce (individuální = 1). Častá chyba je brát zdraví jako hmotné jen proto, že se týká těla.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-11",
+      "temaId": "potreby",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Potřeba „mít nový mobil na hraní“. Která charakteristika je správná?",
+      "moznosti": [
+        "hmotná, kulturní, zbytná, individuální",
+        "hmotná, biologická, nezbytná, individuální",
+        "nehmotná, kulturní, zbytná, společenská",
+        "hmotná, kulturní, nezbytná, společenská"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Mobil je věc (hmotná), potřeba hrát vzniká životem ve společnosti, ne z těla (kulturní), bez nového mobilu se dá žít (zbytná) a chceš ho ty sám (individuální). Pocit „bez mobilu neexistuju“ z něj biologickou ani nezbytnou potřebu nedělá.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-12",
+      "temaId": "potreby",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Potřeba bezpečných ulic a čistého vzduchu ve městě je potřeba společenská, protože se uspokojuje pro všechny obyvatele najednou.",
+      "spravna": true,
+      "vysvetleni": "Společenské potřeby nejde uspokojit jen pro sebe — bezpečnost, čistý vzduch nebo silnice zajišťujeme společně (obec, stát). Individuální potřebu (svačina, nové tenisky) si uspokojí každý sám.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-potreby-13",
+      "temaId": "potreby",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Tomáš má brigádu v kavárně: dostává najíst, výplata chodí včas a s kolegy je parta. Přesto ho štve, že ho vedoucí nikdy nepochválí, i když má nejvíc spokojených zákazníků. Který stupeň Maslowovy pyramidy zůstává neuspokojený?",
+      "moznosti": [
+        "uznání — potřeba být oceněn a užitečný",
+        "jistota — bezpečí a dostatek",
+        "sociální potřeby — přátelství",
+        "biologické potřeby — jídlo"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Jídlo (biologické), včasná výplata (jistota) i parta (sociální) jsou uspokojené. Chybí ocenění — 4. stupeň, uznání. Podle Maslowa se právě tahle potřeba ozve, jakmile jsou nižší stupně naplněné.",
+      "zdroj": "Potřeby"
+    },
+    {
+      "id": "o-statky-a-sluzby-1",
+      "temaId": "statky-a-sluzby",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je statek?",
+      "moznosti": [
+        "Předmět lidské činnosti, kterým lze uspokojit lidské potřeby",
+        "Jen zboží, které se prodává v obchodě",
+        "Pocit nedostatku, který chceme odstranit",
+        "Peníze, za které nakupujeme"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Statek je cokoli vytvořené lidskou činností, co uspokojí potřebu — věc i znalost. Pocit nedostatku je potřeba, ne statek; peníze potřebu samy neuspokojí, jen za ně statky pořizujeme.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-2",
+      "temaId": "statky-a-sluzby",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Koloběžka je hmotný statek, znalost angličtiny je statek nehmotný.",
+      "spravna": true,
+      "vysvetleni": "Hmotný statek je každá věc, kterou lze uspokojit potřebu (koloběžka, záchod). Nehmotný statek je duševní výtvor člověka, jeho znalosti a dovednosti — znalost angličtiny.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-3",
+      "temaId": "statky-a-sluzby",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Oprava mobilu v servisu je z pohledu ekonomiky…",
+      "moznosti": [
+        "věcná služba — upravuje nebo opravuje věc",
+        "osobní služba — dělá se pro konkrétního člověka",
+        "hmotný statek — mobil je věc",
+        "nehmotný statek — je to duševní výtvor technika"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Služba je cizí činnost; věcná směřuje na věc (oprava mobilu, čistírna). To, že je mobil tvůj, z ní osobní službu nedělá — osobní služby působí přímo na člověka (kadeřník, lékař). Mobil sám je hmotný statek, ale oprava je činnost.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-4",
+      "temaId": "statky-a-sluzby",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývají služby, které směřují přímo k člověku — kadeřník, lékař, výuka?",
+      "spravneOdpovedi": [
+        "osobní",
+        "osobni",
+        "osobní služby",
+        "osobni sluzby",
+        "osobní služba",
+        "osobni sluzba"
+      ],
+      "vysvetleni": "Osobní služby působí přímo na člověka (stříhání, ošetření, doučování). Věcné služby upravují nebo opravují věc (čistírna, servis).",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-5",
+      "temaId": "statky-a-sluzby",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Který z následujících statků je VOLNÝ?",
+      "moznosti": [
+        "sluneční světlo",
+        "pitná voda z kohoutku",
+        "peníze",
+        "chleba"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Volný statek je součást přírody, nikdo ho nemusí vyrobit a není vzácný — sluneční světlo. Voda z kohoutku prošla úpravnou a potrubím (ekonomický statek), chleba někdo upekl a peníze rozhodně vzácné jsou — volným statkem nejsou.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-6",
+      "temaId": "statky-a-sluzby",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývají statky, které jsou omezené (vzácné), protože je musíme vyrobit? (uveď jeden z obou názvů)",
+      "spravneOdpovedi": [
+        "ekonomické",
+        "ekonomicke",
+        "ekonomické statky",
+        "ekonomicke statky",
+        "hospodářské",
+        "hospodarske",
+        "hospodářské statky",
+        "hospodarske statky"
+      ],
+      "vysvetleni": "Ekonomické (hospodářské) statky musíme vyrobit z omezených zdrojů, proto jsou vzácné a platíme za ně. Opakem jsou statky volné — součást přírody (vzduch).",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-7",
+      "temaId": "statky-a-sluzby",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď hledisko členění statků ke správné dvojici.",
+      "pary": [
+        {
+          "levy": "podle způsobu dosažení (získání)",
+          "pravy": "ekonomické × volné"
+        },
+        {
+          "levy": "podle podstaty",
+          "pravy": "materiální × nemateriální"
+        },
+        {
+          "levy": "podle účelu použití",
+          "pravy": "kapitálové × spotřební"
+        },
+        {
+          "levy": "podle pohyblivosti",
+          "pravy": "nemovité × movité"
+        }
+      ],
+      "vysvetleni": "Čtyři hlediska se ptají: musel se statek vyrobit (ekonomický × volný)? Je to věc, nebo výtvor člověka (materiální × nemateriální)? Slouží k další výrobě, nebo ke konečné spotřebě (kapitálový × spotřební)? Dá se přemístit (movitý × nemovitý)?",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-8",
+      "temaId": "statky-a-sluzby",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z následujících položek jsou SLUŽBY (cizí činnosti)?",
+      "moznosti": [
+        "stříhání u kadeřníka",
+        "jízda taxíkem na nádraží",
+        "doučování matematiky",
+        "koloběžka",
+        "čerstvý chleba",
+        "nový mobil"
+      ],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
+      "vysvetleni": "Služba je činnost, kterou pro nás udělá někdo jiný — stříhání, odvoz, doučování (všechno osobní služby). Koloběžka, chleba a mobil jsou věci — hmotné statky.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-9",
+      "temaId": "statky-a-sluzby",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Která z těchto služeb je OSOBNÍ?",
+      "moznosti": [
+        "vyšetření u zubaře",
+        "vyčištění bundy v čistírně",
+        "oprava kola v servisu",
+        "mytí auta v myčce"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Osobní služba směřuje přímo na člověka — zubař ošetřuje tebe. Čistírna, servis i myčka upravují nebo opravují věc (bundu, kolo, auto) — to jsou služby věcné.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-10",
+      "temaId": "statky-a-sluzby",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Stan, ve kterém na festivalu bydlíš, je nemovitý statek, protože v něm bydlíš.",
+      "spravna": false,
+      "vysvetleni": "O pohyblivosti nerozhoduje, k čemu věc slouží, ale zda ji lze přemístit. Stan sbalíš a odvezeš — je movitý. Nemovité jsou pozemky a stavby pevně spojené se zemí (dům, hala).",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-11",
+      "temaId": "statky-a-sluzby",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Pekárna koupila novou pec za 400 000 Kč. Podle účelu použití je pec…",
+      "moznosti": [
+        "kapitálový statek — slouží k další výrobě (pečení chleba)",
+        "spotřební statek — pekárna ji používáním spotřebovává",
+        "volný statek — pekárna ji už má, nemusí za ni dál platit",
+        "nemovitý statek — je to velký a těžký stroj"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Podle účelu použití se ptáme: slouží statek k další výrobě, nebo ke konečné spotřebě? Pec peče chleba pro zákazníky — kapitálový statek. Opotřebení z ní spotřební statek nedělá, „volný“ je jiné hledisko (vyrobit ji někdo musel) a pohyblivost je zase jiné hledisko — navíc stroj lze přemístit.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-12",
+      "temaId": "statky-a-sluzby",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Stejný mobil: ty na něm hraješ, kurýr na něm přijímá objednávky a naviguje při rozvozu. Jak je to se zařazením podle účelu použití?",
+      "moznosti": [
+        "Pro tebe spotřební statek, pro kurýra kapitálový — rozhoduje účel, ne věc sama",
+        "Vždy spotřební — mobil se nedá použít k výrobě",
+        "Vždy kapitálový — je to drahá elektronika",
+        "Pro kurýra je mobil osobní služba"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kapitálový statek je majetek sloužící k další výrobě nebo poskytování služeb — kurýrův mobil je jeho pracovní nástroj. Tobě slouží ke konečné spotřebě (zábava). Cena o zařazení nerozhoduje a mobil je věc, ne činnost — službou být nemůže.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-13",
+      "temaId": "statky-a-sluzby",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Peníze jsou volný statek, protože je vydává stát a používá je každý.",
+      "spravna": false,
+      "vysvetleni": "Volné statky jsou součástí přírody a nejsou vzácné (vzduch, sluneční světlo). Peníze vzácné jsou — každý by jich chtěl víc — a potřebu samy neuspokojují: jsou jen prostředkem, jak získat statky a služby.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-14",
+      "temaId": "statky-a-sluzby",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Tereza si otevřela taxislužbu: koupila auto za 600 000 Kč, vozí zákazníky na letiště a o pauze si kupuje kávu. Které tvrzení je správné?",
+      "moznosti": [
+        "Auto je kapitálový statek, odvoz zákazníka je osobní služba a káva je spotřební statek",
+        "Auto je spotřební statek, protože se jízdou opotřebovává",
+        "Odvoz zákazníka je věcná služba, protože se poskytuje autem",
+        "Auto je volný statek, protože ho Tereza vlastní"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Auto slouží k poskytování služby (kapitálový statek), přeprava člověka směřuje přímo na něj (osobní služba) a kávu Tereza sama vypije (spotřební statek). Opotřebení ani vlastnictví hledisko nemění; auto je jen nástroj, služba míří na cestujícího.",
+      "zdroj": "Statky a služby"
+    },
     {
       "id": "o-zakladni-pojmy-1",
       "temaId": "zakladni-pojmy",
@@ -83,10 +547,22 @@
       "obtiznost": 3,
       "zadani": "Přiřaď k sobě základní ekonomické pojmy a jejich charakteristiky.",
       "pary": [
-        { "levy": "potřeba", "pravy": "pociťovaný nedostatek, který chceme odstranit" },
-        { "levy": "statek", "pravy": "hmotná věc, která uspokojuje potřebu" },
-        { "levy": "služba", "pravy": "nehmotná činnost uspokojující potřebu" },
-        { "levy": "vzácnost", "pravy": "omezenost zdrojů vzhledem k potřebám" }
+        {
+          "levy": "potřeba",
+          "pravy": "pociťovaný nedostatek, který chceme odstranit"
+        },
+        {
+          "levy": "statek",
+          "pravy": "hmotná věc, která uspokojuje potřebu"
+        },
+        {
+          "levy": "služba",
+          "pravy": "nehmotná činnost uspokojující potřebu"
+        },
+        {
+          "levy": "vzácnost",
+          "pravy": "omezenost zdrojů vzhledem k potřebám"
+        }
       ],
       "vysvetleni": "Potřeby uspokojujeme statky (věcmi) a službami (činnostmi); protože zdroje jsou vzácné, musíme mezi potřebami volit.",
       "zdroj": "Základní ekonomické pojmy"
@@ -121,7 +597,11 @@
         "lidské potřeby",
         "reklama"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "Klasické výrobní faktory jsou práce, půda a kapitál ve smyslu kapitálových statků. Peníze samy o sobě nic nevyrábějí — jsou jen prostředkem směny.",
       "zdroj": "Základní ekonomické pojmy"
     },
@@ -206,10 +686,22 @@
       "obtiznost": 3,
       "zadani": "Přiřaď tržní strukturu k její charakteristice.",
       "pary": [
-        { "levy": "monopol", "pravy": "na trhu je jediný prodávající" },
-        { "levy": "oligopol", "pravy": "trh ovládá několik velkých firem" },
-        { "levy": "dokonalá konkurence", "pravy": "mnoho malých prodejců se stejným produktem" },
-        { "levy": "monopolistická konkurence", "pravy": "mnoho prodejců s mírně odlišenými produkty" }
+        {
+          "levy": "monopol",
+          "pravy": "na trhu je jediný prodávající"
+        },
+        {
+          "levy": "oligopol",
+          "pravy": "trh ovládá několik velkých firem"
+        },
+        {
+          "levy": "dokonalá konkurence",
+          "pravy": "mnoho malých prodejců se stejným produktem"
+        },
+        {
+          "levy": "monopolistická konkurence",
+          "pravy": "mnoho prodejců s mírně odlišenými produkty"
+        }
       ],
       "vysvetleni": "Tržní struktury se liší počtem prodávajících a mírou odlišení produktu — od jediné firmy (monopol) po mnoho firem se stejným zbožím (dokonalá konkurence).",
       "zdroj": "Trh a tržní mechanismus"
@@ -244,7 +736,11 @@
         "růst cen mléka pro výrobce",
         "pokles počtu turistů ve městě"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "Poptávku posouvají faktory mimo cenu daného zboží: příjmy, preference (počasí) a ceny substitutů. Změna vlastní ceny znamená jen posun po křivce a ceny vstupů ovlivňují nabídku.",
       "zdroj": "Trh a tržní mechanismus"
     },
@@ -326,10 +822,22 @@
       "obtiznost": 3,
       "zadani": "Přiřaď právní formu podnikání k její charakteristice.",
       "pary": [
-        { "levy": "živnost", "pravy": "podnikání fyzické osoby na základě živnostenského oprávnění" },
-        { "levy": "s.r.o.", "pravy": "kapitálová společnost, společníci ručí omezeně" },
-        { "levy": "a.s.", "pravy": "základní kapitál je rozvržen na akcie" },
-        { "levy": "družstvo", "pravy": "společenství neuzavřeného počtu osob, i za účelem vzájemné podpory" }
+        {
+          "levy": "živnost",
+          "pravy": "podnikání fyzické osoby na základě živnostenského oprávnění"
+        },
+        {
+          "levy": "s.r.o.",
+          "pravy": "kapitálová společnost, společníci ručí omezeně"
+        },
+        {
+          "levy": "a.s.",
+          "pravy": "základní kapitál je rozvržen na akcie"
+        },
+        {
+          "levy": "družstvo",
+          "pravy": "společenství neuzavřeného počtu osob, i za účelem vzájemné podpory"
+        }
       ],
       "vysvetleni": "Fyzická osoba podniká nejčastěji na živnost; obchodní korporace (s.r.o., a.s., družstvo) jsou právnické osoby zapsané v obchodním rejstříku.",
       "zdroj": "Podnikání a právní formy"
@@ -364,7 +872,11 @@
         "akciová",
         "družstevní"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "Ohlašovací živnosti (volná, řemeslná, vázaná) vznikají ohlášením živnostenskému úřadu; koncesovaná vyžaduje udělení koncese. „Akciová“ ani „družstevní“ živnost neexistují.",
       "zdroj": "Podnikání a právní formy"
     },
@@ -443,10 +955,22 @@
       "obtiznost": 3,
       "zadani": "Přiřaď pojem z hospodaření podniku k jeho významu.",
       "pary": [
-        { "levy": "fixní náklady", "pravy": "nemění se s objemem výroby (nájem haly)" },
-        { "levy": "variabilní náklady", "pravy": "rostou s každým vyrobeným kusem (materiál)" },
-        { "levy": "výnosy", "pravy": "peněžní vyjádření výkonů podniku (tržby)" },
-        { "levy": "ztráta", "pravy": "náklady převýšily výnosy" }
+        {
+          "levy": "fixní náklady",
+          "pravy": "nemění se s objemem výroby (nájem haly)"
+        },
+        {
+          "levy": "variabilní náklady",
+          "pravy": "rostou s každým vyrobeným kusem (materiál)"
+        },
+        {
+          "levy": "výnosy",
+          "pravy": "peněžní vyjádření výkonů podniku (tržby)"
+        },
+        {
+          "levy": "ztráta",
+          "pravy": "náklady převýšily výnosy"
+        }
       ],
       "vysvetleni": "Rozlišení fixních a variabilních nákladů je základem kalkulací i výpočtu bodu zvratu; porovnáním výnosů a nákladů zjistíme zisk nebo ztrátu.",
       "zdroj": "Podnik a jeho hospodaření"
@@ -480,7 +1004,11 @@
         "spotřeba mouky",
         "obaly na každý prodaný chléb"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "Fixní náklady běží bez ohledu na to, kolik chlebů se upeče. Mouka a obaly rostou s každým kusem — jsou variabilní.",
       "zdroj": "Podnik a jeho hospodaření"
     },
@@ -564,10 +1092,22 @@
       "obtiznost": 3,
       "zadani": "Přiřaď nástroj ke správnému „P“ marketingového mixu.",
       "pary": [
-        { "levy": "produkt", "pravy": "design, kvalita a obal výrobku" },
-        { "levy": "cena", "pravy": "slevy a platební podmínky" },
-        { "levy": "distribuce", "pravy": "volba prodejních kanálů a logistika" },
-        { "levy": "propagace", "pravy": "reklamní kampaň v médiích" }
+        {
+          "levy": "produkt",
+          "pravy": "design, kvalita a obal výrobku"
+        },
+        {
+          "levy": "cena",
+          "pravy": "slevy a platební podmínky"
+        },
+        {
+          "levy": "distribuce",
+          "pravy": "volba prodejních kanálů a logistika"
+        },
+        {
+          "levy": "propagace",
+          "pravy": "reklamní kampaň v médiích"
+        }
       ],
       "vysvetleni": "Každé P odpovídá jedné skupině rozhodnutí: co prodávat, za kolik, jakou cestou k zákazníkovi a jak o tom dát vědět.",
       "zdroj": "Marketing"
@@ -601,7 +1141,11 @@
         "kalkulační (výše režijních nákladů)",
         "rozvahová (struktura aktiv zákazníka)"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "Trh se segmentuje podle demografie, geografie, psychografiky a chování zákazníků. Kalkulace a rozvaha jsou pojmy z podnikové ekonomiky a účetnictví, ne ze segmentace.",
       "zdroj": "Marketing"
     },
@@ -696,7 +1240,11 @@
         "obsluha výrobní linky",
         "úklid pracoviště"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "Manažer plánuje, organizuje, vede lidi a kontroluje. Fakturace, obsluha strojů a úklid jsou výkonné činnosti, které manažer řídí, ale sám je nevykonává.",
       "zdroj": "Management"
     },
@@ -713,7 +1261,11 @@
         "výše mzdy",
         "vybavení kanceláře"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "Motivátory se týkají práce samotné (uznání, obsah práce, růst). Mzda a pracovní podmínky jsou hygienické faktory — jejich nedostatek vyvolá nespokojenost, ale samy dlouhodobě nemotivují.",
       "zdroj": "Management"
     },
@@ -813,10 +1365,22 @@
       "obtiznost": 3,
       "zadani": "Přiřaď formu odměňování k jejímu principu.",
       "pary": [
-        { "levy": "časová mzda", "pravy": "podle odpracovaných hodin" },
-        { "levy": "úkolová mzda", "pravy": "podle počtu vyrobených kusů" },
-        { "levy": "podílová mzda", "pravy": "procento z dosažených tržeb" },
-        { "levy": "prémie", "pravy": "pohyblivá odměna za splnění cílů" }
+        {
+          "levy": "časová mzda",
+          "pravy": "podle odpracovaných hodin"
+        },
+        {
+          "levy": "úkolová mzda",
+          "pravy": "podle počtu vyrobených kusů"
+        },
+        {
+          "levy": "podílová mzda",
+          "pravy": "procento z dosažených tržeb"
+        },
+        {
+          "levy": "prémie",
+          "pravy": "pohyblivá odměna za splnění cílů"
+        }
       ],
       "vysvetleni": "Forma mzdy má motivovat: časová se hodí tam, kde jde o kvalitu, úkolová a podílová tam, kde lze výkon dobře změřit.",
       "zdroj": "Zaměstnanci a mzdy"
@@ -851,7 +1415,11 @@
         "silniční daň",
         "daň z nemovitých věcí"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "Z hrubé mzdy jde sociální pojištění (7,1 %), zdravotní pojištění (4,5 %) a záloha na daň z příjmů. DPH platíme v cenách zboží a silniční daň se týká provozovatelů nákladních vozidel.",
       "zdroj": "Zaměstnanci a mzdy"
     },
@@ -944,7 +1512,11 @@
         "daň z příjmů fyzických osob",
         "daň z nemovitých věcí"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "Nepřímé daně zatěžují spotřebu a vybírají se prostřednictvím cen. Daň z příjmů a daň z nemovitých věcí platí poplatník přímo.",
       "zdroj": "Daně a pojištění"
     },
@@ -980,7 +1552,11 @@
         "povinné ručení",
         "životní pojištění"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "Sociální pojištění kryje důchody, nemocenskou a politiku zaměstnanosti. Zdravotní pojištění je samostatný odvod zdravotním pojišťovnám; povinné ručení a životní pojištění jsou komerční pojistky.",
       "zdroj": "Daně a pojištění"
     },
@@ -1064,10 +1640,22 @@
       "obtiznost": 3,
       "zadani": "Přiřaď instituci či pojem finančního trhu k charakteristice.",
       "pary": [
-        { "levy": "Česká národní banka", "pravy": "určuje měnovou politiku a dohlíží na banky" },
-        { "levy": "komerční banka", "pravy": "přijímá vklady a poskytuje úvěry" },
-        { "levy": "burza", "pravy": "organizovaný trh s cennými papíry" },
-        { "levy": "akcie", "pravy": "cenný papír vyjadřující podíl na společnosti" }
+        {
+          "levy": "Česká národní banka",
+          "pravy": "určuje měnovou politiku a dohlíží na banky"
+        },
+        {
+          "levy": "komerční banka",
+          "pravy": "přijímá vklady a poskytuje úvěry"
+        },
+        {
+          "levy": "burza",
+          "pravy": "organizovaný trh s cennými papíry"
+        },
+        {
+          "levy": "akcie",
+          "pravy": "cenný papír vyjadřující podíl na společnosti"
+        }
       ],
       "vysvetleni": "Centrální banka řídí měnu a dohlíží na trh, komerční banky zprostředkovávají peníze mezi vkladateli a dlužníky, na burze se obchodují cenné papíry.",
       "zdroj": "Peníze a finanční trh"
@@ -1096,7 +1684,11 @@
         "sestavovat státní rozpočet",
         "poskytovat občanům spotřebitelské úvěry"
       ],
-      "spravne": [0, 1, 2],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
       "vysvetleni": "ČNB pečuje o cenovou stabilitu (sazby), emituje hotovost a dohlíží na banky, pojišťovny i kapitálový trh. Daně vybírá finanční správa a státní rozpočet sestavuje Ministerstvo financí.",
       "zdroj": "Peníze a finanční trh"
     },

@@ -1,12 +1,392 @@
 {
   "predmetId": "ekonomika-podnikani",
-  "verze": 1,
+  "verze": 2,
   "vytvoreno": "2026-09-04",
   "lekce": [
     {
+      "temaId": "potreby",
+      "nazev": "Potřeby",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Pondělí, 6:45. Budík řve, žaludek hlásí, že snídaně by nebyla špatná, spát bys mohl ještě tři hodiny a kamarád píše, jestli půjdeš po škole na bouldering. A vzadu v hlavě šeptá myšlenka: „na nový mobil mám našetřeno půlku“. Čtyři pocity nedostatku najednou — a všechny se hlásí o tvůj čas a peníze. Ekonom by řekl: čtyři **potřeby**. A přesně tady ekonomie začíná."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Ekonomie** je věda. Její předmět se dá napsat jednou šipkou: **ZDROJE → POTŘEBY**.\n\n- Ekonomie **zkoumá a analyzuje, jakým způsobem se využívají zdroje** (čas, peníze, suroviny, práce).\n- Obecněji: **věda, která zkoumá hospodářské stránky života společnosti**.\n\nČlenění ekonomie:\n- **Mikroekonomie** — zabývá se **ekonomickými subjekty** (domácnosti, firmy a stát) a **trhy**. Pohled zblízka.\n- **Makroekonomie** — zkoumá **jednotlivá odvětví národního hospodářství** — **HDP, inflaci, nezaměstnanost**. Pohled zdálky, na celou ČR.\n\n**Ekonomika** = **hospodářství**. V sešitě máš: „zkoumá jednotlivá odvětví národního hospodářství“ (průmysl, zemědělství, služby…). Rozdíl: **ekonomie je věda** (teorie, kterou se učíš), **ekonomika je praxe** — skutečné hospodaření státu, firmy nebo domácnosti. Proto „ekonomika ČR roste“, ale „ekonomie je věda“.\n\nPsycholog **A. Maslow** potřeby seřadil do **pyramidy** (viz obrázek): odspodu **biologické potřeby → jistota → sociální potřeby → uznání → seberealizace**. Nižší stupně uspokojujeme dřív; **s růstem kvality života a rozvojem osobnosti se rozvíjejí potřeby ve vyšší míře na vyšších stupních pyramidy.**"
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Když rozlišíš, co je opravdu potřeba a co jen chuť, líp naložíš s penězi z brigády: spánek a jídlo jsou nezbytné, nový skin do hry zbytný — takže nejdřív oběd, pak skin. Maslowova pyramida ti zase prozradí, proč tě v týmu přestává bavit hrát, když tě nikdo neocení (chybí uznání), a proč firmy dávají brigádníkům nejen výplatu, ale i pochvalu a partu. A slovíčka mikro/makro poznáš ve zprávách: „inflace klesla na 2 %“ je makro, „zdražil lístek do kina“ je mikro."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 600 340\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Maslowova pyramida potřeb: pět stupňů odspodu nahoru\">\n<defs><marker id=\"ep-potreby-sip\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"var(--akcent)\" /></marker></defs>\n<polygon points=\"104,246 376,246 410,300 70,300\" fill=\"var(--chyba)\" fill-opacity=\"0.15\" stroke=\"var(--chyba)\" stroke-width=\"2\" />\n<polygon points=\"138,192 342,192 376,246 104,246\" fill=\"var(--zlata)\" fill-opacity=\"0.15\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<polygon points=\"172,138 308,138 342,192 138,192\" fill=\"var(--uspech)\" fill-opacity=\"0.15\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<polygon points=\"206,84 274,84 308,138 172,138\" fill=\"var(--info)\" fill-opacity=\"0.15\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<polygon points=\"240,30 274,84 206,84\" fill=\"var(--akcent)\" fill-opacity=\"0.2\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"240\" y=\"280\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">1</text>\n<text x=\"240\" y=\"226\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">2</text>\n<text x=\"240\" y=\"172\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">3</text>\n<text x=\"240\" y=\"118\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">4</text>\n<text x=\"240\" y=\"76\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">5</text>\n<line x1=\"393\" y1=\"273\" x2=\"420\" y2=\"273\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3 3\" opacity=\"0.6\" />\n<line x1=\"359\" y1=\"219\" x2=\"420\" y2=\"219\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3 3\" opacity=\"0.6\" />\n<line x1=\"325\" y1=\"165\" x2=\"420\" y2=\"165\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3 3\" opacity=\"0.6\" />\n<line x1=\"291\" y1=\"111\" x2=\"420\" y2=\"111\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3 3\" opacity=\"0.6\" />\n<line x1=\"257\" y1=\"57\" x2=\"420\" y2=\"57\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3 3\" opacity=\"0.6\" />\n<text x=\"426\" y=\"269\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Biologické potřeby</text>\n<text x=\"426\" y=\"284\" font-size=\"11\" fill=\"currentColor\">jídlo, spánek</text>\n<text x=\"426\" y=\"215\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Jistota</text>\n<text x=\"426\" y=\"230\" font-size=\"11\" fill=\"currentColor\">bezpečí, dostatek</text>\n<text x=\"426\" y=\"161\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Sociální potřeby</text>\n<text x=\"426\" y=\"176\" font-size=\"11\" fill=\"currentColor\">přátelství, láska</text>\n<text x=\"426\" y=\"107\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Uznání (uspokojení)</text>\n<text x=\"426\" y=\"122\" font-size=\"11\" fill=\"currentColor\">uznání, prospěšnost</text>\n<text x=\"426\" y=\"53\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Seberealizace</text>\n<text x=\"426\" y=\"68\" font-size=\"11\" fill=\"currentColor\">rozvoj osobnosti</text>\n<line x1=\"44\" y1=\"296\" x2=\"44\" y2=\"44\" stroke=\"var(--akcent)\" stroke-width=\"2\" marker-end=\"url(#ep-potreby-sip)\" />\n<text transform=\"rotate(-90 28 170)\" x=\"28\" y=\"170\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--akcent)\">roste kvalita života a rozvoj osobnosti</text>\n<text x=\"300\" y=\"328\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Nižší stupně uspokojujeme dřív; vyšší se rozvíjejí s kvalitou života.</text>\n</svg>",
+          "popisek": "Maslowova pyramida: pět stupňů potřeb odspodu nahoru — 1 biologické (jídlo, spánek), 2 jistota (bezpečí, dostatek), 3 sociální (přátelství, láska), 4 uznání (uznání, prospěšnost), 5 seberealizace (rozvoj osobnosti). Nižší stupně se uspokojují dřív; s růstem kvality života a rozvojem osobnosti se rozvíjejí vyšší."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-potreby-1",
+            "temaId": "potreby",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Ve zprávách hlásí: „Nezaměstnanost v ČR klesla na 3 %, HDP roste.“ Která část ekonomie se tím zabývá?",
+            "moznosti": [
+              "makroekonomie — zkoumá celé národní hospodářství",
+              "mikroekonomie — zkoumá subjekty a trhy",
+              "ekonomika — je to praxe, ne věda",
+              "obě stejně, rozdíl mezi nimi není"
+            ],
+            "spravna": 0,
+            "vysvetleni": "HDP, inflace a nezaměstnanost jsou ukazatele celku — makroekonomie. Mikroekonomie by řešila třeba jednu firmu nebo trh s mobily. Ekonomika je hospodářství samo (praxe); zprávy o něm vyhodnocuje věda — ekonomie.",
+            "zdroj": "Potřeby"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Potřeby** = **pocity nedostatku, které si lidé uvědomují a snaží se je odstranit.** Hlad, nuda, chybějící mobil — všechno potřeby.\n\nZákladní členění:\n- **hmotné (materiální)** — potřeba **mít a užívat věci** (mobil, kolo, jídlo);\n- **nehmotné (nemateriální, duševní)** — naše **zkušenosti, dovednosti, znalosti, vlastnosti** (umět anglicky, mít kamarády, být zdravý).\n\nOtázka, která nezklame: „Je to věc, kterou si můžu pořídit a používat?“ Ano → hmotná, ne → nehmotná."
+        },
+        {
+          "typ": "text",
+          "obsah": "Podrobnější členění potřeb tvoří **PĚT DVOJIC**. V každé dvojici má první pojem **číslo 1** a druhý **číslo 2** — přesně tak, jak to máš v sešitě:\n\n1. **hmotné (1) / nehmotné (2)** — věc × dovednost, znalost, vztah\n2. **biologické (1) / kulturní (2)** — plyne z těla (jídlo, spánek, teplo) × vzniká životem ve společnosti (hudba, vzdělání, cestování)\n3. **současné (1) / budoucí (2)** — chci to teď × bude to třeba později (důchod, byt po škole)\n4. **zbytné (1) / nezbytné (2)** — obejdu se (nová hra) × musím uspokojit (jídlo, zdraví)\n5. **individuální (1) / společenské (2)** — potřeba jednotlivce × uspokojujeme společně pro všechny (bezpečné ulice, silnice, čistý vzduch)\n\n**METODA:** vezmi potřebu a projdi všech pět dvojic **popořadě**; u každé napiš 1, 2 (nebo obě). Vznikne řada pěti čísel.\n\nPříklad ze sešitu — **potřeba mít pevné zdraví: 2 → 1 → 1,2 → 2 → 1**\n- nehmotná (zdraví není věc) → **2**\n- biologická (jde o tělo) → **1**\n- současná i budoucí (chci být zdravý teď i za 30 let) → **1,2**\n- nezbytná (bez zdraví se nežije) → **2**\n- individuální (moje zdraví) → **1**\n\nPozor na past: zdraví se týká těla, ale hmotné není — hmotné jsou jen věci, které lze mít a užívat. Další potřeby si projdeš v řešeném příkladu níž."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Zařaď každou potřebu do dvou dvojic najednou: hmotná × nehmotná a biologická × kulturní.",
+            "kategorie": [
+              {
+                "id": "hm-bio",
+                "nazev": "hmotná + biologická"
+              },
+              {
+                "id": "hm-kul",
+                "nazev": "hmotná + kulturní"
+              },
+              {
+                "id": "ne-bio",
+                "nazev": "nehmotná + biologická"
+              },
+              {
+                "id": "ne-kul",
+                "nazev": "nehmotná + kulturní"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "svačina, když máš hlad",
+                "kategorieId": "hm-bio"
+              },
+              {
+                "text": "teplá bunda v mrazu",
+                "kategorieId": "hm-bio"
+              },
+              {
+                "text": "láhev vody po tréninku",
+                "kategorieId": "hm-bio"
+              },
+              {
+                "text": "nový mobil",
+                "kategorieId": "hm-kul"
+              },
+              {
+                "text": "elektrická kytara",
+                "kategorieId": "hm-kul"
+              },
+              {
+                "text": "vlastní kolo",
+                "kategorieId": "hm-kul"
+              },
+              {
+                "text": "mít pevné zdraví",
+                "kategorieId": "ne-bio"
+              },
+              {
+                "text": "uzdravit se z chřipky",
+                "kategorieId": "ne-bio"
+              },
+              {
+                "text": "umět anglicky",
+                "kategorieId": "ne-kul"
+              },
+              {
+                "text": "mít partu kamarádů",
+                "kategorieId": "ne-kul"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-potreby-2",
+            "temaId": "potreby",
+            "typ": "anone",
+            "obtiznost": 3,
+            "zadani": "Potřeba mít pevné zdraví je potřeba hmotná, protože se týká těla.",
+            "spravna": false,
+            "vysvetleni": "Hmotné potřeby jsou potřeby mít a užívat VĚCI. Zdraví není věc, kterou by sis pořídil — je to nehmotná potřeba (2). To, že se týká těla, z ní dělá potřebu biologickou (1), ne hmotnou. Proto sešit: 2 → 1 → 1,2 → 2 → 1.",
+            "zdroj": "Potřeby"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Zařaď potřebu „mít nový mobil na hraní“ do všech pěti dvojic a výsledek zapiš jako řadu čísel — stejně jako v sešitě u pevného zdraví.",
+          "reseni": "Jdeme popořadě, u každé dvojice si položíme otázku:\n\n1. **hmotné (1) / nehmotné (2)** — Je to věc, kterou chci mít a užívat? Ano, mobil je věc → **1**\n2. **biologické (1) / kulturní (2)** — Plyne potřeba z těla, nebo ze života ve společnosti? Hrát na mobilu tělo nepotřebuje, chuť vznikla mezi lidmi → **2**\n3. **současné (1) / budoucí (2)** — Chci ho teď, nebo až někdy? Teď! → **1**\n4. **zbytné (1) / nezbytné (2)** — Obejdu se bez něj? Ano (i když to bolí) → **1**\n5. **individuální (1) / společenské (2)** — Je to potřeba moje, nebo všech? Moje → **1**\n\n**Výsledek: 1 → 2 → 1 → 1 → 1.**\n\nDalší příklady stejnou metodou:\n- **vyspat se před zítřejší písemkou** → **2 → 1 → 1 → 2 → 1** (spánek není věc, kterou by sis pořídil — nehmotná jako zdraví; plyne z těla; chci to dnes; bez spánku to nejde; moje potřeba)\n- **dovolená u moře příští léto** → **2 → 2 → 2 → 1 → 1** (zážitek, ne věc; chuť vznikla mezi lidmi; až v létě; obejdu se; moje)\n\nU dvojice **současné (1) / budoucí (2)** rozhoduje situace: „před zítřejší písemkou“ = teď, „příští léto“ = později. Trvalé potřeby, které chceš teď i napořád (zdraví, spánek obecně), dostanou **obě čísla 1,2** — přesně jako v sešitě u zdraví.\n\nZkus sám: důchod, umět anglicky, bezpečné ulice ve městě."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "potřeba",
+              "zadni": "pocit nedostatku, který si uvědomujeme a snažíme se ho odstranit"
+            },
+            {
+              "predni": "ekonomie",
+              "zadni": "věda: jak se využívají zdroje k uspokojování potřeb (ZDROJE → POTŘEBY); zkoumá hospodářské stránky života společnosti"
+            },
+            {
+              "predni": "mikroekonomie",
+              "zadni": "ekonomické subjekty (domácnosti, firmy, stát) a trhy"
+            },
+            {
+              "predni": "makroekonomie",
+              "zadni": "jednotlivá odvětví národního hospodářství a celek — HDP, inflace, nezaměstnanost"
+            },
+            {
+              "predni": "ekonomika",
+              "zadni": "hospodářství — jednotlivá odvětví národního hospodářství (průmysl, zemědělství, služby); praxe: ekonomika ČR, ekonomika firmy — ekonomie je věda o ní"
+            },
+            {
+              "predni": "hmotné × nehmotné potřeby",
+              "zadni": "mít a užívat věci × zkušenosti, dovednosti, znalosti, vlastnosti"
+            },
+            {
+              "predni": "pět dvojic potřeb (1 / 2)",
+              "zadni": "hmotné/nehmotné, biologické/kulturní, současné/budoucí, zbytné/nezbytné, individuální/společenské"
+            },
+            {
+              "predni": "pevné zdraví v pěti dvojicích",
+              "zadni": "2 → 1 → 1,2 → 2 → 1 (nehmotná, biologická, současná i budoucí, nezbytná, individuální)"
+            },
+            {
+              "predni": "Maslowova pyramida (odspodu)",
+              "zadni": "1 biologické → 2 jistota → 3 sociální → 4 uznání → 5 seberealizace"
+            },
+            {
+              "predni": "princip Maslowovy pyramidy",
+              "zadni": "nižší stupně uspokojujeme dřív; s růstem kvality života a rozvojem osobnosti se rozvíjejí vyšší stupně"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- **Ekonomie** = věda o tom, jak se využívají zdroje k uspokojování potřeb; **mikro** (subjekty a trhy) × **makro** (HDP, inflace, nezaměstnanost). **Ekonomika** = hospodářství a jeho jednotlivá odvětví (praxe).\n- **Potřeby** = pocity nedostatku, které si uvědomujeme a chceme odstranit; základně **hmotné** × **nehmotné**.\n- Podrobněji **pět dvojic** (1/2): hmotné/nehmotné, biologické/kulturní, současné/budoucí, zbytné/nezbytné, individuální/společenské — každou potřebu projdi všemi pěti: zdraví = 2 → 1 → 1,2 → 2 → 1.\n- **Maslowova pyramida**: biologické → jistota → sociální → uznání → seberealizace; vyšší stupně se rozvíjejí s kvalitou života."
+        }
+      ]
+    },
+    {
+      "temaId": "statky-a-sluzby",
+      "nazev": "Statky a služby",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Sobota ráno. Koloběžce praskla brzda, tak ji vezeš do servisu. Cestou si koupíš rohlík, odpoledne máš doučování z matiky a večer si pustíš seriál. Rohlík, oprava, doučování, seriál — čtyři úplně jiné věci, které mají jedno společné: každá uspokojila nějakou tvoji potřebu. Ekonom v tom vidí **hmotný statek, věcnou službu, osobní službu** a **nehmotný statek**. Pojďme si to rozkódovat."
+        },
+        {
+          "typ": "text",
+          "obsah": "Potřeby uspokojujeme **statky** a **službami**.\n\n**Statek** = **předmět lidské činnosti, kterým lze uspokojit lidské potřeby.**\n- **Hmotný statek** — **každá věc**, kterou lze uspokojit potřebu: koloběžka, záchod, rohlík, mobil.\n- **Nehmotný statek** — **každý duševní výtvor člověka, jeho znalosti, dovednosti…**, kterými lze uspokojit potřebu: znalost angličtiny, recept, písnička, hra na mobilu.\n\n**Služby** = **cizí činnosti**, kterými lze uspokojit lidské potřeby — něco pro tebe **udělá někdo jiný**.\n- **Věcné služby** — **úprava nebo oprava věci**: oprava mobilu, čistírna, myčka aut, přeprava balíku.\n- **Osobní služby** — **směřují přímo k člověku**: kadeřník, lékař, výuka, přeprava osob taxíkem.\n\nPomůcka: zeptej se, **co se po službě změnilo** — věc (věcná), nebo člověk (osobní)? Po servisu je opravený mobil, po kadeřníkovi jsi ostříhaný ty."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Na brigádě budeš nejspíš **poskytovat službu** — roznášet kafe (osobní), skládat zboží ve skladu (věcná) — a firma tě platí z toho, co za ni zákazník dá. Když ti v servisu zpackají opravu, reklamuješ **službu**, ne zboží, a platí pro to jiná pravidla než u vrácení věci. A až budeš jednou podnikat (třeba streamovat), rozlišíš, co je tvůj **kapitálový statek** (kamera, mikrofon — nástroje výdělku) a co **spotřební** (pizza k tomu). Tohle rozlišení řídí i daně a účetnictví."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 600 392\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Strom členění: statky a služby, čtyři hlediska členění statků\">\n<defs><marker id=\"ep-statky-sip\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs>\n<rect x=\"200\" y=\"14\" width=\"200\" height=\"50\" rx=\"10\" fill=\"var(--akcent)\" fill-opacity=\"0.15\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"300\" y=\"35\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">STATKY A SLUŽBY</text>\n<text x=\"300\" y=\"53\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">uspokojují lidské potřeby</text>\n<line x1=\"262\" y1=\"64\" x2=\"172\" y2=\"92\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-statky-sip)\" />\n<line x1=\"338\" y1=\"64\" x2=\"446\" y2=\"92\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-statky-sip)\" />\n<rect x=\"16\" y=\"96\" width=\"300\" height=\"50\" rx=\"10\" fill=\"var(--info)\" fill-opacity=\"0.12\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"166\" y=\"117\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">STATKY</text>\n<text x=\"166\" y=\"135\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">předměty lidské činnosti — věci i znalosti</text>\n<rect x=\"340\" y=\"96\" width=\"230\" height=\"50\" rx=\"10\" fill=\"var(--uspech)\" fill-opacity=\"0.12\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"455\" y=\"117\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">SLUŽBY</text>\n<text x=\"455\" y=\"135\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">cizí činnosti — někdo něco udělá pro nás</text>\n<line x1=\"166\" y1=\"146\" x2=\"166\" y2=\"166\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-statky-sip)\" />\n<rect x=\"16\" y=\"170\" width=\"300\" height=\"44\" rx=\"8\" fill=\"var(--zlata)\" fill-opacity=\"0.08\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"26\" y=\"187\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">1) podle způsobu dosažení (získání)</text>\n<text x=\"26\" y=\"204\" font-size=\"10.5\" fill=\"currentColor\">ekonomické (musí se vyrobit, vzácné) × volné (příroda)</text>\n<rect x=\"16\" y=\"222\" width=\"300\" height=\"44\" rx=\"8\" fill=\"var(--zlata)\" fill-opacity=\"0.08\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"26\" y=\"239\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">2) podle podstaty</text>\n<text x=\"26\" y=\"256\" font-size=\"10.5\" fill=\"currentColor\">materiální (věci) × nemateriální (výtvory člověka)</text>\n<rect x=\"16\" y=\"274\" width=\"300\" height=\"44\" rx=\"8\" fill=\"var(--zlata)\" fill-opacity=\"0.08\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"26\" y=\"291\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">3) podle účelu použití</text>\n<text x=\"26\" y=\"308\" font-size=\"10.5\" fill=\"currentColor\">kapitálové (k další výrobě) × spotřební (spotřeba)</text>\n<rect x=\"16\" y=\"326\" width=\"300\" height=\"44\" rx=\"8\" fill=\"var(--zlata)\" fill-opacity=\"0.08\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"26\" y=\"343\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">4) podle pohyblivosti</text>\n<text x=\"26\" y=\"360\" font-size=\"10.5\" fill=\"currentColor\">nemovité (pozemky, stavby) × movité (lze přemístit)</text>\n<line x1=\"455\" y1=\"146\" x2=\"455\" y2=\"166\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-statky-sip)\" />\n<rect x=\"340\" y=\"170\" width=\"230\" height=\"60\" rx=\"8\" fill=\"var(--uspech)\" fill-opacity=\"0.08\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"350\" y=\"190\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">VĚCNÉ služby</text>\n<text x=\"350\" y=\"206\" font-size=\"11\" fill=\"currentColor\">úprava nebo oprava věci</text>\n<text x=\"350\" y=\"221\" font-size=\"10.5\" fill=\"currentColor\">oprava mobilu, čistírna, myčka aut</text>\n<rect x=\"340\" y=\"246\" width=\"230\" height=\"60\" rx=\"8\" fill=\"var(--uspech)\" fill-opacity=\"0.08\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"350\" y=\"266\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">OSOBNÍ služby</text>\n<text x=\"350\" y=\"282\" font-size=\"11\" fill=\"currentColor\">směřují přímo k člověku</text>\n<text x=\"350\" y=\"297\" font-size=\"10.5\" fill=\"currentColor\">kadeřník, lékař, výuka, taxi</text>\n<text x=\"455\" y=\"336\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--zlata)\">Jeden statek zařazujeme ze všech</text>\n<text x=\"455\" y=\"351\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--zlata)\">čtyř hledisek najednou.</text>\n</svg>",
+          "popisek": "Strom členění: potřeby uspokojují statky a služby. Služby jsou věcné (na věc) nebo osobní (na člověka). Statky členíme ze čtyř hledisek — podle způsobu dosažení (ekonomické × volné), podstaty (materiální × nemateriální), účelu použití (kapitálové × spotřební) a pohyblivosti (nemovité × movité)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-statky-a-sluzby-1",
+            "temaId": "statky-a-sluzby",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Necháš si v čistírně vyčistit zimní bundu. Co to je?",
+            "moznosti": [
+              "věcná služba — upravuje se věc (bunda)",
+              "osobní služba — bunda je moje a nosím ji já",
+              "hmotný statek — bunda je věc",
+              "nehmotný statek — výsledkem je čistota"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Čistírna je cizí činnost (služba) a mění stav věci — bundy. Že bundu nosíš ty, z toho osobní službu nedělá; osobní služba působí přímo na tebe (holič, zubař). Bunda sama je hmotný statek, ale čištění je činnost.",
+            "zdroj": "Statky a služby"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Statky členíme ze **ČTYŘ hledisek** — a jeden statek zařazujeme ze všech čtyř najednou.\n\n**1) Podle způsobu dosažení (získání)**\n- **ekonomické (hospodářské)** — jsou **omezené (vzácné), protože je musíme vyrobit** z omezených zdrojů: rohlík, mobil, elektřina, dům. Proto stojí peníze.\n- **volné** — **nejsou vzácné, jsou součástí přírody**: vzduch, sluneční světlo, déšť. Nikdo je nevyrábí, jsou pro všechny.\n- Pasti: voda z kohoutku je už ekonomický statek (upravená a dopravená). **Peníze nejsou volný statek** — jsou vzácné a potřebu samy neuspokojí, jen za ně statky kupujeme.\n\n**2) Podle podstaty**\n- **materiální (hmotné)** — věci;\n- **nemateriální (nehmotné)** — výtvory a vlastnosti člověka: znalosti, dovednosti, software, hudba.\n\n**3) Podle účelu použití**\n- **kapitálové** — **majetek, který slouží k další výrobě**: pec v pekárně, dodávka kurýra, nástroje.\n- **spotřební** — **konečná spotřeba**: rohlík, tenisky, mobil na hraní.\n- Rozhoduje **účel, ne věc sama**: stejný notebook je pro grafičku kapitálový statek, pro hráče spotřební.\n\n**4) Podle pohyblivosti**\n- **nemovité** — pozemky a stavby pevně spojené se zemí: pole, dům, hala;\n- **movité** — vše, co lze přemístit: auto, koloběžka, stroj, zásoby.\n\nPříklad naráz: **pec v pekárně** = ekonomický, materiální, kapitálový, movitý statek."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď, co je co: hmotný statek, nehmotný statek, věcná služba, nebo osobní služba?",
+            "kategorie": [
+              {
+                "id": "hmotny",
+                "nazev": "hmotný statek"
+              },
+              {
+                "id": "nehmotny",
+                "nazev": "nehmotný statek"
+              },
+              {
+                "id": "vecna",
+                "nazev": "věcná služba"
+              },
+              {
+                "id": "osobni",
+                "nazev": "osobní služba"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "koloběžka",
+                "kategorieId": "hmotny"
+              },
+              {
+                "text": "čerstvý rohlík",
+                "kategorieId": "hmotny"
+              },
+              {
+                "text": "znalost angličtiny",
+                "kategorieId": "nehmotny"
+              },
+              {
+                "text": "recept na kváskový chleba",
+                "kategorieId": "nehmotny"
+              },
+              {
+                "text": "písnička od oblíbeného interpreta",
+                "kategorieId": "nehmotny"
+              },
+              {
+                "text": "oprava mobilu v servisu",
+                "kategorieId": "vecna"
+              },
+              {
+                "text": "vyčištění bundy v čistírně",
+                "kategorieId": "vecna"
+              },
+              {
+                "text": "mytí auta v myčce",
+                "kategorieId": "vecna"
+              },
+              {
+                "text": "stříhání u kadeřníka",
+                "kategorieId": "osobni"
+              },
+              {
+                "text": "doučování matematiky",
+                "kategorieId": "osobni"
+              },
+              {
+                "text": "jízda taxíkem na letiště",
+                "kategorieId": "osobni"
+              },
+              {
+                "text": "vyšetření u zubaře",
+                "kategorieId": "osobni"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-statky-a-sluzby-2",
+            "temaId": "statky-a-sluzby",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Proč jsou ekonomické (hospodářské) statky vzácné?",
+            "moznosti": [
+              "Protože je musíme vyrobit z omezených zdrojů",
+              "Protože jsou drahé",
+              "Protože jich je v přírodě málo",
+              "Protože je stát přiděluje na příděl"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Vzácnost plyne z výroby: na rohlík je potřeba mouka, práce, energie — a těch je omezeně. Cena je až důsledek vzácnosti, ne příčina. V přírodě jsou naopak statky volné (vzduch) a stát statky na příděl běžně nedává.",
+            "zdroj": "Statky a služby"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Rodinná pekárna: budova, pec, hnětač, dodávka na rozvoz, pytle mouky, upečený chleba na pultu, recept na kváskový chleba, rozvoz pečiva do restaurací, kurz pečení pro veřejnost a oprava pece servisním technikem. Co je kapitálový statek, co spotřební statek a co služba (a jaká)?",
+          "reseni": "Ptáme se: **slouží to k další výrobě, nebo ke konečné spotřebě? A je to věc, nebo činnost?**\n\n**Kapitálové statky** (majetek, který slouží k další výrobě):\n- **pec, hnětač** — stroje, na kterých se peče (ekonomické, materiální, movité)\n- **budova pekárny** — také kapitálový statek, navíc **nemovitý**\n- **dodávka** — slouží k rozvozu, tedy k podnikání\n- **pytle mouky** — pekař je sám nesní, jdou do další výroby; spotřební bude až chleba\n- **recept na kváskový chleba** — **nehmotný** statek (duševní výtvor), který slouží výrobě\n\n**Spotřební statek** (konečná spotřeba):\n- **upečený chleba na pultu** — koupíš ho a sníš; tady jeho cesta končí\n\n**Služby** (cizí činnosti):\n- **rozvoz pečiva do restaurací** — **věcná** služba (přepravuje se věc)\n- **oprava pece technikem** — **věcná** služba (opravuje se věc)\n- **kurz pečení pro veřejnost** — **osobní** služba (učí se člověk)\n\nA pozor: peníze v kase pekárny statkem nejsou — jsou jen prostředkem, jak statky a služby pořídit."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "statek",
+              "zadni": "předmět lidské činnosti, kterým lze uspokojit lidské potřeby"
+            },
+            {
+              "predni": "hmotný statek",
+              "zadni": "každá věc, kterou lze uspokojit potřebu (koloběžka, záchod)"
+            },
+            {
+              "predni": "nehmotný statek",
+              "zadni": "duševní výtvor člověka, jeho znalosti, dovednosti (znalost angličtiny, recept)"
+            },
+            {
+              "predni": "služby",
+              "zadni": "cizí činnosti, kterými lze uspokojit lidské potřeby"
+            },
+            {
+              "predni": "věcná × osobní služba",
+              "zadni": "úprava/oprava věci (servis, čistírna) × přímo k člověku (kadeřník, lékař, výuka)"
+            },
+            {
+              "predni": "ekonomické (hospodářské) statky",
+              "zadni": "omezené — vzácné, protože je musíme vyrobit"
+            },
+            {
+              "predni": "volné statky",
+              "zadni": "nejsou vzácné, jsou součástí přírody (vzduch, sluneční světlo)"
+            },
+            {
+              "predni": "materiální × nemateriální statky",
+              "zadni": "podle podstaty: věci × výtvory a vlastnosti člověka"
+            },
+            {
+              "predni": "kapitálové × spotřební statky",
+              "zadni": "podle účelu použití: majetek pro další výrobu × konečná spotřeba"
+            },
+            {
+              "predni": "nemovité × movité statky",
+              "zadni": "podle pohyblivosti: pozemky a stavby × vše, co lze přemístit"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- **Statek** = předmět lidské činnosti, který uspokojí potřebu: **hmotný** (věc) × **nehmotný** (znalosti, dovednosti, duševní výtvory).\n- **Služby** = cizí činnosti: **věcné** (úprava/oprava věci) × **osobní** (přímo k člověku).\n- Statky členíme ze **4 hledisek**: způsob dosažení (**ekonomické × volné**), podstata (**materiální × nemateriální**), účel použití (**kapitálové × spotřební**), pohyblivost (**nemovité × movité**).\n- Ekonomické statky jsou vzácné, **protože je musíme vyrobit**; o kapitálový/spotřební rozhoduje **účel**, ne věc sama."
+        }
+      ]
+    },
+    {
       "temaId": "zakladni-pojmy",
       "nazev": "Základní ekonomické pojmy",
-      "poradi": 0,
+      "poradi": 2,
       "bloky": [
         {
           "typ": "text",
@@ -171,7 +551,7 @@
     {
       "temaId": "trh-a-trzni-mechanismus",
       "nazev": "Trh a tržní mechanismus",
-      "poradi": 1,
+      "poradi": 3,
       "bloky": [
         {
           "typ": "text",
@@ -335,7 +715,7 @@
     {
       "temaId": "podnikani-a-pravni-formy",
       "nazev": "Podnikání a právní formy",
-      "poradi": 2,
+      "poradi": 4,
       "bloky": [
         {
           "typ": "text",
@@ -508,7 +888,7 @@
     {
       "temaId": "podnik-a-hospodareni",
       "nazev": "Podnik a jeho hospodaření",
-      "poradi": 3,
+      "poradi": 5,
       "bloky": [
         {
           "typ": "text",
@@ -665,7 +1045,7 @@
     {
       "temaId": "marketing",
       "nazev": "Marketing",
-      "poradi": 4,
+      "poradi": 6,
       "bloky": [
         {
           "typ": "text",
@@ -844,7 +1224,7 @@
     {
       "temaId": "management",
       "nazev": "Management",
-      "poradi": 5,
+      "poradi": 7,
       "bloky": [
         {
           "typ": "text",
@@ -990,7 +1370,7 @@
     {
       "temaId": "zamestnanci-a-mzdy",
       "nazev": "Zaměstnanci a mzdy",
-      "poradi": 6,
+      "poradi": 8,
       "bloky": [
         {
           "typ": "text",
@@ -1144,7 +1524,7 @@
     {
       "temaId": "dane-a-pojisteni",
       "nazev": "Daně a pojištění",
-      "poradi": 7,
+      "poradi": 9,
       "bloky": [
         {
           "typ": "text",
@@ -1315,7 +1695,7 @@
     {
       "temaId": "penize-a-financni-trh",
       "nazev": "Peníze a finanční trh",
-      "poradi": 8,
+      "poradi": 10,
       "bloky": [
         {
           "typ": "text",

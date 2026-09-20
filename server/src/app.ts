@@ -140,7 +140,33 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
   // Rate limit per IP na celém /api/* — server běží veřejně a tokeny jsou
   // jediná vstupenka; limit brzdí hrubou sílu. Registruje se až ZA CORS,
   // aby i 429 nesla CORS hlavičky (jinak by ji prohlížeč aplikaci zatajil).
+  // Provozní log požadavků na /api/* (stdout → pm2): metoda, cesta, stav,
+  // klient a u chyb 4xx/5xx i tělo odpovědi — bez něj se vzdálená chyba
+  // klienta („nejde založit duel") nedá diagnostikovat. Vypíná se
+  // QUESTOR_LOG_POZADAVKU=0.
+  if (process.env.QUESTOR_LOG_POZADAVKU !== '0') {
+    app.use('/api/*', async (c, next) => {
+      const start = Date.now();
+      await next();
+      const status = c.res.status;
+      let detail = '';
+      if (status >= 400) {
+        try {
+          detail = ' ' + (await c.res.clone().text()).slice(0, 160).replace(/\s+/g, ' ');
+        } catch {
+          detail = '';
+        }
+      }
+      const ua = (c.req.header('user-agent') ?? '').slice(0, 60);
+      const xff = c.req.header('x-forwarded-for') ?? '';
+      console.log(
+        `[api] ${c.req.method} ${new URL(c.req.url).pathname} → ${status} (${Date.now() - start} ms) ip=${xff} ua="${ua}"${detail}`,
+      );
+    });
+  }
+
   app.use('/api/*', vytvorRateLimit(moznosti.rateLimit));
+
 
   // Limity velikosti těla — cizí (i validní token držící) klient nesmí server
   // shodit na OOM mnohasetmegovým JSONem.

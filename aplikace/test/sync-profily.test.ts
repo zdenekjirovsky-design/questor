@@ -516,3 +516,68 @@ describe('pull postupu pri aktivaci (stahniPostupProfilu, LWW)', () => {
     expect(f).not.toHaveBeenCalled();
   });
 });
+
+// ---------------------------------------------------------------------------
+
+describe('postup lekci mezi zarizenimi (snapshot + pull)', () => {
+  const HOTOVA = {
+    dokonceneBloky: [0, 1, 2],
+    dokoncenoPoprve: '2026-09-10T10:00:00.000Z',
+    posledniXpDen: '2026-09-10',
+    pocetDokonceni: 1,
+  };
+
+  function nastavFetch(progresZeServeru: unknown) {
+    const volani: { metoda: string; url: string; telo?: unknown }[] = [];
+    vi.stubGlobal(
+      'fetch',
+      vi.fn<FetchFunkce>(async (url, init) => {
+        const metoda = init?.method ?? 'GET';
+        volani.push({ metoda, url, telo: typeof init?.body === 'string' ? JSON.parse(init.body) : undefined });
+        if (metoda === 'GET' && url.includes('/api/progres/')) {
+          return new Response(JSON.stringify({ progres: progresZeServeru, prijato: 'x' }), { status: 200 });
+        }
+        return new Response(JSON.stringify({ ok: true, prijato: true }), { status: 200 });
+      }),
+    );
+    return volani;
+  }
+
+  it('dokoncenou lekci z jineho zarizeni slouci do mistniho postupu a progres nezaneradi', async () => {
+    ulozSyncNastaveni({ url: 'http://server.test', token: 'rodina' });
+    pouzijStav.getState().vytvorProfil('Kuba', BARVY_PROFILU[0]);
+    pouzijStav.setState({
+      progres: { ...pouzijStav.getState().progres, aktualizovano: '2026-09-01T10:00:00.000Z' },
+      postupLekci: { trh: { dokonceneBloky: [0], dokoncenoPoprve: null, posledniXpDen: null, pocetDokonceni: 0 } },
+    });
+    const serverovy = {
+      ...structuredClone(pouzijStav.getState().progres),
+      aktualizovano: '2026-09-04T10:00:00.000Z',
+      postupLekci: { potreby: HOTOVA, trh: HOTOVA },
+    };
+    nastavFetch(serverovy);
+
+    await stahniPostupProfilu();
+
+    const stav = pouzijStav.getState();
+    expect(stav.postupLekci.potreby.dokoncenoPoprve).toBe(HOTOVA.dokoncenoPoprve);
+    expect(stav.postupLekci.trh.pocetDokonceni).toBe(1); // dokonceni ze serveru
+    expect(stav.postupLekci.trh.dokonceneBloky).toEqual([0]); // rozpracovane bloky mistni
+    expect('postupLekci' in stav.progres).toBe(false);
+  });
+
+  it('push snapshotu nese postup lekci aktivniho profilu', async () => {
+    ulozSyncNastaveni({ url: 'http://server.test', token: 'rodina' });
+    pouzijStav.getState().vytvorProfil('Kuba', BARVY_PROFILU[0]);
+    pouzijStav.setState({
+      progres: { ...pouzijStav.getState().progres, xp: 500, aktualizovano: '2026-09-05T10:00:00.000Z' },
+      postupLekci: { potreby: HOTOVA },
+    });
+    const volani = nastavFetch({ ...structuredClone(pouzijStav.getState().progres), xp: 1, aktualizovano: '2026-09-01T10:00:00.000Z' });
+
+    await stahniPostupProfilu();
+
+    const push = volani.find((v) => v.metoda === 'POST' && v.url.endsWith('/api/progres'));
+    expect((push?.telo as Record<string, unknown>).postupLekci).toEqual({ potreby: HOTOVA });
+  });
+});

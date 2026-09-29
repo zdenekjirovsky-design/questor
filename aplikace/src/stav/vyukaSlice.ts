@@ -7,7 +7,7 @@
 // Postup je klicovany temaId (lekce se vaze na tema banky otazek a routa
 // /uceni/:temaId nese jen temaId) — temaId vzorovych predmetu jsou unikatni.
 import type { StateCreator } from 'zustand';
-import type { Lekce, QuestDenni, VyukaPredmetu } from '@questor/sdilene';
+import type { Lekce, PostupLekce, QuestDenni, VyukaPredmetu } from '@questor/sdilene';
 import {
   aktualizujStreakPoAktivite,
   aplikujLekciNaQuesty,
@@ -21,16 +21,8 @@ import type { QUESTORStav } from './store';
 // ---------------------------------------------------------------------------
 // Typy stavu
 
-export interface PostupLekce {
-  /** Indexy dokoncenych bloku lekce (bez duplicit, v poradi dokonceni). */
-  dokonceneBloky: number[];
-  /** ISO cas PRVNIHO dokonceni cele lekce, null = jeste nedokoncena. */
-  dokoncenoPoprve: string | null;
-  /** Den (YYYY-MM-DD), kdy za lekci naposledy padlo XP — hlida 1x denne. */
-  posledniXpDen: string | null;
-  /** Kolikrat byla lekce dokoncena celkem. */
-  pocetDokonceni: number;
-}
+// Postup lekce je sdileny typ (na server putuje ve snapshotu progresu).
+export type { PostupLekce } from '@questor/sdilene';
 
 export interface VysledekDokonceniLekce {
   /** Celkove pripsane XP (lekce + pripadne prave splnene questy). 0 = dnes uz bylo. */

@@ -11,11 +11,13 @@
 import {
   doplnDuelovyProgres,
   prinasiTrofejeNavic,
+  slucPostupLekci,
   sloucTrofeje,
   validujBanku,
   validujVyuku,
 } from '@questor/sdilene';
 import type {
+  PostupLekce,
   ProfilRegistrZaznam,
   ProgresStudenta,
   TestVysledek,
@@ -48,18 +50,29 @@ function oznacProfilem<T extends object>(data: T, profil: Profil): T & ProfilOzn
 
 /**
  * Snapshot progresu navic nese studijni banky profilu (predmety +
- * aktivniPredmetId) — dalsi top-level pole vedle profilId/profilJmeno
- * v temze JSON blobu. Server je pri validaci progresu odstripuje (zod),
- * POST projde beze zmeny — serverova cast se NEMENI.
+ * aktivniPredmetId; server je stripuje) a POSTUP LEKCI profilu — ten server
+ * uklada (prehled pro rodice) a slucuje monotonne (slucPostupLekci), takze
+ * dokoncene lekce se prenesou i na dalsi zarizeni profilu.
  */
 function oznacProgres(
   progres: ProgresStudenta,
   profil: Profil,
-): ProgresStudenta & ProfilOznaceni & { predmety: string[]; aktivniPredmetId: string | null } {
+): ProgresStudenta &
+  ProfilOznaceni & {
+    predmety: string[];
+    aktivniPredmetId: string | null;
+    postupLekci: Record<string, PostupLekce>;
+  } {
+  const stav = pouzijStav.getState();
+  const postupLekci =
+    profil.id === stav.aktivniProfilId
+      ? stav.postupLekci
+      : (stav.dataProfilu[profil.id]?.postupLekci ?? {});
   return {
     ...oznacProfilem(progres, profil),
     predmety: predmetyProfilu(profil),
     aktivniPredmetId: aktivniPredmetProfilu(profil),
+    postupLekci,
   };
 }
 
@@ -427,7 +440,8 @@ function prectiServerovyProgres(data: unknown): ProgresStudenta | null {
   if (p.statistikyOtazek === null || typeof p.statistikyOtazek !== 'object') return null;
   if (p.rekordy === null || typeof p.rekordy !== 'object') return null;
   if (typeof p.dokonceneTesty !== 'number') return null;
-  const progres = data as ProgresStudenta;
+  // postupLekci žije ve vyukaSlice (sloučí ho pull) — do ProgresStudenta nepatří.
+  const { postupLekci: _postupLekci, ...progres } = data as ProgresStudenta & { postupLekci?: unknown };
   return Array.isArray(p.vlastnenaVybava) ? progres : { ...progres, vlastnenaVybava: [] };
 }
 
@@ -460,6 +474,18 @@ async function pullPostupAktivnihoProfilu(klient: QuestorKlient): Promise<void> 
     }
     const stav = pouzijStav.getState();
     if (stav.aktivniProfilId !== profil.id) return; // přepnuto během letu → zahodit
+    // Postup lekcí ze serveru (dokončené lekce z jiného zařízení) se slučuje
+    // VŽDY — monotónně, rozpracované bloky zůstávají místní.
+    const serverovyPostup = (odpoved.progres as { postupLekci?: unknown } | null)?.postupLekci;
+    if (serverovyPostup && typeof serverovyPostup === 'object') {
+      const slouceny = slucPostupLekci(
+        serverovyPostup as Record<string, PostupLekce>,
+        stav.postupLekci,
+      );
+      if (JSON.stringify(slouceny) !== JSON.stringify(stav.postupLekci)) {
+        pouzijStav.setState({ postupLekci: slouceny });
+      }
+    }
     const serverovy = prectiServerovyProgres(odpoved.progres);
     if (!serverovy) return;
     if (serverovy.aktualizovano > stav.progres.aktualizovano) {

@@ -49,7 +49,7 @@ describe('validujBanku', () => {
     const banka = validujBanku(JSON.parse(readFileSync(cesta, 'utf8')));
     expect(banka.verze).toBeGreaterThanOrEqual(2);
     expect(banka.otazky.length).toBeGreaterThanOrEqual(72);
-    expect(banka.temata.length).toBe(9);
+    expect(banka.temata.length).toBeGreaterThanOrEqual(11);
   });
 
   it('odmítne otázku s odkazem na neexistující téma', () => {

@@ -6,6 +6,7 @@
 // zalozeny na telefonu se objevi i tady — karta s ☁️); bez rodinneho kodu
 // nabizi decentni odkaz „Pripojit rodinu".
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { VYCHOZI_AVATAR } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { BARVY_PROFILU, MAX_DELKA_JMENA, vytvorIdProfilu, type Profil } from '../stav/profilySlice';
@@ -416,6 +417,7 @@ function NovyProfilFormular({ prvni, onZpet }: { prvni: boolean; onZpet: () => v
 // Vlastni obrazovka vyberu
 
 export default function VyberProfilu() {
+  const navigate = useNavigate();
   const profily = pouzijStav((s) => s.profily);
   const dataProfilu = pouzijStav((s) => s.dataProfilu);
   const prepniProfil = pouzijStav((s) => s.prepniProfil);
@@ -551,6 +553,15 @@ export default function VyberProfilu() {
             🔗 Připojit rodinu
           </button>
         )
+      )}
+      {!pinProfil && !rodinaOtevrena && !novyOtevreny && (
+        <button
+          type="button"
+          className="vyber-profilu__rodina"
+          onClick={() => navigate('/admin')}
+        >
+          🛡️ Přehled pro rodiče
+        </button>
       )}
     </div>
   );

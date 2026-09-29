@@ -89,9 +89,9 @@ se drží per profil, události nesou profil a výzva může mít cílový profi
 vidět i na notebooku (a naopak), včetně PINu (jen `pinHash`, nikdy otevřený),
 studijních bank a přes pull progresu i postupu (synchronizuje se celý
 `ProgresStudenta` — XP, streak, sbírka, statistiky otázek, rekordy, avatar,
-výbava, questy dne; per-profilová data MIMO něj — postup lekcí, historie
-testů, čekající truhly, týdenní XP per banka — zatím zůstávají lokální per
-zařízení). Záznam = `ProfilRegistrZaznam` ze `sdilene` (`{ profilId, jmeno,
+výbava, questy dne; v témže snapshotu cestuje i postup lekcí jako pole
+`postupLekci` — viz `POST /api/progres`; historie testů, čekající truhly
+a týdenní XP per banka zatím zůstávají lokální per zařízení). Záznam = `ProfilRegistrZaznam` ze `sdilene` (`{ profilId, jmeno,
 barva, pinHash?, avatar?, predmety[], aktivniPredmetId, aktualizovano }`;
 neznámá pole server při zápisu stripuje). Konflikt řeší **LWW** podle ISO
 času `aktualizovano` (zápis projde jen s časem >= uloženému) — v rodině se
@@ -103,7 +103,8 @@ a volný formát by šel „zamknout“ nesmyslem typu `zzzz`); čas z budoucnos
 /api/progres` (rozhodčí `progres.aktualizovano`).
 
 **Rate limit**: na celém `/api/*` jednoduchý in-memory limit per IP
-(240 požadavků/min, fixní okno; nadlimit → 429 `{ chyba }` + `retry-after`)
+(600 požadavků/min, fixní okno — celá rodina sdílí jednu domácí IP; přepis
+env `QUESTOR_RATE_LIMIT_MAX`; nadlimit → 429 `{ chyba }` + `retry-after`)
 jako brzda hrubé síly na tokeny na veřejném nasazení. IP se bere
 z `X-Forwarded-For` POSLEDNÍ adresou, kterou tam přidala vlastní důvěryhodná
 proxy (standardní reverzní proxy hodnotu APPENDUJE za hlavičku poslanou
@@ -136,7 +137,8 @@ zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
 | `GET /api/profily` | student | registr profilů `ProfilRegistrZaznam[]` (naposledy aktualizovaný první; prázdné pole když registr nic nezná) |
 | `PUT /api/profily/:id` | student | tělo = záznam bez `profilId` (ten nese URL, 1–64 znaků). Upsert s LWW: `aktualizovano` >= uložené → zapíše a `{ ok, prijato: true }`; starší → nezapíše a `{ ok, prijato: false, aktualni: <uložený záznam> }` (klient si vezme novější) |
 | `DELETE /api/profily/:id` | student | smaže profil z registru + jeho progres (události zůstávají — jsou to dějiny) → `{ ok }`; idempotentní |
-| `POST /api/progres` | student | tělo `ProgresStudenta` + volitelné `profilId`/`profilJmeno`. LWW podle `progres.aktualizovano` (offline fronta může snapshot doručit dny po vzniku): novější nebo stejný čas → uloží snapshot a `{ ok, prijato: true }`; starší než uložený → nezapíše a `{ ok, prijato: false }` (novější postup si klient vezme pullem). Řádek v DB bez `aktualizovano` (před LWW) prohrává vždy. Neplatná profilová pole → 400 |
+| `POST /api/progres` | student | tělo `ProgresStudenta` + volitelné `profilId`/`profilJmeno`. LWW podle `progres.aktualizovano` (offline fronta může snapshot doručit dny po vzniku): novější nebo stejný čas → uloží snapshot a `{ ok, prijato: true }`; starší než uložený → nezapíše a `{ ok, prijato: false }` (novější postup si klient vezme pullem). Řádek v DB bez `aktualizovano` (před LWW) prohrává vždy. Neplatná profilová pole → 400. Volitelné `postupLekci` (`SnimekProgresu` ze `sdilene`: `temaId → PostupLekce`) server ukládá a SLUČUJE monotónně (`slucPostupLekci` — dokončení se nikdy neztratí): snapshot bez něj (starší klient) uložený postup zachová, starší snapshot (LWW odmítnutý) do uloženého aspoň přidá své dokončené lekce; vadná hodnota se zahodí a snapshot projde |
+| `GET /api/admin/prehled` | admin | přehled rodiny pro admin účet v aplikaci — `PrehledRodiny` ze `sdilene` (skládá čistá funkce `sestavPrehledRodiny` z registru, snapshotů progresu, posledních 5000 událostí, bank a výuk): per profil level, XP, platný streak, lekce, týdenní XP (6 týdnů), duely, posledních 8 testů a po předmětech/tématech lekce hotové/rozpracované, zvládnuté otázky (box ≥ 3), úspěšnost a počty testů. PIN hashe do odpovědi nejdou |
 | `GET /api/progres` | admin | pole profilů `[{ profilId, jmeno, progres, prijato, level }]` — naposledy aktivní první, prázdné pole když nic nedorazilo (`level` = `stavLevelu(xp)` ze sdílené funkce, ať ho admin web neduplikuje) |
 | `GET /api/progres/:profilId` | student | pull postupu: `{ progres, prijato }` posledního snapshotu profilu; 404 když server žádný nemá (progres starých klientů je pod `vychozi`) |
 | `POST /api/udalosti` | student | tělo `TestVysledek` + volitelné `profilId`/`profilJmeno` → `{ ok }` (append; idempotentní podle `vysledek.id` — duplicitní doručení z retry fronty se tiše ignoruje) |
@@ -184,6 +186,18 @@ hráči, stav, body, vítěz). Bez frameworku — vanilla JS + fetch. POZOR:
 stránka volá API root-absolutními cestami (`/api/…`), takže za prefixovou
 proxy (`/questor-api` na produkci) nefunguje — otevírá se přes SSH tunel
 na port serveru (postup v docs/NASAZENI.md, krok 5a).
+
+**Přehled rodiny v aplikaci (admin účet)** — `aplikace/src/admin/`: routa
+`/admin` běží MIMO profilovou bránu (správce nepotřebuje profil) a funguje
+na webu i v desktopu, protože volá API přes adresu syncu (na produkci
+`/questor-api`). Přihlášení admin kódem (= `QUESTOR_ADMIN_TOKEN`), uloží se
+jen na zařízení správce (`localStorage` klíč `questor-admin-kod`, nikdy do
+stavu aplikace ani sync fronty); jedním klepnutím přes odkaz
+`…/questor/#admin=<kód>` — `main.tsx` ho převezme ještě před routerem
+(kód uloží, fragment smaže z adresy, start na `/admin`), v už otevřeném tabu
+posluchač `hashchange` v `App.tsx`. Vstupy: odkaz „🛡️ Přehled pro rodiče“
+na výběru profilů a tlačítko v Nastavení → Připojení. Obrazovka je vlastní
+lazy chunk; 401 kód smaže a vrátí na přihlášení.
 
 Dogenerování volá stejnou knihovnu jako generátor (`@questor/generator`),
 poskytovatel `api`.
@@ -684,6 +698,11 @@ Všechny widgety: klávesnice + myš, animace dle DESIGN.md
   odměna 60 XP.
 - Mistrovství tématu se NEmění — řídí ho výhradně testy. Výuka je cesta,
   test je důkaz.
+- Postup lekcí se synchronizuje: snapshot progresu nese `postupLekci`
+  (aktivní profil z `vyukaSlice`, neaktivní ze snímku `dataProfilu`), pull
+  při aktivaci profilu ho sloučí `slucPostupLekci(server, místní)` —
+  dokončení monotónně, rozpracované bloky zůstávají místní („Začít lekci
+  znovu" pull nevrátí). Typ `PostupLekce` je ve `sdilene` (`prehled.ts`).
 
 ### UI výuky
 

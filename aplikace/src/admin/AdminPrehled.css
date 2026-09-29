@@ -1,0 +1,528 @@
+/* Admin účet — přehled rodiny. Mobile-first, drží tokeny a utility
+   z global.css (panel, tlacitko, ukazatel, stitek). */
+
+.admin {
+  padding-top: calc(20px + env(safe-area-inset-top, 0px));
+}
+
+.admin__hlava {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.admin__hlava h1 {
+  margin-bottom: 4px;
+}
+
+.admin__podtitul {
+  margin: 0;
+  color: var(--text-tlumeny);
+  font-size: 0.9rem;
+}
+
+.admin__akce {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin__chyba {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--chyba);
+  background: rgba(248, 113, 113, 0.1);
+  color: var(--text);
+}
+
+.admin__souhrn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 16px;
+  color: var(--text-tlumeny);
+  font-size: 0.95rem;
+}
+
+/* --- Přihlášení --- */
+
+.admin-prihlaseni {
+  max-width: 460px;
+  margin: 8vh auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admin-prihlaseni p {
+  margin: 0;
+  color: var(--text-tlumeny);
+}
+
+.admin-prihlaseni__pole {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.admin-prihlaseni__pole input {
+  padding: 10px 12px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  color: var(--text);
+  font: inherit;
+}
+
+.admin-prihlaseni__pole input:focus-visible {
+  outline: 2px solid var(--akcent);
+  outline-offset: 1px;
+}
+
+.admin-prihlaseni__akce {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* --- Karta profilu --- */
+
+.admin-profil {
+  margin-bottom: 18px;
+  border-top: 3px solid var(--barva-profilu, var(--akcent));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-profil__hlava {
+  display: grid;
+  grid-template-columns: auto 1fr minmax(140px, 220px);
+  align-items: center;
+  gap: 14px;
+}
+
+.admin-profil__inicial {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--barva-profilu, var(--akcent));
+  color: #fff;
+  font-family: var(--pismo-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.admin-profil__identita {
+  min-width: 0;
+}
+
+.admin-profil__identita h2 {
+  margin: 0 0 2px;
+  font-size: 1.35rem;
+  overflow-wrap: anywhere;
+}
+
+.admin-profil__aktivita {
+  margin: 0;
+  color: var(--text-tlumeny);
+  font-size: 0.88rem;
+}
+
+.admin-profil__level {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-profil__lvl {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  color: var(--zlata);
+}
+
+.admin-profil__xp {
+  color: var(--text-tlumeny);
+  font-size: 0.82rem;
+  text-align: right;
+}
+
+.admin-profil__cisla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.admin-cislo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: var(--radius-maly);
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+}
+
+.admin-cislo__hodnota {
+  font-family: var(--pismo-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.admin-cislo__popis {
+  color: var(--text-tlumeny);
+  font-size: 0.8rem;
+}
+
+/* --- Týdenní XP --- */
+
+.admin-profil__popisek {
+  margin: 0 0 6px;
+  color: var(--text-tlumeny);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.admin-profil__tydny {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  height: 104px;
+}
+
+.admin-profil__tyden {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3px;
+  min-width: 0;
+}
+
+.admin-profil__tyden-xp {
+  height: 14px;
+  font-size: 0.72rem;
+  color: var(--text-tlumeny);
+  text-align: center;
+}
+
+.admin-profil__sloupec-obal {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--okraj);
+}
+
+.admin-profil__sloupec {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  background: linear-gradient(180deg, var(--akcent-svetly) 0%, var(--akcent) 100%);
+  transition: height 0.4s ease;
+}
+
+.admin-profil__tyden-den {
+  font-size: 0.72rem;
+  color: var(--text-tlumeny);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* --- Předměty --- */
+
+.admin-profil__predmety {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-profil__prazdno,
+.admin-profil__tituly {
+  margin: 0;
+  color: var(--text-tlumeny);
+  font-size: 0.9rem;
+}
+
+.admin-predmet {
+  padding: 12px 14px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-predmet--aktivni {
+  border-color: var(--akcent);
+}
+
+.admin-predmet__hlava {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-predmet__ikona {
+  font-size: 1.3rem;
+}
+
+.admin-predmet__nazev {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--pismo-display);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.admin-predmet__stitek {
+  border-color: var(--akcent);
+  color: var(--akcent-svetly);
+}
+
+.admin-predmet__sipka {
+  color: var(--text-tlumeny);
+}
+
+.admin-predmet__metriky {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.admin-metrika {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.admin-metrika__radek {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-tlumeny);
+}
+
+.admin-metrika__radek strong {
+  color: var(--text);
+}
+
+.admin-predmet__pozn {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-tlumeny);
+}
+
+.admin-predmet__slaba {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+}
+
+.admin-predmet__chip {
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--chyba);
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.admin-temata {
+  overflow-x: auto;
+}
+
+.admin-temata table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.admin-temata th,
+.admin-temata td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--okraj);
+  text-align: left;
+  vertical-align: top;
+}
+
+.admin-temata thead th {
+  color: var(--text-tlumeny);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-temata tbody th {
+  font-weight: 600;
+}
+
+.admin-temata td {
+  white-space: nowrap;
+}
+
+.admin-temata__pocet {
+  color: var(--text-tlumeny);
+}
+
+.admin-temata__legenda {
+  margin: 6px 0 0;
+  font-size: 0.75rem;
+  color: var(--text-tlumeny);
+}
+
+/* --- Poslední testy --- */
+
+.admin-testy summary {
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.admin-testy ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-testy li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    'ikona predmet vysledek'
+    'ikona detail kdy';
+  column-gap: 10px;
+  row-gap: 2px;
+  padding: 8px 10px;
+  border-radius: var(--radius-maly);
+  background: var(--pozadi-panel-2);
+  font-size: 0.88rem;
+}
+
+.admin-testy li > span:first-child {
+  grid-area: ikona;
+  font-size: 1.2rem;
+  align-self: center;
+}
+
+.admin-testy__predmet {
+  grid-area: predmet;
+  font-weight: 600;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.admin-testy li > strong {
+  grid-area: vysledek;
+  text-align: right;
+}
+
+.admin-testy__detail {
+  grid-area: detail;
+  color: var(--text-tlumeny);
+}
+
+.admin-testy__kdy {
+  grid-area: kdy;
+  color: var(--text-tlumeny);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.admin-testy__dobre {
+  color: var(--uspech);
+}
+
+.admin-testy__slabe {
+  color: var(--chyba);
+}
+
+/* --- Mobil --- */
+
+@media (max-width: 760px) {
+  .admin__akce {
+    width: 100%;
+  }
+
+  .admin__akce .tlacitko {
+    flex: 1;
+  }
+
+  .admin-profil__hlava {
+    grid-template-columns: auto 1fr;
+  }
+
+  .admin-profil__level {
+    grid-column: 1 / -1;
+  }
+
+  .admin-predmet__metriky {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* Tabulka témat se na telefon nevejde — každé téma jako řádek:
+     název nahoře, hodnoty s popisky pod ním. */
+  .admin-temata thead {
+    display: none;
+  }
+
+  .admin-temata table,
+  .admin-temata tbody,
+  .admin-temata th,
+  .admin-temata td {
+    display: block;
+  }
+
+  .admin-temata tr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--okraj);
+  }
+
+  .admin-temata tbody th {
+    flex-basis: 100%;
+    padding: 0;
+    border: none;
+  }
+
+  .admin-temata td {
+    padding: 0;
+    border: none;
+    font-size: 0.82rem;
+    color: var(--text-tlumeny);
+  }
+
+  .admin-temata td:empty {
+    display: none;
+  }
+
+  .admin-temata td[data-popis]::before {
+    content: attr(data-popis) ' ';
+  }
+}

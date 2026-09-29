@@ -2,6 +2,7 @@
 // sekci Vzhled dodává komponenta NastaveniAvataru z hra/ (agent APP-HRA),
 // sekci Profily komponenta SpravaProfilu z profily/ (agent PROFILY).
 import { useState, useSyncExternalStore } from 'react';
+import { Link } from 'react-router-dom';
 import { pouzijStav } from '../stav/store';
 import {
   nactiSyncNastaveni,
@@ -68,9 +69,9 @@ export default function Nastaveni() {
         <div className="panel nastaveni-formular">
           <p className="nastaveni-stav">
             Rodinný kód propojí zařízení rodiny: profily, jejich PINy, studijní banky i herní
-            postup (XP, streak, sbírka, statistiky) se synchronizují přes server. Postup lekcí
-            a historie testů zatím zůstávají na každém zařízení zvlášť. Bez kódu běží aplikace
-            čistě lokálně.
+            postup (XP, streak, sbírka, statistiky) i postup lekcí se synchronizují přes server.
+            Historie testů zatím zůstává na každém zařízení zvlášť. Bez kódu běží aplikace čistě
+            lokálně.
           </p>
           <div className="nastaveni-pole">
             <label htmlFor="sync-url">Adresa serveru</label>
@@ -108,6 +109,9 @@ export default function Nastaveni() {
             >
               {stavSyncu.bezi ? 'Synchronizuji…' : 'Synchronizovat teď'}
             </button>
+            <Link to="/admin" className="tlacitko">
+              🛡️ Přehled rodiny
+            </Link>
             {ulozeno && <span className="nastaveni-stav nastaveni-stav--ok">Uloženo ✅</span>}
           </div>
           {zkouska && (

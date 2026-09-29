@@ -100,7 +100,34 @@ instalace se nedělá.
 
 ## 3. Přehled o studentech a výzvy
 
-Admin web `https://<server>/admin` (token = `QUESTOR_ADMIN_TOKEN`):
+### Přehled rodiny v aplikaci (admin účet) — hlavní cesta
+
+Postup všech profilů sleduješ přímo v aplikaci (telefon, web i desktop):
+
+- **Otevření**: na výběru profilů odkaz **🛡️ Přehled pro rodiče**, nebo
+  Nastavení → Připojení → **🛡️ Přehled rodiny**. Přihlásíš se admin kódem
+  (= `QUESTOR_ADMIN_TOKEN`). Rychlejší je přihlašovací odkaz
+  `https://koordinator-server.cz/questor/#admin=<admin kód>` — otevři ho na
+  telefonu, kód se uloží a fragment zmizí z adresy. Na telefonu pak
+  přehled přidej na plochu nebo si ho ulož do záložek
+  (`…/questor/admin`).
+- **Co ukazuje** (každý profil jako karta, naposledy aktivní nahoře): level
+  a XP, platný streak (i rekord), počet hotových lekcí a testů, bilanci
+  duelů a tituly, graf XP za 6 týdnů; po předmětech lekce hotové z celku,
+  zvládnuté otázky (Leitnerův box ≥ 3), úspěšnost, počet testů a kdy
+  naposledy, **⚠️ Procvičit** = témata pod 70 % (aspoň 4 odpovědi);
+  rozbalením předmětu tabulka témat (✅ lekce hotová, ◐ rozpracovaná);
+  dole posledních 8 testů.
+- Data jsou ze serveru — profil, který hraje bez rodinného kódu, tu nemá
+  postup. Postup lekcí se na server posílá od verze 0.7.3; starší
+  dokončené lekce se doplní, jakmile profil zase něco odehraje.
+- **Odhlásit** kód ze zařízení smaže (na sdíleném počítači se vždy odhlas).
+
+### Admin web na serveru (přes SSH tunel)
+
+Admin web `https://<server>/admin` (token = `QUESTOR_ADMIN_TOKEN`) — na
+produkci jen přes SSH tunel (docs/NASAZENI.md, krok 5a), protože za
+prefixem `/questor-api` nefunguje. Slouží hlavně k výzvám a správě:
 
 - **Profily** — karta pro každý profil rodiny (naposledy aktivní první):
   jméno, level, XP bar, streak, počet dokončených testů + údaje z registru

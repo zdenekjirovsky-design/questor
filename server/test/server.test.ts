@@ -1280,3 +1280,143 @@ describe('dogenerování', () => {
     expect(odpoved.status).toBe(503);
   });
 });
+
+// ---------------------------------------------------------------------------
+
+describe('postup lekcí ve snapshotu progresu', () => {
+  let app: Hono;
+  beforeEach(() => {
+    app = novaApp();
+  });
+
+  const hotova = {
+    dokonceneBloky: [0, 1, 2],
+    dokoncenoPoprve: '2026-09-10T10:00:00.000Z',
+    posledniXpDen: '2026-09-10',
+    pocetDokonceni: 1,
+  };
+
+  async function posli(telo: unknown) {
+    return app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify(telo),
+    });
+  }
+
+  async function nacti(profilId = 'vychozi') {
+    const odpoved = await app.request(`/api/progres/${profilId}`, { headers: STUDENT });
+    return ((await odpoved.json()) as { progres: Record<string, unknown> }).progres;
+  }
+
+  it('uloží postupLekci a pull ho vrátí', async () => {
+    expect((await posli({ ...vzorovyProgres(), postupLekci: { trh: hotova } })).status).toBe(200);
+    expect((await nacti()).postupLekci).toEqual({ trh: hotova });
+  });
+
+  it('starší klient bez postupLekci uložený postup nesmaže', async () => {
+    await posli({ ...vzorovyProgres(), postupLekci: { trh: hotova } });
+    await posli({ ...vzorovyProgres(), xp: 999, aktualizovano: '2026-09-05T10:00:00.000Z' });
+    const ulozeny = await nacti();
+    expect(ulozeny.xp).toBe(999);
+    expect(ulozeny.postupLekci).toEqual({ trh: hotova });
+  });
+
+  it('starší snapshot XP nepřepíše, ale dokončené lekce z něj se sloučí', async () => {
+    await posli({ ...vzorovyProgres(), xp: 800, aktualizovano: '2026-09-06T10:00:00.000Z' });
+    const odpoved = await posli({
+      ...vzorovyProgres(),
+      xp: 100,
+      aktualizovano: '2026-09-05T10:00:00.000Z',
+      postupLekci: { trh: hotova },
+    });
+    expect(await odpoved.json()).toEqual({ ok: true, prijato: false });
+    const ulozeny = await nacti();
+    expect(ulozeny.xp).toBe(800);
+    expect(ulozeny.postupLekci).toEqual({ trh: hotova });
+  });
+
+  it('vadný postupLekci se zahodí a zbytek snapshotu projde', async () => {
+    const odpoved = await posli({ ...vzorovyProgres(), postupLekci: { trh: { dokonceneBloky: 'x' } } });
+    expect(odpoved.status).toBe(200);
+    expect((await nacti()).postupLekci).toBeUndefined();
+  });
+});
+
+describe('přehled rodiny (GET /api/admin/prehled)', () => {
+  let app: Hono;
+  beforeEach(async () => {
+    app = novaApp();
+    await app.request('/api/banky/ekonomika-podnikani', {
+      method: 'PUT',
+      headers: { ...ADMIN, ...JSON_HLAVICKY },
+      body: JSON.stringify(vzorovaBanka()),
+    });
+    await app.request('/api/vyuka/ekonomika-podnikani', {
+      method: 'PUT',
+      headers: { ...ADMIN, ...JSON_HLAVICKY },
+      body: JSON.stringify(vzorovaVyuka()),
+    });
+    await app.request('/api/profily/matej', {
+      method: 'PUT',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({
+        jmeno: 'Matěj',
+        barva: '#8b5cf6',
+        pinHash: 'tajny-hash',
+        predmety: ['ekonomika-podnikani'],
+        aktivniPredmetId: 'ekonomika-podnikani',
+        aktualizovano: '2026-09-04T09:00:00.000Z',
+      }),
+    });
+    await app.request('/api/progres', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({
+        ...vzorovyProgres(),
+        profilId: 'matej',
+        profilJmeno: 'Matěj',
+        postupLekci: {
+          trh: { dokonceneBloky: [0, 1, 2], dokoncenoPoprve: '2026-09-04T10:00:00.000Z', posledniXpDen: '2026-09-04', pocetDokonceni: 1 },
+        },
+      }),
+    });
+    await app.request('/api/udalosti', {
+      method: 'POST',
+      headers: { ...STUDENT, ...JSON_HLAVICKY },
+      body: JSON.stringify({ ...vzorovyVysledek(0.7), profilId: 'matej', profilJmeno: 'Matěj' }),
+    });
+  });
+
+  it('studentský token nepustí', async () => {
+    const odpoved = await app.request('/api/admin/prehled', { headers: STUDENT });
+    expect(odpoved.status).toBe(401);
+  });
+
+  it('vrátí postup profilu po předmětech bez PIN hashe', async () => {
+    const odpoved = await app.request('/api/admin/prehled', { headers: ADMIN });
+    expect(odpoved.status).toBe(200);
+    const text = await odpoved.text();
+    expect(text).not.toContain('tajny-hash');
+    const prehled = JSON.parse(text) as {
+      profily: {
+        jmeno: string;
+        lekceHotovo: number;
+        predmety: { predmetId: string; lekceHotovo: number; lekceCelkem: number; testu: number; otazekZodpovezeno: number }[];
+        posledniTesty: { uspesnost: number }[];
+      }[];
+    };
+    expect(prehled.profily).toHaveLength(1);
+    const matej = prehled.profily[0];
+    expect(matej.jmeno).toBe('Matěj');
+    expect(matej.lekceHotovo).toBe(1);
+    expect(matej.predmety[0]).toMatchObject({
+      predmetId: 'ekonomika-podnikani',
+      lekceHotovo: 1,
+      lekceCelkem: 1,
+      testu: 1,
+      otazekZodpovezeno: 1,
+    });
+    expect(matej.posledniTesty[0].uspesnost).toBe(0.7);
+  });
+});

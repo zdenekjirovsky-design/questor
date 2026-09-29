@@ -9,8 +9,11 @@
 // dohrání se vrací na výběr profilů. Hash se po přečtení čistí (host.ts);
 // pozvánka vložená do UŽ otevřeného tabu (jen změna fragmentu, prohlížeč
 // stránku nereloadne) se chytá posluchačem hashchange níže.
-import { useEffect, useState } from 'react';
-import { NavLink, Route, Routes } from 'react-router-dom';
+// Výjimka po dohodě (admin účet): /admin = přehled rodiny pro rodiče, běží
+// MIMO profilovou bránu (správce nemusí mít profil); odkaz #admin=<kód>
+// převezme main.tsx, v už otevřeném tabu posluchač hashchange níže.
+import { lazy, Suspense, useEffect, useState } from 'react';
+import { NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { pouzijStav } from './stav/store';
 import HostDuel from './duely/HostDuel';
 import { pozvankaZeStartu, zpracujHashPozvanky } from './duely/host';
@@ -27,7 +30,11 @@ import LekceViewer from './vyuka/LekceViewer';
 import Duely from './duely/Duely';
 import DuelHrani from './duely/DuelHrani';
 import DuelyIndikator from './duely/DuelyIndikator';
+import { adminKodZHashe, ulozAdminKod } from './admin/admin';
 import './App.css';
+
+// Přehled pro rodiče je vzácná obrazovka — vlastní chunk, ať nezvětšuje start.
+const AdminPrehled = lazy(() => import('./admin/AdminPrehled'));
 
 const odkazy = [
   { cesta: '/', text: 'Domů' },
@@ -43,6 +50,21 @@ export default function App() {
   // Hostovská pozvánka z odkazu (#duel=…) má přednost přede vším — host hraje
   // bez profilu a rodinného kódu; pozvankaZeStartu je memoizovaná a hash čistí.
   const [hostPozvanka, setHostPozvanka] = useState(() => pozvankaZeStartu());
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Přihlašovací odkaz admina vložený do UŽ otevřeného tabu (start řeší main.tsx).
+  useEffect(() => {
+    const zpracuj = () => {
+      const kod = adminKodZHashe(window.location.hash ?? '');
+      if (!kod) return;
+      ulozAdminKod(kod);
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      navigate('/admin', { replace: true });
+    };
+    window.addEventListener('hashchange', zpracuj);
+    return () => window.removeEventListener('hashchange', zpracuj);
+  }, [navigate]);
 
   // Nova pozvanka vlozena do tehoz tabu: navigace lisici se JEN fragmentem
   // stranku nereloadne, takze pozvankaZeStartu ji nikdy neuvidi. Posluchac
@@ -68,6 +90,14 @@ export default function App() {
         pozvanka={hostPozvanka}
         ukonci={() => setHostPozvanka(null)}
       />
+    );
+  }
+
+  if (location.pathname === '/admin') {
+    return (
+      <Suspense fallback={<div className="rozvrzeni">Načítám přehled…</div>}>
+        <AdminPrehled />
+      </Suspense>
     );
   }
 

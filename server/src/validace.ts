@@ -3,7 +3,7 @@
 // typy ze sdilene/src/typy.ts — kontrakt, ne novou pravdu.
 
 import { z } from 'zod';
-import type { ProfilMetadata, ProgresStudenta, TestVysledek, Vyzva } from '@questor/sdilene';
+import type { ProfilMetadata, SnimekProgresu, TestVysledek, Vyzva } from '@questor/sdilene';
 import {
   HOST_PROFIL_PREFIX,
   jeHostProfilId,
@@ -121,6 +121,18 @@ const statistikaOtazkySchema = z.object({
   posledniOdpoved: z.string().min(4),
 });
 
+/**
+ * Postup jedné lekce (sdílený typ PostupLekce). Záměrně benevolentní:
+ * postup lekcí je doplněk snapshotu a jeho vada NESMÍ shodit uložení
+ * celého progresu (viz .catch u pole postupLekci níže).
+ */
+const postupLekceSchema = z.object({
+  dokonceneBloky: z.array(z.number().int().min(0).max(999)).max(200),
+  dokoncenoPoprve: z.string().min(4).max(40).nullable(),
+  posledniXpDen: z.string().min(4).max(40).nullable(),
+  pocetDokonceni: z.number().int().min(0),
+});
+
 export const progresStudentaSchema = z.object({
   xp: z.number().int().min(0),
   streak: streakSchema,
@@ -144,6 +156,12 @@ export const progresStudentaSchema = z.object({
    */
   powerupy: powerupyProgresuSchema.optional(),
   trofeje: trofejeProfiluSchema.optional(),
+  /**
+   * Postup lekcí profilu (temaId → PostupLekce) — přehled pro rodiče
+   * a přenos rozpracovaných/dokončených lekcí mezi zařízeními. Volitelné
+   * (starší klienti ho neposílají); vadná hodnota se zahodí, snapshot projde.
+   */
+  postupLekci: z.record(z.string().min(1).max(128), postupLekceSchema).optional().catch(undefined),
   /** ISO čas poslední změny — LWW rozhodčí pullu/POSTu progresu. */
   aktualizovano: isoCasSchema,
 });
@@ -320,9 +338,9 @@ export const dogenerovatSchema = z.object({
 
 // Pomůcky s návratem sdíleného typu (stejný vzor jako validujBanku ve sdilene).
 
-export function zvalidujProgres(data: unknown): ProgresStudenta | null {
+export function zvalidujProgres(data: unknown): SnimekProgresu | null {
   const v = progresStudentaSchema.safeParse(data);
-  return v.success ? (v.data as ProgresStudenta) : null;
+  return v.success ? (v.data as SnimekProgresu) : null;
 }
 
 export function zvalidujTestVysledek(data: unknown): TestVysledek | null {

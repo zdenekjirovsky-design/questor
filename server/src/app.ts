@@ -9,6 +9,8 @@ import { cors } from 'hono/cors';
 import type { DatabaseSync } from 'node:sqlite';
 import {
   otazkaSchema,
+  sestavPrehledRodiny,
+  slucPostupLekci,
   stavLevelu,
   validujBanku,
   validujVyuku,
@@ -16,6 +18,7 @@ import {
   type Otazka,
   type ProfilMetadata,
   type ProgresStudenta,
+  type SnimekProgresu,
   type Tema,
   type TestVysledek,
   type VyukaPredmetu,
@@ -386,7 +389,7 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     // aby LWW nezamrzl na špatně nastavených hodinách. Starší snapshot se
     // NEpřijme ({ prijato: false }); starý snapshot v DB bez aktualizovano
     // (řádek z dob před LWW) prohrává vždy.
-    const kUlozeni: ProgresStudenta = {
+    const kUlozeni: SnimekProgresu = {
       ...progres,
       aktualizovano: orizniCasBudoucnosti(progres.aktualizovano),
     };
@@ -394,12 +397,29 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
       .prepare('SELECT json FROM progres WHERE profil_id = ?')
       .get(profil.profilId) as { json: string } | undefined;
     if (stavajici) {
-      const ulozeny = JSON.parse(stavajici.json) as Partial<ProgresStudenta>;
+      const ulozeny = JSON.parse(stavajici.json) as Partial<SnimekProgresu>;
       if (
         typeof ulozeny.aktualizovano === 'string' &&
         kUlozeni.aktualizovano < ulozeny.aktualizovano
       ) {
+        // Starší snapshot XP ani statistiky nepřepíše — dokončené lekce z něj
+        // se ale neztratí (sloučení postupu lekcí je monotónní; rozpracované
+        // bloky drží novější uložený stav).
+        if (progres.postupLekci) {
+          const slouceny = slucPostupLekci(progres.postupLekci, ulozeny.postupLekci);
+          if (JSON.stringify(slouceny) !== JSON.stringify(ulozeny.postupLekci ?? {})) {
+            db.prepare('UPDATE progres SET json = ? WHERE profil_id = ?').run(
+              JSON.stringify({ ...ulozeny, postupLekci: slouceny }),
+              profil.profilId,
+            );
+          }
+        }
         return c.json({ ok: true, prijato: false });
+      }
+      // Starší klient postup lekcí neposílá — uložený se nesmí ztratit;
+      // novější klient ho posílá celý a sloučení nic neubere.
+      if (ulozeny.postupLekci || progres.postupLekci) {
+        kUlozeni.postupLekci = slucPostupLekci(ulozeny.postupLekci, progres.postupLekci);
       }
     }
     db.prepare(
@@ -431,6 +451,51 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
         };
       }),
     );
+  });
+
+  // Přehled rodiny pro rodiče (admin účet v aplikaci): souhrn postupu všech
+  // profilů po předmětech a tématech — skládá ho sdílená čistá funkce
+  // sestavPrehledRodiny. PIN hashe z registru do odpovědi NEjdou.
+  app.get('/api/admin/prehled', overAuth('admin'), (c) => {
+    const profily = (
+      db.prepare('SELECT profil_id, json, aktualizovano FROM profily').all() as {
+        profil_id: string;
+        json: string;
+        aktualizovano: string;
+      }[]
+    ).map((r) => ({
+      ...(JSON.parse(r.json) as ProfilMetadata),
+      profilId: r.profil_id,
+      aktualizovano: r.aktualizovano,
+    }));
+    const progresy = (
+      db.prepare('SELECT profil_id, profil_jmeno, json, prijato FROM progres').all() as {
+        profil_id: string;
+        profil_jmeno: string | null;
+        json: string;
+        prijato: string;
+      }[]
+    ).map((r) => ({
+      profilId: r.profil_id,
+      jmeno: r.profil_jmeno ?? VYCHOZI_PROFIL_JMENO,
+      progres: JSON.parse(r.json) as SnimekProgresu,
+      prijato: r.prijato,
+    }));
+    const udalosti = (
+      db
+        .prepare('SELECT profil_id, json FROM udalosti ORDER BY id DESC LIMIT 5000')
+        .all() as { profil_id: string | null; json: string }[]
+    ).map((r) => ({
+      profilId: r.profil_id ?? VYCHOZI_PROFIL_ID,
+      vysledek: JSON.parse(r.json) as TestVysledek,
+    }));
+    const banky = (db.prepare('SELECT json FROM banky').all() as { json: string }[]).map(
+      (r) => JSON.parse(r.json) as BankaOtazek,
+    );
+    const vyuky = (db.prepare('SELECT json FROM vyuka').all() as { json: string }[]).map(
+      (r) => JSON.parse(r.json) as VyukaPredmetu,
+    );
+    return c.json(sestavPrehledRodiny({ profily, progresy, udalosti, banky, vyuky, ted: new Date() }));
   });
 
   // Pull progresu (druhé zařízení si stáhne KOMPLETNÍ postup profilu).

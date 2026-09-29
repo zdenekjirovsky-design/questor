@@ -310,10 +310,11 @@ Adresát vidí výzvu nahoře na stránce Duely („🔥 Výzvy pro tebe“,
 karta pulzuje) — **Přijmout a hrát**. Otázky výzvy drží server pod
 zámkem až do přijetí, proto je k přijetí potřeba připojení.
 
-**Průběh a bodování:** každá otázka má limit **(10 + 4×obtížnost)
-sekund** (násobený případným handicapem, viz níž). Správná odpověď
-= **100 bodů + až 50 za rychlost**; špatná odpověď nebo vypršení času
-= 0 bodů. Průběžně vidíš jen svoje skóre — soupeřovo se odhalí, až
+**Průběh a bodování:** na odpověď je **neomezeně času** — žádná otázka
+nepropadne. Správná odpověď = **100 bodů + až 50 za rychlost**: hned
+50, za normový čas (10 + 4×obtížnost sekund, u slabšího hráče delší,
+viz handicap) 25, pak bonus plynule klesá. Na obrazovce běží stopky
+a pruh „⚡ bonus“. Špatná odpověď = 0 bodů. Průběžně vidíš jen svoje skóre — soupeřovo se odhalí, až
 dohrají oba. Vyhrává vyšší součet bodů; při shodě rozhoduje nižší
 součet časů, shoda obojího je remíza. **Hraje se na jeden pokus** —
 odehraný výsledek je zapečetěný a opakovat ho nejde (server bere první
@@ -321,8 +322,8 @@ odevzdání; podvržené skóre neprojde, výsledek si přepočítává sám ze
 syrových odpovědí).
 
 **Handicap férovosti:** kdo daný obor zvládá hůř (méně naučených
-otázek banky), dostane na každou otázku víc času — násobič ×1,00 až
-×1,50. Počítá ho server z uloženého postupu obou hráčů při vytvoření
+otázek banky), má mírnější hodnocení rychlosti — bonus mu klesá
+pomaleji, násobič ×1,00 až ×1,50. Počítá ho server z uloženého postupu obou hráčů při vytvoření
 (cílená výzva) / přijetí (otevřená) a po celý duel se NEMĚNÍ; oba
 hráči ho vidí na úvodní obrazovce VS. Táta tak může férově duelovat
 se synem, který látku teprve dohání — a naopak.
@@ -334,7 +335,7 @@ a jen jeden na otázku:
 | Power-up | Co dělá |
 |---|---|
 | ✂️ **50 : 50** | skryje dvě špatné možnosti u výběrové otázky |
-| 🧊 **Zmrazení času** | přidá 10 sekund na aktuální otázku |
+| 🧊 **Zmrazení času** | prvních 10 sekund aktuální otázky se nepočítá do rychlosti |
 | 🛡️ **Štít** | první špatná odpověď od aktivace se počítá za 50 bodů místo 0 |
 
 **Trofeje a rivalita:** dokončené duely se zapisují do **trofejní
@@ -368,14 +369,14 @@ prohlížeč (klidně na telefonu). Otevře odkaz, zadá jméno a hraje.
    odehrát hned — nemusíš čekat, až odkaz otevře.
 4. Spolužák otevře odkaz v prohlížeči, zadá jen **jméno** (žádná
    registrace, žádný profil) a odehraje ÚPLNĚ STEJNÉ otázky podle
-   stejných pravidel: limit na otázku, bez průběžné zpětné vazby,
+   stejných pravidel: bez časového limitu (rychlost dává bonus), bez průběžné zpětné vazby,
    jeden pokus. Výsledek obou uvidí na téže adrese — když se vrátí
    přes tentýž odkaz, najde svoji rozehranou hru i konečné srovnání.
 5. Ty vidíš duel normálně na stránce Duely — soupeř nese jméno hosta
    se štítkem **host** a karta říká, jestli už odkaz otevřel a dohrál.
 
-Odlišnosti proti rodinnému duelu: host **nemá handicap** (oba hrají
-s běžnými limity) ani **power-upy**; duel se nepočítá do vzájemné
+Odlišnosti proti rodinnému duelu: host **nemá handicap** (oba mají
+stejné hodnocení rychlosti) ani **power-upy**; duel se nepočítá do vzájemné
 bilance ve vitríně (série a tituly ano). Odkaz je **jednorázový**
 (hraje první, kdo ho otevře a přijme — proto ho neposílej do skupinové
 konverzace) a platí **24 hodin** od založení duelu. Kód v odkazu

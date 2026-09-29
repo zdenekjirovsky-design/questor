@@ -8,7 +8,7 @@ questy, truhlami a sbírkou karet. Na jednom počítači se střídá víc lidí
 přes profily (bez e-mailu, volitelný PIN); rodinný kód propojí zařízení
 rodiny — profil i herní postup se přes malý server synchronizují mezi
 telefonem a počítačem a členové rodiny se mohou vyzývat na duely
-(stejné otázky, časový limit, power-upy, trofeje); duel jde poslat
+(stejné otázky, bonus za rychlost bez časového limitu, power-upy, trofeje); duel jde poslat
 i jednorázovým odkazem komukoli mimo rodinu. UI je responzivní až
 do šířky telefonu (hostovaná webová verze s PWA základem).
 
@@ -74,9 +74,9 @@ jde cílit na konkrétní profil. Postupy: `docs/NAVOD.md`, kap. 3 a 4.
 Asynchronní souboje mezi profily jedné rodiny: vyzyvatel zvolí obor
 (banku), volitelně témata, počet otázek (5/10/20) a soupeře — konkrétní
 profil, nebo otevřenou výzvu „kdokoli z rodiny“ (hraje první, kdo
-přijme). Oba hrají do 24 hodin identickou sadu otázek s časovým limitem
-na otázku a viditelným odpočtem, bez průběžné zpětné vazby; správně
-= 100 bodů + bonus za rychlost. Slabší hráč v oboru dostává férový
+přijme). Oba hrají do 24 hodin identickou sadu otázek bez časového
+limitu (stopky a pruh bonusu), bez průběžné zpětné vazby; správně
+= 100 bodů + až 50 za rychlost. Slabší hráč v oboru dostává férový
 bonus času (handicap ×1,0–1,5 zmrazený na celý duel), z truhel padají
 power-upy použitelné jen v duelu (50:50, zmrazení času, štít) a výhry
 se sbírají do trofejní vitríny (bilance dvojic, série, tituly). Server

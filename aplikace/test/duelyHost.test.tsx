@@ -419,19 +419,21 @@ describe('duel odkazem v rodinnem seznamu (vyzyvatel)', () => {
 });
 
 describe('hostovske UI — power-upy jsou skryte', () => {
-  it('HostOtazka nevykresluje listu power-upu, ale odpocet ano', () => {
+  it('HostOtazka nevykresluje listu power-upu, ale meridlo rychlosti ano', () => {
     const duel = duelOdkazem({
       souper: { profilId: HOST_ID, jmeno: 'Ondra' },
       host: { jmeno: 'Ondra' },
       handicap: { tata: 1, [HOST_ID]: 1 },
       stav: 'prijaty',
     });
-    const prubeh = odstartujPrubeh(vytvorDuelPrubeh(duel, HOST_ID, TED), Date.parse(TED));
+    // Otazka startuje ted — meridlo rychlosti bezi proti skutecnym hodinam.
+    const prubeh = odstartujPrubeh(vytvorDuelPrubeh(duel, HOST_ID, TED), Date.now());
     const html = renderToStaticMarkup(
       <HostOtazka prubeh={prubeh} otazka={otazkaVyber('o1')} onOdpoved={() => {}} />,
     );
     expect(html).not.toContain('duel-powerup');
     expect(html).toContain('duel-odpocet__bar');
+    expect(html).toContain('⚡ +50 b'); // na zacatku otazky plny bonus
     expect(html).toContain('1/2');
     expect(html).toContain('Otazka o1?');
   });

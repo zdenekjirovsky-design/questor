@@ -11,7 +11,8 @@ import type { Hono } from 'hono';
 import type { DatabaseSync } from 'node:sqlite';
 import {
   bodyZaOdpoved,
-  casLimitProHrace,
+  casProRychlost,
+  normaCasuProHrace,
   hostProfilId,
   type BankaOtazek,
   type Duel,
@@ -79,8 +80,11 @@ function vysledekHrace(
 function ocekavaneBody(banka: BankaOtazek, vysledek: VysledekDuelu, nasobic = 1): number {
   return vysledek.odpovedi.reduce((soucet, odpoved) => {
     const otazka = banka.otazky.find((o) => o.id === odpoved.otazkaId)!;
-    const limit = casLimitProHrace(otazka.obtiznost, nasobic);
-    return soucet + bodyZaOdpoved(odpoved.spravne, odpoved.casMs, limit);
+    const norma = normaCasuProHrace(otazka.obtiznost, nasobic);
+    return (
+      soucet +
+      bodyZaOdpoved(odpoved.spravne, casProRychlost(odpoved.casMs, odpoved.pouzityPowerup), norma)
+    );
   }, 0);
 }
 
@@ -422,7 +426,7 @@ describe('duel odkazem (hostovské endpointy)', () => {
       expect(znovu.status).toBe(409);
     });
 
-    it('odmítne čas přes limit + rezervu (host nemá prodloužené limity)', async () => {
+    it('přijme i pomalou odpověď hosta (limit není) — jen s menším bonusem', async () => {
       const duel = await zalozDuelOdkazem();
       await prijmi(duel);
       const pomaly = vysledekHrace(duel.otazkyIds);
@@ -431,7 +435,7 @@ describe('duel odkazem (hostovské endpointy)', () => {
         kod: duel.kodHosta,
         vysledek: pomaly,
       });
-      expect(odpoved.status).toBe(400);
+      expect(odpoved.status).toBe(200);
     });
 
     it('odmítne výsledek, který nepokrývá všechny otázky sady (400)', async () => {

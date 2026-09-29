@@ -433,10 +433,10 @@ export function registrujDuely(app: Hono, db: DatabaseSync, mw: MiddlewaryDuelu)
       return c.json({ chyba: 'Výsledek za tenhle profil už je odevzdaný — platí první pokus' }, 409);
     }
     // ANTI-CHEAT: klientským hodnotám body/celkovyCasMs server NEVĚŘÍ —
-    // výsledek se přepočítá ze syrových odpovědí proti bance duelu (limit
-    // = casLimitProHrace × zmrazený handicap + zmrazení času, štít jen na
-    // první špatnou). Odmítá se čas přes limit + rezervu, duplicitní otázka
-    // a otázka mimo banku; podvržené body se tiše nahradí přepočtem.
+    // výsledek se přepočítá ze syrových odpovědí proti bance duelu (rychlostní
+    // bonus z normového času × zmrazený handicap, zmrazení času odečte 10 s,
+    // štít jen na první špatnou). Časový limit není; odmítá se duplicitní
+    // otázka a otázka mimo banku, podvržené body se tiše nahradí přepočtem.
     const banka = nactiBanku(db, duel.predmetId);
     if (!banka) {
       return c.json({ chyba: 'Banka duelu už na serveru není — výsledek nejde ověřit' }, 409);

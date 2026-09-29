@@ -11,7 +11,8 @@ import type { Hono } from 'hono';
 import type { DatabaseSync } from 'node:sqlite';
 import {
   bodyZaOdpoved,
-  casLimitProHrace,
+  casProRychlost,
+  normaCasuProHrace,
   DUEL_TRVANI_MS,
   handicapNasobice,
   nahodaProDuel,
@@ -94,8 +95,8 @@ function progresProfilu(otazkyVBoxu: string[] = []): ProgresStudenta {
 /**
  * Poctivý výsledek půlky duelu — server body/celkovyCasMs PŘEPOČÍTÁVÁ ze
  * syrových odpovědí (klientským hodnotám nevěří), takže testy řídí skóre
- * počtem správných odpovědí a časem na otázku (musí být pod limitem každé
- * obtížnosti banky — min. limit je 14 s při handicapu 1).
+ * počtem správných odpovědí a časem na otázku (časový limit není — čas jen
+ * snižuje rychlostní bonus).
  */
 function vysledekHrace(
   otazkyIds: string[],
@@ -124,8 +125,11 @@ function ocekavaneBody(
 ): number {
   return vysledek.odpovedi.reduce((soucet, odpoved) => {
     const otazka = banka.otazky.find((o) => o.id === odpoved.otazkaId)!;
-    const limit = casLimitProHrace(otazka.obtiznost, nasobic);
-    return soucet + bodyZaOdpoved(odpoved.spravne, odpoved.casMs, limit);
+    const norma = normaCasuProHrace(otazka.obtiznost, nasobic);
+    return (
+      soucet +
+      bodyZaOdpoved(odpoved.spravne, casProRychlost(odpoved.casMs, odpoved.pouzityPowerup), norma)
+    );
   }, 0);
 }
 
@@ -477,7 +481,17 @@ describe('duely', () => {
       expect(ulozeny.body).toBeLessThan(750);
     });
 
-    it('odmítne casMs přes limit otázky + rezervu (400)', async () => {
+    it('časový limit není — přijme i dlouhou odpověď, jen s menším bonusem', async () => {
+      const duel = await zalozDuel({ souperProfilId: 'syn' });
+      const vysledek = vysledekHrace(duel.otazkyIds);
+      vysledek.odpovedi[0] = { ...vysledek.odpovedi[0], casMs: 10 * 60_000 };
+      const odpoved = await post(`/api/duely/${duel.id}/vysledek`, { profilId: 'tata', vysledek });
+      expect(odpoved.status).toBe(200);
+      const ulozeny = ((await odpoved.json()) as Duel).vysledky.tata;
+      expect(ulozeny.body).toBe(ocekavaneBody(duelovaBanka(), vysledek));
+    });
+
+    it('odmítne nesmyslný čas delší než celý duel (400)', async () => {
       const duel = await zalozDuel({ souperProfilId: 'syn' });
       const vysledek = vysledekHrace(duel.otazkyIds);
       vysledek.odpovedi[0] = { ...vysledek.odpovedi[0], casMs: 1_000_000_000 };
@@ -609,7 +623,7 @@ describe('duely', () => {
       expect(duel.handicap).toEqual({ tata: 1, syn: 1 });
     });
 
-    it('slabší hráč dostane delší limity dle sdíleného vzorce', async () => {
+    it('slabší hráč dostane mírnější hodnocení rychlosti dle sdíleného vzorce', async () => {
       // Táta zvládá 6 z 12 otázek banky (box ≥ 3), syn žádnou.
       const otazkyTaty = ['o-1', 'o-2', 'o-3', 'o-4', 'o-5', 'o-6'];
       await post('/api/progres', { ...progresProfilu(otazkyTaty), profilId: 'tata', profilJmeno: 'Táta' });

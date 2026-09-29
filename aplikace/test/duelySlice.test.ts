@@ -104,7 +104,7 @@ describe('prubeh duelu pres store', () => {
 
     pouzijStav.getState().odpovezVDueluAkce({ typ: 'vyber', vybrana: 0 }, 2_000); // spravne
     expect(pouzijStav.getState().aktualniDuel?.index).toBe(1);
-    pouzijStav.getState().odpovezVDueluAkce(null, 0); // timeout = 0 bodu
+    pouzijStav.getState().odpovezVDueluAkce({ typ: 'vyber', vybrana: 1 }, 90_000); // spatne = 0 bodu, limit neni
 
     const stav = pouzijStav.getState();
     expect(stav.aktualniDuel).toBeNull();

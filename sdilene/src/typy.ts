@@ -165,7 +165,7 @@ export interface Vyzva {
  * Power-upy do duelů — padají z truhel, hromadí se v progresu a použít je lze
  * JEN v duelu, každý typ max 1× za duel:
  * - 'pade-na-pade'  = 50:50, skryje 2 špatné možnosti u výběrové otázky,
- * - 'zmrazeni-casu' = +10 s na aktuální otázku,
+ * - 'zmrazeni-casu' = prvních 10 s aktuální otázky se nepočítá do rychlosti,
  * - 'stit'          = první špatná odpověď se počítá za 50 bodů místo 0.
  */
 export type PowerupTyp = 'pade-na-pade' | 'zmrazeni-casu' | 'stit';
@@ -187,7 +187,7 @@ export interface HostDuelu {
 export interface OdpovedDuelu {
   otazkaId: string;
   spravne: boolean;
-  /** Čas strávený na otázce (timeout = čas limitu, spravne false). */
+  /** Čas strávený na otázce (bez limitu — delší čas jen snižuje rychlostní bonus). */
   casMs: number;
   /** Power-up použitý na této otázce (každý typ max 1× za duel). */
   pouzityPowerup?: PowerupTyp;
@@ -195,7 +195,7 @@ export interface OdpovedDuelu {
 
 export interface VysledekDuelu {
   odpovedi: OdpovedDuelu[];
-  /** Součet bodů dle bodyZaOdpoved (100 + časový bonus, štít 50 za první chybu). */
+  /** Součet bodů dle bodyZaOdpoved (100 + rychlostní bonus, štít 50 za první chybu). */
   body: number;
   /** Součet časů odpovědí — rozhoduje při shodě bodů (nižší vyhrává). */
   celkovyCasMs: number;

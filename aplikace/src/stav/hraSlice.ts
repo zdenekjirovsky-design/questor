@@ -57,7 +57,6 @@ import {
   otazkyDuelu,
   pouzijPowerupVPrubehu,
   sloucDuely,
-  timeoutVPrubehu,
   vysledekZPrubehu,
   vytvorDuelPrubeh,
   type DuelPrubeh,
@@ -312,11 +311,11 @@ export interface HraSlice {
   /** Odstartuje čas první otázky (klik na „Do boje!" na intru). */
   odstartujDuelAkce(): void;
   /**
-   * Odpověď v duelu; hodnota null = timeout (0 bodů). Po poslední otázce
+   * Odpověď v duelu (časový limit není — čas jen snižuje rychlostní bonus). Po poslední otázce
    * uloží můj výsledek do duelu, zařadí ho do offline fronty a případně
    * duel lokálně vyhodnotí (trofeje, tituly).
    */
-  odpovezVDueluAkce(hodnota: OdpovedHodnota | null, casMs: number): void;
+  odpovezVDueluAkce(hodnota: OdpovedHodnota, casMs: number): void;
   /**
    * Použije power-up v běžícím duelu (ubere kus ze zásoby v progresu).
    * Vrací false, když použít nejde (došla zásoba, už použitý, špatný typ
@@ -793,10 +792,13 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
     if (!duel || !otazka) return;
 
     const ted = new Date();
-    const novyPrubeh =
-      hodnota === null
-        ? timeoutVPrubehu(prubeh, otazka, ted.getTime())
-        : odpovezVPrubehu(prubeh, otazka, vyhodnotOdpoved(otazka, hodnota), casMs, ted.getTime());
+    const novyPrubeh = odpovezVPrubehu(
+      prubeh,
+      otazka,
+      vyhodnotOdpoved(otazka, hodnota),
+      casMs,
+      ted.getTime(),
+    );
 
     if (!novyPrubeh.dokonceno) {
       set({ aktualniDuel: novyPrubeh });

@@ -15,18 +15,18 @@ import DoplneniOtazka from '../testy/komponenty/DoplneniOtazka';
 import PrirazovaniOtazka from '../testy/komponenty/PrirazovaniOtazka';
 import type { OdpovedHodnota } from '../testy/engine';
 import { ikonaPredmetu, nazevPredmetu } from '../data/predmety';
-import { expirujDuel } from '@questor/sdilene';
+import { expirujDuel, MAX_BONUS_BODY } from '@questor/sdilene';
 import {
+  bonusTedVPrubehu,
+  casOtazkyMs,
   jeDokoncenyDuel,
-  limitOtazkyPrubehu,
   muzePouzitPowerup,
   otazkyDuelu,
-  zbyvaMsVPrubehu,
   type DuelPrubeh,
 } from './engine';
 import {
   duelovyKlient,
-  formatujOdpocet,
+  formatujCasOtazky,
   IKONY_POWERUPU,
   popisHandicapu,
   souperVDuelu,
@@ -68,7 +68,7 @@ export default function DuelHrani() {
         <div className="panel duely__prazdno">
           <p className="duely__prazdno-titulek">📣 Výzva letí do rodiny…</p>
           <p>
-            Hrát můžeš, až výzvu někdo přijme — teprve pak se férově zamknou časové bonusy obou
+            Hrát můžeš, až výzvu někdo přijme — teprve pak se férově zamknou bonusy za rychlost obou
             hráčů. ({zbyvaDoVyprseni(duel.vyprsi, Date.now())})
           </p>
           <Link to="/duely" className="tlacitko">
@@ -228,7 +228,7 @@ function IntroVS({ duel, profilId }: { duel: Duel; profilId: string }) {
             <Avatar konfigurace={mujAvatar} velikost={84} />
             <div className="duel-intro__jmeno">{mojeJmeno}</div>
             {handicap.muj > 1 && (
-              <div className="duel-intro__bonus">⏱️ čas ×{handicap.muj.toFixed(2).replace('.', ',')}</div>
+              <div className="duel-intro__bonus">⚡ rychlost ×{handicap.muj.toFixed(2).replace('.', ',')}</div>
             )}
           </div>
           <div className="duel-intro__blesk" aria-hidden="true">VS</div>
@@ -246,7 +246,7 @@ function IntroVS({ duel, profilId }: { duel: Duel; profilId: string }) {
             </div>
             {handicap.souperuv > 1 && (
               <div className="duel-intro__bonus">
-                ⏱️ čas ×{handicap.souperuv.toFixed(2).replace('.', ',')}
+                ⚡ rychlost ×{handicap.souperuv.toFixed(2).replace('.', ',')}
               </div>
             )}
           </div>
@@ -254,8 +254,11 @@ function IntroVS({ duel, profilId }: { duel: Duel; profilId: string }) {
         {handicap.text && <p className="duel-intro__handicap">{handicap.text}</p>}
         <ul className="duel-intro__pravidla">
           <li>Oba hrajete <strong>úplně stejné otázky</strong> ve stejném pořadí.</li>
-          <li>Každá otázka má <strong>časový limit</strong> — správně = 100 b + bonus za rychlost.</li>
-          <li>Špatně nebo pozdě = 0 b. Vysvětlení uvidíš až po duelu.</li>
+          <li>
+            Na odpověď máš <strong>neomezený čas</strong> — správně = 100 b + až 50 b za rychlost
+            (čím dřív, tím víc).
+          </li>
+          <li>Špatně = 0 b. Vysvětlení uvidíš až po duelu.</li>
           <li>Power-upy z truhel smíš použít každý <strong>jednou za duel</strong>.</li>
         </ul>
         <button
@@ -279,28 +282,7 @@ function OtazkaDuelu({ duel, prubeh }: { duel: Duel; prubeh: DuelPrubeh }) {
   const otazky = useMemo(() => otazkyDuelu(duel, banka), [duel, banka]);
   const otazka = otazky?.[prubeh.index] ?? null;
 
-  // Viditelny odpocet — tikat staci 10× za sekundu (limit je v sekundach).
-  const [ted, setTed] = useState(() => Date.now());
-  useEffect(() => {
-    const interval = setInterval(() => setTed(Date.now()), 100);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Timeout: 0 bodu a dalsi otazka. Ref hlida dvojite vystreleni pro stejny index.
-  const timeoutProIndex = useRef(-1);
-  const zbyva = otazka ? zbyvaMsVPrubehu(prubeh, otazka, ted) : 1;
-  useEffect(() => {
-    if (!otazka || zbyva > 0 || prubeh.dokonceno) return;
-    if (timeoutProIndex.current === prubeh.index) return;
-    timeoutProIndex.current = prubeh.index;
-    odpovezAkce(null, Number.MAX_SAFE_INTEGER);
-  }, [zbyva, otazka, prubeh.index, prubeh.dokonceno, odpovezAkce]);
-
   if (!otazka) return null;
-
-  const limit = limitOtazkyPrubehu(prubeh, otazka);
-  const podil = Math.max(0, Math.min(1, zbyva / Math.max(1, limit)));
-  const dochazi = zbyva <= 5000;
 
   const odpovez = (hodnota: OdpovedHodnota) => {
     odpovezAkce(hodnota, Date.now() - prubeh.zacatekOtazkyMs);
@@ -312,21 +294,7 @@ function OtazkaDuelu({ duel, prubeh }: { duel: Duel; prubeh: DuelPrubeh }) {
         <span className="test-pocitadlo">
           {prubeh.index + 1}/{prubeh.pocetOtazek}
         </span>
-        <div className="duel-odpocet">
-          <div
-            className={`duel-odpocet__bar${dochazi ? ' duel-odpocet__bar--dochazi' : ''}`}
-            role="progressbar"
-            aria-label="Zbývající čas"
-            aria-valuemin={0}
-            aria-valuemax={limit}
-            aria-valuenow={Math.round(zbyva)}
-          >
-            <div style={{ width: `${podil * 100}%` }} />
-          </div>
-          <span className={`duel-odpocet__cas${dochazi ? ' duel-odpocet__cas--dochazi' : ''}`}>
-            ⏳ {formatujOdpocet(zbyva)}
-          </span>
-        </div>
+        <MeridloRychlosti prubeh={prubeh} otazka={otazka} />
         <span className="duel-skore">
           {prubeh.body} b
           {prubeh.posledniBody > 0 && (
@@ -343,7 +311,9 @@ function OtazkaDuelu({ duel, prubeh }: { duel: Duel; prubeh: DuelPrubeh }) {
         <div className="test-meta">
           <span className="stitek">Obtížnost {otazka.obtiznost}/5</span>
           {prubeh.stitAktivni && <span className="stitek duel-stitek-stitu">🛡️ Štít aktivní</span>}
-          {prubeh.bonusCasuMs > 0 && <span className="stitek duel-stitek-stitu">🧊 +10 s</span>}
+          {prubeh.powerupAktualniOtazky === 'zmrazeni-casu' && (
+            <span className="stitek duel-stitek-stitu">🧊 10 s zdarma</span>
+          )}
         </div>
         <h2 className="test-zadani">{otazka.zadani}</h2>
         <TeloOtazkyDuelu
@@ -354,6 +324,37 @@ function OtazkaDuelu({ duel, prubeh }: { duel: Duel; prubeh: DuelPrubeh }) {
         />
       </div>
     </section>
+  );
+}
+
+/**
+ * Měřidlo rychlosti: stopky aktuální otázky a pruh bonusu, který by hráč
+ * dostal za správnou odpověď právě teď. Časový limit není — pruh jen
+ * plynule klesá. Sdílí ho rodinný duel i host (HostDuel).
+ */
+export function MeridloRychlosti({ prubeh, otazka }: { prubeh: DuelPrubeh; otazka: Otazka }) {
+  const [ted, setTed] = useState(() => Date.now());
+  useEffect(() => {
+    const interval = setInterval(() => setTed(Date.now()), 200);
+    return () => clearInterval(interval);
+  }, []);
+  const bonus = bonusTedVPrubehu(prubeh, otazka, ted);
+  return (
+    <div className="duel-odpocet">
+      <div
+        className="duel-odpocet__bar"
+        role="meter"
+        aria-label="Bonus za rychlost"
+        aria-valuemin={0}
+        aria-valuemax={MAX_BONUS_BODY}
+        aria-valuenow={bonus}
+      >
+        <div style={{ width: `${(bonus / MAX_BONUS_BODY) * 100}%` }} />
+      </div>
+      <span className="duel-odpocet__cas">
+        ⏱️ {formatujCasOtazky(casOtazkyMs(prubeh, ted))} · ⚡ +{bonus} b
+      </span>
+    </div>
   );
 }
 

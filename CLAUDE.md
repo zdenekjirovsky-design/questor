@@ -187,8 +187,8 @@ při integrační kontrole):
   :10121 + `.htaccess` proxy `/questor-api`);
 - vlna 7 — DUELY (asynchronní výzvy mezi profily jedné rodiny; kontrakt
   v ARCHITEKTURA sekce Duely, návod NAVOD kap. 5). Sdílené jádro
-  `sdilene/src/duely.ts`: bodování (100 + bonus rychlosti, limit
-  (10+4×obtížnost) s), handicap férovosti ×1,0–1,5 ze zvládnutí oboru
+  `sdilene/src/duely.ts`: bodování (100 + bonus rychlosti; od v0.7.4
+  BEZ limitu — normový čas (10+4×obtížnost) s je jen měřítko bonusu), handicap férovosti ×1,0–1,5 ze zvládnutí oboru
   (Leitner box ≥ 3), deterministický výběr otázek (seed = id duelu),
   vyhodnocení a líná expirace (`expirujDuel`, kontumace), trofeje
   (`aktualizujTrofeje`, merge `sloucTrofeje` při LWW pullu progresu),
@@ -196,12 +196,12 @@ při integrační kontrole):
   Server `server/src/duely.ts` (`registrujDuely`): POST/GET
   `/api/duely`, `prijmout` (first-wins, zmrazení handicapu), `vysledek`
   (platí první zápis, server body/časy přepočítává ze syrových
-  odpovědí proti bance — odmítá čas přes limit + 2 s, duplicitní
+  odpovědí proti bance — odmítá duplicitní
   otázku, otázku mimo banku; sada otázek se před přijetím ZATAJUJE),
   admin přehled `/api/duely/prehled` + sekce Duely v admin webu,
   tabulka `duely`, duel nese `verzeBanky`. Aplikace
   `aplikace/src/duely/` (stránka Duely s dialogem výzvy, DuelHrani —
-  intro VS s handicapem, odpočet, power-up lišta, auto-přijetí cílené
+  intro VS s handicapem, stopky + pruh bonusu (MeridloRychlosti), power-up lišta, auto-přijetí cílené
   výzvy; DuelVysledek, DuelyIndikator; čistý engine průběhu
   `engine.ts`), akce v hraSlice (`zacniDuelAkce` …
   `pouzijPowerupAkce`), offline fronta `duel-vysledek` (409 = platí

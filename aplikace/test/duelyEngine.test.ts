@@ -1,10 +1,12 @@
-// Testy klientskeho enginu duelu — limity s handicapem, timeouty, power-upy
-// (50:50, zmrazeni, stit), sestaveni vysledku, trideni a merge seznamu duelu.
+// Testy klientskeho enginu duelu — cas bez limitu a rychlostni bonus
+// s handicapem, power-upy (50:50, zmrazeni, stit), sestaveni vysledku,
+// trideni a merge seznamu duelu.
 import { describe, expect, it } from 'vitest';
 import type { BankaOtazek, Duel, Otazka, OtazkaVyber } from '@questor/sdilene';
 import { vytvorNahodu } from '@questor/sdilene';
 import {
-  limitOtazkyPrubehu,
+  bonusTedVPrubehu,
+  casOtazkyMs,
   muzeHratDuel,
   muzePouzitPowerup,
   odpovezVPrubehu,
@@ -14,10 +16,8 @@ import {
   pouzijPowerupVPrubehu,
   rozdelDuely,
   sloucDuely,
-  timeoutVPrubehu,
   vysledekZPrubehu,
   vytvorDuelPrubeh,
-  zbyvaMsVPrubehu,
 } from '../src/duely/engine';
 
 // ---------------------------------------------------------------------------
@@ -77,32 +77,39 @@ const vysledekHrace = (body: number, casMs = 10_000) => ({
 
 // ---------------------------------------------------------------------------
 
-describe('prubeh duelu — cas a limity', () => {
-  it('limit otazky nasobi muj handicap (limit × 1.25) a zmrazeni pridava 10 s', () => {
+describe('prubeh duelu — cas bez limitu a rychlostni bonus', () => {
+  it('bonus klesa podle normoveho casu × muj handicap, zmrazeni odecte 10 s', () => {
     const d = duel();
     let prubeh = odstartujPrubeh(vytvorDuelPrubeh(d, 'ja', '2026-09-04T10:00:00.000Z'), 1000);
-    const o = otazkaVyber('o1', 3); // (10 + 12) s = 22 000 ms
-    expect(limitOtazkyPrubehu(prubeh, o)).toBe(27_500); // × 1.25
+    const o = otazkaVyber('o1', 3); // norma (10 + 12) s × 1.25 = 27 500 ms
+    expect(casOtazkyMs(prubeh, 11_000)).toBe(10_000);
+    expect(bonusTedVPrubehu(prubeh, o, 1000)).toBe(50); // hned = plny bonus
+    expect(bonusTedVPrubehu(prubeh, o, 1000 + 27_500)).toBe(25); // za normovy cas polovina
 
     const sPowerupem = pouzijPowerupVPrubehu(prubeh, 'zmrazeni-casu', o, vytvorNahodu(1));
     expect(sPowerupem).not.toBeNull();
     prubeh = sPowerupem!;
-    expect(limitOtazkyPrubehu(prubeh, o)).toBe(37_500); // + 10 s
-    expect(zbyvaMsVPrubehu(prubeh, o, 11_000)).toBe(27_500); // 10 s ubehlo
+    expect(bonusTedVPrubehu(prubeh, o, 1000 + 10_000)).toBe(50); // prvnich 10 s zdarma
+    expect(bonusTedVPrubehu(prubeh, o, 1000 + 37_500)).toBe(25);
   });
 
-  it('vyzyvatel bez handicapu ma zakladni limit', () => {
+  it('vyzyvatel bez handicapu: za zakladni normu presne polovina bonusu', () => {
+    const prubeh = odstartujPrubeh(vytvorDuelPrubeh(duel(), 'tata', '2026-09-04T10:00:00.000Z'), 0);
+    expect(bonusTedVPrubehu(prubeh, otazkaVyber('o1', 1), 14_000)).toBe(25);
+    expect(bonusTedVPrubehu(prubeh, otazkaVyber('o1', 5), 30_000)).toBe(25);
+  });
+
+  it('pred startem cas nebezi', () => {
     const prubeh = vytvorDuelPrubeh(duel(), 'tata', '2026-09-04T10:00:00.000Z');
-    expect(limitOtazkyPrubehu(prubeh, otazkaVyber('o1', 1))).toBe(14_000);
-    expect(limitOtazkyPrubehu(prubeh, otazkaVyber('o1', 5))).toBe(30_000);
+    expect(casOtazkyMs(prubeh, 99_000)).toBe(0);
   });
 });
 
 describe('prubeh duelu — odpovedi a bodovani', () => {
-  it('spravna odpoved da 100 + casovy bonus, spatna 0; timeout 0 a dalsi otazka', () => {
+  it('spravna odpoved da 100 + rychlostni bonus; bez limitu se zapocita i po minutach', () => {
     const d = duel();
     let prubeh = odstartujPrubeh(vytvorDuelPrubeh(d, 'tata', '2026-09-04T10:00:00.000Z'), 0);
-    const o1 = otazkaVyber('o1', 3); // limit 22 000
+    const o1 = otazkaVyber('o1', 3); // norma 22 000
 
     prubeh = odpovezVPrubehu(prubeh, o1, true, 0, 5_000);
     expect(prubeh.body).toBe(150); // 100 + plny bonus
@@ -110,20 +117,31 @@ describe('prubeh duelu — odpovedi a bodovani', () => {
     expect(prubeh.zacatekOtazkyMs).toBe(5_000);
 
     const o2 = otazkaVyber('o2', 3);
-    prubeh = timeoutVPrubehu(prubeh, o2, 30_000);
-    expect(prubeh.body).toBe(150); // timeout = 0 bodu
-    expect(prubeh.odpovedi[1]).toMatchObject({ otazkaId: 'o2', spravne: false, casMs: 22_000 });
+    prubeh = odpovezVPrubehu(prubeh, o2, true, 5 * 60_000, 305_000);
+    expect(prubeh.posledniBody).toBe(103); // 100 + round(50 × 22/322)
+    expect(prubeh.odpovedi[1]).toMatchObject({ otazkaId: 'o2', spravne: true, casMs: 300_000 });
     expect(prubeh.dokonceno).toBe(true); // 2 otazky duelu odehrany
   });
 
-  it('odpoved v polovine limitu da 100 + 25 bodu (round 50 × zbyvajici/limit)', () => {
+  it('odpoved za normovy cas da 100 + 25 bodu, spatna 0', () => {
     const prubeh = odstartujPrubeh(
       vytvorDuelPrubeh(duel(), 'tata', '2026-09-04T10:00:00.000Z'),
       0,
     );
-    const po = odpovezVPrubehu(prubeh, otazkaVyber('o1', 3), true, 11_000, 12_000);
+    const po = odpovezVPrubehu(prubeh, otazkaVyber('o1', 3), true, 22_000, 23_000);
     expect(po.body).toBe(125);
     expect(po.posledniBody).toBe(125);
+    const spatne = odpovezVPrubehu(prubeh, otazkaVyber('o1', 3), false, 1_000, 2_000);
+    expect(spatne.body).toBe(0);
+  });
+
+  it('zmrazeni casu: odpoved do 10 s ma plny bonus', () => {
+    const o1 = otazkaVyber('o1', 3);
+    const start = odstartujPrubeh(vytvorDuelPrubeh(duel(), 'tata', '2026-09-04T10:00:00.000Z'), 0);
+    const sPowerupem = pouzijPowerupVPrubehu(start, 'zmrazeni-casu', o1, vytvorNahodu(1))!;
+    const po = odpovezVPrubehu(sPowerupem, o1, true, 9_500, 9_500);
+    expect(po.body).toBe(150);
+    expect(po.odpovedi[0]).toMatchObject({ casMs: 9_500, pouzityPowerup: 'zmrazeni-casu' });
   });
 
   it('vysledekZPrubehu secte body a casy vsech odpovedi', () => {
@@ -186,7 +204,7 @@ describe('power-upy', () => {
     expect(prubeh.stitAktivni).toBe(true);
     prubeh = odpovezVPrubehu(prubeh, o1, true, 1_000, 2_000);
     expect(prubeh.stitAktivni).toBe(true); // spravna odpoved stit nespotrebuje
-    const poSpravne = prubeh.body; // 100 + round(50 × 21/22) = 148
+    const poSpravne = prubeh.body; // 100 + round(50 × 22/23) = 148
     expect(poSpravne).toBe(148);
     prubeh = odpovezVPrubehu(prubeh, otazkaVyber('o2'), false, 1_000, 3_000);
     expect(prubeh.body).toBe(poSpravne + 50); // stit: 50 misto 0

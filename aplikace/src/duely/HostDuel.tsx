@@ -14,18 +14,15 @@ import { ikonaPredmetu, nazevPredmetu } from '../data/predmety';
 import { ChybaSyncu } from '../sync/klient';
 import { vyhodnotOdpoved, type OdpovedHodnota } from '../testy/engine';
 import {
-  limitOtazkyPrubehu,
   odpovezVPrubehu,
   odstartujPrubeh,
   otazkyDuelu,
-  timeoutVPrubehu,
   vysledekZPrubehu,
   vytvorDuelPrubeh,
-  zbyvaMsVPrubehu,
   type DuelPrubeh,
 } from './engine';
-import { formatujCelkovyCas, formatujOdpocet, zbyvaDoVyprseni } from './pomocne';
-import { TeloOtazkyDuelu } from './DuelHrani';
+import { formatujCelkovyCas, zbyvaDoVyprseni } from './pomocne';
+import { MeridloRychlosti, TeloOtazkyDuelu } from './DuelHrani';
 import {
   nactiHostStav,
   obnovHostDuel,
@@ -194,7 +191,7 @@ export default function HostDuel({
   }, [stav.vysledek, stav.odeslano]);
 
   const odpovez = useCallback(
-    (hodnota: OdpovedHodnota | null, casMs: number) => {
+    (hodnota: OdpovedHodnota, casMs: number) => {
       lokalniPokrok.current = true;
       setStav((s) => {
         const prubeh = s.prubeh;
@@ -202,10 +199,13 @@ export default function HostDuel({
         const otazka = prubeh && !prubeh.dokonceno ? otazky?.[prubeh.index] : undefined;
         if (!prubeh || !otazka) return s;
         const ted = new Date();
-        const novyPrubeh =
-          hodnota === null
-            ? timeoutVPrubehu(prubeh, otazka, ted.getTime())
-            : odpovezVPrubehu(prubeh, otazka, vyhodnotOdpoved(otazka, hodnota), casMs, ted.getTime());
+        const novyPrubeh = odpovezVPrubehu(
+          prubeh,
+          otazka,
+          vyhodnotOdpoved(otazka, hodnota),
+          casMs,
+          ted.getTime(),
+        );
         const novy: HostUlozenyStav = {
           ...s,
           prubeh: novyPrubeh,
@@ -488,8 +488,11 @@ function HostIntro({ duel, jmeno, onStart }: { duel: Duel; jmeno: string; onStar
       </div>
       <ul className="duel-intro__pravidla">
         <li>Oba hrajete <strong>úplně stejné otázky</strong> ve stejném pořadí.</li>
-        <li>Každá otázka má <strong>časový limit</strong> — správně = 100 b + bonus za rychlost.</li>
-        <li>Špatně nebo pozdě = 0 b. Hraje se jen jednou, bez druhého pokusu.</li>
+        <li>
+          Na odpověď máš <strong>neomezený čas</strong> — správně = 100 b + až 50 b za rychlost
+          (čím dřív, tím víc).
+        </li>
+        <li>Špatně = 0 b. Hraje se jen jednou, bez druhého pokusu.</li>
         <li>Výsledek uvidíš hned po dohrání obou hráčů.</li>
       </ul>
       <button type="button" className="tlacitko tlacitko--zlate duel-intro__start" onClick={onStart}>
@@ -511,28 +514,8 @@ export function HostOtazka({
 }: {
   prubeh: DuelPrubeh;
   otazka: Otazka;
-  onOdpoved(hodnota: OdpovedHodnota | null, casMs: number): void;
+  onOdpoved(hodnota: OdpovedHodnota, casMs: number): void;
 }) {
-  // Viditelny odpocet — tikat staci 10× za sekundu.
-  const [ted, setTed] = useState(() => Date.now());
-  useEffect(() => {
-    const interval = setInterval(() => setTed(Date.now()), 100);
-    return () => clearInterval(interval);
-  }, []);
-
-  const timeoutProIndex = useRef(-1);
-  const zbyva = zbyvaMsVPrubehu(prubeh, otazka, ted);
-  useEffect(() => {
-    if (zbyva > 0 || prubeh.dokonceno) return;
-    if (timeoutProIndex.current === prubeh.index) return;
-    timeoutProIndex.current = prubeh.index;
-    onOdpoved(null, Number.MAX_SAFE_INTEGER);
-  }, [zbyva, prubeh.index, prubeh.dokonceno, onOdpoved]);
-
-  const limit = limitOtazkyPrubehu(prubeh, otazka);
-  const podil = Math.max(0, Math.min(1, zbyva / Math.max(1, limit)));
-  const dochazi = zbyva <= 5000;
-
   return (
     <section
       className="duel-hrani"
@@ -542,21 +525,7 @@ export function HostOtazka({
         <span className="test-pocitadlo">
           {prubeh.index + 1}/{prubeh.pocetOtazek}
         </span>
-        <div className="duel-odpocet">
-          <div
-            className={`duel-odpocet__bar${dochazi ? ' duel-odpocet__bar--dochazi' : ''}`}
-            role="progressbar"
-            aria-label="Zbývající čas"
-            aria-valuemin={0}
-            aria-valuemax={limit}
-            aria-valuenow={Math.round(zbyva)}
-          >
-            <div style={{ width: `${podil * 100}%` }} />
-          </div>
-          <span className={`duel-odpocet__cas${dochazi ? ' duel-odpocet__cas--dochazi' : ''}`}>
-            ⏳ {formatujOdpocet(zbyva)}
-          </span>
-        </div>
+        <MeridloRychlosti prubeh={prubeh} otazka={otazka} />
         <span className="duel-skore">
           {prubeh.body} b
           {prubeh.posledniBody > 0 && (

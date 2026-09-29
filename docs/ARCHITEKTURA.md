@@ -150,7 +150,7 @@ zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
 | `GET /api/duely?profilId=` | student | `{ moje: Duel[], otevrene: Duel[] }` — moje běžící + posledních 20 dokončených; otevřené = cizí rodinné výzvy k přijetí. Bez query platí výchozí profil. Expirace je líná: čtení překlopí prošlé duely na `vyprsely` (kontumace). ANTI-CHEAT: `otazkyIds` se ZATAJUJE (prázdné pole) u všech otevřených výzev a adresátovi cílené výzvy před přijetím — klient má lokálně banku s klíčem správnosti a sadu předem znát nesmí; plná sada přijde v odpovědi na přijetí (vyzyvatel ji má z odpovědi na založení) |
 | `GET /api/duely/prehled` | admin | posledních 100 duelů (nejnovější první) pro admin web |
 | `POST /api/duely/:id/prijmout` | student | `{ profilId, jmeno }` → `Duel` (s plnou sadou `otazkyIds`). Otevřená výzva: first-wins, při přijetí se ZMRAZÍ handicap obou ze snapshotů progresu; druhý zájemce → 409. Cílená: smí jen adresát (jinak 409), opakované přijetí týmž profilem je idempotentní. Vlastní výzva / vypršelý / dohraný → 409 |
-| `POST /api/duely/:id/vysledek` | student | `{ profilId, vysledek: VysledekDuelu }` → `Duel`. Platí PRVNÍ zápis za profil — opakovaný → 409 (anti-cheat). ANTI-CHEAT přepočet: server klientským `body`/`celkovyCasMs` NEVĚŘÍ — přepočítá je ze syrových odpovědí proti bance (`prepoctiVysledekDuelu` ve sdíleném jádru: limit = `casLimitProHrace` × zmrazený handicap + zmrazení času na otázce s power-upem, štít jen na první špatnou od aktivace) a odmítne 400 `casMs` > limit + 2 s rezerva (`REZERVA_CASU_DUELU_MS`), duplicitní `otazkaId` i otázku mimo banku; banka smazaná ze serveru → 409. Výsledek od cíleného soupeře je zároveň přijetí; do nepřijaté OTEVŘENÉ výzvy výsledek nejde (409 — handicap ještě není zmrazený). Po obou výsledcích server duel vyhodnotí (`vyhodnotDuel`: body → nižší součet časů → remíza) a uzavře jako `hotovy` s `vitezProfilId`. Celý nový stav duelu validuje sdílené `duelSchema` (odpovědi jen na otázky duelu, každá otázka i power-up max 1×) |
+| `POST /api/duely/:id/vysledek` | student | `{ profilId, vysledek: VysledekDuelu }` → `Duel`. Platí PRVNÍ zápis za profil — opakovaný → 409 (anti-cheat). ANTI-CHEAT přepočet: server klientským `body`/`celkovyCasMs` NEVĚŘÍ — přepočítá je ze syrových odpovědí proti bance (`prepoctiVysledekDuelu` ve sdíleném jádru: rychlostní bonus z normového času × zmrazený handicap, zmrazení času odečte 10 s na otázce s power-upem, štít jen na první špatnou od aktivace; časový limit NENÍ) a odmítne 400 `casMs` nad trvání duelu (24 h, `odpovedDueluSchema`), duplicitní `otazkaId` i otázku mimo banku; banka smazaná ze serveru → 409. Výsledek od cíleného soupeře je zároveň přijetí; do nepřijaté OTEVŘENÉ výzvy výsledek nejde (409 — handicap ještě není zmrazený). Po obou výsledcích server duel vyhodnotí (`vyhodnotDuel`: body → nižší součet časů → remíza) a uzavře jako `hotovy` s `vitezProfilId`. Celý nový stav duelu validuje sdílené `duelSchema` (odpovědi jen na otázky duelu, každá otázka i power-up max 1×) |
 | `GET /api/hoste/duely/:id` | host (jen kód) | Stav duelu odkazem pro hosta (i výsledek po dohrání obou). Kód jde PRIMÁRNĚ hlavičkou `x-questor-host-kod` (query string končí v access logu proxy a popřel by smysl fragmentu `#` v odkazu); `?kod=` zůstává jen jako fallback pro starší klienty. Špatný/chybějící/cizí kód i neexistující duel → JEDNOTNÉ 403 `{ chyba }` (žádná informace navíc). ANTI-CHEAT: dokud host nepřijme, `otazkyIds` je prázdné a `vysledky` prázdný objekt (odpovědi vyzyvatele by sadu prozradily); `hostKodHash` v odpovědi není nikdy. Líná expirace platí |
 | `POST /api/hoste/duely/:id/prijmout` | host (jen kód) | `{ kod, jmeno }` (jméno trim, 1–24 znaků, bez řídicích a neviditelných/směrových Unicode znaků — jde přímo do UI vyzyvatele) → plný `Duel` s `otazkyIds`. Nastaví hosta: `souper = { profilId: 'host:<duelId>', jmeno }` + `host = { jmeno }`, handicap OBOU fixně 1.0, stav `prijaty`. First-wins: druhé přijetí s jiným jménem → 409; opakované přijetí se správným kódem a STEJNÝM jménem je idempotentní (odolnost proti ztracené odpovědi — dva držitele téhož kódu stejně nejde rozlišit). Vypršelý/dohraný → 409 |
 | `POST /api/hoste/duely/:id/vysledek` | host (jen kód) | `{ kod, vysledek }` → `Duel`. Stejný anti-cheat přepočet jako u rodiny (`prepoctiVysledekDuelu`, handicap hosta 1.0); host NEMÁ power-upy — jakýkoli `pouzityPowerup` → 400 (hlídá i sdílené `duelSchema`). NAVÍC (jen host — cizí člověk s curl): výsledek musí pokrýt VŠECHNY otázky sady, jinak 400 — vynechané odpovědi by nesnížily body, ale snížily by `celkovyCasMs` rozhodující tie-break. First-wins (druhý zápis 409); před přijetím 409; po obou výsledcích server duel uzavře (`hotovy` + `vitezProfilId`) |
@@ -573,7 +573,8 @@ průběhu v `aplikace/src/duely/engine.ts`. API a DB viz tabulky výše.
   (5/10/20) a soupeře (konkrétní profil, nebo otevřená výzva „kdokoli
   z rodiny“ — first-wins). OBA hrají IDENTICKOU sadu otázek (výběr i míchání
   možností ze seedu = id duelu) do 24 h (`vyprsiDuelu`); bez průběžné zpětné
-  vazby a vysvětlení (jako zkouška), s viditelným odpočtem limitu na otázku.
+  vazby a vysvětlení (jako zkouška), BEZ časového limitu — na odpověď je
+  neomezeně času, UI ukazuje stopky a pruh bonusu za rychlost.
   Životní cyklus: `cekajici → prijaty → hotovy`, líně `vyprsely` (kontumace:
   kdo odehrál, vyhrává; nikdo → bez vítěze; sdílené `expirujDuel`). Líná
   expirace platí i NA KLIENTU (`rozdelDuely`, `zacniDuelAkce`, `muzeHratDuel`
@@ -581,18 +582,23 @@ průběhu v `aplikace/src/duely/engine.ts`. API a DB viz tabulky výše.
   vypršení (`odpovezVDueluAkce`) provede lokálně tutéž kontumaci BEZ mého
   pozdního výsledku (nic se neodesílá, server by vrátil 409) a trofeje se
   počítají z kontumace, ne z neplatné „výhry“.
-- **Bodování**: správně = 100 + round(50 × zbývajícíČas/limit); špatně nebo
-  timeout = 0; při shodě bodů rozhoduje nižší součet časů (`bodyZaOdpoved`,
-  `vyhodnotDuel`). Limit na otázku: (10 + 4×obtížnost) s (`casLimitOtazky`).
+- **Bodování** (od v0.7.4 bez časového limitu): správně = 100 +
+  `rychlostniBonus` = round(50 × norma / (norma + čas)) — okamžitě 50,
+  za normový čas 25, dál plynule klesá, nikdy neskončí timeoutem; špatně
+  = 0; při shodě bodů rozhoduje nižší součet časů (`bodyZaOdpoved`,
+  `vyhodnotDuel`). Normový čas (měřítko, NE limit): (10 + 4×obtížnost) s
+  (`normaCasuOtazky`), u hráče × handicap (`normaCasuProHrace`).
 - **Handicap férovosti**: hráč se slabším zvládnutím oboru (podíl otázek
-  banky v Leitner boxu ≥ 3, `zvladnutiOboru`) dostává násobič limitu
+  banky v Leitner boxu ≥ 3, `zvladnutiOboru`) dostává násobič normového
+  času (bonus mu klesá pomaleji)
   1 + 0.5×(zvládnutíSoupeře − zvládnutíMoje), ořez <1.0; 1.5>. Počítá se ze
   snapshotů progresu NA SERVERU při vytvoření (cílená) / přijetí (otevřená)
   a je NEMĚNNÝ po celý duel; oběma se ukáže. Chybí-li snapshot, oba 1.0.
 - **Power-upy**: padají z truhel (`OdmenaTyp` `powerup`), hromadí se
   v `progres.powerupy`, použitelné JEN v duelu, každý typ max 1× za duel
   a max 1 power-up na otázku: `pade-na-pade` (50:50 u výběrovky),
-  `zmrazeni-casu` (+10 s na aktuální otázku), `stit` (první špatná odpověď
+  `zmrazeni-casu` (prvních 10 s otázky se nepočítá do rychlosti,
+  `casProRychlost`), `stit` (první špatná odpověď
   za 50 bodů místo 0). Server vynucuje max 1× přes `duelSchema`.
 - **Trofeje a rivalita**: `progres.trofeje` (`TrofejeProfilu`) — head-to-head
   bilance dvojic, série výher, tituly („Vítězná vlna“ = 3 výhry v řadě,
@@ -639,7 +645,8 @@ průběhu v `aplikace/src/duely/engine.ts`. API a DB viz tabulky výše.
   a pole `host` (UI štítek „host“). Do trofejní vitríny se duel s hostem
   počítá do celkových počítadel, sérií a titulů, ale NE do `dvojice`
   (jednorázový klíč `host:<duelId>` by zakládal trvalé řádky bilance).
-  Pravidla, limity, bez feedbacku, serverový přepočet a expirace beze změn.
+  Pravidla (bez limitu, rychlostní bonus), bez feedbacku, serverový přepočet
+  a expirace beze změn.
 - **Duel odkazem — klient (vyzyvatel)**: v dialogu výzvy je třetí volba
   soupeře „🔗 Poslat odkaz komukoli“. Po založení se místo formuláře ukáže
   obrazovka s odkazem (kopírování + Web Share na mobilu) — kód přijde

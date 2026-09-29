@@ -4,8 +4,10 @@ import {
   aktualizujTrofeje,
   bodyZaOdpoved,
   BODY_STITU,
-  casLimitOtazky,
-  casLimitProHrace,
+  casProRychlost,
+  normaCasuOtazky,
+  normaCasuProHrace,
+  rychlostniBonus,
   doplnDuelovyProgres,
   DUEL_TRVANI_MS,
   DUELY_PRO_TITUL_DUELANT,
@@ -101,46 +103,71 @@ function duel(prepis: Partial<Duel> = {}): Duel {
 }
 
 // ---------------------------------------------------------------------------
-// Časové limity
+// Normový čas (měřítko rychlostního bonusu — NENÍ to limit)
 
-describe('casLimitOtazky', () => {
-  it('limit = (10 + 4×obtížnost) sekund v ms', () => {
-    expect(casLimitOtazky(1)).toBe(14_000);
-    expect(casLimitOtazky(2)).toBe(18_000);
-    expect(casLimitOtazky(3)).toBe(22_000);
-    expect(casLimitOtazky(4)).toBe(26_000);
-    expect(casLimitOtazky(5)).toBe(30_000);
+describe('normaCasuOtazky', () => {
+  it('norma = (10 + 4×obtížnost) sekund v ms', () => {
+    expect(normaCasuOtazky(1)).toBe(14_000);
+    expect(normaCasuOtazky(2)).toBe(18_000);
+    expect(normaCasuOtazky(3)).toBe(22_000);
+    expect(normaCasuOtazky(4)).toBe(26_000);
+    expect(normaCasuOtazky(5)).toBe(30_000);
   });
 
-  it('casLimitProHrace násobí limit handicapem a zaokrouhluje na ms', () => {
-    expect(casLimitProHrace(1, 1)).toBe(14_000);
-    expect(casLimitProHrace(1, 1.5)).toBe(21_000);
-    expect(casLimitProHrace(3, 1.25)).toBe(27_500);
-    expect(casLimitProHrace(1, 1.333)).toBe(Math.round(14_000 * 1.333));
+  it('normaCasuProHrace násobí normu handicapem a zaokrouhluje na ms', () => {
+    expect(normaCasuProHrace(1, 1)).toBe(14_000);
+    expect(normaCasuProHrace(1, 1.5)).toBe(21_000);
+    expect(normaCasuProHrace(3, 1.25)).toBe(27_500);
+    expect(normaCasuProHrace(1, 1.333)).toBe(Math.round(14_000 * 1.333));
+  });
+
+  it('Zmrazení času odečte prvních 10 s, jinak se čas bere celý', () => {
+    expect(casProRychlost(15_000, 'zmrazeni-casu')).toBe(5_000);
+    expect(casProRychlost(4_000, 'zmrazeni-casu')).toBe(0);
+    expect(casProRychlost(15_000)).toBe(15_000);
+    expect(casProRychlost(15_000, 'stit')).toBe(15_000);
+    expect(casProRychlost(-300)).toBe(0);
   });
 });
 
 // ---------------------------------------------------------------------------
 // Bodování
 
+describe('rychlostniBonus', () => {
+  it('okamžitě 50, za normový čas 25, pak plynule klesá — nikdy není limit', () => {
+    expect(rychlostniBonus(0, 20_000)).toBe(50);
+    expect(rychlostniBonus(20_000, 20_000)).toBe(25);
+    expect(rychlostniBonus(40_000, 20_000)).toBe(17);
+    expect(rychlostniBonus(60_000, 20_000)).toBe(13);
+    expect(rychlostniBonus(10 * 60_000, 20_000)).toBe(2);
+    expect(rychlostniBonus(24 * 3_600_000, 20_000)).toBe(0);
+  });
+
+  it('vadné vstupy: záporný čas = plný bonus, nulová norma bez dělení nulou', () => {
+    expect(rychlostniBonus(-500, 20_000)).toBe(50);
+    expect(rychlostniBonus(1_000, 0)).toBe(0);
+  });
+
+  it('delší čas nikdy nedá víc než kratší', () => {
+    let predchozi = 50;
+    for (let cas = 0; cas <= 120_000; cas += 1_000) {
+      const bonus = rychlostniBonus(cas, 14_000);
+      expect(bonus).toBeLessThanOrEqual(predchozi);
+      predchozi = bonus;
+    }
+  });
+});
+
 describe('bodyZaOdpoved', () => {
-  it('správná odpověď: 100 + round(50 × zbývající/limit)', () => {
+  it('správná odpověď: 100 + rychlostní bonus', () => {
     expect(bodyZaOdpoved(true, 0, 20_000)).toBe(150); // okamžitě = plný bonus
-    expect(bodyZaOdpoved(true, 10_000, 20_000)).toBe(125); // půlka času
-    expect(bodyZaOdpoved(true, 20_000, 20_000)).toBe(100); // poslední chvíle
-    // zaokrouhlení: zbývá 9333/14000 → 50×0.6666… = 33.33 → 33
-    expect(bodyZaOdpoved(true, 4667, 14_000)).toBe(133);
+    expect(bodyZaOdpoved(true, 20_000, 20_000)).toBe(125); // za normový čas
+    expect(bodyZaOdpoved(true, 10 * 60_000, 20_000)).toBe(102); // i po 10 minutách
   });
 
-  it('hraniční časy se ořezávají (nikdy víc než 150, nikdy méně než 100 za správně)', () => {
-    expect(bodyZaOdpoved(true, 25_000, 20_000)).toBe(100); // čas přes limit
-    expect(bodyZaOdpoved(true, -500, 20_000)).toBe(150); // vadný záporný čas
-    expect(bodyZaOdpoved(true, 0, 0)).toBe(100); // nulový limit bez dělení nulou
-  });
-
-  it('špatně nebo timeout = 0', () => {
+  it('špatně = 0 bez ohledu na čas', () => {
     expect(bodyZaOdpoved(false, 1_000, 20_000)).toBe(0);
-    expect(bodyZaOdpoved(false, 20_000, 20_000)).toBe(0);
+    expect(bodyZaOdpoved(false, 90_000, 20_000)).toBe(0);
   });
 
   it('štít promění špatnou odpověď v 50 bodů, správné se nedotkne', () => {
@@ -554,7 +581,7 @@ describe('expirujDuel', () => {
 
 describe('prepoctiVysledekDuelu', () => {
   const b = banka();
-  // otazkyIds duelu: o-tema-a-0 (obt. 1, limit 14 s), o-tema-a-1 (obt. 2, 18 s),
+  // otazkyIds duelu: o-tema-a-0 (obt. 1, norma 14 s), o-tema-a-1 (obt. 2, 18 s),
   // o-tema-a-2 (obt. 3, 22 s), o-tema-a-3 (obt. 4, 26 s), o-tema-a-4 (obt. 5, 30 s).
 
   it('body i celkovyCasMs spočítá sám — klientským hodnotám nevěří', () => {
@@ -587,33 +614,36 @@ describe('prepoctiVysledekDuelu', () => {
   });
 
   it('respektuje handicap hráče a zmrazení času na otázce s power-upem', () => {
-    const d = duel(); // syn má handicap 1.2
-    const naHrane = vysledek({
+    const d = duel(); // syn má handicap 1.2, táta 1.0
+    const odpovedi = vysledek({
       odpovedi: [
-        // limit syna: 14 000 × 1.2 = 16 800 (+ rezerva 2 000 = strop 18 800)
+        // norma syna 14 000 × 1.2 = 16 800 → za normový čas bonus 25
         { otazkaId: 'o-tema-a-0', spravne: true, casMs: 16_800 },
-        // se zmrazením: 18 000 × 1.2 + 10 000 = 31 600
-        { otazkaId: 'o-tema-a-1', spravne: true, casMs: 31_000, pouzityPowerup: 'zmrazeni-casu' },
+        // norma 18 000 × 1.2 = 21 600; zmrazení odečte 10 s → 21 600 → bonus 25
+        { otazkaId: 'o-tema-a-1', spravne: true, casMs: 31_600, pouzityPowerup: 'zmrazeni-casu' },
       ],
     });
-    const prepocet = prepoctiVysledekDuelu(d, 'syn', naHrane, b);
-    expect(prepocet.ok).toBe(true);
+    const syn = prepoctiVysledekDuelu(d, 'syn', odpovedi, b);
+    expect(syn.ok && syn.vysledek.body).toBe(250);
+    expect(syn.ok && syn.vysledek.celkovyCasMs).toBe(48_400); // skutečný čas, bez odečtu
 
-    const bezPowerupu = vysledek({
-      odpovedi: [{ otazkaId: 'o-tema-a-1', spravne: true, casMs: 31_000 }],
-    });
-    expect(prepoctiVysledekDuelu(d, 'syn', bezPowerupu, b).ok).toBe(false);
+    // Táta bez handicapu dostane za stejné časy méně (norma 14 000 a 18 000).
+    const tata = prepoctiVysledekDuelu(d, 'tata', odpovedi, b);
+    expect(tata.ok && tata.vysledek.body).toBe(100 + 23 + 100 + 23);
   });
 
-  it('odmítne čas přes limit + rezervu, duplicitní otázku a otázku mimo banku', () => {
-    const d = duel();
-    const presLimit = prepoctiVysledekDuelu(
-      d,
+  it('časový limit není — přijme i velmi dlouhou odpověď, jen s malým bonusem', () => {
+    const prepocet = prepoctiVysledekDuelu(
+      duel(),
       'tata',
-      vysledek({ odpovedi: [{ otazkaId: 'o-tema-a-0', spravne: true, casMs: 16_001 }] }),
+      vysledek({ odpovedi: [{ otazkaId: 'o-tema-a-0', spravne: true, casMs: 10 * 60_000 }] }),
       b,
-    ); // limit 14 000 + 2 000 rezerva = 16 000
-    expect(presLimit.ok).toBe(false);
+    );
+    expect(prepocet.ok && prepocet.vysledek.body).toBe(101);
+  });
+
+  it('odmítne duplicitní otázku a otázku mimo banku', () => {
+    const d = duel();
 
     const duplicitni = prepoctiVysledekDuelu(
       d,

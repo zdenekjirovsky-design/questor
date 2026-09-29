@@ -1,18 +1,20 @@
 // Klientsky engine duelu — CISTA logika prubehu duelu, bez Reactu.
-// Duel se hraje jako rezim zkouska: zadny prubezny feedback, casovy limit
-// NA OTAZKU (limit × handicapovy nasobic hrace), power-upy (kazdy typ max
-// 1× za duel, max 1 power-up na otazku — OdpovedDuelu nese jen jeden),
-// timeout = 0 bodu a dalsi otazka. Vsechno je deterministicke: cas i nahoda
-// se injektuji, stav je serializovatelny objekt (drzi ho hraSlice v persistu).
+// Duel se hraje jako rezim zkouska: zadny prubezny feedback, BEZ casoveho
+// limitu — na odpoved je neomezene casu, rychlost jen pridava bonus, ktery
+// s casem plynule klesa (normovy cas × handicapovy nasobic hrace). Power-upy:
+// kazdy typ max 1× za duel, max 1 power-up na otazku (OdpovedDuelu nese jen
+// jeden). Vsechno je deterministicke: cas i nahoda se injektuji, stav je
+// serializovatelny objekt (drzi ho hraSlice v persistu).
 //
-// Bodovani a limity pochazeji ze sdileneho jadra (@questor/sdilene —
-// bodyZaOdpoved, casLimitProHrace, ZMRAZENI_CASU_MS); tady je jen krokovani.
+// Bodovani pochazi ze sdileneho jadra (@questor/sdilene — bodyZaOdpoved,
+// normaCasuProHrace, casProRychlost); tady je jen krokovani.
 import {
   bodyZaOdpoved,
-  casLimitProHrace,
+  casProRychlost,
   expirujDuel,
+  normaCasuProHrace,
+  rychlostniBonus,
   vyhodnotDuel,
-  ZMRAZENI_CASU_MS,
 } from '@questor/sdilene';
 import type {
   BankaOtazek,
@@ -41,8 +43,6 @@ export interface DuelPrubeh {
   body: number;
   /** Body za posledni odpoved (plovouci „+body" v UI). */
   posledniBody: number;
-  /** Bonus casu aktualni otazky ze Zmrazeni casu (ms). */
-  bonusCasuMs: number;
   /** Typy power-upu uz pouzite v tomhle duelu (kazdy max 1×). */
   pouzitePowerupy: PowerupTyp[];
   /** Power-up aktivovany na aktualni otazce (max 1 na otazku). */
@@ -73,7 +73,6 @@ export function vytvorDuelPrubeh(duel: Duel, profilId: string, zacatekIso: strin
     odpovedi: [],
     body: 0,
     posledniBody: 0,
-    bonusCasuMs: 0,
     pouzitePowerupy: [],
     powerupAktualniOtazky: null,
     stitAktivni: false,
@@ -93,17 +92,18 @@ export function odstartujPrubeh(prubeh: DuelPrubeh, tedMs: number): DuelPrubeh {
 }
 
 // ---------------------------------------------------------------------------
-// Cas
+// Cas (bez limitu — jen mereni a rychlostni bonus)
 
-/** Limit aktualni otazky v ms: (10 + 4×obtiznost) s × muj nasobic + zmrazeni. */
-export function limitOtazkyPrubehu(prubeh: DuelPrubeh, otazka: Otazka): number {
-  return casLimitProHrace(otazka.obtiznost, prubeh.nasobicCasu) + prubeh.bonusCasuMs;
+/** Jak dlouho uz hrac premysli nad aktualni otazkou (ms). */
+export function casOtazkyMs(prubeh: DuelPrubeh, tedMs: number): number {
+  if (!prubeh.zahajeno) return 0;
+  return Math.max(0, tedMs - prubeh.zacatekOtazkyMs);
 }
 
-/** Zbyvajici cas aktualni otazky v ms (0 = timeout). */
-export function zbyvaMsVPrubehu(prubeh: DuelPrubeh, otazka: Otazka, tedMs: number): number {
-  if (!prubeh.zahajeno) return limitOtazkyPrubehu(prubeh, otazka);
-  return Math.max(0, limitOtazkyPrubehu(prubeh, otazka) - (tedMs - prubeh.zacatekOtazkyMs));
+/** Rychlostni bonus, ktery by hrac dostal za spravnou odpoved PRAVE TED (0–50). */
+export function bonusTedVPrubehu(prubeh: DuelPrubeh, otazka: Otazka, tedMs: number): number {
+  const cas = casProRychlost(casOtazkyMs(prubeh, tedMs), prubeh.powerupAktualniOtazky ?? undefined);
+  return rychlostniBonus(cas, normaCasuProHrace(otazka.obtiznost, prubeh.nasobicCasu));
 }
 
 // ---------------------------------------------------------------------------
@@ -151,8 +151,6 @@ export function pouzijPowerupVPrubehu(
       [spatne[i], spatne[j]] = [spatne[j], spatne[i]];
     }
     novy = { ...novy, skryteMoznosti: spatne.slice(0, Math.min(2, spatne.length)) };
-  } else if (typ === 'zmrazeni-casu') {
-    novy = { ...novy, bonusCasuMs: prubeh.bonusCasuMs + ZMRAZENI_CASU_MS };
   } else if (typ === 'stit') {
     novy = { ...novy, stitAktivni: true };
   }
@@ -164,8 +162,9 @@ export function pouzijPowerupVPrubehu(
 
 /**
  * Zapocita odpoved na aktualni otazku a posune na dalsi (imutabilne).
- * Cas se orezava do <0; limit>; stit promeni PRVNI spatnou odpoved na 50 bodu.
- * `tedMs` je epoch ms — start casu dalsi otazky.
+ * Cas se neorezava (limit neni), Zmrazeni casu odecte 10 s z casu pro
+ * rychlost; stit promeni PRVNI spatnou odpoved na 50 bodu. `tedMs` je
+ * epoch ms — start casu dalsi otazky.
  */
 export function odpovezVPrubehu(
   prubeh: DuelPrubeh,
@@ -175,10 +174,14 @@ export function odpovezVPrubehu(
   tedMs: number,
 ): DuelPrubeh {
   if (!prubeh.zahajeno || prubeh.dokonceno) return prubeh;
-  const limit = limitOtazkyPrubehu(prubeh, otazka);
-  const cas = Math.min(limit, Math.max(0, Math.round(casMs)));
+  const cas = Math.max(0, Math.round(casMs));
   const stitPouzit = !spravne && prubeh.stitAktivni && !prubeh.stitSpotrebovan;
-  const bodyOdpovedi = bodyZaOdpoved(spravne, cas, limit, stitPouzit);
+  const bodyOdpovedi = bodyZaOdpoved(
+    spravne,
+    casProRychlost(cas, prubeh.powerupAktualniOtazky ?? undefined),
+    normaCasuProHrace(otazka.obtiznost, prubeh.nasobicCasu),
+    stitPouzit,
+  );
   const odpoved: OdpovedDuelu = {
     otazkaId: otazka.id,
     spravne,
@@ -192,7 +195,6 @@ export function odpovezVPrubehu(
     odpovedi: [...prubeh.odpovedi, odpoved],
     body: prubeh.body + bodyOdpovedi,
     posledniBody: bodyOdpovedi,
-    bonusCasuMs: 0,
     powerupAktualniOtazky: null,
     skryteMoznosti: [],
     stitAktivni: stitPouzit ? false : prubeh.stitAktivni,
@@ -200,11 +202,6 @@ export function odpovezVPrubehu(
     zacatekOtazkyMs: tedMs,
     dokonceno: dalsiIndex >= prubeh.pocetOtazek,
   };
-}
-
-/** Timeout aktualni otazky: 0 bodu (spatne s casem = limit) a dalsi otazka. */
-export function timeoutVPrubehu(prubeh: DuelPrubeh, otazka: Otazka, tedMs: number): DuelPrubeh {
-  return odpovezVPrubehu(prubeh, otazka, false, limitOtazkyPrubehu(prubeh, otazka), tedMs);
 }
 
 /** Sestavi VysledekDuelu z dokonceneho prubehu (odevzdava se na server). */

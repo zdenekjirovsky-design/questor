@@ -38,8 +38,8 @@ export function zbyvaDoVyprseni(vyprsi: string, tedMs: number): string {
   return `zbývá ${minut} min`;
 }
 
-/** Sekundy s desetinou pro odpocet otazky (např. „12,4 s"). */
-export function formatujOdpocet(ms: number): string {
+/** Sekundy s desetinou pro měřený čas otázky (např. „12,4 s"). */
+export function formatujCasOtazky(ms: number): string {
   const sekundy = Math.max(0, ms) / 1000;
   return `${sekundy.toFixed(1).replace('.', ',')} s`;
 }
@@ -63,9 +63,9 @@ export function popisHandicapu(
   const souperuv = souperId ? (duel.handicap[souperId] ?? 1) : 1;
   let text: string | null = null;
   if (muj > souperuv) {
-    text = `Máš bonus času ×${muj.toFixed(2).replace('.', ',')} — soupeř tenhle obor zvládá líp, časy jsou vyrovnané férově.`;
+    text = `Tvoje rychlost se hodnotí mírněji (×${muj.toFixed(2).replace('.', ',')}) — soupeř tenhle obor zvládá líp, šance jsou vyrovnané férově.`;
   } else if (souperuv > muj) {
-    text = `Soupeř má bonus času ×${souperuv.toFixed(2).replace('.', ',')} — obor zvládáš líp ty, časy jsou vyrovnané férově.`;
+    text = `Soupeřova rychlost se hodnotí mírněji (×${souperuv.toFixed(2).replace('.', ',')}) — obor zvládáš líp ty, šance jsou vyrovnané férově.`;
   }
   return { muj, souperuv, text };
 }

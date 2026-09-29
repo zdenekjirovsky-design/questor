@@ -41,15 +41,8 @@ export const MAX_BONUS_BODY = 50;
 /** Štít: první špatná odpověď se počítá za tolik bodů místo 0. */
 export const BODY_STITU = 50;
 
-/** Zmrazení času: o kolik ms power-up prodlouží limit aktuální otázky. */
+/** Zmrazení času: kolik ms na začátku otázky se do rychlosti nepočítá. */
 export const ZMRAZENI_CASU_MS = 10_000;
-
-/**
- * Tolerance serverového přepočtu nad casMs odpovědi (latence, zaokrouhlení).
- * Čas nad limit + rezervu server odmítá — klient čas ořezává na limit, takže
- * poctivý výsledek se do rezervy vždy vejde.
- */
-export const REZERVA_CASU_DUELU_MS = 2_000;
 
 /** Kolik výher v řadě dává titul (celkem i v jednom oboru). */
 export const SERIE_PRO_TITUL = 3;
@@ -93,7 +86,7 @@ export const POWERUP_INFO: Record<PowerupTyp, { nazev: string; popis: string }> 
   },
   'zmrazeni-casu': {
     nazev: 'Zmrazení času',
-    popis: 'Přidá 10 sekund na aktuální otázku.',
+    popis: 'Prvních 10 sekund aktuální otázky se nepočítá do rychlosti.',
   },
   stit: {
     nazev: 'Štít',
@@ -102,34 +95,52 @@ export const POWERUP_INFO: Record<PowerupTyp, { nazev: string; popis: string }> 
 };
 
 // ---------------------------------------------------------------------------
-// Čas a bodování
+// Čas a bodování — BEZ časového limitu: na odpověď je neomezeně času,
+// rychlost jen přidává bonus, který s časem plynule klesá.
 
-/** Základní limit na otázku: (10 + 4×obtížnost) sekund, v ms. */
-export function casLimitOtazky(obtiznost: Obtiznost): number {
+/**
+ * Normový čas otázky: (10 + 4×obtížnost) sekund, v ms. NENÍ to limit — je to
+ * měřítko rychlostního bonusu (za normový čas dostane hráč polovinu bonusu).
+ */
+export function normaCasuOtazky(obtiznost: Obtiznost): number {
   return (10 + 4 * obtiznost) * 1000;
 }
 
-/** Limit hráče po započtení handicapového násobiče (zaokrouhleno na ms). */
-export function casLimitProHrace(obtiznost: Obtiznost, nasobicCasu: number): number {
-  return Math.round(casLimitOtazky(obtiznost) * nasobicCasu);
+/** Normový čas hráče po započtení handicapu — slabšímu bonus klesá pomaleji. */
+export function normaCasuProHrace(obtiznost: Obtiznost, nasobicCasu: number): number {
+  return Math.round(normaCasuOtazky(obtiznost) * nasobicCasu);
+}
+
+/** Čas, který se počítá do rychlosti: Zmrazení času odečte prvních 10 s. */
+export function casProRychlost(casMs: number, pouzityPowerup?: PowerupTyp): number {
+  const cas = Math.max(0, casMs);
+  return pouzityPowerup === 'zmrazeni-casu' ? Math.max(0, cas - ZMRAZENI_CASU_MS) : cas;
+}
+
+/**
+ * Rychlostní bonus 0–50: okamžitá odpověď 50, za normový čas 25, za dvojnásobek
+ * ~17 — plynule klesá k nule, ale nikdy neskončí limitem.
+ */
+export function rychlostniBonus(casMs: number, normaMs: number): number {
+  if (normaMs <= 0) return 0;
+  return Math.round((MAX_BONUS_BODY * normaMs) / (normaMs + Math.max(0, casMs)));
 }
 
 /**
  * Body za jednu odpověď v duelu:
- * - správně: 100 + round(50 × zbývajícíČas/limit),
- * - špatně nebo timeout: 0 (se štítem 50 — štít smí aktivovat jen PRVNÍ
- *   špatnou odpověď, hlídá volající).
+ * - správně: 100 + rychlostní bonus (0–50),
+ * - špatně: 0 (se štítem 50 — štít smí aktivovat jen PRVNÍ špatnou
+ *   odpověď, hlídá volající).
+ * `casMs` je čas pro rychlost (casProRychlost), `normaMs` normový čas hráče.
  */
 export function bodyZaOdpoved(
   spravne: boolean,
   casMs: number,
-  limitMs: number,
+  normaMs: number,
   stitAktivni = false,
 ): number {
   if (!spravne) return stitAktivni ? BODY_STITU : 0;
-  if (limitMs <= 0) return BODY_ZA_SPRAVNOU;
-  const zbyvajici = Math.min(limitMs, Math.max(0, limitMs - casMs));
-  return BODY_ZA_SPRAVNOU + Math.round(MAX_BONUS_BODY * (zbyvajici / limitMs));
+  return BODY_ZA_SPRAVNOU + rychlostniBonus(casMs, normaMs);
 }
 
 // ---------------------------------------------------------------------------
@@ -260,10 +271,10 @@ export type PrepocetVysledkuDuelu =
 /**
  * Přepočítá výsledek půlky duelu ze syrových odpovědí — server klientským
  * hodnotám `body` a `celkovyCasMs` NEVĚŘÍ a nahradí je vlastním výpočtem
- * (stejný vzorec jako klientský engine: bodyZaOdpoved, limit s handicapem,
- * zmrazení času jen na otázce s power-upem, štít jen na PRVNÍ špatnou
- * odpověď od aktivace). Odmítá duplicitní otázky, otázky mimo banku
- * a casMs > limit + REZERVA_CASU_DUELU_MS.
+ * (stejný vzorec jako klientský engine: bodyZaOdpoved s normovým časem
+ * po handicapu, zmrazení času jen na otázce s power-upem, štít jen na PRVNÍ
+ * špatnou odpověď od aktivace). Časový limit NENÍ — delší odpověď jen
+ * dostane menší bonus. Odmítá duplicitní otázky a otázky mimo banku.
  */
 export function prepoctiVysledekDuelu(
   duel: Duel,
@@ -287,18 +298,15 @@ export function prepoctiVysledekDuelu(
     if (!otazka) {
       return { ok: false, chyba: `otázka „${odpoved.otazkaId}“ není v bance duelu` };
     }
-    const limit =
-      casLimitProHrace(otazka.obtiznost, nasobic) +
-      (odpoved.pouzityPowerup === 'zmrazeni-casu' ? ZMRAZENI_CASU_MS : 0);
-    if (odpoved.casMs > limit + REZERVA_CASU_DUELU_MS) {
-      return {
-        ok: false,
-        chyba: `čas ${odpoved.casMs} ms na otázku „${odpoved.otazkaId}“ přesahuje limit ${limit} ms`,
-      };
-    }
+    const norma = normaCasuProHrace(otazka.obtiznost, nasobic);
     if (odpoved.pouzityPowerup === 'stit') stitAktivni = true;
     const stitPouzit = !odpoved.spravne && stitAktivni && !stitSpotrebovan;
-    body += bodyZaOdpoved(odpoved.spravne, Math.min(odpoved.casMs, limit), limit, stitPouzit);
+    body += bodyZaOdpoved(
+      odpoved.spravne,
+      casProRychlost(odpoved.casMs, odpoved.pouzityPowerup),
+      norma,
+      stitPouzit,
+    );
     if (stitPouzit) {
       stitAktivni = false;
       stitSpotrebovan = true;
@@ -485,7 +493,7 @@ export const ucastnikDueluSchema = z.object({
 export const odpovedDueluSchema = z.object({
   otazkaId: z.string().min(1),
   spravne: z.boolean(),
-  casMs: z.number().int().min(0),
+  casMs: z.number().int().min(0).max(DUEL_TRVANI_MS),
   pouzityPowerup: powerupTypSchema.optional(),
 });
 

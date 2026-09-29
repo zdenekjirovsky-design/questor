@@ -1,16 +1,18 @@
 {
   "predmetId": "zbozinalstvi",
   "nazev": "Zbožíznalství",
-  "verze": 2,
-  "vytvoreno": "2026-09-20",
+  "verze": 3,
+  "vytvoreno": "2026-09-29",
   "temata": [
     { "id": "zaklady-zbozinalstvi", "nazev": "Základy zbožíznalství", "poradi": 0 },
     { "id": "jakost-a-rizeni-jakosti", "nazev": "Jakost a řízení jakosti", "poradi": 1 },
     { "id": "norma-iso-9001", "nazev": "Norma jakosti ISO 9001", "poradi": 2 },
-    { "id": "potravinarske-zbozi", "nazev": "Potravinářské zboží", "poradi": 3 },
-    { "id": "drobne-zbozi", "nazev": "Drobné zboží", "poradi": 4 },
-    { "id": "obuv-a-galanterie", "nazev": "Obuv a kožená galanterie", "poradi": 5 },
-    { "id": "textil-a-odivani", "nazev": "Textil a odívání", "poradi": 6 }
+    { "id": "zbozinalstvi-veda-a-profese", "nazev": "Zbožíznalství jako věda a profese", "poradi": 3 },
+    { "id": "skody-a-ochrana-zbozi", "nazev": "Škody a ochrana zboží", "poradi": 4 },
+    { "id": "potravinarske-zbozi", "nazev": "Potravinářské zboží", "poradi": 5 },
+    { "id": "drobne-zbozi", "nazev": "Drobné zboží", "poradi": 6 },
+    { "id": "obuv-a-galanterie", "nazev": "Obuv a kožená galanterie", "poradi": 7 },
+    { "id": "textil-a-odivani", "nazev": "Textil a odívání", "poradi": 8 }
   ],
   "otazky": [
     {
@@ -698,6 +700,550 @@
       "spravna": 0,
       "vysvetleni": "Norma vyžaduje dokumenty i záznamy, ale hlavně živý systém: procesy se skutečně řídí, vedení je zapojené (je uprostřed schématu) a firma se zlepšuje. Certifikát potvrdí až certifikační audit. Normu si koupit lze a velikost firmy nerozhoduje — rámec je univerzální a aplikuje se na míru.",
       "zdroj": "Norma jakosti ISO 9001"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-1",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jaký je cíl zbožíznalství jako vědní disciplíny?",
+      "moznosti": [
+        "Hodnotit kvalitu, chránit užitnou hodnotu a bránit falšování produktů na trhu",
+        "Stanovovat ceny zboží, hlídat zdražování a rozhodovat o slevách v obchodních řetězcích",
+        "Vymýšlet reklamní kampaně, slogany a akce, aby se zboží lépe prodávalo",
+        "Vyvíjet nové výrobky, zkoušet prototypy a zavádět je do sériové výroby"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Cíl zbožíznalství má tři části: hodnotit kvalitu zboží, chránit jeho užitnou hodnotu a bránit falšování produktů na trhu. Ceny tvoří trh, reklamu dělá marketing a nové výrobky vyvíjejí konstruktéři a technologové — zbožíznalec zboží posuzuje a chrání.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-2",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "multi",
+      "obtiznost": 2,
+      "zadani": "Které zboží z dovozu v 17.–19. století podnítilo rozvoj zbožíznalství? (více správných odpovědí)",
+      "moznosti": [
+        "koření a ovoce",
+        "čaj a káva",
+        "porcelán a střelný prach",
+        "brambory a drahé kameny",
+        "polyesterová vlákna",
+        "PET lahve"
+      ],
+      "spravne": [0, 1, 2, 3],
+      "vysvetleni": "Výčet ze zápisků: koření, ovoce, čaj, káva · porcelán, střelný prach · brambory, drahé kameny — nové produkty z dovozu, u kterých se musela řešit pravost a původ (zvlášť u drahého koření, čaje, kávy, porcelánu a drahých kamenů). Polyester i PET lahve vznikly až ve 20. století.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-3",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň příjmení: Za zakladatele novodobého zbožíznalství je považován Johann ___, profesor ekonomie.",
+      "spravneOdpovedi": [
+        "Beckmann",
+        "beckmann",
+        "Johann Beckmann",
+        "J. Beckmann"
+      ],
+      "vysvetleni": "Johann Beckmann (1739–1811) byl profesor ekonomie na univerzitě v Göttingenu. Jeho spis Vorbereitung zur Waarenkunde (Příprava ke zbožíznalství, 1793–1800) popsal nejdůležitější zboží z dovozu, proto je považován za zakladatele novodobého zbožíznalství. Zavedl také pojem technologie.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-4",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Pracovní pozice s oficiálním názvem „znalec zboží“ dnes neexistuje — znalosti zbožíznalství využívají jiné profese.",
+      "spravna": true,
+      "vysvetleni": "Ano, tak to stojí v zápiscích: specifická pozice „znalec zboží“ dnes neexistuje. Znalosti zbožíznalství využívají čtyři profese: soudní znalec, odhadce / likvidátor pojistných událostí, manažer kvality / kontrolor jakosti a merchandiser / nákupčí.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-5",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co je typické pro dnešní zbožíznalství?",
+      "moznosti": [
+        "Využívá informace, data, digitalizaci a nové IT technologie",
+        "Přestalo se zabývat kvalitou zboží a sleduje už jen jeho ceny v obchodech",
+        "Věnuje se jen potravinám, ostatní zboží nechává výrobcům",
+        "Falšování už neřeší, protože padělky dnes neexistují"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Cíl zůstal stejný, změnily se nástroje: informace, data, digitalizace a IT — čárové a QR kódy, sledování šarží, čidla teploty, laboratorní databáze. Kvalita je pořád jádrem oboru, zbožíznalství se týká potravinářského i nepotravinářského zboží a padělky (tenisky, parfémy, elektronika) se odhalují dál.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-6",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč se zbožíznalství rozvinulo právě v 17.–19. století?",
+      "moznosti": [
+        "Přicházely nové produkty z dovozu a bylo nutné ověřit pravost, původ a odhalit falšování",
+        "Vznikly první normy ISO 9000 a všichni obchodníci se museli nechat úředně certifikovat",
+        "Obchody začaly prodávat přes internet, a proto se každé zboží muselo podrobně popsat",
+        "Stát nově nařídil tisknout datum minimální trvanlivosti na obaly všech prodávaných potravin"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Do Evropy přicházely nové produkty z dovozu; koření, čaj, káva, porcelán nebo drahé kameny z dalekých zemí stály hodně peněz — kupec potřeboval vědět, zda je zboží pravé a odkud skutečně pochází, a nenechat se napálit padělkem. Normy ISO 9000 vyšly až v roce 1987 a e-shopy i data trvanlivosti na obalech patří do moderní doby.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-7",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď pojmy z vývoje zbožíznalství k jejich obsahu.",
+      "pary": [
+        { "levy": "17.–19. století", "pravy": "dovoz koření, čaje, kávy a porcelánu" },
+        { "levy": "Johann Beckmann", "pravy": "zakladatel novodobého zbožíznalství" },
+        { "levy": "dnešní zbožíznalství", "pravy": "informace, data, digitalizace a IT" },
+        { "levy": "cíl zbožíznalství", "pravy": "hodnotit kvalitu, chránit užitnou hodnotu, bránit falšování" }
+      ],
+      "vysvetleni": "Dovoz nového zboží v 17.–19. století přinesl potřebu řešit pravost a původ; Johann Beckmann, profesor ekonomie, je zakladatelem novodobého zbožíznalství; dnešní zbožíznalství stojí na datech, digitalizaci a IT. Cíl zůstává stejný: kvalita, užitná hodnota a boj s falšováním.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-8",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Soudní znalce jmenuje, přesněji zapisuje do seznamu znalců, Ministerstvo ___. Doplň jedno slovo.",
+      "spravneOdpovedi": [
+        "spravedlnosti",
+        "Spravedlnosti",
+        "spravedlnost"
+      ],
+      "vysvetleni": "Seznam znalců vede Ministerstvo spravedlnosti (zákon č. 254/2019 Sb., o znalcích). Pro konkrétní spor pak znalce ze seznamu ustanoví soud, případně si posudek objedná účastník sporu. Ministerstvo průmyslu a obchodu ani Česká obchodní inspekce znalce nezapisují.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-9",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co platí o soudním znalci? (více správných odpovědí)",
+      "moznosti": [
+        "vypracuje oficiální posudek s kulatou pečetí",
+        "posudek slouží soudu, policii nebo při sporné reklamaci",
+        "specializuje se na velmi specifický obor, třeba drahé kovy, šperky a drahé kameny",
+        "do seznamu znalců ho zapisuje Ministerstvo spravedlnosti",
+        "je zaměstnanec pojišťovny, který určuje výši pojistného plnění",
+        "vybírá, jaké zboží si obchod objedná na příští sezónu"
+      ],
+      "spravne": [0, 1, 2, 3],
+      "vysvetleni": "Soudní znalec vydává oficiální posudek s kulatou pečetí (se státním znakem) pro soud, policii nebo reklamaci, působí ve velmi specifickém oboru a do seznamu ho zapisuje Ministerstvo spravedlnosti. Výši pojistného plnění řeší odhadce / likvidátor pojistných událostí a výběr zboží na sezónu nákupčí (merchandiser).",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-10",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Znalecký posudek soudního znalce a certifikát ISO 9001 jsou totéž — oba potvrzují, že firma má funkční systém managementu kvality.",
+      "spravna": false,
+      "vysvetleni": "Každý dokládá něco jiného. Certifikát ISO 9001 vydává certifikační orgán po certifikačním auditu a potvrzuje funkční systém managementu kvality celé firmy. Znalecký posudek s kulatou pečetí posuzuje konkrétní věc nebo škodu (třeba jestli jsou tenisky padělek) a slouží soudu, policii nebo při reklamaci.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-11",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Po přívalovém dešti vytopilo sportovní prodejnu v suterénu. Majitel má zboží pojištěné a škodu nahlásil pojišťovně. Kdo přijede škodu posoudit a ocenit pro pojišťovnu?",
+      "moznosti": [
+        "Odhadce / likvidátor pojistných událostí",
+        "Soudní znalec zapsaný Ministerstvem spravedlnosti",
+        "Manažer kvality výrobce sportovního zboží",
+        "Merchandiser prodejny"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Pro oceňování majetku a posuzování poškozeného zboží pošle pojišťovna odhadce — likvidátora pojistných událostí; zjistí rozsah škody a navrhne pojistné plnění. Soudní znalec přijde na řadu, až když se strany nedohodnou a spor jde k soudu. Manažer kvality hlídá normy a specifikace a merchandiser sortiment — škody pro pojišťovnu neoceňují.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-12",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Zákaznice koupila v klenotnictví „zlatý prsten s diamantem“ za 25 000 Kč. Jiný zlatník tvrdí, že je to pozlacená bižuterie se sklíčkem. Klenotnictví reklamaci zamítlo a zákaznice podává žalobu. Kdo vypracuje oficiální posudek pro soud?",
+      "moznosti": [
+        "Soudní znalec z oboru drahé kovy, šperky a drahé kameny",
+        "Likvidátor pojišťovny, u které je klenotnictví pojištěné",
+        "Nákupčí klenotnictví, který prsten objednal",
+        "Kontrolor jakosti firmy, která prsten vyrobila"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Oficiální posudek s kulatou pečetí pro soud vypracuje soudní znalec — a to z příslušného oboru (drahé kovy, šperky a drahé kameny). Nákupčí klenotnictví ani kontrolor výrobce nejsou nezávislí a znaleckou pečeť nemají; likvidátor oceňuje pojistné události — tady se nic pojistného nestalo.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-13",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Módní řetězec chystá zimní kolekci svetrů. Někdo musí rozhodnout, zda nakoupit 100% vlnu, nebo levnější směs s akrylem — posoudit hřejivost, žmolkování i cenu. Která profese využívající zbožíznalství to má na starosti?",
+      "moznosti": [
+        "Merchandiser / nákupčí",
+        "Soudní znalec z oboru textil, oděvy a obuv",
+        "Odhadce / likvidátor pojistných událostí",
+        "Manažer kvality / kontrolor jakosti"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Výběr zboží a materiálů pro kolekci je práce nákupčího (merchandisera) v retailu a módním průmyslu — potřebuje hluboké znalosti o materiálech (vlna hřeje a je pružná, akryl je levnější a snadno žmolkuje). Kontrolor jakosti pak ověří, zda dodané svetry splňují technickou specifikaci; soudní znalec a likvidátor přicházejí na řadu až při sporu nebo škodě.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-14",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "prirazovani",
+      "obtiznost": 4,
+      "zadani": "Přiřaď situace k profesi, která je řeší.",
+      "pary": [
+        { "levy": "ocenit notebooky z vykradeného skladu pro pojišťovnu", "pravy": "odhadce / likvidátor pojistných událostí" },
+        { "levy": "posudek pro policii: jsou zabavené tenisky padělky?", "pravy": "soudní znalec" },
+        { "levy": "kontrola, zda šarže nabíječek splňuje normy", "pravy": "manažer kvality / kontrolor jakosti" },
+        { "levy": "výběr bund a materiálů na zimní sezónu", "pravy": "merchandiser / nákupčí" }
+      ],
+      "vysvetleni": "Pojišťovna a oceňování škody = likvidátor (odhadce); oficiální posudek pro policii či soud = soudní znalec (obor textil, oděvy a obuv); shoda s normami a specifikacemi = manažer kvality / kontrolor jakosti; výběr zboží a materiálů pro prodej = merchandiser / nákupčí.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-zbozinalstvi-veda-a-profese-15",
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Kamion s 2 000 páry značkových tenisek havaroval a náklad zmokl. Pojišťovna chce zaplatit jen vyčištění, majitel zboží tvrdí, že tenisky jsou neprodejné, a spor jde k soudu. Který postup odpovídá rolím profesí?",
+      "moznosti": [
+        "Likvidátor ocení škodu pro pojišťovnu, ve sporu pak tenisky posoudí nezávislý soudní znalec",
+        "Posudek pro soud vypracuje likvidátor pojišťovny, protože škodu na místě viděl jako první",
+        "Soudního znalce pro tento spor jmenuje pojišťovna ze svých zaměstnanců, aby hájil její zájmy",
+        "Stav tenisek závazně posoudí manažer kvality dopravce, jehož posudek nese kulatou pečeť"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Likvidátor (odhadce) pracuje pro pojišťovnu — jeho ocenění je podklad pro pojistné plnění, ne nezávislý důkaz. Když se strany nedohodnou, soud ustanoví soudního znalce z oboru textil, oděvy a obuv ze seznamu vedeného Ministerstvem spravedlnosti; jeho posudek s kulatou pečetí je důkaz. Znalec není zaměstnanec pojišťovny a manažer kvality kulatou znaleckou pečeť nemá.",
+      "zdroj": "Zbožíznalství jako věda a profese"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-1",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jak zbožíznalství definuje škody na zboží?",
+      "moznosti": [
+        "Jakékoli nežádoucí změny, které snižují užitnou hodnotu, kvalitu nebo kvantitu",
+        "Jen mechanické poškození zboží, například rozbití nebo promáčknutí při přepravě",
+        "Rozdíl mezi nákupní a prodejní cenou zboží, o který obchod přijde při slevách",
+        "Každou vadu, kterou zákazník uplatní u prodávajícího v rámci reklamace zboží"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Škoda = jakákoli nežádoucí změna, která snižuje užitnou hodnotu, kvalitu nebo kvantitu zboží. Mechanické poškození je jen jedna ze čtyř skupin škod, rozdíl cen je obchodní marže (sleva není škoda na zboží) a reklamace je uplatnění vady u prodávajícího — ne definice škody.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-2",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "doplneni",
+      "obtiznost": 1,
+      "zadani": "Kvantitativní škody se ve zbožíznalství označují také jako ___ — zboží se nezkazí, ale ubude ho. Doplň jedno slovo.",
+      "spravneOdpovedi": [
+        "manka",
+        "manko",
+        "mank"
+      ],
+      "vysvetleni": "Kvantitativní škody = manka: přirozené úbytky vysycháním, vypařováním, únikem těkavých látek nebo rozsypáním při manipulaci. Manko se typicky ukáže při inventuře, když ve skladu chybějí kila nebo litry proti evidenci.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-3",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Ochrana zboží je soubor opatření technických, organizačních a ___, která škodám předcházejí během celého životního cyklu výrobku. Doplň chybějící druh opatření.",
+      "spravneOdpovedi": [
+        "technologických",
+        "technologickych",
+        "technologická",
+        "technologicka",
+        "technologické",
+        "technologicke"
+      ],
+      "vysvetleni": "Tři druhy opatření: technická (třeba chladicí zařízení, regály, obaly), organizační (pravidla jako FIFO nebo školení skladníků) a technologická (postupy úpravy zboží — pasterace, impregnace). Platí po celý životní cyklus výrobku: výroba, přeprava, sklad, prodej i používání.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-4",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď skupiny škod k jejich podbodům.",
+      "pary": [
+        { "levy": "fyzikální a mechanické", "pravy": "deformace, změny teploty, vliv vlhkosti" },
+        { "levy": "chemické a biochemické", "pravy": "koroze, žluknutí a oxidace, autolýza" },
+        { "levy": "biologické", "pravy": "mikrobiologické napadení, škůdci" },
+        { "levy": "kvantitativní (manka)", "pravy": "přirozené úbytky" }
+      ],
+      "vysvetleni": "Čtyři skupiny škod v pořadí ze zápisků: 1) fyzikální a mechanické (deformace, změny teploty, vliv vlhkosti), 2) chemické a biochemické (koroze, žluknutí a oxidace, autolýza), 3) biologické (mikrobiologické napadení, škůdci), 4) kvantitativní — manka (přirozené úbytky).",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-5",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Ochrana zboží musí být systematická a dělí se na pasivní a aktivní.",
+      "spravna": true,
+      "vysvetleni": "Ano, přesně tak to stojí v zápiscích. Systematická = soustavná po celý životní cyklus výrobku; jedno opatření (třeba jen dobrý obal) nestačí — patří k němu i řízení mikroklimatu, konzervace a chemická ochrana, hygiena a sanitace a logistické řízení. Přesné vymezení pasivní a aktivní ochrany v sešitě není, ověř si ho u učitele.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-6",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co znamená metoda FIFO při skladování zboží s omezenou trvanlivostí?",
+      "moznosti": [
+        "Co bylo naskladněno první, jde první ven (first in, first out)",
+        "Jako první se vyskladní zboží s nejbližším datem trvanlivosti na obalu",
+        "Jako první se vyskladní zboží, které bylo naskladněno naposledy",
+        "Jako první se prodává nejdražší zboží, aby se rychle vrátily peníze"
+      ],
+      "spravna": 0,
+      "vysvetleni": "FIFO = first in, first out: co přišlo první, jde první ven — zboží na skladě nestárne. Pořadí podle nejbližšího data je FEFO (first expired, first out), rozšíření FIFO. „Poslední dovnitř, první ven“ je LIFO a cena o pořadí vyskladnění nerozhoduje.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-7",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Babička vytáhla ze skříně vlněný svetr a na rukávu má vyžrané dírky. Ve skříni poletují drobní béžoví motýlci. O jakou škodu jde?",
+      "moznosti": [
+        "Biologickou — škůdce mol šatní",
+        "Fyzikální a mechanickou — deformace (roztržení)",
+        "Chemickou — oxidace vlny",
+        "Kvantitativní — přirozený úbytek vlny"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Dírky vyžraly housenky mola šatního, které se živí vlnou a dalšími živočišnými vlákny — škůdce = biologická škoda. Svetr se neroztrhl ani chemicky nerozložil a nejde o přirozený úbytek. Ochrana: čisté oblečení v uzavřených obalech, odpuzovače (levandule, cedr), feromonové lapače.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-8",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Koroze patří mezi fyzikální a mechanické škody, protože ji způsobuje vzdušná vlhkost.",
+      "spravna": false,
+      "vysvetleni": "Vlhkost je jen spolupachatel — koroze je oxidace kovových povrchů působením vzdušné vlhkosti a kyslíku a vzniká při ní nová látka (rez). Proto je to chemická a biochemická škoda. Fyzikální je vliv vlhkosti bez vzniku nové látky, třeba navlhlý cukr, který ztvrdne v hroudy.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-9",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z možností patří mezi čtyři hlavní příčiny vzniku škod na zboží? (více správných odpovědí)",
+      "moznosti": [
+        "nevhodné mikroklimatické podmínky",
+        "nedostatečný nebo nevhodný obal",
+        "lidský faktor",
+        "vlivy při přepravě",
+        "koroze kovových povrchů",
+        "manko zjištěné při inventuře"
+      ],
+      "spravne": [0, 1, 2, 3],
+      "vysvetleni": "Hlavní příčiny jsou čtyři: nevhodné mikroklimatické podmínky, nedostatečný nebo nevhodný obal, lidský faktor a vlivy při přepravě (otřesy, vibrace, změny klimatu). Koroze a manko nejsou příčiny, ale škody — to, co z příčin vznikne (vlhký sklad = příčina → koroze = škoda).",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-10",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Zákazník online supermarketu dostal v nákupu chleba s nazelenalými skvrnami plísně. Do které skupiny škod to patří?",
+      "moznosti": [
+        "Biologické škody — mikrobiologické napadení",
+        "Chemické a biochemické škody — autolýza",
+        "Fyzikální a mechanické škody — vliv vlhkosti",
+        "Kvantitativní škody — přirozené úbytky"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Plíseň je cizí živý organismus, který chleba napadl — mikrobiologické napadení = biologická škoda (vede k hnilobě a toxicitě, plesnivý chleba se celý vyhazuje). Vlhkost plísni jen pomohla růst (příčina), škodu dělá plíseň. Autolýza je rozklad VLASTNÍMI enzymy, bez cizích organismů.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-11",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Jak se nazývá samovolný rozklad tkání působením vlastních enzymů po sklizni či porážce? (jedno slovo)",
+      "spravneOdpovedi": [
+        "autolýza",
+        "autolyza"
+      ],
+      "vysvetleni": "Autolýza (řecky auto = sám, lýza = rozklad): maso, ryby nebo ovoce se po porážce či sklizni rozkládají vlastními enzymy, i když na ně nesáhne žádný mikrob. Patří k chemickým a biochemickým škodám; zpomalí ji chlazení.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-12",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Autolýza probíhá i bez přítomnosti mikroorganismů.",
+      "spravna": true,
+      "vysvetleni": "Ano. Autolýza je samovolný rozklad tkání působením VLASTNÍCH enzymů po sklizni či porážce — mikroby k ní nejsou potřeba, proto patří k chemickým a biochemickým škodám. Když se k masu nebo ovoci dostanou plísně či bakterie, přidá se mikrobiologické napadení — to už je biologická škoda.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-13",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď konkrétní opatření ke způsobu ochrany zboží.",
+      "pary": [
+        { "levy": "bublinková fólie a pevná krabice", "pravy": "volba správného obalu" },
+        { "levy": "klimatizace a čidlo vlhkosti ve skladu", "pravy": "řízení mikroklimatu" },
+        { "levy": "pasterace mléka", "pravy": "konzervace a chemická ochrana" },
+        { "levy": "deratizace skladu (hubení potkanů)", "pravy": "hygiena a sanitace" },
+        { "levy": "starší zboží jde ven první (FIFO)", "pravy": "logistické řízení" }
+      ],
+      "vysvetleni": "Pět způsobů ochrany v pořadí ze zápisků: 1) volba správného obalu, 2) řízení mikroklimatu, 3) konzervace a chemická ochrana, 4) hygiena a sanitace, 5) logistické řízení. Pasterace zahřátím ničí většinu mikroorganismů (konzervace), deratizace hubí hlodavce (hygiena a sanitace) a FIFO je pravidlo pro dopravu a skladování (logistické řízení).",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-14",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Slunečnicový olej v průhledné PET lahvi stál tři měsíce na slunném okně v kuchyni. Teď hořkne a nepříjemně voní. Co se s ním stalo?",
+      "moznosti": [
+        "Žluknutí — chemický rozklad tuku vlivem světla a kyslíku",
+        "Autolýza — rozklad vlastními enzymy semen po sklizni slunečnice",
+        "Mikrobiologické napadení — olej začaly kvasit kvasinky z kuchyně",
+        "Přehřátí — fyzikální změna teplem, při které nevznikají nové látky"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Žluknutí a oxidace je chemický rozklad tuků a olejů vlivem světla a kyslíku — a na okně měl olej obojího dost. Vznikly nové látky, proto hořká chuť a zápach. Autolýza se týká tkání po sklizni či porážce, kvasinky v čistém oleji bez vody nerostou a pouhé přehřátí by nové látky nevytvořilo. Proto se olej prodává v tmavých lahvích a skladuje v temnu.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-15",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Při vykládce se roztrhl pytel a na podlahu skladu se vysypalo asi 5 kg cukru; zbytek pytle je v pořádku. Při inventuře pak v evidenci 5 kg cukru chybí. Jakou škodu na cukru zapíšeš?",
+      "moznosti": [
+        "Kvantitativní škodu (manko) — rozsypání při manipulaci",
+        "Fyzikální škodu — navlhnutí sypkých hmot, cukr ztvrdl v hroudy",
+        "Biologickou škodu — cukr v noci roznesli a sežrali hlodavci",
+        "Chemickou škodu — cukr se na vzduchu rozložil na jiné látky"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Cukr se nezměnil, jen ho ubylo — chybí množství, tedy kvantitativní škoda (manko): úbytek rozsypáním při manipulaci. Roztržený pytel je mechanická škoda na obalu, ale na cukru samotném je škoda kvantitativní. Navlhnutí by cukr změnilo (ztvrdl by v hroudy). Příčinou je lidský faktor — neopatrná manipulace.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-16",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Do skladu papírnictví dva měsíce zatéká rozbitou střechou. Vedoucí opravu „neměl čas řešit“, ve skladu stoupla relativní vlhkost a sešity v kartonech se zvlnily a zplesnivěly. Které hlavní příčiny škod se tu sešly? (více správných odpovědí)",
+      "moznosti": [
+        "nevhodné mikroklimatické podmínky (vysoká relativní vlhkost)",
+        "lidský faktor (zanedbání, nesprávné skladování)",
+        "vlivy při přepravě (otřesy, vibrace, změny klimatu)",
+        "přirozené úbytky (vysychání, vypařování)"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "Voda ze střechy zvedla relativní vlhkost — nevhodné mikroklimatické podmínky. Nechat díru dva měsíce bez opravy je lidský faktor (zanedbání, nesprávné skladování). Zboží se nikam nepřeváželo a přirozené úbytky nejsou příčina, ale druh škody (kvantitativní). Samotné škody: zvlnění = fyzikální (vlhkost), plíseň = biologická.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-17",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Na brigádě doplňuješ chladicí regál s jogurty. Ve skladu jsou dvě dodávky: včerejší s datem 20. 10. a dnešní od jiného dodavatele s datem 14. 10. Jak postupuješ, aby žádný jogurt nepropadl?",
+      "moznosti": [
+        "Podle FEFO — do regálu nejdřív dnešní dodávku, protože má bližší datum",
+        "Podle FIFO — do regálu nejdřív včerejší dodávku, protože přišla dřív",
+        "Je to jedno, obě data jsou ještě v budoucnu, jogurty můžeš naskládat libovolně",
+        "Dnešní dodávku vrátit dodavateli, protože má kratší datum"
+      ],
+      "spravna": 0,
+      "vysvetleni": "FIFO funguje, dokud zboží propadá ve stejném pořadí, v jakém přišlo. Tady dnešní dodávka propadne dřív (14. 10.), proto platí FEFO (first expired, first out) — rozšíření FIFO: první jde ven zboží s nejbližším datem. Podle FIFO by dnešní jogurty zůstaly vzadu a propadly. Kratší datum samo o sobě není důvod k vrácení.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-18",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Táta nechal sadu ocelových klíčů přes zimu ve vlhké nevytápěné garáži. Na jaře jsou pokryté rezavým povlakem. Jak škodu zařadíš a co jí příště předejde?",
+      "moznosti": [
+        "Chemická škoda (koroze) — nářadí očistit, naolejovat a skladovat v suchu",
+        "Fyzikální škoda (vliv vlhkosti) — stačí nářadí vysušit fénem a rez zmizí",
+        "Biologická škoda (plíseň) — nářadí vydezinfikovat",
+        "Mechanická škoda (deformace) — nářadí vyměnit za pevnější"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rez je nová látka, která vznikla oxidací železa působením vzdušné vlhkosti a kyslíku — koroze, chemická škoda. Vysušením nezmizí, musí se odstranit. Příště pomůže antikorozní olej (konzervace a chemická ochrana) a suché prostředí (řízení mikroklimatu). Rez není živý organismus a tvar klíčů se nezměnil.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-19",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Dvě situace ze skladu: A) hrušky po sklizni přezrávají a měknou, i když na nich není ani stopa plísně; B) kuřecí maso zapomenuté dva dny v teple je slizké a páchne. Které zařazení je správné?",
+      "moznosti": [
+        "A = autolýza (chemická a biochemická škoda), B = mikrobiologické napadení (biologická škoda)",
+        "A = mikrobiologické napadení (biologická škoda), B = autolýza (chemická a biochemická škoda)",
+        "A i B = autolýza, protože obojí je rozklad tkání (chemická a biochemická škoda)",
+        "A = změna teploty (fyzikální škoda), B = přirozený úbytek (kvantitativní škoda, manko)"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Autolýza = samovolný rozklad tkání VLASTNÍMI enzymy po sklizni či porážce — hrušky měknou i bez jediného mikroba. Slizké, páchnoucí maso po dvou dnech v teple je dílo bakterií (hniloba) = mikrobiologické napadení, biologická škoda. Obojí zpomalí chlazení.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-20",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Kontejner s bavlněnými tričky a ocelovými šrouby pluje šest týdnů z Vietnamu přes tropy do Hamburku. Přes den se rozpálí, v noci vychladne a uvnitř se sráží voda, která kape na zboží. Která analýza je správná?",
+      "moznosti": [
+        "Příčina: vlivy při přepravě → škody: plíseň (biologická) a rez (chemická) → ochrana: vysoušedla a bariérové obaly",
+        "Příčina: lidský faktor → škody: plíseň i rez jsou fyzikální (vliv vlhkosti) → ochrana: metoda FIFO při vykládce v přístavu",
+        "Příčina: vlivy při přepravě → škody: plíseň i rez jsou fyzikální (vlhkost) → ochrana: pojištění celé zásilky",
+        "Příčina: nevhodný obal → škoda: kvantitativní (manko), zboží ubude → ochrana: deratizace kontejneru"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Střídání teplot při plavbě mezi teplotními pásmy je typický vliv při přepravě — v kontejneru kondenzuje voda. Z ní vznikne plíseň (živý organismus = biologická škoda) a rez (nová látka = chemická škoda). Pomůže volba správného obalu: vysoušedla (silikagel) a bariérové obaly proti vlhkosti. Pojištění vrátí peníze, ale škodě nezabrání — není to ochrana zboží.",
+      "zdroj": "Škody a ochrana zboží"
+    },
+    {
+      "id": "o-skody-a-ochrana-zbozi-21",
+      "temaId": "skody-a-ochrana-zbozi",
+      "typ": "multi",
+      "obtiznost": 5,
+      "zadani": "Zakládáš e-shop s ručně vyráběnými pleťovými oleji a krémy bez konzervantů. Která opatření jsou správně zvolená proti škodám, které jim hrozí nejvíc? (více správných odpovědí)",
+      "moznosti": [
+        "tmavé lahvičky a neprůhledné obaly — proti žluknutí vlivem světla",
+        "sklad v chladu a temnu, teplotu hlídá čidlo",
+        "vyskladňovat podle FEFO a nevyrábět zásoby na půl roku dopředu",
+        "krabice skladovat u okna, ať jsou po ruce při balení",
+        "proti žluknutí nasadit deratizaci skladu",
+        "proti žluknutí přidat do balíků víc bublinkové fólie"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Olejům a krémům hrozí hlavně žluknutí (světlo, kyslík, teplo) a bez konzervantů i plíseň. Proto neprůhledný obal (volba správného obalu), chlad a tma s čidlem (řízení mikroklimatu) a rychlý obrat podle FEFO (logistické řízení). Okno = světlo a teplo, tedy příčina škod; deratizace míří na hlodavce a bublinková fólie chrání před nárazem — na žluknutí nepůsobí.",
+      "zdroj": "Škody a ochrana zboží"
     },
     {
       "id": "o-potravinarske-zbozi-1",

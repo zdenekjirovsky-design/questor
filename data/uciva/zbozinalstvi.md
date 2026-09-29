@@ -57,7 +57,9 @@ neříká nic o tom, že obal je z recyklovaného materiálu. Zásady správnéh
 skladování: vhodná teplota a vlhkost, čistota, oddělené skladování
 neslučitelného zboží (potraviny nikdy vedle drogerie) a vyskladňování podle
 zásady FIFO (first in, first out) — zboží naskladněné jako první se
-vyskladňuje jako první, aby nestárlo na skladě.
+vyskladňuje jako první, aby nestárlo na skladě. Podrobnou klasifikaci škod na
+zboží, jejich hlavní příčiny a metody ochrany včetně FIFO a FEFO rozebírá
+kapitola Škody a ochrana zboží.
 
 ## Jakost a řízení jakosti
 
@@ -138,6 +140,114 @@ Sedm principů ISO 9001 v tomto pořadí: 1) zaměření na zákazníka, 2) vede
 6) rozhodování na základě dat — kvalita rozhodnutí závisí na kvalitě
 informací a dat, 7) management vztahů — s dodavateli, tedy
 dodavatelsko-odběratelské vztahy.
+
+## Zbožíznalství jako věda a profese
+
+Cílem zbožíznalství jako vědní disciplíny je hodnotit kvalitu zboží, chránit
+jeho užitnou hodnotu a bránit falšování produktů na trhu. Zbožíznalství tedy
+posuzuje, jak dobré zboží je, pomáhá, aby cestou od výrobce k zákazníkovi
+nepřišlo o svou hodnotu, a odhaluje napodobeniny vydávané za pravé zboží.
+
+Zbožíznalství se rozvinulo v 17.–19. století, kdy do Evropy proudily nové
+produkty z dovozu: koření, ovoce, čaj, káva, porcelán, střelný prach,
+brambory a drahé kameny. Zvlášť koření, čaj, káva, porcelán a drahé kameny
+byly vzácné a drahé. S dovozem z dalekých zemí vznikla potřeba řešit pravost
+a původ zboží — poznat, zda je zboží pravé a odkud skutečně pochází —
+a odhalovat padělky a falšování. Kávu obchodníci
+„natahovali“ praženým obilím nebo čekankou, do čaje přimíchávali obarvené
+listy jiných rostlin a drahý čínský porcelán napodobovala levnější keramika.
+
+Za zakladatele novodobého zbožíznalství je považován Johann Beckmann
+(1739–1811), profesor ekonomie na univerzitě v Göttingenu. Ve spise
+Vorbereitung zur Waarenkunde (Příprava ke zbožíznalství, 1793–1800) soustavně
+popsal nejvýznamnější zboží z dovozu — jeho původ, vlastnosti a jakost.
+Beckmann zavedl také pojem technologie (Anleitung zur Technologie, 1777).
+
+Dnešní zbožíznalství využívá informace, data, digitalizaci a nové IT
+technologie: čárové a QR kódy, sledovatelnost šarží od výrobce až do regálu,
+čidla a dataloggery hlídající teplotu při přepravě, laboratorní rozbory
+a databáze, které odhalí falšované potraviny i padělky značkového zboží. Cíl
+zůstává stejný, mění se nástroje.
+
+V dnešní době již neexistuje specifická pracovní pozice s oficiálním názvem
+„znalec zboží“. Znalosti zbožíznalství využívají čtyři profese. 1) Soudní
+znalec vypracuje oficiální znalecký posudek opatřený kulatou znaleckou pečetí
+se státním znakem pro soud, policii nebo při sporné reklamaci. Znalci působí
+ve velmi specifických oborech a komoditách, například textil, oděvy a obuv;
+drahé kovy, šperky a drahé kameny; starožitnosti, umělecká díla a sběratelské
+předměty; stroje, elektrotechnika nebo motorová vozidla. Soudní znalce
+jmenuje, přesněji zapisuje do seznamu znalců, Ministerstvo spravedlnosti
+(zákon č. 254/2019 Sb., o znalcích). 2) Odhadce / likvidátor pojistných
+událostí oceňuje majetek a posuzuje poškozené či kradené zboží; jako expert
+pro řešení majetkových škod pracuje hlavně pro pojišťovnu — zjistí rozsah
+škody a navrhne výši pojistného plnění. 3) Manažer kvality / kontrolor
+jakosti dohlíží, zda produkty splňují normy a technické specifikace; ve firmě
+certifikované podle ISO 9001 pečuje o systém managementu kvality.
+4) Merchandiser / nákupčí pracuje v retailu a módním průmyslu, vybírá zboží
+a dodavatele, stará se o sortiment a jeho prezentaci v prodejně a má hluboké
+znalosti o materiálech.
+
+## Škody a ochrana zboží
+
+Zbožíznalství definuje škody na zboží jako jakékoli nežádoucí změny, které
+snižují jeho užitnou hodnotu, kvalitu nebo kvantitu. Ochrana zboží pak
+představuje soubor opatření technických, organizačních a technologických,
+která škodám předcházejí během celého životního cyklu výrobku — při výrobě,
+přepravě, skladování, prodeji i používání.
+
+Klasifikace škod rozlišuje čtyři skupiny v tomto pořadí. 1) Fyzikální
+a mechanické škody: deformace (rozbití, poškrábání, promáčknutí), změny
+teploty (zmrznutí nebo přehřátí) a vliv vlhkosti (navlhnutí sypkých hmot,
+třeba cukru, nebo naopak vysychání). 2) Chemické a biochemické škody: koroze
+— oxidace kovových povrchů působením vzdušné vlhkosti a kyslíku; žluknutí
+a oxidace — chemický rozklad tuků a olejů v potravinách či kosmetice vlivem
+světla a kyslíku; autolýza — samovolný rozklad tkání působením vlastních
+enzymů po sklizni či porážce. 3) Biologické škody: mikrobiologické napadení —
+činnost plísní, kvasinek a bakterií, která vede k hnilobě, kvašení
+a toxicitě; škůdci — hmyz (mol šatní, pilous černý) nebo hlodavci (myši,
+potkani), kteří zboží konzumují i znehodnocují výkaly. 4) Kvantitativní
+škody (manka): přirozené úbytky vysycháním, vypařováním, únikem těkavých
+látek nebo rozsypáním a rozprášením při manipulaci — zboží se nezkazí, ale
+ubude ho.
+
+Při zařazování pomáhá rozlišit: vznikne-li nová látka (rez, žluklý tuk), jde
+o škodu chemickou; ubude-li zboží na hmotnosti či objemu, jde o manko;
+změní-li se jen tvar, teplota nebo vlhkost zboží a nic neubude, jde o škodu
+fyzikální. Proto se vysychání objevuje dvakrát: zboží, které vyschnutím
+ztvrdne nebo popraská, utrpělo škodu fyzikální, kdežto úbytek hmotnosti
+vysycháním je manko.
+
+Hlavní příčiny vzniku škod jsou čtyři: 1) nevhodné mikroklimatické podmínky —
+nedodržení předepsané teploty, relativní vlhkosti vzduchu, cirkulace vzduchu
+nebo intenzity světla ve skladech; 2) nedostatečný nebo nevhodný obal, který
+nechrání před mechanickým tlakem, vlhkostí nebo světlem; 3) lidský faktor —
+neopatrná manipulace, nesprávné skladování nebo zanedbání hygienických norem;
+4) vlivy při přepravě — otřesy, vibrace a změny klimatu při přechodu mezi
+časovými a teplotními pásmy.
+
+Ochrana zboží musí být systematická a dělí se na pasivní a aktivní. Způsoby
+ochrany jsou v tomto pořadí: 1) volba správného obalu; 2) řízení
+mikroklimatu; 3) konzervace a chemická ochrana; 4) hygiena a sanitace;
+5) logistické řízení — opatření související s dopravou a skladováním,
+uplatňování metody FIFO u zboží s omezenou trvanlivostí. FIFO (first in,
+first out) znamená, že co bylo naskladněno první, jde první ven.
+
+Doplněk k dělení na pasivní a aktivní ochranu (v sešitě je dělení jen
+pojmenované — přesné vymezení si ověř u učitele, v literatuře není jednotné):
+pasivní ochrana chrání zboží bez zásahu do něj, typicky obalem; aktivní
+ochrana je přímý zásah do zboží nebo proti škůdcům, například konzervace nebo
+dezinsekce.
+
+Doplněné příklady konkrétních opatření (v sešitě prázdné): u obalu tlumicí
+výplně, bariérové obaly, vakuové balení a vysoušedla; u řízení mikroklimatu
+chladírny a mrazírny, regulace teploty a vlhkosti, větrání, omezení světla
+a čidla; u konzervace a chemické ochrany sušení, solení, uzení, pasterace,
+sterilace, antioxidanty, antikorozní oleje a nátěry a impregnace; u hygieny
+a sanitace čištění a dezinfekce, dezinsekce, deratizace a oddělené skladování
+potravin a chemie; u logistického řízení správné stohování, kontrola při
+příjmu, rychlý obrat a metoda FEFO (first expired, first out) — jako první se
+vyskladní zboží s nejbližším datem minimální trvanlivosti nebo použitelnosti,
+i když bylo naskladněno později.
 
 ## Potravinářské zboží
 

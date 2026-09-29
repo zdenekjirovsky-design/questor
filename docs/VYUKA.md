@@ -36,8 +36,9 @@ lekcí, ať ho generuje Claude, nebo vzniká ručně.
   bez výuky.
 - `zbozinalstvi` („Zbožíznalství“) — kompletní vzor fáze 2: učivo
   `data/uciva/zbozinalstvi.md`, banka `data/banky/zbozinalstvi.json`
-  (7 témat, 98 otázek), výuka `data/vyuka/zbozinalstvi.json` (7 lekcí:
+  (9 témat, 134 otázek), výuka `data/vyuka/zbozinalstvi.json` (9 lekcí:
   základy zbožíznalství, jakost a řízení jakosti, norma ISO 9001,
+  zbožíznalství jako věda a profese, škody a ochrana zboží,
   potravinářské zboží, drobné zboží, obuv a kožená galanterie, textil
   a odívání; každá lekce drží strukturu výše). Banka i výuka jsou
   bundlované v aplikaci (`aplikace/src/data/predmety/`).

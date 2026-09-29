@@ -1,7 +1,7 @@
 {
   "predmetId": "zbozinalstvi",
-  "verze": 3,
-  "vytvoreno": "2026-09-20",
+  "verze": 4,
+  "vytvoreno": "2026-09-29",
   "lekce": [
     {
       "temaId": "zaklady-zbozinalstvi",
@@ -864,9 +864,566 @@
       ]
     },
     {
+      "temaId": "zbozinalstvi-veda-a-profese",
+      "nazev": "Zbožíznalství jako věda a profese",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Kámoš se chlubí „originálními“ teniskami z internetu za polovic — po týdnu se odlepila podrážka a logo je nakřivo. Padělek? E-shop tvrdí, že ne — kdo to ale umí posoudit tak, aby to platilo i u soudu? Na to existuje obor, který se zrodil už v době, kdy se do Evropy vozilo koření, čaj a porcelán."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Cíl zbožíznalství** (tři body — přesně tak se zkouší):\n- **hodnotit kvalitu** zboží,\n- **chránit jeho užitnou hodnotu**,\n- **bránit falšování** produktů na trhu.\n\n**Rozvoj v 17.–19. století:** do Evropy proudí **nové produkty z dovozu**:\n- koření, ovoce, čaj, káva,\n- porcelán, střelný prach,\n- brambory, drahé kameny.\n\nKoření, čaj, káva, porcelán nebo drahé kameny stály majlant — a kupec potřeboval vědět, za co platí. Vznikla potřeba řešit **pravost a původ** zboží a odhalovat **padělky a falšování** (káva „natahovaná“ praženým obilím, čaj s obarvenými listy jiných rostlin).\n\n**Zakladatel novodobého zbožíznalství:** **Johann Beckmann** (1739–1811), **profesor ekonomie** na univerzitě v Göttingenu. Ve spise **Vorbereitung zur Waarenkunde** (Příprava ke zbožíznalství, 1793–1800) popsal nejdůležitější zboží z dovozu — původ, vlastnosti, jakost. Zavedl i slovo **technologie**.\n\n**Dnešní zbožíznalství** využívá **informace, data, digitalizaci a nové IT technologie** — čárové a QR kódy, sledování šarží, čidla teploty v kamionech, laboratorní rozbory a databáze proti padělkům."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Padělky dnes nejsou koření v pytli, ale tenisky, parfémy, sluchátka nebo nabíječky z podezřele levného e-shopu. Kdo ví, že zbožíznalství hlídá **kvalitu, užitnou hodnotu, pravost a původ**, nakupuje s rozumem a nenechá se napálit. Až budete doma řešit vytopený sklep nebo ukradené kolo, ozve se vám **likvidátor pojišťovny** — a ty budeš vědět, kdo to je a co od něj čekat. A při volbě brigády nebo práce: zbožíznalství využívá **nákupčí** v módním řetězci, **kontrolor kvality** ve fabrice i **soudní znalec**."
+        },
+        {
+          "typ": "klicove-pojmy",
+          "polozky": [
+            {
+              "pojem": "Cíl zbožíznalství",
+              "definice": "Hodnotit kvalitu zboží, chránit jeho užitnou hodnotu a bránit falšování produktů na trhu."
+            },
+            {
+              "pojem": "Pravost a původ",
+              "definice": "Je zboží pravé a odkud skutečně pochází? Otázka, kterou přinesl dovoz v 17.–19. století."
+            },
+            {
+              "pojem": "Padělek × falšování",
+              "definice": "Padělek je napodobenina vydávaná za originál; falšování je záměrné „natahování“ nebo pozměňování zboží (levné příměsi, klamavé údaje)."
+            },
+            {
+              "pojem": "Johann Beckmann",
+              "definice": "Zakladatel novodobého zbožíznalství, profesor ekonomie v Göttingenu (1739–1811)."
+            },
+            {
+              "pojem": "Dnešní zbožíznalství",
+              "definice": "Využívá informace, data, digitalizaci a nové IT technologie."
+            },
+            {
+              "pojem": "Soudní znalec",
+              "definice": "Vypracuje oficiální posudek s kulatou pečetí pro soud, policii nebo reklamaci; do seznamu ho zapisuje Ministerstvo spravedlnosti."
+            },
+            {
+              "pojem": "Odhadce / likvidátor pojistných událostí",
+              "definice": "Oceňuje majetek a posuzuje poškozené či kradené zboží, typicky pro pojišťovnu."
+            },
+            {
+              "pojem": "Manažer kvality / kontrolor jakosti",
+              "definice": "Dohlíží, zda produkty splňují normy a technické specifikace."
+            },
+            {
+              "pojem": "Merchandiser / nákupčí",
+              "definice": "V retailu a módním průmyslu vybírá a nakupuje zboží; má hluboké znalosti o materiálech."
+            }
+          ]
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 342\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Časová osa zbožíznalství: cíl disciplíny, úsek 17. až 19. století s dovozem nových produktů, uvnitř něj Beckmannův spis z let 1793 až 1800, vpravo dnešní zbožíznalství\">\n<defs>\n<marker id=\"vp-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n</defs>\n<text x=\"320\" y=\"20\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--akcent)\">ZBOŽÍZNALSTVÍ — OD KOŘENÍ K DATŮM</text>\n<rect x=\"20\" y=\"32\" width=\"600\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"320\" y=\"51\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"var(--zlata)\">CÍL DISCIPLÍNY</text>\n<text x=\"320\" y=\"70\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">hodnotit kvalitu zboží · chránit jeho užitnou hodnotu · bránit falšování produktů</text>\n<rect x=\"20\" y=\"94\" width=\"190\" height=\"140\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"115\" y=\"114\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"var(--info)\">NOVÉ PRODUKTY Z DOVOZU</text>\n<text x=\"115\" y=\"136\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">koření, ovoce, čaj, káva</text>\n<text x=\"115\" y=\"154\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">porcelán, střelný prach</text>\n<text x=\"115\" y=\"172\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">brambory, drahé kameny</text>\n<text x=\"115\" y=\"198\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">⇒ pravost a původ?</text>\n<text x=\"115\" y=\"216\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">⇒ padělky a falšování?</text>\n<rect x=\"225\" y=\"94\" width=\"190\" height=\"140\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"320\" y=\"113\" text-anchor=\"middle\" font-size=\"10.5\" font-weight=\"bold\" fill=\"var(--akcent)\">ZAKLADATEL NOVODOBÉHO</text>\n<text x=\"320\" y=\"127\" text-anchor=\"middle\" font-size=\"10.5\" font-weight=\"bold\" fill=\"var(--akcent)\">ZBOŽÍZNALSTVÍ</text>\n<text x=\"320\" y=\"150\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">Johann Beckmann</text>\n<text x=\"320\" y=\"167\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.8\">(1739–1811)</text>\n<text x=\"320\" y=\"185\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">profesor ekonomie, Göttingen</text>\n<text x=\"320\" y=\"204\" text-anchor=\"middle\" font-size=\"10.5\" font-style=\"italic\" fill=\"currentColor\">Vorbereitung zur Waarenkunde</text>\n<text x=\"320\" y=\"221\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"var(--akcent)\">spis z let 1793–1800</text>\n<rect x=\"430\" y=\"94\" width=\"190\" height=\"140\" rx=\"10\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"525\" y=\"114\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"var(--uspech)\">DNEŠNÍ ZBOŽÍZNALSTVÍ</text>\n<text x=\"525\" y=\"138\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">informace a data</text>\n<text x=\"525\" y=\"157\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">digitalizace</text>\n<text x=\"525\" y=\"176\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">nové IT technologie</text>\n<text x=\"525\" y=\"200\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.8\">QR kódy · čidla · databáze</text>\n<text x=\"525\" y=\"217\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" opacity=\"0.8\">laboratoře proti padělkům</text>\n<line x1=\"20\" y1=\"262\" x2=\"614\" y2=\"262\" stroke=\"currentColor\" stroke-width=\"2\" opacity=\"0.6\" marker-end=\"url(#vp-sipka)\" />\n<line x1=\"30\" y1=\"262\" x2=\"440\" y2=\"262\" stroke=\"var(--info)\" stroke-width=\"9\" opacity=\"0.35\" />\n<path d=\"M30,272 L30,278 L440,278 L440,272\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" opacity=\"0.6\" />\n<line x1=\"474\" y1=\"270\" x2=\"482\" y2=\"254\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" />\n<line x1=\"480\" y1=\"270\" x2=\"488\" y2=\"254\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" />\n<line x1=\"115\" y1=\"234\" x2=\"115\" y2=\"256\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<line x1=\"320\" y1=\"234\" x2=\"299\" y2=\"256\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" />\n<line x1=\"525\" y1=\"234\" x2=\"525\" y2=\"256\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<circle cx=\"297\" cy=\"262\" r=\"6\" fill=\"var(--akcent)\" />\n<circle cx=\"525\" cy=\"262\" r=\"6\" fill=\"var(--uspech)\" />\n<text x=\"30\" y=\"295\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">1600</text>\n<text x=\"235\" y=\"295\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">17.–19. století</text>\n<text x=\"440\" y=\"295\" text-anchor=\"end\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">1900</text>\n<text x=\"525\" y=\"295\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">dnes</text>\n<text x=\"320\" y=\"330\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" opacity=\"0.8\">Cíl zůstává stejný, mění se nástroje: dřív hlavně smysly a zkušenost, dnes data, IT a laboratoře.</text>\n</svg>",
+          "popisek": "Nahoře cíl zbožíznalství. Na ose úsek 17.–19. století: dovoz nových produktů přinesl otázky pravosti, původu a falšování; uvnitř úseku leží Beckmannův spis Vorbereitung zur Waarenkunde (1793–1800), kterým dal oboru základ. Vpravo dnešní zbožíznalství: data, digitalizace a IT."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-zbozinalstvi-veda-a-profese-1",
+            "temaId": "zbozinalstvi-veda-a-profese",
+            "obtiznost": 2,
+            "zadani": "Rok 1750: obchodník v přístavu kupuje za velké peníze pytel „pravého čínského čaje“. Co by mu tehdejší zbožíznalství pomohlo ověřit?",
+            "vysvetleni": "Dovoz nových produktů v 17.–19. století přinesl potřebu řešit pravost a původ a odhalovat padělky a falšování — drahý čaj se třeba „natahoval“ obarvenými listy jiných rostlin. Certifikáty ISO vznikly až ve 20. století, data trvanlivosti na obalech a e-shopy jsou taky až moderní doba.",
+            "zdroj": "Zbožíznalství jako věda a profese",
+            "typ": "vyber",
+            "moznosti": [
+              "Pravost a původ čaje — zda není smíchaný s listy jiných rostlin",
+              "Jestli má dodavatel čaje platný certifikát systému kvality ISO 9001",
+              "Jestli je na obalu vytištěné datum minimální trvanlivosti čaje",
+              "Za kolik čaj výhodně přeprodá zákazníkům přes svůj e-shop"
+            ],
+            "spravna": 0
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Profese zbožíznalec?** V dnešní době **již neexistuje** specifická pracovní pozice s oficiálním názvem **„znalec zboží“**. Znalosti zbožíznalství ale využívají **4 profese** (v tomhle pořadí):\n- **1. Soudní znalec** — **oficiální posudek s kulatým razítkem** (znalecká pečeť se státním znakem) pro **soud, policii nebo reklamaci**. Experti jsou jmenováni pro velmi **specifické obory a komodity**: textil, oděvy a obuv · drahé kovy, šperky a drahé kameny · starožitnosti, umělecká díla a sběratelské předměty · stroje, elektrotechnika nebo motorová vozidla. Soudní znalce **jmenuje (zapisuje do seznamu) Ministerstvo spravedlnosti**.\n- **2. Odhadce / likvidátor pojistných událostí** — **oceňuje majetek** a posuzuje **poškozené či kradené zboží**; expert pro řešení majetkových škod, typicky pro **pojišťovnu**.\n- **3. Manažer kvality / kontrolor jakosti** — dohlíží, zda produkty **splňují normy a technické specifikace** (ve firmě s ISO 9001 pečuje o systém managementu kvality).\n- **4. Merchandiser / nákupčí** — v **retailu a módním průmyslu**; vybírá a nakupuje zboží, stará se o jeho prezentaci v prodejně a má **hluboké znalosti o materiálech**.\n\n**Pozor na záměnu:** likvidátor pracuje **pro pojišťovnu** (kolik se za škodu zaplatí), soudní znalec je **nezávislý** a jeho posudek s pečetí slouží jako **důkaz** pro soud, policii nebo při sporné reklamaci."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 380\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Čtyři profese, které dnes využívají znalosti zbožíznalství\">\n<text x=\"320\" y=\"20\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--akcent)\">KDE SE DNES UPLATNÍ ZBOŽÍZNALSTVÍ — 4 PROFESE</text>\n<rect x=\"15\" y=\"34\" width=\"290\" height=\"130\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"30\" y=\"57\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\"><tspan fill=\"var(--info)\">1</tspan><tspan dx=\"8\">SOUDNÍ ZNALEC</tspan></text>\n<text x=\"30\" y=\"79\" font-size=\"12\" fill=\"currentColor\">oficiální posudek s kulatou pečetí</text>\n<text x=\"30\" y=\"96\" font-size=\"12\" fill=\"currentColor\">pro soud, policii nebo reklamaci</text>\n<text x=\"30\" y=\"113\" font-size=\"12\" fill=\"currentColor\">velmi specifické obory a komodity</text>\n<text x=\"30\" y=\"130\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.8\">(obuv, šperky, starožitnosti, vozidla…)</text>\n<text x=\"30\" y=\"150\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--info)\">zapisuje Ministerstvo spravedlnosti</text>\n<rect x=\"335\" y=\"34\" width=\"290\" height=\"130\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"350\" y=\"57\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\"><tspan fill=\"var(--zlata)\">2</tspan><tspan dx=\"8\">ODHADCE / LIKVIDÁTOR</tspan></text>\n<text x=\"350\" y=\"75\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--zlata)\">pojistných událostí</text>\n<text x=\"350\" y=\"96\" font-size=\"12\" fill=\"currentColor\">oceňuje majetek</text>\n<text x=\"350\" y=\"113\" font-size=\"12\" fill=\"currentColor\">posuzuje poškozené či kradené zboží</text>\n<text x=\"350\" y=\"130\" font-size=\"12\" fill=\"currentColor\">expert na řešení majetkových škod</text>\n<text x=\"350\" y=\"150\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--zlata)\">typicky pracuje pro pojišťovnu</text>\n<line x1=\"260\" y1=\"164\" x2=\"260\" y2=\"172\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" />\n<line x1=\"380\" y1=\"164\" x2=\"380\" y2=\"172\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" />\n<line x1=\"260\" y1=\"208\" x2=\"260\" y2=\"216\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" />\n<line x1=\"380\" y1=\"208\" x2=\"380\" y2=\"216\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.6\" />\n<rect x=\"220\" y=\"172\" width=\"200\" height=\"36\" rx=\"18\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"320\" y=\"194\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">ZNALOSTI ZBOŽÍZNALSTVÍ</text>\n<rect x=\"15\" y=\"216\" width=\"290\" height=\"130\" rx=\"10\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"30\" y=\"239\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\"><tspan fill=\"var(--uspech)\">3</tspan><tspan dx=\"8\">MANAŽER KVALITY</tspan></text>\n<text x=\"30\" y=\"257\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--uspech)\">/ kontrolor jakosti</text>\n<text x=\"30\" y=\"278\" font-size=\"12\" fill=\"currentColor\">dohlíží, zda produkty splňují</text>\n<text x=\"30\" y=\"295\" font-size=\"12\" fill=\"currentColor\">normy a technické specifikace</text>\n<text x=\"30\" y=\"312\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.8\">ve firmě s ISO 9001 hlídá systém</text>\n<text x=\"30\" y=\"329\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.8\">managementu kvality</text>\n<rect x=\"335\" y=\"216\" width=\"290\" height=\"130\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"350\" y=\"239\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\"><tspan fill=\"var(--akcent)\">4</tspan><tspan dx=\"8\">MERCHANDISER / NÁKUPČÍ</tspan></text>\n<text x=\"350\" y=\"257\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--akcent)\">retail a módní průmysl</text>\n<text x=\"350\" y=\"278\" font-size=\"12\" fill=\"currentColor\">vybírá a nakupuje zboží,</text>\n<text x=\"350\" y=\"295\" font-size=\"12\" fill=\"currentColor\">stará se o sortiment v prodejně</text>\n<text x=\"350\" y=\"312\" font-size=\"12\" fill=\"currentColor\">hluboké znalosti o materiálech</text>\n<text x=\"350\" y=\"329\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.8\">(látky, useň, zpracování)</text>\n<text x=\"320\" y=\"370\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.8\">Pracovní pozice s oficiálním názvem „znalec zboží“ dnes neexistuje.</text>\n</svg>",
+          "popisek": "Pozice „znalec zboží“ dnes neexistuje — znalosti zbožíznalství využívají čtyři profese: soudní znalec, odhadce / likvidátor pojistných událostí, manažer kvality / kontrolor jakosti a merchandiser / nákupčí."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Kdo to má na starosti? Roztřiď situace podle profese, která je řeší.",
+            "kategorie": [
+              {
+                "id": "znalec",
+                "nazev": "Soudní znalec"
+              },
+              {
+                "id": "likvidator",
+                "nazev": "Odhadce / likvidátor pojistných událostí"
+              },
+              {
+                "id": "kvalita",
+                "nazev": "Manažer kvality / kontrolor jakosti"
+              },
+              {
+                "id": "nakupci",
+                "nazev": "Merchandiser / nákupčí"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "posudek pro soud: je ten zlatý řetízek pravý?",
+                "kategorieId": "znalec"
+              },
+              {
+                "text": "posudek pro policii k zabaveným padělkům tenisek",
+                "kategorieId": "znalec"
+              },
+              {
+                "text": "posudek pro soud: jsou starožitné hodiny z dědictví pravé?",
+                "kategorieId": "znalec"
+              },
+              {
+                "text": "ocenění zboží z vykradeného skladu pro pojišťovnu",
+                "kategorieId": "likvidator"
+              },
+              {
+                "text": "vytopená prodejna: kolik škody zaplatí pojišťovna",
+                "kategorieId": "likvidator"
+              },
+              {
+                "text": "odhad škody na autech po krupobití pro pojišťovnu",
+                "kategorieId": "likvidator"
+              },
+              {
+                "text": "kontrola, zda šarže nabíječek splňuje normy",
+                "kategorieId": "kvalita"
+              },
+              {
+                "text": "měření pevnosti švů podle technické specifikace",
+                "kategorieId": "kvalita"
+              },
+              {
+                "text": "příprava firmy na audit podle ISO 9001",
+                "kategorieId": "kvalita"
+              },
+              {
+                "text": "výběr látek na zimní kolekci bund",
+                "kategorieId": "nakupci"
+              },
+              {
+                "text": "rozhodnutí, které tenisky obchod objedná na jaro",
+                "kategorieId": "nakupci"
+              },
+              {
+                "text": "aranžování zboží v regálech a ve výloze",
+                "kategorieId": "nakupci"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              {
+                "a": "Cíl zbožíznalství",
+                "b": "Hodnotit kvalitu, chránit užitnou hodnotu, bránit falšování"
+              },
+              {
+                "a": "17.–19. století",
+                "b": "Dovoz koření, čaje, kávy a porcelánu do Evropy"
+              },
+              {
+                "a": "Johann Beckmann",
+                "b": "Profesor ekonomie, zakladatel novodobého zbožíznalství"
+              },
+              {
+                "a": "Dnešní zbožíznalství",
+                "b": "Informace, data, digitalizace a IT"
+              },
+              {
+                "a": "Ministerstvo spravedlnosti",
+                "b": "Zapisuje soudní znalce do seznamu"
+              },
+              {
+                "a": "Kulatá pečeť se státním znakem",
+                "b": "Poznávací znamení znaleckého posudku"
+              },
+              {
+                "a": "Likvidátor pojistných událostí",
+                "b": "Oceňuje škodu pro pojišťovnu"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-zbozinalstvi-veda-a-profese-2",
+            "temaId": "zbozinalstvi-veda-a-profese",
+            "obtiznost": 3,
+            "zadani": "Likvidátor pojistných událostí vydává oficiální posudek s kulatou znaleckou pečetí, který slouží jako důkaz u soudu.",
+            "vysvetleni": "Likvidátor (odhadce) pracuje pro pojišťovnu: oceňuje majetek a posuzuje poškozené či kradené zboží, aby se určilo pojistné plnění. Oficiální posudek s kulatou pečetí pro soud, policii nebo reklamaci vydává soudní znalec — toho zapisuje do seznamu Ministerstvo spravedlnosti.",
+            "zdroj": "Zbožíznalství jako věda a profese",
+            "typ": "anone",
+            "spravna": false
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Po přívalovém dešti zatekla voda do prodejny obuvi v suterénu obchodního centra. Na podlaze stojí krabice s 300 páry bot a část z nich je promočená. Které profese využívající zbožíznalství do toho vstoupí, co udělají a v jakém pořadí?",
+          "reseni": "1) **Odhadce / likvidátor pojistných událostí** — majitel nahlásí škodu pojišťovně a ta pošle likvidátora. Ten škodu **zdokumentuje** (fotky, soupis párů), zjistí **příčinu** (přívalový déšť? zanedbaná údržba?) a **ocení** poškozené zboží. Tady se zbožíznalství hodí: promočená useň se deformuje a může zplesnivět, pryžové holínky vodu přežijí. Podle toho navrhne **výši pojistného plnění**.\n\n2) **Manažer kvality / kontrolor jakosti** — za obchodní řetězec posoudí, které páry **ještě splňují normy a technické specifikace** a smějí se prodat jako nové, které jen jako **zlevněné zboží s upozorněním na vadu** a které se musí **zlikvidovat**. A navrhne **prevenci**: zboží na regály a palety, ne na podlahu; hlásič zaplavení.\n\n3) **Soudní znalec** — přijde na řadu, jen když **vznikne spor**: pojišťovna tvrdí, že boty stačí vysušit, majitel, že jsou neprodejné. Soud ustanoví **soudního znalce z oboru textil, oděvy a obuv** (zapsaného Ministerstvem spravedlnosti) a ten vypracuje **nezávislý posudek s kulatou pečetí**.\n\n4) Navíc: **merchandiser / nákupčí** mezitím objedná náhradní zboží, aby prodejna nepřišla o sezónu.\n\n**Pozor na záměnu:** likvidátor ≠ soudní znalec. Likvidátor oceňuje škodu **pro pojišťovnu**, soudní znalec je **nezávislý** a jeho posudek slouží jako důkaz."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Cíl zbožíznalství",
+              "zadni": "Hodnotit kvalitu zboží, chránit jeho užitnou hodnotu a bránit falšování produktů na trhu."
+            },
+            {
+              "predni": "Rozvoj v 17.–19. století",
+              "zadni": "Dovoz koření, ovoce, čaje, kávy, porcelánu, střelného prachu, brambor a drahých kamenů ⇒ řešit pravost a původ, odhalovat padělky a falšování."
+            },
+            {
+              "predni": "Johann Beckmann",
+              "zadni": "Zakladatel novodobého zbožíznalství, profesor ekonomie v Göttingenu (1739–1811); Vorbereitung zur Waarenkunde (1793–1800)."
+            },
+            {
+              "predni": "Dnešní zbožíznalství",
+              "zadni": "Využívá informace, data, digitalizaci a nové IT technologie."
+            },
+            {
+              "predni": "„Znalec zboží“ dnes?",
+              "zadni": "Taková pracovní pozice dnes neexistuje — znalosti zbožíznalství využívají 4 profese."
+            },
+            {
+              "predni": "4 profese (v pořadí)",
+              "zadni": "1) soudní znalec, 2) odhadce / likvidátor pojistných událostí, 3) manažer kvality / kontrolor jakosti, 4) merchandiser / nákupčí."
+            },
+            {
+              "predni": "Soudní znalec",
+              "zadni": "Oficiální posudek s kulatou pečetí pro soud, policii nebo reklamaci; specifické obory (textil, oděvy a obuv; šperky; starožitnosti; stroje a vozidla); zapisuje ho Ministerstvo spravedlnosti."
+            },
+            {
+              "predni": "Likvidátor × soudní znalec",
+              "zadni": "Likvidátor oceňuje škodu pro pojišťovnu; soudní znalec je nezávislý a jeho posudek slouží jako důkaz."
+            },
+            {
+              "predni": "Manažer kvality × nákupčí",
+              "zadni": "Manažer kvality hlídá, zda produkty splňují normy a specifikace; nákupčí (merchandiser) vybírá zboží a materiály pro prodej."
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Cíl zbožíznalství: hodnotit kvalitu zboží, chránit jeho užitnou hodnotu a bránit falšování produktů na trhu.\n- Rozvoj v 17.–19. století: dovoz koření, ovoce, čaje, kávy, porcelánu, střelného prachu, brambor a drahých kamenů ⇒ pravost a původ, padělky a falšování.\n- Zakladatel novodobého zbožíznalství: Johann Beckmann, profesor ekonomie (Göttingen; spis Vorbereitung zur Waarenkunde, 1793–1800); dnešní zbožíznalství stojí na informacích, datech, digitalizaci a IT.\n- Pozice „znalec zboží“ dnes neexistuje — znalosti využívají 4 profese: soudní znalec (posudek s kulatou pečetí, seznam vede Ministerstvo spravedlnosti), odhadce / likvidátor pojistných událostí, manažer kvality / kontrolor jakosti, merchandiser / nákupčí."
+        }
+      ]
+    },
+    {
+      "temaId": "skody-a-ochrana-zbozi",
+      "nazev": "Škody a ochrana zboží",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "První den brigády ve skladu e-shopu s potravinami a drogerií. Za jedinou směnu najdeš rozbitou sklenici okurek, plesnivý chleba, žluklý olej a myšmi prokousaný pytel rýže — a v systému chybějí 2 kg cukru, které nikdo neukradl. Vedoucí jen vzdychne: „Tohle nás stojí tisíce. Zjisti, co se děje, a vymysli, jak tomu zabránit.“"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Škody na zboží** = jakékoli **nežádoucí změny**, které snižují jeho **užitnou hodnotu, kvalitu nebo kvantitu**.\n\n**Ochrana zboží** = soubor opatření **technických, organizačních a technologických**, která škodám předcházejí během **celého životního cyklu výrobku** (výroba → přeprava → sklad → prodej → zákazník)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Klasifikace škod — 4 skupiny** (v tomhle pořadí, tak se zkouší):\n- **1. Fyzikální a mechanické** — **deformace** (rozbití, poškrábání, promáčknutí), **změny teploty** (zmrznutí nebo přehřátí), **vliv vlhkosti** (navlhnutí sypkých hmot nebo naopak vysychání).\n- **2. Chemické a biochemické** — **koroze** (oxidace kovových povrchů působením vzdušné vlhkosti a kyslíku), **žluknutí a oxidace** (chemický rozklad tuků a olejů v potravinách či kosmetice vlivem světla a kyslíku), **autolýza** (samovolný rozklad tkání působením vlastních enzymů po sklizni či porážce).\n- **3. Biologické** — **mikrobiologické napadení** (plísně, kvasinky a bakterie → hniloba, kvašení, toxicita) a **škůdci**: hmyz (**mol šatní**, **pilous černý**) a hlodavci (myši, potkani), kteří zboží žerou a znehodnocují výkaly.\n- **4. Kvantitativní (manka)** — **přirozené úbytky**: vysychání, vypařování, únik těkavých látek, rozsypání nebo rozprášení při manipulaci. Zboží se nezkazí — **ubude ho**.\n\n(V Základech jsi poznal čtyři skupiny **vlivů**, které na zboží působí. Tady třídíme **škody** — co se se zbožím stane.)"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Pomůcka k rozlišení:**\n- vznikla nová látka (rez, žluklý tuk)? → **chemická a biochemická**,\n- řádí živý organismus (plíseň, bakterie, mol, myš)? → **biologická**,\n- zboží ubylo, chybějí kila nebo litry? → **kvantitativní (manko)**,\n- změnil se jen tvar, teplota nebo vlhkost a zboží neubylo? → **fyzikální a mechanická**.\n\n**Pozor na vysychání** — v zápiscích je dvakrát: když zboží vyschnutím **ztvrdne nebo popraská** (kožené boty u topení), je to škoda **fyzikální**; když jen **ubude na hmotnosti** (sýr nebo ovoce ve skladu), je to **manko**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Na brigádě ve skladu nebo v obchodě budeš dělat přesně tohle: hlídat, aby čokoláda nestála u topení, aby jogurty šly do regálu ve správném pořadí (**FIFO**) a aby se myši nedostaly k rýži. Když zboží dorazí poškozené, poznáš, **jaká je to škoda a proč vznikla** — a víš, co napsat do reklamace nebo hlášení vedoucímu. A doma? Nenecháš olej na slunném okně, kolo přes zimu na dešti ani vlněnou mikinu v šatníku bez ochrany proti molům."
+        },
+        {
+          "typ": "klicove-pojmy",
+          "polozky": [
+            {
+              "pojem": "Škoda na zboží",
+              "definice": "Jakákoli nežádoucí změna, která snižuje užitnou hodnotu, kvalitu nebo kvantitu zboží."
+            },
+            {
+              "pojem": "Ochrana zboží",
+              "definice": "Soubor opatření technických, organizačních a technologických, která škodám předcházejí během celého životního cyklu výrobku."
+            },
+            {
+              "pojem": "Koroze",
+              "definice": "Oxidace kovových povrchů působením vzdušné vlhkosti a kyslíku (rez)."
+            },
+            {
+              "pojem": "Žluknutí",
+              "definice": "Chemický rozklad tuků a olejů v potravinách či kosmetice vlivem světla a kyslíku."
+            },
+            {
+              "pojem": "Autolýza",
+              "definice": "Samovolný rozklad tkání působením vlastních enzymů po sklizni či porážce."
+            },
+            {
+              "pojem": "Mikrobiologické napadení",
+              "definice": "Činnost plísní, kvasinek a bakterií, která vede k hnilobě, kvašení a toxicitě."
+            },
+            {
+              "pojem": "Manko",
+              "definice": "Kvantitativní škoda — zboží ubude (vysychání, vypařování, únik těkavých látek, rozsypání)."
+            },
+            {
+              "pojem": "FIFO",
+              "definice": "First in, first out — co bylo naskladněno první, jde první ven (zboží s omezenou trvanlivostí)."
+            },
+            {
+              "pojem": "FEFO",
+              "definice": "First expired, first out — první ven jde zboží s nejbližším datem trvanlivosti."
+            }
+          ]
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 460\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Čtyři skupiny škod na zboží s podbody a příklady\">\n<text x=\"320\" y=\"20\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--akcent)\">ŠKODY NA ZBOŽÍ — 4 SKUPINY</text>\n<text x=\"320\" y=\"40\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.85\">nežádoucí změny, které snižují užitnou hodnotu, kvalitu nebo kvantitu zboží</text>\n<rect x=\"15\" y=\"54\" width=\"300\" height=\"160\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" />\n<text x=\"29\" y=\"77\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--info)\">1 FYZIKÁLNÍ A MECHANICKÉ</text>\n<text x=\"29\" y=\"99\" font-size=\"12\" fill=\"currentColor\"><tspan font-weight=\"bold\">deformace:</tspan> rozbití, poškrábání, promáčknutí</text>\n<text x=\"29\" y=\"117\" font-size=\"12\" fill=\"currentColor\"><tspan font-weight=\"bold\">změny teploty:</tspan> zmrznutí nebo přehřátí</text>\n<text x=\"29\" y=\"135\" font-size=\"12\" fill=\"currentColor\"><tspan font-weight=\"bold\">vliv vlhkosti:</tspan> navlhnutí sypkých hmot</text>\n<text x=\"29\" y=\"153\" font-size=\"12\" fill=\"currentColor\">nebo naopak vysychání</text>\n<text x=\"29\" y=\"178\" font-size=\"11\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.75\">např. prasklý displej, roztavená čokoláda,</text>\n<text x=\"29\" y=\"194\" font-size=\"11\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.75\">cukr ztvrdlý v hroudy</text>\n<rect x=\"325\" y=\"54\" width=\"300\" height=\"160\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" />\n<text x=\"339\" y=\"77\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--zlata)\">2 CHEMICKÉ A BIOCHEMICKÉ</text>\n<text x=\"339\" y=\"99\" font-size=\"12\" fill=\"currentColor\"><tspan font-weight=\"bold\">koroze:</tspan> oxidace kovových povrchů</text>\n<text x=\"339\" y=\"117\" font-size=\"12\" fill=\"currentColor\">vzdušnou vlhkostí a kyslíkem (rez)</text>\n<text x=\"339\" y=\"135\" font-size=\"12\" fill=\"currentColor\"><tspan font-weight=\"bold\">žluknutí a oxidace:</tspan> tuky a oleje</text>\n<text x=\"339\" y=\"153\" font-size=\"12\" fill=\"currentColor\">se rozkládají vlivem světla a kyslíku</text>\n<text x=\"339\" y=\"171\" font-size=\"12\" fill=\"currentColor\"><tspan font-weight=\"bold\">autolýza:</tspan> rozklad vlastními enzymy</text>\n<text x=\"339\" y=\"189\" font-size=\"12\" fill=\"currentColor\">po sklizni či porážce</text>\n<rect x=\"15\" y=\"226\" width=\"300\" height=\"160\" rx=\"10\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" />\n<text x=\"29\" y=\"249\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--uspech)\">3 BIOLOGICKÉ</text>\n<text x=\"29\" y=\"271\" font-size=\"12\" fill=\"currentColor\"><tspan font-weight=\"bold\">mikrobiologické napadení:</tspan> plísně,</text>\n<text x=\"29\" y=\"289\" font-size=\"12\" fill=\"currentColor\">kvasinky, bakterie → hniloba, kvašení,</text>\n<text x=\"29\" y=\"307\" font-size=\"12\" fill=\"currentColor\">toxicita</text>\n<text x=\"29\" y=\"325\" font-size=\"12\" fill=\"currentColor\"><tspan font-weight=\"bold\">škůdci:</tspan> hmyz — mol šatní, pilous černý;</text>\n<text x=\"29\" y=\"343\" font-size=\"12\" fill=\"currentColor\">hlodavci — myši, potkani (žerou zboží</text>\n<text x=\"29\" y=\"361\" font-size=\"12\" fill=\"currentColor\">a znehodnocují ho výkaly)</text>\n<rect x=\"325\" y=\"226\" width=\"300\" height=\"160\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" />\n<text x=\"339\" y=\"249\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--akcent)\">4 KVANTITATIVNÍ (MANKA)</text>\n<text x=\"339\" y=\"271\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">přirozené úbytky:</text>\n<text x=\"339\" y=\"289\" font-size=\"12\" fill=\"currentColor\">vysychání, vypařování,</text>\n<text x=\"339\" y=\"307\" font-size=\"12\" fill=\"currentColor\">únik těkavých látek,</text>\n<text x=\"339\" y=\"325\" font-size=\"12\" fill=\"currentColor\">rozsypání nebo rozprášení při manipulaci</text>\n<text x=\"339\" y=\"350\" font-size=\"11\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.75\">zboží se nezkazí — UBUDE ho</text>\n<text x=\"339\" y=\"366\" font-size=\"11\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.75\">(v evidenci chybí kila nebo litry)</text>\n<text x=\"320\" y=\"410\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Pomůcka: vznikla nová látka (rez, žluklý tuk)? → <tspan font-weight=\"bold\">CHEMICKÁ</tspan> škoda.</text>\n<text x=\"320\" y=\"428\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Zboží ubylo (kila, litry)? → <tspan font-weight=\"bold\">MANKO</tspan>. Změnil se jen tvar, teplota či vlhkost? → <tspan font-weight=\"bold\">FYZIKÁLNÍ</tspan>.</text>\n<text x=\"320\" y=\"446\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Vysychání: ztvrdlé nebo popraskané zboží = fyzikální škoda · ubyla kila = manko.</text>\n</svg>",
+          "popisek": "Čtyři skupiny škod v pořadí, jak se zkoušejí: fyzikální a mechanické, chemické a biochemické, biologické a kvantitativní (manka) — u každé její podbody. Dole pomůcka, jak odlišit chemickou škodu od fyzikální."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-skody-a-ochrana-zbozi-1",
+            "temaId": "skody-a-ochrana-zbozi",
+            "obtiznost": 3,
+            "zadani": "Čím se liší autolýza od mikrobiologického napadení?",
+            "vysvetleni": "Autolýza = samovolný rozklad tkání VLASTNÍMI enzymy po sklizni či porážce — probíhá i bez mikrobů (chemická a biochemická škoda). Mikrobiologické napadení = činnost CIZÍCH organismů (plísní, kvasinek, bakterií) → hniloba, kvašení, toxicita (biologická škoda). Kovy ničí koroze a manko znamená úbytek množství.",
+            "zdroj": "Škody a ochrana zboží",
+            "typ": "vyber",
+            "moznosti": [
+              "Autolýzu způsobují vlastní enzymy zboží, mikrobiologické napadení cizí mikroby",
+              "Autolýza postihuje jen kovy a mikrobiologické napadení jen potraviny a nápoje",
+              "Autolýza je kvantitativní škoda (manko), mikrobiologické napadení fyzikální škoda",
+              "Nijak se neliší — obojí je jen jiný odborný název pro hnilobu potravin"
+            ],
+            "spravna": 0
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**4 hlavní příčiny vzniku škod** (v tomhle pořadí):\n- **1. Nevhodné mikroklimatické podmínky** — nedodržení předepsané teploty, relativní vlhkosti vzduchu, cirkulace vzduchu nebo intenzity světla ve skladech.\n- **2. Nedostatečný nebo nevhodný obal** — obal, který nechrání před mechanickým tlakem, vlhkostí nebo světlem.\n- **3. Lidský faktor** — neopatrná manipulace, nesprávné skladování nebo zanedbání hygienických norem.\n- **4. Vlivy při přepravě** — otřesy, vibrace, změny klimatu při přechodu mezi časovými a teplotními pásmy.\n\nPříklad ke 4. bodu: kontejner s teniskami pluje z Asie přes tropy. Přes den se rozpálí, v noci vychladne — uvnitř se sráží voda a „prší“ na zboží. Proto se do kontejnerů přidávají pytlíky s vysoušedlem.\n\n**Pozor:** příčina ≠ škoda. Vlhký sklad je **příčina**, rez na nářadí je **škoda**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Metody ochrany zboží** (ze zápisků): ochrana musí být **systematická** — soustavná po celou cestu zboží, nestačí jedno opatření — a dělí se na **pasivní** a **aktivní**.\n\n**Doplněk — v sešitě je dělení jen pojmenované, přesné vymezení si ověř u učitele** (v učebnicích není jednotné). Pro orientaci:\n- **pasivní** — chrání zboží bez zásahu do něj (např. obal, tlumicí výplň, tmavá lahev),\n- **aktivní** — přímý zásah do zboží nebo proti škůdcům (např. konzervace, pasterace, dezinsekce, deratizace).\n\nKam patří řízení mikroklimatu (chlazení, větrání), se v učebnicích liší — proto ho sem jako příklad nedáváme.\n\n**5 způsobů ochrany** (ze zápisků, v tomhle pořadí — tak se zkouší):\n- **1.** volba správného obalu\n- **2.** řízení mikroklimatu\n- **3.** konzervace a chemická ochrana\n- **4.** hygiena a sanitace\n- **5.** logistické řízení — opatření související s dopravou a skladováním, uplatňování metody **FIFO** u zboží s omezenou trvanlivostí (first in, first out: co bylo naskladněno první, jde první ven)"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Doplněné příklady opatření** — v sešitě je sloupec „konkrétní opatření“ prázdný, tohle tedy není učitelův výčet; u zkoušky ti ale pomůže s vlastním příkladem:\n- **obal:** tlumicí výplně, bariérové obaly proti vlhku, světlu a kyslíku, vakuové balení, ochranná atmosféra (dusík v sáčku chipsů), silikagel,\n- **mikroklima:** chladírny a mrazírny, regulace teploty a vlhkosti, větrání, zatemnění, čidla a dataloggery,\n- **konzervace a chemie:** sušení, solení, cukření, uzení, pasterace, sterilace, konzervanty, antioxidanty, antikorozní olej a nátěry, impregnace, fumigace,\n- **hygiena:** úklid a dezinfekce, dezinsekce (hmyz), deratizace (hlodavci), potraviny odděleně od chemie, osobní hygiena, HACCP,\n- **logistika:** správné stohování, kontrola při příjmu, rychlý obrat.\n\n**FEFO** (first expired, first out) je rozšíření FIFO: první jde ven zboží s **nejbližším datem**, i když přišlo později. Hodí se, když dodávky „předbíhají“ — novější dodávka má kratší datum než ta starší."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 720 472\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Tok: čtyři hlavní příčiny způsobují škody, pět způsobů ochrany škodám předchází; šedě kurzívou doplněné příklady; dole dělení ochrany na pasivní a aktivní\">\n<defs>\n<marker id=\"tok-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker>\n<marker id=\"tok-stop\" markerWidth=\"6\" markerHeight=\"10\" refX=\"3\" refY=\"5\" orient=\"auto\"><path d=\"M3,1 L3,9\" stroke=\"currentColor\" stroke-width=\"2\" /></marker>\n</defs>\n<text x=\"120\" y=\"22\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--zlata)\">4 HLAVNÍ PŘÍČINY</text>\n<text x=\"360\" y=\"22\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--akcent)\">ŠKODY</text>\n<text x=\"600\" y=\"22\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--uspech)\">5 ZPŮSOBŮ OCHRANY</text>\n<rect x=\"10\" y=\"36\" width=\"220\" height=\"64\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"20\" y=\"55\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">1 nevhodné mikroklimatické</text>\n<text x=\"32\" y=\"70\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">podmínky</text>\n<text x=\"20\" y=\"89\" font-size=\"10\" fill=\"currentColor\">teplota, vlhkost, vzduch, světlo</text>\n<rect x=\"10\" y=\"110\" width=\"220\" height=\"64\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"20\" y=\"129\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">2 nedostatečný nebo</text>\n<text x=\"32\" y=\"144\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">nevhodný obal</text>\n<text x=\"20\" y=\"163\" font-size=\"10\" fill=\"currentColor\">nechrání před tlakem, vlhkem, světlem</text>\n<rect x=\"10\" y=\"184\" width=\"220\" height=\"64\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"20\" y=\"203\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">3 lidský faktor</text>\n<text x=\"20\" y=\"221\" font-size=\"10\" fill=\"currentColor\">neopatrná manipulace, špatné</text>\n<text x=\"20\" y=\"236\" font-size=\"10\" fill=\"currentColor\">skladování, zanedbaná hygiena</text>\n<rect x=\"10\" y=\"258\" width=\"220\" height=\"64\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" />\n<text x=\"20\" y=\"277\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">4 vlivy při přepravě</text>\n<text x=\"20\" y=\"295\" font-size=\"10\" fill=\"currentColor\">otřesy, vibrace, změny klimatu</text>\n<text x=\"20\" y=\"310\" font-size=\"10\" fill=\"currentColor\">mezi časovými a teplotními pásmy</text>\n<line x1=\"230\" y1=\"68\" x2=\"281\" y2=\"148\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#tok-sipka)\" />\n<line x1=\"230\" y1=\"142\" x2=\"281\" y2=\"170\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#tok-sipka)\" />\n<line x1=\"230\" y1=\"216\" x2=\"281\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#tok-sipka)\" />\n<line x1=\"230\" y1=\"290\" x2=\"281\" y2=\"228\" stroke=\"currentColor\" stroke-width=\"1.5\" opacity=\"0.7\" marker-end=\"url(#tok-sipka)\" />\n<rect x=\"285\" y=\"118\" width=\"150\" height=\"132\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" />\n<text x=\"360\" y=\"146\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">ŠKODA</text>\n<text x=\"360\" y=\"170\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">fyzikální a mechanická</text>\n<text x=\"360\" y=\"187\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">chemická a biochemická</text>\n<text x=\"360\" y=\"204\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">biologická</text>\n<text x=\"360\" y=\"221\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">kvantitativní (manko)</text>\n<rect x=\"490\" y=\"36\" width=\"220\" height=\"50\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"500\" y=\"55\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">1 volba správného obalu</text>\n<text x=\"500\" y=\"72\" font-size=\"10\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.6\">výplně, bariérové obaly, silikagel</text>\n<rect x=\"490\" y=\"94\" width=\"220\" height=\"50\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"500\" y=\"113\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">2 řízení mikroklimatu</text>\n<text x=\"500\" y=\"130\" font-size=\"10\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.6\">chlazení, větrání, čidla teploty</text>\n<rect x=\"490\" y=\"152\" width=\"220\" height=\"50\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"500\" y=\"171\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">3 konzervace a chemická ochrana</text>\n<text x=\"500\" y=\"188\" font-size=\"10\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.6\">pasterace, sušení, antikorozní olej</text>\n<rect x=\"490\" y=\"210\" width=\"220\" height=\"50\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"500\" y=\"229\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">4 hygiena a sanitace</text>\n<text x=\"500\" y=\"246\" font-size=\"10\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.6\">úklid, dezinsekce, deratizace</text>\n<rect x=\"490\" y=\"268\" width=\"220\" height=\"66\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" />\n<text x=\"500\" y=\"287\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">5 logistické řízení</text>\n<text x=\"500\" y=\"304\" font-size=\"10\" fill=\"currentColor\">doprava a skladování, metoda FIFO</text>\n<text x=\"500\" y=\"321\" font-size=\"10\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.6\">FEFO, stohování, kontrola při příjmu</text>\n<line x1=\"490\" y1=\"61\" x2=\"439\" y2=\"146\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\" opacity=\"0.7\" marker-end=\"url(#tok-stop)\" />\n<line x1=\"490\" y1=\"119\" x2=\"439\" y2=\"166\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\" opacity=\"0.7\" marker-end=\"url(#tok-stop)\" />\n<line x1=\"490\" y1=\"177\" x2=\"439\" y2=\"184\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\" opacity=\"0.7\" marker-end=\"url(#tok-stop)\" />\n<line x1=\"490\" y1=\"235\" x2=\"439\" y2=\"204\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\" opacity=\"0.7\" marker-end=\"url(#tok-stop)\" />\n<line x1=\"490\" y1=\"301\" x2=\"439\" y2=\"226\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\" opacity=\"0.7\" marker-end=\"url(#tok-stop)\" />\n<rect x=\"10\" y=\"346\" width=\"700\" height=\"80\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" />\n<text x=\"360\" y=\"368\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--akcent)\">OCHRANA MUSÍ BÝT SYSTEMATICKÁ · DĚLÍ SE NA PASIVNÍ A AKTIVNÍ</text>\n<text x=\"360\" y=\"390\" text-anchor=\"middle\" font-size=\"11.5\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.6\">pasivní = chrání zboží bez zásahu do něj (např. obal, tlumicí výplň)</text>\n<text x=\"360\" y=\"409\" text-anchor=\"middle\" font-size=\"11.5\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.6\">aktivní = přímý zásah do zboží nebo proti škůdcům (např. konzervace, dezinsekce)</text>\n<text x=\"360\" y=\"446\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.75\">plná šipka: příčina způsobuje škodu · přerušovaná čára se zarážkou: ochrana škodě předchází</text>\n<text x=\"360\" y=\"462\" text-anchor=\"middle\" font-size=\"10\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.6\">šedě kurzívou = doplněné příklady a vymezení pasivní × aktivní (v sešitě nejsou) — ověř u učitele</text>\n</svg>",
+          "popisek": "Vlevo čtyři hlavní příčiny, které škody způsobují, vpravo pět způsobů ochrany ze zápisků, které škodám předcházejí; šedě kurzívou jsou doplněné příklady. Dole dělení ochrany na pasivní a aktivní — jeho vymezení je doplněk, ověř si ho u učitele."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Co se zboží stalo? Roztřiď poškození do čtyř skupin škod.",
+            "kategorie": [
+              {
+                "id": "fyzikalni",
+                "nazev": "Fyzikální a mechanické"
+              },
+              {
+                "id": "chemicke",
+                "nazev": "Chemické a biochemické"
+              },
+              {
+                "id": "biologicke",
+                "nazev": "Biologické"
+              },
+              {
+                "id": "kvantitativni",
+                "nazev": "Kvantitativní (manka)"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "prasklý displej mobilu v balíku",
+                "kategorieId": "fyzikalni"
+              },
+              {
+                "text": "energy drink zmrzl v autě a plechovka praskla",
+                "kategorieId": "fyzikalni"
+              },
+              {
+                "text": "cukr ve vlhkém skladu ztvrdl v hroudy",
+                "kategorieId": "fyzikalni"
+              },
+              {
+                "text": "zrezivělé nářadí ve vlhké garáži",
+                "kategorieId": "chemicke"
+              },
+              {
+                "text": "žluklé oříšky v otevřeném sáčku",
+                "kategorieId": "chemicke"
+              },
+              {
+                "text": "ryba bez chlazení měkne vlastními enzymy",
+                "kategorieId": "chemicke"
+              },
+              {
+                "text": "plesnivý chleba z e-shopu",
+                "kategorieId": "biologicke"
+              },
+              {
+                "text": "mol prožral vlněný svetr",
+                "kategorieId": "biologicke"
+              },
+              {
+                "text": "pilous černý v pytli obilí",
+                "kategorieId": "biologicke"
+              },
+              {
+                "text": "rozsypaná mouka při vykládce",
+                "kategorieId": "kvantitativni"
+              },
+              {
+                "text": "z otevřené lahve lihu se část odpařila",
+                "kategorieId": "kvantitativni"
+              },
+              {
+                "text": "z netěsného kanystru unikla část ředidla",
+                "kategorieId": "kvantitativni"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              {
+                "a": "Volba správného obalu",
+                "b": "Bublinková fólie a pevná krabice kolem skleniček"
+              },
+              {
+                "a": "Řízení mikroklimatu",
+                "b": "Klimatizace a čidlo, které hlídá teplotu a vlhkost skladu"
+              },
+              {
+                "a": "Konzervace a chemická ochrana",
+                "b": "Pasterace mléka, olej proti rzi na nářadí"
+              },
+              {
+                "a": "Hygiena a sanitace",
+                "b": "Deratizace a dezinsekce skladu"
+              },
+              {
+                "a": "Logistické řízení",
+                "b": "FIFO — co bylo naskladněno první, jde první ven"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-skody-a-ochrana-zbozi-2",
+            "temaId": "skody-a-ochrana-zbozi",
+            "obtiznost": 3,
+            "zadani": "Která opatření patří k AKTIVNÍ ochraně zboží? (více správných odpovědí)",
+            "vysvetleni": "Aktivní ochrana = přímý zásah do zboží nebo proti škůdcům: pasterace mění samotné mléko (ničí většinu mikroorganismů), deratizace hubí hlodavce a fumigace (plynování) hubí hmyz v obilí. Krabice s výplní a tmavá lahev chrání zboží bez zásahu do něj — to je pasivní ochrana. Vymezení je doplněk k zápiskům, tyhle příklady ale vycházejí stejně v obou běžných pojetích.",
+            "zdroj": "Škody a ochrana zboží",
+            "typ": "multi",
+            "moznosti": [
+              "pasterace mléka",
+              "deratizace skladu (hubení potkanů)",
+              "fumigace obilí proti pilousovi",
+              "pevná krabice s tlumicí výplní",
+              "olej v tmavé lahvi"
+            ],
+            "spravne": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Červenec, venku 34 °C. Malý sklad e-shopu v podkroví bez klimatizace, okna na jih. Na regálech: čokoláda, mletá káva v otevřených kartonech a kosmetika (pleťové krémy, tělové oleje, parfémy). Projdi to jako zbožíznalec: jaké škody hrozí, jaké jsou jejich příčiny a jaká opatření navrhneš?",
+          "reseni": "1) **Škody:**\n- **čokoláda** změkne až roztaje a po ztuhnutí zešedne (tukový výkvět) → **fyzikální škoda** (změna teploty — přehřátí),\n- **mletá káva** — tuky v ní v teple a na vzduchu **oxidují a žluknou** (zatuchlá chuť) → **chemická škoda**; navíc vyprchá aroma,\n- **krémy a tělové oleje** — oleje v nich **žluknou** vlivem světla, tepla a kyslíku → **chemická škoda**; **parfémy** — teplo a světlo rozkládají vonné látky (chemická škoda) a z netěsného flakonu se těkavé látky odpařují (**manko**).\n\n2) **Příčiny:** hlavně **nevhodné mikroklimatické podmínky** (teplota, světlo z oken na jih, žádná cirkulace vzduchu), k tomu **nevhodný obal** (otevřené kartony s kávou) a **lidský faktor** (nikdo nehlídá teplotu, zboží stojí u oken).\n\n3) **Opatření podle 5 způsobů ochrany:**\n- **obal** — káva v uzavřených bariérových sáčcích s ventilkem, kosmetika v neprůhledných obalech,\n- **mikroklima** — zatemnit okna, větrat, klimatizace nebo přesun zboží do chladnější místnosti; teplotu hlídá čidlo s alarmem,\n- **konzervace a chemická ochrana** — antioxidanty v kosmetice přidává výrobce; e-shop může vybírat dodavatele, kteří je používají,\n- **hygiena a sanitace** — čistý sklad a potraviny odděleně od kosmetiky (čokoláda a káva by načichly parfémy),\n- **logistické řízení** — **FIFO/FEFO**, v létě objednávat menší dávky (rychlý obrat), čokoládu posílat v termoobalu s chladicí vložkou.\n\nZávěr: ochrana je **systematická** — jedno opatření nestačí, pokrýt se musí celá cesta zboží od příjmu až po balík u zákazníka."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Škoda × ochrana zboží",
+              "zadni": "Škoda = nežádoucí změna, která snižuje užitnou hodnotu, kvalitu nebo kvantitu. Ochrana = opatření technická, organizační a technologická po celý životní cyklus výrobku."
+            },
+            {
+              "predni": "4 skupiny škod (v pořadí)",
+              "zadni": "1) fyzikální a mechanické, 2) chemické a biochemické, 3) biologické, 4) kvantitativní (manka)."
+            },
+            {
+              "predni": "Fyzikální a mechanické škody",
+              "zadni": "Deformace (rozbití, poškrábání, promáčknutí), změny teploty (zmrznutí, přehřátí), vliv vlhkosti (navlhnutí sypkých hmot, vysychání)."
+            },
+            {
+              "predni": "Chemické a biochemické škody",
+              "zadni": "Koroze (oxidace kovu vlhkostí a kyslíkem), žluknutí a oxidace (tuky a oleje, světlo a kyslík), autolýza (rozklad vlastními enzymy po sklizni či porážce)."
+            },
+            {
+              "predni": "Biologické škody",
+              "zadni": "Mikrobiologické napadení (plísně, kvasinky, bakterie → hniloba, kvašení, toxicita); škůdci — mol šatní, pilous černý, myši, potkani."
+            },
+            {
+              "predni": "Kvantitativní škody (manka)",
+              "zadni": "Přirozené úbytky: vysychání, vypařování, únik těkavých látek, rozsypání nebo rozprášení při manipulaci."
+            },
+            {
+              "predni": "4 hlavní příčiny škod",
+              "zadni": "Nevhodné mikroklimatické podmínky, nedostatečný nebo nevhodný obal, lidský faktor, vlivy při přepravě."
+            },
+            {
+              "predni": "Pasivní × aktivní ochrana",
+              "zadni": "Ochrana musí být systematická a dělí se na pasivní a aktivní. Doplněk (v sešitě jen pojmenované — ověř u učitele): pasivní = chrání zboží bez zásahu do něj (obal, výplň); aktivní = přímý zásah do zboží nebo proti škůdcům (konzervace, dezinsekce)."
+            },
+            {
+              "predni": "5 způsobů ochrany (v pořadí)",
+              "zadni": "1) volba správného obalu, 2) řízení mikroklimatu, 3) konzervace a chemická ochrana, 4) hygiena a sanitace, 5) logistické řízení (FIFO)."
+            },
+            {
+              "predni": "FIFO × FEFO",
+              "zadni": "FIFO: co bylo naskladněno první, jde první ven. FEFO: první ven jde zboží s nejbližším datem trvanlivosti."
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n- Škoda = nežádoucí změna, která snižuje užitnou hodnotu, kvalitu nebo kvantitu; ochrana = opatření technická, organizační a technologická po celý životní cyklus výrobku.\n- 4 skupiny škod: fyzikální a mechanické · chemické a biochemické (koroze, žluknutí, autolýza) · biologické (mikroby, škůdci) · kvantitativní (manka).\n- 4 hlavní příčiny: nevhodné mikroklimatické podmínky, nedostatečný nebo nevhodný obal, lidský faktor, vlivy při přepravě.\n- Ochrana je systematická a dělí se na pasivní a aktivní (přesné vymezení ověř u učitele); 5 způsobů: obal, mikroklima, konzervace a chemická ochrana, hygiena a sanitace, logistické řízení — FIFO (a FEFO podle data)."
+        }
+      ]
+    },
+    {
       "temaId": "potravinarske-zbozi",
       "nazev": "Potravinářské zboží",
-      "poradi": 3,
+      "poradi": 5,
       "bloky": [
         {
           "typ": "text",
@@ -1106,7 +1663,7 @@
     {
       "temaId": "drobne-zbozi",
       "nazev": "Drobné zboží",
-      "poradi": 4,
+      "poradi": 6,
       "bloky": [
         {
           "typ": "text",
@@ -1282,7 +1839,7 @@
     {
       "temaId": "obuv-a-galanterie",
       "nazev": "Obuv a kožená galanterie",
-      "poradi": 5,
+      "poradi": 7,
       "bloky": [
         {
           "typ": "text",
@@ -1481,7 +2038,7 @@
     {
       "temaId": "textil-a-odivani",
       "nazev": "Textil a odívání",
-      "poradi": 6,
+      "poradi": 8,
       "bloky": [
         {
           "typ": "text",

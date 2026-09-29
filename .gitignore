@@ -5,3 +5,6 @@ dist/
 .DS_Store
 server/data/
 aplikace/src-tauri/target/
+
+# Podklady od studenta stažené zpracovatelem (fotky sešitu — soukromé, nikdy do repa)
+podklady/

@@ -113,6 +113,30 @@ export function otevriDb(cesta: string): DatabaseSync {
       stav      TEXT NOT NULL,
       vytvoreno TEXT NOT NULL
     );
+    -- Látka ke zpracování (fronta podkladů od studenta): json = sdílený typ
+    -- Material; soubory leží na disku mimo web (server/src/materialy.ts).
+    CREATE TABLE IF NOT EXISTS materialy (
+      id        TEXT PRIMARY KEY,
+      json      TEXT NOT NULL,
+      stav      TEXT NOT NULL,
+      vytvoreno TEXT NOT NULL
+    );
+    -- Drobná nastavení serveru (klíč → JSON), např. 'nahravani' =
+    -- { povoleneProfily } — kdo smí posílat látku.
+    CREATE TABLE IF NOT EXISTS nastaveni (
+      klic TEXT PRIMARY KEY,
+      json TEXT NOT NULL
+    );
+    -- Historie verzí bank a výuk (typ 'banky' | 'vyuka') — podklad pro
+    -- vrácení zveřejněné změny z přehledu rodiny.
+    CREATE TABLE IF NOT EXISTS obsah_historie (
+      typ        TEXT NOT NULL,
+      predmet_id TEXT NOT NULL,
+      verze      INT  NOT NULL,
+      json       TEXT NOT NULL,
+      ulozeno    TEXT NOT NULL,
+      PRIMARY KEY (typ, predmet_id, verze)
+    );
   `);
   zajistiProgresProfilu(db);
   zajistiUdalostiProfilu(db);

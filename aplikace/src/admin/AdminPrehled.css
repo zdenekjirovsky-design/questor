@@ -526,3 +526,87 @@
     content: attr(data-popis) ' ';
   }
 }
+
+/* --- Látka ke zpracování --- */
+
+.admin-latka {
+  margin-bottom: 18px;
+}
+
+.admin-latka h2 {
+  font-size: 1.15rem;
+}
+
+.admin-latka__seznam {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-latka__polozka {
+  padding: 10px 12px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-latka__radek {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+
+.admin-latka__stav {
+  margin-left: auto;
+  font-size: 0.88rem;
+  color: var(--text-tlumeny);
+}
+
+.admin-latka__stav--hotovo {
+  color: var(--uspech);
+}
+
+.admin-latka__stav--chyba {
+  color: var(--chyba);
+}
+
+.admin-latka__stav--zpracovava {
+  color: var(--zlata);
+}
+
+.admin-latka__pozn,
+.admin-latka__text {
+  margin: 0;
+  color: var(--text-tlumeny);
+  font-size: 0.88rem;
+}
+
+.admin-latka__akce {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-profil__latka {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  min-height: 32px;
+  font-size: 0.85rem;
+  color: var(--text-tlumeny);
+  cursor: pointer;
+}
+
+.admin-profil__latka input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--akcent);
+}

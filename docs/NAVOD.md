@@ -146,6 +146,26 @@ prefixem `/questor-api` nefunguje. Slouží hlavně k výzvám a správě:
   Duely si mezi sebou zakládají profily přímo v aplikaci (kap. 5); tady je
   jen přehled pro dohled.
 
+### Látka od studenta — posílání a zpracování
+
+Matěj posílá nové zápisky sám a lekce z nich vznikají automaticky:
+
+- **Povolení**: v přehledu rodiny u profilu přepínač **📤 Smí posílat
+  látku** (výchozí: jen Matěj).
+- **Matěj**: Učit se → **📤 Poslat látku** → předmět, fotky ze sešitu
+  (nebo PDF/Word), nepovinná poznámka („v pátek píšeme z…") → Poslat.
+  Na stejné stránce vidí stav: ⏳ čeká → ⚙️ zpracovává se → ✅ hotovo
+  s tlačítkem na novou lekci (nebo ⚠️ s vysvětlením, co poslat znovu).
+- **Zpracování**: naplánovaná úloha „QUESTOR — zpracování látky" v aplikaci
+  Claude na tvém Macu (každé 2 hodiny 8–22 h, běží jen když je Mac zapnutý
+  a aplikace Claude spuštěná; zmeškaný běh proběhne po jejím spuštění).
+  Pod tvým předplatným přepíše zápisky, napíše učivo, otázky a lekci, nechá
+  je zkontrolovat nezávislým oponentem a zveřejní — aplikace si nový obsah
+  stáhnou samy. Postup a pravidla: `docs/ZPRACOVANI-LATKY.md`.
+- **Ty**: v přehledu rodiny sekce **📤 Látka ke zpracování** — stav všech
+  zásilek, **↩️ Vrátit změnu** (obsah se vrátí do verze před zpracováním)
+  a **🗑 Smazat**.
+
 ## 4. Profily — víc lidí na jednom počítači
 
 Aplikaci může sdílet celá domácnost (třeba student a jeho máma — dospělá

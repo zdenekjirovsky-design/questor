@@ -9,6 +9,7 @@ import { pouzijStav } from '../stav/store';
 import type { PostupLekce } from '../stav/vyukaSlice';
 import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
+import { usePovoleniLatky } from '../latka/latka';
 import './vyuka.css';
 
 // ---------------------------------------------------------------------------
@@ -83,6 +84,7 @@ export default function Uceni() {
   const banky = pouzijStav((s) => s.banky);
   const postupLekci = pouzijStav((s) => s.postupLekci);
   const profil = pouzijStav((s) => najdiAktivniProfil(s));
+  const smiPoslatLatku = usePovoleniLatky(profil?.id);
 
   // Sekce per předmět: JEN studijní banky profilu, které výuku opravdu mají,
   // v pořadí registru předmětů (../data/predmety.ts) — AKTIVNÍ banka první.
@@ -135,6 +137,11 @@ export default function Uceni() {
         <span className="stitek">
           {dokoncenych}/{vsechnyLekce.length} lekcí · +{XP_ZA_LEKCI} XP za lekci
         </span>
+        {smiPoslatLatku && (
+          <Link to="/latka" className="tlacitko uceni__latka">
+            📤 Poslat látku
+          </Link>
+        )}
       </div>
 
       {/* Doporuceni — pokracuj tady */}

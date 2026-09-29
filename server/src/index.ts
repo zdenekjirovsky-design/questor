@@ -12,7 +12,7 @@ const slozkaDat = join(dirname(fileURLToPath(import.meta.url)), '..', 'data');
 mkdirSync(slozkaDat, { recursive: true });
 
 const db = otevriDb(join(slozkaDat, 'questor.db'));
-const app = vytvorApp(db);
+const app = vytvorApp(db, { slozkaMaterialu: join(slozkaDat, 'materialy') });
 
 const port = Number(process.env.QUESTOR_PORT ?? 8787);
 // QUESTOR_HOST=127.0.0.1 na sdíleném hostingu — server je pak dosažitelný

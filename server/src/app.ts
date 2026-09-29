@@ -37,6 +37,7 @@ import {
 import { vytvorRateLimit, type MoznostiRateLimit } from './limit';
 import { VYCHOZI_PROFIL_ID, VYCHOZI_PROFIL_JMENO } from './db';
 import { registrujDuely } from './duely';
+import { registrujMaterialy, zaznamenejVerziObsahu } from './materialy';
 import { ADMIN_HTML } from './admin';
 
 export const VERZE = '0.1.0';
@@ -109,6 +110,8 @@ export interface MoznostiApp {
   nactiGenerator?: () => Promise<{ dogenerujOtazky: DogenerujOtazky }>;
   /** Nastavení rate limitu na /api/* (testy injektují hodiny a nižší limity). */
   rateLimit?: MoznostiRateLimit;
+  /** Složka pro soubory látky ke zpracování (mimo web); bez ní je posílání vypnuté. */
+  slozkaMaterialu?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -228,8 +231,8 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
       );
     }
     const stavajici = db
-      .prepare('SELECT verze FROM banky WHERE predmet_id = ?')
-      .get(predmetId) as { verze: number } | undefined;
+      .prepare('SELECT verze, json FROM banky WHERE predmet_id = ?')
+      .get(predmetId) as { verze: number; json: string } | undefined;
     if (stavajici && banka.verze <= stavajici.verze) {
       return c.json(
         {
@@ -238,10 +241,14 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
         409,
       );
     }
+    // Historie verzí (i té dosavadní) — umožní vrátit zveřejněnou změnu.
+    if (stavajici) zaznamenejVerziObsahu(db, 'banky', predmetId, stavajici.verze, stavajici.json);
+    const jsonBanky = JSON.stringify(banka);
     db.prepare(
       `INSERT INTO banky (predmet_id, verze, json) VALUES (?, ?, ?)
        ON CONFLICT(predmet_id) DO UPDATE SET verze = excluded.verze, json = excluded.json`,
-    ).run(predmetId, banka.verze, JSON.stringify(banka));
+    ).run(predmetId, banka.verze, jsonBanky);
+    zaznamenejVerziObsahu(db, 'banky', predmetId, banka.verze, jsonBanky);
     return c.json({ ok: true, verze: banka.verze });
   });
 
@@ -280,8 +287,8 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
       );
     }
     const stavajici = db
-      .prepare('SELECT verze FROM vyuka WHERE predmet_id = ?')
-      .get(predmetId) as { verze: number } | undefined;
+      .prepare('SELECT verze, json FROM vyuka WHERE predmet_id = ?')
+      .get(predmetId) as { verze: number; json: string } | undefined;
     if (stavajici && vyuka.verze <= stavajici.verze) {
       return c.json(
         {
@@ -290,10 +297,13 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
         409,
       );
     }
+    if (stavajici) zaznamenejVerziObsahu(db, 'vyuka', predmetId, stavajici.verze, stavajici.json);
+    const jsonVyuky = JSON.stringify(vyuka);
     db.prepare(
       `INSERT INTO vyuka (predmet_id, verze, json) VALUES (?, ?, ?)
        ON CONFLICT(predmet_id) DO UPDATE SET verze = excluded.verze, json = excluded.json`,
-    ).run(predmetId, vyuka.verze, JSON.stringify(vyuka));
+    ).run(predmetId, vyuka.verze, jsonVyuky);
+    zaznamenejVerziObsahu(db, 'vyuka', predmetId, vyuka.verze, jsonVyuky);
     return c.json({ ok: true, verze: vyuka.verze });
   });
 
@@ -624,6 +634,17 @@ export function vytvorApp(db: DatabaseSync, moznosti: MoznostiApp = {}): Hono {
     student: overAuth('student'),
     admin: overAuth('admin'),
     limitTela: LIMIT_BEZNY,
+  });
+
+  // --- Látka ke zpracování (fronta podkladů od studenta) --------------------
+  // Routy a pravidla v src/materialy.ts; bez složky pro soubory → 503.
+
+  registrujMaterialy(app, db, {
+    student: overAuth('student'),
+    admin: overAuth('admin'),
+    limitNahrani: limitTela(50 * 1024 * 1024),
+    limitBezny: LIMIT_BEZNY,
+    slozka: moznosti.slozkaMaterialu ?? null,
   });
 
   // --- Dogenerování otázek -------------------------------------------------

@@ -12,6 +12,8 @@
 // Výjimka po dohodě (admin účet): /admin = přehled rodiny pro rodiče, běží
 // MIMO profilovou bránu (správce nemusí mít profil); odkaz #admin=<kód>
 // převezme main.tsx, v už otevřeném tabu posluchač hashchange níže.
+// Výjimka po dohodě (látka ke zpracování): routa /latka — povolený profil
+// posílá fotky zápisků ke zpracování (vstup z Učit se).
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { pouzijStav } from './stav/store';
@@ -35,6 +37,7 @@ import './App.css';
 
 // Přehled pro rodiče je vzácná obrazovka — vlastní chunk, ať nezvětšuje start.
 const AdminPrehled = lazy(() => import('./admin/AdminPrehled'));
+const PoslatLatku = lazy(() => import('./latka/PoslatLatku'));
 
 const odkazy = [
   { cesta: '/', text: 'Domů' },
@@ -142,6 +145,14 @@ export default function App() {
           <Route path="/sbirka" element={<Sbirka />} />
           <Route path="/statistiky" element={<Statistiky />} />
           <Route path="/nastaveni" element={<Nastaveni />} />
+          <Route
+            path="/latka"
+            element={
+              <Suspense fallback={<p>Načítám…</p>}>
+                <PoslatLatku />
+              </Suspense>
+            }
+          />
         </Routes>
       </main>
     </div>

@@ -332,3 +332,10 @@ rsync -az --delete --exclude='.htaccess' aplikace/dist/ skull-exon:koordinator-w
 (drží zabezpečení a SPA fallback). „Přidat na plochu": Android/Chrome nabídne
 tlačítko v Nastavení → Aplikace v telefonu; iPhone: Safari → Sdílet → Přidat
 na plochu.
+
+## Látka ke zpracování — data na serveru
+
+Soubory, které studenti posílají, leží v `server/data/materialy/<id>/`
+(vedle `questor.db`, mimo web i mimo git). Zálohuj je spolu s databází;
+smazání zásilky v přehledu rodiny smaže i její soubory. Server potřebuje
+pro nahrání limit těla 50 MB (nastavuje `app.ts`, proxy LiteSpeed propustí).

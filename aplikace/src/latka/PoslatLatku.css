@@ -1,0 +1,223 @@
+/* Poslat látku — formulář s fotkami a seznam zásilek. Mobile-first. */
+
+.latka {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.latka__hlava h1 {
+  margin-bottom: 4px;
+}
+
+.latka__podtitul {
+  margin: 0 0 16px;
+  color: var(--text-tlumeny);
+}
+
+.latka__formular {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.latka__pole {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.latka__pole select,
+.latka__pole textarea {
+  padding: 10px 12px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  color: var(--text);
+  font: inherit;
+  font-weight: 400;
+}
+
+.latka__pole textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.latka__vyber {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.latka__vyber-tlacitko {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Skutečný input leží neviditelně přes tlačítko (dotyk i klávesnice). */
+.latka__vyber-tlacitko input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.latka__vyber-tlacitko:focus-within {
+  outline: 2px solid var(--akcent-svetly);
+  outline-offset: 2px;
+}
+
+.latka__soubory {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 10px;
+}
+
+.latka__soubor {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel-2);
+  min-width: 0;
+}
+
+.latka__nahled {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.latka__ikona-souboru {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 4;
+  font-size: 2rem;
+}
+
+.latka__nazev-souboru {
+  font-size: 0.72rem;
+  color: var(--text-tlumeny);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.latka__odebrat {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--okraj);
+  background: rgba(15, 13, 26, 0.85);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.latka__pozn {
+  margin: 0;
+  color: var(--text-tlumeny);
+  font-size: 0.85rem;
+}
+
+.latka__chyba {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--chyba);
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.latka__uspech {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--uspech);
+  background: rgba(52, 211, 153, 0.1);
+}
+
+.latka__odeslat {
+  align-self: flex-start;
+}
+
+.latka__nadpis-seznamu {
+  margin-top: 26px;
+  font-size: 1.15rem;
+}
+
+.latka__seznam {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.latka__polozka {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.latka__polozka--hotovo {
+  border-color: rgba(52, 211, 153, 0.5);
+}
+
+.latka__polozka--chyba {
+  border-color: rgba(248, 113, 113, 0.5);
+}
+
+.latka__polozka-hlava {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 12px;
+  font-weight: 600;
+}
+
+.latka__stav {
+  font-size: 0.88rem;
+  color: var(--text-tlumeny);
+}
+
+.latka__stav--hotovo {
+  color: var(--uspech);
+}
+
+.latka__stav--chyba {
+  color: var(--chyba);
+}
+
+.latka__stav--zpracovava {
+  color: var(--zlata);
+}
+
+.latka__zprava {
+  margin: 0;
+}
+
+.latka__odkazy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 760px) {
+  .latka__vyber-tlacitko,
+  .latka__odeslat {
+    flex: 1 1 100%;
+    align-self: stretch;
+    justify-content: center;
+  }
+}

@@ -154,6 +154,14 @@ zapisující endpointy max 2 MB; víc → 413 `{ chyba }` (ochrana proti OOM).
 | `GET /api/hoste/duely/:id` | host (jen kód) | Stav duelu odkazem pro hosta (i výsledek po dohrání obou). Kód jde PRIMÁRNĚ hlavičkou `x-questor-host-kod` (query string končí v access logu proxy a popřel by smysl fragmentu `#` v odkazu); `?kod=` zůstává jen jako fallback pro starší klienty. Špatný/chybějící/cizí kód i neexistující duel → JEDNOTNÉ 403 `{ chyba }` (žádná informace navíc). ANTI-CHEAT: dokud host nepřijme, `otazkyIds` je prázdné a `vysledky` prázdný objekt (odpovědi vyzyvatele by sadu prozradily); `hostKodHash` v odpovědi není nikdy. Líná expirace platí |
 | `POST /api/hoste/duely/:id/prijmout` | host (jen kód) | `{ kod, jmeno }` (jméno trim, 1–24 znaků, bez řídicích a neviditelných/směrových Unicode znaků — jde přímo do UI vyzyvatele) → plný `Duel` s `otazkyIds`. Nastaví hosta: `souper = { profilId: 'host:<duelId>', jmeno }` + `host = { jmeno }`, handicap OBOU fixně 1.0, stav `prijaty`. First-wins: druhé přijetí s jiným jménem → 409; opakované přijetí se správným kódem a STEJNÝM jménem je idempotentní (odolnost proti ztracené odpovědi — dva držitele téhož kódu stejně nejde rozlišit). Vypršelý/dohraný → 409 |
 | `POST /api/hoste/duely/:id/vysledek` | host (jen kód) | `{ kod, vysledek }` → `Duel`. Stejný anti-cheat přepočet jako u rodiny (`prepoctiVysledekDuelu`, handicap hosta 1.0); host NEMÁ power-upy — jakýkoli `pouzityPowerup` → 400 (hlídá i sdílené `duelSchema`). NAVÍC (jen host — cizí člověk s curl): výsledek musí pokrýt VŠECHNY otázky sady, jinak 400 — vynechané odpovědi by nesnížily body, ale snížily by `celkovyCasMs` rozhodující tie-break. First-wins (druhý zápis 409); před přijetím 409; po obou výsledcích server duel uzavře (`hotovy` + `vitezProfilId`) |
+| `GET /api/materialy?profilId=` | student | látka ke zpracování — `MojeMaterialy` `{ smiNahravat, materialy }`: jestli profil smí posílat (povolený seznam) + jeho posledních 30 zásilek se stavem a výsledkem (odkazy na lekce). Bez složky na serveru / bez profilu `smiNahravat: false` |
+| `POST /api/materialy` | student | multipart: `profilId`, `profilJmeno`, `predmetId?` (prázdné = „jiný / nevím"), `poznamka?` (≤ 600 znaků), `soubory` (1–20 souborů, každý ≤ 12 MB, celkem ≤ 45 MB; typy JPEG/PNG/WebP/PDF/DOCX/TXT/MD — ověřeno MAGICKÝMI ČÍSLY obsahu, ne příponou). Jen profil z povoleného seznamu (jinak 403), max 15 zásilek na profil za 24 h (429). Soubory na disk mimo web `<data>/materialy/<id>/NN.ext` → `Material` ve stavu `ceka`. Bez složky (`slozkaMaterialu`) 503 |
+| `GET /api/admin/materialy` | admin | `FrontaMaterialu` `{ povoleneProfily, materialy }` — posledních 100 zásilek |
+| `PUT /api/admin/materialy/povoleni` | admin | `{ povoleneProfily: string[] }` — kdo smí posílat látku (přepínač v přehledu rodiny) |
+| `GET /api/admin/materialy/:id/soubory/:soubor` | admin | stažení souboru zásilky (`attachment`, `nosniff`); jen soubory ze seznamu zásilky |
+| `PATCH /api/admin/materialy/:id` | admin | `{ stav?, zprava?, vysledek? }` — zpracovatel nastavuje stav (`ceka` → `zpracovava` → `hotovo`/`chyba`), zprávu pro studenta a výsledek `{ temata[], publikace[] }` (publikace = typ, předmět, `zVerze`, `naVerzi` — podklad pro vrácení) |
+| `POST /api/admin/materialy/:id/vratit` | admin | vrátí zveřejněnou změnu: předchozí verze z `obsah_historie` se zveřejní jako NOVÁ vyšší verze (aplikace berou jen vyšší). Jen když je změna zásilky pořád poslední (jinak 409); nový předmět (`zVerze: null`) automaticky nevrací (409). Transakce, zásilka → `vraceno` |
+| `DELETE /api/admin/materialy/:id` | admin | smaže zásilku i její soubory (zveřejněný obsah zůstává) |
 | `POST /api/generovani/dogenerovat` | student | `{ predmetId, temaId, obtiznost, pocet }` → `{ otazky }`; **503** když server nemá `ANTHROPIC_API_KEY` (aplikace to bere jako „funkce vypnutá“, žádná chyba uživateli). Kontext učiva server skládá ze zadání a vysvětlení existujících otázek tématu v bance (zdrojové učivo na serveru není). **Stav: klientská část v aplikaci zatím NENÍ implementovaná** — hotová je jen serverová půlka včetně 503. |
 | `GET /admin` | admin (token zadá stránka) | mini admin web (viz níže) |
 
@@ -166,7 +174,12 @@ profil_jmeno TEXT — NULL u řádků z dob před profily)`,
 `duely(id TEXT PK, json TEXT, stav TEXT, vytvoreno TEXT — json = celý sdílený
 typ Duel jako zdroj pravdy, stav/vytvoreno zrcadlo pro řazení a přehledy)`,
 `profily(profil_id TEXT PK, json TEXT, aktualizovano TEXT — json =
-metadata profilu bez profilId, aktualizovano = rozhodčí LWW)`.
+metadata profilu bez profilId, aktualizovano = rozhodčí LWW)`,
+`materialy(id TEXT PK, json TEXT, stav TEXT, vytvoreno TEXT — json = sdílený
+typ Material; soubory na disku `<data>/materialy/<id>/`)`,
+`nastaveni(klic TEXT PK, json TEXT — např. 'nahravani' = { povoleneProfily })`,
+`obsah_historie(typ, predmet_id, verze, json, ulozeno — PK typ+predmet+verze;
+každá verze banky/výuky, kterou server kdy měl — podklad pro „vrátit")`.
 Migrace schématu dělá `otevriDb`
 (`server/src/db.ts`) při startu: starý jednořádkový progres (`id=1`) se
 přelije do profilu `vychozi`/`Student`, událostem se doplní profilové
@@ -186,6 +199,19 @@ hráči, stav, body, vítěz). Bez frameworku — vanilla JS + fetch. POZOR:
 stránka volá API root-absolutními cestami (`/api/…`), takže za prefixovou
 proxy (`/questor-api` na produkci) nefunguje — otevírá se přes SSH tunel
 na port serveru (postup v docs/NASAZENI.md, krok 5a).
+
+**Látka ke zpracování** (`server/src/materialy.ts`, typy
+`sdilene/src/materialy.ts`, aplikace `aplikace/src/latka/`): povolený profil
+posílá fotky zápisků a dokumenty ze stránky `/latka` (tlačítko „📤 Poslat
+látku" v Učit se, jen s povolením); fotky se v zařízení zmenší na delší
+stranu 2400 px a HEIC převede na JPEG, nahrání přes XHR s průběhem. Frontu
+zpracovává naplánovaná úloha Claude Code na Macu správce pod jeho
+předplatným — postup `docs/ZPRACOVANI-LATKY.md`, nástroj
+`scripts/materialy.ts` (fronta, stahni, stav, verze, zverejni; admin kód
+z env nebo `~/.questor-keys/tokeny.txt`, nikdy v repu; stažené podklady
+v gitignored `podklady/`). Zveřejnění je automatické po nezávislé
+oponentuře; správce v přehledu rodiny vidí frontu, může změnu vrátit
+a přepínačem u profilu povoluje, kdo smí posílat.
 
 **Přehled rodiny v aplikaci (admin účet)** — `aplikace/src/admin/`: routa
 `/admin` běží MIMO profilovou bránu (správce nepotřebuje profil) a funguje

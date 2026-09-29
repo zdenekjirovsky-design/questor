@@ -2,7 +2,7 @@
 // Uloží se jen na zařízení správce (localStorage) — nikdy do stavu aplikace,
 // sync fronty ani logů. Přihlášení jedním klepnutím: odkaz
 // …/questor/#admin=<kód> (fragment nechodí na server; po přečtení se čistí).
-import type { PrehledRodiny } from '@questor/sdilene';
+import type { FrontaMaterialu, Material, PrehledRodiny } from '@questor/sdilene';
 import { ChybaSyncu, vychoziUloziste, type FetchFunkce, type Uloziste } from '../sync/klient';
 
 const KLIC_ADMIN_KODU = 'questor-admin-kod';
@@ -116,3 +116,59 @@ export function slabaTemata<T extends { odpovedi: number; uspesnost: number | nu
     .filter((t) => t.odpovedi >= minOdpovedi && t.uspesnost !== null && t.uspesnost < 0.7)
     .sort((a, b) => (a.uspesnost ?? 0) - (b.uspesnost ?? 0));
 }
+
+// ---------------------------------------------------------------------------
+// Látka ke zpracování (fronta od studentů)
+
+async function adminPozadavek<T>(
+  url: string,
+  kod: string,
+  metoda: 'GET' | 'PUT' | 'POST' | 'DELETE',
+  cesta: string,
+  telo?: unknown,
+  fetchFn: FetchFunkce = (vstup, init) => globalThis.fetch(vstup, init),
+): Promise<T> {
+  let odpoved: Response;
+  try {
+    odpoved = await fetchFn(`${url.replace(/\/+$/, '')}${cesta}`, {
+      method: metoda,
+      headers: {
+        'x-questor-token': kod,
+        ...(telo === undefined ? {} : { 'content-type': 'application/json' }),
+      },
+      body: telo === undefined ? undefined : JSON.stringify(telo),
+    });
+  } catch (chyba) {
+    throw new ChybaSyncu(chyba instanceof Error ? chyba.message : 'Síťová chyba');
+  }
+  if (!odpoved.ok) {
+    let zprava = `Server odpověděl ${odpoved.status}`;
+    try {
+      const data = (await odpoved.json()) as { chyba?: unknown };
+      if (typeof data.chyba === 'string') zprava = data.chyba;
+    } catch {
+      // tělo není JSON
+    }
+    throw new ChybaSyncu(zprava, odpoved.status);
+  }
+  return (await odpoved.json()) as T;
+}
+
+export const stahniFrontuLatky = (url: string, kod: string, fetchFn?: FetchFunkce) =>
+  adminPozadavek<FrontaMaterialu>(url, kod, 'GET', '/api/admin/materialy', undefined, fetchFn);
+
+export const nastavPovoleniLatky = (url: string, kod: string, povoleneProfily: string[], fetchFn?: FetchFunkce) =>
+  adminPozadavek<{ ok: boolean; povoleneProfily: string[] }>(
+    url,
+    kod,
+    'PUT',
+    '/api/admin/materialy/povoleni',
+    { povoleneProfily },
+    fetchFn,
+  );
+
+export const vratLatku = (url: string, kod: string, id: string, fetchFn?: FetchFunkce) =>
+  adminPozadavek<Material>(url, kod, 'POST', `/api/admin/materialy/${encodeURIComponent(id)}/vratit`, undefined, fetchFn);
+
+export const smazLatku = (url: string, kod: string, id: string, fetchFn?: FetchFunkce) =>
+  adminPozadavek<{ ok: boolean }>(url, kod, 'DELETE', `/api/admin/materialy/${encodeURIComponent(id)}`, undefined, fetchFn);

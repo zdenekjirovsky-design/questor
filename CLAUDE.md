@@ -42,16 +42,47 @@ psychologickými hooky.
    questor-server :8787).
 7. API klíče a tokeny jen v env / `.env` (v .gitignore), nikdy v kódu.
 
-## Stav (2026-09-05 — po vlně 7: duely + fáze 2: duel odkazem)
+## Stav (2026-09-29 — přehled rodiny, sync lekcí, látka od studenta)
 
-Vydané verze: tagy `v0.1.0`–`v0.6.0` (v0.3.0 = avatar 2.0, v0.3.1 = CI
+Vydané verze: tagy `v0.1.0`–`v0.7.3` (v0.3.0 = avatar 2.0, v0.3.1 = CI
 macOS build, v0.4.0 = vlny 4 a 5 + web nasazení, v0.5.0 = vlna 6 —
-sdílené profily mezi zařízeními, v0.6.0 = vlna 7 — duely v1 mezi
-profily rodiny). PRODUKCE BĚŽÍ: web
-https://koordinator-server.cz/questor + API `/questor-api` (`/zdravi`
-ok, rodinný sync v provozu, duely v1 mezi profily rodiny fungují) —
-NIC nerozbít. Fáze 2 duelů (duel odkazem) níže je hotová v pracovní
-kopii, zatím NEcommitnutá.
+sdílené profily mezi zařízeními, v0.6.0 = vlna 7 — duely v1, v0.7.0 =
+duel odkazem, v0.7.1–v0.7.2 = obsah ze zápisků + mobilní opravy + chyby
+spojení, v0.7.3 = admin přehled rodiny, sync postupu lekcí, látka od
+studenta). PRODUKCE BĚŽÍ: web https://koordinator-server.cz/questor + API
+`/questor-api` — NIC nerozbít. Zdroj pravdy o tokenech:
+`~/.questor-keys/tokeny.txt` (mimo repo).
+
+**Nově 2026-09-29** (typecheck 4/4, testy 593/593 — sdílené 152,
+generátor 32, server 144, aplikace 265; oba buildy OK;
+`kontrola-integrace` → 14 bank, 14 výuk | 92 témat, 876 otázek, 92 lekcí):
+
+- ADMIN ÚČET — přehled rodiny v aplikaci (`/admin`, `aplikace/src/admin/`)
+  mimo profilovou bránu: per profil level, streak, lekce, týdenní XP,
+  duely, poslední testy a po předmětech/tématech lekce, zvládnutí,
+  úspěšnost a slabá témata; data `GET /api/admin/prehled` (sdílená čistá
+  funkce `sestavPrehledRodiny`, `sdilene/src/prehled.ts`). Přihlášení
+  admin kódem nebo odkazem `…/questor/#admin=<kód>`. Starý admin web
+  `/admin` na produkci funguje jen přes SSH tunel.
+- SYNC POSTUPU LEKCÍ: snapshot progresu nese `postupLekci`, server
+  i pull ho slučují monotónně (`slucPostupLekci`) — dokončená lekce se
+  přenese na další zařízení a je vidět v přehledu.
+- LÁTKA OD STUDENTA: povolený profil (jen Matěj) posílá fotky zápisků /
+  dokumenty ze stránky `/latka` (tlačítko v Učit se); fronta na serveru
+  (`server/src/materialy.ts`, soubory mimo web v `server/data/materialy/`,
+  kontrola typů podle obsahu, historie verzí obsahu pro „vrátit");
+  zpracovává ji naplánovaná úloha Claude Code na Macu správce
+  („QUESTOR — zpracování látky od Matěje", každé 2 h 8–22 h, pod jeho
+  předplatným) podle `docs/ZPRACOVANI-LATKY.md` pomocí
+  `scripts/materialy.ts`; zveřejnění automatické po nezávislé oponentuře,
+  správce vidí frontu v přehledu a může změnu vrátit.
+- OBSAH ZE ZÁPISKŮ: ekonomika (Potřeby, Statky a služby) a zbožíznalství
+  (Jakost a řízení jakosti, Norma ISO 9001, Zbožíznalství jako věda
+  a profese, Škody a ochrana zboží) — vše po oponentuře, na serveru.
+- Rate-limit 600 požadavků/min per IP (env `QUESTOR_RATE_LIMIT_MAX`),
+  provozní log požadavků na `/api/*` (vypnutí `QUESTOR_LOG_POZADAVKU=0`).
+
+### Dřívější stav (2026-09-05)
 
 **Hotové a ověřené** (typecheck 4/4 workspaces, testy 557/557 — sdílené
 147, generátor 32, server 125, aplikace 253; build aplikace OK ~1 s pro

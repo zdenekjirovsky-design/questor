@@ -103,6 +103,15 @@ describe('prubeh duelu — cas bez limitu a rychlostni bonus', () => {
     const prubeh = vytvorDuelPrubeh(duel(), 'tata', '2026-09-04T10:00:00.000Z');
     expect(casOtazkyMs(prubeh, 99_000)).toBe(0);
   });
+
+  it('cas je syrovy od zobrazeni otazky (ochranna prodleva ho neposouva)', () => {
+    // Server casMs prepocitava a verzi klienta nerozlisi — novy i starsi
+    // klient musi posilat stejnou velicinu (syrovy cas od zobrazeni).
+    const prubeh = odstartujPrubeh(vytvorDuelPrubeh(duel(), 'tata', '2026-09-04T10:00:00.000Z'), 1000);
+    expect(casOtazkyMs(prubeh, 1000 + 350)).toBe(350);
+    expect(casOtazkyMs(prubeh, 1000)).toBe(0);
+    expect(casOtazkyMs(prubeh, 900)).toBe(0); // hodiny „pred zobrazenim" = 0
+  });
 });
 
 describe('prubeh duelu — odpovedi a bodovani', () => {

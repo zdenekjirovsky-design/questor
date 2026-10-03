@@ -42,6 +42,32 @@ psychologickými hooky.
    questor-server :8787).
 7. API klíče a tokeny jen v env / `.env` (v .gitignore), nikdy v kódu.
 
+## Stav (2026-10-04 — opravy mobilního webu)
+
+Student hlásil na mobilním webu rozbitý scroll, nereagující tlačítka
+a „pobláznné" chování. Audit (5 dimenzí + adversariální ověření) → opravy
+v 6 skupinách → revize diffu (5 úhlů) → 20 ověřených nálezů zapracováno.
+Typecheck 4/4, testy 736/736 (sdílené 156, generátor 32, server 145,
+aplikace 403), oba buildy OK. Hlavní opravy (pravidla v DESIGN.md › Mobil,
+body 1–14): modal „Nová výprava" ležel POD spodní lištou (tlačítko „Jdeme
+na to!" nešlo stisknout) → modaly z-index ≥ 50, přilepená pata, safe-area
+přes `.panel.X`, zámek scrollu (`komponenty/zamekScrollu.ts`); reset scrollu
+při navigaci + obnova při Zpět (`komponenty/ResetScrollu.tsx`); lekce se
+posouvá jen po akci studenta (ne po syncu/nové verzi; na mobilu ani po
+mini-kvízu — tlačítko „Pokračovat ↓"); test/duel dorolují zpětnou vazbu,
+ochrana proti dvojímu ťuknutí 350 ms (čas duelu dál syrový); všechny
+`:hover` jen za `(hover: hover)`; `touch-action: manipulation`, vypnutý
+pull-to-refresh; HUD se vejde na 360 px, menu fixní ve viewportu; widgety
+lekcí na úzkém displeji (Kartičky, Pexeso, Srovnávač, Popisovačka, Třídička
+s panelem košů, lupa SVG); Statistiky bez přetékání; líné stránky přes
+`lazySObnovou` (po nasazení žádná prázdná obrazovka); náhledy fotek /latka
+jako `data:` (CSP); Duely při otevření jen lehká obnova (plný sync jen
+s neprázdnou frontou); questy až po načtení banky. Nasazení webu: nový
+postup s kroky 0–3 v NASAZENI.md (staré `rsync --delete` mazalo živé
+chunky). Desktop/Tauri se nemění (kromě oprav chyb); nová verze desktopu
+NEVYDÁNA (tag). Neověřeno na skutečném iPhonu/Androidu: pull-to-refresh
+na iOS, vejití HUD na 360/375 px s reálnými fonty, chování v PWA na ploše.
+
 ## Stav (2026-09-29 — přehled rodiny, sync lekcí, látka od studenta)
 
 Vydané verze: tagy `v0.1.0`–`v0.7.3` (v0.3.0 = avatar 2.0, v0.3.1 = CI

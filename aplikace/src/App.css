@@ -43,9 +43,11 @@
   align-items: center;
 }
 
-.nav-odkaz:hover {
-  color: var(--text);
-  background: var(--pozadi-panel);
+@media (hover: hover) {
+  .nav-odkaz:hover {
+    color: var(--text);
+    background: var(--pozadi-panel);
+  }
 }
 
 .nav-odkaz--aktivni {
@@ -109,6 +111,9 @@
     letter-spacing: 0;
     text-align: center;
     white-space: nowrap;
+    /* Delší stisk ikony v liště nesmí na iOS otevřít náhled/menu odkazu
+       místo navigace (položky jsou <a>). */
+    -webkit-touch-callout: none;
   }
 
   .nav-odkaz__text {
@@ -139,13 +144,41 @@
     margin-left: 0;
   }
 
-  .nav-odkaz:hover {
-    background: transparent;
+  /* Hover jen pro myš (úzké okno na desktopu) — na dotyku :hover neplatí
+     vůbec (lepil by na naposledy ťuknuté položce). Lišta hover pozadí nemá. */
+  @media (hover: hover) {
+    .nav-odkaz:hover {
+      background: transparent;
+    }
   }
 
+  /* Aktivní položka: .nav-odkaz:hover (vyšší specificita) by ji při najetí
+     myší přebarvil na bílou, proto má :hover i aktivní stav — ve vlastním
+     (hover: hover) bloku, aby pořadí i specificita zůstaly. */
   .nav-odkaz--aktivni {
     background: transparent;
     box-shadow: none;
     color: var(--akcent-svetly);
+  }
+
+  @media (hover: hover) {
+    .nav-odkaz--aktivni:hover {
+      background: transparent;
+      box-shadow: none;
+      color: var(--akcent-svetly);
+    }
+  }
+}
+
+/* Nejužší telefony (≤ 350 px, např. 320 px): kompaktní HUD (~201 px) se vedle
+   celého nápisu QUESTOR nevejde (zbývá ~159 px) — logo zůstane jen erbem. */
+@media (max-width: 350px) {
+  .hlavicka__logo {
+    font-size: 0;
+    letter-spacing: 0;
+  }
+
+  .hlavicka__erb {
+    font-size: 1.3rem;
   }
 }

@@ -1,10 +1,14 @@
 // Časová osa — horizontální osa s body (rok + název), klik na bod → detail,
 // šipky/klávesnice pro posun, linka se plní podle postupu. Prohlédnutí všech
 // událostí → onSplneno.
+// Posun na bod osy jen VODOROVNĚ uvnitř pásu (stránka se nehýbe). Mobil:
+// detail drží výšku nejdelší události (neviditelné rezervy, CasovaOsa.css),
+// takže „Později →“ pod ním neposkakuje.
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { CasovaOsaParametry } from '@questor/sdilene';
 import { formatujRok, posunKroku, seradUdalosti, vsechnyKrokyNavstiveny } from './logika';
 import { jeVstupniPole } from '../../testy/komponenty/klavesy';
+import { chovaniPosunu } from '../../testy/posun';
 import './CasovaOsa.css';
 
 interface Props {
@@ -20,26 +24,34 @@ export default function CasovaOsa({ parametry, onSplneno }: Props) {
   const splnenoHlaseno = useRef(false);
   const koren = useRef<HTMLDivElement | null>(null);
   const tlacitkaBodu = useRef<(HTMLButtonElement | null)[]>([]);
+  const pas = useRef<HTMLDivElement | null>(null);
 
   const hotovo = vsechnyKrokyNavstiveny(navstivene, pocet);
 
   const prejdiNa = (index: number) => {
     if (index < 0 || index >= pocet) return;
     setAktivni(index);
-    tlacitkaBodu.current[index]?.scrollIntoView({
-      behavior: 'smooth',
-      inline: 'center',
-      block: 'nearest',
-    });
-    setNavstivene((stare) => {
-      if (stare.has(index)) return stare;
-      const nove = new Set(stare).add(index);
-      if (vsechnyKrokyNavstiveny(nove, pocet) && !splnenoHlaseno.current) {
-        splnenoHlaseno.current = true;
-        onSplneno();
-      }
-      return nove;
-    });
+    // Bod do středu pásu — JEN vodorovně v pásu. scrollIntoView by posunul
+    // i celou stránku, když bod není svisle celý vidět (student je dole
+    // u tlačítek).
+    const bod = tlacitkaBodu.current[index];
+    const kontejner = pas.current;
+    if (bod && kontejner && typeof kontejner.scrollTo === 'function') {
+      const rBod = bod.getBoundingClientRect();
+      const rPas = kontejner.getBoundingClientRect();
+      kontejner.scrollTo({
+        left: kontejner.scrollLeft + (rBod.left - rPas.left) - (kontejner.clientWidth - rBod.width) / 2,
+        behavior: chovaniPosunu(),
+      });
+    }
+    if (navstivene.has(index)) return;
+    // Splnění se hlásí MIMO updater setState (updater běží při renderu).
+    const nove = new Set(navstivene).add(index);
+    setNavstivene(nove);
+    if (vsechnyKrokyNavstiveny(nove, pocet) && !splnenoHlaseno.current) {
+      splnenoHlaseno.current = true;
+      onSplneno();
+    }
   };
 
   useEffect(() => {
@@ -66,7 +78,7 @@ export default function CasovaOsa({ parametry, onSplneno }: Props) {
 
   return (
     <div className="casova-osa" ref={koren}>
-      <div className="casova-osa__pas" role="group" aria-label="Časová osa — události">
+      <div className="casova-osa__pas" ref={pas} role="group" aria-label="Časová osa — události">
         <div className="casova-osa__drha">
           <div className="casova-osa__linka" aria-hidden="true">
             <div className="casova-osa__linka-napln" style={{ width: `${naplneniPct}%` }} />
@@ -97,10 +109,22 @@ export default function CasovaOsa({ parametry, onSplneno }: Props) {
         </div>
       </div>
 
-      <div className="casova-osa__detail panel" key={aktivni}>
-        <div className="casova-osa__detail-rok">{formatujRok(udalost.rok)}</div>
-        <h3 className="casova-osa__detail-nazev">{udalost.nazev}</h3>
-        <p className="casova-osa__detail-popis">{udalost.popis}</p>
+      <div className="casova-osa__detail-ram">
+        {/* Rezervy ostatních událostí (jen mobil, CSS) — výška = nejdelší. */}
+        {udalosti.map((u, i) =>
+          i === aktivni ? null : (
+            <div
+              key={`rezerva-${i}`}
+              className="casova-osa__detail panel casova-osa__detail--rezerva"
+              aria-hidden="true"
+            >
+              <ObsahUdalosti udalost={u} />
+            </div>
+          ),
+        )}
+        <div className="casova-osa__detail panel" key={aktivni}>
+          <ObsahUdalosti udalost={udalost} />
+        </div>
       </div>
 
       <div className="casova-osa__ovladani">
@@ -131,5 +155,15 @@ export default function CasovaOsa({ parametry, onSplneno }: Props) {
         </button>
       </div>
     </div>
+  );
+}
+
+function ObsahUdalosti({ udalost }: { udalost: CasovaOsaParametry['udalosti'][number] }) {
+  return (
+    <>
+      <div className="casova-osa__detail-rok">{formatujRok(udalost.rok)}</div>
+      <h3 className="casova-osa__detail-nazev">{udalost.nazev}</h3>
+      <p className="casova-osa__detail-popis">{udalost.popis}</p>
+    </>
   );
 }

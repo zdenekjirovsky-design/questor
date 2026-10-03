@@ -433,7 +433,9 @@ describe('hostovske UI — power-upy jsou skryte', () => {
     );
     expect(html).not.toContain('duel-powerup');
     expect(html).toContain('duel-odpocet__bar');
-    expect(html).toContain('⚡ +50 b'); // na zacatku otazky plny bonus
+    // Cisla meridla jsou ve vlastnich spanech s pevnou sirkou (necukaji) —
+    // proto se kontroluje text bez znacek.
+    expect(html.replace(/<[^>]+>/g, '')).toContain('⚡ +50 b'); // na zacatku otazky plny bonus
     expect(html).toContain('1/2');
     expect(html).toContain('Otazka o1?');
   });

@@ -2,10 +2,14 @@
 // klik na bod → bublina s názvem a popisem. Režim „Vyzkoušej se“: widget zadá
 // název a hráč klikne na správné místo. Prozkoumání všech bodů → onSplneno.
 // SVG se před vykreslením VŽDY sanitizuje (sanitizujSvg ze sdilene).
-import { useMemo, useRef, useState } from 'react';
+// Mobil: bublina by se ve scéně 287 px ořízla — název a popis bodu jdou do
+// statického bloku pod obrázkem (CSS). Dotyk: ťuknutí vybírá bod nejblíž
+// prstu (44px plochy hustých bodů se překrývají).
+import { useMemo, useRef, useState, type MouseEvent } from 'react';
 import type { PopisovackaParametry } from '@questor/sdilene';
 import { sanitizujSvg } from '@questor/sdilene';
-import { extrahujViewBox, pozicniProcenta, zamichej } from './logika';
+import { jeDotykoveZarizeni } from './dotyk';
+import { extrahujViewBox, nejblizsiBod, pozicniProcenta, zamichej } from './logika';
 import Konfety from './Konfety';
 import './Popisovacka.css';
 
@@ -28,6 +32,9 @@ export default function Popisovacka({ parametry, onSplneno }: Props) {
     () => parametry.body.map((b) => pozicniProcenta(b, viewBox)),
     [parametry.body, viewBox],
   );
+
+  const dotykove = useMemo(() => jeDotykoveZarizeni(), []);
+  const scena = useRef<HTMLDivElement | null>(null);
 
   const [rezim, setRezim] = useState<Rezim>('prozkoumat');
   const [aktivni, setAktivni] = useState<number | null>(null);
@@ -55,12 +62,12 @@ export default function Popisovacka({ parametry, onSplneno }: Props) {
 
   const klikniBodProzkoumat = (index: number) => {
     setAktivni((a) => (a === index ? null : index));
-    setProzkoumane((stare) => {
-      if (stare.has(index)) return stare;
-      const nove = new Set(stare).add(index);
-      if (nove.size === parametry.body.length) ohlasSplneni();
-      return nove;
-    });
+    if (prozkoumane.has(index)) return;
+    // Splnění se hlásí MIMO updater setState (updater běží při renderu —
+    // změna store lekce by se pak dělala během renderu cizí komponenty).
+    const nove = new Set(prozkoumane).add(index);
+    setProzkoumane(nove);
+    if (nove.size === parametry.body.length) ohlasSplneni();
   };
 
   const spustZkouseni = () => {
@@ -93,9 +100,16 @@ export default function Popisovacka({ parametry, onSplneno }: Props) {
     }
   };
 
-  const klikniBod = (index: number) => {
-    if (rezim === 'prozkoumat') klikniBodProzkoumat(index);
-    else klikniBodZkouseni(index);
+  const klikniBod = (index: number, e: MouseEvent<HTMLButtonElement>) => {
+    // Dotyk: rozhoduje bod nejblíž prstu, ne ten navrchu (e.detail 0 =
+    // klávesnice — platí bod s fokusem).
+    let cil = index;
+    if (dotykove && e.detail > 0 && scena.current) {
+      const nejblizsi = nejblizsiBod(pozice, scena.current.getBoundingClientRect(), e.clientX, e.clientY);
+      if (nejblizsi !== null) cil = nejblizsi;
+    }
+    if (rezim === 'prozkoumat') klikniBodProzkoumat(cil);
+    else klikniBodZkouseni(cil);
   };
 
   const aktivniBod = aktivni !== null ? parametry.body[aktivni] : null;
@@ -128,7 +142,7 @@ export default function Popisovacka({ parametry, onSplneno }: Props) {
         </span>
       </div>
 
-      <div className="popisovacka__scena">
+      <div className="popisovacka__scena" ref={scena}>
         <div
           className="popisovacka__obrazek"
           // Bezpečné: řetězec prošel sanitizujSvg (whitelist elementů/atributů).
@@ -156,7 +170,7 @@ export default function Popisovacka({ parametry, onSplneno }: Props) {
                 spatnyBod === i ? 'popisovacka__bod--spatne' : '',
               ].join(' ')}
               style={{ left: `${levaPct}%`, top: `${horniPct}%` }}
-              onClick={() => klikniBod(i)}
+              onClick={(e) => klikniBod(i, e)}
               aria-label={
                 rezim === 'prozkoumat'
                   ? `Bod ${i + 1}: ${bod.nazev}`
@@ -192,6 +206,22 @@ export default function Popisovacka({ parametry, onSplneno }: Props) {
 
         {((rezim === 'prozkoumat' && vseProzkoumano) || zkouseniHotovo) && <Konfety />}
       </div>
+
+      {/* Mobil: popis bodu jako statický blok pod obrázkem místo bubliny
+          (CSS; na desktopu skrytý). Drží místo i bez vybraného bodu, takže
+          první ťuknutí nic neposune. */}
+      {rezim === 'prozkoumat' && (
+        <div className="popisovacka__detail" role="status">
+          {aktivniBod ? (
+            <>
+              <strong className="popisovacka__bublina-nazev">{aktivniBod.nazev}</strong>
+              <span className="popisovacka__bublina-popis">{aktivniBod.popis}</span>
+            </>
+          ) : (
+            <span className="popisovacka__detail-prazdny">Ťukni na svítící bod — tady se ukáže, co je co.</span>
+          )}
+        </div>
+      )}
 
       <div className="popisovacka__paticka" aria-live="polite">
         {rezim === 'prozkoumat' && vseProzkoumano && (

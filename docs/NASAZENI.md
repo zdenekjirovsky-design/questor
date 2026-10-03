@@ -307,6 +307,7 @@ dosynchronizuje. Detaily rodinného provozu: `docs/NAVOD.md`, kap. 4.
 | vydat novou verzi aplikace | zvýšit `version` v `tauri.conf.json`, commit, `git tag vX.Y.Z && git push --tags` |
 | nahrát nové učivo/banku/výuku | `docs/NAVOD.md` (admin web `/admin` nebo generátor CLI) |
 | aktualizovat produkční server | `ssh skull-exon "cd ~/questor-server && git pull && npm ci && pm2 restart questor-api"` |
+| aktualizovat web (PWA) | VŽDY celý blok ze sekce „Webová verze (PWA)“ níže, PŘESNĚ v pořadí: build + `ls aplikace/dist/assets > aplikace/dist/assets-seznam.txt`, pak kroky 0–3 — 0) `touch` chunků ODCHÁZEJÍCÍHO buildu podle `assets-seznam.txt` na serveru, 1) `rsync -az aplikace/dist/assets/ skull-exon:koordinator-web/questor/assets/`, 2) `rsync -az --delay-updates --delete-after --exclude='.htaccess' --exclude='/assets/' aplikace/dist/ skull-exon:koordinator-web/questor/`, 3) úklid v `assets/` = `touch` živého buildu podle nového seznamu + `find . -type f -mtime +14 ! -name ".htaccess" -delete`. Úklid se spouští JEN jako krok 3 (samostatně spuštěný ho chrání seznam na serveru — živý build nejdřív osvěží); NIKDY `rsync --delete` přes assets |
 | připojit nové zařízení rodiny | „🔗 Připojit rodinu“ na výběru profilů → rodinný kód (krok 6) |
 | změnit tokeny | pm2 delete + start s novými env (krok 5a) + nový rodinný kód do zařízení |
 | otevřít admin web produkce | `ssh -L 10121:127.0.0.1:10121 skull-exon` → http://localhost:10121/admin |
@@ -321,15 +322,55 @@ hlavičky + CSP v `.htaccess`). Adresa serveru je předvyplněná na stejný
 origin (`/questor-api`, viz krok 5a — projde CSP `connect-src 'self'`);
 sync se zapíná zadáním rodinného kódu (krok 6).
 
-Aktualizace webu (po každé změně aplikace):
+Aktualizace webu (po každé změně aplikace) — VŽDY celý blok: build, seznam
+assetů a kroky 0–3 v tomhle pořadí:
 
 ```bash
 VITE_ZAKLAD=/questor/ npm run build -w aplikace
-rsync -az --delete --exclude='.htaccess' aplikace/dist/ skull-exon:koordinator-web/questor/
+ls aplikace/dist/assets > aplikace/dist/assets-seznam.txt
+# 0) chunky ODCHÁZEJÍCÍHO buildu: jejich 14denní lhůta začíná teď
+ssh skull-exon 'cd koordinator-web/questor/assets && { [ ! -f ../assets-seznam.txt ] || xargs -r touch -c < ../assets-seznam.txt; }'
+# 1) nejdřív NOVÉ assety
+rsync -az aplikace/dist/assets/ skull-exon:koordinator-web/questor/assets/
+# 2) index.html + zbytek (vč. nového assets-seznam.txt); assets/ se nemaže
+rsync -az --delay-updates --delete-after --exclude='.htaccess' --exclude='/assets/' \
+  aplikace/dist/ skull-exon:koordinator-web/questor/
+# 3) úklid: živý build se vždy osvěží, maže se jen to, co 14 dní není živé
+ssh skull-exon 'cd koordinator-web/questor/assets && xargs -r touch -c < ../assets-seznam.txt && find . -type f -mtime +14 ! -name ".htaccess" -delete'
 ```
 
+Proč takhle: staré `rsync --delete` mohlo smazat chunky dřív, než se
+přenesl nový `index.html` (kdo stránku otevřel během nasazení, dostal
+prázdnou obrazovku), a hlavně smazalo chunky, které ještě potřebuje tab/PWA
+otevřená přes nasazení (mobil drží PWA v paměti i dny) — klepnutí na línou
+stránku (`/latka`, `/admin`) pak skončilo prázdnou obrazovkou. Krok 1 nahraje
+nové chunky (hash v názvu → nic se nepřepíše), než na ně cokoli odkáže;
+krok 2 přepne `index.html` (s `--delay-updates` naráz), nahraje nový
+`assets-seznam.txt` a assety nechá být.
+
+Stáří chunku se NEDÁ brát z času nahrání: `rsync -a` přenáší čas souboru
+z lokálního `dist`, tedy čas buildu, a chunk, který žádný nový build
+neobsahuje, si drží čas buildu, ve kterém byl naposledy. Proto seznam assetů
+na serveru: krok 0 osvěží chunky odcházejícího buildu (podle seznamu
+z minulého nasazení), takže lhůta 14 dní běží od chvíle, kdy přestaly být
+živé — i když od minulého nasazení uběhlo víc než 14 dní. Krok 3 nejdřív
+osvěží živý build, proto ani samostatně spuštěný úklid ani nasazení staršího
+`dist` nikdy nesmaže živé soubory (smazaný živý `index-*.js` by znamenal
+prázdnou obrazovku pro všechny). `! -name ".htaccess"` je pojistka pro
+případná pravidla přímo v `assets/`. Při prvním nasazení novým postupem
+seznam na serveru ještě není, krok 0 tedy nic neudělá — krok 3 při něm
+vynech (chunky předchozího buildu by jinak chránil jen čas jejich buildu)
+a nech úklid až na další nasazení.
+
+Kdyby starý chunk přesto chyběl, aplikace jednou sama obnoví stránku a jinak
+ukáže „Načíst znovu“ (`aplikace/src/komponenty/lazySObnovou.ts`; vstupní
+`index-*.js` tahle pojistka nechrání). Pozor: na chybějící asset vrací
+hosting SPA fallback (HTML 200), ne 404.
+
 `.htaccess` v `koordinator-web/` a `koordinator-web/questor/` se NEPŘEPISUJÍ
-(drží zabezpečení a SPA fallback). „Přidat na plochu": Android/Chrome nabídne
+(drží zabezpečení, CSP a SPA fallback). CSP má `img-src 'self' data:` — kód
+aplikace proto nesmí zobrazovat obrázky z `blob:` URL (náhledy fotek na
+`/latka` jsou `data:`). „Přidat na plochu": Android/Chrome nabídne
 tlačítko v Nastavení → Aplikace v telefonu; iPhone: Safari → Sdílet → Přidat
 na plochu.
 

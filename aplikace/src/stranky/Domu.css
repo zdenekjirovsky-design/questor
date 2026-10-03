@@ -45,8 +45,10 @@
   white-space: nowrap;
 }
 
-.domu__hrat:hover {
-  transform: translateY(-2px) scale(1.04);
+@media (hover: hover) {
+  .domu__hrat:hover {
+    transform: translateY(-2px) scale(1.04);
+  }
 }
 
 /* --- Questy --- */
@@ -210,8 +212,10 @@
   transition: transform 0.15s ease;
 }
 
-.domu__truhla-chip:hover {
-  transform: scale(1.12);
+@media (hover: hover) {
+  .domu__truhla-chip:hover {
+    transform: scale(1.12);
+  }
 }
 
 .domu__truhla-chip--bronzova { --chip-barva: var(--bronzova); --chip-zare: rgba(205, 127, 50, 0.4); }
@@ -305,8 +309,10 @@
   padding: 4px 8px;
 }
 
-.domu__modal-zavrit:hover {
-  color: var(--text);
+@media (hover: hover) {
+  .domu__modal-zavrit:hover {
+    color: var(--text);
+  }
 }
 
 .domu__modal-nadpis {
@@ -343,8 +349,10 @@
   transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 
-.domu__rezim:hover {
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .domu__rezim:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .domu__rezim--vybrany {
@@ -447,9 +455,11 @@
   transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 
-.domu__predmet:hover {
-  transform: translateY(-2px);
-  border-color: var(--akcent);
+@media (hover: hover) {
+  .domu__predmet:hover {
+    transform: translateY(-2px);
+    border-color: var(--akcent);
+  }
 }
 
 .domu__predmet--vybrany {
@@ -547,14 +557,23 @@
     padding: 16px 20px;
   }
 
-  /* Modal přes celou obrazovku (dvh kvůli liště prohlížeče na mobilu). */
+  /* Modal přes celou obrazovku (dvh kvůli liště prohlížeče na mobilu).
+     z-index NAD spodní lištou (App.css: 30) i menu HUD (40/41) — jinak
+     lišta leží přes spodek modalu a ťuk na „Jdeme na to!“ / „Pokračovat“
+     trefí ikonu navigace a přepne stránku. Blur pod neprůhledným
+     fullscreen modalem není vidět, jen stojí výkon. */
   .domu__pozadi-modalu {
     padding: 0;
     align-items: stretch;
     justify-content: stretch;
+    z-index: 50;
+    backdrop-filter: none;
   }
 
-  .domu__modal {
+  /* Dvě třídy (.panel.domu__modal): global.css je v bundlu POSLEDNÍ a jeho
+     mobilní .panel { padding: 14px } (i radius a rámeček) by jednotřídní
+     pravidlo tiše přebil — safe-area odsazení by se zahodilo. */
+  .panel.domu__modal {
     width: 100%;
     height: 100vh;
     height: 100dvh;
@@ -562,13 +581,52 @@
     border-radius: 0;
     border-left: none;
     border-right: none;
-    padding-top: calc(20px + env(safe-area-inset-top, 0px));
+    padding: calc(20px + env(safe-area-inset-top, 0px)) 14px
+      calc(14px + env(safe-area-inset-bottom, 0px)); /* bočních 14 px drží i .domu__modal-pata */
+    /* Konec scrollu modalu nepřetéká do stránky pod ním. */
+    overscroll-behavior: contain;
   }
 
-  .domu__modal--truhla {
+  /* Hlavní akce kroku voleb je přilepená ke spodku modalu — vidět
+     a ťuknutelná bez doscrollování přes režimy a témata. Pata sahá přes
+     spodní padding modalu (safe-area je v ní), aby pod ní neprosvítal
+     obsah a tlačítko neleželo na home indikátoru iPhonu.
+     Záporný bottom: sticky obdélník je zmenšený o padding modalu (Blink
+     i WebKit) — s bottom: 0 by pata visela 14 px + safe-area nad spodní
+     hranou a pod ní by projížděly režimy a témata. Záporný bottom to
+     vyrovná (krátký obsah bez přetečení se nezmění — sticky posouvá jen
+     nahoru). */
+  .domu__modal-pata {
+    position: sticky;
+    bottom: calc(-14px - env(safe-area-inset-bottom, 0px));
+    z-index: 1;
+    margin: 10px -14px calc(-14px - env(safe-area-inset-bottom, 0px));
+    padding: 10px 14px calc(14px + env(safe-area-inset-bottom, 0px));
+    background: var(--pozadi-panel);
+    box-shadow: 0 -10px 16px -10px rgba(0, 0, 0, 0.7);
+  }
+
+  .domu__modal-pata .domu__modal-start {
+    display: flex;
+    margin-top: 0;
+  }
+
+  /* Truhla: obsah vystředěný „bezpečně“ — auto marginy se při přetečení
+     vynulují, kdežto justify-content: center by horní část odsunul nad
+     okraj scrollu, kam nejde doscrollovat. Konfety za letu nesmí modal
+     roztáhnout do šířky (vodorovný posun modalu prstem). */
+  .panel.domu__modal--truhla {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    overflow-x: hidden;
+  }
+
+  .domu__modal--truhla > :first-child {
+    margin-top: auto;
+  }
+
+  .domu__modal--truhla > :last-child {
+    margin-bottom: auto;
   }
 
   /* Dotykové plochy voleb. */
@@ -592,6 +650,64 @@
     width: 64px;
     height: 52px;
   }
+
+  /* Pulz záře bez překreslování: nekonečná animace box-shadow
+     (pulz-zare-zlata) překresluje plochu každý snímek, i při scrollu.
+     Tady ji nahrazují dva pseudo-elementy s předkreslenou slabou (::before)
+     a silnou (::after) září; prolíná se jen jejich opacity (kompozitor),
+     vzhled odpovídá původní animaci. Vlastní stín prvku animace dřív
+     přebíjela, proto box-shadow: none. Na desktopu beze změny. */
+  .tlacitko.domu__hrat,
+  .panel.domu__vyzvy,
+  .panel.domu-duely.domu-duely--pulzuje {
+    position: relative;
+    animation: none;
+    box-shadow: none;
+  }
+
+  .tlacitko.domu__hrat::before,
+  .tlacitko.domu__hrat::after,
+  .panel.domu__vyzvy::before,
+  .panel.domu__vyzvy::after,
+  .panel.domu-duely.domu-duely--pulzuje::before,
+  .panel.domu-duely.domu-duely--pulzuje::after {
+    content: '';
+    position: absolute;
+    inset: -1px; /* přes 1px rámeček = border box, odkud vycházel původní stín */
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: 0 0 12px rgba(245, 185, 66, 0.25);
+    animation: domu-zare-slaba 2.4s ease-in-out infinite;
+  }
+
+  .tlacitko.domu__hrat::after,
+  .panel.domu__vyzvy::after,
+  .panel.domu-duely.domu-duely--pulzuje::after {
+    box-shadow: 0 0 28px rgba(245, 185, 66, 0.6);
+    opacity: 0;
+    animation-name: domu-zare-silna;
+  }
+
+  .panel.domu__vyzvy::before,
+  .panel.domu__vyzvy::after {
+    animation-duration: 3s;
+  }
+
+  .panel.domu-duely.domu-duely--pulzuje::before,
+  .panel.domu-duely.domu-duely--pulzuje::after {
+    animation-duration: 1.6s;
+  }
+}
+
+/* Prolínání záře (mobil, viz výše) — stejné časování jako pulz-zare-zlata. */
+@keyframes domu-zare-slaba {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes domu-zare-silna {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 /* --- Dlazdice „Duely" (layout sdili s .domu-uceni ve vyuka.css) --- */

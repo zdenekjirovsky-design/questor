@@ -38,10 +38,15 @@ export function zbyvaDoVyprseni(vyprsi: string, tedMs: number): string {
   return `zbývá ${minut} min`;
 }
 
+/** Jen číslo sekund s desetinou (např. „12,4") — stopky ho kreslí v pevné šířce. */
+export function sekundyOtazky(ms: number): string {
+  const sekundy = Math.max(0, ms) / 1000;
+  return sekundy.toFixed(1).replace('.', ',');
+}
+
 /** Sekundy s desetinou pro měřený čas otázky (např. „12,4 s"). */
 export function formatujCasOtazky(ms: number): string {
-  const sekundy = Math.max(0, ms) / 1000;
-  return `${sekundy.toFixed(1).replace('.', ',')} s`;
+  return `${sekundyOtazky(ms)} s`;
 }
 
 /** Celkovy cas hrace ve vysledku (mm:ss). */

@@ -14,7 +14,12 @@
 // převezme main.tsx, v už otevřeném tabu posluchač hashchange níže.
 // Výjimka po dohodě (látka ke zpracování): routa /latka — povolený profil
 // posílá fotky zápisků ke zpracování (vstup z Učit se).
-import { lazy, Suspense, useEffect, useState } from 'react';
+// Výjimka po dohodě (mobilní opravy, obnova po nasazení): líné stránky
+// (/admin, /latka) jdou přes lazySObnovou místo holého React.lazy — chunk
+// smazaný novým nasazením jednou obnoví stránku, jinak ukáže chybu
+// s „Načíst znovu“ místo prázdné obrazovky (komponenty/lazySObnovou.ts).
+// Změněny jen dva řádky s lazy importy a importy nahoře, nic jiného.
+import { Suspense, useEffect, useState } from 'react';
 import { NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { pouzijStav } from './stav/store';
 import HostDuel from './duely/HostDuel';
@@ -33,11 +38,12 @@ import Duely from './duely/Duely';
 import DuelHrani from './duely/DuelHrani';
 import DuelyIndikator from './duely/DuelyIndikator';
 import { adminKodZHashe, ulozAdminKod } from './admin/admin';
+import { lazySObnovou } from './komponenty/lazySObnovou';
 import './App.css';
 
 // Přehled pro rodiče je vzácná obrazovka — vlastní chunk, ať nezvětšuje start.
-const AdminPrehled = lazy(() => import('./admin/AdminPrehled'));
-const PoslatLatku = lazy(() => import('./latka/PoslatLatku'));
+const AdminPrehled = lazySObnovou(() => import('./admin/AdminPrehled'));
+const PoslatLatku = lazySObnovou(() => import('./latka/PoslatLatku'));
 
 const odkazy = [
   { cesta: '/', text: 'Domů' },

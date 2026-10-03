@@ -38,8 +38,10 @@
   transition: transform 0.15s ease;
 }
 
-.sbirka__karta:hover {
-  transform: translateY(-4px);
+@media (hover: hover) {
+  .sbirka__karta:hover {
+    transform: translateY(-4px);
+  }
 }
 
 .sbirka__karta-vnitrek {
@@ -291,18 +293,41 @@
     grid-template-columns: 1fr;
   }
 
+  /* z-index NAD spodní lištou (App.css: 30) i menu HUD (40/41) — jinak
+     lišta zůstává aktivní přes „celoobrazovkový“ detail. Pozadí scrolluje
+     samo (detail roste s obsahem, flex-start) a konec scrollu nepřetéká do
+     mřížky karet. Blur pod neprůhledným detailem není vidět. */
   .sbirka__pozadi-modalu {
     padding: 0;
-    align-items: stretch;
+    align-items: flex-start;
+    z-index: 50;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    backdrop-filter: none;
   }
 
-  .sbirka__detail {
+  /* Dvě třídy (.panel.sbirka__detail): mobilní .panel { padding: 14px }
+     z global.css je v bundlu poslední a jednotřídní pravidlo by přebil —
+     safe-area odsazení i nulový radius by se zahodily. */
+  .panel.sbirka__detail {
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
     border-radius: 0;
     justify-content: center;
     padding-top: calc(20px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Záře epických/legendárních karet a zlatých mistrovských karet na mobilu
+     po pár cyklech dopulzuje a zůstane jako klidná slabá záře (konec
+     keyframů) — desítky nekonečných animací box-shadow by jinak
+     překreslovaly mřížku každý snímek i při scrollu. */
+  .sbirka__karta--epicka .sbirka__karta-lic,
+  .sbirka__karta--legendarni .sbirka__karta-lic,
+  .sbirka__mistr--zlato {
+    animation-iteration-count: 3;
+    animation-fill-mode: forwards;
   }
 
   .sbirka__detail-zavrit {

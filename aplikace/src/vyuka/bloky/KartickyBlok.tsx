@@ -1,6 +1,8 @@
 // Karticky (flashcards) — 3D flip otacenim kliknutim, sipky mezi kartami.
 // Klavesnice: sipky vlevo/vpravo prochazi, mezernik/Enter otaci.
-import { useState } from 'react';
+// Uzky mobil: vyska karty roste s textem a drzi ji nejdelsi strana balicku
+// (neviditelne rezervy, vyuka.css) — sipky pod kartou neposkakuji.
+import { Fragment, useState } from 'react';
 import type { VyukovyBlokKarticky } from '@questor/sdilene';
 
 export default function KartickyBlok({ blok }: { blok: VyukovyBlokKarticky }) {
@@ -63,6 +65,20 @@ export default function KartickyBlok({ blok }: { blok: VyukovyBlokKarticky }) {
               <span className="karticka__napoveda">otočit ↻</span>
             </span>
             <span className="karticka__strana karticka__strana--zadni">{karticka.zadni}</span>
+            {blok.polozky.map((p, i) => (
+              <Fragment key={i}>
+                <span
+                  className="karticka__strana karticka__strana--predni karticka__rezerva"
+                  aria-hidden="true"
+                >
+                  {p.predni}
+                  <span className="karticka__napoveda">otočit ↻</span>
+                </span>
+                <span className="karticka__strana karticka__strana--zadni karticka__rezerva" aria-hidden="true">
+                  {p.zadni}
+                </span>
+              </Fragment>
+            ))}
           </span>
         </button>
         <button

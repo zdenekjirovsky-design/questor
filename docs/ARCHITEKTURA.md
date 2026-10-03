@@ -413,13 +413,19 @@ Aplikace je responzivní až k šířce telefonu (~375 px): breakpoint
 (desktop/Tauri se nemění) — závazné zásady drží DESIGN.md, sekce Mobil.
 Dotyková detekce pro widgety: `vyuka/widgety/dotyk.ts`
 (`jeHrubyPointer(matchMedia)` čistá a testovaná, `jeDotykoveZarizeni()`
-čte window; fail-safe → false = desktopové chování). PWA základ pro
-budoucí hostovanou verzi: `aplikace/public/manifest.webmanifest`
+čte window; fail-safe → false = desktopové chování). PWA základ
+hostované verze (nasazení: docs/NASAZENI.md, sekce Webová verze):
+`aplikace/public/manifest.webmanifest`
 (name QUESTOR, display standalone, theme_color `#0f0d1a`, lang cs)
 + ikony `aplikace/public/ikony/` (kopie PNG z `src-tauri/icons/`)
 + `<link rel="manifest">`, `<meta name="theme-color">` a apple-touch-icon
-v `index.html`. Service worker ZÁMĚRNĚ žádný — bez hostingu nemá co
-cachovat; doplní se až s nasazením webové verze.
+v `index.html`. Service worker zatím žádný — chunk smazaný novým nasazením
+řeší `komponenty/lazySObnovou.ts` (jedna automatická obnova, jinak
+„Načíst znovu“). Sdílené mobilní moduly: `komponenty/ResetScrollu.tsx`
+(scroll při navigaci, vložený v main.tsx), `komponenty/zamekScrollu.ts`
+(zámek stránky pod fullscreen modaly), `testy/posun.ts` (posuny jen podle
+potřeby, `chovaniPosunu` hlídá reduced motion), `testy/ochranaKliku.ts`
++ `pouzijOchranuKliku.ts` (ochranná prodleva po zobrazení otázky).
 
 ### Vlastnictví souborů (paralelní práce)
 
@@ -432,7 +438,9 @@ cachovat; doplní se až s nasazením webové verze.
   `styl/tokeny.css`. (Profilová brána v App.tsx a složení profilySlice ve
   store.ts vznikly dohodou při zavedení profilů; hostovská brána v App.tsx
   — hash `#duel=…` s předností před výběrem profilu — dohodou při duelu
-  odkazem. Dál platí zmrazení.)
+  odkazem; `<ResetScrollu />` v main.tsx a líné stránky přes
+  `lazySObnovou` v App.tsx dohodou při mobilních opravách. Dál platí
+  zmrazení.)
 
 ### Tok testu
 
@@ -588,6 +596,15 @@ průběhu v `aplikace/src/duely/engine.ts`. API a DB viz tabulky výše.
   = 0; při shodě bodů rozhoduje nižší součet časů (`bodyZaOdpoved`,
   `vyhodnotDuel`). Normový čas (měřítko, NE limit): (10 + 4×obtížnost) s
   (`normaCasuOtazky`), u hráče × handicap (`normaCasuProHrace`).
+- **Čas odpovědi** (`casMs`): SYROVÝ čas od zobrazení otázky
+  (`casOtazkyMs` v `duely/engine.ts`, rodinný duel i host). Server ho
+  v `prepoctiVysledekDuelu` bere beze změny a verzi klienta nerozliší —
+  nový i starší klient (desktop před aktualizací, PWA otevřená přes
+  nasazení) proto musí posílat stejnou veličinu. Ochranná prodleva 350 ms
+  proti dvojímu ťuknutí (`OCHRANNA_PRODLEVA_MS`, `testy/ochranaKliku.ts`)
+  žije JEN na klientu: kliky myší/dotykem v ní UI zahodí (rodinný duel na
+  celé sekci otázky vč. power-upů, host na panelu otázky; klávesnice
+  prochází), na `casMs`, bonus ani součet časů vliv nemá.
 - **Handicap férovosti**: hráč se slabším zvládnutím oboru (podíl otázek
   banky v Leitner boxu ≥ 3, `zvladnutiOboru`) dostává násobič normového
   času (bonus mu klesá pomaleji)
@@ -622,6 +639,20 @@ průběhu v `aplikace/src/duely/engine.ts`. API a DB viz tabulky výše.
   MÁ sadu otázek — adresát ji dostává až přijetím online (GET ji zatajuje,
   DuelHrani proto výzvu při otevření sám přijme; serverová cesta „výsledek
   = přijetí“ zůstává pro starší klienty). Otevřenou výzvu až po přijetí online.
+- **Obnova seznamu při otevření stránky Duely** (`obnovPriOtevreniDuelu`
+  v `duely/obnoveni.ts`): jen LEHKÁ obnova (`obnovDuely`: GET duelů
+  aktivního profilu a `prijmiDuely`, bez pullu postupu, bank a výuk),
+  nejvýš 1× za 45 s na profil (`INTERVAL_OBNOVY_DUELU_MS`; interval platí
+  i po chybě sítě, výsledek zahozený kvůli přepnutí profilu během letu ho
+  neuplatní). Když ve frontě syncu něco čeká
+  (`stavSynchronizace().veFronte > 0`, např. neodeslaný `duel-vysledek`),
+  pustí se místo lehké obnovy plný `synchronizuj('rucne')` — ten vynuluje
+  odklad a frontu odešle (přes zámek běžícího syncu, žádný vlastní push
+  mimo `synchronizuj`). DuelHrani si plný sync pustí sám nejvýš jednou za
+  otevření, když lokální banka předmětu duelu chybí nebo je starší než
+  duel. Na mobilu/dotyku se změna
+  z obnovy, která by karty přeskládala, ukáže až po klepnutí na lištu
+  „Nové v duelech“ (`podpisRozdeleni`, DESIGN.md › Mobil bod 10).
 - **Duel odkazem (fáze 2 — hosté, hotové obě půlky)**: vyzyvatel založí duel
   s `proOdkaz: true` a dostane JEDNORÁZOVĚ `kodHosta` (24 znaků base64url,
   kryptograficky náhodný) — odkaz má tvar
@@ -746,6 +777,29 @@ Všechny widgety: klávesnice + myš, animace dle DESIGN.md
   znovu“).
 - Nav odkaz „Učit se“ v hlavičce, dlaždice na Domů; u témat v konfiguraci
   testu ikona 📖, když má téma lekci (v kterékoli výuce).
+- **Posun stránky v lekci JEN po akci studenta**: „Pokračovat ↓“,
+  „Dokončit lekci“, „Projít znovu“ a na desktopu (> 760 px) i odpověď
+  v mini-kvízu a splněný widget — desktop pak najede na další blok
+  (u posledního na závěr s oslavou) jako dřív. Na mobilu (≤ 760 px)
+  mini-kvíz ani widget neposouvají (vysvětlení a oslava zůstanou vidět),
+  pod splněným blokem je nenápadné „Pokračovat ↓“ / „Na závěr lekce ↓“
+  (`.lekce__dal`, jen mobil), které posune až na klepnutí. Požadavek na
+  posun je čas klepnutí v refu s platností 1,5 s (`PLATNOST_POSUNU_MS`),
+  takže změna postupu ze syncu, nová verze obsahu ani pozdě načtený obsah
+  stránku neposunou. Zarovnání `zarovnaniBloku` (`vyuka/lekceLogika.ts`):
+  mobil začátek bloku pod přilepenou lištou, desktop střed (blok vyšší než
+  místo pod lištou začátek).
+- **Zafixování verze lekce**: do první akce studenta v návštěvě se bere
+  nejnovější verze (při startu chodí bundle → IndexedDB → server rychle po
+  sobě). První dokončený blok lekci zafixuje; novější verzi s jiným obsahem
+  (`stejnyObsahLekce`) pak jen NABÍDNE lišta „Lekce dostala novou verzi“
+  pod přilepenou hlavičkou (Načíst / Teď ne) — nic se nevymění pod rukama.
+  „Projít znovu“ jede vždy nad nejnovější verzí. Bloky mají stabilní klíč
+  (`klicBloku` = index + typ + otisk obsahu): změněný blok se po načtení
+  nové verze namontuje znovu, nezměněné si drží stav.
+- Doporučení „pokračuj tady“ na `/uceni` je po dobu návštěvy připnuté
+  (pozdní pull postupu z jiného zařízení ho nevymění); přepnutí aktivní
+  banky nebo profilu připnutí ruší (`vyberDoporuceni`, `kontextDoporuceni`).
 
 ## Ověření (před commitem)
 

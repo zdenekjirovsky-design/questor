@@ -101,23 +101,29 @@ async function nactiSoubory<T>(
   pripona: string,
   validuj: (data: unknown) => T,
 ): Promise<T[]> {
-  const vysledky: T[] = [];
-  for (const [cesta, nacti] of Object.entries(soubory)) {
-    const nazevSouboru = cesta.split('/').pop() ?? cesta;
-    if (!nazevSouboru.endsWith(pripona)) {
-      if (!nazevSouboru.endsWith('.banka.json') && !nazevSouboru.endsWith('.vyuka.json')) {
-        console.warn(`Neznamy soubor predmetu „${nazevSouboru}“ — cekam *.banka.json nebo *.vyuka.json`);
+  // Soubory se stahuji SOUBEZNE (Promise.all) — postupny await v cyklu dela
+  // 14 sitovych kol za sebou a na mobilu tak 1–3 s prazdnych stavu po startu.
+  // Vysledek je stejny jako drive: poradi drzi Promise.all (= poradi cest
+  // souboru), vadny nebo nenacitatelny soubor se jen zaloguje a preskoci.
+  const vysledky = await Promise.all(
+    Object.entries(soubory).map(async ([cesta, nacti]): Promise<{ data: T } | null> => {
+      const nazevSouboru = cesta.split('/').pop() ?? cesta;
+      if (!nazevSouboru.endsWith(pripona)) {
+        if (!nazevSouboru.endsWith('.banka.json') && !nazevSouboru.endsWith('.vyuka.json')) {
+          console.warn(`Neznamy soubor predmetu „${nazevSouboru}“ — cekam *.banka.json nebo *.vyuka.json`);
+        }
+        return null;
       }
-      continue;
-    }
-    try {
-      vysledky.push(validuj(await nacti()));
-    } catch (chyba) {
-      // Vadny (nebo nenacitatelny) bundlovany soubor nesmi shodit aplikaci.
-      console.error(`Bundlovany soubor „${nazevSouboru}“ neprosel validaci:`, chyba);
-    }
-  }
-  return vysledky;
+      try {
+        return { data: validuj(await nacti()) };
+      } catch (chyba) {
+        // Vadny (nebo nenacitatelny) bundlovany soubor nesmi shodit aplikaci.
+        console.error(`Bundlovany soubor „${nazevSouboru}“ neprosel validaci:`, chyba);
+        return null;
+      }
+    }),
+  );
+  return vysledky.flatMap((v) => (v ? [v.data] : []));
 }
 
 /** Nacte a zvaliduje vsechny bundlovane banky (vadne preskoci). */

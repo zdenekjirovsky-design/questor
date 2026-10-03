@@ -8,10 +8,12 @@ import {
   hvezdyZaTahy,
   jePar,
   jsouRozdilne,
+  nejblizsiBod,
   posunKroku,
   pozicniProcenta,
   seradUdalosti,
   seznamVlastnosti,
+  sirkaZvetseniSvg,
   sloupcePexesa,
   tridickaHotovo,
   vsechnyKrokyNavstiveny,
@@ -245,5 +247,50 @@ describe('konfety', () => {
 
   it('je deterministicke pri injektovane nahode', () => {
     expect(vygenerujKonfety(8, vytvorNahodu(9))).toEqual(vygenerujKonfety(8, vytvorNahodu(9)));
+  });
+});
+
+describe('nejblizsiBod (popisovacka na dotyku)', () => {
+  // Data lekce vareni-noze: Patka (335,148) a Krcek (359,116) ve viewBoxu
+  // 560×240 — scena na telefonu ~287 px, body ~20 px od sebe, 44px plochy
+  // se prekryvaji.
+  const vb = { minX: 0, minY: 0, sirka: 560, vyska: 240 };
+  const pozice = [pozicniProcenta({ x: 335, y: 148 }, vb), pozicniProcenta({ x: 359, y: 116 }, vb)];
+  const scena = { left: 10, top: 100, width: 287, height: (287 * 240) / 560 };
+  const stred = (i: number) => ({
+    x: scena.left + (pozice[i].levaPct / 100) * scena.width,
+    y: scena.top + (pozice[i].horniPct / 100) * scena.height,
+  });
+
+  it('tuk na stred Patky vybere Patku, i kdyz lezi v plose Krcku', () => {
+    const { x, y } = stred(0);
+    expect(nejblizsiBod(pozice, scena, x, y)).toBe(0);
+  });
+
+  it('tuk mezi body rozhodne mensi vzdalenost', () => {
+    const a = stred(0);
+    const b = stred(1);
+    expect(nejblizsiBod(pozice, scena, a.x + (b.x - a.x) * 0.7, a.y + (b.y - a.y) * 0.7)).toBe(1);
+  });
+
+  it('mimo okruh 22 px nevraci nic', () => {
+    const { x, y } = stred(0);
+    expect(nejblizsiBod(pozice, scena, x, y + 60)).toBeNull();
+    expect(nejblizsiBod([], scena, x, y)).toBeNull();
+  });
+});
+
+describe('sirkaZvetseniSvg (obrazkovy blok na mobilu)', () => {
+  it('siroke schema dostane citelnou sirku podle viewBoxu', () => {
+    expect(sirkaZvetseniSvg({ minX: 0, minY: 0, sirka: 640, vyska: 375 })).toBe(576);
+    expect(sirkaZvetseniSvg({ minX: 0, minY: 0, sirka: 560, vyska: 330 })).toBe(504);
+  });
+
+  it('uzke nebo svisle schema se nezvetsuje', () => {
+    expect(sirkaZvetseniSvg({ minX: 0, minY: 0, sirka: 470, vyska: 640 })).toBeNull();
+    expect(sirkaZvetseniSvg({ minX: 0, minY: 0, sirka: 400, vyska: 280 })).toBeNull();
+    expect(sirkaZvetseniSvg({ minX: 0, minY: 0, sirka: 560, vyska: 500 })).toBeNull();
+    // fallback extrahujViewBox bez rozmeru (100×100)
+    expect(sirkaZvetseniSvg(extrahujViewBox('<svg></svg>'))).toBeNull();
   });
 });

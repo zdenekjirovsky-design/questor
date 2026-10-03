@@ -11,6 +11,13 @@ body,
   min-height: 100vh;
 }
 
+/* Dotyk: vypne zoom dvojím ťuknutím a s ním čekání (~300 ms) na každé
+   ťuknutí i rychlé dvojí ťuknutí, které stránku přiblíží (iOS po ručním
+   přiblížení). Pinch zoom zůstává; myš (desktop/Tauri) to neovlivní. */
+html {
+  touch-action: manipulation;
+}
+
 body {
   background: var(--pozadi);
   background-image: var(--pozadi-gradient);
@@ -62,8 +69,10 @@ button {
   transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
-.tlacitko:hover {
-  transform: translateY(-1px);
+@media (hover: hover) {
+  .tlacitko:hover {
+    transform: translateY(-1px);
+  }
 }
 
 .tlacitko:active {
@@ -161,7 +170,13 @@ button {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    /* Bez omezení počtu by nekonečné animace běžely dál s periodou 0,01 ms
+       a každý snímek by vzorkoval jinou fázi = prvek se třepotá. Žádná
+       nekonečná animace nemá fill-mode, takže skončí v základním (viditelném)
+       stavu; konečné s fill both končí na „to“. */
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -170,11 +185,50 @@ button {
    za media query. Detailní úpravy stránek jsou v jejich vlastních CSS. */
 
 @media (max-width: 760px) {
+  /* Výška podle MALÉHO viewportu (lišta prohlížeče vysunutá). 100vh je na
+     mobilu „velký“ viewport, takže i krátká stránka šla přescrollovat
+     o výšku lišty a celá se houpala. Bez podpory svh platí 100vh výše. */
+  html,
+  body,
+  #koren {
+    min-height: 100svh;
+  }
+
   /* Stránka nikdy nescrolluje do šířky — široký obsah scrolluje uvnitř
-     vlastních kontejnerů (overflow-x: auto). */
+     vlastních kontejnerů (overflow-x: auto).
+     overscroll-behavior-y: contain vypne pull-to-refresh (Android Chrome),
+     který při tahu nahoru na začátku stránky reloadoval celou aplikaci;
+     odpružení zůstává.
+     (Zámek scrollu pod modaly — komponenty/zamekScrollu.ts — dává po dobu
+     modalu na html inline `none` a pak ho vrátí na tohle.) */
   html,
   body {
     overflow-x: clip;
+    overscroll-behavior-y: contain;
+  }
+
+  /* Pozadí: background-attachment: fixed iOS ignoruje (gradient se roztáhne
+     přes celý dokument a záře na dlouhých stránkách ujíždí) a Chrome kvůli
+     němu při scrollu překresluje celé pozadí. Na mobilu ho proto kreslí
+     fixní vrstva pod obsahem; výška lvh, ať se nemění se schováním lišty
+     prohlížeče. Barva pod ní (i při odpružení) zůstává z body — html proto
+     nesmí dostat vlastní pozadí (body by pak kreslilo nad vrstvou). */
+  body {
+    background-image: none;
+    background-attachment: scroll;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    height: 100lvh;
+    z-index: -1;
+    background: var(--pozadi-gradient);
+    pointer-events: none;
   }
 
   .panel {

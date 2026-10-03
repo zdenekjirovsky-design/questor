@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { prevezmiAdminOdkaz } from './admin/admin';
+import ResetScrollu from './komponenty/ResetScrollu';
 import '@fontsource/chakra-petch/600.css';
 import '@fontsource/chakra-petch/700.css';
 import '@fontsource/inter/400.css';
@@ -16,6 +17,9 @@ prevezmiAdminOdkaz(import.meta.env.BASE_URL);
 ReactDOM.createRoot(document.getElementById('koren')!).render(
   <React.StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+      {/* Nová stránka začíná nahoře, zpět/vpřed vrací pozici (App.tsx je
+          zmrazený, proto vedle něj; viz komponenty/ResetScrollu.tsx). */}
+      <ResetScrollu />
       <App />
     </BrowserRouter>
   </React.StrictMode>,

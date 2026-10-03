@@ -44,10 +44,12 @@
   transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.prubeh__pilulka:hover {
-  transform: translateY(-2px);
-  border-color: var(--akcent);
-  color: var(--text);
+@media (hover: hover) {
+  .prubeh__pilulka:hover {
+    transform: translateY(-2px);
+    border-color: var(--akcent);
+    color: var(--text);
+  }
 }
 
 .prubeh__pilulka--aktivni {
@@ -95,6 +97,11 @@
   margin-bottom: 14px;
 }
 
+/* Rezervy výšky detailu — jen mobil (blok dole), jinde se nevykreslují. */
+.prubeh__detail--rezerva {
+  display: none;
+}
+
 .prubeh__detail-hlavicka {
   display: flex;
   align-items: center;
@@ -137,13 +144,38 @@
   text-shadow: 0 0 12px rgba(52, 211, 153, 0.45);
 }
 
-/* --- Mobil: pilulky s dotykovou plochou ≥ 44 px. --- */
+/* --- Mobil: pilulky s dotykovou plochou ≥ 44 px. Detail drží výšku
+   nejdelšího kroku (všechny kroky v jedné buňce mřížky, neaktivní
+   neviditelné) a počítadlo má vlastní řádek nad tlačítky — „← Zpět“
+   a „Další →“ se po kroku ani po textu „Prošel jsi celý proces!“
+   nepohnou. --- */
 @media (max-width: 760px) {
   .prubeh__pilulka {
     min-height: 44px;
   }
 
+  .prubeh__detail-ram {
+    display: grid;
+    margin-bottom: 14px;
+  }
+
+  .prubeh__detail-ram > .prubeh__detail {
+    grid-area: 1 / 1;
+    margin-bottom: 0;
+  }
+
+  .prubeh__detail--rezerva {
+    display: block;
+    visibility: hidden;
+    animation: none;
+  }
+
   .prubeh__ovladani {
     flex-wrap: wrap;
+  }
+
+  .prubeh__pocitadlo {
+    flex: 1 1 100%;
+    order: -1;
   }
 }

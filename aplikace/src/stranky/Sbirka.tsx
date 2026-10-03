@@ -6,6 +6,7 @@ import type { KartaDefinice, StupenMistrovstvi, TrofejeProfilu, Vzacnost } from 
 import { KARTY_VELIKANI } from '@questor/sdilene';
 import { Link } from 'react-router-dom';
 import { pouzijStav } from '../stav/store';
+import { pouzijZamekScrollu } from '../komponenty/zamekScrollu';
 import Avatar from '../hra/Avatar';
 import './Sbirka.css';
 
@@ -139,6 +140,15 @@ export default function Sbirka() {
   }, [oznacKartyZaVidene]);
 
   const [detail, setDetail] = useState<KartaDefinice | null>(null);
+
+  // Detail karty je na mobilu (≤ 760 px) přes celou obrazovku — zámek scrollu,
+  // aby swipe po detailu neposouval mřížku karet pod ním. Na desktopu se
+  // nezamyká (overflow: hidden na html by skryl posuvník a stránka poskočila).
+  pouzijZamekScrollu(
+    detail !== null &&
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(max-width: 760px)').matches === true,
+  );
 
   const vlastnene = new Set(sbirka.karty);
   const pocetVelikanu = KARTY_VELIKANI.filter((k) => vlastnene.has(k.id)).length;

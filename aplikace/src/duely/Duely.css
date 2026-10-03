@@ -53,8 +53,36 @@
   transition: transform 0.12s ease;
 }
 
-.duely__karta--historie:hover {
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .duely__karta--historie:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Odlozena zmena seznamu (mobil/dotyk): data z obnovy, ktera by seznam
+   preskladala pod prstem, se ukazou az po klepnuti na tuhle listu. Je fixni
+   (nad spodni navigaci), takze sama nic neposouva. */
+.duely__zmena {
+  position: fixed;
+  /* Centrovani bez transform (ten patri animaci naskoceni). */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+  z-index: 25;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 10px 18px;
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--akcent);
+  background: var(--pozadi-panel-2);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  box-shadow: var(--stin), var(--zare-akcent);
+  cursor: pointer;
+  animation: naskoceni 0.25s ease-out both;
 }
 
 .duely__karta-hlava {
@@ -205,8 +233,10 @@
   transition: transform 0.1s ease, box-shadow 0.15s ease;
 }
 
-.duely__volba:hover {
-  transform: translateY(-1px);
+@media (hover: hover) {
+  .duely__volba:hover {
+    transform: translateY(-1px);
+  }
 }
 
 .duely__volba--vybrana {
@@ -325,6 +355,8 @@
   align-items: center;
   gap: 14px;
   margin-bottom: 10px;
+  /* Navrat na zacatek nove otazky (testy/posun.ts) — kousek pod okraj. */
+  scroll-margin-top: 12px;
 }
 
 .duel-odpocet {
@@ -357,6 +389,24 @@
   white-space: nowrap;
   min-width: 76px;
   text-align: right;
+}
+
+/* Cisla stopek a bonusu maji PEVNOU sirku: text se prepisuje 5× za sekundu
+   a Chakra Petch ma proporcionalni cislice (bez tnum) — bez rezervy pruh
+   bonusu vedle (flex: 1) cukal do sirky. 1ch = sirka „0" = nejsirsi cislice
+   fontu, takze rezerva pokryje kazdou hodnotu do 99,9 s / +50 b. */
+.duel-odpocet__cislo {
+  display: inline-block;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.duel-odpocet__cislo--cas {
+  min-width: 4ch;
+}
+
+.duel-odpocet__cislo--bonus {
+  min-width: 3ch;
 }
 
 .duel-skore {
@@ -395,9 +445,11 @@
   transition: transform 0.1s ease, box-shadow 0.15s ease;
 }
 
-.duel-powerup:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: var(--zare-akcent);
+@media (hover: hover) {
+  .duel-powerup:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: var(--zare-akcent);
+  }
 }
 
 .duel-powerup:disabled {
@@ -691,8 +743,10 @@
   min-height: 44px;
 }
 
-.host-duel__zpet:hover {
-  color: var(--text);
+@media (hover: hover) {
+  .host-duel__zpet:hover {
+    color: var(--text);
+  }
 }
 
 .host-duel__vyzva {
@@ -752,18 +806,31 @@
     grid-template-columns: 1fr;
   }
 
+  /* z-index NAD spodní lištou (App.css: 30) i menu HUD (40/41) — stejně
+     jako modaly Domů a Sbírky (DESIGN.md › Mobil, bod 3). */
   .duely__pozadi-modalu {
     padding: 0;
+    z-index: 50;
   }
 
   .duely__modal {
     width: 100%;
     height: 100dvh;
     max-height: 100dvh;
+    /* Konec vnitrniho scrollu modalu se neprelije na stranku pod nim. */
+    overscroll-behavior: contain;
+  }
+
+  /* viewport-fit=cover: fullscreen modal si musi safe-area resit sam —
+     jinak hlavicka s krizkem zajede pod vyrez a tlacitko „Vyzvat!" pod
+     home indikator (stejny vzor jako spodni navigace v App.css).
+     Dve tridy: global.css je v bundlu POSLEDNI a jeho `.panel` (mobilni
+     padding 14px, radius, ramecek) by jednotridni pravidlo prebil — proto
+     tady i hranate rohy a bez bocnich ramecku (stejne jako .panel.domu__modal). */
+  .panel.duely__modal {
     border-radius: 0;
-    /* viewport-fit=cover: fullscreen modal si musi safe-area resit sam —
-       jinak hlavicka s krizkem zajede pod vyrez a tlacitko „Vyzvat!" pod
-       home indikator (stejny vzor jako spodni navigace v App.css). */
+    border-left: none;
+    border-right: none;
     padding-top: calc(14px + env(safe-area-inset-top, 0px));
     padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
   }
@@ -776,6 +843,8 @@
   .duel-hlavicka {
     flex-wrap: wrap;
     gap: 8px;
+    /* Nova otazka: hlavicka duelu pod vyrez / status bar PWA, ne pod nej. */
+    scroll-margin-top: calc(10px + env(safe-area-inset-top, 0px));
   }
 
   .duel-odpocet {

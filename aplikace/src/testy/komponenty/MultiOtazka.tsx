@@ -91,7 +91,9 @@ export default function MultiOtazka({ otazka, odeslana, zobrazVyhodnoceni, onOdp
             disabled={vybrane.length === 0}
             onClick={odesli}
           >
-            Potvrdit (Enter)
+            <span>
+              Potvrdit<span className="napoveda-klavesy"> (Enter)</span>
+            </span>
           </button>
         </div>
       )}

@@ -89,8 +89,10 @@
   100% { transform: scale(1.35); opacity: 0; }
 }
 
-.popisovacka__bod:hover .popisovacka__bod-jadro {
-  transform: scale(1.25);
+@media (hover: hover) {
+  .popisovacka__bod:hover .popisovacka__bod-jadro {
+    transform: scale(1.25);
+  }
 }
 
 .popisovacka__bod--aktivni .popisovacka__bod-jadro {
@@ -142,6 +144,11 @@
   color: var(--text);
 }
 
+/* Statický popis bodu pod obrázkem — jen mobil (blok dole), jinde bublina. */
+.popisovacka__detail {
+  display: none;
+}
+
 .popisovacka__paticka {
   margin-top: 12px;
   text-align: center;
@@ -188,5 +195,32 @@
 
   .popisovacka__bod::before {
     inset: 7px;
+  }
+}
+
+/* --- Mobil: scéna je jen ~287 × 100–215 px a absolutní bublina by se
+   ořízla (overflow: hidden scény) nebo zúžila do sloupce. Název a popis
+   aktivního bodu proto stojí jako statický blok POD obrázkem; blok drží
+   místo i bez vybraného bodu, takže ťuknutí nic neposune. --- */
+@media (max-width: 760px) {
+  .popisovacka__bublina {
+    display: none;
+  }
+
+  .popisovacka__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-height: 64px;
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: var(--radius-maly);
+    border: 1px solid var(--okraj);
+    background: var(--pozadi-panel-2);
+  }
+
+  .popisovacka__detail-prazdny {
+    color: var(--text-tlumeny);
+    font-size: 0.86rem;
   }
 }

@@ -210,6 +210,31 @@ export type DuvodSyncu =
   | 'zmena-profilu'
   | 'zmena-progresu';
 
+/** Jak dlouho sync nejvýš čeká na startovní obsah (pak porovná, co má). */
+export const LIMIT_CEKANI_NA_OBSAH_MS = 15_000;
+
+/**
+ * Počká na načtení obsahu (`nacti`), nejvýš `limitMs`. Chyba načítání se
+ * spolkne — sync pak porovná verze s tím, co ve store je; výsledný stav je
+ * správný i tak (prijmiBanku bere jen vyšší verzi), jen se stáhne víc dat.
+ */
+export async function pockejNaObsah(
+  nacti: () => Promise<void>,
+  limitMs: number = LIMIT_CEKANI_NA_OBSAH_MS,
+): Promise<void> {
+  let casovac: ReturnType<typeof setTimeout> | undefined;
+  try {
+    await Promise.race([
+      nacti().catch(() => {}),
+      new Promise<void>((r) => {
+        casovac = setTimeout(r, limitMs);
+      }),
+    ]);
+  } finally {
+    clearTimeout(casovac);
+  }
+}
+
 let probihajiciSync: Promise<void> | null = null;
 
 export function synchronizuj(duvod: DuvodSyncu): Promise<void> {
@@ -257,6 +282,16 @@ async function provedSync(duvod: DuvodSyncu): Promise<void> {
       for (const p of pushnout) await frontaProfilu(p.id).odesli(klient);
     } catch {
       // Tiché — registr je bonus, lokální profily jedou dál.
+    }
+
+    // Startovní obsah (bundle + IndexedDB) má doběhnout před porovnáním verzí,
+    // jinak se na studené cache stáhne ze serveru i to, co je v bundlu.
+    // Omezené čekání: zaseknutý chunk nesmí zablokovat sync (ani push po testu).
+    // Dynamický import drží obsah mimo hlavní chunk; v testech (Node) se nespouští.
+    if (typeof window !== 'undefined') {
+      await pockejNaObsah(() =>
+        import('../data/nacteniObsahu').then((m) => m.nactiObsahPriStartu()),
+      );
     }
 
     // --- pull: banky (jen vyšší verze) --------------------------------------

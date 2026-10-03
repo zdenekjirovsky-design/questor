@@ -13,7 +13,10 @@ import { pouzijStav } from '../stav/store';
 import { ikonaPredmetu, nazevPredmetu } from '../data/predmety';
 import { ChybaSyncu } from '../sync/klient';
 import { vyhodnotOdpoved, type OdpovedHodnota } from '../testy/engine';
+import { pouzijOchranuKliku } from '../testy/pouzijOchranuKliku';
+import { pouzijNavratNaZacatek } from '../testy/posun';
 import {
+  casOtazkyMs,
   odpovezVPrubehu,
   odstartujPrubeh,
   otazkyDuelu,
@@ -516,12 +519,18 @@ export function HostOtazka({
   otazka: Otazka;
   onOdpoved(hodnota: OdpovedHodnota, casMs: number): void;
 }) {
+  // Stejne jako rodinny duel: nova otazka v zornem poli a ochranna prodleva
+  // proti dvojimu ťuknuti; cas pro bonus je syrovy od zobrazeni otazky
+  // (casOtazkyMs — prodleva ho neposouva, server pocita stejne).
+  const hlavickaRef = useRef<HTMLDivElement | null>(null);
+  pouzijNavratNaZacatek(hlavickaRef, prubeh.index);
+  const ochranaKliku = pouzijOchranuKliku(prubeh.index);
   return (
     <section
       className="duel-hrani"
       aria-label={`Duel — otázka ${prubeh.index + 1} z ${prubeh.pocetOtazek}`}
     >
-      <div className="duel-hlavicka">
+      <div className="duel-hlavicka" ref={hlavickaRef}>
         <span className="test-pocitadlo">
           {prubeh.index + 1}/{prubeh.pocetOtazek}
         </span>
@@ -536,7 +545,7 @@ export function HostOtazka({
         </span>
       </div>
 
-      <div className="panel test-otazka" key={prubeh.index}>
+      <div className="panel test-otazka" key={prubeh.index} onClickCapture={ochranaKliku}>
         <div className="test-meta">
           <span className="stitek">Obtížnost {otazka.obtiznost}/5</span>
         </div>
@@ -545,7 +554,7 @@ export function HostOtazka({
           key={otazka.id}
           otazka={otazka}
           skryteMoznosti={[]}
-          onOdpoved={(hodnota) => onOdpoved(hodnota, Date.now() - prubeh.zacatekOtazkyMs)}
+          onOdpoved={(hodnota) => onOdpoved(hodnota, casOtazkyMs(prubeh, Date.now()))}
         />
       </div>
     </section>

@@ -1,8 +1,11 @@
 // Doplňovací otázka — input + Enter. Porovnává se normalizovaně
 // (jeOdpovedSpravna ve sdíleném jádru), tady jen sbíráme text.
+// Autofokus jen s myší/klávesnicí: na dotyku by vyjela klávesnice a stránka
+// poskočila (v testu po „Další“, v lekci i u hotových mini-kvízů).
 import { useEffect, useRef, useState } from 'react';
 import type { OtazkaDoplneni } from '@questor/sdilene';
 import type { OdpovedHodnota } from '../engine';
+import { jeDotykoveZarizeni } from '../../vyuka/widgety/dotyk';
 
 interface Props {
   otazka: OtazkaDoplneni;
@@ -10,6 +13,12 @@ interface Props {
   zobrazVyhodnoceni: boolean;
   /** Byla odpověď správně? (jen pro obarvení pole ve fázi feedbacku) */
   spravne: boolean | null;
+  /**
+   * Fokusovat pole po zobrazení (výchozí true — test a duel na desktopu).
+   * Na dotykovém zařízení se nefokusuje nikdy; v lekci (mini-kvíz) má volající
+   * předat false, jinak by si pole vzalo fokus i u hotových bloků.
+   */
+  autoFocus?: boolean;
   onOdpoved(hodnota: OdpovedHodnota): void;
 }
 
@@ -18,6 +27,7 @@ export default function DoplneniOtazka({
   odeslana,
   zobrazVyhodnoceni,
   spravne,
+  autoFocus = true,
   onOdpoved,
 }: Props) {
   const zamceno = odeslana !== null;
@@ -25,8 +35,11 @@ export default function DoplneniOtazka({
   const vstup = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (!zamceno) vstup.current?.focus();
-  }, [zamceno, otazka.id]);
+    if (zamceno || !autoFocus || jeDotykoveZarizeni()) return;
+    // preventScroll: posun stránky řídí test/duel (návrat na začátek otázky),
+    // fokus ho nesmí přebít skokem k poli.
+    vstup.current?.focus({ preventScroll: true });
+  }, [zamceno, otazka.id, autoFocus]);
 
   const odesli = () => {
     if (text.trim() === '') return;

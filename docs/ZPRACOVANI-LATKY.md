@@ -68,8 +68,11 @@ příkaz `fronta` znovu.
 ## Nový předmět
 
 Založ ho podle `docs/NAVOD.md` kap. 7 (registr `aplikace/src/data/predmety.ts`
-+ bundle kopie), zveřejni obsah jako výš a nasaď web (`docs/NASAZENI.md` —
-`VITE_ZAKLAD=/questor/ npm run build -w aplikace` + rsync bez `.htaccess`).
++ bundle kopie), zveřejni obsah jako výš a nasaď web (PŘESNĚ všechny kroky ze
+sekce „Webová verze (PWA)“ v `docs/NASAZENI.md` v daném pořadí — build
+a seznam assetů, pak kroky 0–3: osvěžit odcházející build, nejdřív assets,
+pak index.html, úklid jen jako krok 3 přes `find`; NIKDY `rsync --delete`
+přes assets a nikdy jen jeden z kroků).
 Desktop dostane předmět s příští vydanou verzí; do té doby ho student má ve
 webové verzi. „Vrátit" nový předmět automaticky neumí — řeší ho správce.
 

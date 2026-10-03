@@ -36,9 +36,11 @@
   animation: truhla-houpani 2.2s ease-in-out infinite;
 }
 
-.truhla--faze-zavrena .truhla__telo:hover {
-  transform: scale(1.06);
-  animation-play-state: paused;
+@media (hover: hover) {
+  .truhla--faze-zavrena .truhla__telo:hover {
+    transform: scale(1.06);
+    animation-play-state: paused;
+  }
 }
 
 .truhla--faze-treses .truhla__telo {
@@ -194,10 +196,16 @@
   transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
-.truhla__odmena-vybava-odkaz:hover,
 .truhla__odmena-vybava-odkaz:focus-visible {
   border-color: var(--akcent);
   transform: translateY(-1px);
+}
+
+@media (hover: hover) {
+  .truhla__odmena-vybava-odkaz:hover {
+    border-color: var(--akcent);
+    transform: translateY(-1px);
+  }
 }
 
 /* Konfety — čisté CSS částice, žádná knihovna */
@@ -211,13 +219,17 @@
   pointer-events: none;
 }
 
+/* fill-mode backwards (ne both): po doletu se konfeta vrátí do výchozího
+   stavu (opacity 0, bez posunu). S both by si natrvalo držela koncový
+   transform až ±184 px od středu a neviditelně rozšiřovala scrollovatelnou
+   plochu — modal truhly na úzkém telefonu pak šel posouvat do strany. */
 .truhla__konfeta {
   position: absolute;
   left: 0;
   top: 0;
   border-radius: 2px;
   opacity: 0;
-  animation: truhla-konfeta 1.15s ease-out var(--zpozdeni) both;
+  animation: truhla-konfeta 1.15s ease-out var(--zpozdeni) backwards;
 }
 
 @keyframes truhla-konfeta {
@@ -262,8 +274,13 @@
 /* --- Mobil: odměna se nesmí roztáhnout přes okraj úzké obrazovky
    a odkaz na editor má dotykovou plochu. --- */
 @media (max-width: 760px) {
+  /* width: max-content — absolutní prvek s left: 50% ve 160px scéně má na
+     shrink-to-fit jen 80 px; se zalamováním by se karta stáhla do úzkého
+     sloupce (slovo pod slovo, „+40 XP“ na dva řádky) a vysoká karta by
+     překryla tlačítko pod truhlou. max-width zůstává jako strop. */
   .truhla__odmena {
     white-space: normal;
+    width: max-content;
     max-width: min(92vw, 340px);
   }
 

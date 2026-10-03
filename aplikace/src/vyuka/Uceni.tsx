@@ -1,7 +1,11 @@
 // Prehled uceni (/uceni) — predmety a jejich lekce jako karty s kruhovym
 // ukazatelem postupu + doporuceni „pokracuj tady" (prvni nedokoncena lekce).
 // ZADNE zamykani — student si muze otevrit kteroukoli lekci (svoboda volby).
-import { useMemo } from 'react';
+// Nic se tu nesmi posunout pod prstem: doporuceni je po dobu navstevy
+// pripnute (pozdni pull postupu ho nevymeni; prepnuti banky / profilu
+// pripnuti rusi) a tlacitku „Poslat latku“ drzi misto mobilni layout
+// hlavicky (vyuka.css).
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { Lekce, VyukaPredmetu } from '@questor/sdilene';
 import { XP_ZA_LEKCI } from '@questor/sdilene';
@@ -10,6 +14,12 @@ import type { PostupLekce } from '../stav/vyukaSlice';
 import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import { usePovoleniLatky } from '../latka/latka';
+import {
+  kontextDoporuceni,
+  pripnuteVKontextu,
+  vyberDoporuceni,
+  type PripnutiDoporuceni,
+} from './lekceLogika';
 import './vyuka.css';
 
 // ---------------------------------------------------------------------------
@@ -111,8 +121,16 @@ export default function Uceni() {
   const dokoncenych = vsechnyLekce.filter((l) => l.hotovo).length;
   // Doporuceni: prvni rozdelana lekce; kdyz zadna neni, prvni nezacata.
   // Aktivni banka je v seznamu prvni, takze doporuceni miri nejdriv do ni.
-  const doporucena =
-    vsechnyLekce.find((l) => l.zacata && !l.hotovo) ?? vsechnyLekce.find((l) => !l.hotovo) ?? null;
+  // Jednou ukazane doporuceni plati po celou navstevu stranky (sync postupu
+  // z jineho zarizeni by jinak kartu vymenil studentovi pod prstem);
+  // prepnuti banky / profilu pripnuti rusi.
+  const kontextPripnuti = kontextDoporuceni(profil?.id, aktivniPredmetProfilu(profil));
+  const [pripnuti, setPripnuti] = useState<PripnutiDoporuceni>({ kontext: kontextPripnuti, temaId: null });
+  const doporucena = vyberDoporuceni(vsechnyLekce, pripnuteVKontextu(pripnuti, kontextPripnuti));
+  const temaDoporuceni = doporucena?.lekce.temaId ?? null;
+  if (pripnuti.kontext !== kontextPripnuti || pripnuti.temaId !== temaDoporuceni) {
+    setPripnuti({ kontext: kontextPripnuti, temaId: temaDoporuceni });
+  }
 
   if (vsechnyLekce.length === 0) {
     return (

@@ -55,10 +55,12 @@
   transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.srovnavac__vlastnost:hover {
-  transform: translateY(-1px);
-  border-color: var(--akcent);
-  box-shadow: var(--zare-akcent);
+@media (hover: hover) {
+  .srovnavac__vlastnost:hover {
+    transform: translateY(-1px);
+    border-color: var(--akcent);
+    box-shadow: var(--zare-akcent);
+  }
 }
 
 .srovnavac__vlastnost--odkryta {
@@ -114,6 +116,11 @@
   text-align: center;
   font-family: var(--pismo-display);
   overflow-wrap: anywhere;
+}
+
+/* Název položky v buňce hodnoty — jen kartový layout (≤ 560 px dole). */
+.srovnavac__hodnota-nazev {
+  display: none;
 }
 
 .srovnavac__hodnota--odkryta {
@@ -176,5 +183,67 @@
   .srovnavac__hodnota {
     padding: 8px 6px;
     font-size: 0.8rem;
+  }
+}
+
+/* --- Úzký mobil (≤ 560 px): 3–4 sloupce by měly 36–51 px a hodnoty by se
+   lámaly po písmenech. Místo mřížky karty pod sebou: nahoře názvy položek
+   jako čipy, pod nimi vlastnosti přes celou šířku; odkrytá vlastnost
+   ukáže pod sebou hodnoty ve tvaru „Položka: hodnota“ (neodkryté hodnoty
+   se neukazují, takže widget nezačíná stěnou otazníků). Inline
+   grid-template-columns z komponenty se při display: flex neuplatní. --- */
+@media (max-width: 560px) {
+  .srovnavac__mrizka {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .srovnavac__roh {
+    display: none;
+  }
+
+  .srovnavac__hlava {
+    flex: 1 1 auto;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .srovnavac__radek {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 0 0 100%;
+    min-width: 0;
+    margin-top: 4px;
+  }
+
+  .srovnavac__vlastnost {
+    width: 100%;
+  }
+
+  .srovnavac__hodnota {
+    display: none;
+  }
+
+  .srovnavac__hodnota--odkryta {
+    display: grid;
+    grid-template-columns: minmax(72px, 38%) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 8px;
+    padding: 8px 10px;
+    text-align: left;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .srovnavac__hodnota-nazev {
+    display: block;
+    font-family: var(--pismo-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--akcent-svetly);
   }
 }

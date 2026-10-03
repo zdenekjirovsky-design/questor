@@ -80,8 +80,10 @@
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.nastaveni-avataru__karta:hover:not(:disabled) {
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .nastaveni-avataru__karta:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
 }
 
 .nastaveni-avataru__karta:focus-visible {
@@ -154,8 +156,10 @@
   padding: 0;
 }
 
-.nastaveni-avataru__barva:hover {
-  transform: scale(1.12);
+@media (hover: hover) {
+  .nastaveni-avataru__barva:hover {
+    transform: scale(1.12);
+  }
 }
 
 .nastaveni-avataru__barva:focus-visible {
@@ -179,6 +183,13 @@
   .nastaveni-avataru__nahled {
     position: static;
     width: 100%;
+  }
+
+  /* Volby pod náhledem přes celou šířku — desktopové min-width 300px by na
+     320px displeji (obsah panelu ~266 px) přeteklo panel i obrazovku. */
+  .nastaveni-avataru__volby {
+    min-width: 0;
+    flex-basis: 100%;
   }
 
   .nastaveni-avataru__barvy {

@@ -2,6 +2,9 @@
 // Jedna otázka na obrazovku, celá karta možnosti je tlačítko, okamžitá zpětná
 // vazba (mimo režim zkouška), tenký progress + combo nahoře, plovoucí „+XP“.
 // Klávesy: 1–4 / A–D vybírají, Enter potvrzuje / posouvá dál.
+// Mobil: po odpovědi se zpětná vazba s „Další“ doroluje do zorného pole (nad
+// fixní lištu), nová otázka začíná vždy v zorném poli a ťuknutí těsně po
+// zobrazení otázky se ignorují (dvojí ťuknutí neodpoví naslepo na další).
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { comboNasobic } from '@questor/sdilene';
@@ -19,6 +22,8 @@ import {
 } from '../testy/engine';
 import { NAZVY_REZIMU, POPISY_REZIMU } from '../testy/popisky';
 import { jeVstupniPole } from '../testy/komponenty/klavesy';
+import { pouzijOchranuKliku } from '../testy/pouzijOchranuKliku';
+import { posunDoZorneho, pouzijNavratNaZacatek } from '../testy/posun';
 import VyberOtazka from '../testy/komponenty/VyberOtazka';
 import MultiOtazka from '../testy/komponenty/MultiOtazka';
 import AnoNeOtazka from '../testy/komponenty/AnoNeOtazka';
@@ -177,6 +182,24 @@ function PrubehTestu({ stav }: { stav: TestStav }) {
     setPosledniHodnota(null);
   }, [stav.index]);
 
+  // Nová otázka (i po „Další“ ve Zkoušce/po feedbacku) začíná v zorném poli:
+  // když je hlavička testu nad okrajem, vrátí se na ni (před vykreslením).
+  const hlavickaRef = useRef<HTMLDivElement | null>(null);
+  pouzijNavratNaZacatek(hlavickaRef, stav.index);
+  // Ťuknutí v prvních ~350 ms po zobrazení otázky se zahodí (dvojí ťuknutí
+  // na „Další“ nebo na odpověď ve Zkoušce by jinak odpovědělo naslepo).
+  const ochranaKliku = pouzijOchranuKliku(stav.index);
+
+  // Po odpovědi plynule dorolovat zpětnou vazbu i s tlačítkem „Další“ do
+  // zorného pole — jen když není celá vidět (scroll-margin v testy.css
+  // počítá s fixní spodní lištou na mobilu).
+  const feedbackRef = useRef<HTMLDivElement | null>(null);
+  const veFazeFeedbacku = faze === 'feedback' && !jeZkouska;
+  useEffect(() => {
+    if (!veFazeFeedbacku) return;
+    posunDoZorneho(feedbackRef.current);
+  }, [veFazeFeedbacku, stav.index]);
+
   // --- dokončení testu (poslední „Vyhodnotit“ nebo konec zkoušky) ---
   const dokonceno = stav.dokonceno;
   useEffect(() => {
@@ -233,7 +256,7 @@ function PrubehTestu({ stav }: { stav: TestStav }) {
 
   return (
     <section aria-label={`Test — otázka ${stav.index + 1} z ${planovano}`}>
-      <div className="test-hlavicka">
+      <div className="test-hlavicka" ref={hlavickaRef}>
         <span className="test-pocitadlo">
           {Math.min(stav.odpovedi.length + (veFeedbacku ? 0 : 1), planovano)}/{planovano}
         </span>
@@ -251,7 +274,7 @@ function PrubehTestu({ stav }: { stav: TestStav }) {
         )}
       </div>
 
-      <div className="panel test-otazka" key={stav.index}>
+      <div className="panel test-otazka" key={stav.index} onClickCapture={ochranaKliku}>
         {veFeedbacku && stav.posledniXp > 0 && (
           <span className="xp-let" key={`xp-${stav.index}`}>
             +{stav.posledniXp} XP
@@ -276,7 +299,10 @@ function PrubehTestu({ stav }: { stav: TestStav }) {
       </div>
 
       {veFeedbacku && !jeZkouska && posledniZaznam && (
-        <div className={`panel feedback ${posledniZaznam.spravne ? 'feedback--spravne' : 'feedback--spatne'}`}>
+        <div
+          ref={feedbackRef}
+          className={`panel feedback ${posledniZaznam.spravne ? 'feedback--spravne' : 'feedback--spatne'}`}
+        >
           <div className="feedback__titulek">
             {posledniZaznam.spravne
               ? stav.combo >= 3
@@ -292,7 +318,12 @@ function PrubehTestu({ stav }: { stav: TestStav }) {
               className={`tlacitko ${posledniOtazka ? 'tlacitko--zlate' : 'tlacitko--primarni'}`}
               onClick={dalsiOtazkaAkce}
             >
-              {posledniOtazka ? 'Vyhodnotit test (Enter)' : 'Další (Enter)'}
+              {/* Jeden flex prvek (gap .tlacitko by jinak rozšířil mezeru);
+                  „(Enter)“ se na dotyku skrývá — klávesnice tam není. */}
+              <span>
+                {posledniOtazka ? 'Vyhodnotit test' : 'Další'}
+                <span className="napoveda-klavesy"> (Enter)</span>
+              </span>
             </button>
           </div>
         </div>

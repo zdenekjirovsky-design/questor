@@ -2,6 +2,10 @@
 // intro VS (handicap ferovosti + pravidla) → hrani (limit NA OTAZKU
 // s viditelnym odpoctem, bez zpetne vazby, power-upy, prubezne jen MOJE
 // skore) → „Cekame na soupere" → dramaticke odhaleni vysledku.
+// Mobil: nova otazka zacina vzdy v zornem poli (navrat na hlavicku duelu)
+// a ťuknuti tesne po zobrazeni otazky se ignoruji (testy/ochranaKliku.ts,
+// cela sekce vc. power-upu) — dvoji ťuknuti nesmi naslepo odpovedet na
+// dalsi otazku ani spotrebovat power-up.
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type { Duel, Otazka, PowerupTyp } from '@questor/sdilene';
@@ -14,6 +18,8 @@ import AnoNeOtazka from '../testy/komponenty/AnoNeOtazka';
 import DoplneniOtazka from '../testy/komponenty/DoplneniOtazka';
 import PrirazovaniOtazka from '../testy/komponenty/PrirazovaniOtazka';
 import type { OdpovedHodnota } from '../testy/engine';
+import { pouzijOchranuKliku } from '../testy/pouzijOchranuKliku';
+import { pouzijNavratNaZacatek } from '../testy/posun';
 import { ikonaPredmetu, nazevPredmetu } from '../data/predmety';
 import { expirujDuel, MAX_BONUS_BODY } from '@questor/sdilene';
 import {
@@ -26,9 +32,9 @@ import {
 } from './engine';
 import {
   duelovyKlient,
-  formatujCasOtazky,
   IKONY_POWERUPU,
   popisHandicapu,
+  sekundyOtazky,
   souperVDuelu,
   zbyvaDoVyprseni,
 } from './pomocne';
@@ -159,6 +165,43 @@ function HraniMePulky({ duel, profilId }: { duel: Duel; profilId: string }) {
     setNejdeHrat(!zacniDuelAkce(duel.id));
   }, [patriDuelu, banka, sadaChybi, duel.id, zacniDuelAkce]);
 
+  // Lokalni banka je starsi nez duel: jednou zkusit plny sync (stahne vyssi
+  // verzi banky) — efekt vyse pak zalozeni prubehu zopakuje sam. Driv to
+  // mimochodem obstaral plny sync pri kazdem otevreni stranky Duely, ta ale
+  // ted obnovuje jen seznam duelu (duely/obnoveni.ts).
+  const bankaObnovovana = useRef(false);
+  useEffect(() => {
+    if (!nejdeHrat || bankaObnovovana.current) return;
+    bankaObnovovana.current = true;
+    void import('../sync/sync')
+      .then((m) => m.synchronizuj('rucne'))
+      .catch(() => {});
+  }, [nejdeHrat]);
+
+  // Lokalni banka predmetu duelu CHYBI uplne (chunk bundlu i startovni sync
+  // selhaly na slabe siti, predmet jen na serveru): az dobehne nacteni
+  // obsahu a banka porad neni, jednou zkusit plny sync — jinak by
+  // „Nacitam otazky…" viselo bez spoustece. Sdili ref s vetvi vyse, takze
+  // sync probehne nejvys jednou na mount.
+  useEffect(() => {
+    if (banka || sadaChybi || bankaObnovovana.current) return;
+    let zruseno = false;
+    // Selhani nacteni obsahu (i chunku nacteniObsahu) sync nesmi zablokovat —
+    // chyba se spolkne PRED kontrolou banky.
+    void import('../data/nacteniObsahu')
+      .then((m) => m.nactiObsahPriStartu())
+      .catch(() => {})
+      .then(() => {
+        if (zruseno || bankaObnovovana.current || pouzijStav.getState().banky[duel.predmetId]) return;
+        bankaObnovovana.current = true;
+        return import('../sync/sync').then((m) => m.synchronizuj('rucne'));
+      })
+      .catch(() => {});
+    return () => {
+      zruseno = true;
+    };
+  }, [banka, sadaChybi, duel.predmetId]);
+
   if (sadaChybi) {
     return (
       <section className="duel-hrani">
@@ -281,16 +324,28 @@ function OtazkaDuelu({ duel, prubeh }: { duel: Duel; prubeh: DuelPrubeh }) {
   const odpovezAkce = pouzijStav((s) => s.odpovezVDueluAkce);
   const otazky = useMemo(() => otazkyDuelu(duel, banka), [duel, banka]);
   const otazka = otazky?.[prubeh.index] ?? null;
+  const hlavickaRef = useRef<HTMLDivElement | null>(null);
+  pouzijNavratNaZacatek(hlavickaRef, prubeh.index);
+  const ochranaKliku = pouzijOchranuKliku(prubeh.index);
 
   if (!otazka) return null;
 
+  // Cas pro bonus je syrovy od zobrazeni otazky (casOtazkyMs) — ochranna
+  // prodleva ho neposouva, server i starsi klienti pocitaji stejne.
   const odpovez = (hodnota: OdpovedHodnota) => {
-    odpovezAkce(hodnota, Date.now() - prubeh.zacatekOtazkyMs);
+    odpovezAkce(hodnota, casOtazkyMs(prubeh, Date.now()));
   };
 
+  // Ochrana kliku na CELE sekci: navrat na zacatek otazky muze pod prst
+  // druheho ťuknuti posunout listu power-upu (power-up v prvnich ms nove
+  // otazky nema legitimni pouziti; klik z klavesnice projde).
   return (
-    <section className="duel-hrani" aria-label={`Duel — otázka ${prubeh.index + 1} z ${prubeh.pocetOtazek}`}>
-      <div className="duel-hlavicka">
+    <section
+      className="duel-hrani"
+      aria-label={`Duel — otázka ${prubeh.index + 1} z ${prubeh.pocetOtazek}`}
+      onClickCapture={ochranaKliku}
+    >
+      <div className="duel-hlavicka" ref={hlavickaRef}>
         <span className="test-pocitadlo">
           {prubeh.index + 1}/{prubeh.pocetOtazek}
         </span>
@@ -351,8 +406,14 @@ export function MeridloRychlosti({ prubeh, otazka }: { prubeh: DuelPrubeh; otazk
       >
         <div style={{ width: `${(bonus / MAX_BONUS_BODY) * 100}%` }} />
       </div>
+      {/* Cisla v rezervovane sirce (Duely.css) — pruh bonusu necuka. */}
       <span className="duel-odpocet__cas">
-        ⏱️ {formatujCasOtazky(casOtazkyMs(prubeh, ted))} · ⚡ +{bonus} b
+        ⏱️{' '}
+        <span className="duel-odpocet__cislo duel-odpocet__cislo--cas">
+          {sekundyOtazky(casOtazkyMs(prubeh, ted))}
+        </span>{' '}
+        s · ⚡{' '}
+        <span className="duel-odpocet__cislo duel-odpocet__cislo--bonus">+{bonus}</span> b
       </span>
     </div>
   );

@@ -4,7 +4,13 @@
 // (HTML5 DnD na dotyku nefunguje) a widget jede čistě v režimu klik-klik.
 // Špatně = zatřesení a návrat, správně = pop; vše roztříděno =
 // konfety + onSplneno.
+// Mobil (≤ 760 px): koše jsou pod zásobníkem a s 3–5 koši daleko pod
+// vybraným štítkem. Po výběru štítku proto vyjede přilepený panel dole (nad
+// navigací) s tlačítky košů — štítek i cíl jsou vidět zároveň, nic se
+// neposouvá. Panel jde přes portál do body (předek bloku lekce má transform
+// z animace naskočení, position: fixed by se jinak vázal k němu).
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import type { TridickaParametry } from '@questor/sdilene';
 import { hashRetezce, vytvorNahodu } from '@questor/sdilene';
 import { jeDotykoveZarizeni } from './dotyk';
@@ -21,6 +27,16 @@ import './Tridicka.css';
 interface Props {
   parametry: TridickaParametry;
   onSplneno: () => void;
+}
+
+/** Je vidět mobilní panel košů? (stejná hranice jako v Tridicka.css) */
+function jePanelKosu(): boolean {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return false;
+  try {
+    return window.matchMedia('(max-width: 760px)').matches;
+  } catch {
+    return false;
+  }
 }
 
 export default function Tridicka({ parametry, onSplneno }: Props) {
@@ -58,7 +74,9 @@ export default function Tridicka({ parametry, onSplneno }: Props) {
     if (hotovo) return;
     const { stav: novy, spravne } = zaradPolozku(stav, indexPolozky, kategorieId, parametry.polozky);
     setStav(novy);
-    setVybrana(null);
+    // Mobilní panel košů: po chybě štítek zůstává vybraný (panel nezmizí
+    // a jde hned zkusit jiný koš); jinak výběr vždy končí.
+    if (spravne || !jePanelKosu()) setVybrana(null);
     if (!spravne) {
       setTrese(kategorieId);
       setSpatnaPolozka(indexPolozky);
@@ -187,6 +205,45 @@ export default function Tridicka({ parametry, onSplneno }: Props) {
           </div>
         ))}
       </div>
+
+      {/* Mobilní panel košů (CSS ho ukazuje jen ≤ 760 px). */}
+      {vybrana !== null &&
+        !hotovo &&
+        typeof document !== 'undefined' &&
+        createPortal(
+          <div className="tridicka__panel" role="group" aria-label="Kam zařadit vybranou položku">
+            <div className="tridicka__panel-hlava">
+              <span className="tridicka__panel-otazka">
+                Kam patří{' '}
+                <strong className={spatnaPolozka === vybrana ? 'tridicka__panel-polozka--spatne' : ''}>
+                  {parametry.polozky[vybrana].text}
+                </strong>
+                ?
+              </span>
+              <button
+                type="button"
+                className="tridicka__panel-zrusit"
+                onClick={() => setVybrana(null)}
+                aria-label="Zrušit výběr položky"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="tridicka__panel-kose">
+              {parametry.kategorie.map((kat) => (
+                <button
+                  key={kat.id}
+                  type="button"
+                  className={`tridicka__panel-kos${trese === kat.id ? ' tridicka__panel-kos--trese' : ''}`}
+                  onClick={() => klikniKategorii(kat.id)}
+                >
+                  {kat.nazev}
+                </button>
+              ))}
+            </div>
+          </div>,
+          document.body,
+        )}
 
       <div className="tridicka__paticka" aria-live="polite">
         {hotovo ? (

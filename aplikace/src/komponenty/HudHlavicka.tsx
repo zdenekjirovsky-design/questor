@@ -5,7 +5,14 @@
 //
 // Menu profilů: přepnutí na profil bez PINu je na jeden klik; profil s PINem
 // se přepíná přes odhlášení (PIN se zadává na obrazovce výběru profilu).
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+//
+// Mobil (≤ 760 px, viz HudHlavicka.css a DESIGN.md › Mobil): obě menu jsou
+// position: fixed pod hlavičkou (horní hrana se měří z tlačítka při otevření),
+// scrollem stránky se NEzavírá (gesta blokuje překryv, scroll window tam bývá
+// jen systémový/programový — zavřel by menu hned po otevření; na desktopu
+// a tabletu se scrollem zavírá) a stav „Načítám postup…" je jen odznak
+// ☁️ na avataru — nic asynchronního nesmí měnit šířku řádku HUD.
+import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties } from 'react';
 import { denZData, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { pripojSeKeStavuSyncu, stavSynchronizace } from '../sync/sync';
@@ -18,19 +25,74 @@ import { ikonaPredmetu, nazevPredmetu } from '../data/predmety';
 import Avatar from '../hra/Avatar';
 import './HudHlavicka.css';
 
-function MenuProfilu({ zavri }: { zavri: () => void }) {
+// ---------------------------------------------------------------------------
+// Spolecne chovani rozbalovacich menu (ciste funkce — testy v hudHlavicka.test)
+
+/** Minimalni cil udalosti (window); v testech staci podvrh. */
+export interface CilUdalostiMenu {
+  addEventListener(typ: string, posluchac: (e: Event) => void, volby?: AddEventListenerOptions): void;
+  removeEventListener(typ: string, posluchac: (e: Event) => void): void;
+}
+
+/**
+ * Zavirani otevreneho menu: Escape a (pri `zavirejPriScrollu`) JAKYKOLI
+ * scroll stranky (kolecko, klavesy, dotyk na tabletu). Na desktopu/tabletu je
+ * menu absolutni v hlavicce, ktera neni sticky — bez zavreni by odjelo se
+ * strankou z obrazovky a pruhledny fixni prekryv by spolkl dalsi tuknuti.
+ * Scroll uvnitr seznamu bank na window nebubla, takze listovani menu nezavre.
+ * Na mobilu (≤ 760 px) se scrollem NEzavira: menu je fixni a gesta pres
+ * stranku blokuje prekryv (touch-action: none), takze scroll window tam je
+ * skoro jen systemovy/programovy (vraceni stranky po zavreni klavesnice
+ * v iOS, plynuly posun) a zavrel by menu hned po otevreni. Vraci uklid.
+ */
+export function prihlasZavireniMenu(
+  cil: CilUdalostiMenu,
+  zavri: () => void,
+  zavirejPriScrollu = true,
+): () => void {
+  const naKlavesu = (e: Event) => {
+    if ((e as KeyboardEvent).key === 'Escape') zavri();
+  };
+  const naScroll = () => zavri();
+  cil.addEventListener('keydown', naKlavesu);
+  if (zavirejPriScrollu) cil.addEventListener('scroll', naScroll, { passive: true });
+  return () => {
+    cil.removeEventListener('keydown', naKlavesu);
+    if (zavirejPriScrollu) cil.removeEventListener('scroll', naScroll);
+  };
+}
+
+/** Zavirat menu scrollem stranky? Jen mimo mobilni rozvrzeni (≤ 760 px). */
+function zavirejMenuPriScrollu(): boolean {
+  return !window.matchMedia?.('(max-width: 760px)').matches;
+}
+
+/** Odstup menu pod tlacitkem — shodny s desktopovym top: calc(100% + 8px). */
+export const ODSTUP_MENU_PX = 8;
+
+/**
+ * Horni hrana menu na mobilu (position: fixed) = spodek tlacitka v okamziku
+ * otevreni + odstup. Pevna hodnota nestaci: hlavicka neni sticky a stranka
+ * muze byt trochu odscrollovana. Nesmyslny vstup → null (plati CSS fallback).
+ */
+export function horniHranaMenu(spodekTlacitka: number): number | null {
+  if (!Number.isFinite(spodekTlacitka)) return null;
+  return Math.round(spodekTlacitka + ODSTUP_MENU_PX);
+}
+
+/** Inline styl menu: CSS promenna --hud-menu-top (pouziva ji jen mobilni CSS). */
+function stylMenu(horniHrana: number | null): CSSProperties | undefined {
+  if (horniHrana === null) return undefined;
+  return { '--hud-menu-top': `${horniHrana}px` } as CSSProperties;
+}
+
+function MenuProfilu({ zavri, horniHrana }: { zavri: () => void; horniHrana: number | null }) {
   const profily = pouzijStav((s) => s.profily);
   const aktivniProfilId = pouzijStav((s) => s.aktivniProfilId);
   const prepniProfil = pouzijStav((s) => s.prepniProfil);
   const odhlasProfil = pouzijStav((s) => s.odhlasProfil);
 
-  useEffect(() => {
-    const naKlavesu = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') zavri();
-    };
-    window.addEventListener('keydown', naKlavesu);
-    return () => window.removeEventListener('keydown', naKlavesu);
-  }, [zavri]);
+  useEffect(() => prihlasZavireniMenu(window, zavri, zavirejMenuPriScrollu()), [zavri]);
 
   const prepni = (profil: Profil) => {
     zavri();
@@ -47,7 +109,7 @@ function MenuProfilu({ zavri }: { zavri: () => void }) {
     <>
       {/* Prekryv na zavreni kliknutim mimo menu. */}
       <div className="hud__menu-prekryv" onClick={zavri} aria-hidden="true" />
-      <div className="hud__menu" role="menu" aria-label="Profily">
+      <div className="hud__menu" role="menu" aria-label="Profily" style={stylMenu(horniHrana)}>
         {profily.map((profil) => (
           <button
             key={profil.id}
@@ -91,24 +153,31 @@ function MenuProfilu({ zavri }: { zavri: () => void }) {
 // ---------------------------------------------------------------------------
 // Chip aktivni studijni banky + menu prepinani bank profilu
 
-function MenuBank({ profil, zavri }: { profil: Profil; zavri: () => void }) {
+function MenuBank({
+  profil,
+  zavri,
+  horniHrana,
+}: {
+  profil: Profil;
+  zavri: () => void;
+  horniHrana: number | null;
+}) {
   const prepniAktivniPredmet = pouzijStav((s) => s.prepniAktivniPredmet);
   const banky = pouzijStav((s) => s.banky);
   const aktivni = aktivniPredmetProfilu(profil);
   const predmety = predmetyProfilu(profil);
 
-  useEffect(() => {
-    const naKlavesu = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') zavri();
-    };
-    window.addEventListener('keydown', naKlavesu);
-    return () => window.removeEventListener('keydown', naKlavesu);
-  }, [zavri]);
+  useEffect(() => prihlasZavireniMenu(window, zavri, zavirejMenuPriScrollu()), [zavri]);
 
   return (
     <>
       <div className="hud__menu-prekryv" onClick={zavri} aria-hidden="true" />
-      <div className="hud__menu hud__menu--banky" role="menu" aria-label="Studijní banky">
+      <div
+        className="hud__menu hud__menu--banky"
+        role="menu"
+        aria-label="Studijní banky"
+        style={stylMenu(horniHrana)}
+      >
         {predmety.map((id) => (
           <button
             key={id}
@@ -134,6 +203,7 @@ function MenuBank({ profil, zavri }: { profil: Profil; zavri: () => void }) {
 
 function ChipBanky({ profil }: { profil: Profil }) {
   const [menuOtevrene, setMenuOtevrene] = useState(false);
+  const [horniHrana, setHorniHrana] = useState<number | null>(null);
   const banky = pouzijStav((s) => s.banky);
   const aktivni = aktivniPredmetProfilu(profil);
   if (!aktivni) return null;
@@ -148,7 +218,10 @@ function ChipBanky({ profil }: { profil: Profil }) {
         aria-label={`Aktivní studijní banka ${nazev} — otevřít menu bank`}
         aria-haspopup="menu"
         aria-expanded={menuOtevrene}
-        onClick={() => setMenuOtevrene((o) => !o)}
+        onClick={(e) => {
+          setHorniHrana(horniHranaMenu(e.currentTarget.getBoundingClientRect().bottom));
+          setMenuOtevrene((o) => !o);
+        }}
       >
         {/* key = aktivni banka: po přepnutí obsah chipu „popne" (animace). */}
         <span className="hud__banka-obsah animace-pop" key={aktivni}>
@@ -159,7 +232,9 @@ function ChipBanky({ profil }: { profil: Profil }) {
         </span>
         <span className="hud__banka-sipka" aria-hidden="true">▾</span>
       </button>
-      {menuOtevrene && <MenuBank profil={profil} zavri={() => setMenuOtevrene(false)} />}
+      {menuOtevrene && (
+        <MenuBank profil={profil} zavri={() => setMenuOtevrene(false)} horniHrana={horniHrana} />
+      )}
     </div>
   );
 }
@@ -170,10 +245,12 @@ export default function HudHlavicka() {
   const profily = pouzijStav((s) => s.profily);
   const aktivniProfilId = pouzijStav((s) => s.aktivniProfilId);
   const [menuOtevrene, setMenuOtevrene] = useState(false);
+  const [horniHranaMenuProfilu, setHorniHranaMenuProfilu] = useState<number | null>(null);
   const aktivniProfil = profily.find((p) => p.id === aktivniProfilId) ?? null;
   // Neblokujici stav „Nacitam postup…" behem pullu postupu po aktivaci
   // profilu (LWW sync pres zarizeni) — hra bezi dal, zadny spinner pres appku.
-  const stavSyncu = useSyncExternalStore(pripojSeKeStavuSyncu, stavSynchronizace);
+  // Treti argument (server snapshot) jen kvuli renderu v testech.
+  const stavSyncu = useSyncExternalStore(pripojSeKeStavuSyncu, stavSynchronizace, stavSynchronizace);
 
   const level = stavLevelu(progres.xp);
   const dnes = denZData(new Date());
@@ -214,11 +291,23 @@ export default function HudHlavicka() {
           }
           aria-haspopup="menu"
           aria-expanded={menuOtevrene}
-          onClick={() => setMenuOtevrene((o) => !o)}
+          onClick={(e) => {
+            setHorniHranaMenuProfilu(horniHranaMenu(e.currentTarget.getBoundingClientRect().bottom));
+            setMenuOtevrene((o) => !o);
+          }}
         >
           <Avatar konfigurace={progres.avatar} velikost={40} />
         </button>
-        {menuOtevrene && <MenuProfilu zavri={() => setMenuOtevrene(false)} />}
+        {/* Mobil: stav pullu jako odznak v rohu avatara — nezabírá místo
+            v řádku HUD (text níže je tam jen pro čtečky). Na desktopu skrytý. */}
+        {stavSyncu.nacitamPostup && (
+          <span className="hud__nacitam-odznak" title="Načítám postup…" aria-hidden="true">
+            ☁️
+          </span>
+        )}
+        {menuOtevrene && (
+          <MenuProfilu zavri={() => setMenuOtevrene(false)} horniHrana={horniHranaMenuProfilu} />
+        )}
       </div>
       {aktivniProfil && <ChipBanky profil={aktivniProfil} />}
       {stavSyncu.nacitamPostup && (

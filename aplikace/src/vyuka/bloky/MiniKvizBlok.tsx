@@ -14,17 +14,25 @@ interface Props {
   otazka: Otazka;
   /** Zavola se po zodpovezeni (spravne i spatne) — odemyka dalsi blok lekce. */
   onZodpovezeno: () => void;
+  /**
+   * Smi doplnovaci pole vzit fokus? Jen aktualni (frontier) blok lekce —
+   * jinak by si ho pri otevreni rozdelane lekce bralo kazde pole v hotovych
+   * blocich. Na dotyku DoplneniOtazka nefokusuje nikdy (klavesnice).
+   */
+  autoFocus?: boolean;
 }
 
 function TeloOtazky({
   otazka,
   odeslana,
   spravne,
+  autoFocus,
   onOdpoved,
 }: {
   otazka: Otazka;
   odeslana: OdpovedHodnota | null;
   spravne: boolean | null;
+  autoFocus: boolean;
   onOdpoved: (hodnota: OdpovedHodnota) => void;
 }) {
   switch (otazka.typ) {
@@ -47,6 +55,7 @@ function TeloOtazky({
           odeslana={odeslana}
           zobrazVyhodnoceni
           spravne={spravne}
+          autoFocus={autoFocus}
           onOdpoved={onOdpoved}
         />
       );
@@ -62,7 +71,7 @@ function TeloOtazky({
   }
 }
 
-export default function MiniKvizBlok({ otazka, onZodpovezeno }: Props) {
+export default function MiniKvizBlok({ otazka, onZodpovezeno, autoFocus = true }: Props) {
   const [odeslana, setOdeslana] = useState<OdpovedHodnota | null>(null);
   const [spravne, setSpravne] = useState<boolean | null>(null);
 
@@ -80,7 +89,13 @@ export default function MiniKvizBlok({ otazka, onZodpovezeno }: Props) {
         <span aria-hidden="true">🧠</span> Rychlá kontrola — bez XP, jen pro tebe
       </div>
       <h3 className="mini-kviz__zadani">{otazka.zadani}</h3>
-      <TeloOtazky otazka={otazka} odeslana={odeslana} spravne={spravne} onOdpoved={odpovez} />
+      <TeloOtazky
+        otazka={otazka}
+        odeslana={odeslana}
+        spravne={spravne}
+        autoFocus={autoFocus}
+        onOdpoved={odpovez}
+      />
       {odeslana && (
         <div
           className={`feedback animace-naskoceni ${spravne ? 'feedback--spravne' : 'feedback--spatne'}`}

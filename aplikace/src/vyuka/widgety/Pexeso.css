@@ -55,8 +55,10 @@
   transform: rotateY(180deg);
 }
 
-.pexeso__karta:hover:not(:disabled):not(.pexeso__karta--licem) .pexeso__karta-vnitrek {
-  transform: rotateY(14deg) translateY(-3px);
+@media (hover: hover) {
+  .pexeso__karta:hover:not(:disabled):not(.pexeso__karta--licem) .pexeso__karta-vnitrek {
+    transform: rotateY(14deg) translateY(-3px);
+  }
 }
 
 .pexeso__karta-rub,
@@ -80,8 +82,10 @@
   transition: box-shadow 0.15s ease;
 }
 
-.pexeso__karta:hover:not(:disabled):not(.pexeso__karta--licem) .pexeso__karta-rub {
-  box-shadow: var(--zare-akcent);
+@media (hover: hover) {
+  .pexeso__karta:hover:not(:disabled):not(.pexeso__karta--licem) .pexeso__karta-rub {
+    box-shadow: var(--zare-akcent);
+  }
 }
 
 .pexeso__karta-znak {
@@ -168,8 +172,39 @@
   color: var(--text-tlumeny);
 }
 
-/* --- Mobil: mrizku pocita JS (sloupcePexesa), na uzke obrazovce ale drzi
-   max 3 sloupce, aby karty zustaly citelne a klikatelne (!important
+/* --- Mobil / dotyk: ukazovana neshoda (950 ms) je videt na prvni pohled —
+   cervene lemovane karty; dalsi tuknuti ji hned ukonci (Pexeso.tsx). --- */
+@media (max-width: 760px), (pointer: coarse) {
+  .pexeso__karta--neshoda .pexeso__karta-lic {
+    border-color: var(--chyba);
+    box-shadow: 0 0 12px rgba(248, 113, 113, 0.45);
+  }
+}
+
+/* --- Mobil (≤ 760 px): rub a lic jsou pres grid stacking misto absolute —
+   vyska karty (a cele rady) roste s delkou definice, text uz nepretece
+   pres sousedni radu (i pri 5–6 sloupcich mezi 561 a 760 px);
+   slova se deli slabikami (lang="cs"), ne uprostred po pismenech. --- */
+@media (max-width: 760px) {
+  .pexeso__karta-vnitrek {
+    display: grid;
+  }
+
+  .pexeso__karta-rub,
+  .pexeso__karta-lic {
+    position: relative;
+    inset: auto;
+    grid-area: 1 / 1;
+  }
+
+  .pexeso__karta-lic {
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+/* --- Uzky mobil: mrizku pocita JS (sloupcePexesa), na uzke obrazovce ale
+   drzi max 3 sloupce, aby karty zustaly citelne a klikatelne (!important
    prebiji inline gridTemplateColumns z komponenty). --- */
 @media (max-width: 560px) {
   .pexeso__mrizka {
@@ -183,6 +218,7 @@
   }
 
   .pexeso__karta-lic {
+    padding: 6px;
     font-size: 0.78rem;
   }
 }

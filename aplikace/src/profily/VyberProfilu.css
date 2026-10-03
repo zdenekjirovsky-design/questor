@@ -2,6 +2,9 @@
 
 .vyber-profilu {
   min-height: 100vh;
+  /* Malý viewport (lišta prohlížeče vysunutá) — na mobilu jinak jde brána
+     přescrollovat o výšku lišty; na desktopu je svh = vh. */
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,11 +55,18 @@
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.vyber-profilu__karta:hover,
 .vyber-profilu__karta:focus-visible {
   transform: translateY(-4px) scale(1.03);
   border-color: var(--barva-profilu);
   box-shadow: var(--stin), 0 0 18px color-mix(in srgb, var(--barva-profilu) 40%, transparent);
+}
+
+@media (hover: hover) {
+  .vyber-profilu__karta:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: var(--barva-profilu);
+    box-shadow: var(--stin), 0 0 18px color-mix(in srgb, var(--barva-profilu) 40%, transparent);
+  }
 }
 
 .vyber-profilu__avatar {
@@ -104,10 +114,16 @@
   color: var(--text-tlumeny);
 }
 
-.vyber-profilu__karta--novy:hover .vyber-profilu__plus,
 .vyber-profilu__karta--novy:focus-visible .vyber-profilu__plus {
   border-color: var(--akcent);
   color: var(--akcent-svetly);
+}
+
+@media (hover: hover) {
+  .vyber-profilu__karta--novy:hover .vyber-profilu__plus {
+    border-color: var(--akcent);
+    color: var(--akcent-svetly);
+  }
 }
 
 .vyber-profilu__napoveda {
@@ -192,8 +208,10 @@
   transition: transform 0.12s ease;
 }
 
-.vyber-profilu__barva:hover {
-  transform: scale(1.12);
+@media (hover: hover) {
+  .vyber-profilu__barva:hover {
+    transform: scale(1.12);
+  }
 }
 
 .vyber-profilu__barva--vybrana {
@@ -240,10 +258,16 @@
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.vyber-profilu__predmet:hover,
 .vyber-profilu__predmet:focus-visible {
   transform: translateY(-2px);
   border-color: var(--akcent);
+}
+
+@media (hover: hover) {
+  .vyber-profilu__predmet:hover {
+    transform: translateY(-2px);
+    border-color: var(--akcent);
+  }
 }
 
 .vyber-profilu__predmet--vybrany {
@@ -297,6 +321,13 @@
     width: 96px;
     height: 96px;
   }
+
+  /* Avatar se kreslí ve velikosti 104 px (atributy SVG) — v kruhu 96 px
+     (vnitřek 90 px) by se ořízly vlasy a pokrývka hlavy; CSS ho vepíše. */
+  .vyber-profilu__avatar svg {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 /* --- dotyk: volba barvy profilu s plochou ≥ 44 px --- */
@@ -333,10 +364,16 @@
   border-radius: var(--radius);
 }
 
-.vyber-profilu__rodina:hover,
 .vyber-profilu__rodina:focus-visible {
   opacity: 1;
   text-decoration: underline;
+}
+
+@media (hover: hover) {
+  .vyber-profilu__rodina:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
 }
 
 .vyber-profilu__rodina-stav {

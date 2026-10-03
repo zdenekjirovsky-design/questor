@@ -8,6 +8,8 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 20px;
+  /* Návrat na začátek nové otázky (testy/posun.ts) — kousek pod okraj. */
+  scroll-margin-top: 12px;
 }
 
 .test-hlavicka .ukazatel {
@@ -93,10 +95,14 @@
   transition: transform 0.12s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.moznost:hover:not(:disabled) {
-  transform: translateY(-2px);
-  border-color: var(--akcent);
-  box-shadow: var(--zare-akcent);
+/* Hover jen na zařízení s myší (desktop beze změny). Na dotyku by lepivý
+   :hover po ťuknutí/odznačení nechal možnost vypadat jako vybranou. */
+@media (hover: hover) {
+  .moznost:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: var(--akcent);
+    box-shadow: var(--zare-akcent);
+  }
 }
 
 .moznost:disabled {
@@ -226,8 +232,6 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-tlumeny);
-  /* scroll-margin: po vyberu pojmu na mobilu se sem odscrolluje — pod sticky prvky */
-  scroll-margin-top: calc(12px + env(safe-area-inset-top, 0px));
 }
 
 .parovani__vybrano {
@@ -244,6 +248,12 @@
   letter-spacing: 0;
   text-transform: none;
   animation: naskoceni 0.25s ease-out both;
+}
+
+/* Prázdná připomínka (nic nevybráno) — na desktopu skrytá, místo drží jen
+   mobil (sloupce pod sebou), viz mobilní blok. */
+.parovani__vybrano--prazdne {
+  display: none;
 }
 
 .parovani__akce {
@@ -264,6 +274,8 @@
   margin-top: 20px;
   animation: naskoceni 0.25s ease-out both;
   border-left: 4px solid var(--okraj);
+  /* Po odpovědi se panel doroluje do zorného pole (testy/posun.ts). */
+  scroll-margin-bottom: 16px;
 }
 
 .feedback--spravne {
@@ -488,8 +500,17 @@
   background: transparent;
 }
 
-.tlacitko--nebezpecne:hover {
-  background: rgba(248, 113, 113, 0.1);
+@media (hover: hover) {
+  .tlacitko--nebezpecne:hover {
+    background: rgba(248, 113, 113, 0.1);
+  }
+}
+
+/* Nápověda klávesy u tlačítek („(Enter)“) — na dotyku klávesnice není. */
+@media (pointer: coarse) {
+  .napoveda-klavesy {
+    display: none;
+  }
 }
 
 /* --- Mobil (≤ 760 px): test, výsledek a nastavení na šířku telefonu. --- */
@@ -498,6 +519,14 @@
   .test-hlavicka {
     gap: 10px;
     margin-bottom: 14px;
+    /* Nová otázka: hlavička testu pod výřez / status bar PWA, ne pod něj. */
+    scroll-margin-top: calc(10px + env(safe-area-inset-top, 0px));
+  }
+
+  /* Zpětná vazba s „Další“ se doroluje NAD fixní spodní lištu (App.css:
+     76 px + safe-area), jinak by tlačítko zůstalo schované pod ní. */
+  .feedback {
+    scroll-margin-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
   }
 
   .test-zadani {
@@ -519,6 +548,26 @@
   .parovani {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  /* Cíle posunu párování (PrirazovaniOtazka): nahoře safe-area, dole fixní
+     lišta. V lekci horní okraj přepíše JS pod přilepenou hlavičku lekce. */
+  .parovani__sloupec,
+  .parovani .moznost,
+  .parovani__akce {
+    scroll-margin-top: calc(12px + env(safe-area-inset-top, 0px));
+    scroll-margin-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Připomínka výběru drží místo i bez výběru — seznam protějšků pod ní
+     pak při výběru a spárování neposkakuje pod prstem. */
+  .parovani__vybrano--prazdne {
+    display: block;
+    border-style: dashed;
+    border-color: var(--okraj);
+    background: transparent;
+    color: var(--text-tlumeny);
+    animation: none;
   }
 
   .parovani__akce {

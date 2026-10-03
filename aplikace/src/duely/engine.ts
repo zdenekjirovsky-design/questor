@@ -94,7 +94,15 @@ export function odstartujPrubeh(prubeh: DuelPrubeh, tedMs: number): DuelPrubeh {
 // ---------------------------------------------------------------------------
 // Cas (bez limitu — jen mereni a rychlostni bonus)
 
-/** Jak dlouho uz hrac premysli nad aktualni otazkou (ms). */
+/**
+ * Jak dlouho uz hrac premysli nad aktualni otazkou (ms) — SYROVY cas od
+ * zobrazeni otazky. Ochranna prodleva proti dvojimu ťuknuti
+ * (testy/ochranaKliku.ts) ho zamerne neposouva: stejny cas jde jako `casMs`
+ * na server (ten z nej body prepocitava, verzi klienta nerozlisi), takze
+ * novy i starsi klient (desktop pred aktualizaci, PWA v pameti) musi posilat
+ * stejnou velicinu. Realne ťuknuti po precteni otazky trva ≫ prodleva, ta
+ * tedy nikoho na bonusu nezdrzi.
+ */
 export function casOtazkyMs(prubeh: DuelPrubeh, tedMs: number): number {
   if (!prubeh.zahajeno) return 0;
   return Math.max(0, tedMs - prubeh.zacatekOtazkyMs);
@@ -348,6 +356,39 @@ export function rozdelDuely(
   vysledek.cekaNaPrijeti.sort(podleVyprsi);
   vysledek.historie.sort((a, b) => b.vytvoreno.localeCompare(a.vytvoreno));
   return vysledek;
+}
+
+/** Sekce seznamu v poradi zobrazeni (podpis rozlozeni). */
+const SEKCE_SEZNAMU: (keyof RozdeleneDuely)[] = [
+  'vyzvyProMe',
+  'otevrene',
+  'naTahu',
+  'cekameNaSoupere',
+  'cekaNaPrijeti',
+  'historie',
+];
+
+/**
+ * Podpis rozlozeni seznamu: sekce → id karet v poradi. Stejny podpis =
+ * zmena dat (skore, stav hosta…) karty neposune; jiny = karty by se pod
+ * prstem preskladaly (nova vyzva nahore, presun do historie).
+ */
+export function podpisRozdeleni(r: RozdeleneDuely): string {
+  return SEKCE_SEZNAMU.map((sekce) => `${sekce}:${r[sekce].map((d) => d.id).join(',')}`).join('|');
+}
+
+/** Kolik karet seznam celkem ukazuje (0 = prazdna arena). */
+export function pocetKaret(r: RozdeleneDuely): number {
+  return SEKCE_SEZNAMU.reduce((n, s) => n + r[s].length, 0);
+}
+
+/** Kolik karet je v `novy` navic oproti `stary` (nove vyzvy a duely). */
+export function pocetNovychKaret(stary: RozdeleneDuely, novy: RozdeleneDuely): number {
+  const znama = new Set(SEKCE_SEZNAMU.flatMap((sekce) => stary[sekce].map((d) => d.id)));
+  return SEKCE_SEZNAMU.reduce(
+    (pocet, sekce) => pocet + novy[sekce].filter((d) => !znama.has(d.id)).length,
+    0,
+  );
 }
 
 /** Pocet cekajicich vyzev (indikator na Domu a v navigaci). */

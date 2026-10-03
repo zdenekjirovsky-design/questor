@@ -63,9 +63,11 @@
   transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.casova-osa__bod:hover .casova-osa__tecka {
-  transform: scale(1.2);
-  border-color: var(--akcent-svetly);
+@media (hover: hover) {
+  .casova-osa__bod:hover .casova-osa__tecka {
+    transform: scale(1.2);
+    border-color: var(--akcent-svetly);
+  }
 }
 
 .casova-osa__bod--navstiveny .casova-osa__tecka {
@@ -107,6 +109,11 @@
   margin-bottom: 14px;
 }
 
+/* Rezervy výšky detailu — jen mobil (blok dole), jinde se nevykreslují. */
+.casova-osa__detail--rezerva {
+  display: none;
+}
+
 .casova-osa__detail-rok {
   font-family: var(--pismo-display);
   font-size: 1.6rem;
@@ -144,4 +151,34 @@
   font-weight: 700;
   color: var(--uspech);
   text-shadow: 0 0 12px rgba(52, 211, 153, 0.45);
+}
+
+/* --- Mobil: detail drží výšku nejdelší události (všechny v jedné buňce
+   mřížky, neaktivní neviditelné) a počítadlo má vlastní řádek nad
+   tlačítky — „← Dřív“ / „Později →“ se po kroku nepohnou. --- */
+@media (max-width: 760px) {
+  .casova-osa__detail-ram {
+    display: grid;
+    margin-bottom: 14px;
+  }
+
+  .casova-osa__detail-ram > .casova-osa__detail {
+    grid-area: 1 / 1;
+    margin-bottom: 0;
+  }
+
+  .casova-osa__detail--rezerva {
+    display: block;
+    visibility: hidden;
+    animation: none;
+  }
+
+  .casova-osa__ovladani {
+    flex-wrap: wrap;
+  }
+
+  .casova-osa__pocitadlo {
+    flex: 1 1 100%;
+    order: -1;
+  }
 }

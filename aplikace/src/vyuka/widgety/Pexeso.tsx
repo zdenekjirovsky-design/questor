@@ -1,6 +1,8 @@
 // Pexeso — hledání dvojic pojem ↔ definice. Karty rubem nahoru, 3D otáčení,
 // nalezená dvojice zůstává a zazáří, počítadlo tahů, na konci hvězdy podle
 // počtu tahů + konfety + onSplneno.
+// Neshoda se ukazuje 950 ms, ale ťuknutí v té době se NEZAHAZUJE: neshodný
+// pár se hned otočí zpět a nová karta se otočí (bez „mrtvých“ ťuknutí).
 import { useEffect, useRef, useState } from 'react';
 import type { PexesoParametry } from '@questor/sdilene';
 import { hvezdyZaTahy, jePar, sloupcePexesa, vytvorBalicek, type PexesoKarta } from './logika';
@@ -34,9 +36,20 @@ export default function Pexeso({ parametry, onSplneno }: Props) {
   const hvezdy = hvezdyZaTahy(parametry.dvojice.length, tahy);
 
   const otoc = (index: number) => {
-    if (zamek.current || hotovo) return;
+    if (hotovo) return;
     const karta = balicek[index];
-    if (nalezene.has(karta.parId) || otocene.includes(index)) return;
+    if (nalezene.has(karta.parId)) return;
+
+    if (zamek.current) {
+      // Neshodný pár se ještě ukazuje — ťuknutí ho hned ukončí: na jednu
+      // z jeho karet = jen otočit zpět, na jinou kartu = začít s ní nový tah.
+      if (casovac.current) clearTimeout(casovac.current);
+      casovac.current = null;
+      zamek.current = false;
+      setOtocene(otocene.includes(index) ? [] : [index]);
+      return;
+    }
+    if (otocene.includes(index)) return;
 
     if (otocene.length < 1) {
       setOtocene([index]);
@@ -91,6 +104,8 @@ export default function Pexeso({ parametry, onSplneno }: Props) {
         {balicek.map((karta, index) => {
           const jeOtocena = otocene.includes(index) || nalezene.has(karta.parId);
           const jeNalezena = nalezene.has(karta.parId);
+          // Dvě otočené nenalezené karty = právě ukazovaná neshoda.
+          const jeNeshoda = otocene.length === 2 && otocene.includes(index);
           return (
             <button
               key={index}
@@ -100,6 +115,7 @@ export default function Pexeso({ parametry, onSplneno }: Props) {
                 jeOtocena ? 'pexeso__karta--licem' : '',
                 jeNalezena ? 'pexeso__karta--nalezena' : '',
                 jeNalezena && prave === karta.parId ? 'pexeso__karta--prave' : '',
+                jeNeshoda ? 'pexeso__karta--neshoda' : '',
               ].join(' ')}
               onClick={() => otoc(index)}
               disabled={jeNalezena || hotovo}

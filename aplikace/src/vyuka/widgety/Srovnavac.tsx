@@ -1,6 +1,8 @@
 // Srovnávač — 2–4 položky jako karty vedle sebe. Řádky vlastností jsou na
 // začátku zakryté; klik na vlastnost je odkryje (pop), rozdílné hodnoty se
 // zvýrazní. Odkrytí všech vlastností → onSplneno + oslava.
+// Úzký mobil (≤ 560 px): místo sloupců karty pod sebou — vlastnost přes celou
+// šířku a pod ní odkryté hodnoty jako „Položka: hodnota“ (Srovnavac.css).
 import { useMemo, useRef, useState } from 'react';
 import type { SrovnavacParametry } from '@questor/sdilene';
 import { hodnotyVlastnosti, jsouRozdilne, seznamVlastnosti } from './logika';
@@ -22,15 +24,14 @@ export default function Srovnavac({ parametry, onSplneno }: Props) {
 
   const klikniVlastnost = (klic: string) => {
     setAktivni(klic);
-    setOdkryte((stare) => {
-      if (stare.has(klic)) return stare;
-      const nove = new Set(stare).add(klic);
-      if (nove.size === vlastnosti.length && !splnenoHlaseno.current) {
-        splnenoHlaseno.current = true;
-        onSplneno();
-      }
-      return nove;
-    });
+    if (odkryte.has(klic)) return;
+    // Splnění se hlásí MIMO updater setState (updater běží při renderu).
+    const nove = new Set(odkryte).add(klic);
+    setOdkryte(nove);
+    if (nove.size === vlastnosti.length && !splnenoHlaseno.current) {
+      splnenoHlaseno.current = true;
+      onSplneno();
+    }
   };
 
   const pocet = parametry.polozky.length;
@@ -98,7 +99,9 @@ export default function Srovnavac({ parametry, onSplneno }: Props) {
                   ].join(' ')}
                   style={odkryta ? { animationDelay: `${i * 0.07}s` } : undefined}
                 >
-                  {odkryta ? (hodnota ?? '—') : '?'}
+                  {/* Název položky — vidět jen v kartovém layoutu úzkého mobilu. */}
+                  <span className="srovnavac__hodnota-nazev">{parametry.polozky[i].nazev}</span>
+                  <span className="srovnavac__hodnota-text">{odkryta ? (hodnota ?? '—') : '?'}</span>
                 </div>
               ))}
             </div>

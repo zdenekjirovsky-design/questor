@@ -13,17 +13,30 @@ import { pouzijStav } from '../stav/store';
 import { nactiVsechenObsah } from '../sync/uloziste';
 import { nactiBundlovaneBanky, nactiBundlovaneVyuky } from './predmety';
 
-let probehlo = false;
+let nacitani: Promise<void> | null = null;
 
-/** Nacte bundlovany obsah + IndexedDB a nabidne ho do store. Idempotentni. */
-export async function nactiObsahPriStartu(): Promise<void> {
-  if (probehlo) return;
-  probehlo = true;
+/**
+ * Nacte bundlovany obsah + IndexedDB a nabidne ho do store. Idempotentni:
+ * opakovane volani vraci TYZ promise, takze kdo potrebuje hotovy obsah
+ * (napr. sync pred porovnanim verzi bank), muze na nej pockat.
+ */
+export function nactiObsahPriStartu(): Promise<void> {
+  nacitani ??= nactiObsah();
+  return nacitani;
+}
 
-  // 1) Bundlovane predmety (offline-first zaklad).
-  const [banky, vyuky] = await Promise.all([nactiBundlovaneBanky(), nactiBundlovaneVyuky()]);
-  for (const banka of banky) pouzijStav.getState().prijmiBanku(banka);
-  for (const vyuka of vyuky) pouzijStav.getState().prijmiVyuku(vyuka);
+async function nactiObsah(): Promise<void> {
+  // 1) Bundlovane predmety (offline-first zaklad); chunky se stahuji soubezne.
+  //    Banky jdou do store HNED po svem stazeni, nezavisle na vyukach (ty jsou
+  //    asi 2/3 objemu) — na bance visi denni questy na Domu, na slabe siti
+  //    by jinak cekaly i na vsechny lekce.
+  const pBanky = nactiBundlovaneBanky().then((banky) => {
+    for (const banka of banky) pouzijStav.getState().prijmiBanku(banka);
+  });
+  const pVyuky = nactiBundlovaneVyuky().then((vyuky) => {
+    for (const vyuka of vyuky) pouzijStav.getState().prijmiVyuku(vyuka);
+  });
+  await Promise.all([pBanky, pVyuky]);
 
   // 2) Obsah drive stazeny ze serveru (IndexedDB). Muze pochazet z NOVEJSI
   //    verze aplikace (rollback buildu) — kazdy zaznam se proto revaliduje

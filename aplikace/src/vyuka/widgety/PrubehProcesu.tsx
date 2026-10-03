@@ -1,6 +1,9 @@
 // Průběh procesu — kroky jako pilulky se šipkami, aktivní krok zvýrazněný
 // s popisem, tlačítka Zpět/Další i klik na krok, šipky klávesnice.
 // Projití všech kroků → onSplneno + malá oslava.
+// Mobil: detail drží výšku nejdelšího kroku (neviditelné rezervy ve stejné
+// buňce mřížky, PrubehProcesu.css), takže „Další →“ pod ním neposkakuje
+// a opakované ťuknutí na stejné místo trefí zase tlačítko.
 import { useEffect, useRef, useState } from 'react';
 import type { PrubehProcesuParametry } from '@questor/sdilene';
 import { posunKroku, vsechnyKrokyNavstiveny } from './logika';
@@ -24,15 +27,14 @@ export default function PrubehProcesu({ parametry, onSplneno }: Props) {
   const prejdiNa = (index: number) => {
     if (index < 0 || index >= pocet) return;
     setAktivni(index);
-    setNavstivene((stare) => {
-      if (stare.has(index)) return stare;
-      const nove = new Set(stare).add(index);
-      if (vsechnyKrokyNavstiveny(nove, pocet) && !splnenoHlaseno.current) {
-        splnenoHlaseno.current = true;
-        onSplneno();
-      }
-      return nove;
-    });
+    if (navstivene.has(index)) return;
+    // Splnění se hlásí MIMO updater setState (updater běží při renderu).
+    const nove = new Set(navstivene).add(index);
+    setNavstivene(nove);
+    if (vsechnyKrokyNavstiveny(nove, pocet) && !splnenoHlaseno.current) {
+      splnenoHlaseno.current = true;
+      onSplneno();
+    }
   };
 
   // Šipky vlevo/vpravo — jen když je fokus uvnitř widgetu (na stránce může
@@ -94,18 +96,18 @@ export default function PrubehProcesu({ parametry, onSplneno }: Props) {
         ))}
       </div>
 
-      <div className="prubeh__detail panel" key={aktivni}>
-        <div className="prubeh__detail-hlavicka">
-          {krok.ikona && (
-            <span className="prubeh__detail-ikona" aria-hidden="true">
-              {krok.ikona}
-            </span>
-          )}
-          <h3 className="prubeh__detail-nazev">
-            {aktivni + 1}. {krok.nazev}
-          </h3>
+      <div className="prubeh__detail-ram">
+        {/* Rezervy ostatních kroků (jen mobil, CSS) — výška = nejdelší krok. */}
+        {parametry.kroky.map((k, i) =>
+          i === aktivni ? null : (
+            <div key={`rezerva-${i}`} className="prubeh__detail panel prubeh__detail--rezerva" aria-hidden="true">
+              <ObsahKroku krok={k} index={i} />
+            </div>
+          ),
+        )}
+        <div className="prubeh__detail panel" key={aktivni}>
+          <ObsahKroku krok={krok} index={aktivni} />
         </div>
-        <p className="prubeh__detail-popis">{krok.popis}</p>
       </div>
 
       <div className="prubeh__ovladani">
@@ -136,5 +138,23 @@ export default function PrubehProcesu({ parametry, onSplneno }: Props) {
         </button>
       </div>
     </div>
+  );
+}
+
+function ObsahKroku({ krok, index }: { krok: PrubehProcesuParametry['kroky'][number]; index: number }) {
+  return (
+    <>
+      <div className="prubeh__detail-hlavicka">
+        {krok.ikona && (
+          <span className="prubeh__detail-ikona" aria-hidden="true">
+            {krok.ikona}
+          </span>
+        )}
+        <h3 className="prubeh__detail-nazev">
+          {index + 1}. {krok.nazev}
+        </h3>
+      </div>
+      <p className="prubeh__detail-popis">{krok.popis}</p>
+    </>
   );
 }

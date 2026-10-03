@@ -36,10 +36,12 @@
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.tridicka__polozka:hover {
-  transform: translateY(-2px);
-  border-color: var(--akcent);
-  box-shadow: var(--zare-akcent);
+@media (hover: hover) {
+  .tridicka__polozka:hover {
+    transform: translateY(-2px);
+    border-color: var(--akcent);
+    box-shadow: var(--zare-akcent);
+  }
 }
 
 .tridicka__polozka:active {
@@ -67,10 +69,12 @@
   font-weight: 500;
 }
 
-.tridicka__polozka--zarazena:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--uspech);
+@media (hover: hover) {
+  .tridicka__polozka--zarazena:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--uspech);
+  }
 }
 
 .tridicka__kategorie {
@@ -128,8 +132,10 @@
   transition: background 0.15s ease;
 }
 
-.tridicka__kos-hlavicka:hover:not(:disabled) {
-  background: rgba(139, 92, 246, 0.18);
+@media (hover: hover) {
+  .tridicka__kos-hlavicka:hover:not(:disabled) {
+    background: rgba(139, 92, 246, 0.18);
+  }
 }
 
 .tridicka__kos-hlavicka:disabled {
@@ -196,6 +202,11 @@
   color: var(--text-tlumeny);
 }
 
+/* Mobilni panel kosu (portal do body) — jinde se nevykresluje. */
+.tridicka__panel {
+  display: none;
+}
+
 /* --- Mobil / dotyk: vetsi dotykove plochy stitku a kosu. --- */
 @media (max-width: 760px) {
   .tridicka__polozka {
@@ -209,5 +220,90 @@
 
   .tridicka__kategorie {
     grid-template-columns: 1fr;
+  }
+
+  /* Po vyberu stitku: prilepeny panel s tlacitky kosu nad spodni navigaci
+     (61 px + safe-area). Stitek nahore i cil jsou videt zaroven — zadne
+     scrollovani tam a zpet 9–13× za widget a zadne kose, ktere pri
+     ubyvani stitku poskakuji pod prstem. */
+  .tridicka__panel {
+    position: fixed;
+    left: 8px;
+    right: 8px;
+    bottom: calc(66px + env(safe-area-inset-bottom, 0px));
+    z-index: 31; /* nad spodni navigaci (30), pod modaly (40) */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 50vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 10px 12px 12px;
+    border-radius: var(--radius);
+    border: 1px solid var(--akcent);
+    background: var(--pozadi-panel);
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.5), var(--zare-akcent);
+    animation: naskoceni 0.2s ease-out both;
+  }
+
+  .tridicka__panel-hlava {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tridicka__panel-otazka {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.9rem;
+    overflow-wrap: break-word;
+  }
+
+  .tridicka__panel-otazka strong {
+    color: var(--akcent-svetly);
+  }
+
+  .tridicka__panel-otazka .tridicka__panel-polozka--spatne {
+    color: var(--chyba);
+  }
+
+  .tridicka__panel-zrusit {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--okraj);
+    background: var(--pozadi-panel-2);
+    color: var(--text);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .tridicka__panel-kose {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 8px;
+  }
+
+  .tridicka__panel-kos {
+    min-height: 44px;
+    padding: 8px 10px;
+    border-radius: var(--radius-maly);
+    border: 1px solid var(--akcent);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, rgba(109, 63, 240, 0.22) 100%);
+    color: var(--text);
+    font-family: var(--pismo-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    cursor: pointer;
+  }
+
+  .tridicka__panel-kos--trese {
+    animation: zatreseni 0.4s ease-in-out;
+    border-color: var(--chyba);
+    box-shadow: 0 0 14px rgba(248, 113, 113, 0.45);
   }
 }

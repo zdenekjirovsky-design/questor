@@ -168,6 +168,47 @@ export function pozicniProcenta(bod: { x: number; y: number }, vb: ViewBox): { l
   };
 }
 
+/**
+ * Index bodu nejblíž místu ťuknutí (souřadnice okna, `scena` = obdélník scény
+ * z getBoundingClientRect). Na dotyku se 44px plochy hustých hotspotů
+ * překrývají a jinak by vyhrál bod později v DOM (ťuk přesně na Patku trefil
+ * Krček). Null = žádný bod v okruhu `maxVzdalenost` px.
+ */
+export function nejblizsiBod(
+  pozice: readonly { levaPct: number; horniPct: number }[],
+  scena: { left: number; top: number; width: number; height: number },
+  x: number,
+  y: number,
+  maxVzdalenost = 22,
+): number | null {
+  let nejlepsi: number | null = null;
+  let nejmensi = Infinity;
+  for (let i = 0; i < pozice.length; i++) {
+    const bx = scena.left + (pozice[i].levaPct / 100) * scena.width;
+    const by = scena.top + (pozice[i].horniPct / 100) * scena.height;
+    const vzdalenost = Math.hypot(bx - x, by - y);
+    if (vzdalenost < nejmensi) {
+      nejmensi = vzdalenost;
+      nejlepsi = i;
+    }
+  }
+  return nejmensi <= maxVzdalenost ? nejlepsi : null;
+}
+
+// ---------------------------------------------------------------------------
+// Obrázkový blok (SVG schéma v lekci)
+
+/**
+ * Čitelná šířka (px) širokého SVG schématu pro zvětšení na mobilu, nebo null,
+ * když zvětšení nemá smysl (úzké/svislé schéma je čitelné i v šířce bloku).
+ * Generovaná schémata mají písmo ~9,5–14 jednotek viewBoxu: 0,9 px na
+ * jednotku dá text ~8,5–12,5 px (v šířce bloku telefonu jen 4–6 px).
+ */
+export function sirkaZvetseniSvg(vb: ViewBox): number | null {
+  if (vb.sirka < 480 || vb.sirka / vb.vyska < 1.2) return null;
+  return Math.round(vb.sirka * 0.9);
+}
+
 // ---------------------------------------------------------------------------
 // Časová osa
 

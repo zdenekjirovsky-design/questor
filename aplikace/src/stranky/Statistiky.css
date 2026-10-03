@@ -123,8 +123,10 @@
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
-.statistiky__tab:hover {
-  color: var(--text);
+@media (hover: hover) {
+  .statistiky__tab:hover {
+    color: var(--text);
+  }
 }
 
 .statistiky__tab--aktivni {
@@ -217,8 +219,10 @@
   border-bottom: none;
 }
 
-.statistiky__tabulka tbody tr:hover {
-  background: var(--pozadi-panel-2);
+@media (hover: hover) {
+  .statistiky__tabulka tbody tr:hover {
+    background: var(--pozadi-panel-2);
+  }
 }
 
 .statistiky__uspesnost--dobra {
@@ -247,8 +251,15 @@
 }
 
 @media (max-width: 900px) {
+  /* minmax(0, 1fr) + min-width: 0 — jinak min-content tabulky historie
+     (na mobilu nowrap) roztáhne sloupec gridu nad šířku displeje, všechny
+     panely přečnívají vpravo a obal tabulky nikdy nezačne scrollovat. */
   .statistiky__mrizka {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .statistiky__mrizka > * {
+    min-width: 0;
   }
 }
 
@@ -276,6 +287,18 @@
     gap: 6px;
   }
 
+  /* Sloupec grafu se smí zúžit pod šířku popisku týdne (jinak 8 popisků
+     „27. 10.“ v nowrap přetéká panel na nejužších displejích). */
+  .statistiky__sloupec-blok {
+    min-width: 0;
+  }
+
+  /* Tabulka historie scrolluje do strany jen uvnitř obalu; dojetí na konec
+     nespouští gesto zpět ani posun stránky. */
+  .statistiky__tabulka-obal {
+    overscroll-behavior-x: contain;
+  }
+
   .statistiky__tabulka {
     font-size: 0.8rem;
   }
@@ -284,5 +307,16 @@
   .statistiky__tabulka td {
     padding: 6px;
     white-space: nowrap;
+  }
+}
+
+/* --- Nejužší telefony (≤ 360 px): 8 týdnů grafu se musí vejít i s popisky. --- */
+@media (max-width: 360px) {
+  .statistiky__graf {
+    gap: 3px;
+  }
+
+  .statistiky__sloupec-popis {
+    font-size: 0.6rem;
   }
 }

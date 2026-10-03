@@ -4,6 +4,11 @@
 // Faze 2: treti volba soupere „Poslat odkaz komukoli" — duel odkazem pro
 // hosta mimo rodinu (kod hosta prijde JEDNORAZOVE v odpovedi na zalozeni,
 // odkaz se proto ukazuje hned a uz nikdy znovu).
+// Pri otevreni se seznam jen lehce obnovi (obnoveni.ts, max. 1× za 45 s),
+// ceka-li ale neco ve fronte syncu (napr. neodeslany vysledek duelu), pusti
+// se plny sync, ktery frontu odesle. Na mobilu/dotyku se zmena, ktera by
+// karty preskladala pod prstem, ukaze az po klepnuti na listu „Nove
+// v duelech".
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import type { Duel } from '@questor/sdilene';
@@ -12,32 +17,119 @@ import { pouzijStav } from '../stav/store';
 import { najdiAktivniProfil, predmetyProfilu, type Profil } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import { jeTauriProstredi, popisChybuSpojeni } from '../sync/klient';
-import { rozdelDuely } from './engine';
+import { pouzijZamekScrollu } from '../komponenty/zamekScrollu';
+import { jeDotykoveZarizeni } from '../vyuka/widgety/dotyk';
+import { chovaniPosunu } from '../testy/posun';
+import { pocetKaret, pocetNovychKaret, podpisRozdeleni, rozdelDuely } from './engine';
 import { odkazProHosta } from './host';
+import { jeStavZObnovy, obnovPriOtevreniDuelu } from './obnoveni';
 import { duelovyKlient, souperVDuelu, zbyvaDoVyprseni } from './pomocne';
 import './Duely.css';
 
 const POCTY: (5 | 10 | 20)[] = [5, 10, 20];
 
+/**
+ * Obnova, ktera dorazi do tolika ms po otevreni stranky, se ukaze hned —
+ * student jeste nestihl na nic mirit. Pozdejsi se na mobilu odlozi.
+ */
+const OKNO_OKAMZITE_ZMENY_MS = 400;
+
+/** Odkladat preskladani seznamu? Jen telefon/dotyk — desktop beze zmeny. */
+function odkladatPreskladani(): boolean {
+  if (typeof window === 'undefined') return false;
+  if (jeDotykoveZarizeni()) return true;
+  try {
+    return window.matchMedia?.('(max-width: 760px)').matches === true;
+  } catch {
+    return false;
+  }
+}
+
+interface SnimekSeznamu {
+  duely: Duel[];
+  otevrene: Duel[];
+  profilId: string;
+}
+
 export default function Duely() {
   const duely = pouzijStav((s) => s.duely);
   const otevreneDuely = pouzijStav((s) => s.otevreneDuely);
   const profil = pouzijStav((s) => najdiAktivniProfil(s));
+  const profilId = profil?.id ?? '';
   const [dialogOtevreny, setDialogOtevreny] = useState(false);
 
-  // Cerstve vyzvy pri prichodu na stranku (tiche, offline-first).
+  // Cerstve duely pri prichodu na stranku — lehce (jen GET duelu, bez pullu
+  // postupu), nejvys 1× za 45 s; tiche, offline-first. Ceka-li neco ve
+  // fronte (vysledek duelu, jehoz odeslani selhalo), pusti se plny sync,
+  // ktery frontu odesle (obnoveni.ts obnovPriOtevreniDuelu).
+  const otevrenoMs = useRef(Date.now());
   useEffect(() => {
-    void import('../sync/sync')
-      .then((m) => m.synchronizuj('rucne'))
-      .catch(() => {});
+    void obnovPriOtevreniDuelu();
   }, []);
+
+  // Zobrazeny SNIMEK seznamu. Zmena od uzivatele (zalozeni duelu, prepnuti
+  // profilu) i zmena, ktera karty jen aktualizuje, se ukaze hned. Obnova ze
+  // site, ktera by karty preskladala (nova sekce nahore, presun do historie),
+  // se na mobilu/dotyku odlozi — ukaze se az po klepnuti na listu, at se
+  // seznam neposune pod prstem prave ve chvili, kdy student klepe na kartu.
+  const [snimek, setSnimek] = useState<SnimekSeznamu>(() => ({
+    duely,
+    otevrene: otevreneDuely,
+    profilId,
+  }));
+  const [odlozenaZmena, setOdlozenaZmena] = useState(false);
+  useEffect(() => {
+    if (snimek.duely === duely && snimek.otevrene === otevreneDuely && snimek.profilId === profilId) {
+      return;
+    }
+    const novy: SnimekSeznamu = { duely, otevrene: otevreneDuely, profilId };
+    const odlozit =
+      snimek.profilId === profilId &&
+      jeStavZObnovy(duely, otevreneDuely) &&
+      Date.now() - otevrenoMs.current > OKNO_OKAMZITE_ZMENY_MS &&
+      odkladatPreskladani();
+    if (odlozit) {
+      const ted = new Date().toISOString();
+      const stary = rozdelDuely(snimek.duely, snimek.otevrene, profilId, ted);
+      const cerstvy = rozdelDuely(duely, otevreneDuely, profilId, ted);
+      // Prazdny snimek (arena bez karet) se nahradi hned — pod prstem neni
+      // nic, co by se mohlo posunout, a hlaska o prazdne arene by matla.
+      if (pocetKaret(stary) > 0 && podpisRozdeleni(stary) !== podpisRozdeleni(cerstvy)) {
+        setOdlozenaZmena(true);
+        return;
+      }
+    }
+    setSnimek(novy);
+    setOdlozenaZmena(false);
+  }, [duely, otevreneDuely, profilId, snimek]);
 
   // Cas se bere pri kazdem prepoctu (zmena dat = cerstve „ted"): duel po
   // vyprsi spadne do historie s kontumaci i bez uspesneho syncu.
   const rozdelene = useMemo(
-    () => rozdelDuely(duely, otevreneDuely, profil?.id ?? '', new Date().toISOString()),
-    [duely, otevreneDuely, profil?.id],
+    () => rozdelDuely(snimek.duely, snimek.otevrene, snimek.profilId, new Date().toISOString()),
+    [snimek],
   );
+
+  // Kolik novych karet ceka za listou (jen kdyz nejaka zmena ceka).
+  const novychKaret = useMemo(
+    () =>
+      odlozenaZmena
+        ? pocetNovychKaret(
+            rozdelene,
+            rozdelDuely(duely, otevreneDuely, profilId, new Date().toISOString()),
+          )
+        : 0,
+    [odlozenaZmena, rozdelene, duely, otevreneDuely, profilId],
+  );
+
+  const ukazZmenu = () => {
+    setSnimek({ duely, otevrene: otevreneDuely, profilId });
+    setOdlozenaZmena(false);
+    // Nove vyzvy pribyvaji nahoru — student je ma po klepnuti videt.
+    if (novychKaret > 0 && window.scrollY > 0) {
+      window.scrollTo({ top: 0, behavior: chovaniPosunu() });
+    }
+  };
 
   if (!profil) return null;
 
@@ -113,6 +205,14 @@ export default function Duely() {
             <DuelKarta key={d.id} duel={d} profilId={profil.id} varianta="historie" />
           ))}
         </SekceDuelu>
+      )}
+
+      {odlozenaZmena && (
+        <button type="button" className="duely__zmena" onClick={ukazZmenu}>
+          {novychKaret > 0
+            ? `🔔 Nové v duelech (${novychKaret}) — ukázat`
+            : '🔄 Duely se změnily — ukázat'}
+        </button>
       )}
 
       {dialogOtevreny && (
@@ -339,6 +439,17 @@ function DialogNovehoDuelu({ profil, zavri }: { profil: Profil; zavri: () => voi
   const [odkazHosta, setOdkazHosta] = useState<{ duelId: string; odkaz: string } | null>(null);
   const [zakladam, setZakladam] = useState(false);
   const [chyba, setChyba] = useState<string | null>(null);
+
+  // Mobil: modal je pres celou obrazovku — stranka pod nim se nesmi posouvat
+  // (konec scrollu modalu by se prelil, 100dvh by poskakovalo). Desktop beze
+  // zmeny (zamek by schoval posuvnik a stranka by poskocila do strany).
+  const [naMobilu] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(max-width: 760px)').matches,
+  );
+  pouzijZamekScrollu(naMobilu);
 
   const souperi = profily.filter((p) => p.id !== profil.id);
   const temata = useMemo(

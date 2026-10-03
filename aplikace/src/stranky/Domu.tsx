@@ -1,14 +1,15 @@
 // Domovská stránka — herní dashboard. VLASTNÍ agent APP-HRA.
 // HUD je v hlavičce (App.tsx); tady: velké HRÁT, denní questy, čekající truhly,
 // výzvy od táty a mini statistiky. Vše bez scrollu na 1080p.
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import type { RezimTestu, TestKonfigurace, TruhlaTyp } from '@questor/sdilene';
-import { KARTY_VELIKANI, stavLevelu } from '@questor/sdilene';
+import { KARTY_VELIKANI, denZData, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import { pocetCekajicichVyzev } from '../duely/engine';
+import { pouzijZamekScrollu } from '../komponenty/zamekScrollu';
 import TruhlaOdmena from '../hra/TruhlaOdmena';
 import './Domu.css';
 import '../vyuka/vyuka.css';
@@ -47,6 +48,50 @@ function spustTest(konfigurace: TestKonfigurace, vyzvaId?: string): boolean {
   return true;
 }
 
+/**
+ * Je načtená banka, nad kterou se generují denní questy (aktivní banka
+ * profilu; bez ní — stejně jako kontextQuestu v hraSlice — jakákoli)?
+ * Obsah předmětů chodí po startu async (data/nacteniObsahu.ts): questy
+ * vygenerované nad prázdnými bankami přijdou o quest „téma“, den má jen
+ * 2 questy (bonusová truhla za všechny je nedosažitelná) a do konce dne se
+ * už nepřegenerují.
+ */
+export function bankaQuestuNactena(
+  banky: Record<string, unknown>,
+  aktivniPredmet: string | null,
+): boolean {
+  return aktivniPredmet === null
+    ? Object.keys(banky).length > 0
+    : banky[aktivniPredmet] !== undefined;
+}
+
+/**
+ * Pojistka, když se načítání obsahu zasekne (visící chunk na slabé síti):
+ * po limitu se questy vygenerují i bez banky. Běžně se čeká jen na doběhnutí
+ * nactiObsahPriStartu (viz efekt v Domu).
+ */
+const LIMIT_CEKANI_NA_BANKU_MS = 60_000;
+
+/**
+ * Questy k zobrazení pro den `dnes`: jen dnešní. Než se při startu nového
+ * dne načte banka a questy se přegenerují, nesmí Domů ukazovat včerejší
+ * (i se splněním a hláškou o bonusové truhle) — místo nich zástupné karty.
+ */
+export function questyDne<T extends { datum: string }>(questy: T[], dnes: string): T[] {
+  return questy[0]?.datum === dnes ? questy : [];
+}
+
+/** Počet zástupných karet, než se vygenerují dnešní questy (= běžný počet). */
+const POCET_ZASTUPNYCH_QUESTU = 3;
+
+/** Mobilní rozvržení (≤ 760 px, DESIGN.md Mobil) — modaly jsou přes celou obrazovku. */
+function jeMobilniRozvrzeni(): boolean {
+  return (
+    typeof window !== 'undefined' &&
+    window.matchMedia?.('(max-width: 760px)').matches === true
+  );
+}
+
 export default function Domu() {
   const navigate = useNavigate();
   const progres = pouzijStav((s) => s.progres);
@@ -56,11 +101,37 @@ export default function Domu() {
   const vyuky = pouzijStav((s) => s.vyuky);
   const postupLekci = pouzijStav((s) => s.postupLekci);
   const obnovDenniQuesty = pouzijStav((s) => s.obnovDenniQuesty);
+  const bankaNactena = pouzijStav((s) =>
+    bankaQuestuNactena(s.banky, aktivniPredmetProfilu(najdiAktivniProfil(s))),
+  );
+  // Banka, kterou registr zná, ale nemá obsah (chybějící chunk, předmět jen
+  // na serveru), by questy zablokovala natrvalo: jakmile startovní načítání
+  // obsahu doběhne a banka pořád chybí, generují se i bez ní. Pevný časovač
+  // je jen dlouhá pojistka pro zaseknuté načítání.
+  const [cekaniVyprselo, setCekaniVyprselo] = useState(false);
+  useEffect(() => {
+    if (bankaNactena) return;
+    let zruseno = false;
+    void import('../data/nacteniObsahu')
+      .then((m) => m.nactiObsahPriStartu())
+      .catch(() => {})
+      .then(() => {
+        if (!zruseno) setCekaniVyprselo(true);
+      });
+    const casovac = setTimeout(() => setCekaniVyprselo(true), LIMIT_CEKANI_NA_BANKU_MS);
+    return () => {
+      zruseno = true;
+      clearTimeout(casovac);
+    };
+  }, [bankaNactena]);
+  const questyPripraveny = bankaNactena || cekaniVyprselo;
 
   // Denní obnova questů při zobrazení dashboardu + při změně dne za běhu
   // (aplikace otevřená přes půlnoc): minutový interval a návrat do popředí.
   // Akce je pro stejný den idempotentní, takže časté volání nevadí.
+  // Při studeném startu se čeká na načtení banky (viz bankaQuestuNactena).
   useEffect(() => {
+    if (!questyPripraveny) return;
     obnovDenniQuesty();
     const interval = setInterval(obnovDenniQuesty, 60_000);
     const priNavratu = () => {
@@ -71,7 +142,7 @@ export default function Domu() {
       clearInterval(interval);
       document.removeEventListener('visibilitychange', priNavratu);
     };
-  }, [obnovDenniQuesty]);
+  }, [obnovDenniQuesty, questyPripraveny]);
 
   const [volbaOtevrena, setVolbaOtevrena] = useState(false);
   const [krokVolby, setKrokVolby] = useState<'predmet' | 'volby'>('predmet');
@@ -81,6 +152,20 @@ export default function Domu() {
   const [vybranaTemata, setVybranaTemata] = useState<string[]>([]);
   const [otviranaTruhla, setOtviranaTruhla] = useState<TruhlaTyp | null>(null);
   const [truhlaOtevrena, setTruhlaOtevrena] = useState(false);
+  const modalVolbyRef = useRef<HTMLDivElement>(null);
+
+  // Fullscreen modaly na mobilu zamykají scroll stránky pod sebou — gesto
+  // na konci scrollu modalu by jinak „přeteklo“ do Domů, schovalo lištu
+  // prohlížeče a 100dvh modal by poskočil. Na desktopu se nezamyká
+  // (overflow: hidden na html by skryl posuvník a stránka by poskočila).
+  pouzijZamekScrollu((volbaOtevrena || otviranaTruhla !== null) && jeMobilniRozvrzeni());
+
+  // Kroky „předmět“ a „volby“ se střídají ve STEJNÉM scroll kontejneru —
+  // bez resetu by se nový krok otevřel odscrollovaný (po výběru předmětu
+  // z dolních řad by byly režimy nad okrajem).
+  useLayoutEffect(() => {
+    if (modalVolbyRef.current) modalVolbyRef.current.scrollTop = 0;
+  }, [krokVolby, volbaOtevrena]);
 
   // Studijni banky aktivního profilu + jeho aktivní banka.
   const profil = pouzijStav((s) => najdiAktivniProfil(s));
@@ -193,7 +278,8 @@ export default function Domu() {
     KARTY_VELIKANI.some((k) => k.id === id),
   ).length;
   const aktivniVyzvy = vyzvy.filter((v) => v.stav !== 'dokoncena');
-  const splnenoQuestu = progres.questy.filter((q) => q.splneno).length;
+  const questyDnes = questyDne(progres.questy, denZData(new Date()));
+  const splnenoQuestu = questyDnes.filter((q) => q.splneno).length;
 
   // Cekajici duelove vyzvy (cilene na me + otevrene rodinne) — karta Duely.
   const cekajiciDuelu = pouzijStav((s) =>
@@ -282,13 +368,33 @@ export default function Domu() {
         <div className="panel domu__questy">
           <div className="domu__questy-hlava">
             <h2>Denní questy</h2>
-            <span className="stitek">{splnenoQuestu}/{progres.questy.length || 3} splněno</span>
+            <span className="stitek">{splnenoQuestu}/{questyDnes.length || 3} splněno</span>
           </div>
-          {progres.questy.length === 0 && (
+          {questyDnes.length === 0 && questyPripraveny && (
             <p className="domu__prazdno">Questy se chystají… dokonči první test.</p>
           )}
           <div className="domu__questy-mrizka">
-            {progres.questy.map((q) => (
+            {/* Než se načte banka a vygenerují dnešní questy: zástupné karty
+                se stejnou třídou i řádky (stejná výška — sekce neposkočí). */}
+            {questyDnes.length === 0 &&
+              !questyPripraveny &&
+              Array.from({ length: POCET_ZASTUPNYCH_QUESTU }, (_, i) => (
+                <div
+                  key={`zastupny-${i}`}
+                  className="domu__quest"
+                  aria-hidden="true"
+                  style={{ opacity: 0.5 }}
+                >
+                  <div className="domu__quest-radek">
+                    <span className="domu__quest-popis">Připravuji quest…</span>
+                  </div>
+                  <div className="ukazatel domu__quest-bar">
+                    <div style={{ width: '0%' }} />
+                  </div>
+                  <div className="domu__quest-postup">{'\u00a0'}</div>
+                </div>
+              ))}
+            {questyDnes.map((q) => (
               <div
                 key={q.id}
                 className={q.splneno ? 'domu__quest domu__quest--splneny' : 'domu__quest'}
@@ -316,7 +422,7 @@ export default function Domu() {
               </div>
             ))}
           </div>
-          {progres.questy.length >= 3 && splnenoQuestu === progres.questy.length && (
+          {questyDnes.length >= 3 && splnenoQuestu === questyDnes.length && (
             <p className="domu__questy-bonus animace-pop">
               Všechny questy hotové — bronzová truhla navíc je tvoje! 🎉
             </p>
@@ -403,6 +509,7 @@ export default function Domu() {
       {volbaOtevrena && (
         <div className="domu__pozadi-modalu" onClick={() => setVolbaOtevrena(false)}>
           <div
+            ref={modalVolbyRef}
             className="panel domu__modal animace-naskoceni"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
@@ -539,13 +646,16 @@ export default function Domu() {
                   </>
                 )}
 
-                <button
-                  type="button"
-                  className="tlacitko tlacitko--zlate domu__modal-start"
-                  onClick={zacniZVolby}
-                >
-                  Jdeme na to!
-                </button>
+                {/* Pata — na mobilu přilepená ke spodku modalu (Domu.css). */}
+                <div className="domu__modal-pata">
+                  <button
+                    type="button"
+                    className="tlacitko tlacitko--zlate domu__modal-start"
+                    onClick={zacniZVolby}
+                  >
+                    Jdeme na to!
+                  </button>
+                </div>
               </>
             )}
           </div>

@@ -14,7 +14,15 @@ import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../s
 import { ikonaPredmetu, nazevPredmetu } from '../data/predmety';
 import { nactiSyncNastaveni } from '../sync/klient';
 import { kdyRelativne } from '../admin/admin';
-import { jeObrazek, nactiMojiLatku, posliLatku, pripravFotku, zapamatujPovoleni } from './latka';
+import {
+  jeObrazek,
+  nactiMojiLatku,
+  posliLatku,
+  pripravFotku,
+  vytvorNahled,
+  zapamatujPovoleni,
+  znamePovoleniLatky,
+} from './latka';
 import './PoslatLatku.css';
 
 const IKONA_STAVU: Record<StavMaterialu, string> = {
@@ -28,6 +36,7 @@ const IKONA_STAVU: Record<StavMaterialu, string> = {
 interface VybranySoubor {
   id: number;
   soubor: File;
+  /** Malý JPEG jako data: URL (blob: by produkční CSP zablokovala); null = zatím/vůbec není. */
   nahled: string | null;
 }
 
@@ -52,6 +61,9 @@ export default function PoslatLatku() {
   const [uspech, setUspech] = useState(false);
   const citac = useRef(0);
   const synchronizovano = useRef(false);
+  const pripojeno = useRef(true);
+  // Odebrané/odeslané soubory — jejich ještě nevytvořené náhledy se přeskočí.
+  const zahozene = useRef(new Set<number>());
 
   const nactiSeznam = useCallback(async () => {
     if (!profil || !syncZapnuty) return;
@@ -67,7 +79,9 @@ export default function PoslatLatku() {
         void import('../sync/sync').then((s) => s.synchronizuj('rucne'));
       }
     } catch {
-      setSmi((s) => s ?? false);
+      // Bez spojení platí poslední známé povolení — odeslání pak samo
+      // ohlásí chybu spojení (ne mylné „nemáš povoleno“).
+      setSmi((s) => s ?? znamePovoleniLatky(profil.id));
     }
   }, [profil, syncZapnuty, nastaveni]);
 
@@ -75,13 +89,14 @@ export default function PoslatLatku() {
     void nactiSeznam();
   }, [nactiSeznam]);
 
-  // Uvolnění náhledů při odchodu ze stránky.
-  useEffect(
-    () => () => {
-      for (const s of soubory) if (s.nahled) URL.revokeObjectURL(s.nahled);
-    },
-    [],
-  );
+  // Náhledy jsou data: URL (nic se neuvolňuje); po odchodu ze stránky se
+  // jen přeskočí ještě nevytvořené náhledy ve frontě.
+  useEffect(() => {
+    pripojeno.current = true;
+    return () => {
+      pripojeno.current = false;
+    };
+  }, []);
 
   if (!profil) return null;
 
@@ -114,28 +129,32 @@ export default function PoslatLatku() {
     if (!seznam) return;
     setChyba(null);
     setUspech(false);
-    const nove = [...seznam].map((soubor) => ({
+    const vybrane = [...seznam];
+    const volno = Math.max(0, LIMITY_MATERIALU.maxSouboru - soubory.length);
+    if (vybrane.length > volno) {
+      setChyba(`Najednou jde poslat nejvýš ${LIMITY_MATERIALU.maxSouboru} souborů.`);
+    }
+    const nove: VybranySoubor[] = vybrane.slice(0, volno).map((soubor) => ({
       id: ++citac.current,
       soubor,
-      nahled: jeObrazek(soubor) ? URL.createObjectURL(soubor) : null,
+      nahled: null,
     }));
-    setSoubory((stare) => {
-      const vsechny = [...stare, ...nove];
-      if (vsechny.length > LIMITY_MATERIALU.maxSouboru) {
-        setChyba(`Najednou jde poslat nejvýš ${LIMITY_MATERIALU.maxSouboru} souborů.`);
-        for (const s of vsechny.slice(LIMITY_MATERIALU.maxSouboru)) if (s.nahled) URL.revokeObjectURL(s.nahled);
-        return vsechny.slice(0, LIMITY_MATERIALU.maxSouboru);
-      }
-      return vsechny;
-    });
+    if (nove.length === 0) return;
+    setSoubory((stare) => [...stare, ...nove].slice(0, LIMITY_MATERIALU.maxSouboru));
+    // Náhledy vznikají na pozadí po jednom (paměť iOS) a doplní se, jak dorazí.
+    for (const novy of nove) {
+      if (!jeObrazek(novy.soubor)) continue;
+      const zbytecny = () => !pripojeno.current || zahozene.current.has(novy.id);
+      void vytvorNahled(novy.soubor, zbytecny).then((nahled) => {
+        if (!nahled || zbytecny()) return;
+        setSoubory((stare) => stare.map((s) => (s.id === novy.id ? { ...s, nahled } : s)));
+      });
+    }
   };
 
   const odeber = (id: number) => {
-    setSoubory((stare) => {
-      const odebrany = stare.find((s) => s.id === id);
-      if (odebrany?.nahled) URL.revokeObjectURL(odebrany.nahled);
-      return stare.filter((s) => s.id !== id);
-    });
+    zahozene.current.add(id);
+    setSoubory((stare) => stare.filter((s) => s.id !== id));
   };
 
   const odesli = async () => {
@@ -161,7 +180,7 @@ export default function PoslatLatku() {
       }
       setStavOdeslani('nahravam');
       await posliLatku(nastaveni, formular, setPrubeh);
-      for (const s of soubory) if (s.nahled) URL.revokeObjectURL(s.nahled);
+      for (const s of soubory) zahozene.current.add(s.id);
       setSoubory([]);
       setPoznamka('');
       setUspech(true);
@@ -239,7 +258,7 @@ export default function PoslatLatku() {
                   <img src={s.nahled} alt={`Strana ${i + 1}`} className="latka__nahled" />
                 ) : (
                   <span className="latka__ikona-souboru" aria-hidden="true">
-                    📄
+                    {jeObrazek(s.soubor) ? '🖼️' : '📄'}
                   </span>
                 )}
                 <span className="latka__nazev-souboru">{s.soubor.name}</span>

@@ -4,8 +4,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { OtazkaPrirazovani } from '@questor/sdilene';
 import type { OdpovedHodnota, ParovaniOdpoved } from '../engine';
+import { posunPodListou } from '../posun';
 import { jeVstupniPole } from './klavesy';
 import { zamichaneIndexy } from './michani';
+
+/** Mobil = sloupce pod sebou (testy.css), jen tam se stránka posouvá sama. */
+function sloupcePodSebou(): boolean {
+  return typeof window !== 'undefined' && window.innerWidth <= 760;
+}
 
 interface Props {
   otazka: OtazkaPrirazovani;
@@ -106,14 +112,28 @@ export default function PrirazovaniOtazka({
     return tridy.join(' ');
   };
 
-  // Na mobilu jsou sloupce pod sebou — po vyberu pojmu se protejsky odscrolluji
-  // do zorneho pole a nad nimi visi pripominka, co je vybrane.
-  const pravyNadpis = useRef<HTMLParagraphElement | null>(null);
+  // Na mobilu jsou sloupce pod sebou — po vyberu pojmu se protejsky
+  // (nadpis s pripominkou + seznam) doroluji do zorneho pole, ale JEN kdyz
+  // nejsou cele videt (block 'nearest' = co nejmensi posun; scroll-margin
+  // pocita se spodni listou, safe-area i prilepenou hlavickou lekce).
+  // Po sparovani se pohled vrati na dalsi nesparovany pojem (nebo na
+  // Potvrdit), at student nemusi pokazde rucne nahoru.
+  const pravySloupec = useRef<HTMLDivElement | null>(null);
+  const levaTlacitka = useRef<(HTMLButtonElement | null)[]>([]);
+  const akce = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-    if (vybranyLevy === null || zamceno) return;
-    if (typeof window === 'undefined' || window.innerWidth > 760) return;
-    pravyNadpis.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (vybranyLevy === null || zamceno || !sloupcePodSebou()) return;
+    posunPodListou(pravySloupec.current);
   }, [vybranyLevy, zamceno]);
+
+  const predchoziPocetParu = useRef(0);
+  useEffect(() => {
+    const pribylPar = pary.length > predchoziPocetParu.current;
+    predchoziPocetParu.current = pary.length;
+    if (!pribylPar || zamceno || !sloupcePodSebou()) return;
+    const dalsi = otazka.pary.findIndex((_, levy) => !pary.some((p) => p.levy === levy));
+    posunPodListou(dalsi === -1 ? akce.current : levaTlacitka.current[dalsi]);
+  }, [pary, zamceno, otazka.pary]);
 
   return (
     <div>
@@ -127,6 +147,9 @@ export default function PrirazovaniOtazka({
           {otazka.pary.map((par, levy) => (
             <button
               key={levy}
+              ref={(prvek) => {
+                levaTlacitka.current[levy] = prvek;
+              }}
               type="button"
               className={tridaLeveho(levy)}
               disabled={zamceno}
@@ -140,12 +163,23 @@ export default function PrirazovaniOtazka({
           ))}
           </div>
         </div>
-        <div className="parovani__sloupec">
-          <p className="parovani__nadpis" ref={pravyNadpis}>
+        <div className="parovani__sloupec" ref={pravySloupec}>
+          <p className="parovani__nadpis">
             Protějšky
-            {vybranyLevy !== null && !zamceno && (
-              <span className="parovani__vybrano">
-                Vybráno: <strong>{otazka.pary[vybranyLevy].levy}</strong> → klepni na protějšek
+            {/* Připomínka výběru. Prázdný stav se na desktopu nezobrazuje;
+                na mobilu drží místo (testy.css), aby seznam protějšků
+                neposkakoval pod prstem při výběru a spárování. */}
+            {!zamceno && (
+              <span
+                className={`parovani__vybrano${vybranyLevy === null ? ' parovani__vybrano--prazdne' : ''}`}
+              >
+                {vybranyLevy !== null ? (
+                  <>
+                    Vybráno: <strong>{otazka.pary[vybranyLevy].levy}</strong> → klepni na protějšek
+                  </>
+                ) : (
+                  'Nejdřív klepni na pojem výše.'
+                )}
               </span>
             )}
           </p>
@@ -168,14 +202,16 @@ export default function PrirazovaniOtazka({
         </div>
       </div>
       {!zamceno && (
-        <div className="parovani__akce">
+        <div className="parovani__akce" ref={akce}>
           <button
             type="button"
             className="tlacitko tlacitko--primarni"
             disabled={!vsechnoSparovano}
             onClick={odesli}
           >
-            Potvrdit (Enter)
+            <span>
+              Potvrdit<span className="napoveda-klavesy"> (Enter)</span>
+            </span>
           </button>
           {!vsechnoSparovano && (
             <span className="parovani__napoveda">

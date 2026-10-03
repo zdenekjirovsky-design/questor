@@ -107,16 +107,28 @@
   transition: transform 0.12s ease, box-shadow 0.15s ease;
 }
 
-.hud__avatar-tlacitko:hover,
 .hud__avatar-tlacitko:focus-visible {
   transform: scale(1.06);
   box-shadow: var(--zare-akcent);
+}
+
+@media (hover: hover) {
+  .hud__avatar-tlacitko:hover {
+    transform: scale(1.06);
+    box-shadow: var(--zare-akcent);
+  }
 }
 
 .hud__menu-prekryv {
   position: fixed;
   inset: 0;
   z-index: 40;
+  /* Tah prstem po překryvu nesmí posouvat stránku — jinak menu odjede
+     s hlavičkou a neviditelný překryv spolkne další ťuknutí. Na desktopu
+     a tabletu zbytek (kolečko, klávesy) řeší zavírání menu při scrollu
+     v HudHlavicka.tsx; na mobilu je menu fixní a scrollem se nezavírá
+     (scroll window tam bývá jen systémový — zavřel by menu po otevření). */
+  touch-action: none;
 }
 
 .hud__menu {
@@ -150,9 +162,14 @@
   cursor: pointer;
 }
 
-.hud__menu-polozka:hover,
 .hud__menu-polozka:focus-visible {
   background: var(--pozadi-panel-2);
+}
+
+@media (hover: hover) {
+  .hud__menu-polozka:hover {
+    background: var(--pozadi-panel-2);
+  }
 }
 
 .hud__menu-polozka--aktivni {
@@ -206,11 +223,18 @@
   transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
 }
 
-.hud__banka-chip:hover,
 .hud__banka-chip:focus-visible {
   border-color: var(--akcent);
   box-shadow: var(--zare-akcent);
   transform: translateY(-1px);
+}
+
+@media (hover: hover) {
+  .hud__banka-chip:hover {
+    border-color: var(--akcent);
+    box-shadow: var(--zare-akcent);
+    transform: translateY(-1px);
+  }
 }
 
 .hud__banka-obsah {
@@ -240,10 +264,35 @@
 .hud__menu--banky {
   max-height: min(60vh, 420px);
   overflow-y: auto;
+  /* Dojetí seznamu na konec se nepřelévá do stránky pod menu. */
+  overscroll-behavior: contain;
   min-width: 240px;
   /* Chip je v pravé části hlavičky — menu se kotví doprava, ať nepřetéká. */
   left: auto;
   right: 0;
+}
+
+/* Neblokujici stav pullu postupu po aktivaci profilu (sync pres zarizeni). */
+.hud__nacitam {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  white-space: nowrap;
+  animation: hud-nacitam-pulz 1.2s ease-in-out infinite;
+}
+
+@keyframes hud-nacitam-pulz {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.85; }
+}
+
+/* Odznak ☁️ na avataru — jen mobil (níže), na desktopu je text v řádku. */
+.hud__nacitam-odznak {
+  display: none;
+}
+
+@keyframes hud-odznak-pulz {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
 }
 
 /* --- Mobil (≤ 760 px): HUD se vejde vedle loga do jednoho řádku. --- */
@@ -272,9 +321,42 @@
     padding: 5px 10px;
   }
 
-  /* Menu profilů nesmí přetéct pravý okraj úzké obrazovky. */
-  .hud__menu {
-    max-width: calc(100vw - 24px);
+  /* Menu (profily i banky) ukotvené k viewportu: chip i avatar sedí
+     uprostřed hlavičky, absolutní menu s min-width by přeteklo levý/pravý
+     okraj (a overflow-x: clip na html/body ho ořízne). Horní hranu dává
+     --hud-menu-top = spodek tlačítka při otevření (HudHlavicka.tsx),
+     nikdy ne pod status bar; spodek končí nad spodní lištou (~61 px
+     + safe-area). Na tabletu max. 420 px, zarovnané doprava (margin auto).
+     POZOR: předci HUD (hlavička) nesmí mít transform/filter/backdrop-filter,
+     jinak by position: fixed kotvila k nim, ne k viewportu. */
+  .hud__menu,
+  .hud__menu.hud__menu--banky {
+    --hud-menu-horni: max(
+      var(--hud-menu-top, calc(env(safe-area-inset-top, 0px) + 66px)),
+      calc(env(safe-area-inset-top, 0px) + 8px)
+    );
+    position: fixed;
+    top: var(--hud-menu-horni);
+    left: calc(12px + env(safe-area-inset-left, 0px));
+    right: calc(12px + env(safe-area-inset-right, 0px));
+    margin-left: auto;
+    min-width: 0;
+    max-width: 420px;
+    max-height: calc(100vh - 160px);
+    max-height: calc(100dvh - var(--hud-menu-horni) - 76px - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  /* Položky se při omezené výšce menu nesmršťují (scrolluje se). */
+  .hud__menu > * {
+    flex-shrink: 0;
+  }
+
+  /* Překryv otevřeného menu lehce ztmaví stránku — je vidět, že ťuknutí
+     mimo menu ho jen zavře. */
+  .hud__menu-prekryv {
+    background: rgba(8, 6, 16, 0.35);
   }
 
   /* Dotyková plocha položek menu. */
@@ -284,17 +366,57 @@
 
   /* Chip banky na mobilu: jen ikona + zkrácený název (vejde se do řádku).
      Smršťuje se PŘEDNOSTNĚ (flex-shrink 2) a min-width přebíjí automatické
-     minimum obsahu — jinak by chip stlačil level blok na nulu. */
-  .hud__banka-chip {
+     minimum obsahu — jinak by chip stlačil level blok na nulu. Flex
+     položkou HUD je obal .hud__banka (ne tlačítko), proto limity nese on
+     a chip ho jen vyplní (max-width: 100 %). */
+  .hud__banka {
     max-width: 118px;
     min-width: 44px;
     flex-shrink: 2;
+  }
+
+  .hud__banka-chip {
+    max-width: 100%;
+    min-width: 44px;
     padding: 6px 8px;
     min-height: 44px;
   }
 
   .hud__banka-sipka {
     display: none;
+  }
+
+  /* „Načítám postup…" nesmí vstoupit do řádku HUD: hlavička je nowrap
+     a HUD zarovnaný doprava, takže by přetekl DOLEVA přes logo a po
+     requestu skočil zpět. Text zůstává jen pro čtečky (role="status"),
+     vidět je odznak ☁️ v rohu avatara (pevné místo, žádný posun). */
+  .hud__nacitam {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    animation: none;
+  }
+
+  .hud__nacitam-odznak {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--pozadi-panel);
+    border: 1px solid var(--okraj);
+    font-size: 0.68rem;
+    line-height: 1;
+    pointer-events: none;
+    animation: hud-odznak-pulz 1.2s ease-in-out infinite;
   }
 }
 
@@ -320,15 +442,42 @@
   }
 }
 
-/* Neblokujici stav pullu postupu po aktivaci profilu (sync pres zarizeni). */
-.hud__nacitam {
-  font-size: 0.75rem;
-  opacity: 0.7;
-  white-space: nowrap;
-  animation: hud-nacitam-pulz 1.2s ease-in-out infinite;
-}
+/* Telefony do 400 px (Android 360, iPhone 375/390): HUD se musí vejít
+   vedle loga (~119 px, Safari se syntetickým tučným ~127 px) do zbylých
+   ~207 px (360) / ~214 px (375) — jinak při justify-content: flex-end
+   přeteče DOLEVA přes logo. Rozpočet: avatar 44 + chip 44 + level 50
+   + plamínek ~51 (streak 2 číslice) + 3 × 4 mezera ≈ 201 px. Dotykové
+   plochy avatara a chipu zůstávají 44 px. */
+@media (max-width: 400px) {
+  .hud-hlavicka {
+    gap: 4px;
+  }
 
-@keyframes hud-nacitam-pulz {
-  0%, 100% { opacity: 0.45; }
-  50% { opacity: 0.85; }
+  /* Avatar 36 px + padding 2 + rámeček 2 = 44 px tlačítko. */
+  .hud__avatar-tlacitko svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hud__level-blok {
+    min-width: 50px;
+  }
+
+  .hud__level {
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .hud__plaminek {
+    gap: 2px;
+    padding: 4px 6px;
+  }
+
+  .hud__plaminek-ikona {
+    font-size: 1rem;
+  }
+
+  .hud__plaminek-cislo {
+    font-size: 0.95rem;
+  }
 }

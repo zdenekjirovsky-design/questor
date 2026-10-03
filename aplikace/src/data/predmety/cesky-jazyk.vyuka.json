@@ -1,12 +1,564 @@
 {
   "predmetId": "cesky-jazyk",
-  "verze": 1,
-  "vytvoreno": "2026-09-04",
+  "verze": 2,
+  "vytvoreno": "2026-10-03",
   "lekce": [
+    {
+      "temaId": "cj-literarni-pojmy",
+      "nazev": "Základní literární pojmy",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Ve třídním chatu se strhne hádka: „Je recept na palačinky literatura?“ Jeden píše, že jo, protože je napsaný. Druhý, že ne, protože to není Harry Potter. A třetí přihodí: „A co pohádka, kterou mi vyprávěla babička a nikdy ji nikdo nenapsal?“ Pravdu mají překvapivě všichni — jen každý myslí literaturu v jiném smyslu."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Literatura** pochází z latinského **littera = písmeno**, česky **písemnictví**. Má dva rozsahy:\n\n- **v širším smyslu** = **všechny písemné projevy** — odborné (učebnice, návod), publicistické (článek) i umělecké. Tady je recept literatura.\n- **v užším smyslu** = jen **literatura umělecká (krásná)** a s ní **ústní lidová slovesnost**. Tady recept literatura není.\n\n**Ústní lidová slovesnost (ULS)** se šířila **ústně, z generace na generaci**, a **autora neznáme — je anonymní**. Patří sem pohádky, pověsti, písně… Babiččina pohádka je tedy literatura i v užším smyslu.\n\n**Funkce literatury** — co literatura dělá se čtenářem (drž pořadí):\n\n- **1. informativní** = dozvídáme se nové informace,\n- **2. formativní** = formuje postoje čtenáře,\n- **3. estetická** = vyvolává v nás pocit krásna."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Až budeš na Instagramu nebo v Bookstagramu číst, že „tahle kniha mi změnila život“, budeš přesně vědět, že mluví o **formativní funkci**. A až budeš psát hodnocení knihy na Databázi knih nebo do školního projektu, děláš totéž co profesionální kritik — píšeš **recenzi**. Rozlišit, jestli text informuje, formuje, nebo baví, ti pomůže i u reklam a influencerů: kdo tě chce „jen informovat“, často tě ve skutečnosti formuje."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 375' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Literatura v širším a užším smyslu, tři disciplíny literární vědy a tři funkce literatury'><text x='320' y='24' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>LITERATURA (lat. littera = písmeno) = PÍSEMNICTVÍ</text><rect x='15' y='40' width='315' height='200' rx='10' fill='none' stroke='var(--info)' stroke-width='2.5' /><text x='172' y='60' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>ŠIRŠÍ SMYSL = všechny písemné projevy</text><rect x='28' y='78' width='125' height='34' rx='10' fill='none' stroke='var(--info)' stroke-width='1.5' /><text x='90' y='99' text-anchor='middle' font-size='10' fill='currentColor'>odborné (učebnice)</text><rect x='28' y='122' width='125' height='34' rx='10' fill='none' stroke='var(--info)' stroke-width='1.5' /><text x='90' y='143' text-anchor='middle' font-size='10' fill='currentColor'>publicistické (tisk)</text><rect x='168' y='72' width='150' height='158' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2.5' stroke-dasharray='6 4' /><text x='243' y='92' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>UŽŠÍ SMYSL</text><rect x='180' y='102' width='126' height='48' rx='10' fill='none' stroke='var(--akcent)' stroke-width='1.5' /><text x='243' y='122' text-anchor='middle' font-size='10.5' fill='currentColor'>umělecká</text><text x='243' y='138' text-anchor='middle' font-size='10.5' fill='currentColor'>(krásná) literatura</text><text x='243' y='164' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>+</text><rect x='180' y='172' width='126' height='48' rx='10' fill='none' stroke='var(--akcent)' stroke-width='1.5' /><text x='243' y='192' text-anchor='middle' font-size='10.5' fill='currentColor'>ústní lidová</text><text x='243' y='208' text-anchor='middle' font-size='10.5' fill='currentColor'>slovesnost (ULS)</text><text x='90' y='180' text-anchor='middle' font-size='10' fill='currentColor'>ULS: ústně, z generace</text><text x='90' y='194' text-anchor='middle' font-size='10' fill='currentColor'>na generaci, autor</text><text x='90' y='208' text-anchor='middle' font-size='10' fill='currentColor'>neznámý (anonymní)</text><rect x='352' y='40' width='273' height='200' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2.5' /><text x='488' y='62' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>LITERÁRNÍ VĚDA (3 disciplíny)</text><line x1='488' y1='70' x2='488' y2='80' stroke='var(--uspech)' stroke-width='1.5' /><line x1='400' y1='80' x2='576' y2='80' stroke='var(--uspech)' stroke-width='1.5' /><line x1='400' y1='80' x2='400' y2='92' stroke='var(--uspech)' stroke-width='1.5' /><line x1='488' y1='80' x2='488' y2='92' stroke='var(--uspech)' stroke-width='1.5' /><line x1='576' y1='80' x2='576' y2='92' stroke='var(--uspech)' stroke-width='1.5' /><rect x='360' y='92' width='80' height='92' rx='10' fill='none' stroke='var(--uspech)' stroke-width='1.5' /><text x='400' y='110' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>1. TEORIE</text><text x='400' y='128' text-anchor='middle' font-size='9.5' fill='currentColor'>druhy, žánry,</text><text x='400' y='141' text-anchor='middle' font-size='9.5' fill='currentColor'>stavba díla,</text><text x='400' y='154' text-anchor='middle' font-size='9.5' fill='currentColor'>jazykové</text><text x='400' y='167' text-anchor='middle' font-size='9.5' fill='currentColor'>prostředky</text><rect x='448' y='92' width='80' height='92' rx='10' fill='none' stroke='var(--uspech)' stroke-width='1.5' /><text x='488' y='110' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>2. HISTORIE</text><text x='488' y='128' text-anchor='middle' font-size='9.5' fill='currentColor'>vývoj</text><text x='488' y='141' text-anchor='middle' font-size='9.5' fill='currentColor'>literatury</text><text x='488' y='154' text-anchor='middle' font-size='9.5' fill='currentColor'>v čase</text><rect x='536' y='92' width='80' height='92' rx='10' fill='none' stroke='var(--uspech)' stroke-width='1.5' /><text x='576' y='110' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>3. KRITIKA</text><text x='576' y='128' text-anchor='middle' font-size='9.5' fill='currentColor'>hodnocení</text><text x='576' y='141' text-anchor='middle' font-size='9.5' fill='currentColor'>díla</text><line x1='576' y1='184' x2='576' y2='198' stroke='var(--uspech)' stroke-width='1.5' /><rect x='536' y='198' width='80' height='30' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='576' y='218' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>→ RECENZE</text><text x='320' y='266' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>FUNKCE LITERATURY (v pořadí ze zápisu)</text><rect x='15' y='278' width='195' height='58' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='112' y='299' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>1. INFORMATIVNÍ</text><text x='112' y='318' text-anchor='middle' font-size='10.5' fill='currentColor'>dozvídáme se nové informace</text><rect x='222' y='278' width='196' height='58' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='320' y='299' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>2. FORMATIVNÍ</text><text x='320' y='318' text-anchor='middle' font-size='10.5' fill='currentColor'>formuje postoje čtenáře</text><rect x='430' y='278' width='195' height='58' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='527' y='299' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>3. ESTETICKÁ</text><text x='527' y='318' text-anchor='middle' font-size='10.5' fill='currentColor'>vyvolává pocit krásna</text><text x='320' y='362' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>Literární druhy: 1. epika (děj) · 2. lyrika (pocity) · 3. drama (jeviště)</text></svg>",
+          "popisek": "Vlevo modrý rámeček literatury v širším smyslu — všechny písemné projevy; uvnitř čárkovaně užší smysl: umělecká literatura + ústní lidová slovesnost. Vpravo literární věda a její tři disciplíny v pořadí teorie – historie – kritika (žánrem kritiky je recenze). Dole tři funkce literatury v pořadí ze zápisu a pod nimi tři literární druhy."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-literarni-pojmy-1",
+            "temaId": "cj-literarni-pojmy",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Co zahrnuje literatura v UŽŠÍM smyslu slova?",
+            "moznosti": [
+              "uměleckou (krásnou) literaturu a ústní lidovou slovesnost",
+              "všechny písemné projevy včetně odborných a novinových",
+              "jen učebnice a odborné texty",
+              "jen texty, které vyšly knižně"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Užší smysl = literatura umělecká (krásná) + ústní lidová slovesnost. Všechny písemné projevy zahrnuje širší smysl; učebnice jsou odborná literatura a to, jestli text vyšel jako kniha, nerozhoduje."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Literární věda** se zabývá uměleckou literaturou a má **tři disciplíny** (zase drž pořadí):\n\n- **1. literární teorie** — řeší literární **druhy, žánry, strukturu díla a jazykové prostředky** (to děláš při rozboru básně),\n- **2. literární historie** — zkoumá **vývoj literatury v čase** (co psali ve středověku, co v romantismu),\n- **3. literární kritika** — zabývá se **hodnocením díla**. Žánrem kritiky je **recenze**.\n\n**Základní literární druhy** jsou tři: **1. epika** (má děj), **2. lyrika** (pocity a nálady, nemá děj), **3. drama** (k předvádění na jevišti). Každý druh se dělí na **žánry** — na ty se podíváš v dalších dvou lekcích.\n\nPomůcka na disciplíny: *JAK je to postavené?* → teorie. *KDY a z čeho to vzniklo?* → historie. *JAK je to dobré?* → kritika."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Která disciplína literární vědy to dělá? Ptej se: rozebírá (teorie), sleduje vývoj v čase (historie), nebo hodnotí (kritika)?",
+            "kategorie": [
+              {
+                "id": "teorie",
+                "nazev": "literární teorie"
+              },
+              {
+                "id": "historie",
+                "nazev": "literární historie"
+              },
+              {
+                "id": "kritika",
+                "nazev": "literární kritika"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "určíš, že báseň má střídavý rým",
+                "kategorieId": "teorie"
+              },
+              {
+                "text": "vysvětlíš rozdíl mezi povídkou a novelou",
+                "kategorieId": "teorie"
+              },
+              {
+                "text": "rozebereš, kdo je v románu vypravěč",
+                "kategorieId": "teorie"
+              },
+              {
+                "text": "kapitola o literatuře středověku",
+                "kategorieId": "historie"
+              },
+              {
+                "text": "jak se měnila česká poezie od 19. století",
+                "kategorieId": "historie"
+              },
+              {
+                "text": "proč za Husa vznikaly texty česky",
+                "kategorieId": "historie"
+              },
+              {
+                "text": "recenze nového fantasy románu",
+                "kategorieId": "kritika"
+              },
+              {
+                "text": "„konec je odbytý, dávám 6/10“",
+                "kategorieId": "kritika"
+              },
+              {
+                "text": "porota vybírá nejlepší knihu roku",
+                "kategorieId": "kritika"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-literarni-pojmy-2",
+            "temaId": "cj-literarni-pojmy",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Kamarádka napíše na blog: „Ta kniha je přeceňovaná — postavy jsou ploché a konec předvídatelný.“ Co tím dělá?",
+            "moznosti": [
+              "literární kritiku — píše recenzi",
+              "literární teorii — rozebírá žánr",
+              "literární historii — zkoumá vývoj literatury",
+              "plní informativní funkci literatury"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Hodnotí dílo → literární kritika, a její text je recenze. Teorie by bez hodnocení rozebírala žánr a stavbu, historie by sledovala vývoj literatury v čase. Informativní je funkce literatury, ne disciplína literární vědy."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Podle tvé oblíbené knihy natočil Netflix seriál. Ve škole máš o knize udělat prezentaci ve třech částech: 1) jaké je to dílo a jak je postavené, 2) kdy vzniklo a na co navazuje, 3) jestli stojí za přečtení. Ke kterým disciplínám literární vědy jednotlivé části patří a jaké funkce kniha plní?",
+          "reseni": "**1. „Jaké je to dílo a jak je postavené“ → literární teorie.** Určíš literární druh (epika — má děj a postavy), žánr (román), kdo vypráví, jak je děj stavěný.\n\n**2. „Kdy vzniklo a na co navazuje“ → literární historie.** Zasadíš knihu do vývoje literatury v čase — kdy vyšla, z jaké tradice vychází.\n\n**3. „Stojí za přečtení?“ → literární kritika.** Hodnotíš, co se povedlo a co ne. Kdybys to napsal jako samostatný text, byla by to **recenze**.\n\n**Funkce knihy:** pobaví tě a nadchne (**estetická**), dozvíš se něco o prostředí, kde se děj odehrává (**informativní**), a možná změní tvůj pohled třeba na přátelství (**formativní**). Pořadí do písemky: informativní – formativní – estetická."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "littera",
+              "zadni": "latinsky písmeno — odtud literatura = písemnictví"
+            },
+            {
+              "predni": "literatura v širším smyslu",
+              "zadni": "všechny písemné projevy (odborné, publicistické, umělecké)"
+            },
+            {
+              "predni": "literatura v užším smyslu",
+              "zadni": "umělecká (krásná) literatura + ústní lidová slovesnost"
+            },
+            {
+              "predni": "ústní lidová slovesnost",
+              "zadni": "šířila se ústně z generace na generaci, autor neznámý (anonymní) — pohádky, pověsti, písně"
+            },
+            {
+              "predni": "funkce literatury (pořadí)",
+              "zadni": "1. informativní, 2. formativní, 3. estetická"
+            },
+            {
+              "predni": "formativní funkce",
+              "zadni": "formuje postoje čtenáře"
+            },
+            {
+              "predni": "estetická funkce",
+              "zadni": "vyvolává v nás pocit krásna"
+            },
+            {
+              "predni": "disciplíny literární vědy (pořadí)",
+              "zadni": "1. teorie, 2. historie, 3. kritika"
+            },
+            {
+              "predni": "literární teorie",
+              "zadni": "druhy, žánry, struktura díla, jazykové prostředky"
+            },
+            {
+              "predni": "recenze",
+              "zadni": "žánr literární kritiky — hodnocení díla"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Literatura** (lat. littera = písmeno) = písemnictví; **širší smysl** = všechny písemné projevy, **užší smysl** = umělecká literatura + ústní lidová slovesnost.\n- **ULS** se šířila ústně, z generace na generaci, autor je **anonymní**.\n- **Funkce:** 1. informativní – 2. formativní – 3. estetická.\n- **Literární věda:** 1. teorie (druhy, žánry, stavba) – 2. historie (vývoj v čase) – 3. kritika (hodnocení, žánr **recenze**).\n- **Literární druhy:** 1. epika – 2. lyrika – 3. drama."
+        }
+      ]
+    },
+    {
+      "temaId": "cj-epika-zanry",
+      "nazev": "Epika a epické žánry",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Večer projíždíš Netflix: Historické, Válečné, Detektivky, Skutečné příběhy, Cestovatelské dokumenty, Stand-up… Každá kategorie ti slibuje jiný zážitek, a proto podle ní vybíráš. Literární žánry jsou úplně stejné kategorie — jen o pár tisíc let starší. Kdo je zná, pozná z jedné věty převyprávění, co ho čeká."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Epika** = literární druh, který má **děj**; nositelem děje jsou **postavy** a děj je zasazen do **času a prostoru**.\n\n- **Epos** — rozsáhlá **veršovaná** skladba, události jdou **chronologicky**. Varianty: **hrdinský** (Epos o Gilgamešovi) a **rytířský** (středověk).\n- **Román** — rozsáhlý, různá společenská prostředí, **osudy mnoha postav** v dlouhém úseku života; hlavní linie se **větví** do vedlejších epizod. **Druhy románů:** historický, válečný, utopický, psychologický, detektivní, autobiografický.\n- **Legenda** — vyprávění o **životě svatých**: dobré skutky a mučednická smrt (sv. Václav a Ludmila).\n- **Kronika** — dějinné události, **jak šly za sebou** (Kosmova kronika).\n- **Povídka** — kratší, **jednoduchý děj**, několik postav, děj plyne **pomaleji**.\n- **Novela** — kratší, **rychlý spád**, závěr často **překvapivý = pointa** (čti [poenta]).\n- **Romaneto** — na začátku **záhada**, zdánlivě nevysvětlitelná, na konci **rozumově vysvětlená** (typicky Jakub Arbes).\n- **Cestopis** — poutavé vyprávění o **cestě do cizích zemí**.\n- **Anekdota** — krátká situace, která vyústí v **nečekanou komickou pointu**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Když kamarád řekne „to je spíš novela než román“, ví přesně, jak dlouho a jak rychle to bude odsýpat. Žánr je zkratka pro očekávání: u detektivky čekáš vraha, u anekdoty pointu, u cestopisu cizí země. Hodí se to při výběru knihy k maturitní četbě, při psaní anotace do čtenářského deníku i ve chvíli, kdy na TikToku natáčíš doporučení knížek — jedno správné slovo řekne víc než minuta vysvětlování."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 370' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Strom epických žánrů ve čtyřech skupinách: velké skladby, kratší próza, žánry o skutečných osobách a událostech a lidová tradice a dávné příběhy'><rect x='150' y='8' width='340' height='54' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='320' y='30' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>EPIKA</text><text x='320' y='50' text-anchor='middle' font-size='10.5' fill='currentColor'>děj + postavy + čas a prostor</text><line x1='320' y1='62' x2='320' y2='76' stroke='var(--akcent)' stroke-width='1.5' /><line x1='87' y1='76' x2='553' y2='76' stroke='var(--akcent)' stroke-width='1.5' /><line x1='86' y1='76' x2='86' y2='90' stroke='var(--akcent)' stroke-width='1.5' /><rect x='10' y='90' width='152' height='270' rx='10' fill='none' stroke='var(--info)' stroke-width='2.5' /><text x='86' y='110' text-anchor='middle' font-size='10' font-weight='bold' fill='currentColor'>VELKÉ SKLADBY</text><text x='86' y='150' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>epos</text><text x='86' y='166' text-anchor='middle' font-size='9.5' fill='currentColor'>rozsáhlý, veršovaný</text><text x='86' y='180' text-anchor='middle' font-size='9.5' fill='currentColor'>hrdinský × rytířský</text><text x='86' y='204' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>román</text><text x='86' y='220' text-anchor='middle' font-size='9.5' fill='currentColor'>rozsáhlý, mnoho postav</text><text x='86' y='234' text-anchor='middle' font-size='9.5' fill='currentColor'>děj se větví (epizody)</text><line x1='243' y1='76' x2='243' y2='90' stroke='var(--akcent)' stroke-width='1.5' /><rect x='167' y='90' width='152' height='270' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='243' y='110' text-anchor='middle' font-size='10' font-weight='bold' fill='currentColor'>KRATŠÍ PRÓZA</text><text x='243' y='150' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>povídka</text><text x='243' y='166' text-anchor='middle' font-size='9.5' fill='currentColor'>jednoduchý děj,</text><text x='243' y='180' text-anchor='middle' font-size='9.5' fill='currentColor'>plyne pomaleji</text><text x='243' y='204' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>novela</text><text x='243' y='220' text-anchor='middle' font-size='9.5' fill='currentColor'>rychlý spád,</text><text x='243' y='234' text-anchor='middle' font-size='9.5' fill='currentColor'>překvapivý závěr = pointa</text><text x='243' y='258' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>romaneto</text><text x='243' y='274' text-anchor='middle' font-size='9.5' fill='currentColor'>záhada na začátku,</text><text x='243' y='288' text-anchor='middle' font-size='9.5' fill='currentColor'>→ rozumové vysvětlení</text><text x='243' y='312' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>anekdota</text><text x='243' y='328' text-anchor='middle' font-size='9.5' fill='currentColor'>krátká situace →</text><text x='243' y='342' text-anchor='middle' font-size='9.5' fill='currentColor'>komická pointa</text><line x1='400' y1='76' x2='400' y2='90' stroke='var(--akcent)' stroke-width='1.5' /><rect x='324' y='90' width='152' height='270' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2.5' /><text x='400' y='110' text-anchor='middle' font-size='10' font-weight='bold' fill='currentColor'>O SKUTEČNÝCH OSOBÁCH</text><text x='400' y='124' text-anchor='middle' font-size='10' font-weight='bold' fill='currentColor'>A UDÁLOSTECH</text><text x='400' y='150' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>legenda</text><text x='400' y='166' text-anchor='middle' font-size='9.5' fill='currentColor'>život svatých, skutky</text><text x='400' y='180' text-anchor='middle' font-size='9.5' fill='currentColor'>a mučednická smrt</text><text x='400' y='204' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>kronika</text><text x='400' y='220' text-anchor='middle' font-size='9.5' fill='currentColor'>dějinné události,</text><text x='400' y='234' text-anchor='middle' font-size='9.5' fill='currentColor'>jak šly za sebou</text><text x='400' y='258' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>cestopis</text><text x='400' y='274' text-anchor='middle' font-size='9.5' fill='currentColor'>poutavě o cestě</text><text x='400' y='288' text-anchor='middle' font-size='9.5' fill='currentColor'>do cizích zemí</text><line x1='557' y1='76' x2='557' y2='90' stroke='var(--akcent)' stroke-width='1.5' /><rect x='481' y='90' width='152' height='270' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2.5' /><text x='557' y='110' text-anchor='middle' font-size='10' font-weight='bold' fill='currentColor'>LIDOVÁ TRADICE</text><text x='557' y='124' text-anchor='middle' font-size='10' font-weight='bold' fill='currentColor'>A DÁVNÉ PŘÍBĚHY</text><text x='557' y='150' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>pohádka</text><text x='557' y='166' text-anchor='middle' font-size='9.5' fill='currentColor'>bez času a místa,</text><text x='557' y='180' text-anchor='middle' font-size='9.5' fill='currentColor'>dobro vítězí, číslo 3</text><text x='557' y='204' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>pověst</text><text x='557' y='220' text-anchor='middle' font-size='9.5' fill='currentColor'>pravdivé jádro,</text><text x='557' y='234' text-anchor='middle' font-size='9.5' fill='currentColor'>konkrétní místo a čas</text><text x='557' y='258' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>báje (mýty)</text><text x='557' y='274' text-anchor='middle' font-size='9.5' fill='currentColor'>vznik světa, bohové</text><text x='557' y='288' text-anchor='middle' font-size='9.5' fill='currentColor'>(řecké, biblické)</text><text x='557' y='312' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>bajka</text><text x='557' y='328' text-anchor='middle' font-size='9.5' fill='currentColor'>zvířata jednají jako lidé,</text><text x='557' y='342' text-anchor='middle' font-size='9.5' fill='currentColor'>alegorie + ponaučení</text></svg>",
+          "popisek": "Strom epiky: nahoře definice (děj + postavy + čas a prostor), pod ní čtyři skupiny žánrů s jejich poznávacím znakem. Rozdělení do čtyř skupin (velké skladby, kratší próza, o skutečných osobách a událostech, lidová tradice a dávné příběhy) je jen pomůcka na zapamatování, ne součást učitelova výčtu."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-epika-zanry-1",
+            "temaId": "cj-epika-zanry",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Kamarád ti doporučí knížku: „Má jen asi 40 stran, odsýpá to strašně rychle a na konci zjistíš, že vypravěč byl celou dobu ten, koho hledali.“ O jaký žánr nejspíš jde?",
+            "moznosti": [
+              "novela",
+              "povídka",
+              "román",
+              "legenda"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Kratší text + rychlý spád + překvapivý závěr (pointa) = novela. Povídka má jednodušší a pomalejší děj bez nutné pointy, román je rozsáhlý s mnoha postavami a legenda vypráví o životě svatých."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Příběhy z lidové tradice a dávných dob:**\n\n- **Pohádka** — vymyšlená, **bez konkrétního času a prostoru**, spojená s ústní lidovou slovesností. **Dobro vítězí nad zlem**, opakují se čísla (hlavně **3**), zasahují **nadpřirozené bytosti**. Lidové pohádky **sbírali Němcová, Erben** a v Německu **bratři Grimmové**. Vedle lidové existuje **pohádka umělá (autorská)** — **Karel Čapek**.\n- **Pověst** — **jádro je pravdivé**, zbytek vymyšlený; vztahuje se k **určitému místu**, děj v **konkrétním místě a čase** (třeba praotec Čech na Řípu).\n- **Báje (mýty)** — jak si lidé představovali **vznik světa a přírodní síly**; vystupují **bohové**. Pro Evropu je důležitá mytologie **řecká a židovská (v Bibli)**.\n- **Bajka** — veršovaný, **alegorický** příběh (**alegorie = jinotaj**, skrytý smysl); **zvířata jednají jako lidé** (i věci a rostliny), na závěr **ponaučení**. (Bajky bývají i v próze — např. Ezopovy.)\n\nPozor na záměny: **pohádka × pověst** (žádné × konkrétní místo), **pověst × báje** (lidé a místo × bohové a vznik světa)."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 340' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Srovnání pohádky, pověsti, báje a bajky podle toho, kdo jedná, kde a kdy se příběh odehrává a jaký má poznávací znak'><text x='320' y='22' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>POHÁDKA × POVĚST × BÁJE × BAJKA</text><rect x='130' y='36' width='118' height='290' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2.5' /><text x='189' y='58' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>POHÁDKA</text><rect x='255' y='36' width='118' height='290' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='314' y='58' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>POVĚST</text><rect x='380' y='36' width='118' height='290' rx='10' fill='none' stroke='var(--info)' stroke-width='2.5' /><text x='439' y='58' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>BÁJE (MÝTY)</text><rect x='505' y='36' width='118' height='290' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2.5' /><text x='564' y='58' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>BAJKA</text><text x='14' y='100' text-anchor='start' font-size='10.5' font-weight='bold' fill='currentColor'>Kdo jedná</text><text x='189' y='92' text-anchor='middle' font-size='10' fill='currentColor'>lidé + nadpřirozené</text><text x='189' y='108' text-anchor='middle' font-size='10' fill='currentColor'>bytosti</text><text x='314' y='92' text-anchor='middle' font-size='10' fill='currentColor'>lidé, často</text><text x='314' y='108' text-anchor='middle' font-size='10' fill='currentColor'>skuteční</text><text x='439' y='92' text-anchor='middle' font-size='10' fill='currentColor'>bohové</text><text x='439' y='108' text-anchor='middle' font-size='10' fill='currentColor'>(a hrdinové)</text><text x='564' y='92' text-anchor='middle' font-size='10' fill='currentColor'>zvířata (i věci,</text><text x='564' y='108' text-anchor='middle' font-size='10' fill='currentColor'>rostliny) jako lidé</text><text x='14' y='180' text-anchor='start' font-size='10.5' font-weight='bold' fill='currentColor'>Kde a kdy</text><line x1='14' y1='150' x2='620' y2='150' stroke='var(--zlata)' stroke-width='0.8' /><text x='189' y='172' text-anchor='middle' font-size='10' fill='currentColor'>neurčito:</text><text x='189' y='188' text-anchor='middle' font-size='10' fill='currentColor'>„Bylo, nebylo…“</text><text x='314' y='172' text-anchor='middle' font-size='10' fill='currentColor'>konkrétní místo</text><text x='314' y='188' text-anchor='middle' font-size='10' fill='currentColor'>a čas</text><text x='439' y='172' text-anchor='middle' font-size='10' fill='currentColor'>počátky světa,</text><text x='439' y='188' text-anchor='middle' font-size='10' fill='currentColor'>přírodní síly</text><text x='564' y='180' text-anchor='middle' font-size='10' fill='currentColor'>nehraje roli</text><text x='14' y='260' text-anchor='start' font-size='10.5' font-weight='bold' fill='currentColor'>Poznávací znak</text><line x1='14' y1='230' x2='620' y2='230' stroke='var(--zlata)' stroke-width='0.8' /><text x='189' y='252' text-anchor='middle' font-size='10' fill='currentColor'>dobro vítězí,</text><text x='189' y='268' text-anchor='middle' font-size='10' fill='currentColor'>číslo 3</text><text x='314' y='252' text-anchor='middle' font-size='10' fill='currentColor'>pravdivé jádro,</text><text x='314' y='268' text-anchor='middle' font-size='10' fill='currentColor'>zbytek vymyšlený</text><text x='439' y='252' text-anchor='middle' font-size='10' fill='currentColor'>vysvětluje vznik</text><text x='439' y='268' text-anchor='middle' font-size='10' fill='currentColor'>světa a přírody</text><text x='564' y='252' text-anchor='middle' font-size='10' fill='currentColor'>alegorie (jinotaj)</text><text x='564' y='268' text-anchor='middle' font-size='10' fill='currentColor'>+ ponaučení</text></svg>",
+          "popisek": "Čtyři žánry z lidové tradice a dávných příběhů vedle sebe ve třech řádcích: kdo v příběhu jedná, kde a kdy se odehrává a podle čeho žánr poznáš. Když nevíš, začni řádkem „Kde a kdy“ — konkrétní místo prozradí pověst."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              {
+                "a": "epos",
+                "b": "rozsáhlá veršovaná skladba, hrdinský × rytířský"
+              },
+              {
+                "a": "román",
+                "b": "rozsáhlý, mnoho postav, děj se větví"
+              },
+              {
+                "a": "legenda",
+                "b": "život svatých a mučednická smrt"
+              },
+              {
+                "a": "kronika",
+                "b": "dějinné události, jak šly za sebou"
+              },
+              {
+                "a": "povídka",
+                "b": "jednoduchý děj, plyne pomaleji"
+              },
+              {
+                "a": "novela",
+                "b": "rychlý spád, překvapivá pointa"
+              },
+              {
+                "a": "romaneto",
+                "b": "záhada na konci rozumově vysvětlená"
+              },
+              {
+                "a": "pohádka",
+                "b": "bez času a místa, dobro vítězí"
+              },
+              {
+                "a": "pověst",
+                "b": "pravdivé jádro, konkrétní místo a čas"
+              },
+              {
+                "a": "báje (mýty)",
+                "b": "bohové, vznik světa a přírodních sil"
+              },
+              {
+                "a": "bajka",
+                "b": "zvířata jako lidé, alegorie a ponaučení"
+              },
+              {
+                "a": "anekdota",
+                "b": "krátká situace s komickou pointou"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-epika-zanry-2",
+            "temaId": "cj-epika-zanry",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Pověst se na rozdíl od pohádky vztahuje k určitému místu a má pravdivé jádro.",
+            "spravna": true,
+            "vysvetleni": "Ano — pověst má konkrétní místo a čas a pravdivé jádro (zbytek je vymyšlený). Pohádka se odehrává „kdesi za devatero horami“, bez konkrétního času a prostoru."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "O přestávce ti spolužáci převyprávějí tři příběhy. Urči žánr a řekni, podle čeho jsi to poznal:\n\n1) „V Praze prý rabi Löw za Rudolfa II. stvořil z hlíny Golema, který mu sloužil, dokud se nevzbouřil.“\n2) „Prométheus ukradl bohům oheň a dal ho lidem. Zeus ho za to nechal přikovat ke skále.“\n3) „Mravenec celé léto dřel, cvrček hrál. V zimě cvrček hladověl. Kdo nepracuje, ať nečeká pomoc.“",
+          "reseni": "**1) Pověst.** Konkrétní místo (Praha) a čas (doba Rudolfa II.), skutečná osoba (rabi Löw opravdu žil) = **pravdivé jádro**; Golem je vymyšlený. Pohádka by začínala „Bylo, nebylo…“ bez místa a času.\n\n**2) Báje (mýtus).** Vystupují **bohové** (Zeus) a příběh vysvětluje, jak lidé získali oheň — představa o světě a přírodních silách. Je to **řecká** mytologie.\n\n**3) Bajka.** **Zvířata jednají jako lidé**, příběh má **skrytý smysl** (alegorie: cvrček = lenoch) a končí **ponaučením**.\n\n**Postup na písemku:** 1. Jedná se o bohy? → báje. 2. Jsou to zvířata s ponaučením? → bajka. 3. Je tam konkrétní místo a pravdivé jádro? → pověst. 4. Bez času a místa, dobro vítězí? → pohádka."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "epika",
+              "zadni": "má děj, nositelem děje jsou postavy, děj je v čase a prostoru"
+            },
+            {
+              "predni": "epos",
+              "zadni": "rozsáhlá veršovaná skladba, chronologicky; hrdinský (Gilgameš) × rytířský (středověk)"
+            },
+            {
+              "predni": "druhy románů",
+              "zadni": "historický, válečný, utopický, psychologický, detektivní, autobiografický"
+            },
+            {
+              "predni": "povídka × novela",
+              "zadni": "povídka: jednoduchý, pomalejší děj; novela: rychlý spád a překvapivá pointa"
+            },
+            {
+              "predni": "romaneto",
+              "zadni": "záhadná, zdánlivě nevysvětlitelná událost, na konci rozumově vysvětlená"
+            },
+            {
+              "predni": "lidová × umělá pohádka",
+              "zadni": "lidová: anonymní, sbírali Němcová, Erben, bratři Grimmové; umělá: má autora (Čapek)"
+            },
+            {
+              "predni": "pověst",
+              "zadni": "pravdivé jádro, zbytek vymyšlený; konkrétní místo a čas"
+            },
+            {
+              "predni": "báje (mýty)",
+              "zadni": "vznik světa a přírodní síly, vystupují bohové; řecké a židovské (Bible)"
+            },
+            {
+              "predni": "alegorie",
+              "zadni": "jinotaj — příběh se skrytým smyslem (typicky bajka)"
+            },
+            {
+              "predni": "legenda × kronika",
+              "zadni": "legenda: život svatých; kronika: dějinné události, jak šly za sebou"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Epika** = děj + postavy + čas a prostor.\n- **Velké skladby:** epos (veršovaný; hrdinský × rytířský), román (mnoho postav, větví se; historický, válečný, utopický, psychologický, detektivní, autobiografický).\n- **Kratší próza:** povídka (pomalý, jednoduchý děj) × novela (rychlý spád + pointa), romaneto (záhada → vysvětlení), anekdota (komická pointa).\n- **O skutečných osobách a událostech:** legenda (svatí), kronika (události za sebou), cestopis.\n- **Lidová tradice a dávné příběhy:** pohádka (bez místa a času), pověst (pravdivé jádro, místo), báje (bohové), bajka (alegorie = jinotaj + ponaučení).\n\nSkupiny jsou jen pomůcka na zapamatování — v písemce stačí žánr a jeho znaky."
+        }
+      ]
+    },
+    {
+      "temaId": "cj-lyrika-drama",
+      "nazev": "Lyrika, drama a výrazové formy",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Projíždíš svůj playlist: smutná písnička po rozchodu, hymna, kterou celý stadion zpívá před zápasem, a song, co se ti honí hlavou kvůli refrénu. Žádná z nich nevypráví pořádný příběh — a přesto tě každá dostane jinak. Vítej v lyrice: literatuře, která místo děje nese pocity."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Lyrika** vyjadřuje **pocity a nálady** a **nemá děj**. V básni mluví **lyrický mluvčí** (nemusí to být sám autor).\n\nLyriku dělíme podle toho, co vyjadřuje: **1. osobní, 2. milostná, 3. přírodní, 4. meditativní** (úvahy o životě a smrti), **5. politická**.\n\n**Lyrické žánry:**\n\n- **píseň** — určená ke **zpěvu**, rytmus, rým, pravidelná sloka, často **refrén**,\n- **elegie (žalozpěv)** — **smutná** báseň,\n- **óda (chvalozpěv)** — **oslavná** báseň (přátelství, vlast),\n- **hymnus** — **patetická** báseň,\n- **epitaf** — **náhrobní nápis**,\n- **epigram** — krátká **satirická** báseň s **pointou**,\n- **pásmo** — **polytematická** báseň, metoda **asociace**.\n\n**Lyrickoepické žánry** — děj je **potlačen** a vyjádřeny jsou i **pocity**:\n\n- **balada** — smutný děj, **tragický konec**, rychlý spád, **konflikt**,\n- **romance** — **šťastný konec**, milostná tematika."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Texty písní, které posloucháš, jsou lyrika — a teď jim umíš dát jméno: smutná balada po rozchodu je v literárním smyslu spíš **elegie**, píseň s chytlavým **refrénem** je **píseň**, nápis na hrobě v seriálu **epitaf**. A až budeš psát přání k narozeninám nebo text na svatbu bráchy, víš, jak poskládat **rým**, aby to znělo — sdružený aabb se píše nejsnáz."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 365' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Mapa lyriky s pěti typy a žánry, lyrickoepických žánrů balady a romance a dramatu s jeho pojmy a žánry'><rect x='10' y='10' width='222' height='345' rx='10' fill='none' stroke='var(--info)' stroke-width='2.5' /><text x='121' y='34' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>LYRIKA</text><text x='121' y='54' text-anchor='middle' font-size='10.5' fill='currentColor'>pocity a nálady, NEMÁ děj</text><text x='121' y='70' text-anchor='middle' font-size='10.5' fill='currentColor'>mluví lyrický mluvčí</text><line x1='25' y1='82' x2='217' y2='82' stroke='var(--info)' stroke-width='1.5' /><text x='121' y='100' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>Podle toho, co vyjadřuje:</text><text x='121' y='117' text-anchor='middle' font-size='10.5' fill='currentColor'>1. osobní · 2. milostná</text><text x='121' y='133' text-anchor='middle' font-size='10.5' fill='currentColor'>3. přírodní · 4. meditativní</text><text x='121' y='149' text-anchor='middle' font-size='10.5' fill='currentColor'>5. politická</text><line x1='25' y1='161' x2='217' y2='161' stroke='var(--info)' stroke-width='1.5' /><text x='121' y='179' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>Žánry:</text><text x='121' y='197' text-anchor='middle' font-size='10.5' fill='currentColor'>píseň (refrén)</text><text x='121' y='214' text-anchor='middle' font-size='10.5' fill='currentColor'>elegie = žalozpěv (smutná)</text><text x='121' y='231' text-anchor='middle' font-size='10.5' fill='currentColor'>óda = chvalozpěv (oslavná)</text><text x='121' y='248' text-anchor='middle' font-size='10.5' fill='currentColor'>hymnus = patetická báseň</text><text x='121' y='265' text-anchor='middle' font-size='10.5' fill='currentColor'>epitaf = náhrobní nápis</text><text x='121' y='282' text-anchor='middle' font-size='10.5' fill='currentColor'>epigram = satira s pointou</text><text x='121' y='299' text-anchor='middle' font-size='10.5' fill='currentColor'>pásmo = víc témat, asociace</text><rect x='242' y='10' width='160' height='345' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2.5' /><text x='322' y='34' text-anchor='middle' font-size='12.5' font-weight='bold' fill='currentColor'>LYRICKOEPICKÉ</text><text x='322' y='50' text-anchor='middle' font-size='12.5' font-weight='bold' fill='currentColor'>ŽÁNRY</text><text x='322' y='72' text-anchor='middle' font-size='10.5' fill='currentColor'>děj potlačený</text><text x='322' y='88' text-anchor='middle' font-size='10.5' fill='currentColor'>+ vyjádřené pocity</text><line x1='257' y1='100' x2='387' y2='100' stroke='var(--zlata)' stroke-width='1.5' /><text x='322' y='124' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>BALADA</text><text x='322' y='142' text-anchor='middle' font-size='10.5' fill='currentColor'>smutný děj, konflikt,</text><text x='322' y='158' text-anchor='middle' font-size='10.5' fill='currentColor'>rychlý spád,</text><text x='322' y='174' text-anchor='middle' font-size='10.5' fill='currentColor'>tragický konec</text><line x1='257' y1='192' x2='387' y2='192' stroke='var(--zlata)' stroke-width='1.5' /><text x='322' y='216' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>ROMANCE</text><text x='322' y='234' text-anchor='middle' font-size='10.5' fill='currentColor'>šťastný konec,</text><text x='322' y='250' text-anchor='middle' font-size='10.5' fill='currentColor'>milostná tematika</text><text x='322' y='300' text-anchor='middle' font-size='10' fill='currentColor'>stojí na pomezí</text><text x='322' y='316' text-anchor='middle' font-size='10' fill='currentColor'>lyriky a epiky</text><rect x='412' y='10' width='218' height='345' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2.5' /><text x='521' y='34' text-anchor='middle' font-size='14' font-weight='bold' fill='currentColor'>DRAMA</text><text x='521' y='54' text-anchor='middle' font-size='10.5' fill='currentColor'>k předvádění na jevišti</text><line x1='427' y1='66' x2='615' y2='66' stroke='var(--uspech)' stroke-width='1.5' /><text x='521' y='86' text-anchor='middle' font-size='10.5' fill='currentColor'>monolog = mluví jedna postava</text><text x='521' y='103' text-anchor='middle' font-size='10.5' fill='currentColor'>dialog = 2 a více postav</text><text x='521' y='120' text-anchor='middle' font-size='10.5' fill='currentColor'>replika = co postava říká</text><text x='521' y='137' text-anchor='middle' font-size='10.5' fill='currentColor'>scénář = text pro herce</text><text x='521' y='154' text-anchor='middle' font-size='10.5' fill='currentColor'>(scénické poznámky v závorce)</text><line x1='427' y1='168' x2='615' y2='168' stroke='var(--uspech)' stroke-width='1.5' /><text x='521' y='190' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>TRAGÉDIE</text><text x='521' y='208' text-anchor='middle' font-size='10.5' fill='currentColor'>vznešená, vážný obsah,</text><text x='521' y='224' text-anchor='middle' font-size='10.5' fill='currentColor'>konflikt s mocnějšími silami,</text><text x='521' y='240' text-anchor='middle' font-size='10.5' fill='currentColor'>hrdina v závěru umírá</text><text x='521' y='256' text-anchor='middle' font-size='10.5' fill='currentColor'>(Hamlet, Romeo a Julie)</text><text x='521' y='284' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>KOMEDIE</text><text x='521' y='302' text-anchor='middle' font-size='10.5' fill='currentColor'>veselá, k pobavení</text></svg>",
+          "popisek": "Mapa tří oblastí: vlevo lyrika (bez děje) s pěti typy v pořadí ze zápisu a se žánry, uprostřed lyrickoepické žánry na pomezí lyriky a epiky (balada × romance), vpravo drama s pojmy z divadla a dvěma základními žánry."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-lyrika-drama-1",
+            "temaId": "cj-lyrika-drama",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Básník v textu rozjímá o smyslu života, o čase, který utíká, a o smrti. Jaký je to typ lyriky?",
+            "moznosti": [
+              "meditativní",
+              "politická",
+              "přírodní",
+              "milostná"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Úvahy (rozjímání) o životě, smrti a smyslu bytí = meditativní lyrika. Politická lyrika řeší společnost a moc, přírodní přírodu a milostná lásku."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Drama** je určeno k **předvádění na jevišti**.\n\n- **monolog** — postava mluví **sama**; **dialog** — **dvě nebo více** postav,\n- **repliky** — to, **co postava říká**,\n- **scénář** — text, ze kterého se herci učí; **scénické poznámky** (v **závorce**) říkají, co mají dělat.\n- **Tragédie** — vznešená, vážná; hrdina v **konfliktu se silami mocnějšími, než je on**, v závěru **umírá** (Hamlet, Romeo a Julie). **Komedie** — veselá, k **pobavení**.\n\n**Výrazové formy:** **próza** = souvislý text ve **větách** (odstavce, kapitoly); **poezie** = **verše** — **verš** = jeden řádek básně, víc veršů = **sloka (strofa)**. Verš je **vázaný** (pravidelný rytmus, obvykle rým), nebo **volný** (bez pravidelného rytmu). **Rým** = zvuková shoda slabik na konci veršů.\n\n**Druhy rýmů** (v pořadí ze zápisu): **abab střídavý**, **aabb sdružený**, **abba obkročný**, **abc abc postupný**, **abcb přerývaný** (rýmuje se jen 2. a 4. verš)."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox='0 0 640 345' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Pět rýmových schémat: střídavý abab, sdružený aabb, obkročný abba, postupný abc abc a přerývaný abcb; oblouky spojují verše, které se rýmují'><text x='320' y='22' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>DRUHY RÝMŮ — stejné písmeno = verše, které se rýmují</text><rect x='8' y='36' width='120' height='250' rx='10' fill='none' stroke='var(--zlata)' stroke-width='1.5' /><text x='26' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>a</text><line x1='38' y1='64' x2='86' y2='64' stroke='var(--akcent)' stroke-width='3' stroke-linecap='round' /><text x='26' y='94' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>b</text><line x1='38' y1='90' x2='86' y2='90' stroke='var(--info)' stroke-width='3' stroke-linecap='round' /><text x='26' y='120' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>a</text><line x1='38' y1='116' x2='86' y2='116' stroke='var(--akcent)' stroke-width='3' stroke-linecap='round' /><text x='26' y='146' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>b</text><line x1='38' y1='142' x2='86' y2='142' stroke='var(--info)' stroke-width='3' stroke-linecap='round' /><path d='M 90 64 C 108 64, 108 116, 90 116' fill='none' stroke='var(--akcent)' stroke-width='2' /><path d='M 90 90 C 122 90, 122 142, 90 142' fill='none' stroke='var(--info)' stroke-width='2' /><text x='68' y='246' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>STŘÍDAVÝ</text><text x='68' y='266' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>abab</text><rect x='134' y='36' width='120' height='250' rx='10' fill='none' stroke='var(--zlata)' stroke-width='1.5' /><text x='152' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>a</text><line x1='164' y1='64' x2='212' y2='64' stroke='var(--akcent)' stroke-width='3' stroke-linecap='round' /><text x='152' y='94' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>a</text><line x1='164' y1='90' x2='212' y2='90' stroke='var(--akcent)' stroke-width='3' stroke-linecap='round' /><text x='152' y='120' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>b</text><line x1='164' y1='116' x2='212' y2='116' stroke='var(--info)' stroke-width='3' stroke-linecap='round' /><text x='152' y='146' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>b</text><line x1='164' y1='142' x2='212' y2='142' stroke='var(--info)' stroke-width='3' stroke-linecap='round' /><path d='M 216 64 C 232 64, 232 90, 216 90' fill='none' stroke='var(--akcent)' stroke-width='2' /><path d='M 216 116 C 232 116, 232 142, 216 142' fill='none' stroke='var(--info)' stroke-width='2' /><text x='194' y='246' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>SDRUŽENÝ</text><text x='194' y='266' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>aabb</text><rect x='260' y='36' width='120' height='250' rx='10' fill='none' stroke='var(--zlata)' stroke-width='1.5' /><text x='278' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>a</text><line x1='290' y1='64' x2='338' y2='64' stroke='var(--akcent)' stroke-width='3' stroke-linecap='round' /><text x='278' y='94' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>b</text><line x1='290' y1='90' x2='338' y2='90' stroke='var(--info)' stroke-width='3' stroke-linecap='round' /><text x='278' y='120' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>b</text><line x1='290' y1='116' x2='338' y2='116' stroke='var(--info)' stroke-width='3' stroke-linecap='round' /><text x='278' y='146' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>a</text><line x1='290' y1='142' x2='338' y2='142' stroke='var(--akcent)' stroke-width='3' stroke-linecap='round' /><path d='M 342 64 C 374 64, 374 142, 342 142' fill='none' stroke='var(--akcent)' stroke-width='2' /><path d='M 342 90 C 358 90, 358 116, 342 116' fill='none' stroke='var(--info)' stroke-width='2' /><text x='320' y='246' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>OBKROČNÝ</text><text x='320' y='266' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>abba</text><rect x='386' y='36' width='120' height='250' rx='10' fill='none' stroke='var(--zlata)' stroke-width='1.5' /><text x='404' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>a</text><line x1='416' y1='64' x2='464' y2='64' stroke='var(--akcent)' stroke-width='3' stroke-linecap='round' /><text x='404' y='94' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>b</text><line x1='416' y1='90' x2='464' y2='90' stroke='var(--info)' stroke-width='3' stroke-linecap='round' /><text x='404' y='120' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--uspech)'>c</text><line x1='416' y1='116' x2='464' y2='116' stroke='var(--uspech)' stroke-width='3' stroke-linecap='round' /><text x='404' y='146' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--akcent)'>a</text><line x1='416' y1='142' x2='464' y2='142' stroke='var(--akcent)' stroke-width='3' stroke-linecap='round' /><text x='404' y='172' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>b</text><line x1='416' y1='168' x2='464' y2='168' stroke='var(--info)' stroke-width='3' stroke-linecap='round' /><text x='404' y='198' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--uspech)'>c</text><line x1='416' y1='194' x2='464' y2='194' stroke='var(--uspech)' stroke-width='3' stroke-linecap='round' /><path d='M 468 64 C 482 64, 482 142, 468 142' fill='none' stroke='var(--akcent)' stroke-width='2' /><path d='M 468 90 C 492 90, 492 168, 468 168' fill='none' stroke='var(--info)' stroke-width='2' /><path d='M 468 116 C 502 116, 502 194, 468 194' fill='none' stroke='var(--uspech)' stroke-width='2' /><text x='446' y='246' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>POSTUPNÝ</text><text x='446' y='266' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>abc abc</text><rect x='512' y='36' width='120' height='250' rx='10' fill='none' stroke='var(--zlata)' stroke-width='1.5' /><text x='530' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor' opacity='0.45'>a</text><line x1='542' y1='64' x2='590' y2='64' stroke='currentColor' stroke-width='3' stroke-linecap='round' opacity='0.45' /><text x='530' y='94' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>b</text><line x1='542' y1='90' x2='590' y2='90' stroke='var(--info)' stroke-width='3' stroke-linecap='round' /><text x='530' y='120' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor' opacity='0.45'>c</text><line x1='542' y1='116' x2='590' y2='116' stroke='currentColor' stroke-width='3' stroke-linecap='round' opacity='0.45' /><text x='530' y='146' text-anchor='middle' font-size='13' font-weight='bold' fill='var(--info)'>b</text><line x1='542' y1='142' x2='590' y2='142' stroke='var(--info)' stroke-width='3' stroke-linecap='round' /><path d='M 594 90 C 616 90, 616 142, 594 142' fill='none' stroke='var(--info)' stroke-width='2' /><text x='572' y='246' text-anchor='middle' font-size='11' font-weight='bold' fill='currentColor'>PŘERÝVANÝ</text><text x='572' y='266' text-anchor='middle' font-size='12' font-weight='bold' fill='currentColor'>abcb</text><text x='320' y='312' text-anchor='middle' font-size='11' fill='currentColor'>Pořadí ze zápisu: střídavý → sdružený → obkročný → postupný → přerývaný</text><text x='320' y='332' text-anchor='middle' font-size='11' fill='currentColor'>Přerývaný (abcb): 1. a 3. verš se nerýmují s ničím — proto jsou šedé.</text></svg>",
+          "popisek": "Pět rýmových schémat. Každý řádek je jeden verš, oblouk spojuje verše, které se rýmují (stejné písmeno, stejná barva). U přerývaného rýmu jsou 1. a 3. verš šedé — nerýmují se s ničím."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď žánry. Ptej se: jen pocity (lyrika)? Pocity i potlačený děj (lyrickoepické)? Hraje se to na jevišti (drama)? Nebo plnohodnotný děj (epika)?",
+            "kategorie": [
+              {
+                "id": "lyrika",
+                "nazev": "lyrika"
+              },
+              {
+                "id": "lyrickoepika",
+                "nazev": "lyrickoepické žánry"
+              },
+              {
+                "id": "drama",
+                "nazev": "drama"
+              },
+              {
+                "id": "epika",
+                "nazev": "epika"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "óda (chvalozpěv)",
+                "kategorieId": "lyrika"
+              },
+              {
+                "text": "elegie (žalozpěv)",
+                "kategorieId": "lyrika"
+              },
+              {
+                "text": "epitaf",
+                "kategorieId": "lyrika"
+              },
+              {
+                "text": "epigram",
+                "kategorieId": "lyrika"
+              },
+              {
+                "text": "pásmo",
+                "kategorieId": "lyrika"
+              },
+              {
+                "text": "hymnus",
+                "kategorieId": "lyrika"
+              },
+              {
+                "text": "balada",
+                "kategorieId": "lyrickoepika"
+              },
+              {
+                "text": "romance",
+                "kategorieId": "lyrickoepika"
+              },
+              {
+                "text": "tragédie",
+                "kategorieId": "drama"
+              },
+              {
+                "text": "komedie",
+                "kategorieId": "drama"
+              },
+              {
+                "text": "novela",
+                "kategorieId": "epika"
+              },
+              {
+                "text": "pověst",
+                "kategorieId": "epika"
+              },
+              {
+                "text": "bajka",
+                "kategorieId": "epika"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-cj-lyrika-drama-2",
+            "temaId": "cj-lyrika-drama",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Ve scénáři pro školní představení stojí: „HAMLET: Být, či nebýt… (Pomalu přejde k oknu a zahledí se ven.)“ Jak se nazývá text v závorce?",
+            "moznosti": [
+              "scénická poznámka",
+              "replika",
+              "monolog",
+              "refrén"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Text v závorce říká herci, co má DĚLAT — to je scénická poznámka. „Být, či nebýt…“ je replika (to, co postava říká); protože tu Hamlet mluví sám, jde o monolog. Refrén patří k písni."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Rozeber čtyřverší (vymyšlené pro tuto lekci):\n\n„Venku prší, šedý den,\nna displeji svítí noc,\nz repráku zní tichý sen,\na já nevím, co je moc.“\n\nUrči literární druh, typ lyriky, formu, druh verše a rým. Pak zkus přehodit verše tak, aby vznikl rým sdružený.",
+          "reseni": "**Druh: lyrika.** Nic se tu neděje, není tu příběh ani postavy — báseň vyjadřuje **náladu** (smutek, nejistotu). Mluví **lyrický mluvčí** („já“).\n\n**Typ lyriky: osobní** — mluvčí vyjadřuje vlastní rozpoložení (déšť je jen kulisa nálady).\n\n**Forma: poezie** — 4 **verše** tvoří jednu **sloku (strofu)**. Verše mají pravidelný rytmus a rým → **verš vázaný**.\n\n**Rým:** den (a) – noc (b) – sen (a) – moc (b) → **abab = střídavý**. Pozor: přerývaný (abcb) to není — rýmuje se i 1. a 3. verš.\n\n**Přestavba na sdružený (aabb):** den – sen – noc – moc:\n„Venku prší, šedý den, / z repráku zní tichý sen, / na displeji svítí noc, / a já nevím, co je moc.“\n\nA obkročný (abba) by byl: den – noc – moc – sen."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "lyrika",
+              "zadni": "vyjadřuje pocity a nálady, nemá děj; mluví lyrický mluvčí"
+            },
+            {
+              "predni": "typy lyriky (pořadí)",
+              "zadni": "1. osobní, 2. milostná, 3. přírodní, 4. meditativní, 5. politická"
+            },
+            {
+              "predni": "óda × elegie",
+              "zadni": "óda = chvalozpěv (oslavná); elegie = žalozpěv (smutná)"
+            },
+            {
+              "predni": "epitaf × epigram",
+              "zadni": "epitaf = náhrobní nápis; epigram = krátká satirická báseň s pointou"
+            },
+            {
+              "predni": "pásmo",
+              "zadni": "polytematická báseň, využívá metodu asociace"
+            },
+            {
+              "predni": "balada × romance",
+              "zadni": "balada: smutný děj, konflikt, tragický konec; romance: šťastný konec, milostná tematika"
+            },
+            {
+              "predni": "replika",
+              "zadni": "to, co postava v dramatu říká"
+            },
+            {
+              "predni": "scénické poznámky",
+              "zadni": "pokyny pro herce ve scénáři, píšou se do závorky"
+            },
+            {
+              "predni": "tragédie",
+              "zadni": "vážná, hrdina v konfliktu s mocnějšími silami, v závěru umírá (Hamlet)"
+            },
+            {
+              "predni": "druhy rýmů",
+              "zadni": "abab střídavý, aabb sdružený, abba obkročný, abc abc postupný, abcb přerývaný"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Lyrika** = pocity bez děje, lyrický mluvčí; typy: osobní – milostná – přírodní – meditativní – politická.\n- **Lyrické žánry:** píseň (refrén), elegie (žalozpěv), óda (chvalozpěv), hymnus, epitaf (náhrobní nápis), epigram (satira s pointou), pásmo (asociace).\n- **Lyrickoepické:** balada (tragický konec) × romance (šťastný konec).\n- **Drama:** monolog, dialog, repliky, scénář se scénickými poznámkami; tragédie × komedie.\n- **Formy:** próza × poezie; verš vázaný × volný; rýmy abab střídavý, aabb sdružený, abba obkročný, abc abc postupný, abcb přerývaný."
+        }
+      ]
+    },
     {
       "temaId": "cj-obecne-o-jazyce",
       "nazev": "Obecné poučení o jazyce",
-      "poradi": 0,
+      "poradi": 3,
       "bloky": [
         {
           "typ": "text",
@@ -109,7 +661,7 @@
     {
       "temaId": "cj-zvukova-stranka",
       "nazev": "Zvuková stránka jazyka",
-      "poradi": 1,
+      "poradi": 4,
       "bloky": [
         {
           "typ": "text",
@@ -198,7 +750,7 @@
     {
       "temaId": "cj-pravopis",
       "nazev": "Pravopis",
-      "poradi": 2,
+      "poradi": 5,
       "bloky": [
         {
           "typ": "text",
@@ -301,7 +853,7 @@
     },    {
       "temaId": "cj-tvaroslovi",
       "nazev": "Tvarosloví",
-      "poradi": 3,
+      "poradi": 6,
       "bloky": [
         {
           "typ": "text",
@@ -392,7 +944,7 @@
     {
       "temaId": "cj-sloh-vypravovani",
       "nazev": "Sloh: vypravování a popis",
-      "poradi": 4,
+      "poradi": 7,
       "bloky": [
         {
           "typ": "text",
@@ -492,7 +1044,7 @@
     {
       "temaId": "cj-literatura-starovek",
       "nazev": "Starověká literatura",
-      "poradi": 5,
+      "poradi": 8,
       "bloky": [
         {
           "typ": "text",
@@ -607,7 +1159,7 @@
     },    {
       "temaId": "cj-literatura-stredovek",
       "nazev": "Středověká literatura",
-      "poradi": 6,
+      "poradi": 9,
       "bloky": [
         {
           "typ": "text",
@@ -702,7 +1254,7 @@
     {
       "temaId": "cj-literarni-teorie",
       "nazev": "Základy literární teorie",
-      "poradi": 7,
+      "poradi": 10,
       "bloky": [
         {
           "typ": "text",
@@ -710,7 +1262,7 @@
         },
         {
           "typ": "text",
-          "obsah": "**Literární druhy** jsou tři:\n\n- **Lyrika** — nemá děj; vyjadřuje **pocity a nálady**. Žánry: **óda** (oslavná báseň), **elegie** (žalozpěv), **sonet** (14 veršů), **epigram** (krátká satira), píseň.\n- **Epika** — má **děj, vypravěče a postavy**. Veršovaná: **epos**, **balada** (pochmurná, tragický konec), romance. Prozaická: **román**, **novela**, **povídka**, pohádka, **pověst** (váže se ke skutečnému místu), **bajka** (zvířata + ponaučení), legenda.\n- **Drama** — děj předváděný **jednáním postav na jevišti**: dialogy, monology, scénické poznámky. Žánry: **tragédie**, **komedie**, činohra.\n\n**Forma textu** je jiná věc než druh: **próza** = řeč neveršovaná (věty, odstavce), **poezie** = řeč vázaná ve **verších**. Verš = řádek básně, **sloka** = skupina veršů, **rým** = zvuková shoda konců veršů (**sdružený aabb, střídavý abab, obkročný abba**), **rytmus** = střídání přízvučných a nepřízvučných slabik."
+          "obsah": "**Literární druhy** jsou tři:\n\n- **Lyrika** — nemá děj; vyjadřuje **pocity a nálady**. Žánry: **óda** (oslavná báseň), **elegie** (žalozpěv), **sonet** (14 veršů), **epigram** (krátká satira), píseň.\n- **Epika** — má **děj, vypravěče a postavy**. Veršovaná: **epos**. Prozaická: **román**, **novela**, **povídka**, pohádka, **pověst** (váže se ke skutečnému místu), legenda. **Bajka** (zvířata + ponaučení) bývá veršem i prózou.\n- **Lyrickoepické žánry** stojí mezi lyrikou a epikou: **balada** (pochmurná, tragický konec), **romance** (šťastný konec).\n- **Drama** — děj předváděný **jednáním postav na jevišti**: dialogy, monology, scénické poznámky. Žánry: **tragédie**, **komedie**, činohra.\n\n**Forma textu** je jiná věc než druh: **próza** = řeč neveršovaná (věty, odstavce), **poezie** = řeč vázaná ve **verších**. Verš = řádek básně, **sloka** = skupina veršů, **rým** = zvuková shoda konců veršů (**sdružený aabb, střídavý abab, obkročný abba**), **rytmus** = střídání přízvučných a nepřízvučných slabik."
         },
         {
           "typ": "text",
@@ -718,8 +1270,8 @@
         },
         {
           "typ": "obrazek",
-          "svg": "<svg viewBox='0 0 640 360' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Tři literární druhy — lyrika, epika, drama — s typickými žánry; dole rozlišení formy: poezie ve verších a próza ve větách'><text x='320' y='26' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>LITERÁRNÍ DRUHY</text><rect x='35' y='44' width='180' height='150' rx='10' fill='none' stroke='var(--info)' stroke-width='2.5' /><text x='125' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>LYRIKA</text><text x='125' y='86' text-anchor='middle' font-size='10.5' fill='currentColor'>bez děje — pocity,</text><text x='125' y='100' text-anchor='middle' font-size='10.5' fill='currentColor'>nálady, dojmy</text><line x1='55' y1='110' x2='195' y2='110' stroke='var(--info)' stroke-width='1' /><text x='125' y='128' text-anchor='middle' font-size='10.5' fill='currentColor'>óda · elegie</text><text x='125' y='145' text-anchor='middle' font-size='10.5' fill='currentColor'>sonet (14 veršů)</text><text x='125' y='162' text-anchor='middle' font-size='10.5' fill='currentColor'>epigram · píseň</text><rect x='230' y='44' width='180' height='150' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='320' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>EPIKA</text><text x='320' y='86' text-anchor='middle' font-size='10.5' fill='currentColor'>děj + vypravěč</text><text x='320' y='100' text-anchor='middle' font-size='10.5' fill='currentColor'>+ postavy</text><line x1='250' y1='110' x2='390' y2='110' stroke='var(--akcent)' stroke-width='1' /><text x='320' y='128' text-anchor='middle' font-size='10.5' fill='currentColor'>veršovaná: epos, balada</text><text x='320' y='145' text-anchor='middle' font-size='10.5' fill='currentColor'>próza: román, novela,</text><text x='320' y='162' text-anchor='middle' font-size='10.5' fill='currentColor'>povídka, pověst, bajka</text><rect x='425' y='44' width='180' height='150' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2.5' /><text x='515' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>DRAMA</text><text x='515' y='86' text-anchor='middle' font-size='10.5' fill='currentColor'>jednání postav</text><text x='515' y='100' text-anchor='middle' font-size='10.5' fill='currentColor'>na jevišti</text><line x1='445' y1='110' x2='585' y2='110' stroke='var(--uspech)' stroke-width='1' /><text x='515' y='128' text-anchor='middle' font-size='10.5' fill='currentColor'>tragédie · komedie</text><text x='515' y='145' text-anchor='middle' font-size='10.5' fill='currentColor'>činohra · muzikál</text><text x='515' y='162' text-anchor='middle' font-size='10.5' fill='currentColor'>dialogy a monology</text><rect x='35' y='216' width='570' height='60' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='320' y='238' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>FORMA ≠ DRUH:  poezie (verše) × próza (věty a odstavce)</text><text x='320' y='260' text-anchor='middle' font-size='10.5' fill='currentColor'>epos = epika ve verších · báseň v próze = lyrika bez veršů</text><rect x='35' y='292' width='570' height='54' rx='10' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='320' y='313' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>Tropy = přenos významu: metafora (podobnost) · metonymie (souvislost)</text><text x='320' y='333' text-anchor='middle' font-size='10.5' fill='currentColor'>personifikace · přirovnání (jako) · hyperbola · ironie</text></svg>",
-          "popisek": "Tři literární druhy vedle sebe: lyrika (modře) nese pocity bez děje, epika (fialově) děj s vypravěčem, drama (zeleně) jednání postav na jevišti — pod každým jeho typické žánry. Zlatý pruh připomíná, že poezie a próza jsou forma, ne druh; červený shrnuje hlavní tropy."
+          "svg": "<svg viewBox='0 0 640 360' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Tři literární druhy — lyrika, epika, drama — s typickými žánry; dole rozlišení formy: poezie ve verších a próza ve větách'><text x='320' y='26' text-anchor='middle' font-size='15' font-weight='bold' fill='currentColor'>LITERÁRNÍ DRUHY</text><rect x='35' y='44' width='180' height='150' rx='10' fill='none' stroke='var(--info)' stroke-width='2.5' /><text x='125' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>LYRIKA</text><text x='125' y='86' text-anchor='middle' font-size='10.5' fill='currentColor'>bez děje — pocity,</text><text x='125' y='100' text-anchor='middle' font-size='10.5' fill='currentColor'>nálady, dojmy</text><line x1='55' y1='110' x2='195' y2='110' stroke='var(--info)' stroke-width='1' /><text x='125' y='128' text-anchor='middle' font-size='10.5' fill='currentColor'>óda · elegie</text><text x='125' y='145' text-anchor='middle' font-size='10.5' fill='currentColor'>sonet (14 veršů)</text><text x='125' y='162' text-anchor='middle' font-size='10.5' fill='currentColor'>epigram · píseň</text><rect x='230' y='44' width='180' height='150' rx='10' fill='none' stroke='var(--akcent)' stroke-width='2.5' /><text x='320' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>EPIKA</text><text x='320' y='86' text-anchor='middle' font-size='10.5' fill='currentColor'>děj + vypravěč</text><text x='320' y='100' text-anchor='middle' font-size='10.5' fill='currentColor'>+ postavy</text><line x1='250' y1='110' x2='390' y2='110' stroke='var(--akcent)' stroke-width='1' /><text x='320' y='128' text-anchor='middle' font-size='10.5' fill='currentColor'>epos (veršovaný) · román</text><text x='320' y='145' text-anchor='middle' font-size='10.5' fill='currentColor'>novela · povídka · pověst</text><text x='320' y='162' text-anchor='middle' font-size='10.5' fill='currentColor'>bajka · pohádka · legenda</text><rect x='425' y='44' width='180' height='150' rx='10' fill='none' stroke='var(--uspech)' stroke-width='2.5' /><text x='515' y='68' text-anchor='middle' font-size='13' font-weight='bold' fill='currentColor'>DRAMA</text><text x='515' y='86' text-anchor='middle' font-size='10.5' fill='currentColor'>jednání postav</text><text x='515' y='100' text-anchor='middle' font-size='10.5' fill='currentColor'>na jevišti</text><line x1='445' y1='110' x2='585' y2='110' stroke='var(--uspech)' stroke-width='1' /><text x='515' y='128' text-anchor='middle' font-size='10.5' fill='currentColor'>tragédie · komedie</text><text x='515' y='145' text-anchor='middle' font-size='10.5' fill='currentColor'>činohra · muzikál</text><text x='515' y='162' text-anchor='middle' font-size='10.5' fill='currentColor'>dialogy a monology</text><text x='320' y='208' text-anchor='middle' font-size='10.5' font-weight='bold' fill='currentColor'>balada, romance = lyrickoepické žánry (na pomezí lyriky a epiky)</text><rect x='35' y='216' width='570' height='60' rx='10' fill='none' stroke='var(--zlata)' stroke-width='2' /><text x='320' y='238' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>FORMA ≠ DRUH:  poezie (verše) × próza (věty a odstavce)</text><text x='320' y='260' text-anchor='middle' font-size='10.5' fill='currentColor'>epos = epika ve verších · báseň v próze = lyrika bez veršů</text><rect x='35' y='292' width='570' height='54' rx='10' fill='none' stroke='var(--chyba)' stroke-width='2' /><text x='320' y='313' text-anchor='middle' font-size='11.5' font-weight='bold' fill='currentColor'>Tropy = přenos významu: metafora (podobnost) · metonymie (souvislost)</text><text x='320' y='333' text-anchor='middle' font-size='10.5' fill='currentColor'>personifikace · přirovnání (jako) · hyperbola · ironie</text></svg>",
+          "popisek": "Tři literární druhy vedle sebe: lyrika (modře) nese pocity bez děje, epika (fialově) děj s vypravěčem, drama (zeleně) jednání postav na jevišti — pod každým jeho typické žánry. Pod nimi poznámka, že balada a romance stojí na pomezí lyriky a epiky (lyrickoepické žánry). Zlatý pruh připomíná, že poezie a próza jsou forma, ne druh; červený shrnuje hlavní tropy."
         },
         {
           "typ": "mini-kviz",
@@ -742,11 +1294,12 @@
           "typ": "widget",
           "widgetId": "tridicka",
           "parametry": {
-            "zadani": "Roztřiď žánry ke správnému literárnímu druhu. Ptej se: má to děj? Hraje se to na jevišti?",
+            "zadani": "Roztřiď žánry ke správnému literárnímu druhu. Ptej se: má to děj? Hraje se to na jevišti? Balada stojí na pomezí lyriky a epiky — má vlastní koš.",
             "kategorie": [
               { "id": "lyrika", "nazev": "lyrika" },
               { "id": "epika", "nazev": "epika" },
-              { "id": "drama", "nazev": "drama" }
+              { "id": "drama", "nazev": "drama" },
+              { "id": "lyrickoepika", "nazev": "lyrickoepické žánry" }
             ],
             "polozky": [
               { "text": "óda (oslavná báseň)", "kategorieId": "lyrika" },
@@ -754,7 +1307,7 @@
               { "text": "elegie (žalozpěv)", "kategorieId": "lyrika" },
               { "text": "román", "kategorieId": "epika" },
               { "text": "bajka (zvířata + ponaučení)", "kategorieId": "epika" },
-              { "text": "balada (tragický konec)", "kategorieId": "epika" },
+              { "text": "balada (tragický konec)", "kategorieId": "lyrickoepika" },
               { "text": "pověst (váže se k místu)", "kategorieId": "epika" },
               { "text": "tragédie", "kategorieId": "drama" },
               { "text": "komedie", "kategorieId": "drama" }
@@ -770,13 +1323,13 @@
             "obtiznost": 3,
             "zadani": "Co je balada?",
             "moznosti": [
-              "veršovaná epika s pochmurným dějem a tragickým koncem",
+              "lyrickoepický žánr s pochmurným dějem a tragickým koncem",
               "oslavná lyrická báseň",
               "radostná veršovaná skladba se šťastným koncem",
               "divadelní hra se smutným koncem"
             ],
             "spravna": 0,
-            "vysvetleni": "Balada vypráví příběh (je to epika) ve verších a končí tragicky — třeba Erbenova Polednice. Oslavná báseň je óda, radostným protějškem balady je romance a smutná divadelní hra je tragédie (drama, ne epika)."
+            "vysvetleni": "Balada je lyrickoepický žánr — stojí na pomezí lyriky a epiky: má děj (potlačený), vyjadřuje i pocity a končí tragicky, třeba Erbenova Polednice. Oslavná báseň je óda, radostným protějškem balady je romance a smutná divadelní hra je tragédie (drama)."
           }
         },
         {

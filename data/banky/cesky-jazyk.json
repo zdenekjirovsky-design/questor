@@ -1,19 +1,788 @@
 {
   "predmetId": "cesky-jazyk",
   "nazev": "Český jazyk a literatura",
-  "verze": 1,
-  "vytvoreno": "2026-09-04",
+  "verze": 2,
+  "vytvoreno": "2026-10-03",
   "temata": [
-    { "id": "cj-obecne-o-jazyce", "nazev": "Obecné poučení o jazyce", "poradi": 0 },
-    { "id": "cj-zvukova-stranka", "nazev": "Zvuková stránka jazyka", "poradi": 1 },
-    { "id": "cj-pravopis", "nazev": "Pravopis", "poradi": 2 },
-    { "id": "cj-tvaroslovi", "nazev": "Tvarosloví", "poradi": 3 },
-    { "id": "cj-sloh-vypravovani", "nazev": "Sloh: vypravování a popis", "poradi": 4 },
-    { "id": "cj-literatura-starovek", "nazev": "Starověká literatura", "poradi": 5 },
-    { "id": "cj-literatura-stredovek", "nazev": "Středověká literatura", "poradi": 6 },
-    { "id": "cj-literarni-teorie", "nazev": "Základy literární teorie", "poradi": 7 }
+    { "id": "cj-literarni-pojmy", "nazev": "Základní literární pojmy", "poradi": 0 },
+    { "id": "cj-epika-zanry", "nazev": "Epika a epické žánry", "poradi": 1 },
+    { "id": "cj-lyrika-drama", "nazev": "Lyrika, drama a výrazové formy", "poradi": 2 },
+    { "id": "cj-obecne-o-jazyce", "nazev": "Obecné poučení o jazyce", "poradi": 3 },
+    { "id": "cj-zvukova-stranka", "nazev": "Zvuková stránka jazyka", "poradi": 4 },
+    { "id": "cj-pravopis", "nazev": "Pravopis", "poradi": 5 },
+    { "id": "cj-tvaroslovi", "nazev": "Tvarosloví", "poradi": 6 },
+    { "id": "cj-sloh-vypravovani", "nazev": "Sloh: vypravování a popis", "poradi": 7 },
+    { "id": "cj-literatura-starovek", "nazev": "Starověká literatura", "poradi": 8 },
+    { "id": "cj-literatura-stredovek", "nazev": "Středověká literatura", "poradi": 9 },
+    { "id": "cj-literarni-teorie", "nazev": "Základy literární teorie", "poradi": 10 }
   ],
   "otazky": [
+    {
+      "id": "o-cj-literarni-pojmy-1",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Z jakého latinského slova pochází slovo literatura?",
+      "moznosti": [
+        "littera = písmeno",
+        "liber = kniha",
+        "lectio = čtení",
+        "lex = zákon"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Literatura pochází z latinského littera = písmeno, proto se jí česky říká písemnictví. Liber (kniha) a lectio (čtení) jsou taky latinská slova a s knihami souvisejí, ale základem slova literatura nejsou.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-2",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Literatura se česky jinak nazývá …",
+      "spravneOdpovedi": [
+        "písemnictví",
+        "pisemnictvi",
+        "pisemnictví"
+      ],
+      "vysvetleni": "Literatura = písemnictví — obě slova stojí na písmenu (lat. littera). Proto do literatury v širším smyslu patří všechno, co je napsané.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-3",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Literatura v UŽŠÍM smyslu slova zahrnuje všechny písemné projevy včetně odborných a publicistických.",
+      "spravna": false,
+      "vysvetleni": "Všechny písemné projevy (odborné, publicistické i umělecké) zahrnuje literatura v ŠIRŠÍM smyslu. V užším smyslu je to jen literatura umělecká (krásná) a ústní lidová slovesnost.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-4",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co platí o ústní lidové slovesnosti?",
+      "moznosti": [
+        "šířila se ústně z generace na generaci a její autor je neznámý (anonymní)",
+        "šířila se ústně, ale autora každé pohádky známe jménem",
+        "šířila se hlavně tiskem v novinách a kalendářích",
+        "je to odborná literatura o lidových zvycích"
+      ],
+      "spravna": 0,
+      "vysvetleni": "ULS = ústní (předávala se vyprávěním a zpěvem), lidová (tvořil ji lid) a anonymní — autora neznáme. Sběratelé jako Erben nebo Němcová ji jen zapsali, autory nejsou. Odborný text o zvycích by byl literatura v širším smyslu.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-5",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď funkci literatury k tomu, co dělá se čtenářem.",
+      "pary": [
+        {
+          "levy": "informativní",
+          "pravy": "dozvídáme se nové informace"
+        },
+        {
+          "levy": "formativní",
+          "pravy": "formuje postoje čtenáře"
+        },
+        {
+          "levy": "estetická",
+          "pravy": "vyvolává v nás pocit krásna"
+        }
+      ],
+      "vysvetleni": "Pomůcka: INFORMativní = informace, FORMativní = formuje (tvaruje) názory a postoje, estetická = estetika, krása. Pořadí ze zápisu: informativní – formativní – estetická.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-6",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Která disciplína literární vědy zkoumá, jak se literatura vyvíjela v čase?",
+      "moznosti": [
+        "literární historie",
+        "literární teorie",
+        "literární kritika",
+        "jazykověda"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Vývoj v čase = historie. Literární teorie řeší druhy, žánry, stavbu díla a jazykové prostředky, kritika dílo hodnotí. Jazykověda zkoumá jazyk, ne literaturu.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-7",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Doplň třetí funkci literatury: 1. informativní, 2. formativní, 3. …",
+      "spravneOdpovedi": [
+        "estetická",
+        "esteticka",
+        "estetická funkce",
+        "esteticka funkce"
+      ],
+      "vysvetleni": "Třetí je funkce estetická — literatura v nás vyvolává pocit krásna. Pořadí ze zápisu: informativní (informace) → formativní (postoje) → estetická (krása).",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-8",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které tři disciplíny má literární věda?",
+      "moznosti": [
+        "literární teorie",
+        "literární historie",
+        "literární kritika",
+        "recenze",
+        "jazykověda"
+      ],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
+      "vysvetleni": "Disciplíny literární vědy jsou teorie – historie – kritika. Recenze je ŽÁNR literární kritiky, ne samostatná disciplína, a jazykověda je jiná věda (zkoumá jazyk).",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-9",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Na webu čteš článek: „Nová fantasy má skvělý začátek, ale konec je odbytý a postavy ploché — dávám 6/10.“ O jaký žánr jde a ke které disciplíně literární vědy patří?",
+      "moznosti": [
+        "recenze — literární kritika",
+        "recenze — literární teorie",
+        "kronika — literární historie",
+        "pověst — ústní lidová slovesnost"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Text dílo HODNOTÍ (6/10, co je dobré a co ne) — to dělá literární kritika a jejím žánrem je recenze. Teorie by rozebírala žánr a stavbu bez hodnocení, historie vývoj literatury v čase.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-10",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Školní rozbor básně, ve kterém určuješ literární druh, žánr, rým a básnické prostředky, je práce literární teorie.",
+      "spravna": true,
+      "vysvetleni": "Ano — literární teorie řeší literární druhy, žánry, strukturu díla a jazykové prostředky. Kdybys báseň hodnotil („je slabá, nebaví mě“), dělal bys kritiku; kdybys zjišťoval, jak navazuje na starší poezii, historii.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-11",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které z ukázek patří do literatury v UŽŠÍM smyslu slova?",
+      "moznosti": [
+        "Erbenova sbírka balad Kytice",
+        "lidová píseň Kočka leze dírou",
+        "návod k obsluze pračky",
+        "učebnice chemie",
+        "novinový článek o volbách"
+      ],
+      "spravne": [
+        0,
+        1
+      ],
+      "vysvetleni": "Užší smysl = umělecká (krásná) literatura + ústní lidová slovesnost. Kytice je umělecké dílo, lidová píseň patří k ULS. Návod a učebnice (odborné) a novinový článek (publicistický) jsou literatura jen v širším smyslu.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-12",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Babička ti vypráví pohádku, kterou slyšela od své babičky, a nikdo neví, kdo ji vymyslel. Kam ji zařadíš?",
+      "moznosti": [
+        "ústní lidová slovesnost — patří i do literatury v užším smyslu",
+        "literatura jen v širším smyslu, protože není napsaná",
+        "odborná literatura",
+        "literární kritika"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Šíří se ústně, z generace na generaci, autor je neznámý → ústní lidová slovesnost. Past: ULS nepatří „jen do širšího smyslu“ — užší smysl zahrnuje uměleckou literaturu A ústní lidovou slovesnost.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-literarni-pojmy-13",
+      "temaId": "cj-literarni-pojmy",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Spolužák tvrdí: „Fantasy knížka, kterou čtu, nemá žádnou funkci literatury, je jen pro zábavu.“ Jaká odpověď je nejpřesnější?",
+      "moznosti": [
+        "plní estetickou funkci (zážitek, krása příběhu) a může i formovat postoje — třeba k přátelství nebo odvaze",
+        "má pravdu, zábavná kniha žádnou funkci literatury neplní",
+        "plní jen informativní funkci, protože se dozvíme, co se stalo hrdinům",
+        "funkce literatury mají jen odborné knihy, umělecké ne"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zážitek a pocit krásy z příběhu JE estetická funkce a příběh o přátelství a odvaze formuje postoje (formativní). Jedno dílo obvykle plní víc funkcí najednou. „Co se stalo hrdinům“ nejsou nové informace o světě, takže samotná informativní funkce odpověď nevystihuje.",
+      "zdroj": "Základní literární pojmy"
+    },
+    {
+      "id": "o-cj-epika-zanry-1",
+      "temaId": "cj-epika-zanry",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je podle definice typické pro epiku?",
+      "moznosti": [
+        "má děj, nositelem děje jsou postavy a děj je zasazen do času a prostoru",
+        "nemá děj, vyjadřuje pocity a nálady",
+        "je určena k předvádění na jevišti",
+        "je vždy psaná ve verších"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Epika = děj + postavy + čas a prostor. Pocity bez děje vyjadřuje lyrika, jeviště patří dramatu. Epika může být ve verších (epos) i v próze (román, povídka).",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-2",
+      "temaId": "cj-epika-zanry",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Krátké vyprávění, které začíná stručně navozenou situací a vyústí v nečekanou komickou pointu, se nazývá …",
+      "spravneOdpovedi": [
+        "anekdota",
+        "anekdotu"
+      ],
+      "vysvetleni": "Anekdota = krátká situace + nečekaná komická pointa (hovorově vtip, odborně anekdota). Od novely ji odlišuje délka a to, že pointa je vždy komická.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-3",
+      "temaId": "cj-epika-zanry",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Legenda je vyprávění o životě svatých — zachycuje jejich dobré skutky a mučednickou smrt.",
+      "spravna": true,
+      "vysvetleni": "Ano, to je legenda — třeba o svatém Václavu a Ludmile. Nepleť si ji s pověstí (příběh s pravdivým jádrem vázaný k místu) ani s kronikou (události, jak šly za sebou).",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-4",
+      "temaId": "cj-epika-zanry",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Které dva druhy eposu jsme si zapsali?",
+      "moznosti": [
+        "hrdinský a rytířský",
+        "historický a válečný",
+        "lidový a umělý",
+        "osobní a milostný"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Epos je hrdinský (Epos o Gilgamešovi) nebo rytířský (středověk). Historický a válečný jsou druhy ROMÁNU, lidová a umělá je POHÁDKA a osobní a milostná je LYRIKA.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-5",
+      "temaId": "cj-epika-zanry",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Čím se liší novela od povídky?",
+      "moznosti": [
+        "novela má rychlý spád a často překvapivý závěr (pointu), povídka má jednodušší a pomalejší děj",
+        "novela je rozsáhlejší než román a má víc dějových linií",
+        "povídka má vždy překvapivou pointu, novela nikdy",
+        "novela je veršovaná, povídka prozaická"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Obě jsou kratší prozaické žánry. Rozhoduje tempo a závěr: novela = rychlý spád a pointa, povídka = jednoduchý děj, který plyne pomaleji. Rozsáhlý s větvícím se dějem je román.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-6",
+      "temaId": "cj-epika-zanry",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď osobnost k tomu, čím se zapsala do epických žánrů.",
+      "pary": [
+        {
+          "levy": "Božena Němcová",
+          "pravy": "sbírala české lidové pohádky"
+        },
+        {
+          "levy": "bratři Grimmové",
+          "pravy": "sbírali lidové pohádky v Německu"
+        },
+        {
+          "levy": "Karel Čapek",
+          "pravy": "psal umělé (autorské) pohádky"
+        },
+        {
+          "levy": "Kosmas",
+          "pravy": "zachytil dějiny Čech v kronice"
+        }
+      ],
+      "vysvetleni": "Němcová (a Erben) a bratři Grimmové lidové pohádky SBÍRALI — nejsou jejich autory. Čapek své pohádky vymyslel sám, proto jsou umělé (autorské). Kosmas napsal Kroniku českou — události, jak šly za sebou.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-7",
+      "temaId": "cj-epika-zanry",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z těchto pojmů jsou druhy ROMÁNU (podle zápisu)?",
+      "moznosti": [
+        "historický",
+        "utopický",
+        "autobiografický",
+        "hrdinský",
+        "meditativní"
+      ],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
+      "vysvetleni": "Druhy románů: historický, válečný, utopický, psychologický, detektivní, autobiografický. Hrdinský je druh EPOSU a meditativní je typ LYRIKY.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-8",
+      "temaId": "cj-epika-zanry",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Epický žánr, ve kterém je na začátku záhadná, zdánlivě nevysvětlitelná událost a na konci se rozumově vysvětlí, se nazývá …",
+      "spravneOdpovedi": [
+        "romaneto",
+        "romanetto"
+      ],
+      "vysvetleni": "Romaneto: záhada → rozumové vysvětlení (typicky Jakub Arbes). V pohádce nebo báji by nadpřirozeno zůstalo nadpřirozenem — nikdo by ho na konci nevysvětloval.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-9",
+      "temaId": "cj-epika-zanry",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Na výletě ti kamarád u zříceniny převypráví: „Na tomhle hradě prý ve 14. století žil krutý pán, který týral poddané, až si pro něj jedné noci přišel čert.“ Hrad i ten pán opravdu existovali. O jaký žánr jde?",
+      "moznosti": [
+        "pověst",
+        "pohádka",
+        "báje",
+        "legenda"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Konkrétní místo a čas + pravdivé jádro (hrad a pán existovali) + vymyšlené prvky (čert) = pověst. Pohádka nemá konkrétní čas ani místo, v báji vystupují bohové a vysvětluje vznik světa, legenda vypráví o životě svatých.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-10",
+      "temaId": "cj-epika-zanry",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Liška chválí vránu, jak krásně zpívá. Vrána zakráká a sýr jí vypadne ze zobáku rovnou lišce do tlamy. Na konci zazní: „Nevěř lichotníkům.“ Jaký je to žánr?",
+      "moznosti": [
+        "bajka",
+        "pohádka",
+        "anekdota",
+        "báje"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zvířata jednají jako lidé, příběh má skrytý smysl (alegorie = jinotaj — liška = vychytralý lichotník) a končí ponaučením → bajka. Pohádka nekončí výslovným ponaučením, anekdota míří na komickou pointu, báje vypráví o bozích a vzniku světa.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-11",
+      "temaId": "cj-epika-zanry",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Malá ségra ti přinese knížku: „Byl jednou jeden král a ten měl tři syny. Dva starší draka nepřemohli, nejmladší ano — a dostal princeznu i půl království.“ Které znaky lidové pohádky v ukázce najdeš?",
+      "moznosti": [
+        "neurčitý čas a místo („Byl jednou jeden král“)",
+        "opakující se číslo 3 (tři synové)",
+        "dobro vítězí nad zlem",
+        "pravdivé historické jádro",
+        "ponaučení vyslovené na závěr"
+      ],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
+      "vysvetleni": "Lidová pohádka: bez konkrétního času a místa, opakuje se trojka, dobro vítězí, zasahují nadpřirozené bytosti (drak). Pravdivé jádro je znak POVĚSTI a ponaučení vyslovené na konci patří k BAJCE — v ukázce není ani jedno.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-12",
+      "temaId": "cj-epika-zanry",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "V knihovně najdeš Devatero pohádek Karla Čapka. Spolužák tvrdí: „Jsou české a vystupují v nich třeba vodníci, takže jsou to lidové pohádky.“ Má pravdu?",
+      "spravna": false,
+      "vysvetleni": "Ne — Čapek své pohádky sám napsal, proto jsou to pohádky umělé (autorské). Lidová pohádka nemá známého autora; Němcová, Erben a bratři Grimmové lidové pohádky jen sbírali a zapisovali.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-13",
+      "temaId": "cj-epika-zanry",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Na Netflixu sleduješ seriál podle knihy. Předloha je próza o 600 stranách, sleduje osudy desítek postav z různých společenských vrstev během třiceti let a hlavní děj se větví do mnoha vedlejších příběhů. Jaký žánr je předloha?",
+      "moznosti": [
+        "román",
+        "novela",
+        "povídka",
+        "epos"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rozsah, mnoho postav z různých prostředí, dlouhý úsek života a větvící se děj = román. Novela a povídka jsou kratší s jednodušším dějem; epos je sice rozsáhlý, ale veršovaný — a předloha je próza.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-epika-zanry-14",
+      "temaId": "cj-epika-zanry",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Youtuberka vydala knížku, ve které poutavě vypráví, jak s batohem projela stopem Balkán až do Turecka — koho potkala, co jedla a kde spala. O jaký žánr jde?",
+      "moznosti": [
+        "cestopis",
+        "epos",
+        "kronika",
+        "legenda"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Poutavé vyprávění o cestě do cizích zemí = cestopis. Epos je rozsáhlá veršovaná skladba, která chronologicky zachycuje události (Epos o Gilgamešovi), kronika zachycuje dějinné události, jak šly za sebou, a legenda vypráví o životě svatých.",
+      "zdroj": "Epika a epické žánry"
+    },
+    {
+      "id": "o-cj-lyrika-drama-1",
+      "temaId": "cj-lyrika-drama",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je typické pro lyriku?",
+      "moznosti": [
+        "vyjadřuje pocity a nálady, nemá děj",
+        "má děj a postavy v určitém čase a prostoru",
+        "je určena k předvádění na jevišti",
+        "je vždy psaná prózou"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Lyrika = pocity a nálady bez děje, mluví v ní lyrický mluvčí. Děj s postavami má epika, jeviště drama. Lyrika bývá nejčastěji ve verších, ne v próze.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-2",
+      "temaId": "cj-lyrika-drama",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Tomu, kdo v lyrické básni „mluví“, říkáme lyrický …",
+      "spravneOdpovedi": [
+        "mluvčí",
+        "mluvci",
+        "lyrický mluvčí",
+        "lyricky mluvci",
+        "subjekt",
+        "lyrický subjekt",
+        "lyricky subjekt"
+      ],
+      "vysvetleni": "Lyrický mluvčí (v učebnicích také lyrický subjekt) je hlas básně — ten, kdo v ní prožívá a vyjadřuje pocity. Učitel používá „lyrický mluvčí“. Nemusí to být sám autor: básník může psát i za někoho jiného.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-3",
+      "temaId": "cj-lyrika-drama",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Rýmové schéma abba je rým…",
+      "moznosti": [
+        "obkročný",
+        "střídavý",
+        "sdružený",
+        "přerývaný"
+      ],
+      "spravna": 0,
+      "vysvetleni": "V abba krajní verše (1. a 4.) rýmem „obkročí“ prostřední dvojici b. Střídavý je abab, sdružený aabb, přerývaný abcb.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-4",
+      "temaId": "cj-lyrika-drama",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Elegie je oslavná báseň, které se říká také chvalozpěv.",
+      "spravna": false,
+      "vysvetleni": "Ne — elegie je ŽALOZPĚV, smutná báseň. Oslavná báseň (chvalozpěv) je óda. Pomůcka: elegie = žal, óda = oslava.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-5",
+      "temaId": "cj-lyrika-drama",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď rýmové schéma k názvu rýmu.",
+      "pary": [
+        {
+          "levy": "abab",
+          "pravy": "střídavý"
+        },
+        {
+          "levy": "aabb",
+          "pravy": "sdružený"
+        },
+        {
+          "levy": "abba",
+          "pravy": "obkročný"
+        },
+        {
+          "levy": "abc abc",
+          "pravy": "postupný"
+        },
+        {
+          "levy": "abcb",
+          "pravy": "přerývaný"
+        }
+      ],
+      "vysvetleni": "Střídavý = rýmy se střídají (abab), sdružený = sdružují se ve dvojicích (aabb), obkročný = vnější dvojice obkročí vnitřní (abba), postupný = postupně 1.–4., 2.–5., 3.–6. verš (abc abc), přerývaný = rýmuje se jen 2. a 4. verš (abcb).",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-6",
+      "temaId": "cj-lyrika-drama",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z těchto typů lyriky (podle toho, co vyjadřuje) jsme si zapsali?",
+      "moznosti": [
+        "milostná",
+        "přírodní",
+        "meditativní",
+        "hrdinská",
+        "psychologická"
+      ],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
+      "vysvetleni": "Lyrika: 1. osobní, 2. milostná, 3. přírodní, 4. meditativní, 5. politická. Hrdinský je druh EPOSU a psychologický druh ROMÁNU — obojí epika.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-7",
+      "temaId": "cj-lyrika-drama",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá to, co postava v divadelní hře říká?",
+      "moznosti": [
+        "replika",
+        "scénická poznámka",
+        "scénář",
+        "refrén"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Repliky = to, co postava říká. Scénické poznámky v závorce říkají hercům, co mají DĚLAT, scénář je celý text hry pro herce a refrén je opakující se část písně.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-8",
+      "temaId": "cj-lyrika-drama",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Krátká satirická báseň zakončená pointou je…",
+      "moznosti": [
+        "epigram",
+        "epitaf",
+        "elegie",
+        "hymnus"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Epigram = krátký vtipný „šleh“ s pointou. Epitaf zní podobně, ale je to náhrobní nápis; elegie je smutná báseň (žalozpěv) a hymnus patetická, vznešená báseň.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-9",
+      "temaId": "cj-lyrika-drama",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Verš bez pravidelného rytmu, často i bez rýmu, se nazývá verš …",
+      "spravneOdpovedi": [
+        "volný",
+        "volny",
+        "volný verš",
+        "volny vers"
+      ],
+      "vysvetleni": "Verš může být vázaný (pravidelný rytmus, obvykle rým), nebo volný (bez pravidelného rytmu, často bez rýmu). Volným veršem píše většina současných básníků i autoři slam poetry; rap naopak drží rytmus a rým.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-10",
+      "temaId": "cj-lyrika-drama",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď lyrický žánr k jeho charakteristice.",
+      "pary": [
+        {
+          "levy": "óda",
+          "pravy": "chvalozpěv — oslavuje přátelství, vlast"
+        },
+        {
+          "levy": "elegie",
+          "pravy": "žalozpěv — smutná báseň"
+        },
+        {
+          "levy": "epitaf",
+          "pravy": "náhrobní nápis"
+        },
+        {
+          "levy": "pásmo",
+          "pravy": "polytematická báseň, metoda asociace"
+        },
+        {
+          "levy": "píseň",
+          "pravy": "určená ke zpěvu, často s refrénem"
+        }
+      ],
+      "vysvetleni": "Typické dvojice záměn: óda (oslava) × elegie (žal) a epitaf (náhrobek) × epigram (satira s pointou). Pásmo skáče mezi tématy podle asociací, píseň poznáš podle refrénu.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-11",
+      "temaId": "cj-lyrika-drama",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kamarád ti převypráví báseň z čítanky: dívka jde v pátek k jezeru prát, i když ji matka varovala; vodník ji stáhne pod hladinu a příběh končí tragicky. Děj má rychlý spád a konflikt. O jaký žánr jde?",
+      "moznosti": [
+        "balada",
+        "romance",
+        "elegie",
+        "tragédie"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Báseň s potlačeným dějem, pocity, rychlým spádem, konfliktem a tragickým koncem = balada (lyrickoepický žánr, např. Erbenův Vodník). Romance končí šťastně, elegie je smutná, ale nemá děj, a tragédie je divadelní hra (drama), ne báseň.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-12",
+      "temaId": "cj-lyrika-drama",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Báseň vypráví, jak se dva zamilovaní po letech znovu potkají a nakonec spolu zůstanou. Děj je jen naznačený, hlavní jsou city, konec je šťastný. O jaký žánr jde?",
+      "moznosti": [
+        "romance",
+        "balada",
+        "óda",
+        "komedie"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Lyrickoepický žánr se šťastným koncem a milostnou tematikou = romance. Balada končí tragicky, óda nemá děj a jen oslavuje a komedie je veselá divadelní hra (drama).",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-13",
+      "temaId": "cj-lyrika-drama",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Se třídou jdete do divadla. Mladý princ chce pomstít otcovu smrt, proti němu ale stojí mocný král i celý dvůr. Hra je vážná a princ na konci umírá. Která tvrzení o hře platí?",
+      "moznosti": [
+        "jde o tragédii",
+        "hrdina je v konfliktu se silami mocnějšími, než je on",
+        "patří k dramatu, protože je určena k předvádění na jevišti",
+        "jde o komedii, protože se hraje v divadle",
+        "jde o baladu, protože má tragický konec"
+      ],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
+      "vysvetleni": "Vážný obsah, konflikt se silnějšími silami a smrt hrdiny = tragédie (takhle vypadá třeba Shakespearův Hamlet) a jako divadelní hra patří k dramatu. V divadle se hraje i komedie, ta je ale veselá a slouží k pobavení. Tragický konec má i balada, jenže ta je lyrickoepická báseň, ne divadelní hra.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-14",
+      "temaId": "cj-lyrika-drama",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Čtyřverší na pohlednici z hor má verše zakončené slovy: hory – sníh – chata – smích. Jde o rým přerývaný.",
+      "spravna": true,
+      "vysvetleni": "Ano — rýmuje se jen sníh–smích (2. a 4. verš), hory a chata se nerýmují s ničím → abcb = přerývaný. Kdyby se rýmoval i 1. a 3. verš, šlo by o rým střídavý (abab).",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-15",
+      "temaId": "cj-lyrika-drama",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Na přání k narozeninám je čtyřverší, jehož verše končí slovy: les – kino – víno – dnes. Jaký je to rým?",
+      "moznosti": [
+        "obkročný",
+        "střídavý",
+        "sdružený",
+        "přerývaný"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Les–dnes (1. a 4. verš) = a, kino–víno (2. a 3. verš) = b → abba = obkročný: krajní verše „obkročí“ prostřední dvojici. Střídavý by vyžadoval pořadí les–kino–dnes–víno (abab), sdružený les–dnes–kino–víno (aabb). Přerývaný (abcb) to není, protože se rýmují všechny čtyři verše.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-16",
+      "temaId": "cj-lyrika-drama",
+      "typ": "doplneni",
+      "obtiznost": 1,
+      "zadani": "Verš je jeden řádek básně. Víc veršů dohromady tvoří …",
+      "spravneOdpovedi": [
+        "sloka",
+        "sloku",
+        "sloky",
+        "strofa",
+        "strofu",
+        "sloka (strofa)",
+        "sloku (strofu)"
+      ],
+      "vysvetleni": "Víc veršů tvoří sloku neboli strofu. Pozor na rozdíl: verš = jeden řádek, sloka = skupina veršů oddělená od další mezerou.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-17",
+      "temaId": "cj-lyrika-drama",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď pojem z divadla k tomu, co znamená.",
+      "pary": [
+        {
+          "levy": "monolog",
+          "pravy": "postava mluví sama"
+        },
+        {
+          "levy": "dialog",
+          "pravy": "dvě nebo více postav spolu hovoří"
+        },
+        {
+          "levy": "replika",
+          "pravy": "to, co postava říká"
+        },
+        {
+          "levy": "scénická poznámka",
+          "pravy": "pokyn v závorce, co má herec dělat"
+        }
+      ],
+      "vysvetleni": "Monolog = mono (jeden), dialog = rozhovor dvou a více postav. Replika je každý jednotlivý promluvený text postavy a scénické poznámky v závorce ve scénáři říkají hercům, co mají dělat — samy se neříkají nahlas.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
+    {
+      "id": "o-cj-lyrika-drama-18",
+      "temaId": "cj-lyrika-drama",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Na sítích najdeš dva texty. A: „Ráno mi ujel autobus, tak jsem dvacet minut mrzl na zastávce a do školy přišel pozdě.“ B: „Autobus mi ujel zas, / na zastávce stojím sám, / mrzne mi i hlas, / a já pořád čekám tam.“ Co platí o jejich výrazové formě?",
+      "moznosti": [
+        "A je próza (souvislý text ve větách), B je poezie (verše s rýmem)",
+        "A je poezie, protože vypráví příběh",
+        "obě jsou próza, protože obě jsou napsané ve větách",
+        "B je drama, protože v ní mluví postava"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Próza = souvislý text ve větách, poezie = text ve verších (lomítka oddělují verše, zas–hlas a sám–tam se rýmují). Příběh o formě nerozhoduje — děj má epika, a ta může být v próze i ve verších. Drama je text určený k předvádění na jevišti, ne každý text, ve kterém někdo mluví.",
+      "zdroj": "Lyrika, drama a výrazové formy"
+    },
     {
       "id": "o-cj-obecne-o-jazyce-1",
       "temaId": "cj-obecne-o-jazyce",

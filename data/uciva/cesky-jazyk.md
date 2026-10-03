@@ -1,5 +1,154 @@
 # Český jazyk a literatura — učivo 1. ročníku SŠ
 
+## Základní literární pojmy
+
+**Literatura** (z latinského *littera* = písmeno) = **písemnictví**. Slovo
+používáme ve dvou rozsazích:
+
+- **literatura v širším smyslu** slova zahrnuje **všechny písemné projevy** —
+  odborné (učebnice, návod), publicistické (novinový článek) i umělecké,
+- **literatura v užším smyslu** slova zahrnuje jen **literaturu uměleckou
+  (krásnou)** a s ní **ústní lidovou slovesnost**.
+
+**Ústní lidová slovesnost (ULS)** se šířila **ústně, z generace na generaci**,
+a její **autora neznáme — je anonymní**. Patří sem **pohádky, pověsti,
+písně**… Když ji později někdo zapsal (sběratelé jako Erben nebo Němcová),
+nestal se jejím autorem — jen ji zachránil před zapomněním.
+
+**Funkce literatury** (v tomto pořadí):
+
+1. **informativní** = dozvídáme se nové informace,
+2. **formativní** = formuje postoje čtenáře,
+3. **estetická** = vyvolává v nás pocit krásna.
+
+Jedno dílo plní obvykle víc funkcí najednou — dobrý román tě pobaví a nadchne
+(estetická), dozvíš se z něj něco o době (informativní) a změní tvůj pohled
+na svět (formativní).
+
+**Literární věda** se zabývá uměleckou literaturou a má tři disciplíny:
+
+1. **literární teorie** — řeší literární druhy, žánry, strukturu literárního
+   díla a jazykové prostředky,
+2. **literární historie** — zkoumá vývoj literatury v čase,
+3. **literární kritika** — zabývá se hodnocením díla. Žánrem kritiky je
+   **recenze** (třeba hodnocení nové knihy na webu nebo v časopise).
+
+**Základní literární druhy** jsou tři: **1. epika** (má děj), **2. lyrika**
+(vyjadřuje pocity a nálady, nemá děj), **3. drama** (určené k předvádění na
+jevišti). Každý druh se dál dělí na **žánry** — podrobně v následujících
+kapitolách.
+
+## Epika a epické žánry
+
+**Epika** = literární druh, který má **děj**; nositelem děje jsou **postavy**
+a děj je zasazen do určitého **času a prostoru**.
+
+**Epické žánry:**
+
+- **Epos** = rozsáhlá **veršovaná** skladba, která **chronologicky** zachycuje
+  události. Varianty: **hrdinský epos** (Epos o Gilgamešovi) a **rytířský
+  epos** (středověk).
+- **Román** = rozsáhlý, zachycuje různá společenská prostředí a osudy mnoha
+  postav v dlouhém úseku života. Hlavní dějová linie se dál **větví**
+  (vedlejší epizody). **Druhy románů**: historický, válečný, utopický,
+  psychologický, detektivní, autobiografický.
+- **Legenda** = vyprávění o **životě svatých** — zachycuje jejich dobré skutky
+  a mučednickou smrt (např. o svatém Václavu a Ludmile).
+- **Kronika** = autor zachycuje **dějinné události tak, jak šly za sebou**
+  (Kosmova kronika).
+- **Povídka** = kratší, má poměrně **jednoduchý děj** a několik postav, děj
+  probíhá **pomaleji**.
+- **Novela** = kratší, zajímavý příběh s **rychlým spádem**, závěr je často
+  **překvapivý** — **pointa** (z francouzského *pointe* = hrot, vyslovuj
+  [poenta]).
+- **Romaneto** = na začátku je **záhadná, fantastická, zdánlivě
+  nevysvětlitelná záhada**, která je na konci **rozumově vysvětlena**
+  (typický autor: Jakub Arbes).
+- **Pohádka** = vymyšlený příběh **bez konkrétního času a prostoru**, spojený
+  s ústní lidovou slovesností. **Dobro vítězí nad zlem**, opakují se čísla
+  (hlavně **3**), do děje často zasahují **nadpřirozené bytosti**. Lidové
+  pohádky, které si lidé předávali ústně, sbírali **Božena Němcová, Karel
+  Jaromír Erben** a v Německu **bratři Grimmové**. Kromě lidové pohádky
+  existuje **pohádka umělá (autorská)** — např. **Karel Čapek** (Devatero
+  pohádek).
+- **Pověst** = **jádro je pravdivé**, zbytek je vymyšlený; vztahuje se
+  k **určitému místu** a děj se odehrává v **konkrétním místě a čase**
+  (např. pověsti o praotci Čechovi nebo o pražském Golemovi).
+- **Báje (mýty)** = příběhy o tom, jak si lidé představovali **vznik světa
+  a přírodní síly**; vystupují v nich **bohové**. Pro evropskou kulturu je
+  důležitá mytologie **řecká a židovská** (v Bibli).
+- **Bajka** = veršovaný, **alegorický** příběh (**alegorie = jinotaj**) se
+  **skrytým smyslem**. Vystupují v ní **zvířata, která jednají jako lidé**
+  (i věci a rostliny), a na závěr je **ponaučení**. (Bajky existují i v próze
+  — starověké Ezopovy bajky jsou prozaické, francouzský La Fontaine je
+  psal ve verších.)
+- **Cestopis** = poutavé vyprávění o **cestě do cizích zemí**.
+- **Anekdota** = krátká; začíná stručně navozenou situací, která vyústí
+  v **nečekanou, komickou pointu**.
+
+Nejčastější záměny: **povídka × novela** (pomalejší jednoduchý děj × rychlý
+spád a pointa), **pohádka × pověst** (bez času a místa × konkrétní místo
+a pravdivé jádro), **pověst × báje** (místní příběh × bohové a vznik světa),
+**epos × román** (veršovaný × prozaický).
+
+## Lyrika, drama a výrazové formy
+
+**Lyrika** = literární druh, který vyjadřuje **pocity a nálady**. **Nemá
+děj.** V básních mluvíme o **lyrickém mluvčím** (ten, kdo v básni „mluví“ —
+nemusí to být sám autor).
+
+Lyriku dělíme podle toho, co vyjadřuje, na: **1. osobní, 2. milostnou,
+3. přírodní, 4. meditativní** (úvahy o životě, smrti, smyslu bytí)
+**a 5. politickou**.
+
+**Základní lyrické žánry:**
+
+- **píseň** — básnická skladba určená ke **zpěvu**; rytmus, rým, pravidelná
+  sloka, často **refrén** (opakující se část),
+- **elegie (žalozpěv)** — **smutná** báseň,
+- **óda (chvalozpěv)** — **oslavná** báseň (oslavuje přátelství, vlast),
+- **hymnus** — **patetická** (vznešeně slavnostní) báseň,
+- **epitaf** — **náhrobní nápis**,
+- **epigram** — krátká **satirická** báseň zakončená **pointou**,
+- **pásmo** — **polytematická** báseň (víc témat), využívá metodu
+  **asociace** (jedna myšlenka vyvolá další).
+
+**Lyrickoepické žánry** stojí mezi lyrikou a epikou: děj je v nich
+**potlačen** a jsou v nich vyjádřeny i **pocity**.
+
+- **balada** — **smutný děj** a často **tragický konec**, děj má **rychlý
+  spád** a dochází ke **konfliktu** (např. balady z Erbenovy Kytice),
+- **romance** — **šťastné zakončení**, mívá **milostnou** tematiku.
+
+**Drama** je určeno k **předvádění na jevišti** (divadelní hry).
+
+- **monolog** — postava mluví **sama**,
+- **dialog** — **dvě nebo více** postav spolu hovoří,
+- **repliky** — to, **co postava říká**,
+- herci dostanou **scénář**, ze kterého se všechno učí; ve scénáři jsou
+  i **scénické poznámky** (v závorce), aby věděli, co mají dělat.
+
+**Dramatické žánry:** **tragédie** — vznešená, vážný obsah; hrdina se dostává
+do **konfliktu se silami mocnějšími, než je on**, a v závěru **umírá**
+(Shakespearův Hamlet, Romeo a Julie). **Komedie** — veselá, slouží
+k **pobavení**.
+
+**Výrazové formy literatury:**
+
+- **próza** — souvislý text ve **větách**, s odstavci a kapitolami,
+- **poezie** — psaná ve **verších**. **Verš** = jeden řádek básně, víc veršů
+  tvoří **sloku (strofu)**. Verš může být **vázaný** (pravidelný rytmus,
+  obvykle rým) nebo **volný** (bez pravidelného rytmu, často bez rýmu).
+- **rým** — zvuková shoda slabik na konci veršů.
+
+**Druhy rýmů** (stejné písmeno = verše, které se rýmují):
+
+- **abab = střídavý**,
+- **aabb = sdružený**,
+- **abba = obkročný**,
+- **abc abc = postupný** (1. verš se rýmuje se 4., 2. s 5., 3. s 6.),
+- **abcb = přerývaný** (rýmuje se jen 2. a 4. verš).
+
 ## Obecné poučení o jazyce
 
 Čeština je náš **národní jazyk** — dorozumívací prostředek všech Čechů. Patří mezi
@@ -311,11 +460,12 @@ Literární teorie dává nástroje, jak o literatuře přemýšlet a mluvit.
   Žánry: **óda** (oslavná báseň), **elegie** (žalozpěv), **sonet** (14 veršů),
   **epigram** (krátká satirická báseň), píseň, pásmo.
 - **Epika** — má **děj**, vypravěče a postavy. Veršovaná: **epos** (rozsáhlý,
-  hrdinský), **balada** (pochmurná, tragický konec), **romance** (radostnější).
-  Prozaická: **román** (rozsáhlý, více dějových linií), **novela** (kratší,
-  jedna vypointovaná událost), **povídka** (krátká, jednoduchý děj),
-  **pohádka**, **pověst** (váže se ke skutečnému místu), **bajka** (zvířata
-  s lidskými vlastnostmi + ponaučení), legenda.
+  hrdinský). Prozaická: **román** (rozsáhlý, více dějových linií), **novela**
+  (kratší, jedna vypointovaná událost), **povídka** (krátká, jednoduchý děj),
+  **pohádka**, **pověst** (váže se ke skutečnému místu), legenda. **Bajka**
+  (zvířata s lidskými vlastnostmi + ponaučení) bývá veršem i prózou.
+  **Lyrickoepické žánry** (stojí mezi lyrikou a epikou): **balada** (pochmurná,
+  tragický konec), **romance** (radostnější).
 - **Drama** — děj předváděný jednáním postav na jevišti; text tvoří dialogy,
   monology a scénické poznámky. Žánry: **tragédie** (hrdina podléhá),
   **komedie** (směšné, šťastný konec), činohra, muzikál.

@@ -98,13 +98,19 @@ generátor 32, server 144, aplikace 265; oba buildy OK;
   (`server/src/materialy.ts`, soubory mimo web v `server/data/materialy/`,
   kontrola typů podle obsahu, historie verzí obsahu pro „vrátit");
   zpracovává ji naplánovaná úloha Claude Code na Macu správce
-  („QUESTOR — zpracování látky od Matěje", každé 2 h 8–22 h, pod jeho
-  předplatným) podle `docs/ZPRACOVANI-LATKY.md` pomocí
+  („QUESTOR — zpracování látky od Matěje", od 2026-11-08 jednou denně
+  ve 22 h — dřív každé 2 h, ale úloha z plánovače zmizela a zásilka
+  čekala 4 dny; pod jeho předplatným) podle `docs/ZPRACOVANI-LATKY.md` pomocí
   `scripts/materialy.ts`; zveřejnění automatické po nezávislé oponentuře,
   správce vidí frontu v přehledu a může změnu vrátit.
 - OBSAH ZE ZÁPISKŮ: ekonomika (Potřeby, Statky a služby) a zbožíznalství
   (Jakost a řízení jakosti, Norma ISO 9001, Zbožíznalství jako věda
   a profese, Škody a ochrana zboží) — vše po oponentuře, na serveru.
+  Z fronty látky od Matěje dál: čeština (2026-10-03 — Základní literární
+  pojmy, Epika a epické žánry, Lyrika, drama a výrazové formy) a informatika
+  (2026-11-08 — z prezentace „Kvalita dat a informací": Zdroje informací,
+  Zkreslení dat, Kvalitní informace a kritické myšlení; 44 otázek, banka
+  i výuka v2).
 - Rate-limit 600 požadavků/min per IP (env `QUESTOR_RATE_LIMIT_MAX`),
   provozní log požadavků na `/api/*` (vypnutí `QUESTOR_LOG_POZADAVKU=0`).
 

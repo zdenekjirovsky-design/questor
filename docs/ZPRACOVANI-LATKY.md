@@ -45,7 +45,10 @@ počká na další běh.
    `npx tsx scripts/validuj-vyuku.ts …`, `npx tsx scripts/kontrola-integrace.ts`.
 6. **Oponentura** (JINÝ subagent, jen čte — prompt podle vzoru níže): shoda
    s přepisem, fakta, klíče všech otázek, struktura DIDAKTIKA, data widgetů,
-   SVG. Potvrzené nálezy oprav (kritické a střední vždy), validace znovu.
+   SVG. U větší zásilky (víc než 1 téma) dva oponenti souběžně — jeden na
+   banku, druhý na lekce + učivo; nálezy průběžně zapisují do souboru
+   (kdyby subagent spadl). Potvrzené nálezy oprav (kritické a střední vždy,
+   levné nízké taky), validace znovu.
    Neprojde-li obsah ani po opravě → `stav <id> chyba "…"`, NIC nezveřejňuj.
 7. **Bundle a testy**: kopie 1:1 do `aplikace/src/data/predmety/<predmet>.banka.json`
    a `.vyuka.json` (`cmp`), `npx vitest run --root aplikace test/predmety.test.ts`
@@ -90,8 +93,15 @@ webové verzi. „Vrátit" nový předmět automaticky neumí — řeší ho spr
 > záměny, vysvětlení říká PROČ), lekce podle povinné struktury (hook,
 > K čemu ti to je, SVG nesoucí strukturu, 2 mini-kvízy, widget, řešený
 > příklad, kartičky, shrnutí), verze o 1 výš než na serveru, validace.
-> Stávající obsah neměň (jen pořadí). Výstup: změněné soubory, počty,
-> co jsi doplnil nad rámec zápisků, nejistá místa.
+> Pasti z oponentur (hlídej sám): správná možnost nesmí prozrazovat
+> délkou (≤ ~1,2× nejdelšího distraktoru, nebývá systematicky nejdelší);
+> klíče `anone` vyvážené (ne všechny „Ne"); vysvětlení NIKDY neodkazuje
+> na pozici možnosti („první tři…" — aplikace možnosti míchá); názvy kroků
+> `prubeh-procesu` bez čísel (widget čísluje sám); učitelovy definice
+> testuj i přímo, ne jen přes příklady; řešený příklad, který slibuje
+> „podle kritérií", projde VŠECHNA; výkladové bloky do ~800 znaků (delší
+> rozděl). Stávající obsah neměň (jen pořadí). Výstup: změněné soubory,
+> počty, co jsi doplnil nad rámec zápisků, nejistá místa.
 
 ## Vzor promptu pro oponenta (subagent, nic nemění)
 
@@ -99,6 +109,8 @@ webové verzi. „Vrátit" nový předmět automaticky neumí — řeší ho spr
 > proti přepisu `podklady/<id>/prepis.md`: shoda se zápisky (pojmy, výčty,
 > pořadí), fakta, klíče VŠECH otázek a mini-kvízů (právě jedna obhajitelně
 > správná možnost, jednoznačné dvojice), struktura DIDAKTIKA, data widgetů,
-> texty SVG, pořadí témat a verze. Výstup: JSON pole nálezů
+> texty SVG, pořadí témat a verze; navíc nápovědu délkou správné
+> možnosti, poměr klíčů `anone` a odkazy na pozici možnosti ve
+> vysvětleních (aplikace míchá). Výstup: JSON pole nálezů
 > `{ soubor, misto, popis, zavaznost: kriticka|stredni|nizka, scenar, navrhOpravy }`,
 > jen skutečné chyby.

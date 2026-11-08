@@ -157,8 +157,11 @@ Matěj posílá nové zápisky sám a lekce z nich vznikají automaticky:
   Na stejné stránce vidí stav: ⏳ čeká → ⚙️ zpracovává se → ✅ hotovo
   s tlačítkem na novou lekci (nebo ⚠️ s vysvětlením, co poslat znovu).
 - **Zpracování**: naplánovaná úloha „QUESTOR — zpracování látky" v aplikaci
-  Claude na tvém Macu (každé 2 hodiny 8–22 h, běží jen když je Mac zapnutý
-  a aplikace Claude spuštěná; zmeškaný běh proběhne po jejím spuštění).
+  Claude na tvém Macu (jednou denně ve 22 h — Matěj posílá látku večer;
+  běží jen když je Mac zapnutý a aplikace Claude spuštěná, zmeškaný běh
+  proběhne po jejím spuštění). Spěchá-li to, spusť ji v aplikaci Claude
+  (Scheduled → úloha → **Run now**). Aby běh nečekal na schválení
+  nástrojů, nastav úloze v aplikaci režim oprávnění (úprava úlohy).
   Pod tvým předplatným přepíše zápisky, napíše učivo, otázky a lekci, nechá
   je zkontrolovat nezávislým oponentem a zveřejní — aplikace si nový obsah
   stáhnou samy. Postup a pravidla: `docs/ZPRACOVANI-LATKY.md`.

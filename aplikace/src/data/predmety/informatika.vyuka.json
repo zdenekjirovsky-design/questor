@@ -1,12 +1,349 @@
 {
   "predmetId": "informatika",
-  "verze": 1,
-  "vytvoreno": "2026-09-04",
+  "verze": 2,
+  "vytvoreno": "2026-11-08",
   "lekce": [
+    {
+      "temaId": "inf-zdroje-informaci",
+      "nazev": "Zdroje informací",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Na TikToku ti vyskočí video, kde někdo vypráví: „Kámoš psal, že se na D1 srazilo patnáct aut!“ Do večera ho sdílí půlka třídy — a každý přidá vlastní číslo. Pak Policie ČR zveřejní zprávu z místa: srazila se tři auta a nikdo nebyl vážně zraněn. Kde se cestou vzalo dvanáct aut navíc?"
+        },
+        {
+          "typ": "text",
+          "obsah": "Porozumět rozdílu mezi **primárními a sekundárními zdroji informací** je klíčové pro práci s kvalitními daty.\n\n**Primární zdroje** = **původní, nezkreslené informace** vzniklé **přímo u zdroje** události nebo jevu. Prezentace je dělí do čtyř skupin (drž pořadí):\n\n- **1. Vědecké články a studie** — původní výzkumné práce a jejich výsledky publikované autory.\n- **2. Úřední zprávy a dokumenty** — lékařské zprávy, dopisy, zákony a další originální dokumenty.\n- **3. Přímé záznamy** — pořízené rozhovory, zprávy zaznamenané na místě vzniku, osobní deníky.\n- **4. Umělecká díla** — originální umělecká díla, hudební reprodukce, kamerový záznam události.\n\n**Sekundární zdroje** **vychází z primárních** zdrojů a **staví na nich**. Mohou proto obsahovat **nepřesnosti a zkreslení**. Patří sem:\n\n- zprostředkované zprávy,\n- komentáře a recenze,\n- učebnice, přehledy, slovníky, atlasy,\n- biografie a nástěnné výukové obrazy.\n\n**Zapamatuj si:** Čím blíže primárnímu zdroji informace, tím větší je šance, že informace bude přesnější a kvalitnější. U nehody z úvodu proto platí zpráva policie (tři auta), ne vyprávění z druhé a třetí ruky."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Na sítích denně narazíš na „fakta“, která prošla deseti páry rukou. Kdo se zeptá „Kdo byl u toho a odkud to autor ví?“, nenaletí hoaxům ani řetězovým zprávám. U referátu ti učitel ocení, když místo „četl jsem někde“ ocituješ původní studii nebo úřední data. A až budeš jednou ve firmě rozhodovat o penězích, budeš chtít čísla z první ruky — ne z třetí."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 380\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Cesta informace od události: Policie ČR jako primární zdroj, novinář jako sekundární zdroj; čtyři skupiny primárních zdrojů a výčet sekundárních zdrojů\"><defs><marker id=\"zdr-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs><text x=\"320\" y=\"22\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">CESTA INFORMACE OD UDÁLOSTI K TOBĚ</text><rect x=\"15\" y=\"38\" width=\"170\" height=\"70\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"100\" y=\"66\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">UDÁLOST</text><text x=\"100\" y=\"86\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">nehoda na silnici</text><line x1=\"187\" y1=\"73\" x2=\"226\" y2=\"73\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#zdr-sipka)\" /><rect x=\"232\" y=\"38\" width=\"176\" height=\"70\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"320\" y=\"58\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--info)\">PRIMÁRNÍ ZDROJ</text><text x=\"320\" y=\"77\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">Policie ČR — zpráva</text><text x=\"320\" y=\"93\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">z přímé účasti u nehody</text><line x1=\"410\" y1=\"73\" x2=\"449\" y2=\"73\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#zdr-sipka)\" /><rect x=\"455\" y=\"38\" width=\"170\" height=\"70\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><text x=\"540\" y=\"58\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--akcent)\">SEKUNDÁRNÍ ZDROJ</text><text x=\"540\" y=\"77\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">novinář — článek</text><text x=\"540\" y=\"93\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">podle zprávy policie</text><line x1=\"600\" y1=\"126\" x2=\"44\" y2=\"126\" stroke=\"var(--zlata)\" stroke-width=\"2\" stroke-dasharray=\"6 4\" marker-end=\"url(#zdr-sipka)\" /><text x=\"320\" y=\"146\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">Čím blíž primárnímu zdroji, tím větší šance na přesnou a kvalitní informaci.</text><rect x=\"15\" y=\"162\" width=\"300\" height=\"208\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"165\" y=\"184\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--info)\">PRIMÁRNÍ ZDROJE</text><text x=\"165\" y=\"201\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">původní, nezkreslené, vzniklé přímo u zdroje</text><line x1=\"30\" y1=\"211\" x2=\"300\" y2=\"211\" stroke=\"var(--info)\" stroke-width=\"1\" /><text x=\"30\" y=\"231\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">1. vědecké články a studie</text><text x=\"30\" y=\"246\" font-size=\"10\" fill=\"currentColor\">původní výzkum a jeho výsledky</text><text x=\"30\" y=\"268\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">2. úřední zprávy a dokumenty</text><text x=\"30\" y=\"283\" font-size=\"10\" fill=\"currentColor\">lékařské zprávy, dopisy, zákony</text><text x=\"30\" y=\"305\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">3. přímé záznamy</text><text x=\"30\" y=\"320\" font-size=\"10\" fill=\"currentColor\">rozhovory, zprávy z místa, osobní deníky</text><text x=\"30\" y=\"342\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">4. umělecká díla</text><text x=\"30\" y=\"357\" font-size=\"10\" fill=\"currentColor\">originály, hudební reprodukce, kamerový záznam</text><rect x=\"325\" y=\"162\" width=\"300\" height=\"208\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><text x=\"475\" y=\"184\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--akcent)\">SEKUNDÁRNÍ ZDROJE</text><text x=\"475\" y=\"201\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">vychází z primárních a staví na nich</text><line x1=\"340\" y1=\"211\" x2=\"610\" y2=\"211\" stroke=\"var(--akcent)\" stroke-width=\"1\" /><text x=\"340\" y=\"235\" font-size=\"11\" fill=\"currentColor\">• zprostředkované zprávy</text><text x=\"340\" y=\"259\" font-size=\"11\" fill=\"currentColor\">• komentáře a recenze</text><text x=\"340\" y=\"283\" font-size=\"11\" fill=\"currentColor\">• učebnice, přehledy, slovníky, atlasy</text><text x=\"340\" y=\"307\" font-size=\"11\" fill=\"currentColor\">• biografie a nástěnné výukové obrazy</text><text x=\"475\" y=\"340\" text-anchor=\"middle\" font-size=\"10.5\" font-weight=\"bold\" fill=\"var(--zlata)\">pozor: mohou obsahovat</text><text x=\"475\" y=\"355\" text-anchor=\"middle\" font-size=\"10.5\" font-weight=\"bold\" fill=\"var(--zlata)\">nepřesnosti a zkreslení</text></svg>",
+          "popisek": "Nahoře teče informace od události k tobě: Policie ČR byla u nehody (primární zdroj), novinář píše podle její zprávy (sekundární zdroj). Čárkovaná šipka připomíná pravidlo — čím blíž primárnímu zdroji, tím větší šance na přesnou informaci. Dole jsou čtyři skupiny primárních zdrojů v pořadí z prezentace a výčet sekundárních zdrojů."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-inf-zdroje-informaci-1",
+            "temaId": "inf-zdroje-informaci",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Který z těchto zdrojů o 1. světové válce je PRIMÁRNÍ?",
+            "moznosti": [
+              "deník, který si psal voják přímo na frontě",
+              "učebnice dějepisu o 1. světové válce",
+              "životopis (biografie) slavného generála",
+              "recenze nového válečného filmu na filmovém webu"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Osobní deník je přímý záznam vzniklý přímo u události — primární zdroj. Učebnice, biografie i recenze z primárních zdrojů vychází a staví na nich, proto jsou sekundární (a mohou obsahovat nepřesnosti)."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Primární × sekundární říká, **jak daleko** je informace od události. Druhá otázka zní: **jak důvěryhodný je typ zdroje?** Prezentace řadí **typy informačních zdrojů podle kvality** (shora dolů):\n\n- **1. Recenzované vědecké články** — nejvyšší kvalita: prošly přísným kontrolním procesem odborníků.\n- **2. Úřední zprávy a data** — vysoká kvalita: spolehlivé informace od státních organizací.\n- **3. Seriózní média** — střední kvalita: prošla redakčním procesem.\n- **4. Sociální sítě** — různorodá kvalita: závisí na autorovi.\n- **5. Bulvární média** — nízká kvalita: cílem je zaujmout, ne informovat.\n- **6. Dezinformační média** — žádná kvalita: záměrně lživé informace.\n\n**Pozor na past:** **recenzovaný** vědecký článek před vydáním posoudili jiní odborníci — proto je nahoře. **Recenze** filmu nebo mobilu je něčí hodnocení, tedy komentář — sekundární zdroj. Podobné slovo, úplně jiná věc.\n\nA sociální sítě? Video o zdraví může natočit lékařka i podvodník. Rozhoduje autor — proto „různorodá kvalita“."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 368\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Žebříček typů informačních zdrojů podle kvality shora dolů: recenzované vědecké články, úřední zprávy a data, seriózní média, sociální sítě, bulvární média, dezinformační média\"><defs><marker id=\"zeb-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs><text x=\"305\" y=\"24\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"bold\" fill=\"currentColor\">TYPY INFORMAČNÍCH ZDROJŮ PODLE KVALITY</text><rect x=\"20\" y=\"40\" width=\"570\" height=\"48\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2.5\" /><text x=\"40\" y=\"71\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--uspech)\">1</text><text x=\"62\" y=\"60\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Recenzované vědecké články</text><text x=\"62\" y=\"77\" font-size=\"10.5\" fill=\"currentColor\">prošly přísným kontrolním procesem odborníků</text><text x=\"578\" y=\"60\" text-anchor=\"end\" font-size=\"11.5\" font-weight=\"bold\" fill=\"var(--uspech)\">nejvyšší kvalita</text><rect x=\"20\" y=\"94\" width=\"570\" height=\"48\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" /><text x=\"40\" y=\"125\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--uspech)\">2</text><text x=\"62\" y=\"114\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Úřední zprávy a data</text><text x=\"62\" y=\"131\" font-size=\"10.5\" fill=\"currentColor\">spolehlivé informace od státních organizací</text><text x=\"578\" y=\"114\" text-anchor=\"end\" font-size=\"11.5\" font-weight=\"bold\" fill=\"var(--uspech)\">vysoká kvalita</text><rect x=\"20\" y=\"148\" width=\"570\" height=\"48\" rx=\"8\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" /><text x=\"40\" y=\"179\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--info)\">3</text><text x=\"62\" y=\"168\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Seriózní média</text><text x=\"62\" y=\"185\" font-size=\"10.5\" fill=\"currentColor\">prošla redakčním procesem</text><text x=\"578\" y=\"168\" text-anchor=\"end\" font-size=\"11.5\" font-weight=\"bold\" fill=\"var(--info)\">střední kvalita</text><rect x=\"20\" y=\"202\" width=\"570\" height=\"48\" rx=\"8\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><text x=\"40\" y=\"233\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--zlata)\">4</text><text x=\"62\" y=\"222\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Sociální sítě</text><text x=\"62\" y=\"239\" font-size=\"10.5\" fill=\"currentColor\">kvalita závisí na autorovi</text><text x=\"578\" y=\"222\" text-anchor=\"end\" font-size=\"11.5\" font-weight=\"bold\" fill=\"var(--zlata)\">různorodá kvalita</text><rect x=\"20\" y=\"256\" width=\"570\" height=\"48\" rx=\"8\" fill=\"none\" stroke=\"var(--chyba)\" stroke-width=\"1.5\" stroke-dasharray=\"6 4\" /><text x=\"40\" y=\"287\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--chyba)\">5</text><text x=\"62\" y=\"276\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Bulvární média</text><text x=\"62\" y=\"293\" font-size=\"10.5\" fill=\"currentColor\">cílem je zaujmout, ne informovat</text><text x=\"578\" y=\"276\" text-anchor=\"end\" font-size=\"11.5\" font-weight=\"bold\" fill=\"var(--chyba)\">nízká kvalita</text><rect x=\"20\" y=\"310\" width=\"570\" height=\"48\" rx=\"8\" fill=\"none\" stroke=\"var(--chyba)\" stroke-width=\"2.5\" /><text x=\"40\" y=\"341\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--chyba)\">6</text><text x=\"62\" y=\"330\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">Dezinformační média</text><text x=\"62\" y=\"347\" font-size=\"10.5\" fill=\"currentColor\">záměrně lživé informace</text><text x=\"578\" y=\"330\" text-anchor=\"end\" font-size=\"11.5\" font-weight=\"bold\" fill=\"var(--chyba)\">žádná kvalita</text><line x1=\"604\" y1=\"44\" x2=\"604\" y2=\"352\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#zeb-sipka)\" /><text x=\"616\" y=\"198\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" transform=\"rotate(90 616 198)\">KVALITA KLESÁ</text></svg>",
+          "popisek": "Žebříček typů informačních zdrojů podle kvality, jak ho řadí prezentace: nahoře recenzované vědecké články (kontrola odborníků), dole dezinformační média (záměrně lživé informace). U každé příčky je důvod, proč tam stojí — ten se vyplatí umět, nejen pořadí."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Zařaď zdroj: vznikl přímo u události (PRIMÁRNÍ), nebo staví na jiném zdroji (SEKUNDÁRNÍ)? Část položek je z prezentace, část doplněná ze života.",
+            "kategorie": [
+              { "id": "primarni", "nazev": "Primární zdroj" },
+              { "id": "sekundarni", "nazev": "Sekundární zdroj" }
+            ],
+            "polozky": [
+              { "text": "recenzovaný vědecký článek s výsledky nového výzkumu", "kategorieId": "primarni" },
+              { "text": "lékařská zpráva od tvé doktorky", "kategorieId": "primarni" },
+              { "text": "text zákona ve Sbírce zákonů", "kategorieId": "primarni" },
+              { "text": "rozhovor, který sám nahraješ se svědkem", "kategorieId": "primarni" },
+              { "text": "osobní deník", "kategorieId": "primarni" },
+              { "text": "video svědka natočené přímo na místě nehody", "kategorieId": "primarni" },
+              { "text": "článek novináře podle zprávy Policie ČR", "kategorieId": "sekundarni" },
+              { "text": "recenze filmu na ČSFD", "kategorieId": "sekundarni" },
+              { "text": "učebnice dějepisu", "kategorieId": "sekundarni" },
+              { "text": "školní atlas světa", "kategorieId": "sekundarni" },
+              { "text": "biografie (životopis) zpěvačky", "kategorieId": "sekundarni" },
+              { "text": "heslo na Wikipedii", "kategorieId": "sekundarni" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-inf-zdroje-informaci-2",
+            "temaId": "inf-zdroje-informaci",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Proč stojí recenzované vědecké články v žebříčku kvality úplně nahoře?",
+            "moznosti": [
+              "prošly přísným kontrolním procesem odborníků",
+              "vydávají je státní organizace, a proto jsou spolehlivé",
+              "mají ze všech zdrojů nejvíc čtenářů a sdílení",
+              "prošly redakčním procesem v seriózních novinách"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Recenzovaný článek před vydáním posoudili jiní odborníci — to je ten přísný kontrolní proces. Informace od státních organizací jsou úřední zprávy a data (2. příčka), redakčním procesem prošla seriózní média (3. příčka). Počet čtenářů o kvalitě neříká nic."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Píšeš referát „Kolik času tráví teenageři na mobilu“. Našel jsi čtyři zdroje:\n\n- **A:** video influencera: „Průměrný teenager je na mobilu 9 hodin denně!“ (bez odkazu na zdroj)\n- **B:** článek v seriózním deníku, který shrnuje novou studii\n- **C:** samotnou recenzovanou studii vědců, kteří sledovali 2 000 studentů\n- **D:** bulvární web: „ŠOK! Děti jsou na mobilu NONSTOP!“\n\nU každého urči: primární, nebo sekundární? Kam patří v žebříčku kvality? Který zdroj použiješ jako hlavní?",
+          "reseni": "**C — studie: primární zdroj** (vědecké články a studie) a zároveň **1. příčka** žebříčku (recenzovaná = kontrola odborníků). Tohle je tvůj **hlavní zdroj** — čísla ber odsud a cituj ho.\n\n**B — článek v seriózním deníku: sekundární zdroj** (zprostředkovaná zpráva), **3. příčka** (prošel redakčním procesem). Dobrý pomocník — díky němu ses o studii dozvěděl. Čísla ale ověř v C, cestou se mohla zjednodušit.\n\n**A — video influencera: sekundární zdroj** (komentář) a **4. příčka**: sociální sítě, kvalita závisí na autorovi. Bez odkazu nevíš, odkud číslo je. Do referátu ne — leda bys dohledal původní zdroj.\n\n**D — bulvár: sekundární zdroj** (zprostředkovaná zpráva, převzatá a přibarvená) a **5. příčka**: cílem je zaujmout, ne informovat. Nepoužívej.\n\n**Pravidlo:** dojdi co nejblíž k primárnímu zdroji a vybírej typ zdroje co nejvýš v žebříčku."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "primární zdroj", "zadni": "původní, nezkreslené informace vzniklé přímo u zdroje události nebo jevu" },
+            { "predni": "4 skupiny primárních zdrojů (pořadí)", "zadni": "1. vědecké články a studie, 2. úřední zprávy a dokumenty, 3. přímé záznamy, 4. umělecká díla" },
+            { "predni": "přímé záznamy", "zadni": "pořízené rozhovory, zprávy zaznamenané na místě vzniku, osobní deníky" },
+            { "predni": "sekundární zdroj", "zadni": "vychází z primárních zdrojů a staví na nich; může obsahovat nepřesnosti a zkreslení" },
+            { "predni": "příklady sekundárních zdrojů", "zadni": "zprostředkované zprávy; komentáře a recenze; učebnice, přehledy, slovníky, atlasy; biografie a nástěnné výukové obrazy" },
+            { "predni": "„Zapamatuj si“ o blízkosti ke zdroji", "zadni": "Čím blíže primárnímu zdroji informace, tím větší je šance, že informace bude přesnější a kvalitnější." },
+            { "predni": "Policie ČR × novinář", "zadni": "zpráva policie z přímé účasti u nehody = primární zdroj; článek novináře podle ní = sekundární zdroj" },
+            { "predni": "žebříček kvality zdrojů (shora)", "zadni": "1. recenzované vědecké články, 2. úřední zprávy a data, 3. seriózní média, 4. sociální sítě, 5. bulvární média, 6. dezinformační média" },
+            { "predni": "recenzovaný článek × recenze", "zadni": "recenzovaný vědecký článek prošel kontrolou odborníků (nejvyšší kvalita); recenze filmu je něčí hodnocení (sekundární zdroj)" },
+            { "predni": "bulvární × dezinformační média", "zadni": "bulvár: nízká kvalita, cílem je zaujmout, ne informovat; dezinformace: žádná kvalita, záměrně lživé informace" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Primární zdroj** = původní, nezkreslené informace přímo u zdroje: 1. vědecké články a studie, 2. úřední zprávy a dokumenty, 3. přímé záznamy, 4. umělecká díla.\n- **Sekundární zdroj** z primárních vychází a staví na nich — může obsahovat nepřesnosti a zkreslení (zprostředkované zprávy, komentáře a recenze, učebnice, biografie).\n- **Čím blíž primárnímu zdroji, tím větší šance** na přesnou a kvalitní informaci.\n- **Žebříček kvality:** recenzované vědecké články → úřední zprávy a data → seriózní média → sociální sítě → bulvární média → dezinformační média.\n- U každé zprávy se ptej: **Kdo byl u toho a odkud to autor ví?**"
+        }
+      ]
+    },
+    {
+      "temaId": "inf-zkresleni-dat",
+      "nazev": "Zkreslení dat",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Youtuber dá svým sledujícím anketu: „Jsem nejlepší youtuber v Česku?“ 92 % klikne ANO a on druhý den hlásí: „Celé Česko mě miluje!“ Jenže hlasovali jen jeho fanoušci — kdo ho nemá rád, jeho kanál nesleduje. Čísla v anketě jsou pravdivá, a přesto je závěr úplně mimo."
+        },
+        {
+          "typ": "text",
+          "obsah": "Data se dají zkreslit tím, **jak je sbíráme**, **jak o nich přemýšlíme** i **co se z nich zveřejní**. Prezentace rozlišuje **tři hlavní typy zkreslení dat** (drž pořadí):\n\n- **1. Výběrové zkreslení** — chyba vznikající při **nevhodném výběru vzorku dat**, který **nereprezentuje věrně populaci**, z níž byl vybrán.\n- **2. Kognitivní (poznávací) zkreslení** — **systematické „chyby“ v myšlení** ovlivňující lidský **úsudek, rozhodování a interpretaci** informací. Má čtyři druhy — přijdou na řadu v druhé části.\n- **3. Publikační zkreslení** — jev, kdy jsou **publikovány hlavně studie s pozitivními výsledky**, zatímco **negativní závěry bývají odmítnuty**. To může vést k **nesprávným závěrům ve vědecké komunitě**, protože vědci i čtenáři mají přístup jen k části materiálů."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Výběrové zkreslení podrobněji:** chceš zjistit, kolik % občanů ČR má jízdní kolo. Zeptat se všech nejde, takže se zeptáš vybraného vzorku lidí — a ten musí být **reprezentativní** (věrně odpovídat celé populaci). Teprve pak smíš závěr odvodit pro všechny. **Doplněný příklad chyby:** kdo se ptá jen lidí na cyklostezce, „zjistí“, že kolo má skoro každý.\n\n**Publikační zkreslení podrobněji:** farmaceutická firma nechá nový lék posoudit dvěma studiemi (přínosy × nežádoucí účinky) a zveřejní jen tu pozitivní. Veřejnost lék přecení a ten vzbudí naději i u pacientů, pro které vůbec vhodný není."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Zkreslená data na tebe číhají všude. Přeškrtnutá „původní cena“ na e-shopu tě má ukotvit, motivační video „nedokončil jsem školu a jsem milionář“ ukazuje jen ty, kdo uspěli, a anketa mezi fanoušky nic neříká o všech lidech. Kdo zkreslení pozná, nekoupí předraženou věc, nenaletí na „zaručený recept na úspěch“ a jednou ve vlastní firmě neudělá průzkum trhu jen mezi kamarády."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 366\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Strom zkreslení dat: tři hlavní typy výběrové, kognitivní a publikační; kognitivní zkreslení má čtyři druhy: potvrzovací, efekt kotvy, zkreslení dostupnosti a zkreslení přeživších\"><rect x=\"190\" y=\"8\" width=\"260\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" /><text x=\"320\" y=\"30\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">ZKRESLENÍ DAT</text><text x=\"320\" y=\"47\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">3 hlavní typy (v pořadí z prezentace)</text><line x1=\"320\" y1=\"56\" x2=\"320\" y2=\"70\" stroke=\"currentColor\" stroke-width=\"1.5\" /><line x1=\"105\" y1=\"70\" x2=\"535\" y2=\"70\" stroke=\"currentColor\" stroke-width=\"1.5\" /><line x1=\"105\" y1=\"70\" x2=\"105\" y2=\"84\" stroke=\"currentColor\" stroke-width=\"1.5\" /><line x1=\"320\" y1=\"70\" x2=\"320\" y2=\"84\" stroke=\"currentColor\" stroke-width=\"1.5\" /><line x1=\"535\" y1=\"70\" x2=\"535\" y2=\"84\" stroke=\"currentColor\" stroke-width=\"1.5\" /><rect x=\"15\" y=\"84\" width=\"180\" height=\"70\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"105\" y=\"106\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--info)\">1. VÝBĚROVÉ</text><text x=\"105\" y=\"124\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">vzorek nereprezentuje</text><text x=\"105\" y=\"139\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">věrně populaci</text><rect x=\"230\" y=\"84\" width=\"180\" height=\"70\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><text x=\"320\" y=\"104\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--akcent)\">2. KOGNITIVNÍ</text><text x=\"320\" y=\"120\" text-anchor=\"middle\" font-size=\"10.5\" font-weight=\"bold\" fill=\"var(--akcent)\">(POZNÁVACÍ)</text><text x=\"320\" y=\"138\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">systematické „chyby“ v myšlení</text><rect x=\"445\" y=\"84\" width=\"180\" height=\"70\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"535\" y=\"106\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--zlata)\">3. PUBLIKAČNÍ</text><text x=\"535\" y=\"124\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">zveřejní se hlavně</text><text x=\"535\" y=\"139\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\">pozitivní výsledky</text><line x1=\"320\" y1=\"154\" x2=\"320\" y2=\"174\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><text x=\"328\" y=\"168\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--akcent)\">4 druhy</text><line x1=\"87\" y1=\"174\" x2=\"553\" y2=\"174\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><line x1=\"87\" y1=\"174\" x2=\"87\" y2=\"188\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><line x1=\"242\" y1=\"174\" x2=\"242\" y2=\"188\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><line x1=\"398\" y1=\"174\" x2=\"398\" y2=\"188\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><line x1=\"553\" y1=\"174\" x2=\"553\" y2=\"188\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><rect x=\"15\" y=\"188\" width=\"145\" height=\"108\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><text x=\"87\" y=\"208\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">1. POTVRZOVACÍ</text><text x=\"87\" y=\"223\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">ZKRESLENÍ</text><text x=\"87\" y=\"244\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">hledáme, co potvrzuje</text><text x=\"87\" y=\"258\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">naše přesvědčení</text><text x=\"87\" y=\"283\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"var(--zlata)\">př. vědec a mobily</text><rect x=\"170\" y=\"188\" width=\"145\" height=\"108\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><text x=\"242\" y=\"208\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">2. EFEKT</text><text x=\"242\" y=\"223\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">KOTVY</text><text x=\"242\" y=\"244\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">spoléháme na první</text><text x=\"242\" y=\"258\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">informaci (kotvu)</text><text x=\"242\" y=\"283\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"var(--zlata)\">př. dotazník a 15 000 Kč</text><rect x=\"325\" y=\"188\" width=\"145\" height=\"108\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><text x=\"398\" y=\"208\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">3. ZKRESLENÍ</text><text x=\"398\" y=\"223\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">DOSTUPNOSTI</text><text x=\"398\" y=\"244\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">přeceňujeme, co si</text><text x=\"398\" y=\"258\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">snadno vybavíme</text><text x=\"398\" y=\"283\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"var(--zlata)\">př. požár × povodeň</text><rect x=\"480\" y=\"188\" width=\"145\" height=\"108\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><text x=\"553\" y=\"208\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">4. ZKRESLENÍ</text><text x=\"553\" y=\"223\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">PŘEŽIVŠÍCH</text><text x=\"553\" y=\"244\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">vidíme jen úspěšné,</text><text x=\"553\" y=\"258\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">neúspěšné ignorujeme</text><text x=\"553\" y=\"283\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"var(--zlata)\">př. Waldova letadla</text><text x=\"320\" y=\"324\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">Hlavní typy jsou 3 — kognitivní (poznávací) zkreslení se dál dělí na 4 druhy.</text><text x=\"320\" y=\"352\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--zlata)\">U všech dat se ptej: „Kdo nebo co tady chybí?“</text></svg>",
+          "popisek": "Strom zkreslení dat: nahoře tři hlavní typy v pořadí z prezentace (1. výběrové, 2. kognitivní, 3. publikační). Kognitivní (poznávací) zkreslení se dál dělí na čtyři druhy — potvrzovací, efekt kotvy, zkreslení dostupnosti a zkreslení přeživších — každý se zlatým odkazem na příklad z prezentace."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-inf-zkresleni-dat-1",
+            "temaId": "inf-zkresleni-dat",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Který příklad popisuje VÝBĚROVÉ zkreslení?",
+            "moznosti": [
+              "průzkum, kolik lidí v ČR jezdí MHD, uděláš jen na zastávce tramvaje",
+              "vědecký časopis otiskne jen studie, ve kterých nový lék zabral",
+              "fanoušek čte jen články, které chválí jeho oblíbený tým, a kritiku přeskakuje",
+              "zeptáš se reprezentativního vzorku lidí z celé republiky"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Na zastávce tramvaje čekají hlavně lidé, kteří MHD jezdí — vzorek nereprezentuje populaci, stejně jako cyklisté na cyklostezce. Otiskování jen pozitivních studií je publikační zkreslení, čtení jen chvály je chyba v myšlení (kognitivní zkreslení) a reprezentativní vzorek je naopak správný postup."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Kognitivní zkreslení** má čtyři druhy (pořadí z prezentace).\n\n**1. Potvrzovací zkreslení** — podvědomá tendence **vyhledávat a preferovat informace, které potvrzují naše přesvědčení**, a ignorovat ty, které jim odporují.\n\n**Příklad:** vědec věří, že displej mobilu před spaním zhoršuje spánek. Do průzkumu přizve převážně mladé lidi a položí i otázky, které podvědomě potvrzují jeho přesvědčení — data mu pak dají „za pravdu“. (Jen mladí lidé jsou i nevhodný vzorek, příčinou je ale vědcovo přesvědčení — proto potvrzovací zkreslení.)"
+        },
+        {
+          "typ": "text",
+          "obsah": "**2. Efekt kotvy** — tendence **spoléhat se na první informaci (kotvu)**, i když je irelevantní nebo nepřesná; ta ovlivní naše další úsudky.\n\n**Příklad:** tazatel výrobce mobilů se studentů ptá, jestli by za nový model dali víc, nebo méně než **15 000 Kč**. Skoro nikdo pak neuvede víc — studenti se od kotvy odrazili a firma nemá objektivní data."
+        },
+        {
+          "typ": "text",
+          "obsah": "**3. Zkreslení dostupnosti** — tendence **přeceňovat události a informace, které si snadno vybavíme**, a podceňovat ty, které si vybavíme obtížněji.\n\n**Příklad:** obcí u lesa protéká říčka. Před 15 lety povodeň strhla 2 domy, před 2 lety lesní požár zničil také 2 domy. Proti požáru je pojištěná většina obyvatel, proti povodni skoro nikdo — přestože **obě rizika jsou stejně velká**. Čerstvý požár si každý vybaví, starou povodeň ne."
+        },
+        {
+          "typ": "text",
+          "obsah": "**4. Zkreslení přeživších** (anglicky **survivorship bias**, také **klam přeživších**) — tendence **soustředit se pouze na úspěšné případy** a ignorovat ty neúspěšné, což vede ke zkreslenému obrazu reality.\n\n**Příběh z 2. světové války:** bombardéry armády USA se z misí nevracely v přijatelných počtech. Statistici zkoumali letadla, která se vrátila: trupy, křídla a ocasy byly poseté průstřely. Velení chtělo posílit pancíř tam, kde bylo nejvíc děr. Statistik **Abraham Wald** návrh zastavil: armáda zkoumá **jen letadla, která se vrátila** — tedy „přeživší“. Díry ukazují místa, kde letadlo zásah **přežije**. Kde díry chybí (**motory a kokpit**), tam zásah znamenal pád — a taková letadla se do analýzy nikdy nedostala. Wald proto doporučil přesný opak: **posílit pancíř tam, kde žádné díry nejsou**."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 350\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Ilustrace příběhu Abrahama Walda: bombardér shora, tečky zásahů na křídlech, trupu a ocasu vrácených letadel; motory a kokpit bez zásahů, protože letadla zasažená tam se nevrátila\"><text x=\"320\" y=\"20\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">ILUSTRACE PŘÍBĚHU: ZÁSAHY NA LETADLECH, KTERÁ SE VRÁTILA</text><polygon points=\"186,140 40,184 40,200 186,188\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" /><polygon points=\"214,140 360,184 360,200 214,188\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" /><polygon points=\"186,292 128,306 128,318 186,312\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" /><polygon points=\"214,292 272,306 272,318 214,312\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" /><rect x=\"186\" y=\"40\" width=\"28\" height=\"282\" rx=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" /><ellipse cx=\"200\" cy=\"70\" rx=\"9\" ry=\"16\" fill=\"var(--uspech)\" fill-opacity=\"0.25\" stroke=\"var(--uspech)\" stroke-width=\"2.5\" /><text x=\"220\" y=\"56\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--uspech)\">kokpit</text><rect x=\"98\" y=\"118\" width=\"22\" height=\"58\" rx=\"9\" fill=\"var(--uspech)\" fill-opacity=\"0.25\" stroke=\"var(--uspech)\" stroke-width=\"2.5\" /><line x1=\"92\" y1=\"116\" x2=\"126\" y2=\"116\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" /><text x=\"109\" y=\"106\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--uspech)\">motor</text><rect x=\"280\" y=\"118\" width=\"22\" height=\"58\" rx=\"9\" fill=\"var(--uspech)\" fill-opacity=\"0.25\" stroke=\"var(--uspech)\" stroke-width=\"2.5\" /><line x1=\"274\" y1=\"116\" x2=\"308\" y2=\"116\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" /><text x=\"291\" y=\"106\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"var(--uspech)\">motor</text><circle cx=\"52\" cy=\"191\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"62\" cy=\"185\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"71\" cy=\"193\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"80\" cy=\"182\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"89\" cy=\"190\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"134\" cy=\"167\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"142\" cy=\"179\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"152\" cy=\"161\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"160\" cy=\"173\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"169\" cy=\"157\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"176\" cy=\"180\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"150\" cy=\"186\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"348\" cy=\"191\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"338\" cy=\"185\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"329\" cy=\"193\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"320\" cy=\"182\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"311\" cy=\"190\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"266\" cy=\"167\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"258\" cy=\"179\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"248\" cy=\"161\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"240\" cy=\"173\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"231\" cy=\"157\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"224\" cy=\"180\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"250\" cy=\"186\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"196\" cy=\"152\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"205\" cy=\"168\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"195\" cy=\"190\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"204\" cy=\"208\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"197\" cy=\"228\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"206\" cy=\"246\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"199\" cy=\"264\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"140\" cy=\"310\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"153\" cy=\"305\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"166\" cy=\"310\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"177\" cy=\"304\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"223\" cy=\"304\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"234\" cy=\"310\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"247\" cy=\"305\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"260\" cy=\"310\" r=\"3.2\" fill=\"var(--zlata)\" /><circle cx=\"398\" cy=\"54\" r=\"4\" fill=\"var(--zlata)\" /><text x=\"410\" y=\"58\" font-size=\"11\" fill=\"currentColor\">zásah na letadle, které se VRÁTILO</text><text x=\"392\" y=\"94\" font-size=\"11.5\" font-weight=\"bold\" fill=\"var(--chyba)\">✗ Intuice velení:</text><text x=\"392\" y=\"110\" font-size=\"11\" fill=\"currentColor\">posílit pancíř tam, kde je nejvíc</text><text x=\"392\" y=\"125\" font-size=\"11\" fill=\"currentColor\">děr (křídla, trup, ocas)</text><text x=\"392\" y=\"158\" font-size=\"11.5\" font-weight=\"bold\" fill=\"var(--uspech)\">✓ Abraham Wald:</text><text x=\"392\" y=\"174\" font-size=\"11\" fill=\"currentColor\">posílit pancíř tam, kde díry</text><text x=\"392\" y=\"189\" font-size=\"11\" fill=\"currentColor\">NEJSOU — motory a kokpit</text><text x=\"392\" y=\"224\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">Proč?</text><text x=\"392\" y=\"240\" font-size=\"11\" fill=\"currentColor\">Letadla zasažená do motorů</text><text x=\"392\" y=\"255\" font-size=\"11\" fill=\"currentColor\">nebo kokpitu se nevrátila,</text><text x=\"392\" y=\"270\" font-size=\"11\" fill=\"currentColor\">takže v datech CHYBĚJÍ.</text><text x=\"392\" y=\"310\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--zlata)\">„Kdo nebo co tady chybí?“</text><text x=\"392\" y=\"330\" font-size=\"10\" fill=\"currentColor\">mapa je ilustrace, ne válečný dokument</text></svg>",
+          "popisek": "Ilustrace příběhu (ne původní válečný dokument): tečky ukazují zásahy na letadlech, která se VRÁTILA. Křídla, trup a ocas zásahy přežily. Motory a kokpit jsou bez teček, protože letadla zasažená tam se nevrátila — v datech chybí. Proto Wald radil posílit právě je."
+        },
+        {
+          "typ": "text",
+          "obsah": "Stejný omyl vidíš všude kolem sebe:\n\n- „Bill Gates i Mark Zuckerberg nedokončili vysokou školu“ — tisíce lidí, kteří ji taky nedokončili a skončili bez kapitálu, kontaktů i stability, ale nevidíš.\n- Staré domy a hudba „vydržely“ — nekvalitní stavby spadly a špatná hudba se přestala hrát.\n- Investiční fondy se chlubí krásnou výkonností — ty nejhorší zkrachovaly a z databází zmizely.\n- Staré filmy prý byly lepší — jenže dodnes se vysílají jen klenoty, tuny průměrných filmů už nikdo nepouští.\n\n**Zlatá otázka k jakýmkoli datům: „Kdo nebo co tady chybí?“**"
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              { "a": "výběrové zkreslení", "b": "Průzkum „Kdo má kolo?“ jen mezi lidmi na cyklostezce" },
+              { "a": "potvrzovací zkreslení", "b": "Fanoušek čte jen články, které chválí jeho tým" },
+              { "a": "efekt kotvy", "b": "Přeškrtnutá „původní cena“, od které se odrazíš" },
+              { "a": "zkreslení dostupnosti", "b": "Po nedávném požáru pojištění proti ohni, na povodeň nikdo nemyslí" },
+              { "a": "zkreslení přeživších", "b": "„Gates nedokončil vysokou, tak škola k úspěchu není potřeba“" },
+              { "a": "publikační zkreslení", "b": "Firma zveřejní jen studii, podle které lék skvěle funguje" }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-inf-zkresleni-dat-2",
+            "temaId": "inf-zkresleni-dat",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Proč Abraham Wald doporučil posílit pancíř právě na motorech a kokpitu, kde vrácená letadla neměla skoro žádné díry?",
+            "moznosti": [
+              "letadla zasažená do motorů a kokpitu se nevrátila — v datech chyběla, zásah tam byl smrtelný",
+              "nepřítel na motory a kokpit skoro nestřílel, takže tam bylo nejlevnější pancíř přidat",
+              "motory a kokpit jsou nejdražší části letadla a chrání se vždycky, ať data ukazují cokoli",
+              "díry na křídlech a trupu ukázaly, že tam přidaný pancíř nepomůže a jen letadlo zatíží"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Mapa zachycovala jen „přeživší“ letadla. Prázdná místa nebyla prázdná proto, že by se tam nepřítel netrefoval — zásah do motorů nebo kokpitu znamenal pád, a tak taková letadla do analýzy nikdy nedorazila. Wald tedy četl i to, co v datech CHYBĚLO. To je jádro zkreslení přeživších."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Kamarád Tomáš chce prodávat na internetu ponožky s vlastním potiskem a přesvědčuje tě čtyřmi argumenty:\n\n- **1)** „Dal jsem anketu do své skupiny milovníků ponožek na Instagramu: 90 % by si je koupilo!“\n- **2)** „Mark Zuckerberg taky nedokončil vysokou, a podívej se na něj. Škola je k ničemu.“\n- **3)** „Čtu jen články, že ponožky s potiskem jsou hit. Ty kritické přeskakuju, jsou stejně hloupé.“\n- **4)** „První, co jsem na netu viděl, byly ponožky za 999 Kč, takže moje za 499 jsou výhodné.“\n\nNajdi u každého argumentu zkreslení a poraď, co s ním.",
+          "reseni": "**1) Výběrové zkreslení.** Členové skupiny milovníků ponožek nejsou reprezentativní vzorek zákazníků. Rada: zeptat se různých lidí mimo tuhle bublinu.\n\n**2) Zkreslení přeživších.** Tomáš vidí pár slavných, kterým to bez školy vyšlo — tisíce těch, kterým to nevyšlo, vidět nejsou. Rada: zeptat se „Kdo tady chybí?“ (a školu dodělat).\n\n**3) Potvrzovací zkreslení** (druh kognitivního). Vyhledává jen informace, které potvrzují jeho přesvědčení, a ostatní ignoruje. Rada: schválně si přečíst i kritické články.\n\n**4) Efekt kotvy** (druh kognitivního). Prvních 999 Kč je kotva — ať byla ta cena rozumná, nebo ne, Tomáš se od ní odráží. Rada: porovnat ceny ve víc obchodech a spočítat si vlastní náklady.\n\n**Poučení:** čtyři argumenty, čtyři zkreslení — a ani jeden z nich neříká nic o tom, jestli ponožky koupí lidé, kteří Tomáše neznají."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "3 hlavní typy zkreslení dat (pořadí)", "zadni": "1. výběrové, 2. kognitivní (poznávací), 3. publikační" },
+            { "predni": "výběrové zkreslení", "zadni": "chyba při nevhodném výběru vzorku dat, který nereprezentuje věrně populaci, z níž byl vybrán" },
+            { "predni": "reprezentativní vzorek", "zadni": "vybraná skupina, která věrně odpovídá celé populaci — z ní lze odvodit závěr pro všechny (kolik % lidí v ČR má kolo)" },
+            { "predni": "kognitivní (poznávací) zkreslení", "zadni": "systematické „chyby“ v myšlení ovlivňující úsudek, rozhodování a interpretaci informací; má 4 druhy" },
+            { "predni": "potvrzovací zkreslení", "zadni": "podvědomě vyhledáváme a preferujeme informace, které potvrzují naše přesvědčení, a ty opačné ignorujeme (vědec a mobily před spaním)" },
+            { "predni": "efekt kotvy", "zadni": "spoléháme se na první informaci (kotvu), i když je irelevantní nebo nepřesná (dotazník s 15 000 Kč)" },
+            { "predni": "zkreslení dostupnosti", "zadni": "přeceňujeme, co si snadno vybavíme, a podceňujeme, co si vybavíme obtížněji (požár × povodeň v obci)" },
+            { "predni": "zkreslení přeživších", "zadni": "survivorship bias, klam přeživších: soustředíme se jen na úspěšné případy, neúspěšné ignorujeme (Waldova letadla)" },
+            { "predni": "publikační zkreslení", "zadni": "publikují se hlavně studie s pozitivními výsledky, negativní závěry bývají odmítnuty (firma a nový lék)" },
+            { "predni": "„Kdo nebo co tady chybí?“", "zadni": "otázka, kterou si klást u všech dat — odhalí hlavně zkreslení přeživších a nereprezentativní vzorek" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **3 hlavní typy zkreslení dat:** 1. výběrové, 2. kognitivní (poznávací), 3. publikační.\n- **Výběrové:** vzorek nereprezentuje populaci → závěr pro všechny je chybný. Řešení: reprezentativní vzorek.\n- **Kognitivní** = systematické „chyby“ v myšlení; druhy: potvrzovací, efekt kotvy, zkreslení dostupnosti, zkreslení přeživších.\n- **Publikační:** zveřejní se hlavně pozitivní výsledky → čtenáři vidí jen část materiálů a mohou dojít k nesprávným závěrům.\n- U všech dat se ptej: **„Kdo nebo co tady chybí?“**"
+        }
+      ]
+    },
+    {
+      "temaId": "inf-kvalita-informaci",
+      "nazev": "Kvalitní informace a kritické myšlení",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Je 8:20 a potřebuješ stihnout vlak do Brna. Kamarád ti do chatu napíše: „Já jel včera ve 22:35, to dáš.“ Pravda to je — jenže tobě je taková informace na nic. Jak může být informace pravdivá, a přitom k ničemu?"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Kvalitní informace** musí splnit **pět kritérií** (drž pořadí):\n\n- **1. Správnost** — informace musí být správná, fakticky přesná; nesmí obsahovat chyby ani nepravdu. „Jaká barva na semaforu znamená stůj?“ → **červená**, ne oranžová.\n- **2. Relevance** — informace by měla odpovídat tématu nebo otázce, kterou se zabýváš. „Vyhrála dnes Sparta, nebo Slavia?“ → **Sparta**, ne „Arsenal FC Londýn“.\n- **3. Objektivita** — informace by měla být vyvážená a objektivní, zastávat různé úhly pohledu. „Dožívají se v ČR vyššího věku ženy, nebo muži?“ → **ženy, podle dat ČSÚ** — ne „ženy, protože moje babička přežila dědu“.\n- **4. Aktuálnost** — informace by měla být aktuální k datu a času, ke kterému se vztahuje. Je 8:20, kdy jede nejbližší vlak do Brna? → **v 9:45**, ne „včera jel ve 22:35“.\n- **5. Kompletnost** — informace by měla být kompletní a poskytovat dostatek kontextu. „Jak krmit křečka?“ → **jednou denně granulemi, semínky, zeleninou a ovocem, ve stejnou denní dobu, a celý den by měl být hydratovaný** — ne jen „jednou denně vhodnou stravou“.\n\n**Pozor u objektivity:** obě odpovědi říkají „ženy“ a obě jsou fakticky správně. Chyba je v **odůvodnění** — osobní zkušenost místo dat. Správný závěr ještě není objektivní informace."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Při nákupu na e-shopu, při hledání brigády i při psaní referátu se na tebe valí spousta informací — a kvalitní je jen část z nich. Pět kritérií je tvůj rychlý filtr: Je to pravda? Odpovídá to na mou otázku? Je to vyvážené a podložené? Platí to k datu a času, o který jde? Je to celé? Kdo se takhle ptá, nekoupí podle tři roky staré recenze, nenechá se odbýt odpovědí mimo téma a nerozhoduje se podle „jednomu kamarádovi se to stalo“."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 330\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Pět kritérií kvalitní informace v pořadí: správnost, relevance, objektivita, aktuálnost, kompletnost; u každého kontrolní otázka a příklad správného a nesprávného užití\"><text x=\"320\" y=\"22\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"bold\" fill=\"currentColor\">KVALITNÍ INFORMACE: 5 KRITÉRIÍ (v pořadí z prezentace)</text><rect x=\"8\" y=\"36\" width=\"118\" height=\"216\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"67\" y=\"60\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--zlata)\">1.</text><text x=\"67\" y=\"80\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">SPRÁVNOST</text><text x=\"67\" y=\"100\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Je to fakticky</text><text x=\"67\" y=\"114\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">přesné, bez chyb?</text><line x1=\"18\" y1=\"126\" x2=\"116\" y2=\"126\" stroke=\"var(--akcent)\" stroke-width=\"1\" /><text x=\"67\" y=\"144\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"currentColor\">Jaká barva na</text><text x=\"67\" y=\"157\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"currentColor\">semaforu = stůj?</text><text x=\"67\" y=\"184\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--uspech)\">✓ červená</text><text x=\"67\" y=\"224\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--chyba)\">✗ oranžová</text><rect x=\"134\" y=\"36\" width=\"118\" height=\"216\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"193\" y=\"60\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--zlata)\">2.</text><text x=\"193\" y=\"80\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">RELEVANCE</text><text x=\"193\" y=\"100\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Odpovídá to</text><text x=\"193\" y=\"114\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">na otázku?</text><line x1=\"144\" y1=\"126\" x2=\"242\" y2=\"126\" stroke=\"var(--akcent)\" stroke-width=\"1\" /><text x=\"193\" y=\"144\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"currentColor\">Vyhrála Sparta,</text><text x=\"193\" y=\"157\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"currentColor\">nebo Slavia?</text><text x=\"193\" y=\"184\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--uspech)\">✓ Sparta</text><text x=\"193\" y=\"224\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--chyba)\">✗ Arsenal FC</text><text x=\"193\" y=\"237\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--chyba)\">Londýn</text><rect x=\"260\" y=\"36\" width=\"118\" height=\"216\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"319\" y=\"60\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--zlata)\">3.</text><text x=\"319\" y=\"80\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">OBJEKTIVITA</text><text x=\"319\" y=\"100\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Je to vyvážené,</text><text x=\"319\" y=\"114\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">opřené o data?</text><line x1=\"270\" y1=\"126\" x2=\"368\" y2=\"126\" stroke=\"var(--akcent)\" stroke-width=\"1\" /><text x=\"319\" y=\"144\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"currentColor\">Kdo se dožívá</text><text x=\"319\" y=\"157\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"currentColor\">vyššího věku?</text><text x=\"319\" y=\"184\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--uspech)\">✓ ženy – podle</text><text x=\"319\" y=\"197\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--uspech)\">dat ČSÚ</text><text x=\"319\" y=\"224\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--chyba)\">✗ ženy – babička</text><text x=\"319\" y=\"237\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--chyba)\">přežila dědu</text><rect x=\"386\" y=\"36\" width=\"118\" height=\"216\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"445\" y=\"60\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--zlata)\">4.</text><text x=\"445\" y=\"80\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">AKTUÁLNOST</text><text x=\"445\" y=\"100\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Platí to k danému</text><text x=\"445\" y=\"114\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">datu a času?</text><line x1=\"396\" y1=\"126\" x2=\"494\" y2=\"126\" stroke=\"var(--akcent)\" stroke-width=\"1\" /><text x=\"445\" y=\"144\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"currentColor\">Nejbližší vlak</text><text x=\"445\" y=\"157\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"currentColor\">do Brna? (je 8:20)</text><text x=\"445\" y=\"184\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--uspech)\">✓ v 9:45</text><text x=\"445\" y=\"224\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--chyba)\">✗ včera jel</text><text x=\"445\" y=\"237\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--chyba)\">ve 22:35</text><rect x=\"512\" y=\"36\" width=\"118\" height=\"216\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"571\" y=\"60\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--zlata)\">5.</text><text x=\"571\" y=\"80\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" fill=\"currentColor\">KOMPLETNOST</text><text x=\"571\" y=\"100\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Je v tom dost</text><text x=\"571\" y=\"114\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">kontextu?</text><line x1=\"522\" y1=\"126\" x2=\"620\" y2=\"126\" stroke=\"var(--akcent)\" stroke-width=\"1\" /><text x=\"571\" y=\"144\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"currentColor\">Jak krmit</text><text x=\"571\" y=\"157\" text-anchor=\"middle\" font-size=\"9.5\" font-style=\"italic\" fill=\"currentColor\">křečka?</text><text x=\"571\" y=\"184\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--uspech)\">✓ čím, kdy, jak</text><text x=\"571\" y=\"197\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--uspech)\">často + pití</text><text x=\"571\" y=\"224\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--chyba)\">✗ „vhodnou</text><text x=\"571\" y=\"237\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"var(--chyba)\">stravou“</text><text x=\"320\" y=\"282\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">Objektivita: obě odpovědi říkají „ženy“ — liší se odůvodněním (data × osobní zkušenost).</text><text x=\"320\" y=\"312\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--zlata)\">Pravdivá informace ještě nemusí být kvalitní.</text></svg>",
+          "popisek": "Pět kritérií kvalitní informace v pořadí z prezentace. Pod každým je kontrolní otázka a příklad z prezentace: zeleně správné užití, červeně nesprávné. U objektivity si všimni, že obě odpovědi říkají „ženy“ — liší se odůvodněním."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-inf-kvalita-informaci-1",
+            "temaId": "inf-kvalita-informaci",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Ptáš se, kolik teď stojí studentská jízdenka na MHD, a kamarád ti pošle fotku ceníku z roku 2019. Které kritérium kvalitní informace je porušené?",
+            "moznosti": ["aktuálnost", "relevance", "objektivita", "kompletnost"],
+            "spravna": 0,
+            "vysvetleni": "Ceník se týká tvé otázky (je relevantní) a v roce 2019 klidně platil — jenže se nevztahuje k dnešku. Chybí aktuálnost, stejně jako u odpovědi „vlak jel včera ve 22:35“. Objektivita by se týkala vyváženosti a podložení informace, kompletnost dostatku kontextu."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Kritické myšlení** = proces hodnocení informací s cílem vytvoření vlastního závěru, zkoumání pravdivosti informací. „Kritické“ neznamená kritizovat všechno — znamená informace **prověřit**, než jim uvěříš.\n\n**Pět kroků** (v pořadí z prezentace):\n\n- **01 Analýza informací** — rozložení komplexní informace na menší části pro lepší pochopení souvislostí.\n- **02 Hodnocení informací** — posuzování důvěryhodnosti, relevance a kvality informací a argumentů.\n- **03 Syntéza informací** — propojení informací, myšlenek a pohledů do nových celků.\n- **04 Reflexe** — schopnost přehodnotit vlastní názory na základě nových informací.\n- **05 Vyvození závěru** — schopnost vyvodit vlastní závěr a učinit informované rozhodnutí.\n\n**Proč je kritické myšlení důležité:**\n\n- **Ochrana před manipulací** — pomáhá, aby ses nestal obětí podvodu nebo manipulace.\n- **Rozpoznání kvality** — snáz rozpoznáš kvalitní informace od nekvalitních.\n- **Správná rozhodnutí** — vede k promyšleným a správným rozhodnutím založeným na faktech."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Projdi pět kroků kritického myšlení v pořadí z prezentace (v prezentaci očíslované 01–05). Příklad: na Instagramu ti vyskočí reklama „Bezdrátová sluchátka za 299 Kč hrají líp než sluchátka za 5 000! Už 10 000 spokojených zákazníků!“",
+            "kroky": [
+              { "nazev": "Analýza informací", "popis": "Rozložíš informaci na menší části: co přesně tvrdí (cena 299 Kč, lepší zvuk než sluchátka za 5 000, 10 000 spokojených zákazníků) a o co se jednotlivá tvrzení opírají (o nic, co jde ověřit)." },
+              { "nazev": "Hodnocení informací", "popis": "Posuzuješ důvěryhodnost, relevanci a kvalitu: kdo to tvrdí? Prodejce v reklamě — zdroj, který chce prodávat. Nezávislý test chybí a „10 000 spokojených“ nejde ověřit." },
+              { "nazev": "Syntéza informací", "popis": "Propojíš víc pohledů do jednoho celku: reklamu, nezávislou recenzi na technologickém webu a zkušenost kamaráda, který má podobná levná sluchátka." },
+              { "nazev": "Reflexe", "popis": "Přehodnotíš vlastní názor na základě nových informací: původně jsi chtěl objednat hned, ale recenze píšou o slabé baterii a vypadávání zvuku — tvůj pohled se mění." },
+              { "nazev": "Vyvození závěru", "popis": "Uděláš vlastní informované rozhodnutí: tahle sluchátka nekoupíš a pořídíš si model, který v testech obstál — i když stojí o něco víc." }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-inf-kvalita-informaci-2",
+            "temaId": "inf-kvalita-informaci",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Vybíráš nový mobil. Dáš dohromady test z odborného webu, recenze zákazníků a zkušenost bratra, který ten model má — a vznikne ti z toho jeden přehled plusů a minusů. Který krok kritického myšlení právě děláš?",
+            "moznosti": ["syntéza informací", "analýza informací", "reflexe", "vyvození závěru"],
+            "spravna": 0,
+            "vysvetleni": "Propojení informací, myšlenek a pohledů do nového celku (jednoho přehledu) je syntéza. Analýza by naopak rozkládala jednu informaci na menší části, reflexe znamená přehodnotit vlastní názor a vyvození závěru je až samotné rozhodnutí, který mobil koupit."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Na sociální síti ti přijde zpráva: „Brigáda pro studenty! 600 Kč/h, 2 hodiny denně jen z mobilu, žádné zkušenosti. Ozvi se do hodiny na WhatsApp, míst je málo!“ Firma ani adresa uvedené nejsou.\n\nPrověř nabídku kritérii kvalitní informace a pěti kroky kritického myšlení. Odpovíš?",
+          "reseni": "**Kritéria kvality:** relevantní to je (hledáš brigádu) a **aktuální** taky (zpráva je čerstvá — jenže to o pravdivosti nic neříká). **Správnost** ale nejde ověřit, chybí **objektivita** (jen lákavé sliby, žádná data) a hlavně **kompletnost** — chybí firma, adresa, popis práce i smlouva.\n\n**Kroky kritického myšlení:**\n\n- **01 Analýza:** co přesně nabídka slibuje (600 Kč/h, 2 hodiny denně z mobilu, žádné zkušenosti) a co po tobě chce (rychlý kontakt na WhatsApp mimo platformu).\n- **02 Hodnocení:** kdo píše? Neznámý účet bez firmy a adresy — zdroj je nedůvěryhodný. 600 Kč/h za dvě hodiny na mobilu je několikanásobek běžné brigády a „do hodiny“ je nátlak na čas.\n- **03 Syntéza:** spojíš to s tím, co víš o podvodech — nátlak na čas + neověřitelný odesílatel = typický podvod.\n- **04 Reflexe:** první reakce byla „super, beru!“ — po rozboru názor měníš.\n- **05 Vyvození závěru:** neodpovídáš, nesdílíš osobní údaje a účet nahlásíš. Brigádu hledáš přes ověřené portály nebo přímo u konkrétních firem.\n\nPřesně tohle je **ochrana před manipulací** v praxi."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            { "predni": "5 kritérií kvalitní informace (pořadí)", "zadni": "1. správnost, 2. relevance, 3. objektivita, 4. aktuálnost, 5. kompletnost" },
+            { "predni": "správnost", "zadni": "informace je správná, fakticky přesná, bez chyb a nepravdy (stůj = červená, ne oranžová)" },
+            { "predni": "relevance", "zadni": "informace odpovídá tématu nebo otázce (Sparta, nebo Slavia? → Sparta, ne Arsenal)" },
+            { "predni": "objektivita", "zadni": "informace je vyvážená, objektivní, zastává různé úhly pohledu (ženy — podle dat ČSÚ, ne podle babičky)" },
+            { "predni": "aktuálnost", "zadni": "informace je aktuální k datu a času, ke kterému se vztahuje (vlak v 9:45, ne včera ve 22:35)" },
+            { "predni": "kompletnost", "zadni": "informace je kompletní a dává dostatek kontextu (křeček: čím, kdy a jak často krmit, celý den hydratovaný)" },
+            { "predni": "kritické myšlení", "zadni": "proces hodnocení informací s cílem vytvoření vlastního závěru, zkoumání pravdivosti informací" },
+            { "predni": "5 kroků kritického myšlení (pořadí)", "zadni": "01 analýza, 02 hodnocení, 03 syntéza, 04 reflexe, 05 vyvození závěru" },
+            { "predni": "syntéza × reflexe", "zadni": "syntéza: propojení informací, myšlenek a pohledů do nových celků; reflexe: přehodnocení vlastních názorů na základě nových informací" },
+            { "predni": "proč kritické myšlení (3 důvody)", "zadni": "ochrana před manipulací, rozpoznání kvality, správná rozhodnutí založená na faktech" }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Kvalitní informace** = 1. správnost, 2. relevance, 3. objektivita, 4. aktuálnost, 5. kompletnost.\n- **Pravdivá ≠ kvalitní:** informace může být pravdivá, a přesto mimo otázku, zastaralá, neúplná nebo opřená jen o osobní zkušenost.\n- **Kritické myšlení** = proces hodnocení informací s cílem vytvořit si vlastní závěr: 01 analýza → 02 hodnocení → 03 syntéza → 04 reflexe → 05 vyvození závěru.\n- **Proč:** ochrana před manipulací, rozpoznání kvality, správná rozhodnutí založená na faktech."
+        }
+      ]
+    },
     {
       "temaId": "inf-hardware",
       "nazev": "Hardware",
-      "poradi": 0,
+      "poradi": 3,
       "bloky": [
         {
           "typ": "text",
@@ -110,7 +447,7 @@
     {
       "temaId": "inf-software-os",
       "nazev": "Software a operační systémy",
-      "poradi": 1,
+      "poradi": 4,
       "bloky": [
         {
           "typ": "text",
@@ -228,7 +565,7 @@
     {
       "temaId": "inf-textovy-procesor",
       "nazev": "Textový procesor",
-      "poradi": 2,
+      "poradi": 5,
       "bloky": [
         {
           "typ": "text",
@@ -324,7 +661,7 @@
     {
       "temaId": "inf-tabulkovy-procesor",
       "nazev": "Tabulkový procesor",
-      "poradi": 3,
+      "poradi": 6,
       "bloky": [
         {
           "typ": "text",
@@ -421,7 +758,7 @@
     {
       "temaId": "inf-internet-bezpecnost",
       "nazev": "Internet a bezpečnost",
-      "poradi": 4,
+      "poradi": 7,
       "bloky": [
         {
           "typ": "text",
@@ -523,7 +860,7 @@
     {
       "temaId": "inf-prezentace",
       "nazev": "Prezentace",
-      "poradi": 5,
+      "poradi": 8,
       "bloky": [
         {
           "typ": "text",

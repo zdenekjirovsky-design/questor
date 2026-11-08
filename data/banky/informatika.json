@@ -1,17 +1,620 @@
 {
   "predmetId": "informatika",
   "nazev": "Informatika",
-  "verze": 1,
-  "vytvoreno": "2026-09-04",
+  "verze": 2,
+  "vytvoreno": "2026-11-08",
   "temata": [
-    { "id": "inf-hardware", "nazev": "Hardware", "poradi": 0 },
-    { "id": "inf-software-os", "nazev": "Software a operační systémy", "poradi": 1 },
-    { "id": "inf-textovy-procesor", "nazev": "Textový procesor", "poradi": 2 },
-    { "id": "inf-tabulkovy-procesor", "nazev": "Tabulkový procesor", "poradi": 3 },
-    { "id": "inf-internet-bezpecnost", "nazev": "Internet a bezpečnost", "poradi": 4 },
-    { "id": "inf-prezentace", "nazev": "Prezentace", "poradi": 5 }
+    { "id": "inf-zdroje-informaci", "nazev": "Zdroje informací", "poradi": 0 },
+    { "id": "inf-zkresleni-dat", "nazev": "Zkreslení dat", "poradi": 1 },
+    { "id": "inf-kvalita-informaci", "nazev": "Kvalitní informace a kritické myšlení", "poradi": 2 },
+    { "id": "inf-hardware", "nazev": "Hardware", "poradi": 3 },
+    { "id": "inf-software-os", "nazev": "Software a operační systémy", "poradi": 4 },
+    { "id": "inf-textovy-procesor", "nazev": "Textový procesor", "poradi": 5 },
+    { "id": "inf-tabulkovy-procesor", "nazev": "Tabulkový procesor", "poradi": 6 },
+    { "id": "inf-internet-bezpecnost", "nazev": "Internet a bezpečnost", "poradi": 7 },
+    { "id": "inf-prezentace", "nazev": "Prezentace", "poradi": 8 }
   ],
   "otazky": [
+    {
+      "id": "o-inf-zdroje-informaci-1",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co jsou podle prezentace primární zdroje informací?",
+      "moznosti": [
+        "původní, nezkreslené informace vzniklé přímo u zdroje události nebo jevu",
+        "informace, které z jiných zdrojů vychází, staví na nich a dál je zprostředkovávají",
+        "informace, které ti vyhledávač ukáže jako první, protože jsou nejdůležitější",
+        "nejsdílenější a nejčtenější zprávy na sociálních sítích a zpravodajských webech"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Primární = původní, vzniklé přímo u zdroje události nebo jevu. „Vychází z jiných zdrojů a staví na nich“ je definice sekundárního zdroje. Slovo „primární“ tu neznamená „první ve vyhledávači“ a počet sdílení o původu informace neříká nic.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-2",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Učebnice, slovníky a atlasy patří mezi SEKUNDÁRNÍ zdroje informací.",
+      "spravna": true,
+      "vysvetleni": "Ano — učebnice, přehledy, slovníky a atlasy jsou sekundární zdroje: shrnují a zprostředkovávají to, co vzniklo v primárních zdrojích (ve studiích, dokumentech, záznamech). Proto se v nich mohou objevit nepřesnosti a zkreslení.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-3",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň pravidlo z prezentace: „Čím blíže … zdroji informace, tím větší je šance, že informace bude přesnější a kvalitnější.“",
+      "spravneOdpovedi": ["primárnímu", "primarnimu", "primárnímu zdroji", "primarnimu zdroji", "primární", "primarni", "původnímu", "puvodnimu", "prvotnímu", "prvotnimu"],
+      "vysvetleni": "Čím blíže primárnímu (původnímu) zdroji, tím větší šance na přesnou a kvalitní informaci. Každý další krok — převyprávění, zkrácení, komentář — je příležitost k nepřesnosti nebo zkreslení.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-4",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Policie ČR sepíše zprávu o nehodě na základě přímé účasti u události. Novinář pak podle této zprávy napíše článek. Jaké zdroje to jsou?",
+      "moznosti": [
+        "zpráva policie je primární zdroj, článek novináře sekundární",
+        "zpráva policie je sekundární zdroj, článek novináře primární",
+        "obojí je primární zdroj — oba texty popisují stejnou nehodu",
+        "obojí je sekundární zdroj — nehodu nezpůsobil ani jeden z nich"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Policie byla přímo u události, její zpráva vznikla u zdroje — primární. Novinář u nehody nebyl, vychází ze zprávy policie a staví na ní — sekundární. Nerozhoduje, o čem text je ani kdo nehodu způsobil, ale jestli autor čerpá přímo u zdroje.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-5",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď typ informačního zdroje k jeho místu v žebříčku kvality z prezentace.",
+      "pary": [
+        { "levy": "recenzované vědecké články", "pravy": "nejvyšší kvalita — kontrola odborníků" },
+        { "levy": "úřední zprávy a data", "pravy": "vysoká kvalita — od státních organizací" },
+        { "levy": "seriózní média", "pravy": "střední kvalita — redakční proces" },
+        { "levy": "sociální sítě", "pravy": "různorodá kvalita — záleží na autorovi" },
+        { "levy": "bulvární média", "pravy": "nízká kvalita — chtějí zaujmout, ne informovat" },
+        { "levy": "dezinformační média", "pravy": "žádná kvalita — záměrně lživé informace" }
+      ],
+      "vysvetleni": "Žebříček shora dolů: recenzované vědecké články (prošly přísným kontrolním procesem odborníků) → úřední zprávy a data (spolehlivé informace od státních organizací) → seriózní média (redakční proces) → sociální sítě (kvalita závisí na autorovi) → bulvární média (cílem je zaujmout) → dezinformační média (záměrně lživé informace).",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-6",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď skupinu primárních zdrojů k jejím příkladům.",
+      "pary": [
+        { "levy": "vědecké články a studie", "pravy": "původní výzkum a jeho výsledky" },
+        { "levy": "úřední zprávy a dokumenty", "pravy": "lékařská zpráva, dopis, zákon" },
+        { "levy": "přímé záznamy", "pravy": "pořízený rozhovor, osobní deník" },
+        { "levy": "umělecká díla", "pravy": "originální obraz nebo socha" }
+      ],
+      "vysvetleni": "Čtyři skupiny primárních zdrojů v pořadí z prezentace: 1. vědecké články a studie (původní výzkum), 2. úřední zprávy a dokumenty (lékařské zprávy, dopisy, zákony), 3. přímé záznamy (rozhovory, zprávy z místa vzniku, osobní deníky), 4. umělecká díla (originály, hudební reprodukce, kamerový záznam události).",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-7",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z těchto zdrojů jsou podle prezentace SEKUNDÁRNÍ?",
+      "moznosti": [
+        "komentáře a recenze",
+        "biografie (kniha o životě slavné osobnosti od jiného autora)",
+        "zprostředkované zprávy",
+        "osobní deník, který si slavná zpěvačka sama psala",
+        "vědecká studie, ve které autoři zveřejňují výsledky vlastního výzkumu"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Sekundární zdroje vychází z primárních: zprostředkované zprávy, komentáře a recenze, učebnice, přehledy, slovníky, atlasy, biografie a nástěnné výukové obrazy. Biografii píše o člověku někdo jiný a čerpá z dokumentů a rozhovorů — proto je sekundární. Osobní deník je přímý záznam a vědecká studie původní výzkumná práce — obojí jsou primární zdroje.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-8",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Proč se v sekundárních zdrojích mohou objevit nepřesnosti a zkreslení?",
+      "moznosti": [
+        "protože informace přebírají z jiných zdrojů a při převyprávění se může něco ztratit nebo zkreslit",
+        "protože je vždycky píšou lidé bez odborného vzdělání, a proto v nich bývají chyby",
+        "protože vznikají přímo u události, kde je zmatek, spěch a málo času na kontrolu",
+        "protože jsou vždycky starší než primární zdroje, a tak už jejich informace dávno neplatí"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Sekundární zdroj vychází z primárního a staví na něm — každý krok od zdroje je šance na chybu: zkrácení, zjednodušení, vlastní výklad. Přímo u události vznikají naopak zdroje primární; autoři učebnic bývají odborníci a sekundární zdroj je obvykle novější než ten, ze kterého čerpá.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-9",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Doplň typ zdroje ze žebříčku kvality: „… média — nízká kvalita, cílem je zaujmout, ne informovat.“",
+      "spravneOdpovedi": ["bulvární", "bulvarni", "bulvární média", "bulvarni media", "bulvár", "bulvar"],
+      "vysvetleni": "Bulvární média stojí v žebříčku na 5. příčce: chtějí hlavně zaujmout (šokující titulky, emoce), ne informovat. Pod nimi jsou už jen dezinformační média — žádná kvalita, záměrně lživé informace.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-10",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Do referátu o nové písni tvé oblíbené zpěvačky máš dva zdroje: samotnou píseň (originál) a recenzi alba na hudebním webu. Co platí?",
+      "moznosti": [
+        "píseň je primární zdroj (umělecké dílo), recenze sekundární (komentáře a recenze)",
+        "recenze je primární zdroj — napsal ji uznávaný hudební odborník",
+        "obojí je sekundární zdroj, protože píseň i recenzi si pouštíš a čteš na internetu",
+        "píseň je sekundární zdroj, protože ji před vydáním upravili a namixovali ve studiu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Originální umělecké dílo je primární zdroj — úpravy ve studiu jsou součást jeho vzniku, ne převyprávění. Recenze o díle mluví, hodnotí ho a staví na něm — sekundární zdroj (komentáře a recenze). Odbornost autora z recenze primární zdroj neudělá a místo, kde zdroj najdeš, na zařazení vliv nemá.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-11",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Píšeš referát o tom, kolik času tráví teenageři na mobilu. Které zdroje mají podle žebříčku nejvyšší nebo vysokou kvalitu, a hodí se proto jako hlavní opora?",
+      "moznosti": [
+        "recenzovaný vědecký článek o výzkumu mezi 2 000 studenty",
+        "zpráva Českého statistického úřadu o tom, jak mladí lidé používají internet a mobil",
+        "video influencera se dvěma miliony sledujících: „Teenageři jsou na mobilu 12 hodin denně!“",
+        "článek bulvárního webu „ŠOK: děti už kvůli mobilům vůbec nespí!“ plný fotek",
+        "příspěvek anonymního účtu, který cituje „nějakou studii“ bez odkazu na zdroj"
+      ],
+      "spravne": [0, 1],
+      "vysvetleni": "Recenzované vědecké články (kontrola odborníků) a úřední zprávy a data (spolehlivé informace od státních organizací) jsou na 1. příčce (nejvyšší kvalita) a 2. příčce (vysoká kvalita). Video influencera patří k sociálním sítím — kvalita závisí na autorovi, ne na počtu sledujících, a číslo nemá zdroj; bulvár chce zaujmout, ne informovat; anonymní příspěvek bez odkazu nejde ověřit.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-12",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Spolužák v referátu napíše: „Recenzovaný vědecký článek je jen něčí recenze, takže je to sekundární zdroj — stejně jako recenze filmu.“ Má pravdu.",
+      "spravna": false,
+      "vysvetleni": "Pozor na podobné slovo! Recenzovaný vědecký článek před vydáním posoudili jiní odborníci (přísný kontrolní proces) a přináší výsledky výzkumu — patří k vědeckým článkům a studiím, tedy k primárním zdrojům, a v žebříčku kvality je nejvýš. Recenze filmu je komentář k dílu — sekundární zdroj.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-13",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kamarád se ptá, jestli je DNES uzavřená silnice u vaší školy. Pošleš mu policejní zprávu o nehodě na tom místě z roku 2023 — vždyť je to primární zdroj. Proč to není dobrá odpověď?",
+      "moznosti": [
+        "je to sice primární zdroj, ale informace není aktuální — k dnešku se nevztahuje",
+        "policejní zpráva je ve skutečnosti sekundární zdroj — policie ji sepsala až po nehodě",
+        "zpráva z roku 2023 už není primární zdroj — primární jsou jen čerstvé informace",
+        "zpráva není kompletní — chybí v ní jména účastníků nehody"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zpráva policie je opravdu primární zdroj, jenže kvalitní informace musí být i aktuální k datu, ke kterému se vztahuje — a o dnešní uzavírce neříká nic (chybí i relevance). Stáří ani to, že zprávu sepsali po nehodě, z primárního zdroje sekundární neudělá a jména účastníků s dnešní uzavírkou nesouvisí. Primární zdroj zvyšuje šanci na přesnost, ale ostatní kritéria kvalitní informace za tebe nesplní.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zdroje-informaci-14",
+      "temaId": "inf-zdroje-informaci",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Na Instagramu koluje screenshot titulku „Vědci prokázali: kdo pije kafe, žije o 10 let déle!“ — bez odkazu na zdroj. Jak nejlépe zjistíš, jestli je to pravda?",
+      "moznosti": [
+        "dohledám původní studii, ověřím, jestli je recenzovaná a co přesně zkoumala",
+        "podívám se, kolik lidí to sdílelo — co sdílí tisíce lidí, bude pravda",
+        "přečtu si komentáře pod příspěvkem a uvěřím tomu, co si myslí většina lidí",
+        "uvěřím tomu, protože se to odvolává na vědce, a vědecké články jsou v žebříčku nejvýš"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Screenshot titulku je zpráva z několikáté ruky — a čím blíž primárnímu zdroji, tím větší šance na přesnou informaci. Teprve původní (ideálně recenzovaná) studie ukáže, co se opravdu zjistilo. Počet sdílení ani komentáře pravdu nedokazují a „vědci prokázali“ bez odkazu je jen tvrzení, ne recenzovaný článek.",
+      "zdroj": "Zdroje informací"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-1",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jaké jsou podle prezentace tři HLAVNÍ typy zkreslení dat (v pořadí)?",
+      "moznosti": [
+        "1. výběrové, 2. kognitivní (poznávací), 3. publikační",
+        "1. potvrzovací, 2. efekt kotvy, 3. zkreslení přeživších",
+        "1. primární, 2. sekundární, 3. publikační",
+        "1. publikační, 2. výběrové, 3. kognitivní (poznávací)"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Hlavní typy jsou tři: 1. výběrové, 2. kognitivní (poznávací), 3. publikační. Potvrzovací zkreslení, efekt kotvy a zkreslení přeživších jsou DRUHY kognitivního zkreslení, ne hlavní typy. Primární a sekundární jsou druhy zdrojů informací.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-2",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Chyba vznikající při nevhodném výběru vzorku dat, který nereprezentuje věrně populaci, se nazývá … zkreslení.",
+      "spravneOdpovedi": ["výběrové", "vyberove", "výběrové zkreslení", "vyberove zkresleni", "selekční", "selekcni", "selekční zkreslení", "selekcni zkresleni", "selection bias"],
+      "vysvetleni": "Výběrové zkreslení vzniká, když vzorek (lidé, data) neodpovídá celé populaci — třeba když se na jízdní kola ptáš jen lidí na cyklostezce. Proto se pracuje s reprezentativním vzorkem.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-3",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Publikační zkreslení znamená, že se zveřejňují hlavně studie s NEGATIVNÍMI výsledky.",
+      "spravna": false,
+      "vysvetleni": "Je to naopak: publikovány jsou hlavně studie s POZITIVNÍMI výsledky, zatímco negativní závěry bývají odmítnuty. Vědci i čtenáři pak mají přístup jen k části materiálů a mohou dojít k nesprávným závěrům.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-4",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Vědec věří, že sledování displeje mobilu těsně před spaním zhoršuje spánek. Do průzkumu přizve převážně mladé lidi a položí i otázky, které podvědomě potvrzují jeho přesvědčení. Jaké zkreslení podle prezentace vzniklo?",
+      "moznosti": ["potvrzovací zkreslení", "efekt kotvy", "zkreslení dostupnosti", "publikační zkreslení"],
+      "spravna": 0,
+      "vysvetleni": "Příčinou je vědcovo přesvědčení — podle něj vybírá lidi i otázky, aby mu výsledek dal za pravdu. To je potvrzovací zkreslení, druh kognitivního zkreslení. Efekt kotvy by způsobila první zadaná informace, zkreslení dostupnosti přeceňování snadno vybavitelných událostí a publikační zkreslení se týká toho, které studie se zveřejní.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-5",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď příklad z prezentace ke zkreslení, které ukazuje.",
+      "pary": [
+        { "levy": "efekt kotvy", "pravy": "tazatel předem zmíní cenu 15 000 Kč" },
+        { "levy": "zkreslení dostupnosti", "pravy": "obyvatelé se pojistí proti požáru (byl před 2 lety), ale ne proti povodni (před 15 lety)" },
+        { "levy": "zkreslení přeživších", "pravy": "armáda zkoumá jen letadla, která se vrátila" },
+        { "levy": "publikační zkreslení", "pravy": "firma zveřejní jen pozitivní studii o léku" }
+      ],
+      "vysvetleni": "Kotva = první informace (15 000 Kč), od které se studenti odrazili. Dostupnost = čerstvý požár si lidé vybaví snáz než povodeň před 15 lety, přestože obě rizika jsou stejně velká. Přeživší = v datech chybí letadla, která se nevrátila. Publikační = ven se dostane jen pozitivní studie.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-6",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které z těchto jevů jsou DRUHY kognitivního (poznávacího) zkreslení?",
+      "moznosti": [
+        "potvrzovací zkreslení",
+        "efekt kotvy",
+        "zkreslení přeživších",
+        "publikační zkreslení",
+        "výběrové zkreslení"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Kognitivní zkreslení = systematické „chyby“ v myšlení a má čtyři druhy: potvrzovací, efekt kotvy, zkreslení dostupnosti a zkreslení přeživších. Publikační a výběrové zkreslení jsou samostatné HLAVNÍ typy zkreslení dat (3. a 1.).",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-7",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Doplň název zkreslení: hodnotíme realitu jen podle těch, kdo „uspěli“, a ignorujeme ty, kdo vypadli ze hry, protože nejsou vidět. Jde o zkreslení …",
+      "spravneOdpovedi": ["přeživších", "prezivsich", "zkreslení přeživších", "zkresleni prezivsich", "klam přeživších", "klam prezivsich", "přeživšího", "prezivsiho", "efekt přeživších", "efekt prezivsich", "survivorship bias", "survivorship"],
+      "vysvetleni": "Zkreslení přeživších (klam přeživších, survivorship bias): soustředíme se jen na úspěšné případy a ty neúspěšné nevidíme — jako armáda, která zkoumala jen letadla, která se vrátila. Pomáhá otázka „Kdo nebo co tady chybí?“",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-8",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Abraham Wald doporučil posílit pancíř bombardérů tam, kde vrácená letadla žádné zásahy neměla (motory, kokpit).",
+      "spravna": true,
+      "vysvetleni": "Ano — Wald si všiml, že armáda zkoumá jen letadla, která se vrátila. Díry ukazovaly místa, kde letadlo zásah přežije. Kde díry chyběly (motory, kokpit), tam zásah znamenal pád — taková letadla v datech chyběla. Intuitivní návrh velení posílit místa s nejvíc dírami byl proto omyl.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-9",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Chceš zjistit, kolik procent občanů ČR má jízdní kolo. Proč se podle prezentace ptáš jen vybraného vzorku lidí a co musí ten vzorek splňovat?",
+      "moznosti": [
+        "zeptat se všech není reálné; vzorek musí být reprezentativní — věrně odpovídat populaci",
+        "zeptat se všech je zakázané; vzorek musí být co nejmenší, aby byl průzkum rychlý a levný",
+        "vzorek stačí vybrat z lidí, kteří kolo mají — těm se otázka týká nejvíc a odpoví nejlíp",
+        "na výběru vzorku nezáleží — hlavně když se zeptáš aspoň 100 lidí, to už stačí"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zeptat se všech nejde, a tak se ptáme reprezentativního vzorku a z výsledku odvodíme závěr pro celou populaci. Ptát se jen majitelů kol je přesně chyba, která výběrové zkreslení způsobí. Ani velký počet lidí nepomůže, když je vzorek vybraný nevhodně.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-10",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Chceš zjistit, kolik hodin týdně hrají videohry teenageři v celém Česku. Dotazník s otázkou „Kolik hodin týdně hraješ?“ pošleš jen na herní Discord server, kde jsi členem, a vyjde ti průměr 25 hodin týdně. Co je na závěru pro celé Česko špatně?",
+      "moznosti": [
+        "výběrové zkreslení — hráči z herního serveru nejsou reprezentativní vzorek teenagerů",
+        "efekt kotvy — otázkou na počet hodin respondentům podsouváš vysoké číslo",
+        "publikační zkreslení — výsledek jsi zveřejnil dřív, než ho někdo zkontroloval",
+        "nic — internetový dotazník má díky velkému dosahu vzorek vždycky reprezentativní"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Na herním serveru jsou hlavně lidé, kteří hrají hodně — vzorek nereprezentuje všechny teenagery, a tak výsledek hraní nadhodnotí. Otázka „Kolik hodin týdně hraješ?“ žádné číslo nepodsouvá, takže kotva nevzniká; publikační zkreslení se týká studií, které se nezveřejní; a velký dosah internetu reprezentativnost nezaručí — záleží na tom, KDO odpovídá.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-11",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "E-shop ukazuje u sluchátek přeškrtnutou „původní cenu“ 5 999 Kč a vedle velké „teď jen 3 499 Kč!“. Jinde se prodávají za 3 200 Kč, ale tobě nabídka připadá jako výhra. Které zkreslení na tebe zafungovalo?",
+      "moznosti": ["efekt kotvy", "zkreslení dostupnosti", "zkreslení přeživších", "výběrové zkreslení"],
+      "spravna": 0,
+      "vysvetleni": "Přeškrtnutá cena je první informace — kotva. Od ní se odrazíš a 3 499 Kč ti připadá jako skvělá cena, i když je to víc, než kolik sluchátka stojí jinde. Proti kotvě pomáhá porovnat cenu ve srovnávači nebo u jiných obchodů. Zkreslení dostupnosti by znamenalo přeceňovat to, co si snadno vybavíš.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-12",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které výroky jsou ukázkou zkreslení přeživších?",
+      "moznosti": [
+        "„Všichni youtubeři, které sleduju, zbohatli — YouTube je jistý byznys.“",
+        "„Písničky z 80. let byly lepší, vždyť se hrají dodnes.“",
+        "„Bill Gates nedokončil vysokou, takže škola k úspěchu potřeba není.“",
+        "„Loni u nás hořelo, tak se pojistím proti požáru — povodeň nás nezajímá.“",
+        "„Prodavač řekl, že dobrý mobil stojí aspoň 20 000, tak hledám kolem téhle částky.“"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Zkreslení přeživších jsou výroky o youtuberech, písničkách z 80. let a Billu Gatesovi: vidíš jen ty, kdo „přežili“ — youtubery, kteří uspěli (tisíce neúspěšných nesleduješ), písničky, které se hrají dodnes (ty špatné se přestaly hrát), a úspěšné podnikatele bez školy (neúspěšní nejsou vidět). Pojištění po loňském požáru je zkreslení dostupnosti a odraz od částky prodavače efekt kotvy.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-13",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Fitness influencer na Instagramu láká: „Tenhle doplněk stravy funguje — vyšly o něm tři studie s pozitivními výsledky!“ Na co tě učí myslet publikační zkreslení?",
+      "moznosti": [
+        "možná vyšly jen pozitivní studie a negativní ne — tři studie nemusí být celý obraz",
+        "tři studie jsou vědecký zdroj nejvyšší kvality, takže je jisté, že doplněk funguje",
+        "studie jsou sekundární zdroj, a proto se jim nedá věřit vůbec — ani těm třem",
+        "důležité je hlavně, kolik má influencer sledujících a jestli doplněk sám užívá"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Publikační zkreslení: zveřejňují se hlavně studie s pozitivními výsledky, negativní závěry bývají odmítnuty. Tři pozitivní studie proto ještě nedokazují, že doplněk funguje — o neúspěšných pokusech se možná jen neví. Vědecké studie jsou primární zdroj (ne sekundární), ale ani ty nejkvalitnější neukážou to, co nikdy nevyšlo; počet sledujících influencera o účinku nic neříká.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-14",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Na školním jarmarku chceš prodávat domácí limonádu a potřebuješ zjistit, kolik by za ni spolužáci dali. Který postup dá nejméně zkreslená data?",
+      "moznosti": [
+        "zeptám se náhodně vybraných žáků z různých tříd a ročníků, cenu předem nezmíním",
+        "zeptám se jen kamarádů ze třídy — znají mě a řeknou mi upřímně pravdu",
+        "zeptám se úplně všech na chodbě: „Dali byste za ni víc, nebo míň než 80 Kč?“",
+        "zeptám se jen těch, kdo si u mě limonádu koupili už loni a moc jim chutnala"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Náhodný výběr napříč třídami dá reprezentativnější vzorek (bez výběrového zkreslení) a otázka bez předem zmíněné ceny nevytváří kotvu. Jen kamarádi jsou nereprezentativní vzorek; „víc, nebo míň než 80 Kč“ je kotva jako 15 000 Kč u mobilu z prezentace; loňští spokojení zákazníci jsou taky nereprezentativní vzorek (výběrové zkreslení) — chybí v něm ti, komu limonáda nechutnala nebo si ji nekoupili, takže cenu nadsadíš.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-15",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Jak prezentace definuje kognitivní (poznávací) zkreslení?",
+      "moznosti": [
+        "systematické „chyby“ v myšlení ovlivňující lidský úsudek, rozhodování a interpretaci informací",
+        "chyba vznikající při nevhodném výběru vzorku dat, který nereprezentuje věrně populaci",
+        "jev, kdy se publikují hlavně studie s pozitivními výsledky a negativní bývají odmítnuty",
+        "náhodné chyby počítače nebo měřicího přístroje, které vzniknou při ukládání a zpracování dat"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kognitivní = poznávací, týká se toho, jak MYSLÍME: systematické „chyby“ v myšlení, které ovlivňují úsudek, rozhodování a interpretaci informací. Chyba ve výběru vzorku je výběrové zkreslení a zveřejňování hlavně pozitivních studií publikační zkreslení — to jsou zbylé dva hlavní typy. S náhodnými technickými chybami počítače kognitivní zkreslení nesouvisí.",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-zkresleni-dat-16",
+      "temaId": "inf-zkresleni-dat",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď druh kognitivního zkreslení k jeho definici z prezentace.",
+      "pary": [
+        { "levy": "potvrzovací zkreslení", "pravy": "vyhledáváme a preferujeme informace, které potvrzují naše přesvědčení" },
+        { "levy": "efekt kotvy", "pravy": "spoléháme se na první informaci, i když je irelevantní nebo nepřesná" },
+        { "levy": "zkreslení dostupnosti", "pravy": "přeceňujeme, co si snadno vybavíme, a podceňujeme, co si vybavíme obtížně" },
+        { "levy": "zkreslení přeživších", "pravy": "soustředíme se jen na úspěšné případy a ty neúspěšné ignorujeme" }
+      ],
+      "vysvetleni": "Čtyři druhy kognitivního zkreslení v pořadí z prezentace: 1. potvrzovací (hledáme a preferujeme, co potvrzuje náš názor, opačné ignorujeme), 2. efekt kotvy (první informace ovlivní naše další úsudky), 3. zkreslení dostupnosti (co si snadno vybavíme, to přeceňujeme), 4. zkreslení přeživších (vidíme jen úspěšné případy, a obraz reality je proto zkreslený).",
+      "zdroj": "Zkreslení dat"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-1",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Na otázku „Jaká barva na semaforu znamená stůj?“ někdo odpoví „Oranžová.“ Které kritérium kvalitní informace odpověď porušuje?",
+      "moznosti": ["správnost", "relevance", "aktuálnost", "kompletnost"],
+      "spravna": 0,
+      "vysvetleni": "Odpověď je fakticky chybná — stůj znamená červená. Porušená je správnost: informace musí být fakticky přesná, bez chyb a nepravdy. K otázce se odpověď vztahuje (týká se barvy na semaforu), jen je špatně.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-2",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "multi",
+      "obtiznost": 2,
+      "zadani": "Která z těchto jsou podle prezentace kritéria kvalitní informace?",
+      "moznosti": ["aktuálnost", "objektivita", "kompletnost", "popularita (počet sdílení)", "délka textu"],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Pět kritérií kvalitní informace: správnost, relevance, objektivita, aktuálnost, kompletnost. Popularita ani délka textu mezi nimi nejsou — virální příspěvek může být lživý a dlouhý text klidně mimo téma.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-3",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Doplň chybějící kritérium kvalitní informace (v pořadí z prezentace): správnost, relevance, …, aktuálnost, kompletnost.",
+      "spravneOdpovedi": ["objektivita", "objektivnost", "objektivní", "objektivni"],
+      "vysvetleni": "Třetím kritériem je objektivita: informace by měla být vyvážená a objektivní a zastávat různé úhly pohledu — opřená o data, ne o jednu osobní zkušenost.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-4",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "anone",
+      "obtiznost": 2,
+      "zadani": "Kritické myšlení znamená hlavně kritizovat názory ostatních a hledat na nich chyby.",
+      "spravna": false,
+      "vysvetleni": "Kritické myšlení je proces hodnocení informací s cílem vytvoření vlastního závěru, zkoumání pravdivosti informací. Nejde o kritizování lidí, ale o prověření informací — i těch, se kterými souhlasíš.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-5",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď kritérium kvality k odpovědi z prezentace, která ho NESPLŇUJE.",
+      "pary": [
+        { "levy": "správnost", "pravy": "„Stůj na semaforu? — Oranžová.“" },
+        { "levy": "relevance", "pravy": "„Sparta, nebo Slavia? — Arsenal FC Londýn.“" },
+        { "levy": "objektivita", "pravy": "„Kdo se dožívá vyššího věku? — Ženy, babička přežila dědu.“" },
+        { "levy": "aktuálnost", "pravy": "„Nejbližší vlak do Brna (je 8:20)? — Včera jel ve 22:35.“" },
+        { "levy": "kompletnost", "pravy": "„Jak krmit křečka? — Jednou denně vhodnou stravou.“" }
+      ],
+      "vysvetleni": "Oranžová je fakticky špatně (správnost), Arsenal neodpovídá na otázku (relevance), babička je osobní zkušenost místo dat (objektivita), včerejší vlak se nevztahuje k dnešku (aktuálnost) a „vhodnou stravou“ nedává dost kontextu (kompletnost).",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-6",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Odpověď „Ženy — protože moje babička přežila dědu“ má správný závěr, ale nesplňuje kritérium objektivity.",
+      "spravna": true,
+      "vysvetleni": "Ano — závěr „ženy“ je správný (ženy se v ČR dožívají vyššího věku, ukazují to data ČSÚ). Chyba je v odůvodnění: jedna osobní zkušenost (babička a děda) místo dat. Porušená je objektivita, ne správnost. Správný závěr ještě není objektivní informace.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-7",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Krok kritického myšlení, ve kterém přehodnotíš vlastní názor na základě nových informací, se nazývá …",
+      "spravneOdpovedi": ["reflexe", "reflexi", "reflexí", "sebereflexe", "sebereflexi"],
+      "vysvetleni": "Reflexe je 4. krok: schopnost přehodnotit vlastní názory na základě nových informací. Bez ní by člověk jen sbíral důkazy pro to, co si myslel už předtím (potvrzovací zkreslení).",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-8",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Jaké je správné pořadí kroků kritického myšlení podle prezentace?",
+      "moznosti": [
+        "analýza → hodnocení → syntéza → reflexe → vyvození závěru",
+        "hodnocení → analýza → reflexe → syntéza → vyvození závěru",
+        "vyvození závěru → analýza → hodnocení → syntéza → reflexe",
+        "analýza → syntéza → hodnocení → vyvození závěru → reflexe"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Nejdřív informaci rozložíš (01 analýza), pak posoudíš její důvěryhodnost a kvalitu (02 hodnocení), propojíš ji s dalšími pohledy (03 syntéza), přehodnotíš vlastní názor (04 reflexe) a nakonec uděláš informované rozhodnutí (05 vyvození závěru). Závěr hned na začátku by byl předsudek.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-9",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Proč je kritické myšlení důležité? Vyber důvody, které uvádí prezentace.",
+      "moznosti": [
+        "ochrana před manipulací",
+        "rozpoznání kvality informací",
+        "správná rozhodnutí založená na faktech",
+        "rychlejší čtení dlouhých textů",
+        "víc sledujících na sociálních sítích"
+      ],
+      "spravne": [0, 1, 2],
+      "vysvetleni": "Prezentace uvádí tři důvody: ochrana před manipulací (nestaneš se obětí podvodu nebo manipulace), rozpoznání kvality (snáz odlišíš kvalitní informace od nekvalitních) a správná rozhodnutí založená na faktech. Rychlost čtení ani počet sledujících mezi nimi nejsou.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-10",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Na pohovoru na brigádu se zeptáš: „Kolik se platí za hodinu?“ Vedoucí odpoví: „Pracovní doba je od osmi do čtyř a v pátek objednáváme pizzu.“ Které kritérium kvalitní informace odpověď nesplňuje?",
+      "moznosti": ["relevance", "správnost", "aktuálnost", "objektivita"],
+      "spravna": 0,
+      "vysvetleni": "Odpověď může být pravdivá i aktuální — jenže na tvou otázku vůbec neodpovídá. Chybí relevance, stejně jako u odpovědi „Arsenal FC Londýn“ na otázku, jestli vyhrála Sparta, nebo Slavia.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-11",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Kamarádka ti napíše k brigádě v kavárně: „Před nástupem potřebuješ zdravotní průkaz.“ Nevíš, kde se vyřizuje, jak dlouho to trvá ani do kdy ho máš mít. Které kritérium kvalitní informace zpráva nesplňuje nejvíc?",
+      "moznosti": ["kompletnost", "objektivita", "relevance", "aktuálnost"],
+      "spravna": 0,
+      "vysvetleni": "Informace je k věci (relevantní) a klidně může být správná i aktuální — chybí jí ale kontext: kde, jak dlouho, do kdy. Je jako „krm křečka vhodnou stravou“ — nekompletní. Kompletní informace dává dost kontextu, abys podle ní mohl jednat; o vyváženost a různé úhly pohledu (objektivitu) tu nejde.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-12",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Díváš se na video se „zaručeným“ trikem na zhubnutí. Posuzuješ, nakolik je autor důvěryhodný: prodává vlastní doplněk stravy a neuvádí žádný zdroj. Který krok kritického myšlení právě děláš?",
+      "moznosti": ["hodnocení informací", "analýza informací", "syntéza informací", "vyvození závěru"],
+      "spravna": 0,
+      "vysvetleni": "Posuzování důvěryhodnosti, relevance a kvality informací a argumentů je 02 hodnocení informací. Analýza by informaci rozkládala na menší části (co přesně video tvrdí), syntéza by propojovala víc zdrojů do celku a vyvození závěru je až konečné rozhodnutí.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-13",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Spolužák je přesvědčený, že jeho mobil má nejlepší foťák na trhu. Čte jen recenze, které ho chválí, a srovnávací testy, kde vyhrál jiný mobil, odmítá otevřít. Co mu chybí a jaké zkreslení předvádí?",
+      "moznosti": [
+        "chybí mu reflexe (ochota změnit názor) — předvádí potvrzovací zkreslení",
+        "chybí mu analýza (rozložit informaci na části) — předvádí efekt kotvy",
+        "chybí mu vyvození závěru (rozhodnutí) — předvádí publikační zkreslení",
+        "nic mu nechybí — kdo svůj mobil zná a je s ním spokojený, testy nepotřebuje"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Vyhledává jen informace, které potvrzují jeho přesvědčení, a opačné ignoruje — to je potvrzovací zkreslení. Kritické myšlení by po něm chtělo reflexi: přehodnotit vlastní názor na základě nových informací (testů). Kotvu by vytvořila první informace, publikační zkreslení se týká zveřejňování studií a závěr si už udělal — jen bez ověření. Spokojenost s mobilem nezávislý test nenahradí.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
+    {
+      "id": "o-inf-kvalita-informaci-14",
+      "temaId": "inf-kvalita-informaci",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Na TikToku koluje video: „Od 1. ledna stát zakazuje brigády pro studenty pod 18 let! Sdílej, ať to ví všichni!“ Video nemá zdroj ani datum. Který postup odpovídá kritickému myšlení?",
+      "moznosti": [
+        "nesdílím hned, ověřím to v úředním zdroji (web ministerstva) a pak si udělám závěr",
+        "sdílím hned — kdyby to nebyla pravda, TikTok by takové video už dávno smazal",
+        "uvěřím a sdílím, protože video má přes milion zhlédnutí a souhlasí i komentáře",
+        "nevěřím ničemu na internetu, takže video bez ověření ignoruju a dál to neřeším"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kritické myšlení jde po krocích: analýza (co přesně video tvrdí — co se zakazuje, komu a od kdy), hodnocení (kdo to tvrdí a odkud to ví; chybí zdroj i datum, takže nevíš, jestli je to správné a aktuální), syntéza (propojíš to s úředním zdrojem — úřední zprávy a data mají vysokou kvalitu), reflexe (jsi ochotný změnit, co sis myslel) a teprve pak vyvození závěru. Zhlédnutí pravdu nedokazují, platforma nesmaže všechno nepravdivé a odmítnout úplně všechno bez ověření není kritické myšlení, jen opačný extrém.",
+      "zdroj": "Kvalitní informace a kritické myšlení"
+    },
     {
       "id": "o-inf-hardware-1",
       "temaId": "inf-hardware",

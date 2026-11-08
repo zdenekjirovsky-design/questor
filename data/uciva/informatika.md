@@ -1,10 +1,194 @@
 # Informatika
 
 Učivo předmětu Informatika pro 1. ročník střední školy (obor Ekonomika
-a podnikání). Cílem je jistota při práci s počítačem: rozumět hardwaru
-a softwaru, zvládnout kancelářské nástroje (texty, tabulky, prezentace)
-a chovat se na internetu bezpečně. Prakticky se pracuje ve Windows 11
-s balíky Microsoft Office / LibreOffice; reálie odpovídají roku 2026.
+a podnikání). Cílem je jistota při práci s informacemi i s počítačem:
+poznat kvalitní zdroj a zkreslená data, rozumět hardwaru a softwaru,
+zvládnout kancelářské nástroje (texty, tabulky, prezentace) a chovat se
+na internetu bezpečně. Prakticky se pracuje ve Windows 11 s balíky
+Microsoft Office / LibreOffice; reálie odpovídají roku 2026.
+
+## Zdroje informací
+
+Porozumění rozdílu mezi **primárními a sekundárními zdroji informací** je
+klíčové pro práci s kvalitními daty. **Primární zdroje** představují
+**původní, nezkreslené informace** vzniklé **přímo u zdroje** události nebo
+jevu. Dělí se do čtyř skupin (v tomto pořadí):
+
+1. **Vědecké články a studie** — původní výzkumné práce a jejich výsledky
+   publikované autory.
+2. **Úřední zprávy a dokumenty** — lékařské zprávy, dopisy, zákony a další
+   originální dokumenty.
+3. **Přímé záznamy** — pořízené rozhovory, zprávy zaznamenané na místě
+   vzniku, osobní deníky.
+4. **Umělecká díla** — originální umělecká díla, hudební reprodukce,
+   kamerový záznam události.
+
+**Sekundární zdroje** **vychází z primárních** zdrojů informací a **staví
+na nich**, proto v sobě mohou obsahovat **nepřesnosti a zkreslení**. Patří
+sem zprostředkované zprávy, komentáře a recenze, učebnice, přehledy,
+slovníky a atlasy, biografie a nástěnné výukové obrazy. Platí pravidlo:
+**čím blíže primárnímu zdroji informace, tím větší je šance, že informace
+bude přesnější a kvalitnější.**
+
+Praktický příklad: **Policie ČR** vytvoří zprávu o nehodě na základě přímé
+účasti u události — to je **primární zdroj**. **Novinář** podle zprávy
+policie napíše článek o nehodě — ten je už **sekundárním zdrojem**. Další
+příklady (doplněné, nejsou z prezentace): deník vojáka psaný na frontě je
+primární zdroj, učebnice dějepisu o téže válce sekundární; film nebo píseň
+jsou umělecké dílo (primární zdroj), jejich recenze sekundární; heslo na
+Wikipedii funguje jako přehled či slovník, tedy jako sekundární zdroj.
+
+**Typy informačních zdrojů podle kvality** (žebříček shora dolů):
+
+1. **Recenzované vědecké články** — nejvyšší kvalita, prošly přísným
+   kontrolním procesem odborníků.
+2. **Úřední zprávy a data** — vysoká kvalita, spolehlivé informace od
+   státních organizací.
+3. **Seriózní média** — střední kvalita, prošla redakčním procesem.
+4. **Sociální sítě** — různorodá kvalita, závisí na autorovi.
+5. **Bulvární média** — nízká kvalita, cílem je zaujmout, ne informovat.
+6. **Dezinformační média** — žádná kvalita, záměrně lživé informace.
+
+Pozor na záměnu: **recenzovaný** vědecký článek před vydáním posoudili
+jiní odborníci, kdežto **recenze** filmu nebo mobilu je něčí hodnocení
+— komentář, tedy sekundární zdroj. Rozlišení primární × sekundární říká,
+jak daleko je informace od události; žebříček kvality říká, jak
+důvěryhodný je typ zdroje. U každé informace se vyplatí ptát na obojí:
+kdo byl u toho, odkud to autor ví a jaký je to typ zdroje.
+
+## Zkreslení dat
+
+Data se mohou zkreslit tím, jak je sbíráme, jak o nich přemýšlíme i co se
+z nich zveřejní. **Hlavní typy zkreslení dat** jsou tři (v tomto pořadí):
+
+1. **Výběrové zkreslení** — chyba vznikající při **nevhodném výběru vzorku
+   dat**, který **nereprezentuje věrně populaci**, z níž byl vybrán.
+2. **Kognitivní (poznávací) zkreslení** — **systematické „chyby" v myšlení**
+   ovlivňující lidský **úsudek, rozhodování a interpretaci informací**.
+3. **Publikační zkreslení** — jev, kdy jsou **publikovány hlavně studie
+   s pozitivními výsledky**, zatímco **negativní závěry bývají odmítnuty**.
+
+**Výběrové zkreslení:** chceme-li zjistit, kolik procent občanů ČR má jízdní
+kolo, nemůžeme se zeptat všech. Zeptáme se proto jen vybraného vzorku lidí
+— **reprezentativního vzorku**, který věrně odpovídá celé populaci — a teprve
+z výsledku odvodíme závěr pro všechny. Zkreslení nastane, když vzorek
+reprezentativní **není**: kdo se ptá jen lidí na cyklostezce nebo
+v prodejně kol, „zjistí", že kolo má skoro každý (doplněný příklad).
+
+**Druhy kognitivního zkreslení** (v tomto pořadí):
+
+1. **Potvrzovací zkreslení** — podvědomá tendence **vyhledávat
+   a preferovat informace, které potvrzují naše přesvědčení**, a ignorovat
+   ty, které jim odporují. Příklad: vědec zastává hypotézu, že sledování
+   displeje mobilu těsně před spaním zhoršuje spánek. Do průzkumu přizve
+   převážně mladé lidi a položí i otázky, které podvědomě potvrzují jeho
+   přesvědčení. Data z takového výzkumu budou zkreslená a budou jeho
+   přesvědčení potvrzovat, i když si to sám nemusí připustit. (Výběr jen
+   mladých lidí je zároveň nevhodný vzorek, příčinou je ale vědcovo
+   přesvědčení — proto jde o potvrzovací zkreslení.)
+2. **Efekt kotvy** — tendence **spoléhat se na první informaci (kotvu)**,
+   i když je irelevantní nebo nepřesná; ta pak ovlivní naše další úsudky.
+   Příklad: marketingové oddělení výrobce mobilů zjišťuje, kolik by
+   studenti dali za nový model, a tazatel jim předem řekne, že ho zajímá,
+   zda by utratili více, nebo méně než 15 000 Kč. Téměř nikdo pak neuvede
+   víc než 15 000 Kč — studenti se od kotvy odrazili, odpovědi jí podvědomě
+   přizpůsobili a firma nezískala objektivní data.
+3. **Zkreslení dostupnosti** — tendence **přeceňovat události a informace,
+   které si snadno vybavíme**, a podceňovat ty, které si vybavíme obtížněji.
+   Příklad: obec leží na vyprahlém území u lesa a protéká jí říčka. Před
+   15 lety se obcí prohnala povodeň, která strhla 2 domy, před 2 lety lesní
+   požár zničil také 2 domy. Většina obyvatel má pojištění a opatření proti
+   požáru, proti povodni téměř nikdo — přestože **obě rizika jsou podle
+   statistiky stejně velká**. Čerstvá vzpomínka na požár vnímání rizika
+   zkreslila.
+4. **Zkreslení přeživších** (anglicky **survivorship bias**, také **klam
+   přeživších**) — tendence **soustředit se pouze na úspěšné případy**
+   a ignorovat ty neúspěšné, což vede ke zkreslenému obrazu reality.
+
+Příběh zkreslení přeživších: za 2. světové války se bombardéry armády USA
+nevracely z misí v přijatelných počtech. Statistici analyzovali letadla,
+která se vrátila — trupy, křídla a ocasy byly poseté průstřely, a velení
+proto chtělo posílit pancíř tam, kde bylo nejvíc děr. Statistik **Abraham
+Wald** upozornil, že armáda analyzuje **pouze letadla, která se vrátila**,
+tedy „přeživší". Díry ukazovaly místa, kde letadlo zásah přežije. Místa
+bez děr (**motory a kokpit**) nebyla prázdná proto, že by se tam nepřítel
+netrefoval, ale proto, že zásah do nich znamenal pád — taková letadla se do
+analýzy nikdy nedostala. Wald proto doporučil přesný opak: **posílit
+pancíř tam, kde žádné díry nejsou**. (Známá „mapa zásahů" s tečkami na
+křídlech, trupu a ocasu je ilustrace příběhu, ne původní dokument.)
+
+Stejný omyl vidíme všude: slýcháme, že Bill Gates nebo Mark Zuckerberg
+nedokončili vysokou školu, ale nevidíme tisíce lidí, kteří ji také
+nedokončili a skončili bez kapitálu, kontaktů i stability. Staré domy
+a hudba „vydržely", protože nekvalitní stavby spadly a špatná hudba se
+přestala hrát. Investiční fondy ukazují krásnou historickou výkonnost,
+protože ty nejhorší zkrachovaly a z databází zmizely. Staré filmy působí
+lépe, protože se dodnes vysílají jen klenoty, ne průměr, který už nikdo
+nepouští.
+
+**Publikační zkreslení** může vést k nesprávným závěrům ve vědecké
+komunitě, protože vědci i další čtenáři mají přístup jen k části
+dostupných materiálů. Příklad: farmaceutická společnost nechá nový lék
+posoudit dvěma studiemi — jedna zkoumá jeho přínosy a vysokou účinnost,
+druhá nežádoucí účinky. Společnost zveřejní pouze pozitivní studii;
+veřejnost získá dojem převratného objevu, očekávání se přecení a lék
+vzbudí naději i u pacientů, pro které vůbec vhodný není.
+
+Při práci s daty se vždy ptej: **„Kdo nebo co tady chybí?"** — a také, jak
+data vznikla. Víc vyšetřovaných případů korupce například nemusí znamenat
+víc korupce; často to znamená, že se korupce konečně řeší. (Nejde o příklad
+žádného z typů zkreslení výše, ani zkreslení přeživších — je to obecná
+lekce o tom, jak data vznikají: víc odhalených případů ≠ víc korupce.)
+
+## Kvalitní informace a kritické myšlení
+
+**Kvalitní informace** splňuje pět kritérií (v tomto pořadí):
+
+1. **Správnost** — informace musí být správná, fakticky přesná, nesmí
+   obsahovat chyby nebo nepravdu. Na otázku „Jaká barva na semaforu znamená
+   stůj?" je správně „červená", ne „oranžová".
+2. **Relevance** — informace by měla odpovídat tématu nebo otázce, kterou
+   se zabýváš. Na otázku „Vyhrála dnes Sparta, nebo Slavia?" je relevantní
+   „Sparta", ne „Arsenal FC Londýn".
+3. **Objektivita** — informace by měla být vyvážená a objektivní, zastávat
+   různé úhly pohledu. Na otázku, zda se v ČR dožívají vyššího věku ženy,
+   nebo muži, je objektivní odpověď „ženy — podle dat ČSÚ". Odpověď „ženy —
+   protože moje babička přežila dědu" má správný závěr, ale opírá se jen
+   o osobní zkušenost, ne o data: správný závěr ještě není objektivní
+   informace.
+4. **Aktuálnost** — informace by měla být aktuální k datu a času, ke kterému
+   se vztahuje. Je-li 8:20 a ptáš se na nejbližší vlak do Brna, potřebuješ
+   „v 9:45", ne „včera jel ve 22:35".
+5. **Kompletnost** — informace by měla být kompletní a poskytovat dostatek
+   kontextu. „Jak krmit křečka?" — „jednou denně granulemi, semínky,
+   zeleninou a ovocem, ve stejnou denní dobu, a celý den by měl být
+   hydratovaný" je kompletní odpověď; „jednou denně vhodnou stravou" ne.
+
+Pravdivá informace tedy ještě nemusí být kvalitní: může být mimo otázku,
+zastaralá, neúplná nebo opřená jen o osobní zkušenost.
+
+**Kritické myšlení** je proces hodnocení informací s cílem vytvoření
+vlastního závěru, zkoumání pravdivosti informací. „Kritické" přitom
+neznamená kritizovat všechno a všechny — znamená informace prověřit, než
+jim uvěříš. Probíhá v pěti krocích:
+
+1. **Analýza informací** — rozložení komplexní informace na menší části pro
+   lepší pochopení souvislostí.
+2. **Hodnocení informací** — posuzování důvěryhodnosti, relevance a kvality
+   informací a argumentů.
+3. **Syntéza informací** — propojení informací, myšlenek a pohledů do
+   nových celků.
+4. **Reflexe** — schopnost přehodnotit vlastní názory na základě nových
+   informací.
+5. **Vyvození závěru** — schopnost vyvodit vlastní závěr a učinit
+   informované rozhodnutí.
+
+**Proč je kritické myšlení důležité:** **ochrana před manipulací** (pomáhá,
+aby ses nestal obětí podvodu nebo manipulace), **rozpoznání kvality** (snáz
+odlišíš kvalitní informace od nekvalitních) a **správná rozhodnutí** (vede
+k promyšleným a správným rozhodnutím založeným na faktech). Shrnuto:
+kritické myšlení je proces hodnocení informací a tvrzení s cílem vytvořit
+si svůj vlastní, informovaný úsudek.
 
 ## Hardware
 

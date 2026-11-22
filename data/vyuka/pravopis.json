@@ -1,6 +1,6 @@
 {
   "predmetId": "pravopis",
-  "verze": 1,
+  "verze": 2,
   "vytvoreno": "2026-11-22",
   "lekce": [
     {
@@ -1675,7 +1675,7 @@
               "zadni": "zapomnění, zapomnětlivý (vznikly ze zapoMENout → mně) × umění (od umět, žádné MN ani MEN → mě)"
             },
             {
-              "predni": "z___na, sm___na, za___stnání",
+              "predni": "z___na, s___na, za___stnání",
               "zadni": "změna, směna, zaměstnání — N až ZA ě, které ve výchozím slově není, se nepočítá → mě"
             }
           ]

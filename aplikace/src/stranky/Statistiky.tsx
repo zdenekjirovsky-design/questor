@@ -8,6 +8,7 @@ import { denZData, pondeliTydne, stavLevelu } from '@questor/sdilene';
 import { pouzijStav } from '../stav/store';
 import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu } from '../data/predmety';
+import { jeKoloBleskovek, jeOpravaBlesku } from '../testy/blesk';
 import { testyBanky, tydenniXpBanky } from './statistikyVypocty';
 import './Statistiky.css';
 
@@ -292,7 +293,17 @@ export default function Statistiky() {
                 {historieBanky.map((v) => (
                   <tr key={v.id}>
                     <td>{formatujDatum(v.konec)}</td>
-                    <td>{NAZVY_REZIMU[v.konfigurace.rezim]}</td>
+                    {/* Kolo bleskovek nese kvůli serveru režim „rozcvicka“ —
+                        pozná se podle id výsledku (testy/blesk.ts). Běžný
+                        test, který se jen POČÍTÁ jako bleskovky (truhla,
+                        rekordy), si svůj režim nechává. */}
+                    <td>
+                      {jeOpravaBlesku(v)
+                        ? '⚡ Oprava chyb'
+                        : jeKoloBleskovek(v)
+                          ? '⚡ Bleskovky'
+                          : NAZVY_REZIMU[v.konfigurace.rezim]}
+                    </td>
                     <td>{v.odpovedi.length}</td>
                     <td
                       className={

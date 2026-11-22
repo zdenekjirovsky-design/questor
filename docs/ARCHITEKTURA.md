@@ -292,8 +292,11 @@ a postup lekcí se NIKDY neztrácí). Struktura `aplikace/src/`:
 ```
 stav/       store.ts (ZMRAZENÝ — skládá slices), testySlice.ts, hraSlice.ts,
             vyukaSlice.ts, profilySlice.ts
-testy/      engine testu (čistá logika) + komponenty typů otázek
+testy/      engine testu (čistá logika) + komponenty typů otázek; bleskovky:
+            blesk.ts (čistá pravidla), bleskStart.ts, bleskOvladani.ts,
+            BleskPrubeh.tsx (průběh kola), BleskZneni.tsx
 hra/        gamifikační komponenty (XP, streak, questy, truhla, sbírka, avatar, rekordy)
+            + NabidkaBanky (karta „Nová banka“ na Domů, nabidkaBankyLogika.ts)
 vyuka/      Uceni (/uceni), LekceViewer (/uceni/:temaId), bloky/, widgety/, registr.ts
 profily/    VyberProfilu (brána aplikace), SpravaProfilu (Nastavení), pin.ts
 duely/      Duely (/duely), DuelHrani (/duel/:id), DuelVysledek, DuelyIndikator,
@@ -302,10 +305,12 @@ duely/      Duely (/duely), DuelHrani (/duel/:id), DuelVysledek, DuelyIndikator,
             mimo aplikaci) + host.ts (čistá hostovská logika: odkaz, hash,
             lokální stav, fetch klient /api/hoste/*)
 sync/       klient serveru + offline fronta (per profil) + nastavení připojení
-stranky/    Domu, Test, Vysledek, Sbirka, Statistiky, Nastaveni
+stranky/    Domu, Test, Vysledek, Sbirka, Statistiky, Nastaveni,
+            Blesk (start bleskovek — líná routa /blesk)
 komponenty/ HudHlavicka (+ menu profilů) + sdílené vizuální prvky
 styl/       tokeny.css, global.css (viz DESIGN.md)
 data/       predmety.ts (registr předmětů) + nacteniObsahu.ts + predmety/*.json
+            + pouzijObsahNacten.ts (hook: doběhlo startovní načítání obsahu?)
 ```
 
 ### Lokální profily (jako na streamovacích službách)
@@ -367,7 +372,10 @@ ověřování. Kontrakt (`stav/profilySlice.ts`):
 
 Registr předmětů: `data/predmety.ts` drží ručně psaná metadata VŠECH
 očekávaných předmětů (`PREDMETY`: id, nazev, ikona — určují názvy, ikony
-a pořadí v UI; aktuálně 14 předmětů — 13 z 1. ročníku oboru + Základy
+a pořadí v UI; volitelně `nabidnoutK` + `popisNabidky` — komu se banka
+nabídne na Domů, viz Bleskovky › Nabídka banky; aktuálně 15 předmětů —
+13 z 1. ročníku oboru, Pravopis — trenažér `pravopis` (nadstavba k českému
+jazyku, banka pro bleskovky) + Základy
 profesionálního vaření `zaklady-vareni`, obecný předmět mimo obor) a lazy načítání obsahu ze souborů
 `data/predmety/<predmetId>.banka.json` / `<predmetId>.vyuka.json` přes
 `import.meta.glob` BEZ eager (každý JSON = samostatný async chunk, počáteční
@@ -430,7 +438,7 @@ potřeby, `chovaniPosunu` hlídá reduced motion), `testy/ochranaKliku.ts`
 ### Vlastnictví souborů (paralelní práce)
 
 - **APP-TESTY**: `testy/`, `sync/`, `stav/testySlice.ts`, `stranky/Test.tsx`,
-  `stranky/Vysledek.tsx`, `stranky/Nastaveni.tsx`.
+  `stranky/Vysledek.tsx`, `stranky/Blesk.tsx`, `stranky/Nastaveni.tsx`.
 - **APP-HRA**: `hra/`, `stav/hraSlice.ts`, `komponenty/`, `stranky/Domu.tsx`,
   `stranky/Sbirka.tsx`, `stranky/Statistiky.tsx`.
 - **APP-PROFILY**: `profily/`, `stav/profilySlice.ts`, `stav/migrace.ts`.
@@ -439,8 +447,8 @@ potřeby, `chovaniPosunu` hlídá reduced motion), `testy/ochranaKliku.ts`
   store.ts vznikly dohodou při zavedení profilů; hostovská brána v App.tsx
   — hash `#duel=…` s předností před výběrem profilu — dohodou při duelu
   odkazem; `<ResetScrollu />` v main.tsx a líné stránky přes
-  `lazySObnovou` v App.tsx dohodou při mobilních opravách. Dál platí
-  zmrazení.)
+  `lazySObnovou` v App.tsx dohodou při mobilních opravách; líná routa
+  `/blesk` v App.tsx dohodou při bleskovkách. Dál platí zmrazení.)
 
 ### Tok testu
 
@@ -458,6 +466,155 @@ potřeby, `chovaniPosunu` hlídá reduced motion), `testy/ochranaKliku.ts`
    pro odměny truhel je fronta `cekajiciTruhly` v hraSlice: `otevriTruhluAkce`
    bez čekající truhly daného typu vrací `null` a nic neuděluje (ochrana proti
    farmení odměn remountem stránky Výsledek).
+5. Výjimka pro rychlé („bleskové“) otázky — krátké doplňovačky se 2–3
+   možnostmi: v jakémkoli režimu dávají XP × 0,2 a test, ve kterém tvoří
+   aspoň polovinu otázek, bere truhlu jen z denní dávky sdílené
+   s bleskovkami a nemění rekordy (viz Bleskovky › Běžný test z rychlých
+   otázek). Průběh ani výsledková obrazovka se tím nemění.
+
+### Bleskovky (rychlý dril)
+
+Rychlé kolo nad otázkami s krátkými možnostmi (hlavně pravopis: doplň i/y):
+10 nebo 20 otázek, velké zadání s místem k doplnění, správná odpověď sama
+posune dál, chyba ukáže proč. Jede STEJNÝM enginem a stavem jako test
+(`aktualniTest` s polem `blesk`) — typy ve `sdilene` se kvůli bleskovkám
+nemění a veškerá logika žije v aplikaci jako čisté funkce
+(`testy/blesk.ts`, `testy/bleskStart.ts`, `testy/bleskOvladani.ts`).
+
+- **Blesková otázka** (`jeBleskova`): typ `vyber`, 2–3 možnosti, každá po
+  oříznutí mezer nejvýš 12 znaků. Žádný příznak v datech — rozhoduje tvar
+  otázky, takže bleskovky dostane každá banka, která takové otázky má
+  (třeba členy der/die/das). Banka je má v nabídce od `MIN_BLESKOVYCH` = 10
+  bleskových otázek (`maBleskovky`), konec lekce od `MIN_BLESKOVYCH_TEMATU`
+  = 5 bleskových otázek tématu.
+- **Konvence obsahu** (pro autora: NAVOD kap. 12): místo k doplnění se
+  v zadání píše podtržítkem `_` (`b_lina`). `rozdelZadani` bere PRVNÍ
+  podtržítko (souvislá řada `___` je jedna mezera); zadání bez podtržítka se
+  ukáže jako běžná volba. Možnosti, které mají VŠECHNY nejvýš 3 znaky
+  (doplňovaná písmena / skupiny: i/y, í/ý, mě/mně, i/y/a), se zobrazují
+  v pořadí Z DAT — autor je píše v KANONICKÉM pořadí (stejná dvojice v celé
+  bance vždy stejně), takže tlačítko „i“ sedí pořád na stejném místě.
+  Jakmile je některá možnost delší, míchá se deterministicky stejným klíčem
+  jako `VyberOtazka` (`poradiBleskovychMoznosti`). Enginu se odpovědi hlásí
+  vždy v datových indexech. Konvence kontroluje čistá
+  `poruseniKonvenciBlesku(banka)` (jednotné vzájemné pořadí krátkých
+  možností v celé bance, nejvýš jedno místo k doplnění v zadání; vrací
+  seznam porušení) — `aplikace/test/blesk.test.ts` ji pouští nad
+  bundlovanými bankami i nad `data/banky/*.json`, takže nová banka se
+  ověří ještě před zabalením do aplikace.
+- **Engine** (`testy/engine.ts`): `TestStav.blesk?: { oprava: boolean }`.
+  `inicializujBlesk(banka, { predmetId, pocetOtazek: 10 | 20, temataId? },
+  statistiky, nahoda, zacatek)` vybere jen bleskové otázky (volitelně
+  z daných témat) přes VŠECHNY obtížnosti, váženě bez opakování podle
+  Leitnerových boxů (`vyberBleskoveOtazky`; má-li jich banka míň, kolo je
+  kratší). `inicializujBleskZOtazek(predmetId, otazky, zacatek, temataId?)`
+  založí OPRAVNÉ kolo přesně z daných otázek (`blesk.oprava`);
+  `konfigurace.pocetOtazek` je nejbližší povolená hodnota (5/10/20) ≥ počtu
+  otázek. `konfigurace.rezim` je u bleskovek `'rozcvicka'` — serverová
+  validace výsledku zná jen původní režimy a `RezimTestu` se nerozšiřuje.
+  Bleskové kolo se proto pozná podle ID výsledku: `blesk-…`, opravné
+  `blesk-oprava-…` (`jeKoloBleskovek`, `jeOpravaBlesku`). **V přehledu
+  rodiny (admin účet) i v datech na serveru se bleskovky ukazují jako
+  Rozcvička**; Statistiky v aplikaci je podle id pojmenují „⚡ Bleskovky“
+  a opravná kola „⚡ Oprava chyb“.
+- **XP**: `KOEFICIENT_XP_BLESK` = 0,2 — XP za odpověď na BLESKOVOU OTÁZKU
+  = zaokrouhlené `xpZaOdpoved(…) × 0,2`, za správnou odpověď nejméně 1
+  (`xpSKoeficientem`). Koeficient patří otázce, ne režimu
+  (`koeficientXpOtazky`): platí v bleskovkách i v JAKÉMKOLI běžném testu
+  (rozcvička … zkouška), běžná otázka v tomtéž testu dává plné XP. Engine
+  ho vrací v `VysledekOdpovedi.koeficientXp` a `testySlice.odpovez` ho
+  předává do `hraSlice.zapocitejOdpoved` (volitelný 3. parametr) — XP
+  připsané do progresu tak sedí se `ziskaneXp` výsledku. Combo, Leitner,
+  questy aktivní banky a XP za questy běží beze změny. (0,2 = kolo
+  20 otázek vychází v XP za minutu zhruba jako běžný test.)
+- **Běžný test z rychlých otázek** (`pocitaSeJakoBleskovky` v enginu):
+  test v jakémkoli režimu, ve kterém je aspoň polovina otázek blesková
+  (`prevazujiBleskove`; u adaptivního rozhodují otázky, které padly,
+  u zkoušky všechny plánované), se pro TRUHLU a REKORDY počítá jako
+  bleskovky — jinak by pětiotázková rozcvička z doplňovaček dávala truhlu
+  každých pár vteřin. Výsledek dostane id `blesk-test-…`: `jeBleskVysledek`
+  (prefix `blesk-`) = „počítá se do ekonomiky bleskovek“ (denní truhla,
+  rekordy), užší `jeKoloBleskovek` = skutečné kolo (vlastní výsledková
+  obrazovka, název ve Statistikách, „Další kolo“, nápověda dlaždice).
+  Průběh, výsledková obrazovka i režim takového testu zůstávají běžné;
+  výsledek jen řekne, proč truhla není, když dnešní dávku už vybralo jiné
+  kolo (`duvodBezTruhly`).
+- **Truhla = denní dávka**: `vyhodnotTest(stav, konec, nahoda,
+  { truhlaZBlesku })` dá testu, který se počítá jako bleskovky, truhlu jen
+  s povolením volajícího (opravnému kolu nikdy). `testySlice.dokonciTest`
+  ho dává prvnímu takovému kolu / testu dne, který na truhlu dosáhne
+  (úspěšnost jako u testu) — dávku sdílí bleskovky s běžnými testy z
+  rychlých otázek. „Už dnes byla“ = v `historieTestu` je dnešní výsledek
+  `blesk-…` s truhlou (`bylaDnesTruhlaZBlesku`) — žádný nový persistovaný
+  stav ani migrace.
+  Historie drží 10 výsledků a krátká (hlavně opravná) kola by tuhle značku
+  během dne vytlačila, proto ji `hraSlice.zapocitejTest` ořezává přes
+  `orizniHistoriiTestu`: dnešní bleskový výsledek s truhlou v historii
+  ZŮSTÁVÁ i za limitem (historie má pak nejvýš 11 položek; druhý den se
+  ořízne běžně). Důsledky: kolo pod 50 % dávku nevybere (další kolo ji
+  ještě získá); historie žije per zařízení, takže na druhém zařízení může
+  truhla týž den padnout znovu — vědomě přijaté.
+- **Rekordy**: `hraSlice.zapocitejTest` u výsledku s id `blesk-…` (kolo
+  bleskovek i běžný test z rychlých otázek) NEMĚNÍ `nejlepsiUspesnost`,
+  `nejdelsiCombo` ani `nejrychlejsiBezchybnyMs` (deset rychlých
+  doplňovaček by je natrvalo přebilo). Streak, questy,
+  `dokonceneTesty`, historie, týdenní XP per banka, mistrovské karty i sync
+  (`zaznamenejDokoncenyTest`) jedou jako u testu.
+- **Stav** (`stav/testySlice.ts`): `zacniBlesk(konfigurace)`
+  a `zacniBleskOpravu(predmetId, otazkaIds)` — otázky, které banka už
+  nezná, vynechá, a výběr témat původního kola přenese do konfigurace
+  opravy (kvůli „Další kolo“). Rozehrané kolo se persistuje jako test.
+- **UI**: start `stranky/Blesk.tsx` na líné routě `/blesk`
+  (`?predmet=<id>&tema=<temaId>` předvyberou; nabízí jen banky profilu
+  s bleskovkami, předvolená aktivní; běžící test → přesměrování na `/test`),
+  průběh `testy/BleskPrubeh.tsx` (vykreslí ho `stranky/Test.tsx`, když
+  `aktualniTest.blesk`), výsledek ve `stranky/Vysledek.tsx` (tempo
+  `tempoZaMinutu` z čistého času nad otázkami, výpis chyb `chybyBlesku`,
+  „Oprav si chyby“, „Další kolo“ = `konfiguraceDalsihoKola(vysledek,
+  historieTestu)` — po opravném kole bere délku a témata z kola, ze kterého
+  oprava vznikla). Po správné odpovědi naskočí další otázka sama za
+  `PRODLEVA_PO_SPRAVNE_MS` = 600 ms (`naplanujAutoPosun`, úklid efektu
+  časovač ruší), po chybě se čeká na „Rozumím, dál“.
+  Klávesy (`akceKlavesy` → `moznostZKlavesy`), v tomhle pořadí: (1) číslice
+  1/2/3 = pozice na obrazovce; (2) fyzická klávesa horní řady
+  (`KeyboardEvent.code` `Digit1–9`), pokud taková pozice existuje — česká
+  klávesnice tam bez Shiftu píše „+ěščřžýáíé“ a pozice musí mít přednost
+  před písmenem (klávesa „2“ píše ě); (3) písmeno možnosti, když se první
+  písmena VŠECH možností liší i bez diakritiky — klávesy i/y platí i pro
+  í/ý, klávesa s diakritikou jen pro možnost, která jí přesně začíná.
+  Držená klávesa a klávesy s Ctrl/Alt/Cmd se ignorují; Enter pokračuje jen
+  po chybě.
+  Čtečky obrazovky: jedna TRVALÁ živá oblast (`aria-live="polite"`,
+  vizuálně skrytá) leží mimo přemontovávanou otázku a čte text z čisté
+  `oznameniBlesku` — novou otázku (naskakuje sama), „Správně.“ i chybu se
+  správným zněním a vysvětlením. Třídy tlačítek možností počítá čistá
+  `tridyMoznostiBlesku`.
+  Studený start (reload na výsledku nebo startu): banky chodí do store
+  async, takže stránky čekají na `data/pouzijObsahNacten` (hook nad
+  `nactiObsahPriStartu`) — do doběhnutí se netvrdí „otázka v bance není“
+  ani „žádná banka s bleskovkami“ a „Oprav si chyby“ je jen neaktivní.
+  Vstupy: dlaždice na Domů — ukáže se, když bleskovky nabízí KTERÁKOLI
+  studijní banka profilu (ne jen aktivní), vede na `/blesk` a v titulku
+  nese banku, kterou start předvolí: aktivní, má-li bleskovky, jinak první
+  vhodnou v pořadí registru (`bankaDlazdiceBlesku` v `bleskStart.ts`,
+  stejné pravidlo jako `vychoziBankaBlesku`). Rozhoduje obsah bank; než se
+  načtou (`pouzijObsahNacten`), napoví historie testů — kdo z banky profilu
+  bleskovky už hrál, má dlaždici hned; po doběhnutí načítání historie
+  nenapovídá. Dlaždice ukazuje stav denní truhly. Další vstupy: tlačítko
+  u banky v Učit se, „Procvič bleskovkami“ na konci lekce (10 otázek
+  z tématu) a odkaz v rychlém startu na `/test`. Vzhled a mobil:
+  DESIGN.md › Bleskovky.
+- **Nabídka banky**: banka v registru může říct, komu se má nabídnout —
+  `PredmetMetadata.nabidnoutK?: string[]` (+ `popisNabidky`). Karta
+  `hra/NabidkaBanky.tsx` se na Domů ukáže, když profil studuje některou
+  z uvedených bank, nabízenou ještě nemá, její obsah je načtený
+  (`banky[id]`) a nabídku neskryl — rozhoduje čistá `bankaKNabidnuti`
+  (`hra/nabidkaBankyLogika.ts`). „Přidat mezi moje banky“ volá
+  `pridejPredmetProfilu` a karta pak nabídne „⚡ Zkusit bleskovky“; „Teď ne“
+  nabídku skryje per profil v localStorage (`questor-nabidka-banky:<profilId>`,
+  jen na tomhle zařízení, mimo persist i sync; když zápis selže, skrytí si
+  do zavření stránky pamatuje modul). V registru: `pravopis`
+  (Pravopis — trenažér) se nabízí studentům `cesky-jazyk`.
 
 ### Sync (offline-first)
 
@@ -543,7 +700,9 @@ pushuje se snapshot progresu i po dokončení lekce a po otevření truhly
 ### Gamifikace — pravidla (implementace ve `sdilene`, UI v `hra/`)
 
 - XP: `xpZaOdpoved(obtiznost, comboKrok)` — 10×obtížnost × combo (max 2×).
-  Levely: `stavLevelu(xp)` (křivka 100·n^1.6).
+  Levely: `stavLevelu(xp)` (křivka 100·n^1.6). Blesková otázka (krátká
+  doplňovačka) dává v bleskovkách i v běžném testu XP × 0,2 (viz
+  Bleskovky).
 - Streak: den se počítá při ≥ 1 dokončeném testu; `zmrazeni` zachrání 1 den.
 - Questy: 3/den, deterministické z data + id aktivního profilu
   (`vygenerujDenniQuesty(datum, ctx, seedPrisada?)`); odměna
@@ -553,15 +712,18 @@ pushuje se snapshot progresu i po dokončení lekce a po otevření truhly
   predmetId testu resp. lekce; XP, Leitner, streak a statistiky běží dál).
 - Týdenní XP z testů per banka: `tydenniXpTestuPodleBank` (hraSlice,
   predmetId → pondělí týdne → součet ziskaneXp) — přesný průběžný agregát
-  pro graf ve Statistikách (historieTestu drží jen posledních 10 testů).
-- Truhly: po testu dle úspěšnosti (≥50 % bronz, ≥70 % stříbro, ≥90 % zlato),
+  pro graf ve Statistikách (historieTestu drží jen posledních 10 testů,
+  navíc nanejvýš dnešní bleskové kolo s truhlou — viz Bleskovky).
+- Truhly: po testu dle úspěšnosti (≥50 % bronz, ≥70 % stříbro, ≥90 % zlato;
+  z bleskovek a z testů s převahou bleskových otázek dohromady jen jedna
+  denně, z opravného kola žádná — viz Bleskovky),
   obsah `otevriTruhlu` (XP / zmrazení / karta / výbava avataru; pásma losu
   pKarta+pVybava dle typu truhly, pity timer karet 3; výbava se losuje jen
   z nevlastněných položek `VYBAVA_KATALOG`).
 - Sbírka: 12 karet „Velikáni ekonomie“ (`KARTY_VELIKANI`) + mistrovské karty
   za témata (`idMistrovskeKarty`, bronz/stříbro/zlato podle zvládnutí tématu:
   podíl otázek tématu v boxu ≥ 3: 50 %/75 %/95 %).
-- Rekordy + týdenní XP; výzvy od táty (server) se zobrazují jako speciální
+- Rekordy (bleskovky a testy s převahou bleskových otázek je nemění) + týdenní XP; výzvy od táty (server) se zobrazují jako speciální
   quest se vzkazem.
 - Avatar: plně přizpůsobitelná SVG postavička — pohlaví, tvar obličeje,
   pleť, barva a střih vlasů (včetně krátkých) v `AvatarKonfigurace`;

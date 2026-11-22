@@ -14,6 +14,7 @@ import type { PostupLekce } from '../stav/vyukaSlice';
 import { aktivniPredmetProfilu, najdiAktivniProfil, predmetyProfilu } from '../stav/profilySlice';
 import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import { usePovoleniLatky } from '../latka/latka';
+import { maBleskovky } from '../testy/blesk';
 import {
   kontextDoporuceni,
   pripnuteVKontextu,
@@ -113,7 +114,14 @@ export default function Uceni() {
         .slice()
         .sort((a, b) => a.poradi - b.poradi)
         .map((l) => souhrnLekce(vyuka, nazev, l, postupLekci[l.temaId]));
-      return { predmetId, nazev, ikona: ikonaPredmetu(predmetId), lekce };
+      return {
+        predmetId,
+        nazev,
+        ikona: ikonaPredmetu(predmetId),
+        lekce,
+        // Banka s bleskovkami (rychlý dril) má u nadpisu tlačítko na /blesk.
+        maBlesk: maBleskovky(banky[predmetId]),
+      };
     });
   }, [vyuky, banky, postupLekci, profil]);
 
@@ -186,9 +194,19 @@ export default function Uceni() {
       {/* Predmety a lekce */}
       {predmety.map((predmet) => (
         <div key={predmet.predmetId} className="uceni__predmet">
-          <h2 className="uceni__predmet-nazev">
-            <span aria-hidden="true">{predmet.ikona}</span> {predmet.nazev}
-          </h2>
+          <div className="uceni__predmet-hlava">
+            <h2 className="uceni__predmet-nazev">
+              <span aria-hidden="true">{predmet.ikona}</span> {predmet.nazev}
+            </h2>
+            {predmet.maBlesk && (
+              <Link
+                to={`/blesk?predmet=${encodeURIComponent(predmet.predmetId)}`}
+                className="tlacitko uceni__blesk"
+              >
+                ⚡ Bleskovky
+              </Link>
+            )}
+          </div>
           <div className="uceni__mrizka">
             {predmet.lekce.map((l) => {
               const obsah = POPISKY_OBSAHU.filter((p) =>

@@ -42,3 +42,16 @@ lekcí, ať ho generuje Claude, nebo vzniká ručně.
   potravinářské zboží, drobné zboží, obuv a kožená galanterie, textil
   a odívání; každá lekce drží strukturu výše). Banka i výuka jsou
   bundlované v aplikaci (`aplikace/src/data/predmety/`).
+- `pravopis` („Pravopis — trenažér“) — vzor DRILOVÉHO předmětu: učivo
+  `data/uciva/pravopis.md` = jednoduché poučky místo skloňování podle
+  vzorů (rozcestník i/y a jistoty, vyjmenovaná slova po rodinách, tvrdá ×
+  měkká parta, ukazováček TI/TY/TA, mě × mně, diktát bez paniky), 9 lekcí
+  a banka 639 otázek, z toho 627 „bleskových“ (doplň jedno písmeno —
+  konvence v NAVOD kap. 12). Protože chyba v klíči by učila špatný
+  pravopis, prošla banka DVOJÍ SLEPOU KONTROLOU (dva nezávislí řešitelé
+  bez klíče, porovnání skriptem — 0 neshod) a učivo s lekcemi dvěma koly
+  oponentury zaměřené na protipříklady k poučkám. Každou novou poučku
+  ověřuj stejně: hledej běžná slova z diktátů, kde by doslovné použití
+  vedlo k chybě (v lesích × „tvrdá parta píše y“, v zimě × „příbuzné
+  slovo s N“), a výjimku napiš výslovně. Tiskový tahák téhož:
+  `docs/tahak-pravopis.html` (+ `.pdf`).

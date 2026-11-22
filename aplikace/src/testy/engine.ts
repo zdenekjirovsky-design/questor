@@ -6,6 +6,14 @@
 //   inicializujTest() → stav
 //   opakovaně: odpovezVEnginu() (vyhodnotí + XP + combo) → dalsiOtazkaVEnginu()
 //   nakonec: vyhodnotTest() → TestVysledek
+//
+// Bleskovky (rychlý dril, pravidla v ./blesk.ts) jedou stejným enginem:
+//   inicializujBlesk() / inicializujBleskZOtazek() → stav s polem `blesk`
+//   → stejné krokování, id výsledku `blesk-…` a truhla jen s povolením
+//   volajícího (denní dávka — hlídá testySlice).
+// Ekonomika rychlých otázek platí pro KAŽDÝ test: blesková otázka dává
+// XP × koeficient v jakémkoli režimu a běžný test s převahou bleskových
+// otázek se pro truhlu a rekordy počítá jako bleskovky (pocitaSeJakoBleskovky).
 import {
   dalsiObtiznost,
   jeOdpovedSpravna,
@@ -22,6 +30,18 @@ import type {
   TestKonfigurace,
   TestVysledek,
 } from '@questor/sdilene';
+import {
+  jeBleskova,
+  koeficientXpOtazky,
+  pocetOtazekProOpravu,
+  PREFIX_BLESK,
+  PREFIX_BLESK_OPRAVA,
+  PREFIX_BLESK_TEST,
+  prevazujiBleskove,
+  vyberBleskoveOtazky,
+  xpSKoeficientem,
+  type BleskKonfigurace,
+} from './blesk';
 
 // ---------------------------------------------------------------------------
 // Typy odpovědí (hodnota, kterou UI posílá do enginu)
@@ -65,6 +85,14 @@ export interface TestStav {
   casovyLimitMs?: number;
   /** Id výzvy, pokud test vznikl z výzvy od táty. */
   vyzvaId?: string;
+  /**
+   * Bleskovky (./blesk.ts): kolo rychlého drilu — vlastní průběh v UI,
+   * výsledek dostává id `blesk-…` a truhlu jen s povolením volajícího.
+   * `oprava` = opravné kolo z chyb předchozího (truhlu nedává nikdy).
+   * Chybí = běžný test. Pole je volitelné — rozehrané testy ze starších
+   * verzí persistu ho nemají a žádnou migraci nepotřebují.
+   */
+  blesk?: { oprava: boolean };
   dokonceno: boolean;
 }
 
@@ -149,6 +177,106 @@ export function inicializujTest(
 }
 
 // ---------------------------------------------------------------------------
+// Bleskovky — inicializace kola
+
+/** Čistý stav bleskového kola nad hotovým výběrem otázek. */
+function stavBlesku(
+  konfigurace: TestKonfigurace,
+  otazky: Otazka[],
+  zacatek: string,
+  oprava: boolean,
+): TestStav {
+  return {
+    konfigurace,
+    zacatek,
+    otazky,
+    pool: [],
+    index: 0,
+    odpovedi: [],
+    combo: 0,
+    nejdelsiCombo: 0,
+    ziskaneXp: 0,
+    posledniXp: 0,
+    cilovaObtiznost: VYCHOZI_CILOVA_OBTIZNOST,
+    blesk: { oprava },
+    dokonceno: false,
+  };
+}
+
+/**
+ * Bleskové kolo: jen bleskové otázky banky (volitelně z daných témat), přes
+ * všechny obtížnosti, vážený výběr podle Leitnerových boxů. Když jich banka
+ * má míň než `pocetOtazek`, kolo je kratší (prázdné = banka žádné nemá).
+ * `konfigurace.rezim` je 'rozcvicka' — typ RezimTestu se kvůli bleskovkám
+ * nerozšiřuje a serverová validace výsledku zná jen původní režimy; výsledek
+ * kola se pozná podle id (jeKoloBleskovek).
+ */
+export function inicializujBlesk(
+  banka: BankaOtazek,
+  konfigurace: BleskKonfigurace,
+  statistiky: Record<string, StatistikaOtazky>,
+  nahoda: () => number,
+  zacatek: string,
+): TestStav {
+  const temataId =
+    konfigurace.temataId && konfigurace.temataId.length > 0 ? [...konfigurace.temataId] : undefined;
+  const otazky = vyberBleskoveOtazky(banka, konfigurace.pocetOtazek, temataId, statistiky, nahoda);
+  return stavBlesku(
+    {
+      predmetId: konfigurace.predmetId,
+      rezim: 'rozcvicka',
+      pocetOtazek: konfigurace.pocetOtazek,
+      ...(temataId ? { temataId } : {}),
+    },
+    otazky,
+    zacatek,
+    false,
+  );
+}
+
+/**
+ * Opravné kolo bleskovek: přesně dané otázky v daném pořadí (typicky chyby
+ * předchozího kola) — nebleskové a opakované se vynechají.
+ * `konfigurace.pocetOtazek` je nejbližší povolená hodnota (5/10/20), která
+ * otázky pojme; skutečný počet drží `otazky`. Volitelná `temataId` jen
+ * přenáší výběr témat původního kola do konfigurace (kvůli „Další kolo“).
+ */
+export function inicializujBleskZOtazek(
+  predmetId: string,
+  otazky: Otazka[],
+  zacatek: string,
+  temataId?: string[],
+): TestStav {
+  const videne = new Set<string>();
+  const bleskove = otazky.filter((o) => {
+    if (!jeBleskova(o) || videne.has(o.id)) return false;
+    videne.add(o.id);
+    return true;
+  });
+  return stavBlesku(
+    {
+      predmetId,
+      rezim: 'rozcvicka',
+      pocetOtazek: pocetOtazekProOpravu(bleskove.length),
+      ...(temataId && temataId.length > 0 ? { temataId: [...temataId] } : {}),
+    },
+    bleskove,
+    zacatek,
+    true,
+  );
+}
+
+/**
+ * Počítá se test pro truhlu a rekordy jako bleskovky? Kolo bleskovek vždy;
+ * BĚŽNÝ test (jakýkoli režim), když je aspoň polovina jeho otázek blesková.
+ * U adaptivního testu rozhodují otázky, které skutečně padly (`otazky`
+ * přibývají za běhu), u zkoušky všechny plánované.
+ */
+export function pocitaSeJakoBleskovky(stav: Pick<TestStav, 'blesk' | 'otazky'>): boolean {
+  return stav.blesk !== undefined || prevazujiBleskove(stav.otazky);
+}
+
+// ---------------------------------------------------------------------------
 // Dotazy na stav
 
 export function fazeTestu(stav: TestStav): FazeTestu {
@@ -215,6 +343,12 @@ export interface VysledekOdpovedi {
   spravne: boolean;
   /** XP za tuhle odpověď (0 při chybě). */
   ziskaneXp: number;
+  /**
+   * Koeficient XP, který engine na otázku uplatnil (blesková otázka 0,2;
+   * jinak 1). Volající ho předává do hraSlice.zapocitejOdpoved, aby XP
+   * připsané do progresu sedělo se `ziskaneXp` výsledku.
+   */
+  koeficientXp: number;
 }
 
 /**
@@ -233,7 +367,14 @@ export function odpovezVEnginu(
 
   const spravne = vyhodnotOdpoved(otazka, hodnota);
   // comboKrok = kolikátá správná v řadě (od 0) → aktuální combo PŘED odpovědí.
-  const xp = spravne ? xpZaOdpoved(otazka.obtiznost, stav.combo) : 0;
+  // Blesková otázka: XP × koeficient — v bleskovkách i v běžném testu
+  // (stejnou funkcí počítá i hraSlice.zapocitejOdpoved, takže ziskaneXp
+  // výsledku sedí s XP připsaným do progresu).
+  const koeficientXp = koeficientXpOtazky(otazka);
+  const xp = xpSKoeficientem(
+    spravne ? xpZaOdpoved(otazka.obtiznost, stav.combo) : 0,
+    koeficientXp,
+  );
   const novyCombo = spravne ? stav.combo + 1 : 0;
 
   const zaznam: OdpovedZaznam = {
@@ -268,7 +409,7 @@ export function odpovezVEnginu(
     }
   }
 
-  return { stav: novyStav, zaznam, spravne, ziskaneXp: xp };
+  return { stav: novyStav, zaznam, spravne, ziskaneXp: xp, koeficientXp };
 }
 
 /** Posun na další otázku (po feedbacku); po poslední otázce označí test za dokončený. */
@@ -283,20 +424,51 @@ export function dalsiOtazkaVEnginu(stav: TestStav): TestStav {
 // ---------------------------------------------------------------------------
 // Vyhodnocení celého testu
 
+export interface VolbyVyhodnoceni {
+  /**
+   * Smí test, který se počítá jako bleskovky (pocitaSeJakoBleskovky), dát
+   * truhlu? Truhla z rychlých otázek je denní dávka, kterou hlídá volající
+   * (testySlice.dokonciTest) — bez povolení ji takový test nedostane
+   * a opravné kolo ji nedostane nikdy. U ostatních testů bez významu
+   * (truhla se řídí jen úspěšností).
+   */
+  truhlaZBlesku?: boolean;
+}
+
 /**
  * Sestaví TestVysledek. U režimu zkouška se úspěšnost počítá z PLÁNOVANÉHO
  * počtu otázek (nezodpovězené po vypršení limitu = špatně), jinak ze
- * zodpovězených.
+ * zodpovězených. Výsledek, který se počítá jako bleskovky, dostává id
+ * `blesk-…` (opravné kolo `blesk-oprava-…`, běžný test s převahou bleskových
+ * otázek `blesk-test-…`) — podle něj ho pozná zbytek aplikace
+ * (jeBleskVysledek pro truhlu a rekordy, jeKoloBleskovek pro UI).
  */
-export function vyhodnotTest(stav: TestStav, konec: string, nahoda: () => number): TestVysledek {
+export function vyhodnotTest(
+  stav: TestStav,
+  konec: string,
+  nahoda: () => number,
+  volby: VolbyVyhodnoceni = {},
+): TestVysledek {
   const spravnych = stav.odpovedi.filter((o) => o.spravne).length;
   const jmenovatel =
     stav.konfigurace.rezim === 'zkouska' ? stav.otazky.length : stav.odpovedi.length;
   const uspesnost = jmenovatel > 0 ? spravnych / jmenovatel : 0;
-  const truhla = urciTruhlu(uspesnost);
+  const jakoBleskovky = pocitaSeJakoBleskovky(stav);
+  const smiTruhlu = jakoBleskovky
+    ? volby.truhlaZBlesku === true && stav.blesk?.oprava !== true
+    : true;
+  const truhla = smiTruhlu ? urciTruhlu(uspesnost) : null;
+  // Prefixy končí pomlčkou (`blesk-`, `blesk-oprava-`, `blesk-test-`), běžný test `vysledek-`.
+  const prefix = stav.blesk
+    ? stav.blesk.oprava
+      ? PREFIX_BLESK_OPRAVA
+      : PREFIX_BLESK
+    : jakoBleskovky
+      ? PREFIX_BLESK_TEST
+      : 'vysledek-';
 
   return {
-    id: `vysledek-${Date.parse(konec) || 0}-${Math.floor(nahoda() * 1e9).toString(36)}`,
+    id: `${prefix}${Date.parse(konec) || 0}-${Math.floor(nahoda() * 1e9).toString(36)}`,
     konfigurace: stav.konfigurace,
     zacatek: stav.zacatek,
     konec,

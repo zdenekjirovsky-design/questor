@@ -1,0 +1,216 @@
+/* Start bleskovek (/blesk) — výběr banky, témat a délky kola.
+   Tokeny a animace viz styl/tokeny.css a global.css. Vlastnosti z .panel
+   a .tlacitko se přebíjejí dvěma třídami (pořadí CSS v bundlu se u líné
+   stránky liší od zbytku aplikace — na jedné třídě se nedá stavět). */
+
+.blesk-start {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.blesk-start__hlava {
+  margin-bottom: 16px;
+}
+
+.blesk-start__titulek {
+  margin-bottom: 0.2em;
+  color: var(--zlata);
+  text-shadow: var(--zare-zlata);
+}
+
+.blesk-start__popis {
+  margin: 0;
+  color: var(--text-tlumeny);
+}
+
+.blesk-start__nadpis {
+  margin: 18px 0 8px;
+  font-size: 0.95rem;
+  color: var(--text-tlumeny);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.blesk-start__nadpis:first-child {
+  margin-top: 0;
+}
+
+.blesk-start__pozn {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
+.blesk-start__banka {
+  font-family: var(--pismo-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.blesk-start__volby {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.blesk-start__volby--stred {
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.blesk-start__legenda {
+  margin: 8px 0 0;
+  color: var(--text-tlumeny);
+  font-size: 0.85rem;
+}
+
+/* Čip banky / tématu: název + zvládnutí. */
+.blesk-cip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  color: var(--text-tlumeny);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+@media (hover: hover) {
+  .blesk-cip:hover {
+    border-color: var(--akcent);
+    color: var(--text);
+  }
+}
+
+.blesk-cip:focus-visible,
+.blesk-pocet:focus-visible {
+  outline: 2px solid var(--akcent-svetly);
+  outline-offset: 2px;
+}
+
+.blesk-cip--vybrany {
+  border-color: var(--akcent);
+  color: var(--text);
+  box-shadow: var(--zare-akcent);
+}
+
+.blesk-cip__nazev {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.blesk-cip__zvladnuti {
+  flex: none;
+  font-family: var(--pismo-display);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-tlumeny);
+}
+
+.blesk-cip__zvladnuti--zlate {
+  color: var(--zlata);
+}
+
+.blesk-start__pocty {
+  display: flex;
+  gap: 8px;
+}
+
+.blesk-pocet {
+  flex: 1;
+  padding: 10px;
+  font-family: var(--pismo-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: var(--pozadi-panel-2);
+  border: 1px solid var(--okraj);
+  border-radius: var(--radius-maly);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.blesk-pocet--vybrany {
+  border-color: var(--akcent);
+  box-shadow: var(--zare-akcent);
+}
+
+.blesk-start__pata {
+  margin-top: 20px;
+}
+
+.blesk-start__truhla {
+  margin: 0 0 10px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--zlata);
+}
+
+.blesk-start__truhla--hotova {
+  color: var(--uspech);
+}
+
+.blesk-start__chyba {
+  margin: 0 0 10px;
+  text-align: center;
+  color: var(--chyba);
+}
+
+.tlacitko.blesk-start__spustit {
+  width: 100%;
+  padding: 14px;
+  font-family: var(--pismo-display);
+  font-size: 1.2rem;
+}
+
+/* Prázdný stav + načítání */
+.blesk-start__prazdno {
+  text-align: center;
+}
+
+.blesk-start__prazdno-znak {
+  display: block;
+  font-size: 2.6rem;
+}
+
+.blesk-start__nacitam {
+  color: var(--text-tlumeny);
+}
+
+/* --- Mobil (≤ 760 px): dotykové plochy ≥ 44 px, „⚡ Spustit“ přilepené
+   nad fixní spodní lištou — vidět a ťuknutelné i s dlouhým seznamem témat. --- */
+@media (max-width: 760px) {
+  .blesk-cip {
+    min-height: 44px;
+    padding: 8px 16px;
+  }
+
+  .blesk-pocet {
+    min-height: 48px;
+  }
+
+  /* Pata sahá přes boční i spodní padding panelu (mobilní .panel má 14 px),
+     aby pod ní neprosvítaly čipy; spodní hrana dosedá na spodní lištu
+     (App.css: 4 + 52 + 4 px + rámeček + safe-area). */
+  .blesk-start__pata {
+    position: sticky;
+    bottom: calc(61px + env(safe-area-inset-bottom, 0px));
+    z-index: 2;
+    margin: 14px -14px -14px;
+    padding: 10px 14px 14px;
+    background: var(--pozadi-panel);
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: 0 -10px 16px -10px rgba(0, 0, 0, 0.7);
+  }
+
+  .tlacitko.blesk-start__spustit {
+    min-height: 52px;
+  }
+}

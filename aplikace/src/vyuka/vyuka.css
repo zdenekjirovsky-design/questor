@@ -80,12 +80,34 @@
   margin-bottom: 30px;
 }
 
+/* Nadpis banky + (u banky s bleskovkami) tlacitko „⚡ Bleskovky“ vpravo.
+   Spodni mezeru drzi radek, ne nadpis — bez tlacitka vypada sekce stejne. */
+.uceni__predmet-hlava {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
 .uceni__predmet-nazev {
+  flex: 1 1 auto;
+  min-width: 0;
   font-size: 1.1rem;
   color: var(--text-tlumeny);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 0;
+}
+
+/* .tlacitko.… kvuli poradi CSS v bundlu (global.css je posledni). */
+.tlacitko.uceni__blesk {
+  flex: none;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  color: var(--zlata);
+  border-color: rgba(245, 185, 66, 0.45);
 }
 
 .uceni__mrizka {

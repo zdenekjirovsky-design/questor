@@ -26,6 +26,14 @@ export interface PredmetMetadata {
   id: string;
   nazev: string;
   ikona: string;
+  /**
+   * Nabidka banky: id bank, jejichz studentum se tahle banka na Domu nabidne
+   * (karta „Nova banka“), dokud si ji nepridaji mezi sve studijni banky nebo
+   * nabidku neskryji. Rozhoduje hra/nabidkaBankyLogika.ts (bankaKNabidnuti).
+   */
+  nabidnoutK?: string[];
+  /** Kratky popis do karty nabidky (veta za nazvem banky). */
+  popisNabidky?: string;
 }
 
 export const PREDMETY: PredmetMetadata[] = [
@@ -33,6 +41,13 @@ export const PREDMETY: PredmetMetadata[] = [
   { id: 'pisemna-komunikace', nazev: 'Písemná a elektronická komunikace', ikona: '⌨️' },
   { id: 'informatika', nazev: 'Informatika', ikona: '💻' },
   { id: 'cesky-jazyk', nazev: 'Český jazyk a literatura', ikona: '📚' },
+  {
+    id: 'pravopis',
+    nazev: 'Pravopis — trenažér',
+    ikona: '✍️',
+    nabidnoutK: ['cesky-jazyk'],
+    popisNabidky: 'Bleskový trénink i/y, 2 minuty denně.',
+  },
   { id: 'anglicky-jazyk', nazev: 'Anglický jazyk', ikona: '🇬🇧' },
   { id: 'nemecky-jazyk', nazev: 'Německý jazyk', ikona: '🇩🇪' },
   { id: 'matematika', nazev: 'Matematika', ikona: '📐' },

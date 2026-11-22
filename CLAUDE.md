@@ -42,6 +42,56 @@ psychologickými hooky.
    questor-server :8787).
 7. API klíče a tokeny jen v env / `.env` (v .gitignore), nikdy v kódu.
 
+## Stav (2026-11-22 — Pravopis — trenažér a Bleskovky, v0.8.0)
+
+Zadání: trénink pravopisu, který nestojí na vzorech (cílem je rychlé
+a jisté rozhodování i/y v diktátu). Vznikl 15. předmět **Pravopis —
+trenažér** (`pravopis`) a rychlý režim **⚡ Bleskovky**. Typecheck 4/4, testy na
+čistém HEAD 1006/1006 (sdílené 156, generátor 32, server 145, aplikace
+673), oba buildy OK; `kontrola-integrace` → 15 bank, 15 výuk | 107 témat,
+1604 otázek, 107 lekcí, 215 mini-kvízů, 118 widgetů.
+
+- OBSAH: učivo `data/uciva/pravopis.md` = JEDNODUCHÉ POUČKY místo vzorů
+  (rozcestník „kde ve slově to i/y je“ + jistoty zdarma; vyjmenovaná slova
+  po rodinách a dvojicích, předpona vy-/vý-; „tvrdá × měkká parta“ s testem
+  „bez ___“ a výjimkou TI živí; „ten milý × TI milí“, „-ovi jen pro TI
+  a komu? o kom?“; ukazováček TI/TY/TA; mě × mně = „tě/tebe × tobě/ti“
+  a „MN/MEN ve slově, ze kterého tvar vznikl“; diktát bez paniky —
+  kontrolní kolečko). 9 lekcí, banka 639 otázek (627 drilových + 12
+  k diktátu). Tiskový tahák `docs/tahak-pravopis.html` (+ `.pdf`, 2× A4).
+- KONTROLA OBSAHU (závazná i příště, viz VYUKA.md): banka prošla dvojí
+  slepou kontrolou (dva nezávislí řešitelé bez klíče, 0 neshod), učivo
+  a lekce dvěma koly oponentury hledající PROTIPŘÍKLADY k poučkám — první
+  znění mělo díry (v lesích, v zimě, tácy, s týmy, z babiččiny zahrady,
+  zapomnění), všechny jsou výslovně ošetřené. Vyřazená kolísající slova:
+  manžel, anděl, kužel, kněz, ližina, pikat, sirý, hotelích.
+- BLESKOVKY (`aplikace/src/testy/blesk*.ts`, `BleskPrubeh.tsx`,
+  `stranky/Blesk.tsx`; kontrakt ARCHITEKTURA › Bleskovky, návod NAVOD
+  kap. 12): „blesková“ otázka = `vyber` se 2–3 možnostmi do 12 znaků, místo
+  k doplnění `_`, krátké možnosti v kanonickém pořadí z dat. Jedno ťuknutí,
+  správně = auto-posun, chyba = správné znění + poučka; výsledek s tempem,
+  výpisem chyb a opravným kolem. Jede stejným enginem a stavem jako testy
+  (`aktualniTest.blesk`), BEZ změn ve `sdilene/`, serveru a persistu:
+  režim výsledku `rozcvicka`, id `blesk-…` / `blesk-oprava-…` /
+  `blesk-test-…`. Ekonomika: blesková otázka dává 20 % XP v JAKÉMKOLI
+  testu; truhla z rychlých otázek je denní dávka (první kolo dne ≥ 50 %,
+  značka v `historieTestu`), rekordy se nemění; test s ≥ polovinou
+  bleskových otázek se pro truhlu a rekordy počítá stejně.
+- NABÍDKA BANKY: registr umí `nabidnoutK` — Pravopis se sám nabídne na
+  Domů profilům s češtinou (karta „Přidat mezi moje banky“); dlaždice
+  ⚡ Bleskovky je na Domů, když má bleskovky kterákoli banka profilu.
+- V přehledu rodiny se kola bleskovek ukazují jako Rozcvička (server jiný
+  režim nezná). Neověřeno na skutečném telefonu (iOS safe-area u startu,
+  dvojí ťuknutí), ve Firefoxu a se čtečkou.
+- POZOR: v pracovní kopii leží od 4. 10. NECOMMITNUTÁ rozdělaná práce jiné
+  session ve `sdilene/` (sync postupu, Etapa 1: `slucovani.ts`, změny
+  v `duely.ts`, `gamifikace.ts`, `index.ts`, `prehled.ts`, `typy.ts`) —
+  tahle změna na ni nesahá; web se proto staví z ČISTÉ kopie commitu
+  (git worktree), ne z pracovního stromu.
+- Další kroky (nabídnuto, nerozhodnuto): druhá vlna drilu (čárky, s/z,
+  velká písmena, ú/ů, bě/bje), bleskovky na literární pojmy, trénink
+  diktátu s hlasem (předčítání po větách, psaní rukou, vlastní oprava).
+
 ## Stav (2026-10-04 — opravy mobilního webu)
 
 Student hlásil na mobilním webu rozbitý scroll, nereagující tlačítka

@@ -1,16 +1,23 @@
 // Slice testového enginu — VLASTNÍ agent APP-TESTY.
 // Drží banky otázek, průběh aktuálního testu (serializovatelný stav enginu)
 // a poslední výsledek. Čistá logika průběhu je v ../testy/engine.ts.
+// Bleskovky (rychlý dril, ../testy/blesk.ts) jedou stejným stavem
+// `aktualniTest` — kolo se pozná podle pole `blesk`.
 import type { StateCreator } from 'zustand';
-import type { BankaOtazek, TestKonfigurace, TestVysledek } from '@questor/sdilene';
+import { denZData } from '@questor/sdilene';
+import type { BankaOtazek, Otazka, TestKonfigurace, TestVysledek } from '@questor/sdilene';
 import {
   dalsiOtazkaVEnginu,
+  inicializujBlesk,
+  inicializujBleskZOtazek,
   inicializujTest,
   odpovezVEnginu,
+  pocitaSeJakoBleskovky,
   vyhodnotTest,
   type OdpovedHodnota,
   type TestStav,
 } from '../testy/engine';
+import { bylaDnesTruhlaZBlesku, jeKoloBleskovek, type BleskKonfigurace } from '../testy/blesk';
 import type { QUESTORStav } from './store';
 
 export interface TestySlice {
@@ -21,6 +28,18 @@ export interface TestySlice {
 
   /** Spustí test z banky dle konfigurace. Vrací false, když banka/otázky chybí. */
   zacniTest(konfigurace: TestKonfigurace, vyzvaId?: string): boolean;
+  /**
+   * Spustí kolo bleskovek (jen bleskové otázky banky, vážený výběr podle
+   * Leitnerových boxů). Vrací false, když banka chybí nebo žádnou bleskovou
+   * otázku pro daný výběr témat nemá.
+   */
+  zacniBlesk(konfigurace: BleskKonfigurace): boolean;
+  /**
+   * Spustí OPRAVNÉ kolo bleskovek z daných otázek banky (chyby předchozího
+   * kola, v daném pořadí). Otázky, které banka už nezná, se vynechají;
+   * vrací false, když žádná nezbyde. Opravné kolo nedává truhlu.
+   */
+  zacniBleskOpravu(predmetId: string, otazkaIds: string[]): boolean;
   /** Odpověď na aktuální otázku; propíše záznam do hraSlice (questy, Leitner, XP). */
   odpovez(hodnota: OdpovedHodnota, casMs: number): void;
   dalsiOtazka(): void;
@@ -55,6 +74,42 @@ export const vytvorTestySlice: StateCreator<QUESTORStav, [], [], TestySlice> = (
       return true;
     },
 
+    zacniBlesk: (konfigurace) => {
+      const banka = get().banky[konfigurace.predmetId];
+      if (!banka) return false;
+      const stav = inicializujBlesk(
+        banka,
+        konfigurace,
+        get().progres.statistikyOtazek,
+        Math.random,
+        new Date().toISOString(),
+      );
+      if (stav.otazky.length === 0) return false;
+      set({ aktualniTest: stav });
+      return true;
+    },
+
+    zacniBleskOpravu: (predmetId, otazkaIds) => {
+      const banka = get().banky[predmetId];
+      if (!banka) return false;
+      const podleId = new Map(banka.otazky.map((o) => [o.id, o]));
+      const otazky = otazkaIds.flatMap((id): Otazka[] => {
+        const otazka = podleId.get(id);
+        return otazka ? [otazka] : [];
+      });
+      // Výběr témat původního kola se přenáší do konfigurace opravy, aby
+      // „Další kolo“ po opravě zůstalo u stejných témat (typicky dril z lekce).
+      const predchozi = get().posledniVysledek;
+      const temataId =
+        predchozi && jeKoloBleskovek(predchozi) && predchozi.konfigurace.predmetId === predmetId
+          ? predchozi.konfigurace.temataId
+          : undefined;
+      const stav = inicializujBleskZOtazek(predmetId, otazky, new Date().toISOString(), temataId);
+      if (stav.otazky.length === 0) return false;
+      set({ aktualniTest: stav });
+      return true;
+    },
+
     odpovez: (hodnota, casMs) => {
       const stav = get().aktualniTest;
       if (!stav) return;
@@ -62,7 +117,9 @@ export const vytvorTestySlice: StateCreator<QUESTORStav, [], [], TestySlice> = (
       if (!vysledek) return;
       set({ aktualniTest: vysledek.stav });
       // Gamifikace (XP do progresu, Leitner, questy) — akci garantuje hraSlice.
-      get().zapocitejOdpoved(vysledek.zaznam, vysledek.stav.combo);
+      // Koeficient XP (blesková otázka v jakémkoli testu) se bere z enginu,
+      // aby XP v progresu sedělo se ziskaneXp výsledku.
+      get().zapocitejOdpoved(vysledek.zaznam, vysledek.stav.combo, vysledek.koeficientXp);
     },
 
     dalsiOtazka: () => {
@@ -78,7 +135,17 @@ export const vytvorTestySlice: StateCreator<QUESTORStav, [], [], TestySlice> = (
         set({ aktualniTest: null });
         return;
       }
-      const vysledek = vyhodnotTest(stav, new Date().toISOString(), Math.random);
+      const ted = new Date();
+      // Truhla z rychlých otázek je DENNÍ DÁVKA: dává ji jen první kolo dne,
+      // které na ni dosáhne (úspěšnost jako u testu), opravné kolo nikdy.
+      // Dávku sdílí bleskovky s běžnými testy, ve kterých je aspoň polovina
+      // otázek blesková (pocitaSeJakoBleskovky). „Už dnes byla“ se pozná
+      // z historie testů — žádný nový persistovaný stav.
+      const truhlaZBlesku =
+        pocitaSeJakoBleskovky(stav) &&
+        stav.blesk?.oprava !== true &&
+        !bylaDnesTruhlaZBlesku(get().historieTestu, denZData(ted));
+      const vysledek = vyhodnotTest(stav, ted.toISOString(), Math.random, { truhlaZBlesku });
       set({ aktualniTest: null, posledniVysledek: vysledek });
       get().zapocitejTest(vysledek);
       // Sync (push událost + progres) — dynamický import brání cyklu závislostí

@@ -11,6 +11,10 @@ import { ikonaPredmetu, nazevPredmetu, seradPredmety } from '../data/predmety';
 import { pocetCekajicichVyzev } from '../duely/engine';
 import { pouzijZamekScrollu } from '../komponenty/zamekScrollu';
 import TruhlaOdmena from '../hra/TruhlaOdmena';
+import NabidkaBanky from '../hra/NabidkaBanky';
+import { pouzijObsahNacten } from '../data/pouzijObsahNacten';
+import { bylaDnesTruhlaZBlesku } from '../testy/blesk';
+import { bankaDlazdiceBlesku } from '../testy/bleskStart';
 import './Domu.css';
 import '../vyuka/vyuka.css';
 
@@ -290,6 +294,27 @@ export default function Domu() {
   const slovoVyzvy =
     cekajiciDuelu === 1 ? 'výzva' : cekajiciDuelu >= 2 && cekajiciDuelu <= 4 ? 'výzvy' : 'výzev';
 
+  // Bleskovky (rychlý dril) — dlaždice, když je nabízí KTERÁKOLI studijní
+  // banka profilu (student s aktivní češtinou a přidaným Pravopisem má dril
+  // na jedno ťuknutí). `bankaBlesku` = banka, kterou start předvolí: aktivní,
+  // má-li bleskovky, jinak první vhodná v pořadí registru. Než se banky po
+  // startu načtou, napoví historie testů (kdo bleskovky už hrál, má dlaždici
+  // hned a Domů mu po načtení neposkočí); po doběhnutí načítání rozhoduje
+  // jen obsah. Dlaždice ukazuje stav denní truhly.
+  const obsahNacten = pouzijObsahNacten();
+  const bankaBlesku = pouzijStav((s) =>
+    bankaDlazdiceBlesku({
+      banky: s.banky,
+      predmetyProfilu: bankyProfilu,
+      aktivni: aktivniPredmet,
+      historie: s.historieTestu,
+      obsahNacten,
+    }),
+  );
+  const truhlaBleskuDnes = pouzijStav((s) =>
+    bylaDnesTruhlaZBlesku(s.historieTestu, denZData(new Date())),
+  );
+
   return (
     <section className="domu">
       <div className="domu__sloupec-hlavni">
@@ -363,6 +388,37 @@ export default function Domu() {
           </span>
           <span className="domu-uceni__sipka" aria-hidden="true">→</span>
         </Link>
+
+        {/* Dlaždice „Bleskovky" — vede na /blesk (start předvolí banku
+            z titulku). U studenta, který bleskovky ještě nehrál, se objeví až
+            s načtenou bankou (async po startu), proto leží ZA dlaždicemi
+            Učit se a Duely: ty se pod prstem neposunou (posune se panel
+            questů a to, co je pod ním). */}
+        {bankaBlesku && (
+          <Link
+            to="/blesk"
+            className={`panel domu-uceni domu-blesk${truhlaBleskuDnes ? '' : ' domu-blesk--truhla'}`}
+          >
+            <span className="domu-uceni__znak" aria-hidden="true">⚡</span>
+            <span className="domu-uceni__texty">
+              <span className="domu-uceni__titulek">
+                Bleskovky
+                <span className="domu-uceni__banka">
+                  {' '}· {ikonaPredmetu(bankaBlesku)} {nazevPredmetu(bankaBlesku)}
+                </span>
+              </span>
+              <span className="domu-uceni__popis">
+                {truhlaBleskuDnes
+                  ? 'Dnešní truhla už je tvoje ✓ — další kola jsou trénink navíc.'
+                  : 'Rychlý dril na dvě minuty. 🎁 První kolo dne = truhla.'}
+              </span>
+            </span>
+            <span className="domu-uceni__sipka" aria-hidden="true">→</span>
+          </Link>
+        )}
+
+        {/* Nabídka nové banky (např. Pravopis studentům češtiny) — zavíratelná. */}
+        <NabidkaBanky />
 
         {/* Denní questy */}
         <div className="panel domu__questy">

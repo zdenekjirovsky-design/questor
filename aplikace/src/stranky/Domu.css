@@ -716,3 +716,75 @@
   border-color: var(--zlata);
   animation: pulz-zare-zlata 1.6s ease-in-out infinite;
 }
+
+/* --- Dlazdice „Bleskovky" (layout sdili s .domu-uceni ve vyuka.css).
+   Dve tridy: ramecek z .panel (global.css, v bundlu posledni) a hover
+   z .domu-uceni by jednotridni pravidlo prebily. Dokud ceka denni truhla,
+   ma dlazdice zlaty ramecek s klidnou zari (zadny nekonecny pulz). --- */
+
+.panel.domu-blesk--truhla {
+  border-color: rgba(245, 185, 66, 0.6);
+  box-shadow: var(--stin), var(--zare-zlata);
+}
+
+@media (hover: hover) {
+  .domu-uceni.domu-blesk:hover {
+    border-color: var(--zlata);
+    box-shadow: var(--zare-zlata);
+  }
+}
+
+/* --- Karta „Nova banka" (hra/NabidkaBanky.tsx) --- */
+
+.panel.domu-nabidka {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  border-color: rgba(139, 92, 246, 0.55);
+}
+
+.panel.domu-nabidka--pridana {
+  border-color: var(--uspech);
+}
+
+.domu-nabidka__znak {
+  flex: none;
+  font-size: 1.8rem;
+}
+
+.domu-nabidka__texty {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.domu-nabidka__titulek {
+  font-family: var(--pismo-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.domu-nabidka__popis {
+  color: var(--text-tlumeny);
+  font-size: 0.88rem;
+}
+
+.domu-nabidka__akce {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  /* Tlacitka nabidky pres celou sirku karty, vedle sebe. */
+  .domu-nabidka__akce {
+    width: 100%;
+  }
+
+  .domu-nabidka__akce .tlacitko {
+    flex: 1 1 auto;
+  }
+}

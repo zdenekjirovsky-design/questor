@@ -1,0 +1,414 @@
+/* Bleskovky — průběh kola, výsledek a sdílené znění s políčkem.
+   Tokeny a keyframes (pop, zatreseni, naskoceni…) jsou v styl/tokeny.css
+   a global.css; hlavičku kola (počitadlo, progress, combo), plovoucí „+XP“
+   a panel zpětné vazby sdílí s testem (testy.css).
+   POZOR na pořadí v bundlu: global.css je POSLEDNÍ, takže vlastnosti, které
+   nastavují .panel / .tlacitko / .stitek, se tu přebíjejí dvěma třídami
+   (.panel.blesk-otazka), jinak by je global tiše vrátil. */
+
+/* --- Text jen pro čtečky --- */
+
+.blesk-cteni {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- Průběh: kolo je užší než stránka, ať je zadání i tlačítka u sebe --- */
+
+.blesk {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Combo se mění s každou odpovědí — pevná šířka, ať progress neposkakuje. */
+.blesk__combo {
+  min-width: 10.5ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel.blesk-otazka {
+  position: relative;
+  padding: 22px 24px 26px;
+  text-align: center;
+  animation: naskoceni 0.22s ease-out both;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.panel.blesk-otazka--spravne {
+  border-color: var(--uspech);
+  box-shadow: var(--stin), 0 0 22px rgba(52, 211, 153, 0.25);
+}
+
+.panel.blesk-otazka--spatne {
+  border-color: var(--chyba);
+}
+
+.blesk-otazka__stitky {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stitek.blesk-stitek {
+  color: var(--zlata);
+  border-color: rgba(245, 185, 66, 0.45);
+}
+
+/* --- Zadání: velké, s místem k doplnění. Pevná minimální výška drží
+   tlačítka možností na stejném místě u krátkých i delších vět. --- */
+
+.blesk-zadani {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* V rem (ne em): výška nesmí záviset na velikosti písma zadání, jinak by
+     tlačítka mezi kratší a delší větou poskočila. */
+  min-height: 8rem;
+  margin: 14px 0 20px;
+  font-size: 2.4rem;
+  line-height: 1.3;
+}
+
+.blesk-zadani--stredni {
+  font-size: 1.9rem;
+}
+
+.blesk-zadani--dlouhe {
+  font-size: 1.45rem;
+}
+
+.blesk-zadani__text {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* Slovo s mezerou drží pohromadě — řádek se nezalomí kolem políčka („b“ na
+   konci řádku a „[y]lina“ na dalším). Kdyby bylo slovo širší než řádek,
+   zalomí se uvnitř, místo aby přeteklo z panelu. */
+.blesk-slovo {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* Políčko (velké zadání): zvýrazněné místo k doplnění. */
+.blesk-policko--pole {
+  display: inline-block;
+  min-width: 0.92em;
+  margin: 0 0.07em;
+  padding: 0 0.12em;
+  text-align: center;
+  line-height: 1.15;
+  border-radius: var(--radius-maly);
+  border-bottom: 3px solid var(--akcent);
+  background: rgba(139, 92, 246, 0.18);
+  box-shadow: var(--zare-akcent);
+}
+
+.blesk-policko--spravne,
+.blesk-policko--oprava {
+  color: var(--uspech);
+  border-bottom-color: var(--uspech);
+  background: rgba(52, 211, 153, 0.14);
+  box-shadow: 0 0 18px rgba(52, 211, 153, 0.35);
+}
+
+.blesk-policko--spravne {
+  animation: pop 0.3s ease-out both;
+}
+
+/* Řádkový výpis (zpětná vazba, chyby na výsledku): doplnění zeleně v textu. */
+.blesk-zneni {
+  font-family: var(--pismo-display);
+  font-weight: 700;
+}
+
+.blesk-policko--text {
+  color: var(--uspech);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* --- Možnosti: velká tlačítka v pořadí poradiBleskovychMoznosti --- */
+
+.blesk-moznosti {
+  display: grid;
+  gap: 14px;
+  justify-content: center;
+  grid-template-columns: repeat(2, minmax(0, 220px));
+}
+
+.blesk-moznosti--3 {
+  grid-template-columns: repeat(3, minmax(0, 220px));
+}
+
+.blesk-moznost {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 88px;
+  padding: 12px 16px;
+  font-family: var(--pismo-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text);
+  background: var(--pozadi-panel-2);
+  border: 2px solid var(--okraj);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.1s ease, border-color 0.15s ease, box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.blesk-moznosti--slova .blesk-moznost {
+  font-size: 1.3rem;
+}
+
+.blesk-moznost__text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Hover jen na zařízení s myší — na dotyku by :hover po ťuknutí „lepil“. */
+@media (hover: hover) {
+  .blesk-moznost:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: var(--akcent);
+    box-shadow: var(--zare-akcent);
+  }
+}
+
+.blesk-moznost:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.blesk-moznost:focus-visible {
+  outline: 2px solid var(--akcent-svetly);
+  outline-offset: 2px;
+}
+
+.blesk-moznost:disabled {
+  cursor: default;
+}
+
+/* Nápověda klávesy (1/2/3) v rohu tlačítka — na dotyku skrytá. */
+.blesk-moznost__klavesa {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-maly);
+  border: 1px solid var(--okraj);
+  background: var(--pozadi-panel);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-tlumeny);
+}
+
+@media (pointer: coarse) {
+  .blesk-moznost__klavesa {
+    display: none;
+  }
+}
+
+.blesk-moznost--spravne {
+  color: var(--uspech);
+  border-color: var(--uspech);
+  background: rgba(52, 211, 153, 0.12);
+  box-shadow: 0 0 22px rgba(52, 211, 153, 0.4);
+}
+
+/* Trefa = zvolená správná možnost: krátké „pop“ (bez zmizení tlačítka). */
+@keyframes blesk-trefa {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
+
+.blesk-moznost--trefa {
+  animation: blesk-trefa 0.3s ease-out;
+}
+
+.blesk-moznost--spatne {
+  color: var(--chyba);
+  border-color: var(--chyba);
+  background: rgba(248, 113, 113, 0.1);
+  box-shadow: 0 0 18px rgba(248, 113, 113, 0.3);
+  animation: zatreseni 0.3s ease-out;
+}
+
+.blesk-moznost--ostatni {
+  opacity: 0.45;
+}
+
+/* --- Zpětná vazba po chybě (panel .feedback z testy.css + doplňky) --- */
+
+.panel.blesk-feedback {
+  margin-top: 16px;
+  border-left: 4px solid var(--chyba);
+  text-align: left;
+}
+
+.blesk-feedback__spravne {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.blesk-feedback__popisek {
+  color: var(--text-tlumeny);
+  font-size: 0.95rem;
+}
+
+.blesk-feedback__vysvetleni {
+  margin: 0;
+}
+
+.blesk-feedback__pata {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+/* Tlačítko drží pravý okraj, i když štítek tématu (zatím) chybí. */
+.blesk-feedback__dal {
+  margin-left: auto;
+}
+
+/* --- Výsledek kola --- */
+
+.vysledek-blesk__pozn {
+  margin: 14px auto 0;
+  max-width: 460px;
+  color: var(--text-tlumeny);
+  font-size: 0.92rem;
+}
+
+.blesk-chyby {
+  margin-top: 20px;
+}
+
+.blesk-chyba {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--okraj);
+}
+
+.blesk-chyba:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.blesk-chyba__zneni {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.blesk-chyba__zadani {
+  color: var(--text-tlumeny);
+  font-weight: 400;
+}
+
+.blesk-chyba__vysvetleni {
+  margin: 4px 0 0;
+  color: var(--text-tlumeny);
+}
+
+.blesk-chyba__tema {
+  margin-top: 8px;
+}
+
+/* --- Mobil (≤ 760 px): tlačítka přes celou šířku a aspoň 64 px vysoká,
+   celé kolo bez scrollu na 375×667, zpětná vazba nad fixní lištou. --- */
+
+@media (max-width: 760px) {
+  .panel.blesk-otazka {
+    padding: 14px 12px 16px;
+  }
+
+  /* Zadání drží kus výšky displeje — tlačítka možností tak vycházejí níž,
+     v dosahu palce, a u různě dlouhých vět neposkakují. 26svh: i tři
+     možnosti pod sebou (3 × 64 px) se na 375×667 vejdou nad spodní lištu
+     bez scrollu. Bez podpory svh platí pevných 8rem z desktopu. */
+  .blesk-zadani {
+    min-height: clamp(96px, 26svh, 240px);
+    margin: 10px 0 14px;
+    font-size: 1.9rem;
+  }
+
+  .blesk-zadani--stredni {
+    font-size: 1.5rem;
+  }
+
+  .blesk-zadani--dlouhe {
+    font-size: 1.2rem;
+  }
+
+  .blesk-moznosti,
+  .blesk-moznosti--3 {
+    gap: 10px;
+    justify-content: stretch;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .blesk-moznosti--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Delší možnosti (slova) pod sebe — tři vedle sebe by se na 375 px
+     nevešly čitelně. */
+  .blesk-moznosti--slova,
+  .blesk-moznosti--slova.blesk-moznosti--3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .blesk-moznost {
+    min-height: 72px;
+    font-size: 2rem;
+  }
+
+  .blesk-moznosti--slova .blesk-moznost {
+    min-height: 64px;
+    font-size: 1.2rem;
+  }
+
+  .panel.blesk-feedback {
+    margin-top: 12px;
+  }
+
+  /* „Rozumím, dál“ přes celou šířku pod palcem, téma nad ním. */
+  .blesk-feedback__pata {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .blesk-feedback__tema {
+    align-self: flex-start;
+  }
+
+  /* Ve sloupci by auto okraj tlačítko zúžil — tady má být přes celou šířku. */
+  .tlacitko.blesk-feedback__dal {
+    min-height: 52px;
+    margin-left: 0;
+  }
+}

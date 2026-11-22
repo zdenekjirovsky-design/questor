@@ -62,6 +62,7 @@ import {
   type DuelPrubeh,
 } from '../duely/engine';
 import { vyhodnotOdpoved, type OdpovedHodnota } from '../testy/engine';
+import { jeBleskVysledek, orizniHistoriiTestu, xpSKoeficientem } from '../testy/blesk';
 import { nazevPredmetu } from '../data/predmety';
 import {
   aktivniPredmetProfilu,
@@ -255,7 +256,11 @@ export interface HraSlice {
   denBonusoveTruhly: string | null;
   /** Den, kdy streak zachránilo zmrazení (ledový plamínek v HUD). */
   zmrazeniPouzitoDen: string | null;
-  /** Posledních 10 dokončených testů (pro Statistiky). */
+  /**
+   * Posledních 10 dokončených testů (pro Statistiky), nejnovější první.
+   * Navíc v ní zůstává dnešní bleskový výsledek s truhlou, i kdyby z desítky
+   * vypadl — značka vybrané denní truhly z bleskovek (orizniHistoriiTestu).
+   */
   historieTestu: TestVysledek[];
   /**
    * Questy dne NEAKTIVNÍCH bank profilu (aktivní banka je drží v
@@ -281,7 +286,21 @@ export interface HraSlice {
   /** Tituly získané a ještě neoslavené na výsledkové obrazovce. */
   noveTituly: string[];
 
-  zapocitejOdpoved(zaznam: OdpovedZaznam, comboAktualni: number): void;
+  /**
+   * Započítá jednu odpověď (XP, Leitner, questy). `koeficientXp` násobí XP
+   * za odpověď — blesková otázka 0,2 v jakémkoli testu (posílá ho engine,
+   * stejně počítá `ziskaneXp` výsledku); výchozí 1 = běžná otázka. XP za
+   * questy se koeficientem nenásobí.
+   */
+  zapocitejOdpoved(zaznam: OdpovedZaznam, comboAktualni: number, koeficientXp?: number): void;
+  /**
+   * Započítá dokončený test (streak, questy, truhla, karty, historie, týdenní
+   * XP). Výsledek, který se počítá jako bleskovky (id `blesk-…`: kolo
+   * bleskovek i běžný test s převahou bleskových otázek), se NEzapočítává do
+   * rekordů (nejlepší úspěšnost, nejdelší combo, nejrychlejší bezchybný
+   * test) — deset rychlých doplňovaček by je natrvalo přebilo; jinak vše
+   * jako u testu.
+   */
   zapocitejTest(vysledek: TestVysledek): void;
   /** Otevře truhlu z fronty `cekajiciTruhly`. Vrací null, když tam typ nečeká. */
   otevriTruhluAkce(typ: TruhlaTyp): Odmena | null;
@@ -343,16 +362,18 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
   duelyZapocitane: [],
   noveTituly: [],
 
-  zapocitejOdpoved: (zaznam, comboAktualni) => {
+  zapocitejOdpoved: (zaznam, comboAktualni, koeficientXp = 1) => {
     const ted = new Date();
     const dnes = denZData(ted);
     const stav = get();
     const progres = stav.progres;
 
-    // XP jen za správnou odpověď; comboKrok se počítá od 0.
-    const xp = zaznam.spravne
-      ? xpZaOdpoved(zaznam.obtiznost, Math.max(0, comboAktualni - 1))
-      : 0;
+    // XP jen za správnou odpověď; comboKrok se počítá od 0. Koeficient
+    // (blesková otázka) se uplatňuje stejnou funkcí jako v enginu testu.
+    const xp = xpSKoeficientem(
+      zaznam.spravne ? xpZaOdpoved(zaznam.obtiznost, Math.max(0, comboAktualni - 1)) : 0,
+      koeficientXp,
+    );
 
     const statistiky = {
       ...progres.statistikyOtazek,
@@ -421,19 +442,23 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
     const streak = aktualizujStreakPoAktivite(progres.streak, dnes);
     const zmrazeniPouzito = streak.zmrazeni < progres.streak.zmrazeni;
 
-    // Rekordy.
+    // Rekordy. Bleskovky a běžné testy s převahou bleskových otázek je
+    // NEMĚNÍ (krátké doplňovačky by natrvalo přebily nejlepší úspěšnost,
+    // combo i nejrychlejší bezchybný test z běžných testů).
     const trvaniMs = new Date(vysledek.konec).getTime() - new Date(vysledek.zacatek).getTime();
     const bezchybny = vysledek.uspesnost >= 1 && vysledek.odpovedi.length > 0;
     const nejrychlejsi = progres.rekordy.nejrychlejsiBezchybnyMs;
-    const rekordy = {
-      ...progres.rekordy,
-      nejlepsiUspesnost: Math.max(progres.rekordy.nejlepsiUspesnost, vysledek.uspesnost),
-      nejdelsiCombo: Math.max(progres.rekordy.nejdelsiCombo, vysledek.nejdelsiCombo),
-      nejrychlejsiBezchybnyMs:
-        bezchybny && trvaniMs > 0 && (nejrychlejsi === null || trvaniMs < nejrychlejsi)
-          ? trvaniMs
-          : nejrychlejsi,
-    };
+    const rekordy = jeBleskVysledek(vysledek)
+      ? progres.rekordy
+      : {
+          ...progres.rekordy,
+          nejlepsiUspesnost: Math.max(progres.rekordy.nejlepsiUspesnost, vysledek.uspesnost),
+          nejdelsiCombo: Math.max(progres.rekordy.nejdelsiCombo, vysledek.nejdelsiCombo),
+          nejrychlejsiBezchybnyMs:
+            bezchybny && trvaniMs > 0 && (nejrychlejsi === null || trvaniMs < nejrychlejsi)
+              ? trvaniMs
+              : nejrychlejsi,
+        };
 
     // Questy po testu + XP za právě splněné (dosud neodměněné) questy.
     // Questy dne patří AKTIVNÍ bance profilu — test JINÉ banky je plnit nesmí
@@ -538,7 +563,7 @@ export const vytvorHraSlice: StateCreator<QUESTORStav, [], [], HraSlice> = (set,
       vyzvy,
       novaKarty: mistrovske.length > 0 ? [...stav.novaKarty, ...mistrovske] : stav.novaKarty,
       zmrazeniPouzitoDen: zmrazeniPouzito ? dnes : stav.zmrazeniPouzitoDen,
-      historieTestu: [vysledek, ...stav.historieTestu].slice(0, 10),
+      historieTestu: orizniHistoriiTestu([vysledek, ...stav.historieTestu], dnes),
       tydenniXpTestuPodleBank,
     });
   },

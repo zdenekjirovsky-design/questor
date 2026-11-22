@@ -21,19 +21,23 @@ npm run dev:aplikace   # aplikace na http://localhost:5173
 ```
 
 Aplikace funguje i bez serveru — kompletní obsah je bundlovaný přímo
-v ní: 14 předmětů, každý s bankou otázek i výukovými lekcemi.
+v ní: 15 předmětů, každý s bankou otázek i výukovými lekcemi.
 
-## Předměty (14)
+## Předměty (15)
 
 **1. ročník SŠ, obor Ekonomika a podnikání (13):** Ekonomika
 a podnikání, Písemná a elektronická komunikace, Informatika, Český jazyk
 a literatura, Anglický jazyk, Německý jazyk, Matematika, Dějepis,
 Občanská nauka, Fyzika, Chemie, Biologie a ekologie, Zbožíznalství.
-**Mimo obor (1):** Základy profesionálního vaření (`zaklady-vareni`) —
-QUESTOR je obecný, učí se v něm i dospělí členové rodiny.
+**Mimo obor (2):** Základy profesionálního vaření (`zaklady-vareni`) —
+QUESTOR je obecný, učí se v něm i dospělí členové rodiny — a **Pravopis —
+trenažér** (`pravopis`): jednoduché poučky místo skloňování podle vzorů
+(i/y, mě × mně, diktát bez paniky) a 627 drilových položek pro rychlý
+režim **⚡ Bleskovky** (doplň písmeno jedním ťuknutím, hned vidíš proč;
+2 minuty denně). Tiskový tahák: `docs/tahak-pravopis.pdf`.
 
-Celkem 86 témat, 780 otázek v bankách, 86 lekcí (172 mini-kvízů,
-92 widgetů).
+Celkem 107 témat, 1604 otázek v bankách, 107 lekcí (215 mini-kvízů,
+118 widgetů).
 
 Názvy, ikony a pořadí předmětů v UI drží registr
 `aplikace/src/data/predmety.ts` (`PREDMETY`); obsah se bundluje jako JSON

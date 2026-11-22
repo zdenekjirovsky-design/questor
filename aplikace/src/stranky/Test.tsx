@@ -5,6 +5,8 @@
 // Mobil: po odpovědi se zpětná vazba s „Další“ doroluje do zorného pole (nad
 // fixní lištu), nová otázka začíná vždy v zorném poli a ťuknutí těsně po
 // zobrazení otázky se ignorují (dvojí ťuknutí neodpoví naslepo na další).
+// Kolo bleskovek (aktualniTest s polem `blesk`) má vlastní průběh —
+// testy/BleskPrubeh.tsx; start bleskovek je na /blesk.
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { comboNasobic } from '@questor/sdilene';
@@ -21,6 +23,8 @@ import {
   type TestStav,
 } from '../testy/engine';
 import { NAZVY_REZIMU, POPISY_REZIMU } from '../testy/popisky';
+import { maBleskovky } from '../testy/blesk';
+import BleskPrubeh from '../testy/BleskPrubeh';
 import { jeVstupniPole } from '../testy/komponenty/klavesy';
 import { pouzijOchranuKliku } from '../testy/pouzijOchranuKliku';
 import { posunDoZorneho, pouzijNavratNaZacatek } from '../testy/posun';
@@ -34,6 +38,11 @@ import '../testy/testy.css';
 export default function Test() {
   const aktualniTest = pouzijStav((s) => s.aktualniTest);
   if (!aktualniTest) return <RychlyStart />;
+  // Bleskovky mají vlastní průběh; umí jen výběrové otázky — kdyby stav kola
+  // obsahoval cokoli jiného (poškozený persist), dohraje se běžným průběhem.
+  if (aktualniTest.blesk && aktualniTest.otazky.every((o) => o.typ === 'vyber')) {
+    return <BleskPrubeh key={aktualniTest.zacatek} stav={aktualniTest} />;
+  }
   return <PrubehTestu key={aktualniTest.zacatek} stav={aktualniTest} />;
 }
 
@@ -82,6 +91,11 @@ function RychlyStart() {
     const konfigurace: TestKonfigurace = { predmetId, rezim, pocetOtazek: pocet };
     zacniTest(konfigurace);
   };
+
+  // Sekundární odkaz na bleskovky: když je má vybraná banka, vede rovnou
+  // do ní; jinak stačí kterákoli banka profilu s bleskovkami.
+  const bleskUVybrane = maBleskovky(banky[predmetId]);
+  const bleskNekde = bleskUVybrane || dostupnePredmety.some((id) => maBleskovky(banky[id]));
 
   return (
     <section>
@@ -145,6 +159,15 @@ function RychlyStart() {
           <Link to="/" className="tlacitko">
             Zpět domů
           </Link>
+          {/* Na konci řady — objeví se až s načtenou bankou a nic neposune. */}
+          {bleskNekde && (
+            <Link
+              to={bleskUVybrane ? `/blesk?predmet=${encodeURIComponent(predmetId)}` : '/blesk'}
+              className="tlacitko"
+            >
+              ⚡ Bleskovky
+            </Link>
+          )}
         </div>
       </div>
     </section>

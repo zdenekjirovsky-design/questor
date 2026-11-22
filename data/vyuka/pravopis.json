@@ -1,0 +1,1841 @@
+{
+  "predmetId": "pravopis",
+  "verze": 1,
+  "vytvoreno": "2026-11-22",
+  "lekce": [
+    {
+      "temaId": "prav-rozcestnik",
+      "nazev": "Rozcestník i/y a jistoty zdarma",
+      "poradi": 0,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Učitelka diktuje a ty u každého i/y začínáš od nuly — vyjmenovaná slova, vzor, nebo shoda? Než se rozhodneš, je o dvě věty dál a ruka nestíhá. Přitom u spousty slov se vůbec rozhodovat nemusíš a u zbytku stačí vědět, kterým směrem se vydat. Přesně na to je **rozcestník**."
+        },
+        {
+          "typ": "text",
+          "obsah": "Než začneš rozhodovat, podívej se na souhlásku před i/y. Jsou **tři druhy souhlásek**:\n\n- **měkké** (ž, š, č, ř, c, j, ď, ť, ň) → po nich **vždy i/í**: život, šít, číst, řidič, cíl, jídlo. Výjimka: pár slov na -c z tvrdé party (tác — bez tácu) má v množném čísle y: **tácy, kecy**.\n- **tvrdé** (h, ch, k, r, d, t, n) → po nich **vždy y/ý**: chyba, kytara, ryba, hymna, dým, týden, nyní. Výjimkou jsou jen cizí slova (viz níže) a pár zvukomalebných slov: **chichotat se, hihňat se, kikirikí**.\n- **obojetné** (b, f, l, m, p, s, v, z) → jen TADY se rozhoduje.\n\n**D, T, N — poslouchej:** tvrdě [dy, ty, ny] → **y** (dým, týden, ty, hodiny), měkce [ďi, ťi, ňi] → **i** (díra, tisíc, nic). Tady tě ucho nezradí."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Cizí (přejatá) slova** se pravidly o tvrdých a měkkých souhláskách ani o vyjmenovaných slovech neřídí — ta nejčastější musíš znát od vidění:\n\n- po tvrdé souhlásce **i**: kino, kilo, kilometr, historie, chirurg, riziko, tričko, trik, titul, diktát, politika, matematika, technika, univerzita, digitální, disk\n- po c **y**: cyklista, cyklus, motocykl, cylindr, cynik (ale citron, cirkus, civilizace)\n- po obojetné **y**, i když to není vyjmenované slovo: systém, symbol, sympatický, synonymum, lyrika, mýtus, pyramida, analýza, olympiáda, fyzika, fyzický (ale film, firma, signál, situace, milion, limonáda, vitamin, video)\n- pozor na dvojici **tip** (rada, tipovat) × **typ** (druh, typický): dám ti tip na film × tenhle typ mobilu neznám"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Rozcestník — hlavní myšlenka:** nejdřív se zeptej, **KDE ve slově to i/y je** — podle toho sáhneš po jednom triku. A ještě předtím: **jistoty zdarma**, kde se nerozhoduje vůbec.\n\n- **uvnitř slova po obojetné** (b, l, m, p, s, v, z — třeba b_dlet, v_let) → **rodina vyjmenovaného slova, předpona vy-/vý-**\n- **konec podstatného jména** (ryb_, s holub_) → **tvrdá × měkká parta**\n- **konec přídavného jména** (mil_ kluci) → **ten milý × TI milí**\n- **konec slovesa v minulém čase** (šl_, hrál_) → **ukazováček TI / TY / TA**\n- **konec slovesa v přítomném čase** (pros_) → **jistota: vždy í**\n\nPo **f** žádná vyjmenovaná slova nejsou — uvnitř slova po f piš i (fialka, fík, film). Tvrdé y tam mají jen cizí slova jako fyzika."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** V diktátu, ve zprávě kamarádovi i v životopise na brigádu jde o totéž: nezaseknout se. Rozcestník ti z každého „i, nebo y?“ udělá vteřinovou věc — buď je to jistota a píšeš rovnou, nebo víš, po kterém triku sáhnout. V diktátu ti pak zbude hlava i čas na samotné psaní. A životopis bez hrubek nikdo neodloží hned po první větě."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 640 522\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rozhodovací schéma: měkká souhláska znamená vždy i, tvrdá vždy y, u d, t, n rozhoduje poslech a přejatá slova se tím neřídí. Po obojetné se jde na rozcestník s pěti cedulemi podle místa ve slově — uvnitř slova, konec podstatného jména, konec přídavného jména, konec slovesa v minulém čase a konec slovesa v přítomném čase. Dole další jistoty zdarma s měkkým i: koncovka -mi, koncovka -ovi a slovesa na -it a -il\"><text x=\"320\" y=\"24\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">ROZCESTNÍK: i, NEBO y?</text><text x=\"20\" y=\"52\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">1. Jaká souhláska stojí před i/y?</text><rect x=\"20\" y=\"62\" width=\"194\" height=\"76\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"117\" y=\"84\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--info)\">MĚKKÁ</text><text x=\"117\" y=\"105\" text-anchor=\"middle\" font-size=\"14\" fill=\"currentColor\">ž š č ř c j ď ť ň</text><text x=\"117\" y=\"126\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">→ vždy i / í</text><rect x=\"223\" y=\"62\" width=\"194\" height=\"76\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"320\" y=\"84\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--zlata)\">TVRDÁ</text><text x=\"320\" y=\"105\" text-anchor=\"middle\" font-size=\"14\" fill=\"currentColor\">h ch k r d t n</text><text x=\"320\" y=\"126\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">→ vždy y / ý</text><rect x=\"426\" y=\"62\" width=\"194\" height=\"76\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><text x=\"523\" y=\"84\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--akcent)\">OBOJETNÁ</text><text x=\"523\" y=\"105\" text-anchor=\"middle\" font-size=\"14\" fill=\"currentColor\">b f l m p s v z</text><text x=\"523\" y=\"126\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">→ jdi na rozcestník</text><text x=\"320\" y=\"157\" text-anchor=\"middle\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">U d, t, n poslouchej (dým × díra). Přejatá slova se tím neřídí (kino, cyklista, systém).</text><text x=\"20\" y=\"186\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">2. Po obojetné souhlásce: KDE ve slově to i/y je?</text><rect x=\"20\" y=\"196\" width=\"6\" height=\"276\" rx=\"3\" fill=\"currentColor\" opacity=\"0.45\" /><polygon points=\"26,198 302,198 326,222 302,246 26,246\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" stroke-linejoin=\"round\" /><text x=\"40\" y=\"218\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">uvnitř slova po obojetné</text><text x=\"40\" y=\"236\" font-size=\"12.5\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.85\">b_dlet, v_let</text><text x=\"346\" y=\"211\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">rodina vyjmenovaného slova,</text><text x=\"346\" y=\"226\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">předpona vy-/vý-</text><text x=\"346\" y=\"242\" font-size=\"11.5\" fill=\"currentColor\" opacity=\"0.85\">kapitola Vyjmenovaná slova</text><polygon points=\"26,254 302,254 326,278 302,302 26,302\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" stroke-linejoin=\"round\" /><text x=\"40\" y=\"274\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">konec podstatného jména</text><text x=\"40\" y=\"292\" font-size=\"12.5\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.85\">ryb_, s holub_</text><text x=\"346\" y=\"274\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">tvrdá × měkká parta</text><text x=\"346\" y=\"292\" font-size=\"11.5\" fill=\"currentColor\" opacity=\"0.85\">kapitola Koncovky podstatných jmen</text><polygon points=\"26,310 302,310 326,334 302,358 26,358\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" stroke-linejoin=\"round\" /><text x=\"40\" y=\"330\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">konec přídavného jména</text><text x=\"40\" y=\"348\" font-size=\"12.5\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.85\">mil_ kluci</text><text x=\"346\" y=\"330\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">ten milý × TI milí</text><text x=\"346\" y=\"348\" font-size=\"11.5\" fill=\"currentColor\" opacity=\"0.85\">kapitola Koncovky přídavných jmen</text><polygon points=\"26,366 302,366 326,390 302,414 26,414\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" stroke-linejoin=\"round\" /><text x=\"40\" y=\"386\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">konec slovesa v minulém čase</text><text x=\"40\" y=\"404\" font-size=\"12.5\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.85\">šl_, hrál_</text><text x=\"346\" y=\"386\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">ukazováček TI / TY / TA</text><text x=\"346\" y=\"404\" font-size=\"11.5\" fill=\"currentColor\" opacity=\"0.85\">kapitola Shoda přísudku s podmětem</text><polygon points=\"26,422 302,422 326,446 302,470 26,470\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2\" stroke-linejoin=\"round\" /><text x=\"40\" y=\"442\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">konec slovesa v přítomném čase</text><text x=\"40\" y=\"460\" font-size=\"12.5\" font-style=\"italic\" fill=\"currentColor\" opacity=\"0.85\">pros_</text><text x=\"346\" y=\"442\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--uspech)\">jistota: vždy í</text><text x=\"346\" y=\"460\" font-size=\"11.5\" fill=\"currentColor\" opacity=\"0.85\">tady se nerozhoduje</text><rect x=\"20\" y=\"482\" width=\"600\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\" /><text x=\"320\" y=\"502\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--uspech)\">Další jistoty zdarma (vždy i):</tspan> koncovka -mi · koncovka -ovi · slovesa na -it/-il</text></svg>",
+          "popisek": "Rozhodovací schéma shora dolů. Nejdřív souhláska před i/y: měkká → vždy i, tvrdá → vždy y (u d, t, n poslouchej; přejatá slova a pár výjimek z výkladu se tím neřídí). Jen po obojetné jdeš na rozcestník a podle místa ve slově si vybereš trik. Zeleně jsou jistoty, kde se nerozhoduje — ty dole poznáš hned v další části."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-rozcestnik-1",
+            "temaId": "prav-rozcestnik",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Píšeš do třídní skupiny: „Kluci z áčka včera prohrál_.“ Kde to i/y je a po kterém triku sáhneš?",
+            "moznosti": [
+              "uvnitř slova po obojetné → rodina vyjmenovaného slova, předpona vy-/vý-",
+              "konec podstatného jména → tvrdá × měkká parta",
+              "konec slovesa v minulém čase → ukazováček TI / TY / TA",
+              "konec přídavného jména → ten milý × TI milí"
+            ],
+            "spravna": 2,
+            "vysvetleni": "Prohráli je sloveso v minulém čase a i/y stojí až na jeho konci — tam rozhoduje ukazováček: TI kluci prohráli. Rodinu vyjmenovaného slova bys hledal, kdyby i/y stálo uvnitř slova. Party patří k podstatným jménům a „TI milí“ k přídavným."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Jistoty zdarma** jsou koncovky, kde je **VŽDY měkké i** — i po obojetné souhlásce. Tady se nerozhoduje vůbec:\n\n- **-mi na konci** (s kým? čím? — množné číslo): ženami, kostmi, lidmi, dětmi, koňmi, dveřmi, námi, vámi, těmi, všemi, třemi, čtyřmi. Počítá se jen koncovka -mi/-ami/-emi. U slov jako tým, film, dům, strom patří m ke slovu samotnému (s týmy, s filmy, s domy, se stromy) — tam rozhodují party z kapitoly o koncovkách.\n- **-ovi** (komu? o kom?): Petrovi, tátovi, pánovi, dědečkovi, o psovi. Petrovy boty (čí?) sem nepatří — to je jiná kapitola.\n- **slovesa v přítomném čase**: prosí, vidíš, umíme, sedíte, bydlí, musí, mluví, spí, visí, baví, slaví. V koncovce slovesa v přítomném čase tvrdé y není nikdy."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Čtvrtá jistota: slovesa na -it a jejich minulý čas -il.** Bavit → bavil, lovit → lovil a stejně tak slavit, zlobit, koupit, topit, trápit, pálit, solit, kosit, nosit, prosit, vozit, mrazit.\n\n**Tvrdé y před -t/-l mají po obojetné souhlásce jen tři slovesa a jejich rodiny: být (byl), mýt (myl), výt (vyl)** — tedy i nabýt/nabyl, dobýt/dobyl, zbýt/zbyl, umýt/umyl.\n\n- Krýt a rýt mají y, protože r je tvrdá souhláska — tam se nerozhoduje.\n- Pozor: **bít (bil), pít (pil), žít (žil), šít (šil), lít (lil), vít (vil)** mají měkké i."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Roztřiď slova s vynechaným i/y. Je to jistota a píšeš rovnou, nebo musíš na rozcestník? Pozor: jistoty zdarma platí i po obojetné souhlásce.",
+            "kategorie": [
+              {
+                "id": "jistota-i",
+                "nazev": "jistota: i/í"
+              },
+              {
+                "id": "jistota-y",
+                "nazev": "jistota: y/ý"
+              },
+              {
+                "id": "rozcestnik",
+                "nazev": "obojetná bez jistoty — musím přemýšlet"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "ž_vot",
+                "kategorieId": "jistota-i"
+              },
+              {
+                "text": "n_c",
+                "kategorieId": "jistota-i"
+              },
+              {
+                "text": "s lidm_",
+                "kategorieId": "jistota-i"
+              },
+              {
+                "text": "řeknu to tátov_",
+                "kategorieId": "jistota-i"
+              },
+              {
+                "text": "brácha teď sp_",
+                "kategorieId": "jistota-i"
+              },
+              {
+                "text": "včera slav_l",
+                "kategorieId": "jistota-i"
+              },
+              {
+                "text": "ch_ba",
+                "kategorieId": "jistota-y"
+              },
+              {
+                "text": "k_selý",
+                "kategorieId": "jistota-y"
+              },
+              {
+                "text": "r_ba",
+                "kategorieId": "jistota-y"
+              },
+              {
+                "text": "t_den",
+                "kategorieId": "jistota-y"
+              },
+              {
+                "text": "b_dlet",
+                "kategorieId": "rozcestnik"
+              },
+              {
+                "text": "v_let",
+                "kategorieId": "rozcestnik"
+              },
+              {
+                "text": "s holub_",
+                "kategorieId": "rozcestnik"
+              },
+              {
+                "text": "mil_ kluci",
+                "kategorieId": "rozcestnik"
+              },
+              {
+                "text": "kluci hrál_",
+                "kategorieId": "rozcestnik"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-rozcestnik-2",
+            "temaId": "prav-rozcestnik",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Ve které větě patří do slovesa před -l tvrdé y?",
+            "moznosti": [
+              "V sobotu slav_l narozeniny.",
+              "Po tréninku si um_l ruce.",
+              "Po tréninku p_l jen vodu.",
+              "Včera si koup_l sluchátka."
+            ],
+            "spravna": 1,
+            "vysvetleni": "Umyl patří do rodiny slovesa mýt — a tvrdé y před -t/-l mají po obojetné souhlásce jen být, mýt, výt a jejich rodiny. Slavil a koupil jsou slovesa na -it (slavit, koupit), tam je vždy měkké i. A pít → pil má měkké i stejně jako bít, žít, šít, lít a vít."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Doplň i/y v úryvku jako z diktátu. U každého místa si řekni: **kde to je → který trik → výsledek.**\n\n„Včera jsme s kamarádkam_ ze tř_dy slav_li konec pololetí. Trenérov_ jsme poslali fotku z k_na. Mil_ kluci z béčka přišl_ taky a přinesli celý p_tel bonbonů. Teď už každý sp_.“",
+          "reseni": "**Nejdřív jistoty — tam se nerozhoduje:**\n\n- **s kamarádkam_** → koncovka -mi → vždy i → **kamarádkami**\n- **tř_dy** → ř je měkká souhláska → vždy í → **třídy**\n- **slav_li** → sloveso na -it (slavit) → -il → **slavili**\n- **Trenérov_** → komu? → koncovka -ovi → **Trenérovi**\n- **sp_** → sloveso v přítomném čase → vždy í → **spí**\n\n**Přejaté slovo — znáš ho od vidění:**\n\n- **z k_na** → kino je přejaté slovo, pravidlem o tvrdých souhláskách se neřídí → **z kina**\n\n**Obojetná bez jistoty — rozcestník:**\n\n- **p_tel** → uvnitř slova po p → vyjmenované slovo pytel → **pytel**\n- **Mil_ kluci** → konec přídavného jména → ukaž si: TI milí kluci → **Milí**\n- **přišl_** → konec slovesa v minulém čase → kdo? TI kluci → **přišli**\n\nDevět míst — a jen u tří bylo potřeba sáhnout po triku."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "měkké souhlásky",
+              "zadni": "ž, š, č, ř, c, j, ď, ť, ň → po nich vždy i/í (život, číst, cíl); výjimka: tácy, kecy"
+            },
+            {
+              "predni": "tvrdé souhlásky",
+              "zadni": "h, ch, k, r, d, t, n → po nich vždy y/ý (chyba, kytara, ryba); výjimky: cizí slova a zvukomalebná chichotat se, hihňat se, kikirikí"
+            },
+            {
+              "predni": "obojetné souhlásky",
+              "zadni": "b, f, l, m, p, s, v, z → jen tady se rozhoduje; po f žádná vyjmenovaná slova nejsou — uvnitř slova i (fialka, fík, film), y jen v cizích slovech jako fyzika"
+            },
+            {
+              "predni": "kino, riziko, diktát — proč i po tvrdé souhlásce?",
+              "zadni": "jsou to cizí (přejatá) slova — pravidly o tvrdých a měkkých souhláskách se neřídí, znej je od vidění"
+            },
+            {
+              "predni": "cyklista, systém, fyzika — proč y?",
+              "zadni": "přejatá slova: cyklista má y po c; systém, symbol a fyzika mají y po obojetné, i když to nejsou vyjmenovaná slova"
+            },
+            {
+              "predni": "tip × typ",
+              "zadni": "tip = rada (tipovat); typ = druh (typický)"
+            },
+            {
+              "predni": "čtyři jistoty zdarma (vždy měkké i)",
+              "zadni": "-mi (s lidmi), -ovi (tátovi), slovesa v přítomném čase (prosí), slovesa na -it/-il (bavit → bavil)"
+            },
+            {
+              "predni": "Která tři slovesa mají po obojetné souhlásce y před -t/-l?",
+              "zadni": "být (byl), mýt (myl), výt (vyl) — a jejich rodiny: nabyl, dobyl, zbyl, umyl"
+            },
+            {
+              "predni": "Rozcestník: i/y uvnitř slova po obojetné — který trik?",
+              "zadni": "rodina vyjmenovaného slova, předpona vy-/vý-"
+            },
+            {
+              "predni": "Rozcestník: i/y na konci slova — které triky?",
+              "zadni": "podstatné jméno: tvrdá × měkká parta; přídavné jméno: ten milý × TI milí; sloveso v minulém čase: TI / TY / TA; sloveso v přítomném čase: vždy í"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Po **měkké** souhlásce vždy i (výjimky tácy, kecy), po **tvrdé** vždy y (výjimky chichotat se, hihňat se, kikirikí; u d, t, n poslouchej). Rozhoduje se jen po **obojetných**: b, f, l, m, p, s, v, z.\n- **Cizí (přejatá) slova** se těmi pravidly neřídí — znej je od vidění: kino, riziko, diktát (i po tvrdé), cyklista (y po c), systém, symbol, fyzika (y po obojetné). Tip = rada, typ = druh.\n- **Jistoty zdarma (vždy i):** -mi, -ovi, slovesa v přítomném čase, slovesa na -it/-il. Po obojetné souhlásce mají tvrdé y před -t/-l jen **být, mýt, výt** a jejich rodiny.\n- **Rozcestník:** uvnitř slova → rodina vyjmenovaného slova a předpona vy-/vý-; konec podstatného jména → party; konec přídavného jména → TI milí; konec slovesa v minulém čase → TI / TY / TA."
+        }
+      ]
+    },
+    {
+      "temaId": "prav-vyjmenovana-b-l",
+      "nazev": "Vyjmenovaná slova B a L",
+      "poradi": 1,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Napíšeš do třídní skupiny: „Počkejte, musím si nabýt mobil.“ Za minutu přijde odpověď: „Gratuluju k novému mobilu!“ Jedno písmeno — a píšeš, že si mobil pořizuješ, ne že ho dáváš na nabíječku. **Nabýt** a **nabít** jsou dvě různá slova a písmeno B je takových dvojic plné."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Trik rodiny:** vyjmenovaných slov je jen asi 80, ale podle nich se píšou tisíce slov příbuzných. Neuč se básničku — uč se **rodiny**. Otázka zní: **„Je to příbuzné s vyjmenovaným slovem?“** Příbuzné = má **stejný kořen A podobný význam**.\n\n**B — vyjmenovaná slova:** být, bydlit (bydlet), obyvatel, byt, příbytek, nábytek, dobytek, obyčej, bystrý, bylina, kobyla, býk, babyka (+ vlastní jména Přibyslav, Zbyněk, Bydžov)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Rodiny B**, které se v diktátech točí pořád:\n\n- **být** (existovat): bytí, bytost, živobytí, bývalý, bývat, zbýt, zbytek, zbytečný, ubýt, úbytek, přibýt, přebytek, dobýt (hrad), dobyvatel, nabýt (zkušenosti), odbýt, pobýt, pobyt, neodbytný, blahobyt, zabývat se (věnovat se něčemu) — a taky **bych, bys, by, bychom, byste, aby, kdyby**\n- **bydlet**: bydliště, obydlí, bydlo\n- **obyvatel**: obyvatelstvo, obývat, obývák (obývací pokoj)\n- **byt**: bytový, bytná, bytelný; **příbytek, nábytek, dobytek** (dobytče)\n- **obyčej**: obyčejný, obyčejně\n- **bystrý**: bystře, bystřina, Bystřice\n- **bylina**: bylinka, býlí (plevel), býložravec, zlatobýl\n- **kobyla**: kobylka; **býk**: býček, býčí, býkovec"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Dvojice B — y × i mění význam.** Základ: **být** (existovat) × **bít** (tlouct). Od bít je bitva, bič, bití, zabít, rozbít, ubít, odbít (hodiny odbily).\n\n- **nabýt** (získat) × **nabít** (mobil, pušku)\n- **dobýt** (hrad) × **dobít** (baterii)\n- **zbýt** (zůstat) × **zbít** (zmlátit)\n- **pobýt** (zdržet se) × **pobít** (zabít mnoho)\n- **přibýt** × **přibít** (hřebíkem)\n- **bydlo** (živobytí) × **bidlo** (tyč); **býlí** (plevel) × **bílý** (barva)\n- **zabývat se** (věnovat se) × **zabíjet** (od zabít)\n\n**Vždy s měkkým i:** bílý, bílit, bída, bídný, biskup, biograf, obilí, nabídka, nabízet, pobízet, sbírat, sbírka, líbit se, slíbit, chybit."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Slova z rodiny být píšeš pořád: byl jsem, kdybych, abych, zbytek, bývalý spolužák. A dvojici být × bít potkáš skoro v každé zprávě — nabít mobil, dobít kredit, rozbitý displej. Kdo má rodiny v hlavě, nemusí v diktátu lovit básničku: zeptá se „je to příbuzné?“ a za vteřinu píše dál."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 404\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Dva stromy rodin: slovo být (existovat) s tvrdým y a jeho rodina — zbýt, zbytek, bývalý, zabývat se, nabýt, dobýt, pobyt, úbytek, přebytek, bytost, bych, aby, kdyby; proti němu slovo bít (tlouct) s měkkým i — bitva, bič, rozbít, zabít, přibít. Dole dvojice nabýt a nabít, dobýt a dobít, zbýt a zbít\"><text x=\"340\" y=\"24\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">RODINA SLOVA BÝT × RODINA SLOVA BÍT</text><rect x=\"140\" y=\"38\" width=\"190\" height=\"54\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"235\" y=\"61\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--zlata)\">BÝT</text><text x=\"235\" y=\"80\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">= existovat → píšeš y</text><line x1=\"235\" y1=\"92\" x2=\"235\" y2=\"244\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><line x1=\"205\" y1=\"128\" x2=\"265\" y2=\"128\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><rect x=\"15\" y=\"104\" width=\"190\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"110\" y=\"124\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">zbýt (zůstat)</text><text x=\"110\" y=\"142\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">zbytek, zbytečný</text><rect x=\"265\" y=\"104\" width=\"190\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"360\" y=\"124\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">bývat, zabývat se</text><text x=\"360\" y=\"142\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">bývalý spolužák</text><line x1=\"205\" y1=\"186\" x2=\"265\" y2=\"186\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><rect x=\"15\" y=\"162\" width=\"190\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"110\" y=\"182\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">nabýt, dobýt, pobýt</text><text x=\"110\" y=\"200\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">pobyt, dobyvatel</text><rect x=\"265\" y=\"162\" width=\"190\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"360\" y=\"182\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">ubýt, přibýt</text><text x=\"360\" y=\"200\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">úbytek, přebytek</text><line x1=\"205\" y1=\"244\" x2=\"265\" y2=\"244\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><rect x=\"15\" y=\"220\" width=\"190\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"110\" y=\"240\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">bytí, bytost</text><text x=\"110\" y=\"258\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">živobytí, blahobyt</text><rect x=\"265\" y=\"220\" width=\"190\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"360\" y=\"240\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">bych, bys, by</text><text x=\"360\" y=\"258\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">aby, kdyby</text><text x=\"405\" y=\"74\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"bold\" fill=\"currentColor\">×</text><rect x=\"480\" y=\"38\" width=\"185\" height=\"54\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"572.5\" y=\"61\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--info)\">BÍT</text><text x=\"572.5\" y=\"80\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">= tlouct → píšeš i</text><line x1=\"572.5\" y1=\"92\" x2=\"572.5\" y2=\"104\" stroke=\"var(--info)\" stroke-width=\"2\" /><rect x=\"480\" y=\"104\" width=\"185\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" /><text x=\"572.5\" y=\"133\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">bitva, bič, bití</text><line x1=\"572.5\" y1=\"152\" x2=\"572.5\" y2=\"162\" stroke=\"var(--info)\" stroke-width=\"2\" /><rect x=\"480\" y=\"162\" width=\"185\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" /><text x=\"572.5\" y=\"191\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">rozbít, zabít, ubít</text><line x1=\"572.5\" y1=\"210\" x2=\"572.5\" y2=\"220\" stroke=\"var(--info)\" stroke-width=\"2\" /><rect x=\"480\" y=\"220\" width=\"185\" height=\"48\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"1.5\" /><text x=\"572.5\" y=\"240\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">přibít (hřebíkem)</text><text x=\"572.5\" y=\"258\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">odbít (hodiny odbily)</text><text x=\"340\" y=\"296\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">DVOJICE: jedno písmeno mění význam</text><rect x=\"15\" y=\"308\" width=\"206\" height=\"52\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><text x=\"118\" y=\"329\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--zlata)\">nabýt zkušenosti</text><text x=\"118\" y=\"348\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--info)\">× nabít mobil</text><rect x=\"237\" y=\"308\" width=\"206\" height=\"52\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><text x=\"340\" y=\"329\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--zlata)\">dobýt hrad</text><text x=\"340\" y=\"348\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--info)\">× dobít baterii</text><rect x=\"459\" y=\"308\" width=\"206\" height=\"52\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"1.5\" /><text x=\"562\" y=\"329\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--zlata)\">zbýt = zůstat</text><text x=\"562\" y=\"348\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--info)\">× zbít = zmlátit</text><text x=\"200\" y=\"388\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--zlata)\">Je to příbuzné s BÝT (existovat)? → y</text><text x=\"520\" y=\"388\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"var(--info)\">Je to od BÍT (tlouct)? → i</text></svg>",
+          "popisek": "Vlevo strom rodiny slova být (existovat): všechna slova na něm mají tvrdé y. Vpravo rodina slova bít (tlouct) s měkkým i. Dole tři dvojice, kde jedno písmeno mění význam — zlatě y, modře i."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-vyjmenovana-b-l-1",
+            "temaId": "prav-vyjmenovana-b-l",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Ve které větě doplníš tvrdé y?",
+            "moznosti": [
+              "Musím si nab_t mobil, mám dvě procenta.",
+              "Brácha mi včera rozb_l displej.",
+              "Na zeď chci přib_t novou poličku.",
+              "Z výplaty mi zb_lo jen pár stovek."
+            ],
+            "spravna": 3,
+            "vysvetleni": "Zbylo je od zbýt (zůstat) — rodina slova být, proto y. Nabít mobil, rozbít displej i přibít poličku jsou od bít (tlouct), tam je měkké i."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**L — vyjmenovaná slova:** slyšet, mlýn, blýskat se, polykat, plynout, plýtvat, vzlykat, lysý, lýtko, lýko, lyže, pelyněk, plyš. Méně častá slova s y mimo základní řadu: **vlys, plytký, slynout**.\n\n**Rodiny L:**\n\n- **slyšet**: slyšitelný, neslýchaný, uslyšet, nedoslýchavý. Ale: **slib, slíbit, líbit se** (nejsou příbuzné).\n- **mlýn**: mlynář, mlýnek. Ale: **mlít** (mele, mlel) — měkké i!\n- **blýskat se**: blýsknout se, blýskavice, zablýsklo se, blyštět se\n- **polykat**: spolknout (bez y), zalykat se\n- **plynout**: plyn, plynný, plynulý, uplynout, splynout, splývat, vyplývat, oplývat, rozplynout se\n- **plýtvat**: plýtvání; **vzlykat**: vzlyk\n- **lysý**: lysina, Lysá hora; **lýtko**; **lýko**: lýkový\n- **lyže**: lyžovat, lyžař; **pelyněk**; **plyš**: plyšový"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Dvojice L:**\n\n- **mlýn** (mlynář) × **mlít** (mele)\n- **lysý** (holý) × **lísat se**\n- **blýskat se** × **blízko**\n- **plynout** × **plivat**\n\n**Vždy s měkkým i:** list, lípa, líný, lilie, lízat, líčit, lišit se, liška, lis, lít, lijavec, límec, linka, klid, klika, klín, hlína, hlídat, slina, slíbit, sliz, blízko, plíce, plíseň, plížit se, polibek, políčko."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Zeptej se u každého slova: „Je to příbuzné s vyjmenovaným slovem?“ Podle toho doplň y, nebo i.",
+            "kategorie": [
+              {
+                "id": "y",
+                "nazev": "y — rodina vyjmenovaného slova"
+              },
+              {
+                "id": "i",
+                "nazev": "i — do rodiny nepatří"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "zb_tek pizzy",
+                "kategorieId": "y"
+              },
+              {
+                "text": "zab_vat se sportem",
+                "kategorieId": "y"
+              },
+              {
+                "text": "nový ob_vák",
+                "kategorieId": "y"
+              },
+              {
+                "text": "dob_t hrad",
+                "kategorieId": "y"
+              },
+              {
+                "text": "nesl_chaná drzost",
+                "kategorieId": "y"
+              },
+              {
+                "text": "spl_vat s davem",
+                "kategorieId": "y"
+              },
+              {
+                "text": "ml_nek na kávu",
+                "kategorieId": "y"
+              },
+              {
+                "text": "nab_ječka na mobil",
+                "kategorieId": "i"
+              },
+              {
+                "text": "rozb_tý displej",
+                "kategorieId": "i"
+              },
+              {
+                "text": "dob_t kredit",
+                "kategorieId": "i"
+              },
+              {
+                "text": "sb_rka tenisek",
+                "kategorieId": "i"
+              },
+              {
+                "text": "dát sl_b",
+                "kategorieId": "i"
+              },
+              {
+                "text": "ml_t kávu",
+                "kategorieId": "i"
+              },
+              {
+                "text": "bl_zko školy",
+                "kategorieId": "i"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-vyjmenovana-b-l-2",
+            "temaId": "prav-vyjmenovana-b-l",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Ve které větě doplníš měkké i?",
+            "moznosti": [
+              "Na hory si beru nové l_že.",
+              "Kávu si ráno musím uml_t sám.",
+              "V dálce se začalo bl_skat.",
+              "Týden do prázdnin upl_nul rychle."
+            ],
+            "spravna": 1,
+            "vysvetleni": "Umlít je od mlít (mele, mlel) — to má měkké i, i když mlýn a mlýnek mají y. Lyže a blýskat se jsou přímo vyjmenovaná slova a uplynul patří do rodiny plynout, proto y."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Doplň i/y po B a L. U každého místa si řekni: **kde to je → který trik → výsledek.**\n\n„B_valý spolužák mi sl_bil, že přijde, ale čekal jsem zb_tečně. Kdyb_ch aspoň sl_šel telefon! Jenže jsem si zapomněl nab_t mobil. Máma zatím hledala ml_nek, aby mohla uml_t kávu.“",
+          "reseni": "Všech osm míst je **uvnitř slova po obojetné** → trik: **rodina vyjmenovaného slova**.\n\n- **B_valý** → bývat, rodina **být** → **Bývalý**\n- **sl_bil** → slíbit není příbuzné se slovem slyšet → **slíbil**\n- **zb_tečně** → zbýt → zbytek → zbytečný, rodina **být** → **zbytečně**\n- **Kdyb_ch** → bych, bys, by, kdyby — rodina **být** → **Kdybych**\n- **sl_šel** → vyjmenované slovo **slyšet** → **slyšel**\n- **nab_t mobil** → dvojice: nabýt = získat × nabít = od bít; mobil dáváš na nabíječku → **nabít**\n- **ml_nek** → rodina **mlýn** → **mlýnek**\n- **uml_t** → mlít (mele, mlel) má měkké i → **umlít**"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Vyjmenovaná slova po B — základní řada (13)",
+              "zadni": "být, bydlit (bydlet), obyvatel, byt, příbytek, nábytek, dobytek, obyčej, bystrý, bylina, kobyla, býk, babyka (+ Přibyslav, Zbyněk, Bydžov)"
+            },
+            {
+              "predni": "Vyjmenovaná slova po L — základní řada (13)",
+              "zadni": "slyšet, mlýn, blýskat se, polykat, plynout, plýtvat, vzlykat, lysý, lýtko, lýko, lyže, pelyněk, plyš (méně častá mimo řadu: vlys, plytký, slynout)"
+            },
+            {
+              "predni": "Kdy je slovo příbuzné s vyjmenovaným slovem?",
+              "zadni": "když má stejný kořen A podobný význam"
+            },
+            {
+              "predni": "zbytek — proč y?",
+              "zadni": "rodina být: zbýt (zůstat) → zbytek, zbytečný"
+            },
+            {
+              "predni": "kdybych, abych, bys — proč y?",
+              "zadni": "rodina být: bych, bys, by, bychom, byste, aby, kdyby"
+            },
+            {
+              "predni": "nabýt × nabít, dobýt × dobít",
+              "zadni": "nabýt = získat (zkušenosti), dobýt hrad → y; nabít mobil, dobít baterii jsou od bít → i"
+            },
+            {
+              "predni": "zabývat se × zabíjet",
+              "zadni": "zabývat se = věnovat se něčemu, rodina být → y; zabíjet je od zabít (bít) → i"
+            },
+            {
+              "predni": "mlýnek × mlít",
+              "zadni": "mlýnek je z rodiny mlýn → y; mlít (mele, mlel) → měkké i"
+            },
+            {
+              "predni": "neslýchaný × slíbit",
+              "zadni": "neslýchaný patří ke slovu slyšet → y; slib, slíbit, líbit se nejsou příbuzné → i"
+            },
+            {
+              "predni": "vyplývat, uplynout — proč y?",
+              "zadni": "rodina plynout: plyn, plynulý, uplynout, splývat, vyplývat, oplývat; ale plivat → i"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Neuč se básničku, uč se **rodiny**. Příbuzné slovo má stejný kořen A podobný význam.\n- **Být (existovat)** má největší rodinu: zbytek, bývalý, pobyt, zabývat se, úbytek, přebytek — a taky bych, bys, by, aby, kdyby.\n- **Být × bít (tlouct):** nabýt zkušenosti × nabít mobil, dobýt hrad × dobít baterii, zbýt × zbít, zabývat se × zabíjet.\n- **L:** slyšet, mlýn, plynout, lyže a další mají rodiny s y (neslýchaný, mlýnek, vyplývat). Slíbit, líbit se, mlít a blízko mají měkké i."
+        }
+      ]
+    },
+    {
+      "temaId": "prav-vyjmenovana-m-p",
+      "nazev": "Vyjmenovaná slova M a P",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Do rodinné skupiny napíšeš: „K narozeninám chci mýt nový mobil.“ Táta obratem odepíše: „Mýt ho klidně můžeš. Ale ne ve dřezu.“ Jedno písmeno — a z přání je mytí. U písmen M a P na takové dvojice narazíš pořád: **mýt × mít, my × mi, pyl × pil**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**M — vyjmenovaná slova:** my, mýt, myslit (myslet), mýlit se, hmyz, myš, hlemýžď, mýtit, zamykat, smýkat, dmýchat, chmýří, nachomýtnout se, Litomyšl. Méně častá slova s y mimo základní řadu: **mýto — mýtné, mys**.\n\nPořád platí trik rodiny: **„Je to příbuzné s vyjmenovaným slovem?“** Začni tím, co píšeš nejčastěji:\n\n- **my** (my všichni) × **mi** (dej mi to = mně). Trik: **my = „my všichni“, mi = mně.**\n- **mýt**: mycí, myčka, umyvadlo, umýt, mýdlo, pomyje. Ale: **mít** (vlastnit: mám, měl) — měkké i!\n- **myslet**: mysl, myšlenka, myslivec, úmysl, výmysl, smysl, nesmysl, průmysl, přemýšlet, zamyšlený, pomyslet."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Další rodiny M:**\n\n- **mýlit se**: omyl, mýlka, neomylný, zmýlit se. Ale: **milý, mile**.\n- **hmyz**: hmyzí, hmyzožravec; **myš**: myší, myšák; **hlemýžď**\n- **mýtit** (kácet les): mýtina, vymýtit. Ale: **mítink, mínit**.\n- **zamykat**: odmykat, vymykat se, výmyk, zámek (bez y)\n- **smýkat**: smyk, smyčka, smyčec, průsmyk, smýkat se\n- **dmýchat**: rozdmýchat, dmychadlo; **chmýří**: chmýříčko\n- **nachomýtnout se**; **Litomyšl**"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Dvojice M — y × i mění význam:**\n\n- **my** × **mi**\n- **mýt** (umývat) × **mít** (vlastnit)\n- **mýlit se** × **milý**\n- **mýtit** × **mítink**\n- **myslet** × **mísit** (míchat)\n\n**Vždy s měkkým i:** mít, míč, mísa, míchat, mířit, míra, mír, milý, milion, minuta, mimo, minout, minulý, mizet, mistr, místo, mise, kmín, smích, vesmír, zamilovaný, umírat, komín, odmítnout, zamítnout, námitka."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** **My** a **mi** napíšeš denně desetkrát — „pošli mi to“, „my jdeme ven“. V komentáři pod videem nebo v e-mailu učiteli je záměna vidět na první pohled. A v životopise na brigádu chceš být **pilný** — s měkkým i, protože s pylem z květů nemá pilnost nic společného. Rodiny a dvojice ti dají jistotu bez lovení básničky."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 366\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Tři stromy rodin písmene M s tvrdým y: myslet (mysl, myšlenka, smysl, nesmysl, úmysl, výmysl, průmysl, myslivec, přemýšlet, pomyslet, zamyšlený), mýt (mycí, myčka, umýt, umyvadlo, mýdlo, pomyje) a mýlit se (omyl, mýlka, neomylný, zmýlit se). Pod každým slovo s měkkým i, které do rodiny nepatří: mísit, mít, milý\"><text x=\"340\" y=\"24\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">TŘI VELKÉ RODINY PÍSMENE M</text><rect x=\"20\" y=\"38\" width=\"206\" height=\"52\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"123\" y=\"60\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"var(--zlata)\">MYSLET</text><text x=\"123\" y=\"79\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">celá rodina → y</text><line x1=\"123\" y1=\"90\" x2=\"123\" y2=\"104\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><rect x=\"20\" y=\"104\" width=\"206\" height=\"142\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"123\" y=\"127\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">mysl, myšlenka</text><text x=\"123\" y=\"148\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">smysl, nesmysl</text><text x=\"123\" y=\"169\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">úmysl, výmysl</text><text x=\"123\" y=\"190\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">průmysl, myslivec</text><text x=\"123\" y=\"211\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">přemýšlet, pomyslet</text><text x=\"123\" y=\"232\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">zamyšlený</text><line x1=\"123\" y1=\"246\" x2=\"123\" y2=\"264\" stroke=\"var(--info)\" stroke-width=\"2\" stroke-dasharray=\"4 4\" /><rect x=\"20\" y=\"264\" width=\"206\" height=\"56\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" /><text x=\"123\" y=\"286\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--info)\">ALE — měkké i:</text><text x=\"123\" y=\"306\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">mísit (míchat)</text><rect x=\"237\" y=\"38\" width=\"206\" height=\"52\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"340\" y=\"60\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"var(--zlata)\">MÝT</text><text x=\"340\" y=\"79\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">celá rodina → y</text><line x1=\"340\" y1=\"90\" x2=\"340\" y2=\"104\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><rect x=\"237\" y=\"104\" width=\"206\" height=\"142\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"340\" y=\"148\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">mycí, myčka</text><text x=\"340\" y=\"169\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">umýt, umyvadlo</text><text x=\"340\" y=\"190\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">mýdlo</text><text x=\"340\" y=\"211\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">pomyje</text><line x1=\"340\" y1=\"246\" x2=\"340\" y2=\"264\" stroke=\"var(--info)\" stroke-width=\"2\" stroke-dasharray=\"4 4\" /><rect x=\"237\" y=\"264\" width=\"206\" height=\"56\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" /><text x=\"340\" y=\"286\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--info)\">ALE — měkké i:</text><text x=\"340\" y=\"306\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">mít (vlastnit: mám, měl)</text><rect x=\"454\" y=\"38\" width=\"206\" height=\"52\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"557\" y=\"60\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"var(--zlata)\">MÝLIT SE</text><text x=\"557\" y=\"79\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">celá rodina → y</text><line x1=\"557\" y1=\"90\" x2=\"557\" y2=\"104\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><rect x=\"454\" y=\"104\" width=\"206\" height=\"142\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"1.5\" /><text x=\"557\" y=\"158.5\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">omyl, mýlka</text><text x=\"557\" y=\"179.5\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">neomylný</text><text x=\"557\" y=\"200.5\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">zmýlit se</text><line x1=\"557\" y1=\"246\" x2=\"557\" y2=\"264\" stroke=\"var(--info)\" stroke-width=\"2\" stroke-dasharray=\"4 4\" /><rect x=\"454\" y=\"264\" width=\"206\" height=\"56\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2\" /><text x=\"557\" y=\"286\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"var(--info)\">ALE — měkké i:</text><text x=\"557\" y=\"306\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">milý, mile</text><text x=\"340\" y=\"350\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Příbuzné slovo = stejný kořen A podobný význam.</text></svg>",
+          "popisek": "Tři stromy rodin písmene M: myslet, mýt a mýlit se. Slova ve zlatých rámečcích mají stejný kořen a podobný význam jako vyjmenované slovo, proto se píšou s y. V modrém rámečku je slovo, které zní podobně, ale do rodiny nepatří — má měkké i."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-vyjmenovana-m-p-1",
+            "temaId": "prav-vyjmenovana-m-p",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Do které věty patří MY s tvrdým y?",
+            "moznosti": [
+              "Pošli ___ prosím ten odkaz.",
+              "Dneska se ___ nikam nechce.",
+              "___ dva jdeme hned na hřiště.",
+              "Půjčíš ___ na chvíli nabíječku?"
+            ],
+            "spravna": 2,
+            "vysvetleni": "My dva = my všichni, kdo jdeme — proto tvrdé y. V ostatních větách jde dosadit „mně“ (pošli mně, nechce se mně, půjčíš mně), takže tam patří mi s měkkým i."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**P — vyjmenovaná slova:** pýcha, pytel, pysk, netopýr, slepýš, pyl, kopyto, klopýtat, třpytit se, zpytovat, pykat, pýr, pýřit se, čepýřit se. Méně časté slovo s y mimo základní řadu: **pýří**.\n\n**Rodiny P:**\n\n- **pýcha**: pyšný, pyšnit se, zpychnout, přepych, přepychový. Ale: **píchat** (bodat), **pichlavý**.\n- **pytel**: pytlík, pytlák, pytlovina\n- **pysk**: pyskatý, ptakopysk. Ale: **pískat, písek**.\n- **netopýr**; **slepýš** × **slepíš** (slepíš to lepidlem — sloveso!)\n- **pyl**: opylovat, pylový. Ale: **pil** (pil vodu), **pila, pilný, opilovat** (pilníkem)."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Další rodiny P:**\n\n- **kopyto**: kopýtko, sudokopytník; **klopýtat**: klopýtnout\n- **třpytit se**: třpyt, třpytivý\n- **zpytovat** (svědomí): jazykozpyt, nevyzpytatelný\n- **pykat** (za vinu): odpykat si trest\n- **pýr** (plevel), **pýřit se** (červenat se), **čepýřit se**: rozčepýřený"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Dvojice P:**\n\n- **pyl** × **pil**\n- **pýcha** × **píchat**\n- **pysk** × **pískat**\n- **slepýš** × **slepíš**\n- **opylovat** × **opilovat**\n\n**Vždy s měkkým i:** pít, pivo, pití, píseň, písek, psát → píše, pilot, pila, pilný, pilíř, pirát, pistole, spisovatel, opice, kapitán, lepit, koupit, trpět → trpí, spíš, spinkat, špína, pípat."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "pexeso",
+          "parametry": {
+            "dvojice": [
+              {
+                "a": "my",
+                "b": "my všichni"
+              },
+              {
+                "a": "mi",
+                "b": "mně"
+              },
+              {
+                "a": "mýt",
+                "b": "umývat"
+              },
+              {
+                "a": "mít",
+                "b": "vlastnit"
+              },
+              {
+                "a": "pyl",
+                "b": "prášek z květů"
+              },
+              {
+                "a": "pil",
+                "b": "minulý čas od pít"
+              },
+              {
+                "a": "slepýš",
+                "b": "ještěr bez nohou"
+              },
+              {
+                "a": "slepíš",
+                "b": "spojíš lepidlem"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-vyjmenovana-m-p-2",
+            "temaId": "prav-vyjmenovana-m-p",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Ve které větě doplníš tvrdé y?",
+            "moznosti": [
+              "Celý večer jsem p_l jen čaj.",
+              "Na jaře mi vadí p_l z břízy.",
+              "Ségra je ve škole hodně p_lná.",
+              "Klíč musel op_lovat pilníkem."
+            ],
+            "spravna": 1,
+            "vysvetleni": "Pyl z břízy je prášek z květů — vyjmenované slovo pyl, proto y. Pil je od pít a pilný ani opilovat (pilníkem) s pylem příbuzné nejsou, všude je měkké i."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Doplň i/y po M a P. U každého místa si řekni: **kde to je → který trik → výsledek.**\n\n„Kamarád m_ včera napsal, že referát zvládneme jen m_ dva. Nejdřív jsem m_slel, že je to om_l. Pak jsem ale p_lně psal celý večer a p_l u toho čaj. Teď jsem na nás docela p_šný — zbývá jen um_t hrnek.“",
+          "reseni": "U **my × mi** rozhoduje význam, ostatní místa jsou **uvnitř slova po obojetné** → trik: **rodina vyjmenovaného slova**.\n\n- **m_ včera napsal** → jde dosadit „mně“ → **mi**\n- **jen m_ dva** → „my všichni“, kdo to zvládneme → **my**\n- **m_slel** → vyjmenované slovo **myslet** → **myslel**\n- **om_l** → rodina **mýlit se** → **omyl**\n- **p_lně** → pilný s pylem příbuzné není → **pilně**\n- **p_l čaj** → od pít (dvojice pyl × pil) → **pil**\n- **p_šný** → rodina **pýcha** → **pyšný**\n- **um_t hrnek** → rodina **mýt** (umývat), ne mít (vlastnit) → **umýt**"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Vyjmenovaná slova po M — základní řada (14)",
+              "zadni": "my, mýt, myslit (myslet), mýlit se, hmyz, myš, hlemýžď, mýtit, zamykat, smýkat, dmýchat, chmýří, nachomýtnout se, Litomyšl (méně častá mimo řadu: mýto — mýtné, mys)"
+            },
+            {
+              "predni": "Vyjmenovaná slova po P — základní řada (14)",
+              "zadni": "pýcha, pytel, pysk, netopýr, slepýš, pyl, kopyto, klopýtat, třpytit se, zpytovat, pykat, pýr, pýřit se, čepýřit se (méně časté mimo řadu: pýří)"
+            },
+            {
+              "predni": "my × mi",
+              "zadni": "my = „my všichni“ (my jdeme); mi = mně (dej mi to)"
+            },
+            {
+              "predni": "mýt × mít",
+              "zadni": "mýt = umývat (myčka, mýdlo, umyvadlo); mít = vlastnit (mám, měl) → měkké i"
+            },
+            {
+              "predni": "smysl, nesmysl, průmysl — proč y?",
+              "zadni": "rodina myslet: mysl, myšlenka, úmysl, výmysl, přemýšlet"
+            },
+            {
+              "predni": "omyl — proč y?",
+              "zadni": "rodina mýlit se: mýlka, neomylný, zmýlit se; ale milý, mile → i"
+            },
+            {
+              "predni": "pyl × pil",
+              "zadni": "pyl (opylovat, pylový) → y; pil (pil vodu), pila, pilný → i"
+            },
+            {
+              "predni": "pyšný, přepych — proč y?",
+              "zadni": "rodina pýcha: pyšnit se, zpychnout, přepychový; ale píchat (bodat), pichlavý → i"
+            },
+            {
+              "predni": "slepýš × slepíš",
+              "zadni": "slepýš = vyjmenované slovo; slepíš = sloveso (slepíš to lepidlem)"
+            },
+            {
+              "predni": "odmítnout, zamítnout, námitka — i, nebo y?",
+              "zadni": "měkké i — do rodiny žádného vyjmenovaného slova nepatří (nepleť s nachomýtnout se)"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **My = „my všichni“, mi = mně.** Mýt = umývat, mít = vlastnit.\n- Velké rodiny M: **myslet** (smysl, nesmysl, průmysl, myšlenka), **mýt** (myčka, mýdlo, umyvadlo), **mýlit se** (omyl, mýlka).\n- Rodiny P: **pýcha** (pyšný, přepych), **pytel** (pytlík), **pyl** (opylovat), **kopyto** (kopýtko), **třpytit se** (třpyt).\n- Dvojice P: pyl × pil, pýcha × píchat, pysk × pískat, slepýš × slepíš, opylovat × opilovat.\n- Do rodiny nepatří → měkké i: milý, místo, minuta, odmítnout; pít, píše, pilný, písek."
+        }
+      ]
+    },
+    {
+      "temaId": "prav-vyjmenovana-s-v-z",
+      "nazev": "Vyjmenovaná slova S, V a Z",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Objednáváš přes aplikaci hranolky a do poznámky píšeš: „A k tomu sírovou omáčku.“ Kuchař zvedne obočí — omáčku ze **síry** fakt nevede. Ty jsi chtěl **sýrovou**, ze sýra. Jedno písmeno a z večeře je chemický pokus."
+        },
+        {
+          "typ": "text",
+          "obsah": "**S — vyjmenovaná slova:** syn, sytý, sýr, syrový, sychravý, usychat, sýkora, sýček, sysel, syčet, sypat.\n\n**Rodiny S:**\n\n- **syn**: synek, synovec, zlosyn\n- **sytý**: nasytit, dosyta, nenasytný, sytost. Ale: **sít** (zasít), **síto, síť**.\n- **sýr**: sýrový, syrovátka, sýrárna\n- **syrový** (neuvařený; taky vlhký a studený): syrové maso, syrové počasí. Ale: **síra, sirka, sirup, sirotek**.\n- **sychravý**; **usychat**: vysychat, zasychat (příbuzné se slovem suchý)\n- **sýkora**: sýkorka; **sýček**; **sysel**\n- **syčet**: sykot, sykat, zasyčet\n- **sypat**: sypký, nasypat, zásyp, násyp, sýpka, vysypat"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Dvojice S — y × i mění význam:**\n\n- **sýrový** (ze sýra) × **sírový** (ze síry)\n- **sypat** × **sípat** (chraptět)\n- **sytý** (najedený) × **síto** (na prosévání)\n\n**Vždy s měkkým i:** síla, silný, silnice, síť, sít, síň, sirka, sirup, signál, situace, sice, sídlo, sídliště, sirotek, prosit, nosit, kosit, musí, osika, lasička, kasino, sinus."
+        },
+        {
+          "typ": "text",
+          "obsah": "**V — vyjmenovaná slova:** vy, vykat, vysoký, výt, výskat, zvykat, žvýkat, vydra, výr, vyžle, povyk, výheň — a hlavně **předpona vy-/vý-**. Méně časté slovo s y mimo základní řadu: **cavyky**.\n\n**Předpona vy-/vý- je VŽDY s tvrdým y.** Test: **jde předpona vyměnit nebo odtrhnout?**\n\n- vy-běhnout (při-běhnout), vý-let (od-let), vy-hrát (pro-hrát)\n- vý-sledek, vý-hra, vy-světlit, vy-jmenovat, vý-chova, vý-roba, vý-znam, vý-bor, vy-zkoušet, vy-padat, vý-kon\n\nKdyž po odtržení „vy/vý“ zbude smysluplné slovo nebo známý základ (a „vy“ znamená ven, nahoru nebo dokončení) → **předpona → y**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Vi- na začátku slova** je opak: žádná předpona, měkké i. U slov vidět, vítr, víkend nejde „vi“ vyměnit za jinou předponu — při-dět, od-tr ani za-kend neexistuje.\n\n**Pozor na pasti:** u slov vi-set, vi-na, vi-ze, vi-rus zbytek náhodou vypadá jako slovo (set, na, ze, Rus), ale s významem celého slova nesouvisí a jinou předponu nasadit nejde → předpona to není → měkké i.\n\n**Slova s vi-/ví-, kde nejde o předponu** (měkké i): vidět, viditelný, video, viset, visací, vítr, vítat, vítěz, vítězství, vinen, vina, víno, vinice, višeň, vila, víla, víčko, víko, vír, vířit, vize, vizitka, virus, vitamin, vidle, vidlička, víra (věřit), víkend, vichr, vichřice, viklat se; stejně tak zvíře, zvířecí, svíčka, svítit."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Předponu vy-/vý- píšeš pořád — výlet, výsledek, výhra, vysvětlit, vyzkoušet, výplata z brigády. Jeden test (jde předpona vyměnit?) ti pokryje stovky slov. A dvojice jako sýrový × sírový rozhodují, jestli tvoje zpráva dává smysl. V životopise, v e-mailu i v komentáři pod videem je hrubka první věc, které si čtenář všimne."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 410\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Srovnání: vlevo předpona vy- a vý-, kterou jde vyměnit nebo odtrhnout (vy-běhnout a při-běhnout, vý-let a od-let, vy-hrát a pro-hrát) a píše se vždy s y; vpravo slova, kde vi- není předpona a nejde vyměnit za jinou (vidět, vítr, víkend), s měkkým i, a pasti viset, vina, vize, virus. Dole základní řada dvanácti vyjmenovaných slov po V, která mají y i bez předpony\"><text x=\"340\" y=\"24\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">PŘEDPONA vy-/vý- × vi- BEZ PŘEDPONY</text><rect x=\"15\" y=\"38\" width=\"320\" height=\"236\" rx=\"10\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"175\" y=\"62\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"var(--zlata)\">PŘEDPONA vy- / vý-</text><text x=\"175\" y=\"82\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">jde vyměnit nebo odtrhnout → vždy y</text><line x1=\"30\" y1=\"94\" x2=\"320\" y2=\"94\" stroke=\"var(--zlata)\" stroke-width=\"1\" /><text x=\"34\" y=\"120\" font-size=\"14\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--zlata)\">vy</tspan> | běhnout</text><text x=\"150\" y=\"120\" font-size=\"14\" fill=\"currentColor\">↔</text><text x=\"178\" y=\"120\" font-size=\"14\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--uspech)\">při</tspan> | běhnout</text><text x=\"34\" y=\"147\" font-size=\"14\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--zlata)\">vý</tspan> | let</text><text x=\"150\" y=\"147\" font-size=\"14\" fill=\"currentColor\">↔</text><text x=\"178\" y=\"147\" font-size=\"14\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--uspech)\">od</tspan> | let</text><text x=\"34\" y=\"174\" font-size=\"14\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--zlata)\">vy</tspan> | hrát</text><text x=\"150\" y=\"174\" font-size=\"14\" fill=\"currentColor\">↔</text><text x=\"178\" y=\"174\" font-size=\"14\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--uspech)\">pro</tspan> | hrát</text><text x=\"175\" y=\"207\" text-anchor=\"middle\" font-size=\"11.5\" font-style=\"italic\" fill=\"currentColor\">zbude slovo nebo známý základ: let, hrát, -běhnout</text><text x=\"175\" y=\"234\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">vý|sledek · vý|hra · vý|roba · vý|kon</text><text x=\"175\" y=\"256\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">vy|světlit · vy|zkoušet · vy|padat</text><rect x=\"345\" y=\"38\" width=\"320\" height=\"236\" rx=\"10\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"505\" y=\"62\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"var(--info)\">vi- NENÍ PŘEDPONA</text><text x=\"505\" y=\"82\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">žádná předpona → měkké i</text><line x1=\"360\" y1=\"94\" x2=\"650\" y2=\"94\" stroke=\"var(--info)\" stroke-width=\"1\" /><text x=\"364\" y=\"120\" font-size=\"14\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--info)\">vi</tspan> | dět</text><text x=\"462\" y=\"120\" font-size=\"14\" fill=\"currentColor\">→</text><text x=\"490\" y=\"120\" font-size=\"13\" fill=\"currentColor\">při|dět neexistuje</text><text x=\"364\" y=\"147\" font-size=\"14\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--info)\">ví</tspan> | tr</text><text x=\"462\" y=\"147\" font-size=\"14\" fill=\"currentColor\">→</text><text x=\"490\" y=\"147\" font-size=\"13\" fill=\"currentColor\">od|tr neexistuje</text><text x=\"364\" y=\"174\" font-size=\"14\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--info)\">ví</tspan> | kend</text><text x=\"462\" y=\"174\" font-size=\"14\" fill=\"currentColor\">→</text><text x=\"490\" y=\"174\" font-size=\"13\" fill=\"currentColor\">za|kend neexistuje</text><text x=\"505\" y=\"207\" text-anchor=\"middle\" font-size=\"11.5\" font-style=\"italic\" fill=\"currentColor\">„vi“ nejde vyměnit za jinou předponu</text><text x=\"505\" y=\"234\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">video · vítěz · vítat · višeň</text><text x=\"505\" y=\"256\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--info)\">pasti:</tspan> vi|set · vi|na · vi|ze · vi|rus</text><rect x=\"15\" y=\"286\" width=\"650\" height=\"80\" rx=\"10\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"340\" y=\"308\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Základní řada po V — 12 slov má y i bez předpony:</text><text x=\"340\" y=\"331\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">vy · vykat · vysoký · výt · výskat · zvykat</text><text x=\"340\" y=\"353\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">žvýkat · vydra · výr · vyžle · povyk · výheň</text><text x=\"100\" y=\"394\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">1. předpona? → y</text><text x=\"340\" y=\"394\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">2. vyjmenované slovo nebo rodina? → y</text><text x=\"590\" y=\"394\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">3. jinak → i</text></svg>",
+          "popisek": "Vlevo předpona vy-/vý-: jde vyměnit za jinou nebo odtrhnout a zbude slovo nebo známý základ — vždy y. Vpravo vi- na začátku slova: nejde vyměnit za jinou předponu, žádná předpona to není — měkké i. Dole základní řada dvanácti vyjmenovaných slov po V, která mají y i bez předpony, a postup ve třech krocích."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-vyjmenovana-s-v-z-1",
+            "temaId": "prav-vyjmenovana-s-v-z",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Ve kterém slově píšeš y proto, že jde o předponu vy-/vý-?",
+            "moznosti": [
+              "v_soký plot",
+              "v_kend u babičky",
+              "v_tr od severu",
+              "v_let do skal"
+            ],
+            "spravna": 3,
+            "vysvetleni": "Vý-let: předponu jde vyměnit (od-let) a zbude známý základ let → předpona → y. Vysoký má y taky, ale jako vyjmenované slovo — po odtržení „vy“ zbude „soký“, a to nic není. Víkend a vítr žádnou předponu nemají — píšou se s měkkým i."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Rodiny V** (y bez předpony):\n\n- **vy** (vy všichni), **vykat** (vykání)\n- **vysoký**: výška, vysočina, výše, zvýšit, vyvýšený, nejvyšší\n- **výt** (vlk vyje): zavýt. Ale: **vít** (věnec — vil, vinout), **vítat, vítr, vítěz**.\n- **výskat**: výskot; **žvýkat**: žvýkačka, přežvýkavec\n- **zvykat**: zvyk, zvyknout si, obvyklý, zvyklost, návyk, odvykat\n- **vydra**; **výr** (sova); **vyžle** (hubené dítě); **povyk**: povykovat; **výheň** (kovářská)"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Dvojice V:**\n\n- **výt** × **vít**\n- **výr** (sova) × **vír** (vodní, vířit)\n- **vyžle** (hubené dítě) × **vížka** (malá věž)\n- **vysel** (vy-sel mrkev: předpona vy- + sít) × **visel** (visel na stěně)\n- **výška** (vysoký) × **vížka** (věž)"
+        },
+        {
+          "typ": "text",
+          "obsah": "**Z — vyjmenovaná slova:** brzy, jazyk, nazývat (se), Ruzyně.\n\n- **brzy** (brzo) × **brzičko** (měkké)\n- **jazyk**: jazykový, jazýček, dvojjazyčný\n- **nazývat (se)**: vyzývat, vzývat, ozývat se, ozývá se — rodina slovesa zvát/ozvat. Ale: **zívat** (únavou).\n\n**Vždy s měkkým i:** zima, zisk, zítra, zip, zinek, zírat, zívat, cizí, kazit, mrazit, vozit, vozík, řetízek, fyzika (fy- s y, -zi- s i), muzika, televize, benzin, magazín."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Proč y, nebo i? Nejdřív zkus předponu vy-/vý- vyměnit nebo odtrhnout. Pak hledej vyjmenované slovo a jeho rodinu. Když nesedí ani jedno, píšeš měkké i.",
+            "kategorie": [
+              {
+                "id": "predpona",
+                "nazev": "y — předpona vy-/vý-"
+              },
+              {
+                "id": "rodina",
+                "nazev": "y — vyjmenované slovo nebo jeho rodina"
+              },
+              {
+                "id": "mekke",
+                "nazev": "i — ani předpona, ani rodina"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "v_let",
+                "kategorieId": "predpona"
+              },
+              {
+                "text": "v_sledek zápasu",
+                "kategorieId": "predpona"
+              },
+              {
+                "text": "v_plata z brigády",
+                "kategorieId": "predpona"
+              },
+              {
+                "text": "v_světlit úkol",
+                "kategorieId": "predpona"
+              },
+              {
+                "text": "v_ška skoku",
+                "kategorieId": "rodina"
+              },
+              {
+                "text": "zv_k",
+                "kategorieId": "rodina"
+              },
+              {
+                "text": "s_r na pizzu",
+                "kategorieId": "rodina"
+              },
+              {
+                "text": "nas_pat cukr",
+                "kategorieId": "rodina"
+              },
+              {
+                "text": "jaz_k",
+                "kategorieId": "rodina"
+              },
+              {
+                "text": "brz_ ráno",
+                "kategorieId": "rodina"
+              },
+              {
+                "text": "v_kend",
+                "kategorieId": "mekke"
+              },
+              {
+                "text": "v_deo",
+                "kategorieId": "mekke"
+              },
+              {
+                "text": "v_tr",
+                "kategorieId": "mekke"
+              },
+              {
+                "text": "s_dliště",
+                "kategorieId": "mekke"
+              },
+              {
+                "text": "z_tra",
+                "kategorieId": "mekke"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-vyjmenovana-s-v-z-2",
+            "temaId": "prav-vyjmenovana-s-v-z",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Ve které větě doplníš měkké i?",
+            "moznosti": [
+              "Vlk za vesnicí začal v noci v_t.",
+              "V lese celou noc houkal v_r.",
+              "Brácha už začal únavou z_vat.",
+              "Na pizzu patří strouhaný s_r."
+            ],
+            "spravna": 2,
+            "vysvetleni": "Zívat (únavou) do rodiny slova nazývat nepatří, proto měkké i. Výt (vlk vyje) a výr (sova) jsou vyjmenovaná slova po V a sýr je vyjmenované slovo po S — všude tvrdé y."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Doplň i/y po S, V a Z. U každého místa si řekni: **kde to je → který trik → výsledek.**\n\n„V sobotu jsme brz_ ráno v_razili na v_let. Na kopci foukal s_lný v_tr, ale v_hled stál za to. Ke svačině jsme měli chleba se s_rem a jablka. Večer jsem byl tak unavený, že jsem jen z_val.“",
+          "reseni": "Všech osm míst je **po obojetné souhlásce** a nikde nejde o koncovku → vyjmenovaná slova. Postup: **předpona vy-/vý-? → vyjmenované slovo nebo jeho rodina? → jinak měkké i.**\n\n- **brz_** → vyjmenované slovo **brzy** (brzo) → **brzy**\n- **v_razili** → předponu jde vyměnit: vy-razit, do-razit → **vyrazili**\n- **v_let** → předponu jde vyměnit: vý-let, od-let → **výlet**\n- **s_lný** → síla, silný — do žádné rodiny nepatří → **silný**\n- **v_tr** → ví- tu není předpona (nejde vyměnit, od-tr neexistuje) → **vítr**\n- **v_hled** → předponu jde vyměnit: vý-hled, po-hled → **výhled**\n- **se s_rem** → vyjmenované slovo **sýr** → **sýrem**\n- **z_val** → zívat (únavou) do rodiny nazývat nepatří → **zíval**"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Vyjmenovaná slova po S — základní řada (11)",
+              "zadni": "syn, sytý, sýr, syrový, sychravý, usychat, sýkora, sýček, sysel, syčet, sypat"
+            },
+            {
+              "predni": "Vyjmenovaná slova po V — základní řada (12)",
+              "zadni": "vy, vykat, vysoký, výt, výskat, zvykat, žvýkat, vydra, výr, vyžle, povyk, výheň — a hlavně předpona vy-/vý- (méně časté mimo řadu: cavyky)"
+            },
+            {
+              "predni": "Vyjmenovaná slova po Z — základní řada (4)",
+              "zadni": "brzy, jazyk, nazývat (se), Ruzyně"
+            },
+            {
+              "predni": "Test na předponu vy-/vý-",
+              "zadni": "jde vyměnit nebo odtrhnout? vy-běhnout (při-běhnout), vý-let (od-let) → předpona → vždy y"
+            },
+            {
+              "predni": "vidět, vítr, víkend — proč i?",
+              "zadni": "vi- tu není předpona — nejde vyměnit za jinou (při-dět, od-tr neexistuje) → měkké i"
+            },
+            {
+              "predni": "viset, vina, vize, virus — je to předpona?",
+              "zadni": "není: zbytek jen náhodou vypadá jako slovo (set, na, ze, Rus), s významem nesouvisí a jinou předponu nasadit nejde → měkké i"
+            },
+            {
+              "predni": "sýrový × sírový, sypat × sípat",
+              "zadni": "sýrový = ze sýra × sírový = ze síry; sypat (nasypat, sypký) × sípat = chraptět"
+            },
+            {
+              "predni": "výr × vír",
+              "zadni": "výr = sova; vír = vodní (vířit)"
+            },
+            {
+              "predni": "vysel × visel",
+              "zadni": "vysel mrkev (předpona vy- + sít); visel na stěně"
+            },
+            {
+              "predni": "nazývat × zívat",
+              "zadni": "nazývat, vyzývat, ozývat se = rodina slovesa zvát → y; zívat (únavou) → i"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Předpona vy-/vý- je vždy s tvrdým y.** Test: jde vyměnit nebo odtrhnout? (vý-let, od-let)\n- **Vi- bez předpony** (vidět, vítr, víkend, video) → měkké i. Pozor na pasti viset, vina, vize, virus.\n- **Vyjmenovaná slova po V** mají y i bez předpony: vysoký (výška), zvykat (zvyk), žvýkat (žvýkačka); dvojice výt × vít, výr × vír.\n- **S:** sýr, sytý, syrový, sypat a další mají rodiny s y; síla, síť, sirka, sídliště mají i. Pozor na sýrový × sírový.\n- **Z:** brzy, jazyk, nazývat (se), Ruzyně a jejich rodiny (jazýček, vyzývat, ozývat se) mají y. Jinak uvnitř slova po z píšeš i (zima, zítra, zívat)."
+        }
+      ]
+    },
+    {
+      "temaId": "prav-koncovky-podstatnych",
+      "nazev": "Koncovky podstatných jmen",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Píšeš partě do chatu: „Byl jsem venku se ps_ a pak s přátel_ na hřišti.“ Palec se zasekne nad klávesnicí — i, nebo y? Ve škole ti na to dali čtrnáct vzorů (pán, hrad, muž, stroj…), jenže kdo si má u každého slova vybavovat tabulku? Dobrá zpráva: místo vzorů stačí **dvě party** a jedno slovíčko „bez“."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Místo čtrnácti vzorů stačí dvě party.** Rozhoduješ se hlavně tehdy, když je před koncovkou **obojetná souhláska** (b, f, l, m, p, s, v, z). Party rozhodují jen o **krátkém -i / -y na konci slova** (ryby, s holuby × v posteli, s cíli).\n\n**TVRDÁ PARTA píše Y.** Patří do ní:\n\n- slova zakončená na **-a** (ženská, ale i mužská jako táta, kolega): ryba → dvě ryby, škola → školy, sova → sovy,\n- střední rod zakončený na **-o**: kolo → s koly, slovo → se slovy, číslo → s čísly,\n- mužský rod, když ve 2. pádě řekneš **„bez ___a“** nebo **„bez ___u“**: holub (bez holuba) → s holuby, úkol (bez úkolu) → úkoly, mobil (bez mobilu) → s mobily."
+        },
+        {
+          "typ": "text",
+          "obsah": "**MĚKKÁ PARTA píše I.** Patří do ní:\n\n- ženský rod, který **NEKONČÍ na -a**: postel → v posteli, mrkev → k mrkvi, židle → na židli, košile → v košili,\n- střední rod zakončený na **-e**: pole → v poli, s poli (a na **-í** je vždy í: údolí, obilí, zelí),\n- mužský rod, když ve 2. pádě řekneš **„bez ___e“**: cíl (bez cíle) → s cíli, přítel (bez přítele) → s přáteli, učitel (bez učitele) → s učiteli."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Test „bez ___“:** řekni si mužské slovo s „bez“ a poslouchej konec. Bez hotel**u** → tvrdá parta → s hotely. Bez ředitel**e** → měkká parta → s řediteli.\n\nTest funguje u mužských slov zakončených na obojetnou souhlásku — a také na **-g, -x a -c**: blog (bez blogu) → blogy, fax (bez faxu) → faxy, tác (bez tácu) → tácy. Po g se v koncovce píše vždy y (kolega → kolegy, liga → ligy). Po d, t, n dál rozhoduje ucho (bez kamene, ale s kameny; bez týdne, ale týdny).\n\nA zpráva z úvodu? Bez ps**a** → tvrdá parta → se **psy**. Bez přítel**e** → měkká parta → s **přáteli**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Koncovky podstatných jmen jsou skoro v každé větě, kterou napíšeš. V životopise na brigádu „práce s e-maily“ a „domluva s majiteli“, ve zprávě kamarádovi „jdeme ven se psy“, v komentáři pod videem „souboj s vítězi loňského turnaje“. Se dvěma partami se rozhodneš za vteřinu a žádnou tabulku vzorů nepotřebuješ. V diktátu ti pak zbude čas i hlava na psaní."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 396\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Dvě party místo čtrnácti vzorů. Party rozhodují o krátkém -i a -y na konci slova. Tvrdá parta píše Y: slova končící na -a, střední rod na -o a mužský rod, u kterého řekneš bez ___a nebo bez ___u. Měkká parta píše I: ženský rod, který nekončí na -a, střední rod na -e a mužský rod, u kterého řekneš bez ___e. Dole test bez ___ u mužských slov: bez hotelu, s hotely; bez ředitele, s řediteli.\"><text x=\"340\" y=\"26\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">MÍSTO 14 VZORŮ STAČÍ DVĚ PARTY</text><text x=\"340\" y=\"46\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">party rozhodují o krátkém -i / -y na konci slova (hlavně po b, f, l, m, p, s, v, z)</text><rect x=\"14\" y=\"60\" width=\"318\" height=\"252\" rx=\"12\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"173\" y=\"87\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"var(--zlata)\">TVRDÁ PARTA píše Y</text><line x1=\"30\" y1=\"99\" x2=\"316\" y2=\"99\" stroke=\"var(--zlata)\" stroke-width=\"1\" /><text x=\"30\" y=\"122\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">končí na -a</text><text x=\"30\" y=\"142\" font-size=\"13.5\" fill=\"currentColor\">ryba → dvě ryb<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text><text x=\"30\" y=\"161\" font-size=\"13.5\" fill=\"currentColor\">škola → škol<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text><text x=\"30\" y=\"188\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">střední rod na -o</text><text x=\"30\" y=\"208\" font-size=\"13.5\" fill=\"currentColor\">kolo → s kol<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text><text x=\"30\" y=\"227\" font-size=\"13.5\" fill=\"currentColor\">slovo → se slov<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text><text x=\"30\" y=\"254\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">mužský rod: bez ___a, bez ___u</text><text x=\"30\" y=\"274\" font-size=\"13.5\" fill=\"currentColor\">holub (bez holub<tspan font-weight=\"bold\" fill=\"var(--zlata)\">a</tspan>) → s holub<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text><text x=\"30\" y=\"293\" font-size=\"13.5\" fill=\"currentColor\">úkol (bez úkol<tspan font-weight=\"bold\" fill=\"var(--zlata)\">u</tspan>) → s úkol<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text><rect x=\"348\" y=\"60\" width=\"318\" height=\"252\" rx=\"12\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"507\" y=\"87\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"var(--info)\">MĚKKÁ PARTA píše I</text><line x1=\"364\" y1=\"99\" x2=\"650\" y2=\"99\" stroke=\"var(--info)\" stroke-width=\"1\" /><text x=\"364\" y=\"122\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">ženský rod, který nekončí na -a</text><text x=\"364\" y=\"142\" font-size=\"13.5\" fill=\"currentColor\">postel → v postel<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan></text><text x=\"364\" y=\"161\" font-size=\"13.5\" fill=\"currentColor\">mrkev → k mrkv<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan></text><text x=\"364\" y=\"188\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">střední rod na -e</text><text x=\"364\" y=\"208\" font-size=\"13.5\" fill=\"currentColor\">pole → v pol<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan>, s pol<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan></text><text x=\"364\" y=\"227\" font-size=\"13.5\" fill=\"currentColor\">na -í vždy í: údolí, zelí</text><text x=\"364\" y=\"254\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">mužský rod: bez ___e</text><text x=\"364\" y=\"274\" font-size=\"13.5\" fill=\"currentColor\">cíl (bez cíl<tspan font-weight=\"bold\" fill=\"var(--info)\">e</tspan>) → s cíl<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan></text><text x=\"364\" y=\"293\" font-size=\"13.5\" fill=\"currentColor\">přítel (bez přítel<tspan font-weight=\"bold\" fill=\"var(--info)\">e</tspan>) → s přátel<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan></text><rect x=\"14\" y=\"324\" width=\"652\" height=\"58\" rx=\"12\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"340\" y=\"346\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">TEST „bez ___“ U MUŽSKÝCH SLOV: řekni si slovo s „bez“ a poslouchej konec</text><text x=\"322\" y=\"369\" text-anchor=\"end\" font-size=\"14.5\" fill=\"currentColor\">bez hotel<tspan font-weight=\"bold\" fill=\"var(--zlata)\">u</tspan> → s hotel<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text><text x=\"340\" y=\"369\" text-anchor=\"middle\" font-size=\"14.5\" font-weight=\"bold\" fill=\"currentColor\">×</text><text x=\"358\" y=\"369\" font-size=\"14.5\" fill=\"currentColor\">bez ředitel<tspan font-weight=\"bold\" fill=\"var(--info)\">e</tspan> → s ředitel<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan></text></svg>",
+          "popisek": "Vlevo tvrdá parta (píše Y), vpravo měkká parta (píše I). Rozhodují o krátkém -i / -y na konci slova. V každé jsou tři skupiny slov: dvě poznáš podle zakončení, mužský rod podle testu „bez ___“. Dole je test na dvojici, která se plete často: hotel × ředitel."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-koncovky-podstatnych-1",
+            "temaId": "prav-koncovky-podstatnych",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Do životopisu na brigádu píšeš: „Mám zkušenosti s e-mail_ a s jednáním s majitel_ obchodů.“ Co doplníš?",
+            "moznosti": [
+              "s e-maily, s majiteli",
+              "s e-maili, s majiteli",
+              "s e-maily, s majitely",
+              "s e-maili, s majitely"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Test „bez ___“: bez e-mailu → tvrdá parta → s e-maily. Bez majitele → měkká parta → s majiteli. Obě slova končí na -l, a přesto patří každé do jiné party — proto se vyplatí udělat test pokaždé."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Výjimka tvrdé party — TI živí.** Živí mužští (lidé a zvířata) mají v 1. pádě množného čísla **-i**: TI holubi, TI sokoli, TI psi, TI lvi, TI čápi.\n\nPoznáš to tak, že jde říct **TI** a ptáš se **KDO?** — i když sami nic nedělají: TI psi štěkají, TI psi byli nakrmeni, to jsou TI psi. Stejný tvar má oslovení (Chlapi, pojďte!).\n\nKdyž se ptáš **koho? s kým?** (TY psy, s TĚMI psy), zůstává tvrdé **y**: vidím holuby, krmím psy, s holuby, se psy.\n\n- **Holubi** létají. × Krmíme **holuby**. × Šel s **holuby**.\n- **Psi** štěkají. × Venčím **psy**. × Běhá se **psy**.\n- **Sokoli** loví. × Pozoruji **sokoly**.\n\nPozor: v běžné řeči říkáme „ty psi“. Pro pravopis to neplatí — řekni si jeden kus: TEN pes (živý) → TI psi."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Jistoty mají přednost i u tvrdé party:**\n\n- koncovka **-mi** (s rybami, se školami) a **-ovi** (komu? holubovi, psovi) — vždy měkké i,\n- **dlouhé -ích** (kde? o čem? v množném čísle) je vždy měkké: v lesích, na polích, v údolích. Dlouhé í v koncovce podstatného jména je měkké vždy (v údolí, v obilí). Netýká se to jen jmen, která vypadají a skloňují se jako přídavná jména (ten známý, dospělý, pan Novotný, Karlovy Vary) — ta se řídí lekcí o přídavných jménech: o známých, s dospělými, u Novotných, v Karlových Varech,\n- mláďata na **-ata** mají **-aty** s tvrdým y: s kuřaty, se zvířaty, s koťaty, s děvčaty.\n\nProto: les patří do tvrdé party (nad les**y**), ale píšeš v les**ích** — dlouhé -ích je jistota."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 316\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Výjimka tvrdé party TI živí. Jde říct TI a ptáš se kdo? — píše se měkké i: TI holubi létají, TI psi byli nakrmeni, to jsou TI psi; stejný tvar má oslovení: Chlapi, pojďte! Ptáš se koho? s kým? — zůstává tvrdé y: krmíme TY holuby, venčím TY psy, šel s TĚMI holuby, běhá se psy. Jistoty mají přednost i u tvrdé party: s rybami, holubovi, v lesích, na polích — měkké i; s kuřaty — tvrdé y.\"><text x=\"340\" y=\"26\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">VÝJIMKA TVRDÉ PARTY: TI ŽIVÍ</text><text x=\"340\" y=\"46\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">živí mužští (lidé a zvířata) v 1. pádě množného čísla</text><rect x=\"14\" y=\"60\" width=\"318\" height=\"164\" rx=\"12\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"173\" y=\"88\" text-anchor=\"middle\" font-size=\"16.5\" font-weight=\"bold\" fill=\"var(--info)\">KDO? Jde říct TI → i</text><line x1=\"30\" y1=\"100\" x2=\"316\" y2=\"100\" stroke=\"var(--info)\" stroke-width=\"1\" /><text x=\"30\" y=\"127\" font-size=\"15\" fill=\"currentColor\">TI holub<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan> létají.</text><text x=\"30\" y=\"152\" font-size=\"15\" fill=\"currentColor\">TI ps<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan> byli nakrmeni.</text><text x=\"30\" y=\"177\" font-size=\"15\" fill=\"currentColor\">To jsou TI ps<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan>.</text><text x=\"30\" y=\"202\" font-size=\"15\" fill=\"currentColor\">Chlap<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan>, pojďte! (oslovení)</text><rect x=\"348\" y=\"60\" width=\"318\" height=\"164\" rx=\"12\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"507\" y=\"88\" text-anchor=\"middle\" font-size=\"16.5\" font-weight=\"bold\" fill=\"var(--zlata)\">KOHO? S KÝM? → y</text><line x1=\"364\" y1=\"100\" x2=\"650\" y2=\"100\" stroke=\"var(--zlata)\" stroke-width=\"1\" /><text x=\"364\" y=\"127\" font-size=\"15\" fill=\"currentColor\">Krmíme TY holub<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan>.</text><text x=\"364\" y=\"152\" font-size=\"15\" fill=\"currentColor\">Venčím TY ps<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan>.</text><text x=\"364\" y=\"177\" font-size=\"15\" fill=\"currentColor\">Šel s TĚMI holub<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan>.</text><text x=\"364\" y=\"202\" font-size=\"15\" fill=\"currentColor\">Běhá se ps<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan>.</text><rect x=\"14\" y=\"238\" width=\"652\" height=\"64\" rx=\"12\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"340\" y=\"261\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">JISTOTY MAJÍ PŘEDNOST I U TVRDÉ PARTY</text><text x=\"340\" y=\"286\" text-anchor=\"middle\" font-size=\"14.5\" fill=\"currentColor\">s rybam<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan> · holubov<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan> · v les<tspan font-weight=\"bold\" fill=\"var(--info)\">í</tspan>ch, na pol<tspan font-weight=\"bold\" fill=\"var(--info)\">í</tspan>ch · s kuřat<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text></svg>",
+          "popisek": "Výjimka TI živí: vlevo jde říct TI a ptáš se KDO? → měkké i, i když psi sami nic nedělají; stejný tvar má oslovení. Vpravo se ptáš KOHO? S KÝM? → zůstává tvrdé y. Dole jistoty, které mají přednost i u tvrdé party."
+        },
+        {
+          "typ": "text",
+          "obsah": "**U slov na -l, -s, -z se chybuje nejčastěji.** Test „bez ___“ si u nich řekni pokaždé:\n\n- **tvrdé** (bez ___a/u → y): úkol, kostel, hotel, tunel, mobil, e-mail, festival, seriál, les, obraz, časopis, autobus, kvíz,\n- **měkké** (bez ___e → i): cíl, pytel, král, přítel, učitel, ředitel, majitel, vítěz.\n\nDvojice k zapamatování: s hotely × s řediteli, s úkoly × s cíli, s kostely × s přáteli, s obrazy × s vítězi.\n\n**Přejatá slova středního rodu:** na -io, -ium, -eum mají v množném čísle měkké i (rádio → s rádii, studio → se studii, médium → s médii, muzeum → s muzei). Slova na -um se souhláskou jdou s tvrdou partou (album → s alby)."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Do které party slovo patří? Podívej se, na co končí. U mužských slov si řekni „bez ___“.",
+            "kategorie": [
+              {
+                "id": "tvrda",
+                "nazev": "TVRDÁ PARTA → y"
+              },
+              {
+                "id": "mekka",
+                "nazev": "MĚKKÁ PARTA → i"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "ryba",
+                "kategorieId": "tvrda"
+              },
+              {
+                "text": "postel",
+                "kategorieId": "mekka"
+              },
+              {
+                "text": "kolo",
+                "kategorieId": "tvrda"
+              },
+              {
+                "text": "pole",
+                "kategorieId": "mekka"
+              },
+              {
+                "text": "holub",
+                "kategorieId": "tvrda"
+              },
+              {
+                "text": "cíl",
+                "kategorieId": "mekka"
+              },
+              {
+                "text": "úkol",
+                "kategorieId": "tvrda"
+              },
+              {
+                "text": "přítel",
+                "kategorieId": "mekka"
+              },
+              {
+                "text": "hotel",
+                "kategorieId": "tvrda"
+              },
+              {
+                "text": "učitel",
+                "kategorieId": "mekka"
+              },
+              {
+                "text": "blog",
+                "kategorieId": "tvrda"
+              },
+              {
+                "text": "mrkev",
+                "kategorieId": "mekka"
+              },
+              {
+                "text": "tác",
+                "kategorieId": "tvrda"
+              },
+              {
+                "text": "židle",
+                "kategorieId": "mekka"
+              },
+              {
+                "text": "mobil",
+                "kategorieId": "tvrda"
+              },
+              {
+                "text": "král",
+                "kategorieId": "mekka"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-koncovky-podstatnych-2",
+            "temaId": "prav-koncovky-podstatnych",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Píšeš příspěvek o zmatku na zahrádce restaurace. Která věta je bez chyby?",
+            "moznosti": [
+              "Psi běhali mezi stoly a číšník si se psy nevěděl rady.",
+              "Psy běhali mezi stoly a číšník si se psy nevěděl rady.",
+              "Psi běhali mezi stoli a číšník si se psy nevěděl rady.",
+              "Psi běhali mezi stoly a číšník si se psi nevěděl rady."
+            ],
+            "spravna": 0,
+            "vysvetleni": "Psi běhali — jde říct TI psi a ptáš se KDO? → výjimka TI živí → i. Stůl patří do tvrdé party (bez stolu) → mezi stoly. A „se psy“ — ptáš se S KÝM? (s TĚMI psy) → zůstává tvrdé y."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Doplň i/í, nebo y/ý v krátkém textu jako z diktátu:\n\n„Před hotel_ stály dva autobus_. V hlubokých les_ch za městem kroužili sokol_ a kluci ty sokol_ fotili. Večer jsme seděli s přátel_ u ohně a bavili se o cíl_ zítřejší túry.“\n\nU každého místa postupuj stejně: **kde to je → který trik → výsledek.**",
+          "reseni": "Všechna místa jsou v **koncovce podstatného jména** → rozhodují dvě party, test „bez ___“ a jistoty.\n\n- **před hotel_** — bez hotel**u** → tvrdá parta → před **hotely**.\n- **dva autobus_** — bez autobus**u** → tvrdá parta → dva **autobusy**.\n- **v les_ch** — les je sice tvrdá parta, ale dlouhé -ích je jistota: vždy měkké → v **lesích**.\n- **kroužili sokol_** — jde říct TI sokoli a ptáš se KDO kroužil? → výjimka TI živí → **sokoli**.\n- **ty sokol_ fotili** — ptáš se KOHO fotili? (TY sokoly) → zůstává tvrdé y → **sokoly**.\n- **s přátel_** — bez přítel**e** → měkká parta → s **přáteli**.\n- **o cíl_** — bez cíl**e** → měkká parta → o **cíli**.\n\n**Celý text:** „Před hotely stály dva autobusy. V hlubokých lesích za městem kroužili sokoli a kluci ty sokoly fotili. Večer jsme seděli s přáteli u ohně a bavili se o cíli zítřejší túry.“"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "O čem dvě party rozhodují?",
+              "zadni": "Jen o krátkém -i / -y na konci slova (ryby, s holuby × v posteli, s cíli). Rozhoduješ se hlavně po obojetné souhlásce (b, f, l, m, p, s, v, z)."
+            },
+            {
+              "predni": "TVRDÁ PARTA — kdo do ní patří?",
+              "zadni": "Slova na -a (ryba, táta), střední rod na -o (kolo), mužský rod s „bez ___a/u“ (holub, úkol). Píše Y."
+            },
+            {
+              "predni": "MĚKKÁ PARTA — kdo do ní patří?",
+              "zadni": "Ženský rod, který nekončí na -a (postel, mrkev, židle), střední rod na -e (pole), mužský rod s „bez ___e“ (cíl, přítel). Píše I."
+            },
+            {
+              "predni": "Test „bez ___“ — jak zní a kde funguje?",
+              "zadni": "bez ___a/u → y (bez hotelu → s hotely); bez ___e → i (bez ředitele → s řediteli). Funguje u mužských slov na obojetnou souhlásku a také na -g, -x, -c (blogy, faxy, tácy)."
+            },
+            {
+              "predni": "Výjimka TI živí",
+              "zadni": "Živí mužští mají v 1. pádě množného čísla -i: TI holubi, TI psi. Jde říct TI a ptáš se KDO? Stejný tvar má oslovení (Chlapi, pojďte!)."
+            },
+            {
+              "predni": "Ps_ byli nakrmeni. × Venčím ps_.",
+              "zadni": "Psi byli nakrmeni (KDO? TI psi → i, i když sami nic nedělají). Venčím psy (KOHO? TY psy → y)."
+            },
+            {
+              "predni": "s hotel_ × s ředitel_",
+              "zadni": "s hotely (bez hotelu → tvrdá parta) × s řediteli (bez ředitele → měkká parta)"
+            },
+            {
+              "predni": "v les_ch, na pol_ch, v údol_ch",
+              "zadni": "v lesích, na polích, v údolích — dlouhé -ích je vždy měkké, i u tvrdé party"
+            },
+            {
+              "predni": "s rybam_, holubov_ (komu?), s kuřat_",
+              "zadni": "s rybami, holubovi (-mi a -ovi jsou vždy měkké), s kuřaty (-aty je tvrdé) — jistoty mají přednost i u tvrdé party"
+            },
+            {
+              "predni": "s rádi_, s médi_ × s alb_",
+              "zadni": "s rádii, s médii (přejatá slova na -io, -ium, -eum → měkké i) × s alby (-um se souhláskou → tvrdá parta)"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Dvě party rozhodují o **krátkém -i / -y na konci slova**, hlavně po obojetné souhlásce.\n- **TVRDÁ PARTA píše Y:** slova na -a, střední rod na -o, mužský rod s „bez ___a/u“ (ryby, s koly, s holuby, s úkoly).\n- **MĚKKÁ PARTA píše I:** ženský rod, který nekončí na -a, střední rod na -e, mužský rod s „bez ___e“ (v posteli, v poli, s cíli, s přáteli).\n- **Výjimka TI živí:** jde říct TI a ptáš se KDO? → i (holubi létají, psi byli nakrmeni); koho? s kým? → y (krmíme holuby, se psy).\n- **Jistoty mají přednost i u tvrdé party:** -mi, -ovi a dlouhé -ích jsou vždy měkké (s rybami, holubovi, v lesích)."
+        }
+      ]
+    },
+    {
+      "temaId": "prav-koncovky-pridavnych",
+      "nazev": "Koncovky přídavných jmen",
+      "poradi": 5,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Pod video z turnaje píšeš komentář: „Nov_ hráči jsou fakt rychl_, ale znám_ mazáci je stejně přehráli.“ Tři přídavná jména, tři zaváhání. A přitom na všechna tři stačí jeden jediný ukazováček: **TI**."
+        },
+        {
+          "typ": "text",
+          "obsah": "Přídavná jména jsou **tří druhů** — a pořád na ně platí stejný ukazováček **TI**.\n\n**1. Měkká přídavná jména** (jarní, letní, cizí, psí, rybí, dnešní, poslední, lepší): poznáš je podle toho, že mají **ve všech rodech stejný tvar** — ten jarní den, ta jarní louka, to jarní ráno.\n\nPíše se v nich **vždy měkké í**: jarního, jarním, jarních, jarními, cizí lidé, s cizími lidmi. Tady se nerozhoduje vůbec."
+        },
+        {
+          "typ": "text",
+          "obsah": "**2. Tvrdá přídavná jména** (mladý, milý, malý, zlý, slabý, známý, veselý, rychlý, nový): ten mladý, ta mladá, to mladé. V koncovce mají **tvrdé ý**: milý kluk, s milým klukem, bez milých kluků, s milými kluky.\n\n**Jediná výjimka: TI** = víc živých mužských v 1. pádě (a stejně v oslovení) → **měkké í**: ti milí kluci, ti malí psi, ti slabí hráči, ti známí herci, ti noví spolužáci; Milí spolužáci, pojďte!\n\n- milý kluk × **milí kluci** × milé holky × milá děvčata × s milými kluky\n- nový mobil × **noví spolužáci** × nové mobily\n- Byl unavený. × **Byli unavení.** (ti kluci) × Byly unavené. (ty holky)\n\nPomůcka: **„ten/ta/to/ty → ý (é, á). TI → í.“** Ještě kratší: **ten milý × TI milí**."
+        },
+        {
+          "typ": "text",
+          "obsah": "A komentář z úvodu? Hráči i mazáci jsou TI → **Noví** hráči jsou fakt **rychlí**, ale **známí** mazáci je stejně přehráli.\n\n**Pozor na ukazováček:** v běžné řeči říkáme „ty kluci“. Pro pravopis to neplatí — řekni si jeden kus: TEN kluk (živý) → TI kluci → milí kluci."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Tyhle koncovky píšeš pořád: oslovení v e-mailu celé třídě („Milí spolužáci“), komentář pod videem („noví hráči“), zpráva po tréninku („byli jsme úplně unavení“), domluva na víkend („Petrovi rodiče nás vezmou autem“). Chyba v oslovení je vidět hned v prvním slově. S ukazováčkem TI ji neuděláš — a nemusíš přitom skloňovat podle žádného vzoru."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 430\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Ukazováček TI u přídavných jmen. Tvrdá přídavná jména: ten, ta, to, ty píšou ý, é, á (ten milý kluk, ty milé holky, s milými kluky); TI, tedy víc živých mužských v 1. pádě a v oslovení, píše í (ti milí kluci, ti noví spolužáci; Milí spolužáci, pojďte!). Přivlastňovací: měkké -ovi a -ini se píše jen pro TI (Petrovi kamarádi, matčini rodiče, sousedovi psi), všude jinde -ovy a -iny (Petrovy boty, matčiny šaty, vidím Petrovy kamarády, z babiččiny zahrady, s Petrovými kamarády). Měkká přídavná jména mají vždy í.\"><text x=\"340\" y=\"26\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">UKAZOVÁČEK TI: ten mil<tspan font-weight=\"bold\" fill=\"var(--zlata)\">ý</tspan> × TI mil<tspan font-weight=\"bold\" fill=\"var(--info)\">í</tspan></text><text x=\"14\" y=\"54\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">TVRDÁ PŘÍDAVNÁ JMÉNA (milý, nový, malý)</text><rect x=\"14\" y=\"64\" width=\"318\" height=\"132\" rx=\"12\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"173\" y=\"90\" text-anchor=\"middle\" font-size=\"15.5\" font-weight=\"bold\" fill=\"var(--zlata)\">ten / ta / to / ty → ý (é, á)</text><line x1=\"30\" y1=\"101\" x2=\"316\" y2=\"101\" stroke=\"var(--zlata)\" stroke-width=\"1\" /><text x=\"30\" y=\"123\" font-size=\"13.5\" fill=\"currentColor\">ten mil<tspan font-weight=\"bold\" fill=\"var(--zlata)\">ý</tspan> kluk, ten nov<tspan font-weight=\"bold\" fill=\"var(--zlata)\">ý</tspan> mobil</text><text x=\"30\" y=\"143\" font-size=\"13.5\" fill=\"currentColor\">ta mil<tspan font-weight=\"bold\" fill=\"var(--zlata)\">á</tspan> holka, to mil<tspan font-weight=\"bold\" fill=\"var(--zlata)\">é</tspan> štěně</text><text x=\"30\" y=\"163\" font-size=\"13.5\" fill=\"currentColor\">ty mil<tspan font-weight=\"bold\" fill=\"var(--zlata)\">é</tspan> holky, ty nov<tspan font-weight=\"bold\" fill=\"var(--zlata)\">é</tspan> mobily</text><text x=\"30\" y=\"183\" font-size=\"13.5\" fill=\"currentColor\">ostatní pády: s mil<tspan font-weight=\"bold\" fill=\"var(--zlata)\">ý</tspan>mi kluky</text><rect x=\"348\" y=\"64\" width=\"318\" height=\"132\" rx=\"12\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"507\" y=\"90\" text-anchor=\"middle\" font-size=\"15.5\" font-weight=\"bold\" fill=\"var(--info)\">TI → í</text><line x1=\"364\" y1=\"101\" x2=\"650\" y2=\"101\" stroke=\"var(--info)\" stroke-width=\"1\" /><text x=\"364\" y=\"123\" font-size=\"13.5\" fill=\"currentColor\">ti mil<tspan font-weight=\"bold\" fill=\"var(--info)\">í</tspan> kluci, ti mal<tspan font-weight=\"bold\" fill=\"var(--info)\">í</tspan> psi</text><text x=\"364\" y=\"143\" font-size=\"13.5\" fill=\"currentColor\">ti nov<tspan font-weight=\"bold\" fill=\"var(--info)\">í</tspan> spolužáci</text><text x=\"364\" y=\"163\" font-size=\"13.5\" fill=\"currentColor\">Mil<tspan font-weight=\"bold\" fill=\"var(--info)\">í</tspan> spolužáci, pojďte! (oslovení)</text><text x=\"364\" y=\"183\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--info)\">víc živých mužských: 1. pád a oslovení</text><text x=\"14\" y=\"224\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">PŘIVLASTŇOVACÍ (Petrův, matčin): měkké -ovi / -ini JEN pro TI</text><rect x=\"14\" y=\"234\" width=\"318\" height=\"132\" rx=\"12\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"173\" y=\"260\" text-anchor=\"middle\" font-size=\"15.5\" font-weight=\"bold\" fill=\"var(--zlata)\">všude jinde → -ovy / -iny</text><line x1=\"30\" y1=\"271\" x2=\"316\" y2=\"271\" stroke=\"var(--zlata)\" stroke-width=\"1\" /><text x=\"30\" y=\"293\" font-size=\"13.5\" fill=\"currentColor\">Petrov<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan> boty, matčin<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan> šaty</text><text x=\"30\" y=\"313\" font-size=\"13.5\" fill=\"currentColor\">vidím Petrov<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan> kamarády (4. pád)</text><text x=\"30\" y=\"333\" font-size=\"13.5\" fill=\"currentColor\">z babiččin<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan> zahrady (2. pád)</text><text x=\"30\" y=\"353\" font-size=\"13.5\" fill=\"currentColor\">s Petrov<tspan font-weight=\"bold\" fill=\"var(--zlata)\">ý</tspan>mi kamarády</text><rect x=\"348\" y=\"234\" width=\"318\" height=\"132\" rx=\"12\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"507\" y=\"260\" text-anchor=\"middle\" font-size=\"15.5\" font-weight=\"bold\" fill=\"var(--info)\">jen TI → -ovi / -ini</text><line x1=\"364\" y1=\"271\" x2=\"650\" y2=\"271\" stroke=\"var(--info)\" stroke-width=\"1\" /><text x=\"364\" y=\"293\" font-size=\"13.5\" fill=\"currentColor\">Petrov<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan> kamarádi</text><text x=\"364\" y=\"313\" font-size=\"13.5\" fill=\"currentColor\">matčin<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan> rodiče</text><text x=\"364\" y=\"333\" font-size=\"13.5\" fill=\"currentColor\">sousedov<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan> psi</text><text x=\"340\" y=\"393\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">MĚKKÁ (jarní, cizí): vždy í — tam se nerozhoduje.</text><text x=\"340\" y=\"416\" text-anchor=\"middle\" font-size=\"14.5\" font-weight=\"bold\" fill=\"currentColor\">„ten/ta/to/ty → ý (é, á). TI → í.“</text></svg>",
+          "popisek": "Nahoře tvrdá přídavná jména: na ten, ta, to, ty platí ý (é, á), jen na TI (víc živých mužských v 1. pádě a v oslovení) měkké í. Dole přivlastňovací přídavná jména: měkké -ovi / -ini jen pro TI, všude jinde -ovy / -iny. Měkká přídavná jména mají í vždy."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-koncovky-pridavnych-1",
+            "temaId": "prav-koncovky-pridavnych",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Doplň do zprávy po tréninku: „Náš nov_ trenér je přísný, ale nov_ spoluhráči jsou v pohodě.“",
+            "moznosti": [
+              "nový trenér, noví spoluhráči",
+              "noví trenér, noví spoluhráči",
+              "nový trenér, nový spoluhráči",
+              "noví trenér, nový spoluhráči"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Trenér je jeden: TEN nový trenér → tvrdé ý. Spoluhráči jsou TI (víc živých mužských v 1. pádě) → měkké í: noví spoluhráči. Pomůcka: ten/ta/to/ty → ý, TI → í."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**3. Přivlastňovací přídavná jména** (Petrův, otcův, sousedův, tátův, matčin, sestřin, babiččin) — zase ukazováček. Měkké **-ovi / -ini se píše JEN pro TI**, všude jinde -ovy / -iny:\n\n- **TI → -ovi / -ini** (víc živých mužských v 1. pádě a v oslovení): Petrovi kamarádi, otcovi bratři, sousedovi psi, matčini rodiče, sestřini spolužáci.\n- **TY → -ovy / -iny** (ty boty, ty sestry, ty stoly — a také 4. pád: vidím ty kamarády): Petrovy boty, otcovy sestry, sousedovy stromy, matčiny šaty, vidím Petrovy kamarády, mám pamlsky pro sousedovy psy.\n- **od TÉ, bez TÉ → -ovy / -iny** (2. pád): od Petrovy sestry, z babiččiny zahrady, u sousedovy garáže.\n- **s TĚMI → -ovými / -inými** (tvrdé ý): s Petrovými kamarády."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Příjmení celé rodiny** (Novákovi) se řídí stejným ukazováčkem:\n\n- **Novákovi** přišli. (TI Novákovi)\n- Navštívili jsme **Novákovy**. (TY Novákovy — 4. pád)\n- Jdeme k **Novákovým**.\n\n**Nepleť s podstatným jménem ve 3. a 6. pádě:** dal to **Petrovi**, mluvili o **Petrovi** (komu? o kom? — vždy -ovi). To je jistota, tam se nerozhoduje."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Jaké písmeno patří do mezery? Ukaž si na podstatné jméno: je to TI — víc živých mužských v 1. pádě nebo v oslovení? Pak í / i. Všude jinde ý / y.",
+            "kategorie": [
+              {
+                "id": "ti",
+                "nazev": "TI → í / i"
+              },
+              {
+                "id": "ne-ti",
+                "nazev": "není TI → ý / y"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "mil_ kluci",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "mil_ kluk",
+                "kategorieId": "ne-ti"
+              },
+              {
+                "text": "nov_ spolužáci",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "nov_ mobil",
+                "kategorieId": "ne-ti"
+              },
+              {
+                "text": "mal_ psi",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "s mil_mi kluky",
+                "kategorieId": "ne-ti"
+              },
+              {
+                "text": "znám_ herci",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "bez nov_ch spolužáků",
+                "kategorieId": "ne-ti"
+              },
+              {
+                "text": "Mil_ spolužáci, pojďte!",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "Petrov_ boty",
+                "kategorieId": "ne-ti"
+              },
+              {
+                "text": "Petrov_ kamarádi",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "vidím Petrov_ kamarády",
+                "kategorieId": "ne-ti"
+              },
+              {
+                "text": "sousedov_ psi",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "z babiččin_ zahrady",
+                "kategorieId": "ne-ti"
+              },
+              {
+                "text": "sestřin_ spolužáci",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "od Petrov_ sestry",
+                "kategorieId": "ne-ti"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-koncovky-pridavnych-2",
+            "temaId": "prav-koncovky-pridavnych",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Píšeš kamarádce, jak dopadl víkend. Která věta je bez chyby?",
+            "moznosti": [
+              "Petrovi rodiče nás pozvali a my jsme vzali i Petrovy bratry.",
+              "Petrovy rodiče nás pozvali a my jsme vzali i Petrovy bratry.",
+              "Petrovi rodiče nás pozvali a my jsme vzali i Petrovi bratry.",
+              "Petrovy rodiče nás pozvali a my jsme vzali i Petrovi bratry."
+            ],
+            "spravna": 0,
+            "vysvetleni": "Kdo pozval? TI rodiče (1. pád) → Petrovi rodiče. Koho jsme vzali? TY bratry (4. pád) → Petrovy bratry. Měkké -ovi se píše jen pro TI, všude jinde -ovy."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Doplň i/í, nebo y/ý v krátkém textu jako z diktátu:\n\n„Do třídy přišli dva nov_ spolužáci. Jsou to mil_ a vesel_ kluci a s ciz_mi lidmi se baví bez problémů. Po škole na ně čekali Tomášov_ bratři. Večer jsme ještě potkali Tomášov_ rodiče u babiččin_ zahrady.“\n\nU každého místa postupuj stejně: **kde to je → který trik → výsledek.**",
+          "reseni": "Všechna místa jsou na **konci přídavného jména** → rozhoduje druh přídavného jména a ukazováček TI.\n\n- **nov_ spolužáci** — tvrdé přídavné jméno (ten nový); spolužáci jsou TI (víc živých mužských v 1. pádě) → **noví**.\n- **mil_ a vesel_ kluci** — TI kluci → **milí a veselí**.\n- **s ciz_mi lidmi** — cizí je měkké přídavné jméno (ten cizí, ta cizí, to cizí) → vždy í → **cizími**.\n- **Tomášov_ bratři** — přivlastňovací; kdo čekal? TI bratři → **Tomášovi**.\n- **Tomášov_ rodiče** — přivlastňovací; koho jsme potkali? TY rodiče (4. pád), není to TI → **Tomášovy**.\n- **u babiččin_ zahrady** — přivlastňovací; u TÉ zahrady (2. pád), není to TI → **babiččiny**.\n\n**Celý text:** „Do třídy přišli dva noví spolužáci. Jsou to milí a veselí kluci a s cizími lidmi se baví bez problémů. Po škole na ně čekali Tomášovi bratři. Večer jsme ještě potkali Tomášovy rodiče u babiččiny zahrady.“"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Tři druhy přídavných jmen",
+              "zadni": "měkká (jarní, cizí), tvrdá (mladý, milý), přivlastňovací (Petrův, matčin)"
+            },
+            {
+              "predni": "Jak poznám měkké přídavné jméno a co v něm píšu?",
+              "zadni": "Má ve všech rodech stejný tvar (ten jarní, ta jarní, to jarní). Píše se v něm vždy měkké í."
+            },
+            {
+              "predni": "Pomůcka pro tvrdá přídavná jména",
+              "zadni": "ten/ta/to/ty → ý (é, á). TI → í."
+            },
+            {
+              "predni": "Co znamená TI?",
+              "zadni": "Víc živých mužských v 1. pádě a stejně v oslovení: ti milí kluci, ti noví spolužáci; Milí spolužáci, pojďte!"
+            },
+            {
+              "predni": "mil_ kluk × mil_ kluci",
+              "zadni": "milý kluk (ten milý) × milí kluci (TI milí)"
+            },
+            {
+              "predni": "s mil_mi kluky",
+              "zadni": "s milými kluky — není to TI (ptáš se s kým?, ne kdo?), zůstává tvrdé ý"
+            },
+            {
+              "predni": "Petrov_ kamarádi × Petrov_ boty",
+              "zadni": "Petrovi kamarádi (TI) × Petrovy boty (TY). Měkké -ovi / -ini se píše JEN pro TI, všude jinde -ovy / -iny."
+            },
+            {
+              "predni": "vidím Petrov_ kamarády, z babiččin_ zahrady",
+              "zadni": "vidím Petrovy kamarády (4. pád), z babiččiny zahrady (2. pád) — není to TI → -ovy / -iny"
+            },
+            {
+              "predni": "Novákov_ přišli × navštívili jsme Novákov_",
+              "zadni": "Novákovi přišli (TI Novákovi) × navštívili jsme Novákovy (TY Novákovy, 4. pád)"
+            },
+            {
+              "predni": "dal to Petrov_, mluvili o Petrov_",
+              "zadni": "dal to Petrovi, mluvili o Petrovi — podstatné jméno ve 3. a 6. pádě (komu? o kom?), vždy -ovi"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Měkká** přídavná jména (jarní, cizí) mají ve všech rodech stejný tvar a píšou **vždy í**.\n- **Tvrdá** (milý, nový): **ten/ta/to/ty → ý (é, á). TI → í** — ten milý × TI milí.\n- **TI** = víc živých mužských v 1. pádě a stejně v oslovení (Milí spolužáci!). Jinde zůstává ý: s milými kluky.\n- **Přivlastňovací:** měkké -ovi / -ini JEN pro TI (Petrovi kamarádi), všude jinde -ovy / -iny (Petrovy boty, vidím Petrovy kamarády, z babiččiny zahrady).\n- **Petrovi** (komu? o kom?) je podstatné jméno ve 3. nebo 6. pádě — vždy -ovi."
+        }
+      ]
+    },
+    {
+      "temaId": "prav-shoda",
+      "nazev": "Shoda přísudku s podmětem",
+      "poradi": 6,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Po zápase píšeš do týmového chatu: „Kluci hrál_ skvěle, holky fandil_ a auta rodičů stál_ až u lesa.“ Tři slovesa, tři různé koncovky. Kontrola pravopisu v mobilu ti neporadí, protože hráli, hrály i hrála jsou správná slova. Rozhodne jediná otázka: **kdo to dělal?**"
+        },
+        {
+          "typ": "text",
+          "obsah": "Koncovka slovesa v minulém čase (**-li / -ly / -la**) se řídí tím, **KDO to dělal**. Najdi podmět a ukaž si na něj:\n\n- **TI** (živí mužští: muži, kluci, psi, hráči) → **-li**: Kluci hráli. Psi štěkali. Lidé čekali.\n- **TY** (neživé mužské, ženské: stromy, vlaky, týmy, zápasy, ženy, kočky) → **-ly**: Stromy rostly. Holky běhaly. Děti si hrály.\n- **TA** (střední v množném čísle: města, auta, kuřata, jablka, okna) → **-la**: Auta jela. Kuřata zobala. Děvčata se smála.\n\nPostup je pokaždé stejný: **najdi sloveso → zeptej se „kdo to dělal?“ → ukaž si TI / TY / TA.** Zpráva z úvodu: TI kluci hrá**li**, TY holky fandi**ly**, TA auta stá**la**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Pozor na ukazováček:** v běžné řeči říkáme „ty kluci“ a „ty auta“. Pro pravopis to neplatí. Když si nejsi jistý, řekni si **JEDEN kus**:\n\n- TEN kluk, TEN pes (živý) → TI kluci, TI psi → **-li**,\n- TO auto, TO kuře → TA auta, TA kuřata → **-la**,\n- všechno ostatní (TEN strom, TA holka) → TY → **-ly**.\n\nJen tři slova jdou jinak: to dítě, to oko, to ucho → TY děti, oči, uši."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Chytáky** — tyhle se vyplatí umět zpaměti:\n\n- **děti** → TY děti → hrály\n- **lidé** → TI → šli\n- **rodiče** → TI → přišli\n- **koně** → TI → běželi\n- **oči, uši** → TY → se zavřely\n- **dny** → TY → ubíhaly\n- **sněhuláci, strašáci** (tvar jako živí) → roztáli, stáli\n- **děvčata, zvířata, koťata** → TA → -la\n- **záda, ústa, vrata, kamna** (jeden kus nemají — jsou TA) → Záda ho bolela. Vrata se otevřela.\n\nNejvětší chyták jsou **děti**: jedno je TO dítě, a přesto na ně ukážeš **TY děti** → Děti si **hrály**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Minulý čas v množném čísle je v každém vyprávění: co jste dělali o víkendu, jak dopadl zápas, co se stalo ve škole. Kontrola pravopisu v mobilu ti nepomůže — „hráli“, „hrály“ i „hrála“ jsou správná slova, záleží jen na tom, kdo to dělal. V diktátu je chyba ve shodě hrubka. A ve zprávě trenérovi nebo v e-mailu učitelce je vidět na první pohled."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 398\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Tři ukazováčky pro shodu přísudku s podmětem. Když si nejsi jistý ukazováčkem, řekni si jeden kus. TI, živí mužští (TEN kluk, TEN pes), píšou -li: Kluci hráli, Psi štěkali; chytáky lidé šli, rodiče přišli, koně běželi, sněhuláci roztáli. TY, neživé mužské a ženské (TEN strom, TA holka), píšou -ly: Stromy rostly, Holky běhaly; chytáky děti hrály, oči a uši se zavřely, dny ubíhaly. TA, střední v množném čísle (TO auto, TO kuře), píšou -la: Auta jela, Kuřata zobala; chytáky děvčata, zvířata, koťata a také záda, ústa, vrata, kamna, která jeden kus nemají. Víc podmětů: stačí jeden živý mužský a píše se -li.\"><text x=\"340\" y=\"26\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">KDO TO DĚLAL? UKAŽ SI NA PODMĚT</text><text x=\"340\" y=\"46\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">Nejsi si jistý ukazováčkem? Řekni si JEDEN kus.</text><rect x=\"14\" y=\"58\" width=\"208\" height=\"266\" rx=\"12\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"118\" y=\"92\" text-anchor=\"middle\" font-size=\"21\" font-weight=\"bold\" fill=\"var(--info)\">TI → -li</text><text x=\"118\" y=\"113\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">živí mužští</text><text x=\"118\" y=\"132\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">TEN kluk, TEN pes → TI</text><line x1=\"28\" y1=\"143\" x2=\"208\" y2=\"143\" stroke=\"var(--info)\" stroke-width=\"1\" /><text x=\"118\" y=\"167\" text-anchor=\"middle\" font-size=\"14.5\" fill=\"currentColor\">Kluci hrál<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan>.</text><text x=\"118\" y=\"189\" text-anchor=\"middle\" font-size=\"14.5\" fill=\"currentColor\">Psi štěkal<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan>.</text><line x1=\"28\" y1=\"203\" x2=\"208\" y2=\"203\" stroke=\"var(--info)\" stroke-width=\"1\" stroke-dasharray=\"4 4\" /><text x=\"118\" y=\"223\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" letter-spacing=\"1\" fill=\"currentColor\">CHYTÁKY</text><text x=\"118\" y=\"245\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">lidé → šl<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan></text><text x=\"118\" y=\"265\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">rodiče → přišl<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan></text><text x=\"118\" y=\"285\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">koně → běžel<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan></text><text x=\"118\" y=\"305\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">sněhuláci → roztál<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan></text><rect x=\"236\" y=\"58\" width=\"208\" height=\"266\" rx=\"12\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"340\" y=\"92\" text-anchor=\"middle\" font-size=\"21\" font-weight=\"bold\" fill=\"var(--zlata)\">TY → -ly</text><text x=\"340\" y=\"113\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">neživé mužské, ženské</text><text x=\"340\" y=\"132\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">TEN strom, TA holka → TY</text><line x1=\"250\" y1=\"143\" x2=\"430\" y2=\"143\" stroke=\"var(--zlata)\" stroke-width=\"1\" /><text x=\"340\" y=\"167\" text-anchor=\"middle\" font-size=\"14.5\" fill=\"currentColor\">Stromy rostl<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan>.</text><text x=\"340\" y=\"189\" text-anchor=\"middle\" font-size=\"14.5\" fill=\"currentColor\">Holky běhal<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan>.</text><line x1=\"250\" y1=\"203\" x2=\"430\" y2=\"203\" stroke=\"var(--zlata)\" stroke-width=\"1\" stroke-dasharray=\"4 4\" /><text x=\"340\" y=\"223\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" letter-spacing=\"1\" fill=\"currentColor\">CHYTÁKY</text><text x=\"340\" y=\"245\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">děti → hrál<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text><text x=\"340\" y=\"265\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">oči, uši → se zavřel<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text><text x=\"340\" y=\"285\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">dny → ubíhal<tspan font-weight=\"bold\" fill=\"var(--zlata)\">y</tspan></text><rect x=\"458\" y=\"58\" width=\"208\" height=\"266\" rx=\"12\" fill=\"none\" stroke=\"var(--uspech)\" stroke-width=\"2.5\" /><text x=\"562\" y=\"92\" text-anchor=\"middle\" font-size=\"21\" font-weight=\"bold\" fill=\"var(--uspech)\">TA → -la</text><text x=\"562\" y=\"113\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">střední v množném čísle</text><text x=\"562\" y=\"132\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"bold\" fill=\"currentColor\">TO auto, TO kuře → TA</text><line x1=\"472\" y1=\"143\" x2=\"652\" y2=\"143\" stroke=\"var(--uspech)\" stroke-width=\"1\" /><text x=\"562\" y=\"167\" text-anchor=\"middle\" font-size=\"14.5\" fill=\"currentColor\">Auta jel<tspan font-weight=\"bold\" fill=\"var(--uspech)\">a</tspan>.</text><text x=\"562\" y=\"189\" text-anchor=\"middle\" font-size=\"14.5\" fill=\"currentColor\">Kuřata zobal<tspan font-weight=\"bold\" fill=\"var(--uspech)\">a</tspan>.</text><line x1=\"472\" y1=\"203\" x2=\"652\" y2=\"203\" stroke=\"var(--uspech)\" stroke-width=\"1\" stroke-dasharray=\"4 4\" /><text x=\"562\" y=\"223\" text-anchor=\"middle\" font-size=\"11.5\" font-weight=\"bold\" letter-spacing=\"1\" fill=\"currentColor\">CHYTÁKY</text><text x=\"562\" y=\"245\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">děvčata → se smál<tspan font-weight=\"bold\" fill=\"var(--uspech)\">a</tspan></text><text x=\"562\" y=\"265\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">zvířata, koťata → -l<tspan font-weight=\"bold\" fill=\"var(--uspech)\">a</tspan></text><text x=\"562\" y=\"285\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">záda, ústa → -l<tspan font-weight=\"bold\" fill=\"var(--uspech)\">a</tspan></text><text x=\"562\" y=\"305\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">vrata, kamna → -l<tspan font-weight=\"bold\" fill=\"var(--uspech)\">a</tspan></text><rect x=\"14\" y=\"336\" width=\"652\" height=\"48\" rx=\"12\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"340\" y=\"357\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"bold\" fill=\"currentColor\">VÍC PODMĚTŮ: stačí jeden živý mužský → -li</text><text x=\"340\" y=\"375\" text-anchor=\"middle\" font-size=\"13.5\" fill=\"currentColor\">Táta a máma šl<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan>. Kluci a holky běhal<tspan font-weight=\"bold\" fill=\"var(--info)\">i</tspan>.</text></svg>",
+          "popisek": "Tři ukazováčky: TI (živí mužští) → -li, TY (neživé mužské, ženské) → -ly, TA (střední v množném čísle) → -la. Tučný řádek pod nimi radí, jak si ukazováček ověřit na jednom kusu. Pod čarou jsou chytáky, které se vyplatí umět zpaměti. Dole pravidlo pro víc podmětů."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-shoda-1",
+            "temaId": "prav-shoda",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Píšeš do školního časopisu zprávu z výletu. Která věta je bez chyby?",
+            "moznosti": [
+              "Děti běhaly po louce a rodiče na ně čekali u autobusu.",
+              "Děti běhali po louce a rodiče na ně čekali u autobusu.",
+              "Děti běhaly po louce a rodiče na ně čekaly u autobusu.",
+              "Děti běhali po louce a rodiče na ně čekaly u autobusu."
+            ],
+            "spravna": 0,
+            "vysvetleni": "Kdo běhal? Děti — chyták: TY děti → běhaly. Kdo čekal? Rodiče — TI rodiče → čekali. U každého slovesa se zvlášť zeptej, kdo to dělal."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Víc podmětů najednou: stačí jeden živý mužský → -li.**\n\n- Táta a máma **šli**. Kluci a holky **běhali**. Pes a kočka **spali**. Psi a kočky se **honili**.\n- Bez živého mužského → **-ly**: Ženy a děti **šly**. Stoly a židle **stály**. Kočka a myš se **honily**.\n- Jen samá střední v množném čísle → **-la**: Koťata a štěňata si **hrála**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Podmět se umí schovat:**\n\n- **stojí až za slovesem:** Na louce se pásly **krávy**. Do třídy vešli **žáci**.\n- **není ve větě** (my, vy, oni): Šli jsme do kina. Smíšená nebo klučičí parta → -li; samé holky → -ly (Holky řekly: „Byly jsme v kině.“).\n- **není to nejbližší slovo:** **Skupina** turistů vyrazila (kdo? skupina — ta, jednotné číslo). **Většina** žáků přišla. **Pět** kluků přišlo (číslovka pět a víc → -lo); stejně **několik, mnoho, málo, pár**: Několik žáků chybělo. Mnoho lidí přišlo.\n- **Byly to** krásné dny. (ty dny) × **Byli to** dobří kamarádi. (ti kamarádi) — řídí se podstatným jménem v 1. pádě."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Stejný ukazováček platí i pro slovo sám a krátké tvary:**\n\n- TI kluci přišli **sami**, byli **zdrávi**,\n- TY děti zůstaly **samy**, byly **zdrávy**,\n- TA děvčata zůstala **sama**."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Ukaž si na podmět: TI, TY, nebo TA? Když váháš, řekni si jeden kus (TEN pes → TI psi, TO auto → TA auta). A pozor na chytáky.",
+            "kategorie": [
+              {
+                "id": "ti",
+                "nazev": "TI → -li"
+              },
+              {
+                "id": "ty",
+                "nazev": "TY → -ly"
+              },
+              {
+                "id": "ta",
+                "nazev": "TA → -la"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "kluci",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "stromy",
+                "kategorieId": "ty"
+              },
+              {
+                "text": "auta",
+                "kategorieId": "ta"
+              },
+              {
+                "text": "psi",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "holky",
+                "kategorieId": "ty"
+              },
+              {
+                "text": "kuřata",
+                "kategorieId": "ta"
+              },
+              {
+                "text": "lidé",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "děti",
+                "kategorieId": "ty"
+              },
+              {
+                "text": "děvčata",
+                "kategorieId": "ta"
+              },
+              {
+                "text": "rodiče",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "oči",
+                "kategorieId": "ty"
+              },
+              {
+                "text": "záda",
+                "kategorieId": "ta"
+              },
+              {
+                "text": "koně",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "dny",
+                "kategorieId": "ty"
+              },
+              {
+                "text": "zvířata",
+                "kategorieId": "ta"
+              },
+              {
+                "text": "sněhuláci",
+                "kategorieId": "ti"
+              },
+              {
+                "text": "vlaky",
+                "kategorieId": "ty"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-shoda-2",
+            "temaId": "prav-shoda",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Doplň zprávu: „Táta a máma odjel_ na chatu a skupina kamarádů přišl_ k nám na pizzu.“",
+            "moznosti": [
+              "odjeli, přišla",
+              "odjely, přišla",
+              "odjeli, přišli",
+              "odjely, přišli"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Táta a máma: víc podmětů, stačí jeden živý mužský (táta) → odjeli. Kdo přišel? Skupina — TA skupina, jednotné číslo → přišla. Slovo „kamarádů“ stojí hned u slovesa, ale podmět to není."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Doplň koncovky sloves v krátkém textu jako z diktátu. Píše ho kluk o oddíle, kde jsou kluci i holky:\n\n„O víkendu jsme s oddílem vyrazil_ na hory. Kluci a holky stavěl_ sněhuláky a děti z vedlejší chaty se jim smál_. V noci hustě sněžilo a ráno všechna auta zmizel_ pod sněhem. Pár sněhuláků zmizel_ taky. Rodiče nám pak volal_, jestli jsme v pořádku.“\n\nU každého místa postupuj stejně: **najdi sloveso → kdo to dělal? → TI / TY / TA.**",
+          "reseni": "Všechna místa jsou na **konci slovesa v minulém čase** → rozhoduje podmět a ukazováček.\n\n- **vyrazil_** — kdo? My. Podmět ve větě není, ale je to smíšená parta kluků a holek → **vyrazili**.\n- **stavěl_** — kdo? Kluci a holky. Víc podmětů, stačí jeden živý mužský → **stavěli**.\n- **smál_** — kdo? Děti. Chyták: TY děti → **smály**.\n- **auta zmizel_** — co? Auta. Jeden kus je TO auto → TA auta → **zmizela**.\n- **pár sněhuláků zmizel_** — pár je jako pět a víc, několik nebo mnoho → **zmizelo**.\n- **volal_** — kdo? Rodiče. Chyták: TI rodiče → **volali**.\n\n**Celý text:** „O víkendu jsme s oddílem vyrazili na hory. Kluci a holky stavěli sněhuláky a děti z vedlejší chaty se jim smály. V noci hustě sněžilo a ráno všechna auta zmizela pod sněhem. Pár sněhuláků zmizelo taky. Rodiče nám pak volali, jestli jsme v pořádku.“"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Čím se řídí koncovka slovesa v minulém čase (-li / -ly / -la)?",
+              "zadni": "Tím, KDO to dělal. Najdi podmět a ukaž si na něj: TI / TY / TA."
+            },
+            {
+              "predni": "TI / TY / TA → jaké koncovky?",
+              "zadni": "TI (živí mužští) → -li: Kluci hráli. TY (neživé mužské, ženské) → -ly: Stromy rostly. TA (střední v množném čísle) → -la: Auta jela."
+            },
+            {
+              "predni": "V řeči říkáš „ty kluci“ a „ty auta“. Jak si ukazováček ověříš?",
+              "zadni": "Řekni si JEDEN kus: TEN kluk (živý) → TI → -li. TO auto → TA → -la. Všechno ostatní (TEN strom, TA holka) → TY → -ly."
+            },
+            {
+              "predni": "Děti si hrál_. Záda ho bolel_.",
+              "zadni": "Děti si hrály (chyták: TY děti → -ly). Záda ho bolela (záda jeden kus nemají — jsou TA → -la)."
+            },
+            {
+              "predni": "lidé, rodiče, koně",
+              "zadni": "TI → -li: Lidé šli. Rodiče přišli. Koně běželi."
+            },
+            {
+              "predni": "oči, uši, dny",
+              "zadni": "TY → -ly: Oči se zavřely. Dny ubíhaly."
+            },
+            {
+              "predni": "Sněhuláci roztál_.",
+              "zadni": "Sněhuláci roztáli. — tvar jako živí (TI sněhuláci)"
+            },
+            {
+              "predni": "Víc podmětů najednou",
+              "zadni": "Stačí jeden živý mužský → -li (Táta a máma šli.). Bez živého mužského → -ly (Ženy a děti šly.). Jen samá střední v množném čísle → -la (Koťata a štěňata si hrála.)."
+            },
+            {
+              "predni": "Skupina turistů vyrazil_. × Pět kluků přišl_.",
+              "zadni": "Skupina turistů vyrazila (kdo? ta skupina). Pět kluků přišlo — pět a víc → -lo; stejně několik, mnoho, málo, pár."
+            },
+            {
+              "predni": "Děti zůstaly doma sam_.",
+              "zadni": "samy — TY děti. Stejný ukazováček: TI kluci přišli sami × TA děvčata zůstala sama."
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Koncovka **-li / -ly / -la** se řídí tím, **kdo to dělal**. Ukaž si na podmět: **TI → -li, TY → -ly, TA → -la.**\n- **Pozor na ukazováček:** řekni si JEDEN kus — TEN kluk (živý) → TI, TO auto → TA, všechno ostatní → TY.\n- **Chytáky:** děti hrály, lidé šli, rodiče přišli, koně běželi, oči se zavřely, dny ubíhaly, sněhuláci roztáli, záda bolela.\n- **Víc podmětů:** stačí jeden živý mužský → -li (Táta a máma šli.); bez něj -ly; jen samá střední v množném čísle → -la.\n- **Podmět se schovává:** za slovesem, mimo větu, nebo to není nejbližší slovo (Skupina turistů vyrazila. Pět kluků přišlo.)."
+        }
+      ]
+    },
+    {
+      "temaId": "prav-me-mne",
+      "nazev": "Mě × mně",
+      "poradi": 7,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Posíláš partě zprávu: „Počkejte na ___, beze ___ nezačínejte a pak pojďme ke ___!“ Třikrát skoro totéž slovíčko — a pokaždé váháš: mě, nebo mně? Zní to úplně stejně, takže ucho neporadí. Poradí malý trik: na chvilku si místo sebe dosaď **ty**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Trik zájmena: dosaď si TY.**\n\n- kde by bylo **tě / tebe → mě** (2. a 4. pád): Viděl **mě** (tě). Beze **mě** (bez tebe). Pro **mě** (pro tebe). Bojí se **mě** (tebe).\n- kde by bylo **tobě nebo ti → mně** (3. a 6. pád): Dej **mně** (tobě). Řekl **mně** to (řekl ti to). Je **mně** zima (je ti zima). Ke **mně** (k tobě). O **mně** (o tobě). **Mně** se to líbí (tobě se to líbí). Kde jde říct ti, můžeš napsat i **mi**.\n\nPomůcka na počítání písmen: **mě má 2 písmena → 2. a 4. pád; mně má 3 písmena → 3. a 6. pád.** A 7. pád je úplně jiný: se **mnou**.\n\nZpráva z úvodu tedy zní: Počkejte na **mě** (na tebe), beze **mě** (bez tebe) nezačínejte a pak pojďme ke **mně** (k tobě)!"
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** O sobě píšeš pořád — „počkej na mě“, „přijď ke mně“, „mně se to nelíbí“, „pro mě za mě“. Je to jedna z nejviditelnějších chyb vůbec: v komentáři ti ji někdo hned vytkne a v životopise na brigádu („Práce s lidmi mě baví.“) kazí první dojem. Kontrola pravopisu ji přitom nenajde, protože mě i mně jsou správná slova. Trik s „ty“ zabere vteřinu."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 346\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Trik zájmena: dosaď si ty. Kde by bylo tě nebo tebe, piš mě — 2 písmena, 2. a 4. pád: Viděl mě, Beze mě, Pro mě, Bojí se mě, Počkej na mě. Kde by bylo tobě nebo ti, piš mně — 3 písmena, 3. a 6. pád: Dej mně, Řekl mně to, Je mně zima, Ke mně, Mluví o mně, Mně se to líbí. Kde jde říct ti, můžeš napsat i mi. V 7. pádě se mnou.\"><text x=\"340\" y=\"26\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">MĚ, NEBO MNĚ? DOSAĎ SI TY</text><rect x=\"14\" y=\"42\" width=\"318\" height=\"232\" rx=\"12\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"173\" y=\"74\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--info)\">tě / tebe → MĚ</text><text x=\"173\" y=\"96\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">2 písmena → 2. a 4. pád</text><line x1=\"30\" y1=\"108\" x2=\"316\" y2=\"108\" stroke=\"var(--info)\" stroke-width=\"1\" /><text x=\"30\" y=\"135\" font-size=\"15\" fill=\"currentColor\">Viděl <tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan>.</text><text x=\"316\" y=\"135\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(viděl tě)</text><text x=\"30\" y=\"160\" font-size=\"15\" fill=\"currentColor\">Beze <tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan>.</text><text x=\"316\" y=\"160\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(bez tebe)</text><text x=\"30\" y=\"185\" font-size=\"15\" fill=\"currentColor\">Pro <tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan>.</text><text x=\"316\" y=\"185\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(pro tebe)</text><text x=\"30\" y=\"210\" font-size=\"15\" fill=\"currentColor\">Bojí se <tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan>.</text><text x=\"316\" y=\"210\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(bojí se tebe)</text><text x=\"30\" y=\"235\" font-size=\"15\" fill=\"currentColor\">Počkej na <tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan>.</text><text x=\"316\" y=\"235\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(počkej na tebe)</text><rect x=\"348\" y=\"42\" width=\"318\" height=\"232\" rx=\"12\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"507\" y=\"74\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--zlata)\">tobě / ti → MNĚ</text><text x=\"507\" y=\"96\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">3 písmena → 3. a 6. pád</text><line x1=\"364\" y1=\"108\" x2=\"650\" y2=\"108\" stroke=\"var(--zlata)\" stroke-width=\"1\" /><text x=\"364\" y=\"135\" font-size=\"15\" fill=\"currentColor\">Dej <tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan>.</text><text x=\"650\" y=\"135\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(dej tobě)</text><text x=\"364\" y=\"160\" font-size=\"15\" fill=\"currentColor\">Řekl <tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan> to.</text><text x=\"650\" y=\"160\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(řekl ti to)</text><text x=\"364\" y=\"185\" font-size=\"15\" fill=\"currentColor\">Je <tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan> zima.</text><text x=\"650\" y=\"185\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(je ti zima)</text><text x=\"364\" y=\"210\" font-size=\"15\" fill=\"currentColor\">Ke <tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan>.</text><text x=\"650\" y=\"210\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(k tobě)</text><text x=\"364\" y=\"235\" font-size=\"15\" fill=\"currentColor\">Mluví o <tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan>.</text><text x=\"650\" y=\"235\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(mluví o tobě)</text><text x=\"364\" y=\"260\" font-size=\"15\" fill=\"currentColor\"><tspan font-weight=\"bold\" fill=\"var(--zlata)\">Mně</tspan> se to líbí.</text><text x=\"650\" y=\"260\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\" opacity=\"0.8\">(tobě se to líbí)</text><text x=\"340\" y=\"304\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">Kde jde říct ti, můžeš napsat i <tspan font-weight=\"bold\" fill=\"var(--zlata)\">mi</tspan>.</text><text x=\"340\" y=\"328\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">7. pád je jiný: se <tspan font-weight=\"bold\" fill=\"var(--uspech)\">mnou</tspan></text></svg>",
+          "popisek": "Trik zájmena: vlevo věty, kde bys řekl tě nebo tebe → mě (2 písmena, 2. a 4. pád). Vpravo věty, kde bys řekl tobě nebo ti → mně (3 písmena, 3. a 6. pád). V závorce je vždy stejná věta s dosazeným „ty“."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-me-mne-1",
+            "temaId": "prav-me-mne",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Doplň zprávu kamarádovi: „Přijď ke ___ a vezmi pro ___ nabíječku.“",
+            "moznosti": [
+              "ke mně, pro mě",
+              "ke mě, pro mě",
+              "ke mně, pro mně",
+              "ke mě, pro mně"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Dosaď si ty: „přijď k TOBĚ“ → ke mně (3 písmena, 3. pád). „Vezmi pro TEBE“ → pro mě (2 písmena, 4. pád)."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Uvnitř slov: MNĚ jen tam, kde je N už ve slově, ze kterého tvůj tvar vznikl** — hned za M (rozuMNý → rozumně, upříMNý → upřímně) nebo ve skupině MEN (zapoMENout → zapomněl).\n\nUdělej jeden krok zpět — k výchozímu slovu:\n\n- **příslovce (jak?) → přídavné jméno:** rozumný → rozumně, upřímný → upřímně, příjemný → příjemně, temný → temně × zřejmý → zřejmě, soukromý → soukromě,\n- **sloveso v minulém čase → infinitiv:** zapomenout → zapomněl, vzpomenout → vzpomněl si × rozumět → rozuměl, umět → uměl,\n- **podstatné jméno v jiném pádě → 1. pád:** zima → v zimě, strom → na stromě, tma → ve tmě × hymna → při hymně,\n- **slovo odvozené → slovo, ze kterého vzniklo:** zapomenout → zapomnění, zapomnětlivý; zatemnit → zatemnění; rozumný → rozumnější × umět → umění; rozumět → porozumění."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Pozor: nestačí jakékoli příbuzné slovo s N.** Počítá se jen slovo, ZE KTERÉHO tvůj tvar vznikl: v zimě je od zima (zimní vzniklo až ze zimy), ve tmě je od tma (temný vzniklo až ze tmy), rozuměl je od rozumět (rozumný je jiné slovo z téže rodiny).\n\nN, které stojí až **ZA ě** a ve výchozím slově není (změna, směna, umění, zaměstnání), se nepočítá. Další slova s mě: město, náměstí, měsíc, měkký, měnit, směr, země.\n\nK zapamatování: **domněnka** (domnívat se), **pomněnka**.\n\n**Dvojice, které se pletou:**\n\n- **rozumně** (jak? — rozumný) × **rozuměl** (co dělal? — rozumět),\n- **temně** (jak? — temný) × **ve tmě** (kde? — tma),\n- **zapomněl, zapomnění** (zapomenout) × **uměl, umění** (umět)."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 366\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Uvnitř slov je mně jen tam, kde je N už ve slově, ze kterého tvůj tvar vznikl — hned za M nebo ve skupině MEN: rozumný — rozumně, upřímný — upřímně, temný — temně, zapomenout — zapomněl a zapomnění, vzpomenout — vzpomněl si. Když výchozí slovo skupinu MN ani MEN nemá, píše se mě: rozumět — rozuměl, umět — uměl a umění, zřejmý — zřejmě, zima — v zimě, tma — ve tmě. Pozor: nestačí jakékoli příbuzné slovo s N — v zimě je od zima, ve tmě je od tma, rozuměl je od rozumět. Dvojice temně (jak? — temný) a ve tmě (kde? — tma).\"><text x=\"340\" y=\"26\" text-anchor=\"middle\" font-size=\"14.5\" font-weight=\"bold\" fill=\"currentColor\">UVNITŘ SLOV: MNĚ JEN TAM, KDE JE N UŽ VE VÝCHOZÍM SLOVĚ</text><rect x=\"14\" y=\"42\" width=\"318\" height=\"208\" rx=\"12\" fill=\"none\" stroke=\"var(--zlata)\" stroke-width=\"2.5\" /><text x=\"173\" y=\"70\" text-anchor=\"middle\" font-size=\"14.5\" font-weight=\"bold\" fill=\"var(--zlata)\">výchozí slovo má MN / MEN → MNĚ</text><line x1=\"30\" y1=\"82\" x2=\"316\" y2=\"82\" stroke=\"var(--zlata)\" stroke-width=\"1\" /><text x=\"30\" y=\"108\" font-size=\"14.5\" fill=\"currentColor\">rozu<tspan font-weight=\"bold\" fill=\"var(--uspech)\">mn</tspan>ý → rozu<tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan></text><text x=\"30\" y=\"133\" font-size=\"14.5\" fill=\"currentColor\">upří<tspan font-weight=\"bold\" fill=\"var(--uspech)\">mn</tspan>ý → upří<tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan></text><text x=\"30\" y=\"158\" font-size=\"14.5\" fill=\"currentColor\">te<tspan font-weight=\"bold\" fill=\"var(--uspech)\">mn</tspan>ý → te<tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan></text><text x=\"30\" y=\"183\" font-size=\"14.5\" fill=\"currentColor\">zapo<tspan font-weight=\"bold\" fill=\"var(--uspech)\">men</tspan>out → zapo<tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan>l</text><text x=\"30\" y=\"208\" font-size=\"14.5\" fill=\"currentColor\">zapo<tspan font-weight=\"bold\" fill=\"var(--uspech)\">men</tspan>out → zapo<tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan>ní</text><text x=\"30\" y=\"233\" font-size=\"14.5\" fill=\"currentColor\">vzpo<tspan font-weight=\"bold\" fill=\"var(--uspech)\">men</tspan>out → vzpo<tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan>l si</text><rect x=\"348\" y=\"42\" width=\"318\" height=\"208\" rx=\"12\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"2.5\" /><text x=\"507\" y=\"70\" text-anchor=\"middle\" font-size=\"14.5\" font-weight=\"bold\" fill=\"var(--info)\">výchozí slovo bez MN / MEN → MĚ</text><line x1=\"364\" y1=\"82\" x2=\"650\" y2=\"82\" stroke=\"var(--info)\" stroke-width=\"1\" /><text x=\"364\" y=\"108\" font-size=\"14.5\" fill=\"currentColor\">rozumět → rozu<tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan>l</text><text x=\"364\" y=\"133\" font-size=\"14.5\" fill=\"currentColor\">umět → u<tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan>l</text><text x=\"364\" y=\"158\" font-size=\"14.5\" fill=\"currentColor\">umět → u<tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan>ní</text><text x=\"364\" y=\"183\" font-size=\"14.5\" fill=\"currentColor\">zřejmý → zřej<tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan></text><text x=\"364\" y=\"208\" font-size=\"14.5\" fill=\"currentColor\">zima → v zi<tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan></text><text x=\"364\" y=\"233\" font-size=\"14.5\" fill=\"currentColor\">tma → ve t<tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan></text><rect x=\"14\" y=\"262\" width=\"652\" height=\"62\" rx=\"12\" fill=\"none\" stroke=\"var(--akcent)\" stroke-width=\"2\" /><text x=\"340\" y=\"284\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">POZOR: nestačí jakékoli příbuzné slovo s N</text><text x=\"340\" y=\"308\" text-anchor=\"middle\" font-size=\"14\" fill=\"currentColor\">v zi<tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan> je od zima · ve t<tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan> je od tma · rozu<tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan>l je od rozumět</text><text x=\"340\" y=\"348\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"bold\" fill=\"currentColor\">te<tspan font-weight=\"bold\" fill=\"var(--zlata)\">mně</tspan> (jak? — temný) × ve t<tspan font-weight=\"bold\" fill=\"var(--info)\">mě</tspan> (kde? — tma)</text></svg>",
+          "popisek": "Uvnitř slov rozhoduje výchozí slovo — to, ze kterého tvůj tvar vznikl. Vlevo v něm je N hned za M nebo skupina MEN (zeleně) → píše se mně. Vpravo výchozí slovo MN ani MEN nemá → píše se mě. Nestačí jakékoli příbuzné slovo s N: v zimě je od zima, ne od zimní."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Co patří do mezery — mě, nebo mně? U zájmena si dosaď ty (tě / tebe → mě, tobě / ti → mně). Uvnitř slov udělej krok zpět k výchozímu slovu: je v něm MN nebo MEN?",
+            "kategorie": [
+              {
+                "id": "me",
+                "nazev": "mě"
+              },
+              {
+                "id": "mne",
+                "nazev": "mně"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "počkej na ___",
+                "kategorieId": "me"
+              },
+              {
+                "text": "pojď ke ___",
+                "kategorieId": "mne"
+              },
+              {
+                "text": "beze ___",
+                "kategorieId": "me"
+              },
+              {
+                "text": "___ se to líbí",
+                "kategorieId": "mne"
+              },
+              {
+                "text": "viděl ___",
+                "kategorieId": "me"
+              },
+              {
+                "text": "mluvili o ___",
+                "kategorieId": "mne"
+              },
+              {
+                "text": "v zi___ mrzne",
+                "kategorieId": "me"
+              },
+              {
+                "text": "je ___ zima",
+                "kategorieId": "mne"
+              },
+              {
+                "text": "sedí ve t___",
+                "kategorieId": "me"
+              },
+              {
+                "text": "zapo___l heslo",
+                "kategorieId": "mne"
+              },
+              {
+                "text": "porozu___ní textu",
+                "kategorieId": "me"
+              },
+              {
+                "text": "upadl v zapo___ní",
+                "kategorieId": "mne"
+              },
+              {
+                "text": "u___l plavat",
+                "kategorieId": "me"
+              },
+              {
+                "text": "řekl to upří___",
+                "kategorieId": "mne"
+              },
+              {
+                "text": "zřej___ nepřijde",
+                "kategorieId": "me"
+              },
+              {
+                "text": "te___ modrá barva",
+                "kategorieId": "mne"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-me-mne-2",
+            "temaId": "prav-me-mne",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Omlouváš se kamarádovi, že jsi přišel pozdě. Která věta je bez chyby?",
+            "moznosti": [
+              "Upřímně jsem zapomněl, že se v zimě stmívá tak brzy.",
+              "Upřímě jsem zapomněl, že se v zimě stmívá tak brzy.",
+              "Upřímně jsem zapoměl, že se v zimě stmívá tak brzy.",
+              "Upřímně jsem zapomněl, že se v zimně stmívá tak brzy."
+            ],
+            "spravna": 0,
+            "vysvetleni": "Upřímně — vzniklo z upříMNý, má MN → mně. Zapomněl — ze zapoMENout, má MEN → mně. V zimě — je od zima, žádné MN ani MEN → mě; zimní vzniklo až ze zimy, to se nepočítá."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Doplň **mě**, nebo **mně** — jako zájmeno i uvnitř slov (na začátku věty s velkým písmenem):\n\n„Upří___ řečeno, na ten úkol jsem úplně zapo___l — jsem prostě zapo___tlivý. ___ to připomněl až kamarád, když jsme ráno ve t___ čekali na autobus. Pro ___ to byla záchrana, sám bych tomu zadání nerozu___l. Teď je řada na ___.“\n\nU každé mezery postupuj stejně: **kde to je → který trik → výsledek.**",
+          "reseni": "- **Upří___** — uvnitř slova → krok zpět: příslovce → přídavné jméno upříMNý, má MN → **Upřímně**.\n- **zapo___l** — minulý čas → infinitiv zapoMENout, má MEN → **zapomněl**.\n- **zapo___tlivý** — slovo odvozené → vzniklo ze zapoMENout, má MEN → **zapomnětlivý**.\n- **___ to připomněl** — zájmeno → dosaď si ty: „TOBĚ to připomněl“ → **Mně** (3 písmena, 3. pád).\n- **ve t___** — jiný pád → 1. pád: tma. Žádné MN ani MEN; temný vzniklo až ze tmy, to se nepočítá → ve **tmě**.\n- **Pro ___** — zájmeno: „pro TEBE“ → **mě** (2 písmena, 4. pád).\n- **nerozu___l** — infinitiv rozumět: žádné MN ani MEN; rozumný je jiné slovo z téže rodiny → **nerozuměl**.\n- **na ___** — zájmeno: „řada je na TOBĚ“ → **mně** (3 písmena, 6. pád).\n\n**Celý text:** „Upřímně řečeno, na ten úkol jsem úplně zapomněl — jsem prostě zapomnětlivý. Mně to připomněl až kamarád, když jsme ráno ve tmě čekali na autobus. Pro mě to byla záchrana, sám bych tomu zadání nerozuměl. Teď je řada na mně.“"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Trik zájmena mě × mně",
+              "zadni": "Dosaď si TY: kde by bylo tě / tebe → mě, kde by bylo tobě nebo ti → mně."
+            },
+            {
+              "predni": "Pomůcka s počtem písmen",
+              "zadni": "mě má 2 písmena → 2. a 4. pád; mně má 3 písmena → 3. a 6. pád. V 7. pádě: se mnou."
+            },
+            {
+              "predni": "beze ___, počkej na ___ × pojď ke ___, mluvili o ___",
+              "zadni": "beze mě, počkej na mě (bez tebe, na tebe) × pojď ke mně, mluvili o mně (k tobě, o tobě)"
+            },
+            {
+              "predni": "Je ___ zima. Řekl ___ to.",
+              "zadni": "Je mně zima (je ti zima). Řekl mně to (řekl ti to). Kde jde říct ti, můžeš napsat i mi."
+            },
+            {
+              "predni": "Kdy je uvnitř slova MNĚ?",
+              "zadni": "Jen tam, kde je N už ve slově, ze kterého tvůj tvar vznikl: hned za M (rozuMNý → rozumně) nebo ve skupině MEN (zapoMENout → zapomněl)."
+            },
+            {
+              "predni": "Jak najdeš výchozí slovo?",
+              "zadni": "Krok zpět: příslovce → přídavné jméno (rozumně: rozumný); minulý čas → infinitiv (zapomněl: zapomenout); jiný pád → 1. pád (v zimě: zima); slovo odvozené → slovo, ze kterého vzniklo (zapomnění: zapomenout)."
+            },
+            {
+              "predni": "te___ (jak?) × ve t___ (kde?)",
+              "zadni": "temně (od teMNý) × ve tmě (od tma; temný vzniklo až ze tmy, to se nepočítá)"
+            },
+            {
+              "predni": "rozu___ (jak?) × rozu___l (co dělal?)",
+              "zadni": "rozumně (od rozuMNý) × rozuměl (od rozumět; rozumný je jiné slovo z téže rodiny)"
+            },
+            {
+              "predni": "zapo___ní, zapo___tlivý × u___ní",
+              "zadni": "zapomnění, zapomnětlivý (vznikly ze zapoMENout → mně) × umění (od umět, žádné MN ani MEN → mě)"
+            },
+            {
+              "predni": "z___na, sm___na, za___stnání",
+              "zadni": "změna, směna, zaměstnání — N až ZA ě, které ve výchozím slově není, se nepočítá → mě"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Zájmeno: dosaď si TY.** Kde by bylo tě / tebe → **mě**, kde by bylo tobě nebo ti → **mně**.\n- **mě má 2 písmena → 2. a 4. pád; mně má 3 písmena → 3. a 6. pád.** V 7. pádě: se mnou.\n- **Uvnitř slov:** mně jen tam, kde je N už ve slově, ze kterého tvůj tvar vznikl — hned za M (rozuMNý → rozumně) nebo ve skupině MEN (zapoMENout → zapomněl, zapomnění).\n- **Nestačí jakékoli příbuzné slovo s N:** v zimě je od zima, ve tmě od tma, rozuměl od rozumět. N až za ě, které ve výchozím slově není, se nepočítá: změna, umění."
+        }
+      ]
+    },
+    {
+      "temaId": "prav-diktat",
+      "nazev": "Diktát bez paniky",
+      "poradi": 8,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Půlka diktátu. Učitelka čte už třetí větu, ty ještě dopisuješ první a přemýšlíš, jestli je ve slově „zbytek“ y, nebo i. Ruka tuhne, další věta je pryč a klid s ní. Není to tím, že bys pravopis neuměl — jen ti zatím nikdo neřekl, že diktát má **postup**, který se dá naučit."
+        },
+        {
+          "typ": "text",
+          "obsah": "Diktát jsou **dvě dovednosti najednou**: **rozhodovat pravopis** a **stíhat psát**. Rozhodování zrychlí bleskovky (2 minuty denně). Zbytek je **postup při diktátu**:\n\n- **1. Nejdřív poslouchej celou větu**, pak teprve piš. Kdo píše od prvního slova, ztratí konec věty.\n- **2. Piš plynule a nezastavuj se.** Kde si nejsi jistý, napiš první volbu a udělej si pod slovem **tečku**. Vrátíš se k němu při kontrole.\n- **3. Nestíháš? Nech mezeru** a piš další větu. Učitel větu většinou zopakuje — mezeru doplníš. Horší než jedno chybějící slovo je ztratit tři věty.\n- **4. Na konci kontrolní kolečko** — vždy ve stejném pořadí."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Kontrolní kolečko** má pět kroků:\n\n- **1.** slova s tečkou (nejistá),\n- **2.** slovesa v minulém čase → kdo to dělal? TI / TY / TA,\n- **3.** i/y po obojetných souhláskách (b, f, l, m, p, s, v, z),\n- **4.** čárky — před že, protože, aby, když, který, ale,\n- **5.** velká písmena na začátku vět a u jmen, tečky na konci.\n\n**Proč pořadí:** nejvíc bodů stojí hrubky (i/y, shoda), proto jdou první. **Kontroluj jednu věc po druhé** — kdo hledá všechno najednou, nenajde nic."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Stejný postup se hodí všude, kde píšeš pod tlakem: zápisky z hodiny, písemka, slohová práce, objednávka, kterou ti na brigádě někdo diktuje do telefonu. Nezaseknout se na jednom slově, označit si nejisté místo a vrátit se k němu — to není trik jen na diktáty. A kontrolní kolečko se hodí i na e-mail nebo životopis, než zmáčkneš „odeslat“."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 680 440\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Kontrolní kolečko: pět kroků vždy ve stejném pořadí. 1 slova s tečkou (nejistá), 2 slovesa v minulém čase — kdo to dělal? TI, TY, TA, 3 i/y po obojetných souhláskách b, f, l, m, p, s, v, z, 4 čárky před že, protože, aby, když, který, ale, 5 velká písmena na začátku vět a u jmen, tečky na konci. Kontroluje se jedna věc po druhé; hrubky stojí nejvíc bodů, proto jdou první.\"><defs><marker id=\"kol-sipka\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs><text x=\"340\" y=\"26\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">KONTROLNÍ KOLEČKO NA KONCI DIKTÁTU</text><rect x=\"225\" y=\"48\" width=\"230\" height=\"76\" rx=\"12\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><circle cx=\"253\" cy=\"86\" r=\"16\" fill=\"var(--zlata)\" fill-opacity=\"0.18\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><text x=\"253\" y=\"92\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"var(--zlata)\">1</text><text x=\"279\" y=\"81\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">slova s tečkou</text><text x=\"279\" y=\"99\" font-size=\"12.5\" fill=\"currentColor\">ta nejistá</text><rect x=\"440\" y=\"164\" width=\"230\" height=\"76\" rx=\"12\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><circle cx=\"468\" cy=\"202\" r=\"16\" fill=\"var(--zlata)\" fill-opacity=\"0.18\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><text x=\"468\" y=\"208\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"var(--zlata)\">2</text><text x=\"494\" y=\"189\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">slovesa v minulém čase</text><text x=\"494\" y=\"207\" font-size=\"12.5\" fill=\"currentColor\">kdo to dělal?</text><text x=\"494\" y=\"223\" font-size=\"12.5\" fill=\"currentColor\">TI / TY / TA</text><rect x=\"370\" y=\"312\" width=\"230\" height=\"76\" rx=\"12\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><circle cx=\"398\" cy=\"350\" r=\"16\" fill=\"var(--zlata)\" fill-opacity=\"0.18\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><text x=\"398\" y=\"356\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"var(--zlata)\">3</text><text x=\"424\" y=\"345\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">i/y po obojetných</text><text x=\"424\" y=\"363\" font-size=\"12.5\" fill=\"currentColor\">b, f, l, m, p, s, v, z</text><rect x=\"80\" y=\"312\" width=\"230\" height=\"76\" rx=\"12\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><circle cx=\"108\" cy=\"350\" r=\"16\" fill=\"var(--zlata)\" fill-opacity=\"0.18\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><text x=\"108\" y=\"356\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"var(--zlata)\">4</text><text x=\"134\" y=\"337\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">čárky</text><text x=\"134\" y=\"355\" font-size=\"12.5\" fill=\"currentColor\">před že, protože, aby,</text><text x=\"134\" y=\"371\" font-size=\"12.5\" fill=\"currentColor\">když, který, ale</text><rect x=\"10\" y=\"164\" width=\"230\" height=\"76\" rx=\"12\" fill=\"var(--akcent)\" fill-opacity=\"0.12\" stroke=\"var(--akcent)\" stroke-width=\"2.5\" /><circle cx=\"38\" cy=\"202\" r=\"16\" fill=\"var(--zlata)\" fill-opacity=\"0.18\" stroke=\"var(--zlata)\" stroke-width=\"2\" /><text x=\"38\" y=\"208\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"var(--zlata)\">5</text><text x=\"64\" y=\"189\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">velká písmena a tečky</text><text x=\"64\" y=\"207\" font-size=\"12.5\" fill=\"currentColor\">začátky vět, jména,</text><text x=\"64\" y=\"223\" font-size=\"12.5\" fill=\"currentColor\">tečky na konci vět</text><path d=\"M 458 86 Q 548 90 555 158\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" marker-end=\"url(#kol-sipka)\" /><path d=\"M 555 242 Q 552 284 528 307\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" marker-end=\"url(#kol-sipka)\" /><path d=\"M 368 350 L 317 350\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" marker-end=\"url(#kol-sipka)\" /><path d=\"M 152 310 Q 128 284 125 247\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" marker-end=\"url(#kol-sipka)\" /><text x=\"340\" y=\"196\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"var(--zlata)\">JEDNA VĚC</text><text x=\"340\" y=\"216\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"var(--zlata)\">PO DRUHÉ</text><text x=\"340\" y=\"240\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">vždy ve stejném</text><text x=\"340\" y=\"256\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">pořadí</text><text x=\"340\" y=\"420\" text-anchor=\"middle\" font-size=\"13.5\" font-weight=\"bold\" fill=\"currentColor\">Hrubky (i/y, shoda) stojí nejvíc bodů — proto jdou první.</text></svg>",
+          "popisek": "Kontrolní kolečko: pět kroků vždy ve stejném pořadí, od slov s tečkou po velká písmena a tečky. Při každém kroku projdeš text znovu a hledáš jen jednu věc."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-diktat-1",
+            "temaId": "prav-diktat",
+            "typ": "vyber",
+            "obtiznost": 2,
+            "zadani": "Dopsal jsi diktát a do odevzdání zbývají dvě minuty. Pod dvěma slovy máš tečku. Čím kontrolu začneš?",
+            "moznosti": [
+              "slovy, pod kterými mám tečku",
+              "slovesy v minulém čase",
+              "čárkami před že, protože, aby",
+              "velkými písmeny a tečkami"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Kolečko má vždy stejné pořadí a začíná slovy s tečkou — to jsou místa, u kterých sis nebyl jistý a chtěl ses k nim vrátit. Teprve potom přijdou slovesa v minulém čase, i/y po obojetných, čárky a nakonec velká písmena a tečky."
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Rychlost psaní** se dá natrénovat. Pomůže **opis na čas**:\n\n- **3 minuty denně** opisuj text, který tě baví (sport, hry, cokoli),\n- **počítej slova** — uvidíš, jak se zlepšuješ,\n- cílem je **plynulost, ne krasopis**.\n\nOpis má ještě jeden bonus: ukládá do paměti, **jak slova vypadají**. To je to, co jinak dělá čtení."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Nervy:** před diktátem **třikrát pomalu vydechni** (výdech delší než nádech). Jedno nejisté slovo není konec — dostane tečku a vyřeší se v kolečku.\n\n**Trénink doma:**\n\n- krátký diktát (**5 vět**) **dvakrát týdně** — nejdřív pomalu, pak rychlostí jako ve škole,\n- po napsání si text **sám oprav podle předlohy**,\n- spočítej, **ve které kapitole trenažéru** máš chyby — tu pak procvič bleskovkami."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Projdi si postup při diktátu krok za krokem. Učitelka diktuje: „Když jsme se vrátili z výletu, byli jsme unavení.“",
+            "kroky": [
+              {
+                "nazev": "Poslouchej celou větu",
+                "popis": "Nepíšeš od prvního slova. Nejdřív si větu poslechneš až do konce: „Když jsme se vrátili z výletu, byli jsme unavení.“ Teprve potom píšeš — víš, jak věta skončí, a její konec ti neuteče."
+              },
+              {
+                "nazev": "Piš plynule a nezastavuj se",
+                "popis": "Jedeš slovo za slovem. U slova „výletu“ zaváháš, jestli je tam y. Napíšeš první volbu, uděláš si pod slovem tečku a píšeš dál. Vrátíš se k němu při kontrole."
+              },
+              {
+                "nazev": "Nestíháš? Nech mezeru",
+                "popis": "Další věta je dlouhá a prostředek ti uteče. Necháš mezeru a píšeš další větu. Učitelka větu většinou zopakuje — mezeru doplníš. Horší než jedno chybějící slovo je ztratit tři věty."
+              },
+              {
+                "nazev": "Kontrolní kolečko",
+                "popis": "Dopsáno, ale ještě neodevzdáváš. Projdeš text vždy ve stejném pořadí a pokaždé hledáš jen jednu věc: slova s tečkou → slovesa v minulém čase → i/y po obojetných → čárky → velká písmena a tečky. U „výletu“ teď v klidu poznáš předponu vý- a tečku máš vyřešenou."
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-prav-diktat-2",
+            "temaId": "prav-diktat",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Jsi v půlce diktátu. Učitelka už diktuje další větu a ty máš z té předchozí napsanou jen polovinu. Co uděláš?",
+            "moznosti": [
+              "Nechám mezeru, píšu novou větu a zbytek doplním při opakování.",
+              "Dopíšu předchozí větu zpaměti, i kdyby mi ta nová celá utekla.",
+              "Přestanu psát a počkám, až učitelka dočte diktát do konce.",
+              "Píšu dál jen začátky slov a zbytek textu si domyslím až doma."
+            ],
+            "spravna": 0,
+            "vysvetleni": "Nestíháš? Nech mezeru a piš další větu — učitelka větu většinou zopakuje a mezeru doplníš. Kdo dopisuje starou větu, přijde o novou, a z jednoho chybějícího kousku jsou rychle tři ztracené věty."
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Dopsal jsi krátký diktát. Tučně jsou slova, pod která sis při psaní udělal tečku:\n\n„V sobotu jsme s tomášem vyrazili na výlet. Děti z vedlejší chaty pouštěli draka a my jsme běhali po louce se psi. **Misleli** jsme že bude celý den hezky, ale odpoledne začalo pršet. **Zbytek** dne jsme hráli karty“\n\nProjdi **kontrolní kolečko** — všech pět kroků ve správném pořadí. Kolik chyb najdeš?",
+          "reseni": "**1. Slova s tečkou.** „Misleli“ — myslet je vyjmenované slovo → **Mysleli**. „Zbytek“ — zbýt patří do rodiny slova být → y je správně, necháváš.\n\n**2. Slovesa v minulém čase — kdo to dělal?** Vyrazili, běhali, mysleli, hráli: my (ty a Tomáš) → TI → -li sedí. Ale „pouštěli“: kdo? Děti → TY děti → **pouštěly**.\n\n**3. i/y po obojetných souhláskách.** „se psi“ — ptáš se S KÝM? (s TĚMI psy) → 7. pád, zůstává tvrdé y → **se psy**. „Výlet“ má předponu vý- → sedí.\n\n**4. Čárky.** Před „že“ chybí → Mysleli jsme**,** že bude celý den hezky. Před „ale“ čárka je.\n\n**5. Velká písmena a tečky.** „tomášem“ je jméno → **s Tomášem**. A za poslední větou chybí tečka.\n\n**Výsledek:** šest oprav v pěti krocích — a pokaždé jsi hledal jen jednu věc.\n\n**Správně:** „V sobotu jsme s Tomášem vyrazili na výlet. Děti z vedlejší chaty pouštěly draka a my jsme běhali po louce se psy. Mysleli jsme, že bude celý den hezky, ale odpoledne začalo pršet. Zbytek dne jsme hráli karty.“"
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "Diktát = které dvě dovednosti najednou?",
+              "zadni": "Rozhodovat pravopis a stíhat psát. Rozhodování zrychlí bleskovky (2 minuty denně), zbytek je postup."
+            },
+            {
+              "predni": "První krok při diktátu",
+              "zadni": "Nejdřív poslouchej celou větu, pak teprve piš. Kdo píše od prvního slova, ztratí konec věty."
+            },
+            {
+              "predni": "Nejsi si jistý slovem. Co s ním?",
+              "zadni": "Napiš první volbu a udělej si pod slovem tečku. Vrátíš se k němu při kontrole."
+            },
+            {
+              "predni": "Nestíháš. Co teď?",
+              "zadni": "Nech mezeru a piš další větu. Učitel větu většinou zopakuje — mezeru doplníš."
+            },
+            {
+              "predni": "Kontrolní kolečko (pořadí)",
+              "zadni": "1. slova s tečkou, 2. slovesa v minulém čase (TI / TY / TA), 3. i/y po obojetných, 4. čárky, 5. velká písmena a tečky"
+            },
+            {
+              "predni": "Proč jdou v kolečku i/y a shoda před čárkami?",
+              "zadni": "Nejvíc bodů stojí hrubky (i/y, shoda), proto jdou první. A kontroluje se jedna věc po druhé."
+            },
+            {
+              "predni": "Před kterými slovy hlídáš čárku?",
+              "zadni": "před že, protože, aby, když, který, ale"
+            },
+            {
+              "predni": "Opis na čas",
+              "zadni": "3 minuty denně opisuj text, který tě baví, a počítej slova. Cílem je plynulost, ne krasopis."
+            },
+            {
+              "predni": "Nervy před diktátem",
+              "zadni": "Třikrát pomalu vydechni (výdech delší než nádech). Jedno nejisté slovo není konec — dostane tečku."
+            },
+            {
+              "predni": "Trénink doma",
+              "zadni": "Krátký diktát (5 vět) dvakrát týdně: nejdřív pomalu, pak rychlostí jako ve škole. Oprav si ho podle předlohy a slabou kapitolu procvič bleskovkami."
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- Diktát = **rozhodovat pravopis** + **stíhat psát**. Rozhodování zrychlí bleskovky, zbytek je postup.\n- **Postup:** poslouchej celou větu → piš plynule, nejisté slovo dostane tečku → nestíháš? nech mezeru → na konci kontrolní kolečko.\n- **Kontrolní kolečko:** slova s tečkou → slovesa v minulém čase (TI / TY / TA) → i/y po obojetných → čárky → velká písmena a tečky. Vždy jedna věc po druhé.\n- **Trénink:** opis na čas 3 minuty denně, krátký diktát (5 vět) dvakrát týdně, před diktátem třikrát pomalu vydechni."
+        }
+      ]
+    }
+  ]
+}

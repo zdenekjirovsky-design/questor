@@ -391,8 +391,8 @@ připojenou rodinu (jako každý duel) a server s podporou duelu odkazem
 
 Aplikace je **offline-first** a plně funkční úplně bez serveru:
 
-- Kompletní obsah — 14 předmětů (1. ročník + Základy profesionálního
-  vaření), každý s bankou otázek i výukou —
+- Kompletní obsah — 15 předmětů (1. ročník + Základy profesionálního
+  vaření + Pravopis — trenažér), každý s bankou otázek i výukou —
   je zabalený přímo v aplikaci ve složce `aplikace/src/data/predmety/`
   (kopie souborů z `data/banky/` a `data/vyuka/` 1:1; konvence názvů
   `<predmetId>.banka.json` / `<predmetId>.vyuka.json`, viz README v té
@@ -417,13 +417,15 @@ Aplikace je **offline-first** a plně funkční úplně bez serveru:
 
 ## 7. Předměty a přidání nového (i dalšího ročníku)
 
-Aktuálně bundlovaných 14 předmětů — 13 z 1. ročníku (obor Ekonomika
+Aktuálně bundlovaných 15 předmětů — 13 z 1. ročníku (obor Ekonomika
 a podnikání): Ekonomika a podnikání, Písemná a elektronická komunikace,
 Informatika, Český jazyk a literatura, Anglický jazyk, Německý jazyk,
 Matematika, Dějepis, Občanská nauka, Fyzika, Chemie, Biologie a ekologie,
 Zbožíznalství — plus Základy profesionálního vaření (`zaklady-vareni`,
 předmět mimo obor: QUESTOR je obecný, učí se v něm i dospělí členové
-rodiny). Volba předmětu je první krok při konfiguraci testu
+rodiny) a Pravopis — trenažér (`pravopis`: poučky místo vzorů a drilové
+položky pro Bleskovky, kap. 12; studentům češtiny se sám nabídne na Domů).
+Volba předmětu je první krok při konfiguraci testu
 (modal „Nová výprava“ na Domů i rychlý start na /test); „Učit se“
 a Témata ve Statistikách jsou členěné per předmět. Nabízejí se přitom
 jen studijní banky daného profilu (kap. 4).
@@ -450,6 +452,8 @@ Přidání nového předmětu — **další ročník = nový předmět s vlastn�
 4. Přidej předmět do registru `aplikace/src/data/predmety.ts`
    (`PREDMETY`: id, název, ikona — pořadí v poli = pořadí v UI). Bez
    záznamu předmět funguje taky, jen s názvem z banky a obecnou ikonou 📘.
+   Volitelně `nabidnoutK` (+ `popisNabidky`): banka se pak sama nabídne na
+   Domů studentům uvedených bank (kap. 12, Nabídka nové banky).
 5. Má-li předmět fungovat i BEZ serveru, zkopíruj JSONy do
    `aplikace/src/data/predmety/` a vydej novou verzi aplikace (kap. 6,
    poslední bod).
@@ -612,3 +616,113 @@ vrátí 400):
   výuka: `scripts/validuj-vyuku.ts` — vypíše proč),
 - 413 → soubor je přes limit 10 MB,
 - 401 → špatný admin token.
+
+## 12. Bleskovky — rychlý dril
+
+Bleskovky jsou dvouminutový dril: velké zadání s vynechaným místem, dvě
+nebo tři velká tlačítka (typicky **i / y**), správná odpověď hned posune
+dál, chyba ukáže správné znění a proč. Jsou stavěné hlavně pro banku
+**Pravopis — trenažér**, ale dostane je každá banka, která má aspoň
+10 „bleskových“ otázek (níž).
+
+### Pro studenta
+
+- **Kde to je:** dlaždice „⚡ Bleskovky“ na Domů — je tam vždy, když máš
+  mezi svými bankami aspoň jednu s bleskovkami (nemusí být aktivní; v
+  titulku dlaždice je banka, kterou start předvolí). Dál tlačítko
+  „⚡ Bleskovky“ u banky v Učit se, „⚡ Procvič bleskovkami“ na konci lekce
+  a odkaz „⚡ Bleskovky“ na stránce Test (vedle „Spustit test“). Přímá
+  adresa je `/blesk`. Dlaždice na Domů se u nové banky objeví chvilku po
+  spuštění aplikace (až se banka načte); kdo už bleskovky hrál, má ji tam
+  hned.
+- **Start:** vyber témata (výchozí „Vše“ = míchané kolo — to je nejlepší
+  trénink, protože musíš sám poznat, o jaký jev jde; procenta u témat =
+  kolik otázek už máš zvládnutých) a délku 10 nebo 20 otázek.
+- **Kolo:** ťukni na správné písmeno, nebo použij klávesnici — `1` / `2` /
+  `3` podle pozice (stačí klávesa v horní řadě, na české klávesnici i bez
+  Shiftu), případně rovnou písmeno (`i`, `y`). Po chybě si přečti proč
+  a pokračuj tlačítkem „Rozumím, dál“ (Enter).
+- **Výsledek:** úspěšnost, tempo (odpovědí za minutu), seznam chyb se
+  správným zněním a tlačítko „🔁 Oprav si chyby“ — krátké kolo jen z otázek,
+  které ti utekly. „⚡ Další kolo“ spustí stejnou banku, témata i délku
+  znovu (i po opravném kole).
+- **Denní dávka:** první kolo dne, ve kterém dáš aspoň 50 %, přinese
+  **truhlu** (≥ 50 % bronzová, ≥ 70 % stříbrná, ≥ 90 % zlatá). Další kola
+  téhož dne a opravná kola truhlu nedávají — počítá se z nich XP a
+  zvládnutí otázek. Blesková otázka dává 20 % XP běžné testové otázky
+  (je mnohem rychlejší — kolo 20 otázek tak vyjde na XP za minutu zhruba
+  jako běžný test). Bleskovky udržují streak a plní denní questy aktivní
+  banky; do rekordů (nejlepší úspěšnost, combo, nejrychlejší test) se
+  nezapočítávají.
+- **Běžný test z rychlých otázek:** stejná pravidla platí i mimo bleskovky,
+  aby se nedala obejít. Krátká doplňovačka (2–3 krátké možnosti) dává
+  20 % XP v každém testu — v rozcvičce i ve zkoušce. A test, ve kterém
+  takové otázky tvoří aspoň polovinu (typicky jakýkoli test nad bankou
+  Pravopis), bere truhlu ze STEJNÉ denní dávky jako bleskovky a nezapisuje
+  se do rekordů. Hraje se a vyhodnocuje úplně normálně; když truhlu
+  nedostane, protože dnešní už padla, výsledek to řekne.
+
+### Pro rodiče
+
+V přehledu rodiny (`/admin`) se kolo bleskovek ukazuje mezi posledními
+testy jako **Rozcvička** s 10 nebo 20 otázkami (opravné kolo i s méně) —
+server zvláštní režim nezná. V aplikaci studenta (Statistiky) je to
+„⚡ Bleskovky“, opravné kolo „⚡ Oprava chyb“.
+
+Truhla z rychlých doplňovaček padá nejvýš jednou denně — ať už z bleskovek,
+nebo z běžného testu, který je z nich složený aspoň z poloviny (u banky
+Pravopis prakticky každý). Není to chyba: pětiotázková rozcvička z i/y trvá
+čtvrt minuty a truhla za každou by ostatní odměny znehodnotila. XP za
+takové otázky je pětinové ze stejného důvodu.
+
+### Pro autora obsahu — jak psát bleskové otázky
+
+Žádné zvláštní pole v bance není — otázka je blesková, když má tenhle tvar:
+
+- typ **`vyber`** se **2 nebo 3 možnostmi**, každá **nejvýš 12 znaků**
+  (delší možnost nebo čtvrtá možnost = běžná testová otázka);
+- místo k doplnění napiš v zadání **jedním podtržítkem `_`**:
+  `"Na louce rostly léčivé b_liny."` Aplikace z něj udělá políčko a po
+  odpovědi do něj doplní správné písmeno. V zadání smí být jen JEDNO místo
+  k doplnění (bere se první podtržítko). Pro skupiny písmen funguje stejně:
+  `"Dej _ to, prosím."` s možnostmi `mě` / `mně`;
+- zadání piš nejlíp jako **holou větu nebo slovo** — pokyn „Doplň i/y:“
+  není potřeba (je vidět z tlačítek) a jen zabírá místo; o jaký jev jde, má
+  student poznat sám. Krátká věta je lepší než dlouhá (čte se jedním
+  pohledem);
+- **krátké možnosti (do 3 znaků) piš v KANONICKÉM pořadí a v celé bance
+  stejně**: `["i", "y"]`, `["í", "ý"]`, `["mě", "mně"]`, `["s", "z"]`,
+  `["i", "y", "a"]` (u shody přísudku přidáváš `a` na konec, aby `i` a `y`
+  zůstaly na svých místech). Zobrazují se v pořadí z dat, takže tlačítko
+  „i“ je pořád vlevo — NEdávej správnou odpověď na první místo, správnou
+  určuje jen `spravna`. Delší možnosti (slova) aplikace míchá sama;
+- **`vysvetleni` je poučka na jeden řádek** — student ji uvidí jen po chybě
+  spolu s názvem tématu: proč je to takhle a jak to poznat příště
+  („Bylina je vyjmenované slovo po B.“);
+- obtížnost 1–5 dávej poctivě (běžná slova 1–2, chytáky a výjimky 3–5) —
+  bleskovky berou otázky všech obtížností a XP roste s obtížností;
+- pozor u OSTATNÍCH bank: tvar rozhoduje všude. Otázka `vyber` se 2–3
+  krátkými možnostmi je „blesková“ i v běžném testu — dává pětinové XP
+  a test z poloviny složený z takových otázek bere truhlu jen jednou
+  denně. Má-li to být plnohodnotná testová otázka, dej jí čtyři možnosti
+  (nebo delší možnosti);
+- aby banka bleskovky nabídla, potřebuje **aspoň 10** bleskových otázek;
+  „Procvič bleskovkami“ na konci lekce se ukáže u tématu s **aspoň 5**.
+  Na pořádný dril počítej s desítkami otázek na téma — kolo má 10–20
+  otázek a slabé se vracejí častěji.
+
+Kontrola: `npm test -w aplikace` — test `blesk.test.ts` projde banky
+v `data/banky/` i ty zabalené v aplikaci a ohlásí otázku, která má krátké
+možnosti v jiném pořadí než zbytek banky, nebo víc míst k doplnění. Nová
+banka se tak ověří hned, jak ji uložíš do `data/banky/`, ještě před
+zkopírováním do aplikace.
+
+### Nabídka nové banky
+
+Banka v registru (`aplikace/src/data/predmety.ts`) může mít `nabidnoutK` —
+seznam bank, jejichž studentům se nabídne kartou na Domů („✍️ Nová banka:
+Pravopis — trenažér … [Přidat mezi moje banky] [Teď ne]“), a `popisNabidky`
+(věta do karty). Karta se ukáže, jen když má aplikace obsah banky načtený
+(bundle / server), profil ji ještě nestuduje a nabídku neodmítl. „Teď ne“
+ji pro ten profil na tom zařízení skryje natrvalo — banku si pak přidá
+v Nastavení → Studijní banky.

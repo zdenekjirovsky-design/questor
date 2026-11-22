@@ -18,6 +18,11 @@ import {
 // ---------------------------------------------------------------------------
 // Fixtury
 
+/**
+ * Běžná výběrová otázka. ČTYŘI možnosti = není „blesková“ (2–3 krátké
+ * možnosti, testy/blesk.ts) — bleskové otázky mají vlastní ekonomiku XP
+ * a truhly (i v běžném testu) a testuje je bleskEngine.test.ts.
+ */
 function vyberova(id: string, obtiznost: Obtiznost, temaId = 't1'): Otazka {
   return {
     id,
@@ -25,7 +30,7 @@ function vyberova(id: string, obtiznost: Obtiznost, temaId = 't1'): Otazka {
     obtiznost,
     typ: 'vyber',
     zadani: `Otázka ${id}?`,
-    moznosti: ['správně', 'špatně A', 'špatně B'],
+    moznosti: ['správně', 'špatně A', 'špatně B', 'špatně C'],
     spravna: 0,
     vysvetleni: 'Protože ano.',
   };

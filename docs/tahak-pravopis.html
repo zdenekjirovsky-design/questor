@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tahák pravopisu — i/y bez vzorů</title>
+<style>
+  @page { size: A4; margin: 9mm 11mm; }
+  :root { --ink: #16161d; --muted: #5b5d6b; --line: #d5d7e0; --y: #b45309; --i: #1d4ed8; --ok: #047857; --bg: #f6f7fb; }
+  * { box-sizing: border-box; }
+  html { font-size: 9.7pt; }
+  body { margin: 0; color: var(--ink); background: #fff; font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.33; }
+  .list { page-break-after: always; break-after: page; }
+  .list:last-child { page-break-after: auto; break-after: auto; }
+  header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2.5px solid var(--ink); padding-bottom: 4px; margin-bottom: 7px; }
+  h1 { font-size: 17pt; margin: 0; letter-spacing: -0.01em; }
+  header span { color: var(--muted); font-size: 9pt; text-align: right; }
+  h2 { font-size: 12pt; margin: 0 0 5px; display: flex; align-items: center; gap: 7px; }
+  h2 b { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 10pt; flex: none; }
+  section { border: 1.2px solid var(--line); border-radius: 9px; padding: 6px 10px 7px; margin-bottom: 6px; break-inside: avoid; }
+  p { margin: 0 0 4px; }
+  ul { margin: 0; padding-left: 15px; }
+  li { margin-bottom: 2px; }
+  .y { color: var(--y); font-weight: 700; }
+  .i { color: var(--i); font-weight: 700; }
+  .ok { color: var(--ok); font-weight: 700; }
+  .muted { color: var(--muted); }
+  .dva { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .tri { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; }
+  .box { background: var(--bg); border-radius: 7px; padding: 5px 8px 6px; }
+  .box h3 { margin: 0 0 3px; font-size: 10.6pt; }
+  .box.ybox { border-left: 4px solid var(--y); }
+  .box.ibox { border-left: 4px solid var(--i); }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { text-align: left; vertical-align: top; padding: 2px 6px; border-bottom: 1px solid var(--line); }
+  tr:last-child td { border-bottom: none; }
+  th { font-size: 8.6pt; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+  .pozor { border: 1.5px dashed var(--ok); border-radius: 7px; padding: 5px 9px; margin-top: 6px; }
+  .kolecko { display: flex; gap: 6px; flex-wrap: wrap; counter-reset: k; margin-top: 4px; }
+  .kolecko span { counter-increment: k; background: var(--bg); border-radius: 999px; padding: 3px 10px 3px 5px; }
+  .kolecko span::before { content: counter(k); display: inline-flex; width: 16px; height: 16px; align-items: center; justify-content: center; border-radius: 50%; background: var(--ink); color: #fff; font-size: 8.5pt; margin-right: 5px; }
+  footer { color: var(--muted); font-size: 8.4pt; margin-top: 4px; }
+  @media screen { body { max-width: 820px; margin: 0 auto; padding: 16px; } .list { margin-bottom: 28px; } }
+</style>
+</head>
+<body>
+
+<div class="list">
+<header><h1>i / y bez vzorů</h1><span>Tahák k trenažéru pravopisu v QUESTORu<br>strana 1 — čtyři triky</span></header>
+
+<section>
+  <h2><b>0</b>Jistoty zdarma — tady se nerozhoduje</h2>
+  <div class="dva">
+    <div>
+      <p><span class="i">měkké</span> ž š č ř c j ď ť ň → <span class="i">i</span> (život, číst, cíl; jen tác<span class="y">y</span>, kec<span class="y">y</span>)</p>
+      <p><span class="y">tvrdé</span> h ch k r d t n → <span class="y">y</span> (chyba, ryba, týden; ne v cizích slovech)</p>
+      <p class="muted">d, t, n: poslouchej — tvrdě [dy] = y, měkce [ďi] = i.</p>
+    </div>
+    <div>
+      <p>koncovka <span class="i">-mi</span> (s dětmi, s námi; ale s tým<span class="y">y</span>) · <span class="i">-ovi</span> (komu? o kom? Petrovi)</p>
+      <p>sloveso teď: vždy <span class="i">-í</span> (prosí, bydlí, vidíš)</p>
+      <p>-it → <span class="i">-il</span> (bavil, koupil) — jen <span class="y">byl, myl, vyl</span></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><b>1</b>Rozcestník: KDE ve slově to i/y je?</h2>
+  <table>
+    <tr><th>kde</th><th>trik</th><th>příklad</th></tr>
+    <tr><td>uvnitř slova</td><td>rodina vyjmenovaného slova · předpona <span class="y">vy-/vý-</span></td><td>ná<span class="y">by</span>tek ← být · <span class="y">vý</span>let</td></tr>
+    <tr><td>konec podstatného jména</td><td>tvrdá × měkká parta</td><td>s holub<span class="y">y</span> × s přátel<span class="i">i</span></td></tr>
+    <tr><td>konec přídavného jména</td><td>ten milý × <b>TI</b> milí</td><td>mil<span class="y">ý</span> kluk × mil<span class="i">í</span> kluci</td></tr>
+    <tr><td>konec slovesa v minulém čase</td><td>ukazováček <b>TI / TY / TA</b></td><td>kluci hrál<span class="i">i</span> × holky hrál<span class="y">y</span></td></tr>
+  </table>
+</section>
+
+<section>
+  <h2><b>2</b>Podstatná jména: dvě party místo čtrnácti vzorů</h2>
+  <div class="dva">
+    <div class="box ybox">
+      <h3>TVRDÁ PARTA píše <span class="y">Y</span></h3>
+      <ul>
+        <li>slova na <b>-a</b>: ryba → ryb<span class="y">y</span>, sova → sov<span class="y">y</span></li>
+        <li>střední na <b>-o</b>: kolo → s kol<span class="y">y</span>, slovo → se slov<span class="y">y</span></li>
+        <li>mužská „bez ___<b>a</b> / ___<b>u</b>“: holub, úkol, mobil, tým → s holub<span class="y">y</span>, úkol<span class="y">y</span>, s mobil<span class="y">y</span></li>
+      </ul>
+    </div>
+    <div class="box ibox">
+      <h3>MĚKKÁ PARTA píše <span class="i">I</span></h3>
+      <ul>
+        <li>ženská <b>bez -a</b>: postel → v postel<span class="i">i</span>, mrkev → k mrkv<span class="i">i</span></li>
+        <li>střední na <b>-e, -í</b>: pole → v pol<span class="i">i</span>, v údol<span class="i">í</span></li>
+        <li>mužská „bez ___<b>e</b>“: cíl, přítel, učitel → s cíl<span class="i">i</span>, s přátel<span class="i">i</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pozor"><b>Výjimka — TI živí</b> (jde říct TI a ptáš se KDO?): holub<span class="i">i</span> létají, ps<span class="i">i</span> byli nakrmeni; i oslovení (Chlap<span class="i">i</span>, pojďte!). Ptáš se koho? s kým? → tvrdě: krmím holub<span class="y">y</span>, běhám se ps<span class="y">y</span>.</div>
+  <p style="margin-top:5px"><b>Jistoty mají přednost:</b> -mi (s rybam<span class="i">i</span>), -ovi (psov<span class="i">i</span>) a dlouhé <span class="i">-ích</span> je vždy měkké (v les<span class="i">í</span>ch, na pol<span class="i">í</span>ch). Party rozhodují jen o krátkém -i/-y na konci.</p>
+  <p class="muted" style="margin-top:4px">Test „bez ___“ (mužská slova na obojetnou, -g, -x, -c): s hotel<span class="y">y</span> (bez hotelu) × s ředitel<span class="i">i</span> (bez ředitele) · s obraz<span class="y">y</span> × s vítěz<span class="i">i</span> · blog<span class="y">y</span>, tác<span class="y">y</span></p>
+</section>
+
+<section>
+  <h2><b>3</b>Přídavná jména: zase ukazováček TI</h2>
+  <div class="tri">
+    <div class="box"><h3>tvrdá</h3>ten mil<span class="y">ý</span> kluk, s mil<span class="y">ý</span>mi kluky<br><b>TI</b> mil<span class="i">í</span> kluci · oslovení: Mil<span class="i">í</span> spolužáci!</div>
+    <div class="box"><h3>měkká</h3>jarní, cizí, psí, lví, rybí<br>vždy <span class="i">í</span></div>
+    <div class="box"><h3>čí?</h3><span class="i">-ovi</span> jen <b>TI</b> Petrov<span class="i">i</span> kamarádi a komu? o kom? (dal to Petrov<span class="i">i</span>)<br>jinak <span class="y">-ovy</span>: Petrov<span class="y">y</span> boty, od Petrov<span class="y">y</span> sestry</div>
+  </div>
+</section>
+
+<section>
+  <h2><b>4</b>Shoda: KDO to dělal? Ukaž si na něj</h2>
+  <div class="tri">
+    <div class="box"><h3><b>TI</b> → <span class="i">-li</span></h3>kluci, psi, hráči<br>lidé, rodiče, koně</div>
+    <div class="box"><h3><b>TY</b> → <span class="y">-ly</span></h3>stromy, týmy, holky<br>děti, oči, uši, dny</div>
+    <div class="box"><h3><b>TA</b> → -la</h3>auta, kuřata<br>děvčata, okna</div>
+  </div>
+  <p style="margin-top:6px"><b>Nevíš, jestli TI, TY, nebo TA?</b> Řekni si jeden kus: TEN kluk, TEN pes (živý) → TI · TO auto → TA · všechno ostatní → TY. <span class="muted">Jinak jdou jen dítě, oko, ucho → TY děti, oči, uši; záda, ústa jsou TA.</span></p>
+  <p><b>Víc podmětů:</b> stačí jeden živý mužský → <span class="i">-li</span> (táta a máma šl<span class="i">i</span>). Bez něj <span class="y">-ly</span> (ženy a děti šl<span class="y">y</span>), jen samá střední v množném čísle → -la (koťata a štěňata si hrála).</p>
+  <p class="muted">Podmět se schovává: až za slovesem (Na louce se pásl<span class="y">y</span> krávy.) · pět a víc, několik, mnoho → -lo (Pět kluků přišlo.) · stejně: přišli sam<span class="i">i</span> × zůstaly sam<span class="y">y</span></p>
+</section>
+<footer>Poučky jsou kratší cesta ke stejnému výsledku jako vzory — pravidla českého pravopisu se nemění.</footer>
+</div>
+
+<div class="list">
+<header><h1>Rodiny, mě × mně a diktát</h1><span>Tahák k trenažéru pravopisu v QUESTORu<br>strana 2</span></header>
+
+<section>
+  <h2><b>5</b>Vyjmenovaná slova: uč se rodiny, ne básničku</h2>
+  <p>Otázka zní: <b>„Je to příbuzné s vyjmenovaným slovem?“</b> (stejný kořen a podobný význam)</p>
+  <table>
+    <tr><th>rodina (y)</th><th>patří do ní</th><th>pozor — měkké i</th></tr>
+    <tr><td><span class="y">být</span></td><td>bydlet, byt, obyvatel, nábytek, dobytek, zbytek, přebytek, bývalý, kdyby, abych, bychom</td><td><span class="i">bít</span>: bitva, zabít, rozbít, nabít mobil</td></tr>
+    <tr><td><span class="y">slyšet · mlýn</span></td><td>neslýchaný · mlynář, mlýnek</td><td>slíbit, líbit se · <span class="i">mlít</span></td></tr>
+    <tr><td><span class="y">my · mýt · myslet</span></td><td>my všichni · umýt, mýdlo · myšlenka, smysl, průmysl, úmysl</td><td><span class="i">mi</span> (= mně) · <span class="i">mít</span> (vlastnit) · mísit</td></tr>
+    <tr><td><span class="y">pýcha · pyl</span></td><td>pyšný, přepych · opylovat</td><td>píchat · <span class="i">pil</span>, pila, opilovat</td></tr>
+    <tr><td><span class="y">sýr · sypat · sytý</span></td><td>sýrový · nasypat, sypký · dosyta</td><td>síra, sirka · sípat · síto, síť</td></tr>
+    <tr><td><span class="y">vysoký · zvyk</span></td><td>výška, zvýšit · zvyknout si, obvyklý</td><td>vidět, viset, vítr, vítěz, víno</td></tr>
+    <tr><td><span class="y">brzy · jazyk · nazývat</span></td><td>jazykový · vyzývat, ozývat se</td><td>brzičko · zívat</td></tr>
+  </table>
+  <div class="pozor"><b>Předpona vy-/vý- je vždy s y:</b> <span class="y">vý</span>let, <span class="y">vy</span>hrát, <span class="y">vý</span>sledek, <span class="y">vy</span>světlit. Kde <span class="i">vi-</span> není předpona (nejde vyměnit za jinou), je měkké i: vidět, viset, vítat, video.</div>
+  <p class="muted" style="margin-top:5px">Dvojice podle významu: do<span class="y">bý</span>t hrad × do<span class="i">bí</span>t baterii · z<span class="y">by</span>l kousek × z<span class="i">bi</span>l ho · <span class="y">vý</span>r (sova) × <span class="i">ví</span>r (vodní) · sle<span class="y">pý</span>š × sle<span class="i">pí</span>š lepidlem. Cizí slova musíš znát od vidění: s<span class="y">y</span>stém, s<span class="y">y</span>mbol, l<span class="y">y</span>rika, f<span class="y">y</span>zika × k<span class="i">i</span>no, f<span class="i">i</span>lm, d<span class="i">i</span>ktát; <span class="i">tip</span> = rada, <span class="y">typ</span> = druh.</p>
+</section>
+
+<section>
+  <h2><b>6</b>Mě × mně</h2>
+  <div class="dva">
+    <div class="box">
+      <h3>Zájmeno: dosaď si TY</h3>
+      <p>tě / tebe → <b>mě</b>: viděl mě, pro mě, beze mě</p>
+      <p>tobě / ti → <b>mně</b>: dej mně, ke mně, o mně, je mně zima</p>
+      <p class="muted">mě = 2 písmena → 2. a 4. pád · mně = 3 písmena → 3. a 6. pád</p>
+    </div>
+    <div class="box">
+      <h3>Uvnitř slov: krok zpět</h3>
+      <p><b>mně</b> — slovo, ze kterého to vzniklo, má MN nebo MEN: rozu<b>mn</b>ý → rozumně, zapo<b>men</b>out → zapomněl, zapomnění</p>
+      <p><b>mě</b> — jinak: zima → v zimě, tma → ve tmě, rozumět → rozuměl, umět → umění, zřejmý → zřejmě, město</p>
+      <p class="muted">Jeden krok zpět — jiné příbuzné slovo s N nestačí (zimní, rozumný).</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><b>7</b>Diktát bez paniky</h2>
+  <ul>
+    <li><b>Nejdřív poslouchej celou větu</b>, pak piš.</li>
+    <li><b>Piš plynule.</b> Nejsi si jistý? Napiš první volbu a udělej pod slovem <b>tečku</b>.</li>
+    <li><b>Nestíháš?</b> Nech mezeru a piš další větu — doplníš při opakování.</li>
+  </ul>
+  <p style="margin-top:5px"><b>Kontrolní kolečko</b> — vždy v tomhle pořadí, jednu věc po druhé:</p>
+  <div class="kolecko"><span>slova s tečkou</span><span>slovesa v minulém čase: TI / TY / TA</span><span>i/y po b, f, l, m, p, s, v, z</span><span>čárky: že, protože, aby, když, který, ale</span><span>velká písmena a tečky</span></div>
+  <p class="muted" style="margin-top:6px">Trénink: 2 minuty bleskovek denně (rozhodování) + 3 minuty opisu na čas (rychlost psaní a paměť na slova). Před diktátem třikrát pomalu vydechni.</p>
+</section>
+<footer>QUESTOR › Pravopis — trenažér · bleskovky: doplň písmeno, hned vidíš proč.</footer>
+</div>
+
+</body>
+</html>

@@ -92,6 +92,13 @@ button {
   box-shadow: var(--zare-zlata);
 }
 
+/* Emoji ⚡ (bleskovky) je na zlatém tlačítku skoro neviditelné — žlutá na
+   zlaté. Uvnitř zlatého tlačítka se proto kreslí tmavě jako jeho text;
+   jinde (fialové tlačítko, panel) zůstává žluté. */
+.tlacitko--zlate .znak-blesku {
+  filter: grayscale(1) brightness(0.2);
+}
+
 .tlacitko:disabled {
   opacity: 0.5;
   cursor: not-allowed;

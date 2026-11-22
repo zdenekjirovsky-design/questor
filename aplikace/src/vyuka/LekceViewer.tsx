@@ -2,6 +2,8 @@
 // dalsi blok naskoci po interakci (mini-kviz, widget) nebo tlacitku
 // „Pokracovat". Nahore lista postupu, na konci oslava s konfetami a XP
 // + tlacitko „Otestuj se z tematu" (standard, 10 otazek, jen tohle tema).
+// Ma-li tema aspon MIN_BLESKOVYCH_TEMATU bleskovych otazek, je primarni
+// akci zaveru „⚡ Procvic bleskovkami" (10 otazek z tematu) a test je vedle.
 //
 // Posun stranky: JEN po vlastni akci studenta (Pokracovat / Dokoncit lekci /
 // Projit znovu, na desktopu i odpoved v mini-kvizu a splneny widget — najede
@@ -26,6 +28,7 @@ import KartickyBlok from './bloky/KartickyBlok';
 import MiniKvizBlok from './bloky/MiniKvizBlok';
 import WidgetBlok from './bloky/WidgetBlok';
 import { chovaniPosunu } from '../testy/posun';
+import { MIN_BLESKOVYCH_TEMATU, pocetBleskovych } from '../testy/blesk';
 import { klicBloku, stejnyObsahLekce, zarovnaniBloku } from './lekceLogika';
 import '../testy/testy.css';
 import './vyuka.css';
@@ -118,6 +121,7 @@ export default function LekceViewer() {
   const dokonciLekci = pouzijStav((s) => s.dokonciLekci);
   const zacniLekciZnovu = pouzijStav((s) => s.zacniLekciZnovu);
   const zacniTest = pouzijStav((s) => s.zacniTest);
+  const zacniBlesk = pouzijStav((s) => s.zacniBlesk);
 
   const aktualni = useMemo(() => (temaId ? najdiLekci(vyuky, temaId) : null), [vyuky, temaId]);
 
@@ -189,6 +193,8 @@ export default function LekceViewer() {
   const banka = banky[predmetId];
   const nazevTematu = banka?.temata.find((t) => t.id === temaId)?.nazev ?? lekce.nazev;
   const maOtazkyTematu = banka?.otazky.some((o) => o.temaId === temaId) ?? false;
+  // Bleskovky (rychly dril) z tematu — jen kdyz jich tema ma dost na kolo.
+  const maBleskTematu = pocetBleskovych(banka, [temaId]) >= MIN_BLESKOVYCH_TEMATU;
 
   // posun = stranka najede na dalsi blok: tlacitko „Pokracovat ↓“ / „Dokoncit
   // lekci“ vzdy, mini-kviz a widget jen na desktopu (jako drive); na mobilu
@@ -232,6 +238,11 @@ export default function LekceViewer() {
       pocetOtazek: 10,
       temataId: [temaId],
     });
+    if (povedlo) navigate('/test');
+  };
+
+  const procvicBleskovkami = () => {
+    const povedlo = zacniBlesk({ predmetId, pocetOtazek: 10, temataId: [temaId] });
     if (povedlo) navigate('/test');
   };
 
@@ -352,8 +363,20 @@ export default function LekceViewer() {
             </p>
           )}
           <div className="lekce__zaver-akce">
+            {maBleskTematu && (
+              <button type="button" className="tlacitko tlacitko--zlate" onClick={procvicBleskovkami}>
+                {/* Jeden flex prvek (gap .tlacitko by jinak rozsiril mezeru). */}
+                <span>
+                  <span className="znak-blesku" aria-hidden="true">⚡</span> Procvič bleskovkami
+                </span>
+              </button>
+            )}
             {maOtazkyTematu && (
-              <button type="button" className="tlacitko tlacitko--zlate" onClick={otestujSe}>
+              <button
+                type="button"
+                className={`tlacitko ${maBleskTematu ? 'tlacitko--primarni' : 'tlacitko--zlate'}`}
+                onClick={otestujSe}
+              >
                 ⚔️ Otestuj se z tématu
               </button>
             )}

@@ -61,6 +61,93 @@ je respektováno globálně.
 - Klávesnice: možnosti 1–4/A–D, Enter = potvrdit/další. Hráč nesmí
   potřebovat myš.
 
+## Bleskovky (rychlý dril)
+
+Dvouminutový dril nad otázkami s krátkými možnostmi (pravopis: doplň i/y).
+Musí působit jako rychlá arkáda: velké písmo, velká tlačítka, žádné čtení
+navíc. Znak ⚡ a zlatá na štítcích; zelená = správně, červená jen chyba.
+Technický kontrakt: ARCHITEKTURA.md › Bleskovky.
+
+- **Start** (`/blesk`): úzký sloupec (680 px), nadpis „⚡ Bleskovky“ zlatě.
+  Panel: banka (čipy jen když jich bleskovky nabízí víc), témata jako čipy
+  s procentem zvládnutí (zlatě od 75 %), výchozí „🔀 Vše“ = míchané kolo
+  (doporučené), délka 10 / 20, řádek o denní truhle („🎁 První kolo dne =
+  truhla“ zlatě / „Dnešní truhla už je tvoje ✓“ zeleně) a zlaté
+  „⚡ Spustit“. Bez vhodné banky přátelský prázdný stav s nabídkou přidat
+  banku, která bleskovky má.
+- **Průběh**: sloupec 760 px. Nahoře počitadlo, tenký progress a combo
+  (pevná šířka, ať progress neposkakuje). Panel: štítek „⚡ Bleskovky“
+  (opravné kolo „🔁 Oprava chyb“), VELKÉ zadání (2,4 / 1,9 / 1,45 rem podle
+  délky věty; pevná minimální výška v rem, aby tlačítka mezi otázkami
+  neposkakovala) a pod ním tlačítka možností (min. 88 px, display font
+  2,2 rem; delší možnosti 1,3 rem) s nápovědou klávesy v rohu. Místo
+  k doplnění je **políčko**: fialové podtržení, jemná záře, šířka podle
+  nejdelší možnosti; slovo se kolem něj nezalomí. **Téma otázky se před
+  odpovědí NEUKAZUJE** — student má sám poznat, o jaký jev jde.
+- **Správně**: políčko se doplní zeleně (`pop`), zvolené tlačítko zezelená
+  a krátce se zvětší, ostatní zeslábnou, vyletí „+XP“ a po 600 ms naskočí
+  další otázka SAMA. Žádný panel s vysvětlením — flow se nepřerušuje.
+- **Špatně**: zvolené tlačítko červeně + `zatreseni`, správné zeleně,
+  políčko ukáže správné řešení. Pod panelem zpětná vazba: „Tahle ti ještě
+  uteče. Mrkni proč:“, řádek „Správně: …“ se zeleně doplněným zněním,
+  vysvětlení, štítek „Téma: …“ a tlačítko „Rozumím, dál“ (u poslední otázky
+  zlaté „Rozumím, vyhodnotit“). Dál se jde až tímhle tlačítkem / Enterem.
+- **Klávesnice**: 1 / 2 / 3 podle pozice — nápověda v rohu tlačítka platí
+  vždycky, i na české klávesnici, kde horní řada bez Shiftu píše „+ěščřž“
+  (bere se fyzická klávesa a pozice má přednost před písmenem). K tomu
+  písmeno možnosti, když je první písmeno možností jednoznačné (i, y —
+  platí i pro í/ý; klávesa s diakritikou jen pro možnost, která jí přesně
+  začíná), a Enter po chybě. Držená klávesa se ignoruje (neodpoví naslepo
+  na další otázku).
+- **Čtečky obrazovky**: otázka naskakuje sama, takže ji čte jedna trvalá
+  živá oblast (vizuálně skrytá, `aria-live="polite"`): „Otázka 3 z 10: …
+  (doplň) … Možnosti: i, y.“, po odpovědi „Správně.“ nebo „Špatně.
+  Správně: … + vysvětlení + téma“. Téma se ani tady před odpovědí neříká.
+  Panel zpětné vazby sám živý není (nečetl by se dvakrát). Tlačítka mají
+  `aria-label` „Odpověď N: text“.
+- **Výsledek**: štítek „⚡ Bleskovky“ (opravné kolo „— oprava chyb“),
+  úspěšnost, +XP, tempo „⚡ N za minutu“, nejdelší combo; truhla jako
+  u testu (když ji kolo dostalo), jinak věta, proč ne. Akce: „🔁 Oprav si
+  chyby (N)“ zlatě (když jsou chyby), „⚡ Další kolo“, „Domů“. Pod tím panel
+  „Tyhle ti utekly“ (znění se zeleným doplněním, vysvětlení, štítek tématu)
+  a „Jak ti šla témata“. Po obnovení stránky, než se banka načte, drží
+  „Oprav si chyby“ své místo jako neaktivní a u chyb stojí „Načítám znění
+  otázky…“ — nic neposkočí a nic se netvrdí předčasně. Ve Statistikách
+  (Poslední testy) se kola jmenují „⚡ Bleskovky“ a „⚡ Oprava chyb“.
+  BĚŽNÝ test složený aspoň z poloviny z bleskových otázek (truhlu bere
+  z téže denní dávky) má výsledek i název běžný; jen když truhlu nedostal,
+  protože dnešní už padla, stojí pod statistikami tlumená věta „Truhlu za
+  rychlé doplňovačky dnes už máš — testy z nich ji dávají jednou denně,
+  stejně jako bleskovky.“ (bez ní by dobrý výsledek bez truhly vypadal
+  jako chyba).
+- **⚡ na zlatém tlačítku**: žlutý emoji znak na zlaté není vidět — obal ho
+  `<span class="znak-blesku">`, uvnitř `.tlacitko--zlate` se kreslí tmavě.
+- **Vstupy**: dlaždice „⚡ Bleskovky · ✍️ Pravopis — trenažér“ na Domů
+  (zlatý rámeček, dokud čeká denní truhla; žádný pulz). Ukáže se, když
+  bleskovky nabízí KTERÁKOLI banka profilu — student s aktivní češtinou
+  a přidaným Pravopisem má dril na jedno ťuknutí; v titulku je banka,
+  kterou start předvolí (aktivní, má-li bleskovky, jinak první vhodná).
+  Dál karta „Nová banka“ (fialový rámeček, po přidání zelený), tlačítko
+  „⚡ Bleskovky“ u nadpisu banky v Učit se, zlaté „⚡ Procvič bleskovkami“
+  na konci lekce (test se pak stává fialovým sekundárním). Kdo bleskovky
+  už hrál, má dlaždici na Domů hned (napoví historie testů) a nic se mu
+  neposune. Jinak se dlaždice, stejně jako karta nabídky, objeví až
+  s načtenou bankou (chvíli po startu) —
+  proto obě leží ZA dlaždicemi Učit se a Duely: ty se pod prstem nepohnou,
+  posune se panel questů a na mobilu i obsah pod ním (výzvy, čekající
+  truhly). Vědomý kompromis k bodu 10 v Mobilu: místo se nerezervuje, aby
+  Domů neměl díru u bank bez bleskovek.
+- **Mobil**: tlačítka možností přes celou šířku — písmena vedle sebe
+  (2–3 sloupce, min. 72 px), delší možnosti pod sebou (min. 64 px). Zadání
+  drží 26svh, takže tlačítka vycházejí níž, v dosahu palce, a celé kolo se
+  na 375×667 vejde bez scrollu i se třemi možnostmi pod sebou. Zpětná vazba
+  po chybě se doroluje nad spodní lištu (`posunDoZorneho`), „Rozumím, dál“
+  je přes celou šířku (52 px), nová otázka začíná zase nahoře. Ochranná
+  prodleva 350 ms platí po zobrazení otázky I zpětné vazby (dorolovaná pod
+  prst by šla odkliknout bez přečtení). Na startu jsou čipy ≥ 44 px a pata
+  s řádkem o truhle a „⚡ Spustit“ je přilepená nad spodní lištou (sticky,
+  neprůhledná) — vidět a ťuknutelná i s dlouhým seznamem témat.
+
 ## Tón textů
 
 Česky, kamarádsky, hráčsky, stručně. Chvála konkrétní („5 v řadě! Combo ×1.5“),
@@ -232,7 +319,8 @@ desktop/Tauri okno 1280×800 se jimi NESMÍ změnit. Závazné zásady:
 12. **Ochrana proti dvojímu ťuknutí**: panel otázky (test, host duel)
     zahodí kliky myší/dotykem prvních 350 ms po zobrazení
     (`testy/ochranaKliku.ts`, fáze capture), u rodinného duelu celá sekce
-    otázky vč. power-upů; klávesnice se neblokuje. Čas duelu se měří
+    otázky vč. power-upů, u bleskovek panel otázky i panel zpětné vazby
+    po chybě; klávesnice se neblokuje. Čas duelu se měří
     syrově od zobrazení otázky — prodleva ho neposouvá, server i starší
     klienti počítají stejně. Nápověda kláves („(Enter)“) je ve
     `span.napoveda-klavesy`, na `(pointer: coarse)` skrytá.

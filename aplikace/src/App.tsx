@@ -19,6 +19,9 @@
 // smazaný novým nasazením jednou obnoví stránku, jinak ukáže chybu
 // s „Načíst znovu“ místo prázdné obrazovky (komponenty/lazySObnovou.ts).
 // Změněny jen dva řádky s lazy importy a importy nahoře, nic jiného.
+// Výjimka po dohodě (bleskovky): routa /blesk — start rychlého drilu
+// (stranky/Blesk.tsx), líně přes lazySObnovou jako /latka. Průběh kola běží
+// na /test, výsledek na /vysledek; navigace ani spodní lišta se nemění.
 import { Suspense, useEffect, useState } from 'react';
 import { NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { pouzijStav } from './stav/store';
@@ -44,6 +47,7 @@ import './App.css';
 // Přehled pro rodiče je vzácná obrazovka — vlastní chunk, ať nezvětšuje start.
 const AdminPrehled = lazySObnovou(() => import('./admin/AdminPrehled'));
 const PoslatLatku = lazySObnovou(() => import('./latka/PoslatLatku'));
+const Blesk = lazySObnovou(() => import('./stranky/Blesk'));
 
 const odkazy = [
   { cesta: '/', text: 'Domů' },
@@ -156,6 +160,14 @@ export default function App() {
             element={
               <Suspense fallback={<p>Načítám…</p>}>
                 <PoslatLatku />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/blesk"
+            element={
+              <Suspense fallback={<p>Načítám…</p>}>
+                <Blesk />
               </Suspense>
             }
           />

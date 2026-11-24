@@ -1,20 +1,23 @@
 {
   "predmetId": "ekonomika-podnikani",
   "nazev": "Ekonomika a podnikání",
-  "verze": 3,
-  "vytvoreno": "2026-09-04",
+  "verze": 4,
+  "vytvoreno": "2026-11-24",
   "temata": [
     { "id": "potreby", "nazev": "Potřeby", "poradi": 0 },
     { "id": "statky-a-sluzby", "nazev": "Statky a služby", "poradi": 1 },
-    { "id": "zakladni-pojmy", "nazev": "Základní ekonomické pojmy", "poradi": 2 },
-    { "id": "trh-a-trzni-mechanismus", "nazev": "Trh a tržní mechanismus", "poradi": 3 },
-    { "id": "podnikani-a-pravni-formy", "nazev": "Podnikání a právní formy", "poradi": 4 },
-    { "id": "podnik-a-hospodareni", "nazev": "Podnik a jeho hospodaření", "poradi": 5 },
-    { "id": "marketing", "nazev": "Marketing", "poradi": 6 },
-    { "id": "management", "nazev": "Management", "poradi": 7 },
-    { "id": "zamestnanci-a-mzdy", "nazev": "Zaměstnanci a mzdy", "poradi": 8 },
-    { "id": "dane-a-pojisteni", "nazev": "Daně a pojištění", "poradi": 9 },
-    { "id": "penize-a-financni-trh", "nazev": "Peníze a finanční trh", "poradi": 10 }
+    { "id": "poptavka", "nazev": "Poptávka", "poradi": 2 },
+    { "id": "nabidka", "nazev": "Nabídka", "poradi": 3 },
+    { "id": "rovnovazna-cena", "nazev": "Rovnovážná cena a tržní mechanismus", "poradi": 4 },
+    { "id": "zakladni-pojmy", "nazev": "Základní ekonomické pojmy", "poradi": 5 },
+    { "id": "trh-a-trzni-mechanismus", "nazev": "Trh a tržní mechanismus", "poradi": 6 },
+    { "id": "podnikani-a-pravni-formy", "nazev": "Podnikání a právní formy", "poradi": 7 },
+    { "id": "podnik-a-hospodareni", "nazev": "Podnik a jeho hospodaření", "poradi": 8 },
+    { "id": "marketing", "nazev": "Marketing", "poradi": 9 },
+    { "id": "management", "nazev": "Management", "poradi": 10 },
+    { "id": "zamestnanci-a-mzdy", "nazev": "Zaměstnanci a mzdy", "poradi": 11 },
+    { "id": "dane-a-pojisteni", "nazev": "Daně a pojištění", "poradi": 12 },
+    { "id": "penize-a-financni-trh", "nazev": "Peníze a finanční trh", "poradi": 13 }
   ],
   "otazky": [
     {
@@ -30,7 +33,7 @@
         "Zboží nabízené v obchodech a na internetu"
       ],
       "spravna": 0,
-      "vysvetleni": "Potřeba je pocit nedostatku (hlad, nuda, chybějící mobil), který si uvědomujeme a chceme odstranit. Věci a zboží jsou statky — těmi potřeby teprve uspokojujeme. A potřeby splnit lze, jinak by nás k ničemu nehnaly.",
+      "vysvetleni": "Potřeba je pocit nedostatku (hlad, nuda, chybějící mobil), který si uvědomujeme a chceme odstranit. Věci, které si koupíš, jsou statky — těmi (a službami) potřeby teprve uspokojujeme. A potřeby splnit lze, jinak by nás k ničemu nehnaly.",
       "zdroj": "Potřeby"
     },
     {
@@ -480,6 +483,938 @@
       "zdroj": "Statky a služby"
     },
     {
+      "id": "o-statky-a-sluzby-15",
+      "temaId": "statky-a-sluzby",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co je zboží?",
+      "moznosti": [
+        "Statek nebo služba určený pro směnu na trhu",
+        "Každý statek, kterým lze uspokojit lidskou potřebu",
+        "Pouze hmotná věc, která se prodává v obchodě",
+        "Všechno, co si člověk vyrobí pro vlastní spotřebu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Zboží je statek nebo služba určený pro směnu na trhu — tedy na prodej. Ne každý statek je zboží: co si vyrobíš a spotřebuješ sám, na trh nejde (naturální výroba). A zbožím může být i služba, třeba stříhání u kadeřníka — nejen věc z obchodu.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-16",
+      "temaId": "statky-a-sluzby",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Jak se nazývá směnná hodnota zboží vyjádřená v penězích?",
+      "spravneOdpovedi": [
+        "cena",
+        "cena zboží",
+        "cena zbozi"
+      ],
+      "vysvetleni": "Směnná hodnota je poměr, ve kterém se směňuje jedno zboží za jiné zboží. Když ji vyjádříme v penězích, dostaneme cenu zboží — třeba 800 Kč za sluchátka.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-17",
+      "temaId": "statky-a-sluzby",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď pojem z látky o zboží k jeho vysvětlení.",
+      "pary": [
+        {
+          "levy": "užitná hodnota",
+          "pravy": "schopnost zboží uspokojit danou potřebu"
+        },
+        {
+          "levy": "směnná hodnota",
+          "pravy": "poměr, ve kterém se směňuje jedno zboží za jiné"
+        },
+        {
+          "levy": "cena zboží",
+          "pravy": "směnná hodnota vyjádřená v penězích"
+        },
+        {
+          "levy": "naturální výroba",
+          "pravy": "samozásobitelská produkce — spotřebuje se doma"
+        }
+      ],
+      "vysvetleni": "Zboží má dvě vlastnosti: užitnou hodnotu (k čemu je — auto slouží jako dopravní prostředek) a směnnou hodnotu (v jakém poměru se směňuje za jiné zboží; vyjádřená v penězích je to cena). Naturální výroba na trh vůbec nejde: je to samozásobitelská produkce, třeba zelenina vypěstovaná a spotřebovaná doma.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-18",
+      "temaId": "statky-a-sluzby",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Výuka na státní střední škole je služba poskytovaná státem, a patří proto do netržní produkce.",
+      "spravna": true,
+      "vysvetleni": "Netržní produkce má podle zápisků dvě části: naturální výrobu (samozásobitelská produkce) a služby poskytované státem — státní školství a zdravotnictví. Výuka je pořád služba (osobní), jen není určena pro směnu na trhu, takže to není zboží.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-19",
+      "temaId": "statky-a-sluzby",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Co z toho patří do NETRŽNÍ produkce — není určeno pro směnu na trhu?",
+      "moznosti": [
+        "zelenina vypěstovaná a snědená doma",
+        "výuka na státní škole",
+        "ošetření ve státní nemocnici",
+        "rohlíky upečené na prodej v pekárně",
+        "stříhání u kadeřníka",
+        "jablka prodaná na farmářském trhu"
+      ],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
+      "vysvetleni": "Netržní produkce = naturální výroba (samozásobitelská — vypěstuju a spotřebuju doma) a služby poskytované státem (státní školství, zdravotnictví). Rohlíky z pekárny, stříhání u kadeřníka i jablka z farmářského trhu se prodávají: jsou určené pro směnu na trhu, tedy zboží.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-statky-a-sluzby-20",
+      "temaId": "statky-a-sluzby",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Vyměníš s kamarádem dvě hry na konzoli za jedna jeho sluchátka. Co vyjadřuje poměr „dvě hry za jedna sluchátka“?",
+      "moznosti": [
+        "směnnou hodnotu — poměr, v němž se zboží směňuje",
+        "užitnou hodnotu — schopnost uspokojit potřebu",
+        "cenu zboží — hodnotu vyjádřenou v penězích",
+        "naturální výrobu — směnu bez použití peněz"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Směnná hodnota je poměr, ve kterém se směňuje jedno zboží za jiné — tady 2 : 1. Cenou by se stala, až bys ji vyjádřil v penězích (sluchátka za 800 Kč). Užitná hodnota říká, k čemu věc je (sluchátka → poslech hudby). A naturální výroba není směna bez peněz, ale výroba pro vlastní spotřebu.",
+      "zdroj": "Statky a služby"
+    },
+    {
+      "id": "o-poptavka-1",
+      "temaId": "poptavka",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je poptávka?",
+      "moznosti": [
+        "Množství zboží, které jsou kupující ochotni koupit za určitou cenu",
+        "Množství zboží, které jsou výrobci ochotni prodat za určitou cenu",
+        "Cena, při které se nabízené a poptávané množství zboží rovnají",
+        "Pocit nedostatku, který si lidé uvědomují a snaží se ho odstranit"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Poptávka je strana KUPUJÍCÍCH: kolik zboží jsou ochotni koupit za určitou cenu. Kolik jsou ochotni prodat výrobci, říká nabídka; cena, při které se obě množství rovnají, je cena rovnovážná. A pocit nedostatku je potřeba — z ní poptávka teprve vzniká.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-2",
+      "temaId": "poptavka",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď druh poptávky k jeho vysvětlení.",
+      "pary": [
+        {
+          "levy": "individuální",
+          "pravy": "poptávka jednoho kupujícího"
+        },
+        {
+          "levy": "dílčí",
+          "pravy": "poptávka po jednom druhu výrobku"
+        },
+        {
+          "levy": "agregátní",
+          "pravy": "celková poptávka"
+        }
+      ],
+      "vysvetleni": "Členění ze sešitu: individuální = jednoho kupujícího (tvoje poptávka po bagetách), dílčí = jednoho druhu výrobku (poptávka všech kupujících po másle), agregátní = celková (po všem zboží dohromady). Úplně stejně se člení i nabídka.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-3",
+      "temaId": "poptavka",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co v ekonomii znamená slovo důchod?",
+      "moznosti": [
+        "Příjem — třeba mzda, kapesné, úrok nebo stipendium",
+        "Jen starobní penze, kterou stát vyplácí seniorům",
+        "Peníze, které člověk za měsíc utratí za zboží",
+        "Úspory, které má člověk uložené na účtu v bance"
+      ],
+      "spravna": 0,
+      "vysvetleni": "V ekonomii je důchod = příjem: mzda, kapesné, úrok, stipendium. Starobní penze je jen jeden z mnoha důchodů — běžná řeč to slovo zúžila. Utracené peníze jsou výdaje a úspory jsou majetek; důchodem je až úrok, který z nich plyne.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-4",
+      "temaId": "poptavka",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co říká zákon klesající poptávky?",
+      "moznosti": [
+        "Poptávané množství se mění v opačném směru než cena",
+        "Poptávané množství se mění ve stejném směru jako cena",
+        "Poptávka po každém zboží časem sama od sebe postupně klesá",
+        "Čím vyšší je důchod kupujících, tím méně zboží kupují"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Cena nahoru → poptávané množství dolů, cena dolů → poptávané množství nahoru. Proto poptávková křivka klesá. Jinde se témuž zákonu říká zkráceně zákon poptávky — v sešitě ho máš jako zákon klesající poptávky. Stejným směrem jako cena se mění množství NABÍZENÉ — to je nabídka. A zákon neříká nic o čase ani o důchodu, jen o vztahu ceny a poptávaného množství.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-5",
+      "temaId": "poptavka",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Tabulka poptávky po másle: při ceně 40 Kč se poptává 700 kg, při 30 Kč 1 000 kg, při 20 Kč 1 700 kg a při 10 Kč 2 500 kg. Máslo zlevní ze 30 Kč na 20 Kč. O kolik kilogramů vzroste poptávané množství? (napiš číslo)",
+      "spravneOdpovedi": [
+        "700",
+        "700 kg",
+        "700kg",
+        "o 700",
+        "o 700 kg",
+        "o 700kg",
+        "+700",
+        "+ 700",
+        "+700 kg",
+        "700 kilogramů",
+        "700 kilogramu",
+        "700 kilo",
+        "sedm set",
+        "sedmset",
+        "o sedm set",
+        "sedm set kg",
+        "sedm set kilogramů",
+        "sedm set kilogramu",
+        "o 700 kilogramů",
+        "o 700 kilogramu",
+        "o 700 kilo",
+        "o sedm set kilogramů"
+      ],
+      "vysvetleni": "Při 30 Kč se poptává 1 000 kg, při 20 Kč 1 700 kg: 1 700 − 1 000 = 700 kg navíc. Cena klesla a poptávané množství vzrostlo — zákon klesající poptávky. Křivka se přitom neposunula — je to jen pohyb po ní na jiný bod.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-6",
+      "temaId": "poptavka",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Zdraží-li se zboží, je nahrazeno jiným levnějším zbožím, které uspokojí stejnou potřebu. Jak se tento efekt nazývá?",
+      "spravneOdpovedi": [
+        "substituční efekt",
+        "substitucni efekt",
+        "substituční",
+        "substitucni",
+        "efekt substituční",
+        "efekt substitucni",
+        "efekt substituce",
+        "substituce"
+      ],
+      "vysvetleni": "Substituční efekt: zdražené zboží lidé nahrazují (substituují) jiným, levnějším, které uspokojí stejnou potřebu — místo zdraženého másla koupí levnější rostlinný tuk. V sešitě je před ním jako první důchodový efekt: je-li důchod daný, při nižší ceně si koupím větší množství zboží.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-7",
+      "temaId": "poptavka",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které faktory poptávkovou křivku POSOUVAJÍ (nebo mění její tvar)?",
+      "moznosti": [
+        "demografické změny",
+        "změny velikosti důchodů",
+        "změny v preferencích",
+        "změny cen jiných zboží",
+        "změna ceny sledovaného zboží",
+        "náklady výroby a obchodu"
+      ],
+      "spravne": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "vysvetleni": "Křivku poptávky posouvají čtyři faktory: demografické změny, změny velikosti důchodů, změny v preferencích a změny cen jiných zboží (substitutů a komplementů). Změna ceny sledovaného zboží je jen pohyb PO křivce — věta ze sešitu „zvýší-li se cena zboží, poptávané množství klesá a naopak“ popisuje zákon klesající poptávky, ne posun. Náklady výroby a obchodu patří k nabídce.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-8",
+      "temaId": "poptavka",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď pojem ze zápisků o poptávce k jeho vysvětlení.",
+      "pary": [
+        {
+          "levy": "důchodový efekt",
+          "pravy": "je-li důchod daný, při nižší ceně si koupím větší množství zboží"
+        },
+        {
+          "levy": "substituční efekt",
+          "pravy": "zdražené zboží nahradí jiné, levnější, které uspokojí stejnou potřebu"
+        },
+        {
+          "levy": "demografické změny",
+          "pravy": "změny v počtech a charakteristikách kupujících"
+        },
+        {
+          "levy": "změny velikosti důchodů",
+          "pravy": "mění se mzdy zaměstnanců, úroky a zisky vlastního kapitálu"
+        },
+        {
+          "levy": "změny v preferencích",
+          "pravy": "mění se zvyky, móda a potřeby"
+        }
+      ],
+      "vysvetleni": "Dva EFEKTY vysvětlují, proč křivka klesá — mění se cena zboží, důchod zůstává stejný. Zbylé tři pojmy jsou FAKTORY, které křivku posouvají: mění se počet a složení kupujících, jejich příjmy, nebo to, co chtějí. Pozor na dvojici důchodový efekt × změny velikosti důchodů: u efektu je důchod daný a mění se cena.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-9",
+      "temaId": "poptavka",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Poptávka všech kupujících po jednom druhu výrobku — třeba po másle — je poptávka dílčí, ne agregátní.",
+      "spravna": true,
+      "vysvetleni": "Dílčí poptávka = poptávka po jednom druhu výrobku. Agregátní je až celková poptávka — po všem zboží dohromady. A individuální je poptávka jediného kupujícího.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-10",
+      "temaId": "poptavka",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Máš kapesné 600 Kč na měsíc. Lístek do kina zlevní ze 200 Kč na 150 Kč, takže si místo tří lístků můžeš dovolit čtyři. Který pojem ze zápisků to popisuje?",
+      "moznosti": [
+        "důchodový efekt — důchod je daný, při nižší ceně koupím víc",
+        "substituční efekt — zdražené zboží nahradím jiným, levnějším",
+        "změny velikosti důchodů — mám teď vyšší příjem než dřív",
+        "změny v preferencích — kino přišlo mezi lidmi do módy"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kapesné (důchod) se nezměnilo, klesla cena — a za stejné peníze koupíš větší množství: 600 ÷ 150 = 4 lístky místo 600 ÷ 200 = 3. To je důchodový efekt. Substituční efekt by znamenal nahradit zdražené zboží levnějším. Příjem ti nevzrostl a móda se nezměnila, takže nejde o faktory, které křivku posouvají.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-11",
+      "temaId": "poptavka",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Obchod zlevní máslo ze 40 Kč na 30 Kč a lidé ho začnou kupovat víc. Znamená to, že se poptávková křivka másla posunula doprava.",
+      "spravna": false,
+      "vysvetleni": "Změnila se cena sledovaného zboží (másla), a to znamená jen pohyb PO křivce: z bodu 40 Kč a 700 kg do bodu 30 Kč a 1 000 kg. Křivka sama zůstala na místě. Posunout ji umí jiné faktory: demografické změny, změny důchodů, preferencí nebo cen jiných zboží.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-12",
+      "temaId": "poptavka",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Energetický nápoj značky Vulkán výrazně zdraží. Podobný nápoj značky Kometa ho může nahradit a jeho cena se nezměnila. Co se stane s poptávkou po nápoji Kometa?",
+      "moznosti": [
+        "Vzroste — Kometa je substitut, lidé jí nahrazují zdražený Vulkán",
+        "Klesne — Kometa je komplement, kupuje se společně s Vulkánem",
+        "Klesne — i pro Kometu platí zákon klesající poptávky",
+        "Nezmění se — cena nápoje Kometa zůstala úplně stejná"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Oba nápoje uspokojují stejnou potřebu, jsou to tedy substituty (jako jablka a hrušky ze zápisků). Zdraží-li Vulkán, lidé ho nahrazují — poptávka po Kometě roste, i když se její cena nezměnila: křivka poptávky po Kometě se posune doprava. Zákon klesající poptávky mluví o vlastní ceně zboží, a ta se u Komety nezměnila.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-13",
+      "temaId": "poptavka",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Herní konzole výrazně zlevní a kupuje se jich mnohem víc. Cena her na tuto konzoli se nezměnila. Co se stane s poptávkou po těchto hrách?",
+      "moznosti": [
+        "Vzroste — hry jsou komplement, konzoli při použití doplňují",
+        "Vzroste — hry jsou substitut, konzoli mohou nahradit",
+        "Klesne — hry jsou komplement, a ten se pak kupuje méně",
+        "Nezmění se — cena her zůstala stejná jako předtím"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Konzole a hry se používají spolu — jsou to komplementy (jako auto a benzín ze zápisků). Když se kupuje víc konzolí, roste i poptávka po hrách: křivka poptávky po hrách se posune doprava, přestože se jejich cena nezměnila. Substitut by konzoli nahrazoval — jenže hra bez konzole je k ničemu.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-14",
+      "temaId": "poptavka",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které události poptávku po energetických nápojích SNÍŽÍ — posunou poptávkovou křivku doleva?",
+      "moznosti": [
+        "mezi mladými přestanou být v módě",
+        "kupujícím klesnou příjmy z brigád i kapesné",
+        "ve městě ubude mladých lidí, kteří je pijí",
+        "energetické nápoje v obchodech zdraží",
+        "zdraží káva, kterou lidé pijí místo nich",
+        "výrobcům zdraží cukr, plechovky a energie"
+      ],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
+      "vysvetleni": "Poptávku snižují změny v preferencích (nápoje vyjdou z módy), nižší důchody kupujících a méně kupujících (demografické změny). Zdražení samotných nápojů je jen pohyb po křivce. Zdražení kávy — substitutu — by poptávku po energetických nápojích naopak zvýšilo. A dražší suroviny výrobců mění nabídku, ne poptávku.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-poptavka-15",
+      "temaId": "poptavka",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Na festivalu stojí kelímek limonády 60 Kč. V sobotu stánek zlevní na 40 Kč a — jinak za stejných podmínek — prodá dvakrát víc kelímků. V neděli udeří vedro 35 °C a při stejné ceně 40 Kč se prodá ještě o polovinu víc. Co se stalo s poptávkou po limonádě v sobotu a co v neděli?",
+      "moznosti": [
+        "V sobotu pohyb po křivce, v neděli posun křivky doprava",
+        "V sobotu posun křivky doprava, v neděli pohyb po křivce",
+        "V sobotu i v neděli se celá křivka posunula doprava",
+        "V sobotu i v neděli šlo jen o pohyb po téže křivce"
+      ],
+      "spravna": 0,
+      "vysvetleni": "V sobotu se změnila cena limonády → pohyb PO křivce (zákon klesající poptávky). V neděli cena zůstala 40 Kč, a přesto se prodalo víc: vedrem se změnily potřeby kupujících, tedy faktor mimo cenu — celá křivka se posunula doprava. Poznávací znamení: mění se cena sledovaného zboží = pohyb po křivce; mění se něco jiného = posun křivky.",
+      "zdroj": "Poptávka"
+    },
+    {
+      "id": "o-nabidka-1",
+      "temaId": "nabidka",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je nabídka?",
+      "moznosti": [
+        "Množství zboží, které jsou výrobci ochotni prodat za určitou cenu",
+        "Množství zboží, které jsou kupující ochotni koupit za určitou cenu",
+        "Zlevněné zboží, které obchody nabízejí zákazníkům v akčních letácích",
+        "Cena, za kterou chtějí výrobci své zboží prodávat na trhu"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Nabídka je strana VÝROBCŮ (prodejců): kolik zboží jsou ochotni prodat za určitou cenu. Ochota kupujících koupit je poptávka. Nabídka není cena sama, ale MNOŽSTVÍ při určité ceně — a s akčními letáky nemá ekonomický pojem nic společného.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-2",
+      "temaId": "nabidka",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Nabídka se člení stejně jako poptávka. Jak se nazývá nabídka jednoho výrobce? (jedno slovo)",
+      "spravneOdpovedi": [
+        "individuální",
+        "individualni",
+        "individuální nabídka",
+        "individualni nabidka"
+      ],
+      "vysvetleni": "Individuální nabídka = nabídka jednoho výrobce (jedna mlékárna). Dílčí je nabídka jednoho výrobku (všichni výrobci másla dohromady) a agregátní je nabídka celková.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-3",
+      "temaId": "nabidka",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď písmeno z grafu k tomu, co označuje.",
+      "pary": [
+        {
+          "levy": "P",
+          "pravy": "cena (price) — svislá osa"
+        },
+        {
+          "levy": "Q",
+          "pravy": "množství (quantity) — vodorovná osa"
+        },
+        {
+          "levy": "D",
+          "pravy": "poptávková křivka (demand) — klesá"
+        },
+        {
+          "levy": "S",
+          "pravy": "nabídková křivka — stoupá"
+        }
+      ],
+      "vysvetleni": "P = price (cena) je na svislé ose, Q = quantity (množství) na vodorovné. D = demand je klesající poptávková křivka. S označuje stoupající nabídkovou křivku — zapamatuješ si ji přes anglické supply (nabídka).",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-4",
+      "temaId": "nabidka",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Jaký tvar má nabídková křivka (S) v grafu s cenou na svislé a množstvím na vodorovné ose?",
+      "moznosti": [
+        "Stoupající — při vyšší ceně se nabízí větší množství",
+        "Klesající — při vyšší ceně se nabízí menší množství",
+        "Svislá — nabízené množství se s cenou vůbec nemění",
+        "Vodorovná — cena je při každém množství úplně stejná"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Při vyšší ceně jsou výrobci ochotni prodat víc, proto nabídková křivka stoupá — v tabulce másla 10 Kč → 300 kg, 40 Kč → 1 800 kg. Klesající je křivka poptávková: kupující při vyšší ceně kupují méně.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-5",
+      "temaId": "nabidka",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Tabulka prodeje másla: při ceně 10 Kč výrobci nabízejí 300 kg, při 20 Kč 1 000 kg, při 30 Kč 1 500 kg a při 40 Kč 1 800 kg. Cena másla vzroste z 20 Kč na 30 Kč. O kolik kilogramů vzroste nabízené množství? (napiš číslo)",
+      "spravneOdpovedi": [
+        "500",
+        "500 kg",
+        "500kg",
+        "o 500",
+        "o 500 kg",
+        "o 500kg",
+        "+500",
+        "+ 500",
+        "+500 kg",
+        "500 kilogramů",
+        "500 kilogramu",
+        "500 kilo",
+        "pět set",
+        "pet set",
+        "pětset",
+        "petset",
+        "o pět set",
+        "o pet set",
+        "pět set kg",
+        "pet set kg",
+        "pět set kilogramů",
+        "pet set kilogramu",
+        "o 500 kilogramů",
+        "o 500 kilogramu",
+        "o 500 kilo",
+        "o pět set kilogramů"
+      ],
+      "vysvetleni": "Při 20 Kč výrobci nabízejí 1 000 kg, při 30 Kč 1 500 kg: 1 500 − 1 000 = 500 kg navíc. Vyšší cena → větší nabízené množství, proto nabídková křivka stoupá. Je to pohyb po křivce — křivka sama se neposunula.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-6",
+      "temaId": "nabidka",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Které dva faktory podle zápisků ovlivňují STOUPAJÍCÍ tvar nabídkové křivky?",
+      "moznosti": [
+        "výrobci změní strukturu výroby a vyrobí víc toho, co jde na odbyt",
+        "při vyšší ceně přistoupí výrobci, kteří dřív nedosahovali zisku",
+        "při nižší ceně si kupující za daný důchod koupí větší množství",
+        "zdražené zboží kupující nahrazují jiným, levnějším zbožím",
+        "dražší suroviny a energie zvyšují výrobcům náklady výroby"
+      ],
+      "spravne": [
+        0,
+        1
+      ],
+      "vysvetleni": "Křivka nabídky stoupá, protože při vyšší ceně výrobci změní strukturu výroby a vyrobí víc výrobku, který jde na odbyt, na úkor ostatních — a do odvětví přistoupí výrobci, kteří předtím nedosahovali zisku. Důchodový a substituční efekt vysvětlují klesající křivku POPTÁVKY. Dražší suroviny křivku nabídky posouvají, její tvar nevysvětlují.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-7",
+      "temaId": "nabidka",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Pekárně zdraží mouka i elektřina. Cena rohlíků v obchodech zůstává stejná. Co to podle zápisků udělá s nabídkou rohlíků?",
+      "moznosti": [
+        "Nabídka se sníží — pekárně rostou náklady výroby",
+        "Nabídka se zvýší — dražší výroba znamená víc zboží",
+        "Nabídka se nezmění — klesne jen poptávka po rohlících",
+        "Nabídka se nezmění — jde jen o pohyb po křivce"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Dražší suroviny a energie jsou vyšší náklady výroby — a ty nabídku snižují: při každé ceně se výrobcům vyplatí nabídnout méně (křivka S se posune doleva). Nezdražily rohlíky, ale jejich VÝROBA, proto nejde o pohyb po křivce. Poptávku určují kupující — nákladů pekárny se netýká.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-8",
+      "temaId": "nabidka",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Cena triček s potiskem na trhu vzroste. Jak se podle křivek D a S změní poptávané a nabízené množství?",
+      "moznosti": [
+        "Poptávané množství klesne, nabízené vzroste",
+        "Poptávané množství vzroste, nabízené klesne",
+        "Poptávané i nabízené množství vzroste",
+        "Poptávané i nabízené množství klesne"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Kupující a výrobci reagují na cenu opačně. Při vyšší ceně kupují lidé méně (zákon klesající poptávky — křivka D klesá), kdežto výrobci jsou ochotni prodat víc (křivka S stoupá). V tabulkách másla: při 40 Kč se poptává jen 700 kg, ale nabízí 1 800 kg.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-9",
+      "temaId": "nabidka",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď pojem ze zápisků o nabídce k tomu, co k němu patří.",
+      "pary": [
+        {
+          "levy": "stoupající tvar křivky",
+          "pravy": "změna struktury výroby; přistoupí výrobci, kteří dřív nedosahovali zisku"
+        },
+        {
+          "levy": "změny nákladů, které nabídku snižují",
+          "pravy": "dražší suroviny a energie, zvyšování mezd"
+        },
+        {
+          "levy": "změny nákladů, které nabídku zvyšují",
+          "pravy": "zavádění nejnovějších technologií, snižování mezd"
+        },
+        {
+          "levy": "změny vnějších podmínek podnikání",
+          "pravy": "změny počasí, změny daní"
+        }
+      ],
+      "vysvetleni": "Stoupající TVAR křivky vysvětlují změna struktury výroby a přistoupení výrobců, kteří dřív nedosahovali zisku. POSUN křivky způsobují náklady výroby a obchodu (dražší suroviny, energie a mzdy nabídku snižují; nové technologie a nižší mzdy ji zvyšují) a změny vnějších podmínek podnikání — počasí a daně.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-10",
+      "temaId": "nabidka",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Výrobce sluchátek zavede nejnovější výrobní linku, která mu sníží náklady. Znamená to, že se nabídka sluchátek zvýší — nabídková křivka se posune doprava.",
+      "spravna": true,
+      "vysvetleni": "Snižování nákladů zaváděním nejnovějších technologií nabídku zvyšuje: při každé ceně se výrobci vyplatí nabídnout víc sluchátek, takže se křivka S posune doprava. Cena sluchátek se nezměnila — proto jde o posun křivky, ne o pohyb po ní. Opačně působí dražší suroviny a energie nebo zvyšování mezd: nabídku snižují.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-11",
+      "temaId": "nabidka",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Cena másla vzroste z 20 Kč na 30 Kč a výrobci ho proto nabídnou víc. Znamená to, že se nabídková křivka posunula doprava.",
+      "spravna": false,
+      "vysvetleni": "Změnila se cena másla samotného — to je jen pohyb PO křivce S z bodu 20 Kč a 1 000 kg do bodu 30 Kč a 1 500 kg. Křivku posouvají jiné faktory: náklady výroby a obchodu a změny vnějších podmínek podnikání (počasí, daně).",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-12",
+      "temaId": "nabidka",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Které události SNÍŽÍ nabídku másla — posunou nabídkovou křivku doleva?",
+      "moznosti": [
+        "zdraží mléko, ze kterého se máslo vyrábí",
+        "sucho zničí pastviny a krávy dojí méně",
+        "stát zvýší mlékárnám odvody daní",
+        "mlékárny zavedou úspornější technologii",
+        "kupujícím másla klesnou příjmy",
+        "cena másla v obchodech klesne"
+      ],
+      "spravne": [
+        0,
+        1,
+        2
+      ],
+      "vysvetleni": "Nabídku snižují vyšší náklady výroby (dražší mléko) a horší vnější podmínky podnikání — počasí (sucho) a vyšší daně. Úspornější technologie náklady snižuje, takže nabídku naopak zvyšuje. Příjmy kupujících posouvají poptávku. A pokles ceny másla znamená jen pohyb po nabídkové křivce dolů — křivka zůstává na místě.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-13",
+      "temaId": "nabidka",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Jarní mrazy zničí většinu úrody meruněk a pěstitelé jich mohou nabídnout mnohem méně. Který faktor ze zápisků změnil nabídku meruněk?",
+      "moznosti": [
+        "změny vnějších podmínek podnikání — počasí",
+        "náklady výroby a obchodu — dražší suroviny",
+        "změny v preferencích — móda a zvyky lidí",
+        "demografické změny — počet kupujících"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Počasí patří mezi vnější podmínky podnikání — zápisky uvádějí změny klimatických podmínek, které ovlivní nabídku produktů zemědělců. Pěstitelům nezdražily suroviny, takže nejde o náklady. Preference a demografické změny jsou faktory poptávky: týkají se kupujících, ne výrobců.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-14",
+      "temaId": "nabidka",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Cena domácích limonád vzroste natolik, že se jejich výroba začne vyplácet i malým výrobcům, kteří na nich dřív prodělávali — a ti je začnou nabízet taky. Co tím zápisky vysvětlují?",
+      "moznosti": [
+        "stoupající tvar nabídkové křivky",
+        "klesající tvar poptávkové křivky",
+        "posun nabídkové křivky kvůli nákladům",
+        "posun poptávkové křivky kvůli módě"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Při vyšší ceně mohou do odvětví přistoupit výrobci, kteří předtím nedosahovali zisku — jeden ze dvou faktorů, proč nabídková křivka stoupá (v sešitě je před ním: výrobci změní strukturu výroby ve prospěch výrobku, který jde na odbyt). Spouštěčem je cena limonád samotných, ne náklady ani móda, proto nejde o posun křivky.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-nabidka-15",
+      "temaId": "nabidka",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Továrna na tenisky zvýší svým zaměstnancům mzdy. V zápiscích se mzdy objevují u nabídky i u poptávky. Jak to spolu souvisí?",
+      "moznosti": [
+        "Pro továrnu jsou nákladem (nabídku snižují), pro zaměstnance důchodem (poptávku zvyšují)",
+        "Pro továrnu jsou nákladem (nabídku zvyšují), pro zaměstnance důchodem (poptávku snižují)",
+        "Jsou jen nákladem továrny: mění nabídku tenisek, poptávky po zboží se vůbec netýkají",
+        "Jsou jen důchodem zaměstnanců: mění poptávku po zboží, nabídky tenisek se netýkají"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Mzda má dvě tváře. Pro firmu, která ji platí, je to náklad výroby — zvyšování mezd nabídku snižuje. Pro zaměstnance je mzda důchod (příjem), a změny velikosti důchodů posouvají poptávku: s vyšší mzdou si lidé mohou koupit víc zboží. Jedna událost tak může pohnout křivkou nabídky i křivkou poptávky.",
+      "zdroj": "Nabídka"
+    },
+    {
+      "id": "o-rovnovazna-cena-1",
+      "temaId": "rovnovazna-cena",
+      "typ": "vyber",
+      "obtiznost": 1,
+      "zadani": "Co je rovnovážná cena?",
+      "moznosti": [
+        "Cena, při níž se nabídka a poptávka rovnají",
+        "Cena, při níž na trhu vzniká přebytek zboží",
+        "Cena, při níž na trhu vzniká nedostatek zboží",
+        "Cena, kterou si prodejce určí podle svých nákladů"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Rovnovážná cena vyhovuje jak tomu, kdo vyrábí, tak i tomu, kdo kupuje: nabídka a poptávka se při ní rovnají (v grafu bod E). Nevzniká přebytek ani nedostatek — trh se vyčišťuje. Přebytek vzniká při ceně vyšší než rovnovážné (P₁), nedostatek při ceně nižší (P₂). A neurčuje ji prodejce podle svých nákladů — vzniká na trhu sama.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-2",
+      "temaId": "rovnovazna-cena",
+      "typ": "prirazovani",
+      "obtiznost": 2,
+      "zadani": "Přiřaď cenu z grafu k tomu, co při ní na trhu nastává.",
+      "pary": [
+        {
+          "levy": "cena P₁ — vyšší než rovnovážná",
+          "pravy": "vzniká přebytek zboží"
+        },
+        {
+          "levy": "cena P₂ — nižší než rovnovážná",
+          "pravy": "vzniká nedostatek zboží"
+        },
+        {
+          "levy": "cena P₀ — rovnovážná",
+          "pravy": "trh se vyčišťuje"
+        }
+      ],
+      "vysvetleni": "P₁ leží nad rovnovážnou cenou: výrobci nabízejí víc, než kupující poptávají → přebytek zboží. P₂ leží pod ní: poptává se víc, než se nabízí → nedostatek zboží. Při rovnovážné ceně P₀ se nabídka a poptávka rovnají — trh se vyčišťuje.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-3",
+      "temaId": "rovnovazna-cena",
+      "typ": "doplneni",
+      "obtiznost": 2,
+      "zadani": "Cena P₂ je nižší než rovnovážná. Co při ní na trhu vzniká? (jedno slovo)",
+      "spravneOdpovedi": [
+        "nedostatek",
+        "nedostatek zboží",
+        "nedostatek zbozi",
+        "převis poptávky",
+        "previs poptavky"
+      ],
+      "vysvetleni": "Při ceně nižší než rovnovážné chtějí kupující koupit víc, než kolik jsou výrobci ochotni prodat — vzniká nedostatek zboží. Opačně je to u ceny P₁ nad rovnováhou: tam vzniká přebytek.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-4",
+      "temaId": "rovnovazna-cena",
+      "typ": "vyber",
+      "obtiznost": 2,
+      "zadani": "Co je tržní mechanismus?",
+      "moznosti": [
+        "Přizpůsobování trhu při nerovnováze",
+        "Určování cen veškerého zboží státními úřady",
+        "Způsob, jakým výrobci počítají svůj zisk",
+        "Dohoda všech prodejců na společné ceně"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Tržní mechanismus = přizpůsobování trhu při nerovnováze: při nedostatku i přebytku se ceny a množství mění tak dlouho, až nerovnováha zanikne. Nikdo to neřídí — stát ceny neurčuje a prodejci se nedomlouvají; rozhodují reakce kupujících a výrobců.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-5",
+      "temaId": "rovnovazna-cena",
+      "typ": "anone",
+      "obtiznost": 3,
+      "zadani": "Podle zápisků platí obojí: poptávané a nabízené množství je závislé na ceně — a cena je funkčně závislá na nabídce a poptávce.",
+      "spravna": true,
+      "vysvetleni": "Vztah funguje oběma směry (body A a B ze zápisků). Cena rozhoduje, kolik chtějí kupující koupit a výrobci prodat — a sama se zase mění podle toho, jak vypadá nabídka a poptávka. Právě díky tomu se trh dokáže vracet k rovnováze.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-6",
+      "temaId": "rovnovazna-cena",
+      "typ": "vyber",
+      "obtiznost": 3,
+      "zadani": "Při ceně 30 Kč kupující poptávají 1 000 kg másla a výrobci nabízejí 1 500 kg. Jaká je situace na trhu?",
+      "moznosti": [
+        "Přebytek 500 kg — cena je vyšší než rovnovážná",
+        "Nedostatek 500 kg — cena je nižší než rovnovážná",
+        "Přebytek 500 kg — cena je nižší než rovnovážná",
+        "Nedostatek 2 500 kg — obě množství se sčítají"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Nabízí se 1 500 kg, poptává jen 1 000 kg → 1 500 − 1 000 = 500 kg zboží zbývá: přebytek. Ten vzniká při ceně VYŠŠÍ než rovnovážné (v grafu P₁) — výrobci chtějí prodat hodně, kupující kupují málo. Nedostatek by byl opačně: poptávané množství větší než nabízené.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-7",
+      "temaId": "rovnovazna-cena",
+      "typ": "doplneni",
+      "obtiznost": 3,
+      "zadani": "Při ceně 20 Kč kupující poptávají 1 700 kg másla, ale výrobci nabízejí jen 1 000 kg. Jak velký je nedostatek másla v kilogramech? (napiš číslo)",
+      "spravneOdpovedi": [
+        "700",
+        "700 kg",
+        "700kg",
+        "700 kilogramů",
+        "700 kilogramu",
+        "700 kilo",
+        "sedm set",
+        "sedmset",
+        "sedm set kg",
+        "sedm set kilogramů",
+        "sedm set kilogramu",
+        "nedostatek 700 kg",
+        "nedostatek 700"
+      ],
+      "vysvetleni": "Nedostatek = poptávané − nabízené množství = 1 700 − 1 000 = 700 kg. Cena 20 Kč je nižší než rovnovážná (v grafu P₂): kupující by chtěli víc másla, než kolik jsou výrobci ochotni prodat.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-8",
+      "temaId": "rovnovazna-cena",
+      "typ": "multi",
+      "obtiznost": 3,
+      "zadani": "Co všechno podle zápisků platí o rovnovážné ceně?",
+      "moznosti": [
+        "nabídka a poptávka se při ní rovnají",
+        "nevzniká přebytek ani nedostatek",
+        "trh se takzvaně vyčišťuje",
+        "vyhovuje tomu, kdo vyrábí, i tomu, kdo kupuje",
+        "v grafu leží nad průsečíkem křivek S a D",
+        "vzniká při ní soutěž kupujících"
+      ],
+      "spravne": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "vysvetleni": "Rovnovážná cena vyhovuje výrobcům i kupujícím, nabídka a poptávka se při ní rovnají, nevzniká přebytek ani nedostatek a trh se vyčišťuje. V grafu jí odpovídá přímo průsečík E křivek S a D (na ose cena P₀), ne místo nad ním. Soutěž kupujících vzniká až při nedostatku — tedy při ceně nižší než rovnovážné.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-9",
+      "temaId": "rovnovazna-cena",
+      "typ": "prirazovani",
+      "obtiznost": 3,
+      "zadani": "Přiřaď situaci na trhu k tomu, co při ní podle tržního mechanismu nastává.",
+      "pary": [
+        {
+          "levy": "nedostatek zboží",
+          "pravy": "vzniká soutěž kupujících"
+        },
+        {
+          "levy": "přebytek zboží",
+          "pravy": "vzniká soutěž prodávajících"
+        },
+        {
+          "levy": "rovnovážná cena",
+          "pravy": "nepůsobí síly ke změně stavu"
+        }
+      ],
+      "vysvetleni": "Tři případy ze zápisků. Při nedostatku je zboží málo, proto soutěží kupující a kupují i za vyšší cenu. Při přebytku je zboží moc, proto soutěží prodávající a snižují ceny. Při rovnovážné ceně nepůsobí síly ke změně stavu — nikdo nemá důvod zdražovat ani zlevňovat.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-10",
+      "temaId": "rovnovazna-cena",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Před Vánoci je v obchodech nedostatek oblíbené stavebnice — zájemců je víc než krabic. Které pořadí kroků odpovídá tržnímu mechanismu?",
+      "moznosti": [
+        "soutěž kupujících → výrobci zvýší ceny → kupující sníží poptávané množství",
+        "soutěž prodávajících → výrobci sníží ceny → kupující zvýší poptávané množství",
+        "soutěž kupujících → výrobci sníží ceny → kupující zvýší poptávané množství",
+        "soutěž prodávajících → výrobci zvýší ceny → kupující sníží poptávané množství"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Při nedostatku je zboží málo, takže vzniká soutěž KUPUJÍCÍCH — kupují i za vyšší cenu. Výrobci zvýší ceny a zvýší nabízené množství; kupující při vyšší ceně snižují poptávané množství. Nedostatek se postupně snižuje, až zcela zanikne. Soutěž prodávajících a snižování cen patří k přebytku zboží.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-11",
+      "temaId": "rovnovazna-cena",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Stánky s trdelníky na vánočním trhu nasadily cenu 150 Kč a každý večer jim zbývají desítky neprodaných kusů. Co podle tržního mechanismu udělají prodejci a jak zareagují kupující?",
+      "moznosti": [
+        "Prodejci sníží ceny, kupující pak koupí víc",
+        "Prodejci zvýší ceny, kupující pak koupí méně",
+        "Prodejci sníží ceny, kupující pak koupí méně",
+        "Prodejci zvýší ceny, kupující pak koupí víc"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Neprodané zboží = přebytek, cena 150 Kč je vyšší než rovnovážná. Vzniká soutěž prodávajících: snižují ceny a sníží se nabízené množství (napečou méně). Kupující při nižší ceně zvýší poptávané množství — a přebytek se snižuje, až zcela zanikne. Zdražování by přebytek jen zvětšilo.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-12",
+      "temaId": "rovnovazna-cena",
+      "typ": "anone",
+      "obtiznost": 4,
+      "zadani": "Obchodům po zimě zůstaly plné sklady neprodaných bund — je jich přebytek. Podle tržního mechanismu teď vzniká soutěž kupujících, kteří bundy kupují i za vyšší cenu.",
+      "spravna": false,
+      "vysvetleni": "Soutěž kupujících a nákupy za vyšší cenu patří k NEDOSTATKU. Při přebytku je zboží víc, než kolik lidé chtějí koupit, takže soutěží PRODÁVAJÍCÍ: snižují ceny (výprodej bund) a sníží se nabízené množství. Kupující při nižší ceně zvýší poptávané množství a přebytek postupně zanikne.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-13",
+      "temaId": "rovnovazna-cena",
+      "typ": "multi",
+      "obtiznost": 4,
+      "zadani": "Nová herní konzole se prodává za cenu nižší než rovnovážnou a v obchodech je jí nedostatek. Co podle tržního mechanismu nastane?",
+      "moznosti": [
+        "vzniká soutěž kupujících",
+        "kupující kupují i za vyšší cenu",
+        "výrobci zvýší ceny i nabízené množství",
+        "kupující při vyšší ceně poptávají méně",
+        "vzniká soutěž prodávajících",
+        "výrobci sníží ceny i nabízené množství"
+      ],
+      "spravne": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "vysvetleni": "Nedostatek zboží (bod A ze zápisků): vzniká soutěž kupujících a kupují i za vyšší cenu; výrobci zvýší ceny a zvýší nabízené množství; kupující při vyšší ceně snižují poptávané množství. Závěr: nedostatek se postupně snižuje, až zcela zanikne. Soutěž prodávajících a snižování cen patří k přebytku.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-14",
+      "temaId": "rovnovazna-cena",
+      "typ": "vyber",
+      "obtiznost": 4,
+      "zadani": "Máslo: při ceně 30 Kč se poptává 1 000 kg a nabízí 1 500 kg; při ceně 20 Kč se poptává 1 700 kg a nabízí 1 000 kg. Kde leží rovnovážná cena?",
+      "moznosti": [
+        "Mezi 20 a 30 Kč — přebytek se tam mění v nedostatek",
+        "Nad 30 Kč — při 30 Kč je na trhu stále nedostatek",
+        "Pod 20 Kč — při 20 Kč je na trhu stále přebytek",
+        "U 20 i 30 Kč — v obou řádcích je shodně 1 000 kg"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Při 30 Kč se nabízí víc, než se poptává (přebytek 500 kg) — cena je nad rovnovážnou. Při 20 Kč se poptává víc, než se nabízí (nedostatek 700 kg) — cena je pod rovnovážnou. Rovnovážná cena proto leží mezi 20 a 30 Kč; přesnou hodnotu tabulka neuvádí. Shodné číslo 1 000 kg nic neznamená — jednou je to množství poptávané, podruhé nabízené.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
+      "id": "o-rovnovazna-cena-15",
+      "temaId": "rovnovazna-cena",
+      "typ": "vyber",
+      "obtiznost": 5,
+      "zadani": "Lístky na koncert stály 900 Kč a zmizely za osm minut; tisíce fanoušků zůstaly bez lístku. Přeprodejci je pak nabízejí za 2 500 Kč — a lidé je kupují. Co z toho plyne o původní ceně 900 Kč?",
+      "moznosti": [
+        "Byla nižší než rovnovážná — vznikl nedostatek a soutěž kupujících",
+        "Byla vyšší než rovnovážná — vznikl přebytek a soutěž prodávajících",
+        "Byla přesně rovnovážná — všechny lístky se přece prodaly",
+        "Byla vyšší než rovnovážná — proto o lístky byl tak velký zájem"
+      ],
+      "spravna": 0,
+      "vysvetleni": "Při 900 Kč chtěli kupující mnohem víc lístků, než kolik jich bylo v nabídce → nedostatek zboží, a ten vzniká při ceně NIŽŠÍ než rovnovážné (v grafu P₂). Vznikla soutěž kupujících: kupují i za vyšší cenu, proto se lístky prodávají za 2 500 Kč. „Všechno se prodalo“ rovnováhu nedokazuje — při rovnovážné ceně by nezbyli fanoušci, kteří chtějí koupit a nemají co.",
+      "zdroj": "Rovnovážná cena a tržní mechanismus"
+    },
+    {
       "id": "o-zakladni-pojmy-1",
       "temaId": "zakladni-pojmy",
       "typ": "vyber",
@@ -741,7 +1676,7 @@
         1,
         2
       ],
-      "vysvetleni": "Poptávku posouvají faktory mimo cenu daného zboží: příjmy, preference (počasí) a ceny substitutů. Změna vlastní ceny znamená jen posun po křivce a ceny vstupů ovlivňují nabídku.",
+      "vysvetleni": "Poptávku posouvají faktory mimo cenu daného zboží: příjmy, preference (počasí) a ceny substitutů. Změna vlastní ceny znamená jen pohyb po křivce a ceny vstupů ovlivňují nabídku.",
       "zdroj": "Trh a tržní mechanismus"
     },
     {

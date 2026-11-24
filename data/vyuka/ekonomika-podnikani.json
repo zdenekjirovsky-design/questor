@@ -1,7 +1,7 @@
 {
   "predmetId": "ekonomika-podnikani",
-  "verze": 2,
-  "vytvoreno": "2026-09-04",
+  "verze": 3,
+  "vytvoreno": "2026-11-24",
   "lekce": [
     {
       "temaId": "potreby",
@@ -203,7 +203,7 @@
         },
         {
           "typ": "text",
-          "obsah": "**K čemu ti to je:** Na brigádě budeš nejspíš **poskytovat službu** — roznášet kafe (osobní), skládat zboží ve skladu (věcná) — a firma tě platí z toho, co za ni zákazník dá. Když ti v servisu zpackají opravu, reklamuješ **službu**, ne zboží, a platí pro to jiná pravidla než u vrácení věci. A až budeš jednou podnikat (třeba streamovat), rozlišíš, co je tvůj **kapitálový statek** (kamera, mikrofon — nástroje výdělku) a co **spotřební** (pizza k tomu). Tohle rozlišení řídí i daně a účetnictví."
+          "obsah": "**K čemu ti to je:** Na brigádě budeš nejspíš **poskytovat službu** — roznášet kafe (osobní), skládat zboží ve skladu (věcná) — a firma tě platí z toho, co za ni zákazník dá. Když ti v servisu zpackají opravu, reklamuješ **službu**, ne věc, a platí pro to jiná pravidla než u vrácení koupené věci. A až budeš jednou podnikat (třeba streamovat), rozlišíš, co je tvůj **kapitálový statek** (kamera, mikrofon — nástroje výdělku) a co **spotřební** (pizza k tomu). Tohle rozlišení řídí i daně a účetnictví."
         },
         {
           "typ": "obrazek",
@@ -333,6 +333,10 @@
           "reseni": "Ptáme se: **slouží to k další výrobě, nebo ke konečné spotřebě? A je to věc, nebo činnost?**\n\n**Kapitálové statky** (majetek, který slouží k další výrobě):\n- **pec, hnětač** — stroje, na kterých se peče (ekonomické, materiální, movité)\n- **budova pekárny** — také kapitálový statek, navíc **nemovitý**\n- **dodávka** — slouží k rozvozu, tedy k podnikání\n- **pytle mouky** — pekař je sám nesní, jdou do další výroby; spotřební bude až chleba\n- **recept na kváskový chleba** — **nehmotný** statek (duševní výtvor), který slouží výrobě\n\n**Spotřební statek** (konečná spotřeba):\n- **upečený chleba na pultu** — koupíš ho a sníš; tady jeho cesta končí\n\n**Služby** (cizí činnosti):\n- **rozvoz pečiva do restaurací** — **věcná** služba (přepravuje se věc)\n- **oprava pece technikem** — **věcná** služba (opravuje se věc)\n- **kurz pečení pro veřejnost** — **osobní** služba (učí se člověk)\n\nA pozor: peníze v kase pekárny statkem nejsou — jsou jen prostředkem, jak statky a služby pořídit."
         },
         {
+          "typ": "text",
+          "obsah": "A kdy je statek nebo služba **zboží**? **Zboží** = **statek nebo služba určený pro směnu na trhu** — tedy na prodej. Má dvě vlastnosti:\n\n- **1. užitná hodnota** — schopnost uspokojit danou potřebu (auto → dopravní prostředek);\n- **2. směnná hodnota** — poměr, ve kterém se směňuje jedno zboží za jiné zboží. **Směnná hodnota vyjádřená v penězích = cena zboží.**\n\nCo na trh nejde, je **netržní produkce**:\n\n- **a) naturální výroba** — samozásobitelská produkce (zelenina vypěstovaná a spotřebovaná doma);\n- **b) služby poskytované státem** — státní školství, zdravotnictví.\n\nRohlík na pultu pekárny je zboží — a stejně tak služba na prodej, třeba stříhání u kadeřníka nebo oprava mobilu v servisu. Rajče ze zahrádky, které sníte doma, je statek — ale zboží ne."
+        },
+        {
           "typ": "karticky",
           "polozky": [
             {
@@ -374,19 +378,631 @@
             {
               "predni": "nemovité × movité statky",
               "zadni": "podle pohyblivosti: pozemky a stavby × vše, co lze přemístit"
+            },
+            {
+              "predni": "zboží a jeho dvě vlastnosti",
+              "zadni": "statek nebo služba určený pro směnu na trhu; 1. užitná hodnota — schopnost uspokojit danou potřebu, 2. směnná hodnota — poměr směny za jiné zboží (v penězích = cena zboží)"
+            },
+            {
+              "predni": "netržní produkce",
+              "zadni": "a) naturální výroba — samozásobitelská produkce (zelenina vypěstovaná a spotřebovaná doma), b) služby poskytované státem — státní školství, zdravotnictví"
             }
           ]
         },
         {
           "typ": "text",
-          "obsah": "**Shrnutí:**\n- **Statek** = předmět lidské činnosti, který uspokojí potřebu: **hmotný** (věc) × **nehmotný** (znalosti, dovednosti, duševní výtvory).\n- **Služby** = cizí činnosti: **věcné** (úprava/oprava věci) × **osobní** (přímo k člověku).\n- Statky členíme ze **4 hledisek**: způsob dosažení (**ekonomické × volné**), podstata (**materiální × nemateriální**), účel použití (**kapitálové × spotřební**), pohyblivost (**nemovité × movité**).\n- Ekonomické statky jsou vzácné, **protože je musíme vyrobit**; o kapitálový/spotřební rozhoduje **účel**, ne věc sama."
+          "obsah": "**Shrnutí:**\n- **Statek** = předmět lidské činnosti, který uspokojí potřebu: **hmotný** (věc) × **nehmotný** (znalosti, dovednosti, duševní výtvory).\n- **Služby** = cizí činnosti: **věcné** (úprava/oprava věci) × **osobní** (přímo k člověku).\n- Statky členíme ze **4 hledisek**: způsob dosažení (**ekonomické × volné**), podstata (**materiální × nemateriální**), účel použití (**kapitálové × spotřební**), pohyblivost (**nemovité × movité**).\n- Ekonomické statky jsou vzácné, **protože je musíme vyrobit**; o kapitálový/spotřební rozhoduje **účel**, ne věc sama.\n- **Zboží** = statek nebo služba určený pro směnu na trhu; má **užitnou hodnotu** a **směnnou hodnotu** (vyjádřená v penězích = **cena zboží**). **Netržní produkce** na trh nejde: naturální výroba a služby poskytované státem."
+        }
+      ]
+    },
+    {
+      "temaId": "poptavka",
+      "nazev": "Poptávka",
+      "poradi": 2,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Školní bufet přes víkend zdražil bagetu ze 45 na 65 Kč. V pondělí o velké přestávce stojí ve frontě místo dvaceti lidí sotva pět — zbytek třídy vytáhl svačinu z domu nebo si skočil pro rohlík do večerky. Nikdo se nedomlouval, každý se jen podíval do peněženky. Ekonom by řekl: právě jsi viděl **poptávku** v akci."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Poptávka** = **množství zboží, které jsou kupující ochotni koupit za určitou cenu.**\n\n**Členění poptávky** (drž pořadí ze sešitu):\n\n- **1. Individuální** — jednoho kupujícího (tvoje poptávka po bagetách).\n- **2. Dílčí** — jednoho druhu výrobku (poptávka všech kupujících po másle).\n- **3. Agregátní** — celková (po všem zboží dohromady).\n\nUčitel poptávku ukazuje na másle. **Tabulka poptávky po másle:**\n\n- cena **40 Kč** → poptávané množství **700 kg**\n- cena **30 Kč** → **1 000 kg**\n- cena **20 Kč** → **1 700 kg**\n- cena **10 Kč** → **2 500 kg**\n\nVidíš to? Čím je máslo levnější, tím víc ho lidé chtějí."
+        },
+        {
+          "typ": "text",
+          "obsah": "Tabulku jde nakreslit jako graf:\n\n- na **svislé ose** je **cena P** (price),\n- na **vodorovné ose** **poptávané množství Q** (quantity),\n- body z tabulky spojí **poptávková křivka D** (demand) — a ta **klesá**.\n\n**Zákon klesající poptávky:** **poptávané množství se mění v opačném směru než cena.** Cena nahoru → kupuje se méně. Cena dolů → kupuje se víc.\n\nDůležitý detail: když se změní **cena másla**, křivka zůstává na místě. Je to jen **pohyb po křivce** na jiný bod — třeba ze 40 Kč a 700 kg na 30 Kč a 1 000 kg."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Kdo rozumí poptávce, přestane se divit cenám. Pochopíš, proč obchody dělají slevové akce (za nižší cenu prodají víc kusů), proč bufet po zdražení zeje prázdnotou a proč se v létě u vody prodá nanuk i za 60 Kč. A až budeš sám něco prodávat — staré hry, tenisky na Vintedu nebo limonádu na školním jarmarku —, budeš vědět, že s každou korunou navíc ti pár kupců odpadne. Dobrá cena není ta nejvyšší, ale ta, za kterou je dost lidí ochotno koupit."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 600 380\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graf poptávky po másle: klesající poptávková křivka D sestrojená ze čtyř řádků tabulky\">\n<defs><marker id=\"ep-poptavka-sip\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs>\n<line x1=\"90\" y1=\"87.8\" x2=\"200\" y2=\"87.8\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"200\" y1=\"87.8\" x2=\"200\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"90\" y1=\"143.3\" x2=\"247.1\" y2=\"143.3\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"247.1\" y1=\"143.3\" x2=\"247.1\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"90\" y1=\"198.9\" x2=\"357.1\" y2=\"198.9\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"357.1\" y1=\"198.9\" x2=\"357.1\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"90\" y1=\"254.4\" x2=\"482.9\" y2=\"254.4\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"482.9\" y1=\"254.4\" x2=\"482.9\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"90\" y1=\"310\" x2=\"565\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-poptavka-sip)\" />\n<line x1=\"90\" y1=\"310\" x2=\"90\" y2=\"38\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-poptavka-sip)\" />\n<text x=\"90\" y=\"24\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Cena v Kč (P)</text>\n<text x=\"570\" y=\"356\" text-anchor=\"end\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Poptávané množství v kg (Q)</text>\n<line x1=\"85\" y1=\"254.4\" x2=\"90\" y2=\"254.4\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"80\" y=\"258.9\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">10</text>\n<line x1=\"85\" y1=\"198.9\" x2=\"90\" y2=\"198.9\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"80\" y=\"203.4\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">20</text>\n<line x1=\"85\" y1=\"143.3\" x2=\"90\" y2=\"143.3\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"80\" y=\"147.8\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">30</text>\n<line x1=\"85\" y1=\"87.8\" x2=\"90\" y2=\"87.8\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"80\" y=\"92.3\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">40</text>\n<line x1=\"200\" y1=\"310\" x2=\"200\" y2=\"315\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"200\" y=\"330\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">700</text>\n<line x1=\"247.1\" y1=\"310\" x2=\"247.1\" y2=\"315\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"247.1\" y=\"330\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">1 000</text>\n<line x1=\"357.1\" y1=\"310\" x2=\"357.1\" y2=\"315\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"357.1\" y=\"330\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">1 700</text>\n<line x1=\"482.9\" y1=\"310\" x2=\"482.9\" y2=\"315\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"482.9\" y=\"330\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">2 500</text>\n<path d=\"M200,87.8 C215.7,109.7 231.4,131.6 247.1,143.3 C283.8,170.7 320.5,181.6 357.1,198.9 C399,218.7 441,236.6 482.9,254.4\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"3.5\" stroke-linecap=\"round\" />\n<circle cx=\"200\" cy=\"87.8\" r=\"5.5\" fill=\"var(--info)\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<circle cx=\"247.1\" cy=\"143.3\" r=\"5.5\" fill=\"var(--info)\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<circle cx=\"357.1\" cy=\"198.9\" r=\"5.5\" fill=\"var(--info)\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<circle cx=\"482.9\" cy=\"254.4\" r=\"5.5\" fill=\"var(--info)\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<text x=\"494.9\" y=\"259.4\" text-anchor=\"start\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--info)\">D</text>\n<text x=\"513.9\" y=\"258.4\" text-anchor=\"start\" font-size=\"13\" fill=\"var(--info)\">= demand</text>\n<text x=\"268\" y=\"150\" text-anchor=\"start\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--info)\">Poptávková křivka</text>\n<rect x=\"338\" y=\"42\" width=\"246\" height=\"70\" rx=\"8\" fill=\"var(--info)\" fill-opacity=\"0.1\" stroke=\"var(--info)\" stroke-width=\"1.5\" />\n<text x=\"461\" y=\"63\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Zákon klesající poptávky</text>\n<text x=\"461\" y=\"83\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">cena ↓ → poptávané množství ↑</text>\n<text x=\"461\" y=\"101\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">cena ↑ → poptávané množství ↓</text>\n</svg>",
+          "popisek": "Tabulka poptávky po másle převedená do grafu: svisle cena v Kč (P), vodorovně poptávané množství v kg (Q). Čtyři body tabulky spojuje klesající poptávková křivka D — při 40 Kč se poptává 700 kg, při 10 Kč už 2 500 kg. Čím nižší cena, tím větší poptávané množství."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-poptavka-1",
+            "temaId": "poptavka",
+            "typ": "doplneni",
+            "obtiznost": 2,
+            "zadani": "Doplň zákon klesající poptávky: poptávané množství se mění v ___ směru než cena. (jedno slovo)",
+            "spravneOdpovedi": [
+              "opačném",
+              "opacnem",
+              "v opačném",
+              "v opacnem",
+              "opačným",
+              "opacnym",
+              "obráceném",
+              "obracenem"
+            ],
+            "vysvetleni": "Zákon klesající poptávky: poptávané množství se mění v opačném směru než cena. Cena nahoru → kupuje se méně, cena dolů → kupuje se víc. V tabulce másla to vidíš na číslech: při 40 Kč se poptává 700 kg, při 10 Kč už 2 500 kg.",
+            "zdroj": "Poptávka"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "Proč křivka klesá? Nejdřív jeden pojem: **důchod = příjem** — mzda, kapesné, úrok, stipendium. (Ne jen penze prarodičů.)\n\n**Faktory ovlivňující klesající tvar křivky:**\n\n- **1. Důchodový efekt** — **je-li důchod daný, při nižší ceně si koupím větší množství zboží.** Kapesné 600 Kč: při lístku do kina za 200 Kč máš na 3 lístky, za 150 Kč na 4.\n- **2. Substituční efekt** — **zdraží-li se zboží, je nahrazeno jiným levnějším zbožím, které uspokojí stejnou potřebu.** Zdražená bageta → rohlík se šunkou z domu.\n\nOba efekty spouští **změna ceny** zboží, o které jde. Vysvětlují, proč křivka klesá — nikam ji neposouvají."
+        },
+        {
+          "typ": "text",
+          "obsah": "Někdy se ale kupuje víc nebo míň, i když se **cena zboží nezměnila**. Pak se **posouvá celá křivka** (nebo mění tvar). V zápiscích najdeš tyhle čtyři faktory:\n\n- **Demografické změny** — změny v počtech a charakteristikách kupujících (do města se přistěhují lidé).\n- **Změny velikosti důchodů** — mzdy zaměstnanců, úroky a zisky vlastního kapitálu.\n- **Změny v preferencích** — zvyky, móda, změny potřeb.\n- **Změny cen jiných zboží** — substituty a komplementy (hned si je rozebereme).\n\nPomůcka: **poptávka roste** = při každé ceně se kupuje víc = křivka se posune **doprava**. **Poptávka klesá** = křivka se posune **doleva**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Změny cen jiných zboží** — vždycky si řekni, **co zdražilo nebo zlevnilo** a **po čem se mění poptávka**:\n\n- **Substituty** = zboží, které může nahradit sledované zboží (**jablka – hrušky**). Zdraží jablka → lidé je nahrazují → **roste poptávka po hruškách**.\n- **Komplementy** = zboží, které doplňuje při použití zboží sledované (**auto – benzín**). Zlevní auta a kupuje se jich víc → **roste poptávka po benzínu**. Zdraží auta → poptávka po benzínu klesá.\n\nChyták do písemky: ve stejném seznamu máš v sešitě i větu o **ceně** — „zvýší-li se cena zboží, poptávané množství klesá a naopak“. Ta platí, jenže popisuje pohyb **po křivce** (zákon klesající poptávky), ne posun. Zdraží-li máslo, křivka másla zůstává na místě."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Před dvojtečkou je zboží, jehož poptávku sledujeme. Co se s ní děje — jen pohyb po křivce, nebo některý ze čtyř faktorů, které křivku posouvají?",
+            "kategorie": [
+              {
+                "id": "pohyb",
+                "nazev": "jen pohyb po křivce"
+              },
+              {
+                "id": "demografie",
+                "nazev": "demografické změny"
+              },
+              {
+                "id": "duchody",
+                "nazev": "změny velikosti důchodů"
+              },
+              {
+                "id": "preference",
+                "nazev": "změny v preferencích"
+              },
+              {
+                "id": "jina-zbozi",
+                "nazev": "změny cen jiných zboží"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "Máslo: obchod ho zlevní ze 40 na 30 Kč.",
+                "kategorieId": "pohyb"
+              },
+              {
+                "text": "Bagety: bufet je zdraží o 20 Kč.",
+                "kategorieId": "pohyb"
+              },
+              {
+                "text": "Zmrzlina: do města přijedou tisíce turistů.",
+                "kategorieId": "demografie"
+              },
+              {
+                "text": "Pečivo: ze sídliště se odstěhuje třetina lidí.",
+                "kategorieId": "demografie"
+              },
+              {
+                "text": "Tenisky: lidem vzrostou mzdy.",
+                "kategorieId": "duchody"
+              },
+              {
+                "text": "Lístky do kina: dostaneš vyšší kapesné.",
+                "kategorieId": "duchody"
+              },
+              {
+                "text": "Kšiltovky: přijdou do módy.",
+                "kategorieId": "preference"
+              },
+              {
+                "text": "Slazené limonády: lidé si zvyknou pít vodu.",
+                "kategorieId": "preference"
+              },
+              {
+                "text": "Hrušky: zdraží jablka.",
+                "kategorieId": "jina-zbozi"
+              },
+              {
+                "text": "Benzín: zlevní auta a kupuje se jich víc.",
+                "kategorieId": "jina-zbozi"
+              },
+              {
+                "text": "Hry na konzoli: zlevní konzole.",
+                "kategorieId": "jina-zbozi"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-poptavka-2",
+            "temaId": "poptavka",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Zdraží jablka. Co se podle zápisků stane s poptávkou po hruškách?",
+            "moznosti": [
+              "Vzroste — hrušky jsou substitut, lidé jimi jablka nahrazují",
+              "Klesne — hrušky jsou komplement, kupují se spolu s jablky",
+              "Klesne — zdražení jablek sníží poptávku po všem ovoci",
+              "Nezmění se — cena hrušek zůstala úplně stejná jako dřív"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Jablka a hrušky uspokojí stejnou potřebu — jsou to substituty. Zdražená jablka lidé nahrazují hruškami, takže poptávka po hruškách roste (křivka se posune doprava), i když se cena hrušek nezměnila. Komplementy by se používaly spolu — jako auto a benzín.",
+            "zdroj": "Poptávka"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Vezmi si tabulku poptávky po másle:\n\n- 40 Kč → 700 kg\n- 30 Kč → 1 000 kg\n- 20 Kč → 1 700 kg\n- 10 Kč → 2 500 kg\n\n**a)** Máslo zlevní ze 40 na 30 Kč. O kolik kg vzroste poptávané množství?\n\n**b)** Posunula se tím poptávková křivka? Kterými dvěma efekty zápisky ten nárůst vysvětlují?\n\n**c)** Představ si, že lidem vzrostou mzdy a při stejné ceně 30 Kč chtějí místo 1 000 kg rovnou 1 300 kg másla. Co se stalo s křivkou teď?",
+          "reseni": "**a)** Při 40 Kč se poptává 700 kg, při 30 Kč 1 000 kg: 1 000 − 700 = **300 kg navíc**. Cena klesla, poptávané množství vzrostlo — **zákon klesající poptávky**.\n\n**b)** **Neposunula.** Změnila se cena másla, takže jde o **pohyb po křivce**: z bodu 40 Kč a 700 kg do bodu 30 Kč a 1 000 kg. Proč lidé koupí víc?\n\n- **Důchodový efekt:** důchod je daný a za nižší cenu si koupím větší množství.\n- **Substituční efekt:** při zdražení lidé zboží nahrazují levnějším — při zlevnění se naopak k máslu vracejí od jeho náhražek.\n\n**c)** Cena másla zůstala 30 Kč, a přesto se poptává víc. Změnil se faktor mimo cenu — **změny velikosti důchodů**. Křivka se **posunula doprava**: při každé ceně se teď poptává víc než dřív. (Číslo 1 300 kg je vymyšlené pro ukázku — v sešitě ho nemáš.)\n\n**Poznávací znamení:** mění se cena sledovaného zboží → pohyb **po** křivce. Mění se něco jiného → **posun** křivky."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "poptávka",
+              "zadni": "množství zboží, které jsou kupující ochotni koupit za určitou cenu"
+            },
+            {
+              "predni": "členění poptávky",
+              "zadni": "1. individuální (jednoho kupujícího), 2. dílčí (jednoho druhu výrobku), 3. agregátní (celková)"
+            },
+            {
+              "predni": "zákon klesající poptávky",
+              "zadni": "poptávané množství se mění v opačném směru než cena"
+            },
+            {
+              "predni": "P, Q a D v grafu",
+              "zadni": "P = cena (price), svislá osa; Q = množství (quantity), vodorovná osa; D = poptávková křivka (demand)"
+            },
+            {
+              "predni": "důchod",
+              "zadni": "příjem: mzda, kapesné, úrok, stipendium"
+            },
+            {
+              "predni": "důchodový efekt",
+              "zadni": "je-li důchod daný, při nižší ceně si koupím větší množství zboží"
+            },
+            {
+              "predni": "substituční efekt",
+              "zadni": "zdraží-li se zboží, je nahrazeno jiným levnějším zbožím, které uspokojí stejnou potřebu"
+            },
+            {
+              "predni": "4 faktory, které křivku poptávky posouvají",
+              "zadni": "demografické změny, změny velikosti důchodů, změny v preferencích, změny cen jiných zboží (substituty, komplementy)"
+            },
+            {
+              "predni": "substituty × komplementy",
+              "zadni": "nahrazují se (jablka – hrušky): zdraží jablka → roste poptávka po hruškách × doplňují se (auto – benzín): víc aut → roste poptávka po benzínu"
+            },
+            {
+              "predni": "změna ceny sledovaného zboží",
+              "zadni": "jen pohyb PO křivce — křivku neposouvá"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Poptávka** = množství zboží, které jsou kupující ochotni koupit za určitou cenu; členění: **individuální, dílčí, agregátní**.\n- **Zákon klesající poptávky:** poptávané množství se mění v opačném směru než cena — křivka **D** klesá (svisle cena **P**, vodorovně množství **Q**).\n- Klesající tvar vysvětlují **důchodový efekt** a **substituční efekt** (důchod = příjem).\n- Křivku **posouvají**: demografické změny, změny velikosti důchodů, změny v preferencích a změny cen jiných zboží (**substituty** jablka – hrušky, **komplementy** auto – benzín).\n- Změna ceny sledovaného zboží = jen **pohyb po křivce**."
+        }
+      ]
+    },
+    {
+      "temaId": "nabidka",
+      "nazev": "Nabídka",
+      "poradi": 3,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Loni v létě šel ve městě na dračku bubble tea — kelímek za 120 Kč a fronty až na chodník. Během pár měsíců otevřely tři nové stánky a kavárna na rohu začala místo dortů míchat tapiokové perly. Když se něco dobře prodává za dobrou cenu, prodejci se jen hrnou. A přesně o tom je **nabídka**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Nabídka** = **množství zboží, které jsou výrobci (prodejci) ochotni prodat za určitou cenu.** Poptávka byla strana kupujících — nabídka je strana těch, kdo prodávají.\n\n**Členění** je stejné jako u poptávky:\n\n- **Individuální** — jednoho výrobce (jedna mlékárna).\n- **Dílčí** — jednoho výrobku (všichni výrobci másla).\n- **Agregátní** — celková.\n\n**Tabulka prodeje másla** ze sešitu:\n\n- cena **40 Kč** → nabízené množství **1 800 kg**\n- cena **30 Kč** → **1 500 kg**\n- cena **20 Kč** → **1 000 kg**\n- cena **10 Kč** → **300 kg**\n\nTady je to obráceně než u poptávky: čím vyšší cena, tím víc másla výrobci nabízejí."
+        },
+        {
+          "typ": "text",
+          "obsah": "V grafu je zase svisle **cena P** a vodorovně **nabízené množství Q**. Body z tabulky spojí **nabídková křivka S** (anglicky supply = nabídka) — a ta **stoupá**.\n\n**Faktory, které ovlivňují stoupající tvar křivky:**\n\n- **Výrobci mohou změnit strukturu výroby** a vyrobit více výrobku, který jde na odbyt, na úkor ostatních. Mlékárna udělá z mléka víc másla a méně jogurtů — jako ta kavárna s bubble tea.\n- **Při vyšší ceně mohou do odvětví přistoupit výrobci, kteří předtím nedosahovali zisku.** Malé farmě se máslo za 10 Kč nevyplatí, za 40 Kč už ano — jako ty tři nové stánky."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Nabídku znáš z vlastní kůže — jen z druhé strany pultu. Na brigádě **nabízíš svůj čas**: za 140 Kč na hodinu se ti do skladu možná nechce, za 220 Kč tam půjdeš i v sobotu. Úplně stejně uvažuje pekárna, farmář i výrobce tenisek. Pochopíš taky, proč po jarních mrazech zdraží meruňky a proč dražší elektřina zvedne ceny skoro všeho. A až budeš jednou podnikat, bude tě zajímat hlavně jedno: při jaké ceně se mi vyplatí vyrábět — a kolik?"
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 600 380\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graf nabídky másla: stoupající nabídková křivka S sestrojená ze čtyř řádků tabulky\">\n<defs><marker id=\"ep-nabidka-sip\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs>\n<line x1=\"90\" y1=\"87.8\" x2=\"372.9\" y2=\"87.8\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"372.9\" y1=\"87.8\" x2=\"372.9\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"90\" y1=\"143.3\" x2=\"325.7\" y2=\"143.3\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"325.7\" y1=\"143.3\" x2=\"325.7\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"90\" y1=\"198.9\" x2=\"247.1\" y2=\"198.9\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"247.1\" y1=\"198.9\" x2=\"247.1\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"90\" y1=\"254.4\" x2=\"137.1\" y2=\"254.4\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"137.1\" y1=\"254.4\" x2=\"137.1\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.45\" />\n<line x1=\"90\" y1=\"310\" x2=\"565\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-nabidka-sip)\" />\n<line x1=\"90\" y1=\"310\" x2=\"90\" y2=\"38\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-nabidka-sip)\" />\n<text x=\"90\" y=\"24\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Cena v Kč (P)</text>\n<text x=\"570\" y=\"356\" text-anchor=\"end\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Nabízené množství v kg (Q)</text>\n<line x1=\"85\" y1=\"254.4\" x2=\"90\" y2=\"254.4\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"80\" y=\"258.9\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">10</text>\n<line x1=\"85\" y1=\"198.9\" x2=\"90\" y2=\"198.9\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"80\" y=\"203.4\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">20</text>\n<line x1=\"85\" y1=\"143.3\" x2=\"90\" y2=\"143.3\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"80\" y=\"147.8\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">30</text>\n<line x1=\"85\" y1=\"87.8\" x2=\"90\" y2=\"87.8\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"80\" y=\"92.3\" text-anchor=\"end\" font-size=\"13\" fill=\"currentColor\">40</text>\n<line x1=\"372.9\" y1=\"310\" x2=\"372.9\" y2=\"315\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"372.9\" y=\"330\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">1 800</text>\n<line x1=\"325.7\" y1=\"310\" x2=\"325.7\" y2=\"315\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"325.7\" y=\"330\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">1 500</text>\n<line x1=\"247.1\" y1=\"310\" x2=\"247.1\" y2=\"315\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"247.1\" y=\"330\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">1 000</text>\n<line x1=\"137.1\" y1=\"310\" x2=\"137.1\" y2=\"315\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"137.1\" y=\"330\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">300</text>\n<path d=\"M137.1,254.4 C173.8,237.6 210.5,220.7 247.1,198.9 C273.3,183.3 299.5,167 325.7,143.3 C341.4,129.1 357.1,108.5 372.9,87.8\" fill=\"none\" stroke=\"var(--akcent-svetly)\" stroke-width=\"3.5\" stroke-linecap=\"round\" />\n<circle cx=\"137.1\" cy=\"254.4\" r=\"5.5\" fill=\"var(--akcent-svetly)\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<circle cx=\"247.1\" cy=\"198.9\" r=\"5.5\" fill=\"var(--akcent-svetly)\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<circle cx=\"325.7\" cy=\"143.3\" r=\"5.5\" fill=\"var(--akcent-svetly)\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<circle cx=\"372.9\" cy=\"87.8\" r=\"5.5\" fill=\"var(--akcent-svetly)\" stroke=\"currentColor\" stroke-width=\"1.5\" />\n<text x=\"384.9\" y=\"90.8\" text-anchor=\"start\" font-size=\"20\" font-weight=\"bold\" fill=\"var(--akcent-svetly)\">S</text>\n<text x=\"403.9\" y=\"89.8\" text-anchor=\"start\" font-size=\"13\" fill=\"var(--akcent-svetly)\">= supply</text>\n<text x=\"142\" y=\"173\" text-anchor=\"start\" font-size=\"14\" font-weight=\"bold\" fill=\"var(--akcent-svetly)\">Nabídková křivka</text>\n<rect x=\"384\" y=\"150\" width=\"208\" height=\"70\" rx=\"8\" fill=\"var(--akcent-svetly)\" fill-opacity=\"0.1\" stroke=\"var(--akcent-svetly)\" stroke-width=\"1.5\" />\n<text x=\"488\" y=\"171\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Nabídková křivka stoupá</text>\n<text x=\"488\" y=\"191\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">cena ↑ → nabízené množství ↑</text>\n<text x=\"488\" y=\"209\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"currentColor\">cena ↓ → nabízené množství ↓</text>\n</svg>",
+          "popisek": "Tabulka prodeje másla převedená do grafu: svisle cena v Kč (P), vodorovně nabízené množství v kg (Q). Čtyři body tabulky spojuje stoupající nabídková křivka S — při 10 Kč výrobci nabízejí 300 kg, při 40 Kč už 1 800 kg. Čím vyšší cena, tím větší nabízené množství."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nabidka-1",
+            "temaId": "nabidka",
+            "typ": "anone",
+            "obtiznost": 2,
+            "zadani": "Tabulka prodeje másla: 10 Kč → 300 kg, 20 Kč → 1 000 kg, 30 Kč → 1 500 kg, 40 Kč → 1 800 kg. Když cena másla klesne ze 30 Kč na 20 Kč, výrobci nabídnou másla méně.",
+            "spravna": true,
+            "vysvetleni": "Ano — při 30 Kč výrobci nabízejí 1 500 kg, při 20 Kč jen 1 000 kg. Nabídková křivka stoupá: cena a nabízené množství se mění stejným směrem, takže nižší cena znamená menší nabízené množství. Víc by při nižší ceně chtěli kupující — u poptávky je to obráceně.",
+            "zdroj": "Nabídka"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "I nabídkovou křivku umí něco **posunout** (nebo změnit její tvar): cena másla zůstává stejná, a přesto výrobci nabídnou víc, nebo míň. Zápisky uvádějí dva faktory:\n\n- **Náklady výroby a obchodu** — **dražší suroviny a energie, zvyšování mezd** apod. nabídku **snižují**. **Snižování nákladů** zaváděním nejnovějších technologií, snižování mezd apod. nabídku naopak **zvyšují**.\n- **Změny vnějších podmínek podnikání** — např. **změny klimatických podmínek (změny počasí)** mohou ovlivnit nabídku produktů zemědělců; **změny daní** (např. vyšší odvody daní státu) mohou nabídku firem snížit.\n\nPomůcka: **nabídka se snižuje** = při každé ceně se nabízí méně = křivka se posune **doleva**. **Nabídka se zvyšuje** = posun **doprava**."
+        },
+        {
+          "typ": "text",
+          "obsah": "Dva chytáky a jedno srovnání:\n\n- **Změna ceny másla** křivku neposouvá. Je to jen **pohyb po křivce S** — třeba z 20 Kč a 1 000 kg na 30 Kč a 1 500 kg.\n- **Mzdy** máš v zápiscích dvakrát. Pro firmu jsou **náklad**: rostou → nabídka se snižuje. Pro zaměstnance jsou **důchod**: rostou → poptávka se zvyšuje.\n\n**Poptávka × nabídka:** křivku **D** posouvá to, co se děje **kupujícím** — kolik jich je, kolik vydělávají, co chtějí a kolik stojí jiná zboží. Křivku **S** posouvá to, co se děje **výrobcům** — náklady, počasí, daně."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "tridicka",
+          "parametry": {
+            "zadani": "Sledujeme trh s máslem. Cena másla se nemění — mění se něco jiného. Roztřiď události podle toho, co udělají s poptávkou nebo s nabídkou másla.",
+            "kategorie": [
+              {
+                "id": "d-roste",
+                "nazev": "poptávka roste"
+              },
+              {
+                "id": "d-klesa",
+                "nazev": "poptávka klesá"
+              },
+              {
+                "id": "s-roste",
+                "nazev": "nabídka roste"
+              },
+              {
+                "id": "s-klesa",
+                "nazev": "nabídka klesá"
+              }
+            ],
+            "polozky": [
+              {
+                "text": "Pečení z másla je hit sociálních sítí.",
+                "kategorieId": "d-roste"
+              },
+              {
+                "text": "Lidem vzrostou důchody — kapesné, stipendia i úroky.",
+                "kategorieId": "d-roste"
+              },
+              {
+                "text": "Zdraží rostlinný tuk, kterým lidé máslo nahrazují.",
+                "kategorieId": "d-roste"
+              },
+              {
+                "text": "Z města se odstěhuje hodně lidí.",
+                "kategorieId": "d-klesa"
+              },
+              {
+                "text": "Máslo vyjde z módy — lidé přejdou na olivový olej.",
+                "kategorieId": "d-klesa"
+              },
+              {
+                "text": "Kupujícím klesnou příjmy.",
+                "kategorieId": "d-klesa"
+              },
+              {
+                "text": "Mlékárny zavedou nejnovější úspornou technologii.",
+                "kategorieId": "s-roste"
+              },
+              {
+                "text": "Stát sníží mlékárnám daně.",
+                "kategorieId": "s-roste"
+              },
+              {
+                "text": "Rok s ideálním počasím: krávy mají dost píce a dojí víc.",
+                "kategorieId": "s-roste"
+              },
+              {
+                "text": "Zdraží mléko, ze kterého se máslo vyrábí.",
+                "kategorieId": "s-klesa"
+              },
+              {
+                "text": "Mlékárnám zdraží elektřina.",
+                "kategorieId": "s-klesa"
+              },
+              {
+                "text": "Sucho spálí pastviny a krávy dojí méně.",
+                "kategorieId": "s-klesa"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-nabidka-2",
+            "temaId": "nabidka",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Mlékárna zavede nejnovější technologii a výroba másla ji vyjde levněji. Co to podle zápisků udělá s nabídkou másla?",
+            "moznosti": [
+              "Zvýší ji — snižování nákladů nabídku zvyšuje",
+              "Sníží ji — levnější výroba znamená méně zboží",
+              "Nezmění ji — technologie ovlivní jen poptávku",
+              "Nezmění ji — jde jen o pohyb po nabídkové křivce"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Snižování nákladů zaváděním nejnovějších technologií nabídku zvyšuje: při každé ceně se mlékárně vyplatí nabídnout víc másla (křivka S se posune doprava). Cena másla se přitom nezměnila, takže nejde o pohyb po křivce. Poptávku určují kupující — technologie výroby se jich netýká.",
+            "zdroj": "Nabídka"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Vezmi si tabulku prodeje másla:\n\n- 10 Kč → 300 kg\n- 20 Kč → 1 000 kg\n- 30 Kč → 1 500 kg\n- 40 Kč → 1 800 kg\n\n**a)** Cena másla vzroste z 20 na 30 Kč. O kolik kg vzroste nabízené množství?\n\n**b)** Proč výrobci nabídnou víc? Použij oba faktory ze zápisků.\n\n**c)** Představ si, že zdraží mléko a výrobci při stejné ceně 30 Kč nabídnou jen 1 200 kg místo 1 500 kg. Co se stalo s křivkou S?",
+          "reseni": "**a)** Při 20 Kč se nabízí 1 000 kg, při 30 Kč 1 500 kg: 1 500 − 1 000 = **500 kg navíc**. Vyšší cena → větší nabízené množství. Je to **pohyb po křivce** S, křivka se neposunula.\n\n**b)** Zápisky mají dva faktory stoupajícího tvaru křivky:\n\n- **Změna struktury výroby:** mlékárny zpracují víc mléka na máslo, které jde na odbyt, na úkor jiných výrobků (jogurtů, tvarohu).\n- **Noví výrobci:** při ceně 30 Kč se výroba másla vyplatí i těm, kteří při 20 Kč nedosahovali zisku — přistoupí do odvětví.\n\n**c)** Cena másla zůstala 30 Kč, a přesto se nabízí méně. Změnil se faktor mimo cenu — **náklady výroby** (dražší surovina). Nabídka se **snížila**, křivka S se **posunula doleva**: při každé ceně teď výrobci nabídnou méně. (Číslo 1 200 kg je vymyšlené pro ukázku — v sešitě ho nemáš.)\n\n**Poznávací znamení** je stejné jako u poptávky: mění se cena másla → pohyb **po** křivce. Mění se náklady, počasí nebo daně → **posun** křivky."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "nabídka",
+              "zadni": "množství zboží, které jsou výrobci (prodejci) ochotni prodat za určitou cenu"
+            },
+            {
+              "predni": "členění nabídky",
+              "zadni": "individuální (jednoho výrobce), dílčí (jednoho výrobku), agregátní (celková)"
+            },
+            {
+              "predni": "nabídková křivka (S)",
+              "zadni": "stoupá: čím vyšší cena, tím větší nabízené množství"
+            },
+            {
+              "predni": "2 faktory stoupajícího tvaru křivky S",
+              "zadni": "výrobci změní strukturu výroby ve prospěch výrobku, který jde na odbyt; při vyšší ceně přistoupí výrobci, kteří předtím nedosahovali zisku"
+            },
+            {
+              "predni": "náklady výroby a obchodu — co nabídku snižuje",
+              "zadni": "dražší suroviny a energie, zvyšování mezd"
+            },
+            {
+              "predni": "náklady výroby a obchodu — co nabídku zvyšuje",
+              "zadni": "snižování nákladů zaváděním nejnovějších technologií, snižování mezd"
+            },
+            {
+              "predni": "změny vnějších podmínek podnikání",
+              "zadni": "změny klimatických podmínek (počasí) — nabídka zemědělců; změny daní — vyšší odvody mohou nabídku firem snížit"
+            },
+            {
+              "predni": "poptávka × nabídka při vyšší ceně",
+              "zadni": "kupující kupují méně (křivka D klesá) × výrobci nabízejí víc (křivka S stoupá)"
+            },
+            {
+              "predni": "mzdy: náklad i důchod",
+              "zadni": "pro firmu náklad — růst mezd nabídku snižuje; pro zaměstnance důchod — růst mezd poptávku zvyšuje"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Nabídka** = množství zboží, které jsou výrobci (prodejci) ochotni prodat za určitou cenu; členění: **individuální, dílčí, agregátní**.\n- **Nabídková křivka S stoupá:** čím vyšší cena, tím větší nabízené množství — opačně než u poptávky.\n- Stoupající tvar: výrobci **změní strukturu výroby** ve prospěch výrobku, který jde na odbyt, a při vyšší ceně **přistoupí výrobci**, kteří předtím nedosahovali zisku.\n- Křivku **posouvají** **náklady výroby a obchodu** (dražší suroviny, energie a mzdy nabídku snižují; nové technologie ji zvyšují) a **změny vnějších podmínek podnikání** (počasí, daně).\n- Změna ceny zboží samotného = jen **pohyb po křivce**."
+        }
+      ]
+    },
+    {
+      "temaId": "rovnovazna-cena",
+      "nazev": "Rovnovážná cena a tržní mechanismus",
+      "poradi": 4,
+      "bloky": [
+        {
+          "typ": "text",
+          "obsah": "Školní jarmark, prodáváte domácí sušenky. Za 60 Kč za sáček lidi jen chodí kolem a sušenky leží; po zlevnění na 20 Kč je stůl za čtvrt hodiny prázdný a další zájemci odcházejí naštvaní, že na ně nezbylo. Napotřetí zkusíte 40 Kč — prodává se plynule, nic nezbývá a nikdo neodchází s prázdnou. Právě jste nahmatali **rovnovážnou cenu**."
+        },
+        {
+          "typ": "text",
+          "obsah": "**Vztah nabídky, poptávky a ceny.** Platí:\n\n- **A)** **Poptávané a nabízené množství je závislé na ceně.** To už znáš z křivek D a S.\n- **B)** **Cena je funkčně závislá na nabídce a poptávce.** Neurčí ji jeden člověk — vzniká z obou stran trhu.\n\nKdyž křivky **S** a **D** nakreslíš do jednoho grafu, protnou se v bodě **E**.\n\n**Rovnovážná cena** = **cena, která vyhovuje jak člověku, který vyrábí, tak i tomu, který kupuje.**\n\n- Cena, **při níž se nabídka a poptávka rovnají** (bod **E**, na ose cena **P₀**).\n- **Nevzniká ani přebytek, ani nedostatek.**\n- **Trh se takzvaně vyčišťuje** — všechno nabízené zboží si najde kupce."
+        },
+        {
+          "typ": "text",
+          "obsah": "Co když cena rovnovážná není? V grafu ze sešitu jsou na svislé ose tři ceny:\n\n- **Cena P₁ je nerovnovážná — vyšší než rovnovážná ⇒ PŘEBYTEK ZBOŽÍ.** Výrobci nabízejí hodně, kupující kupují málo. Zboží zbývá (sušenky za 60 Kč).\n- **Cena P₂ je nerovnovážná — nižší než rovnovážná ⇒ NEDOSTATEK ZBOŽÍ.** Kupující chtějí hodně, výrobci nabízejí málo. Na někoho se nedostane (sušenky za 20 Kč).\n- **Cena P₀ je rovnovážná ⇒ trh se vyčišťuje.**\n\nPomůcka do grafu: **přebytek je NAD bodem E** — křivka S je tam vpravo od D, nabízí se víc. **Nedostatek je POD bodem E** — vpravo je D, poptává se víc."
+        },
+        {
+          "typ": "text",
+          "obsah": "**K čemu ti to je:** Rovnováha vysvětluje věci, které tě denně štvou i těší. Lístky na koncert zmizí za pár minut a pak se přeprodávají za trojnásobek? Cena byla pod rovnovážnou — nedostatek. Zimní bundy v únoru s cedulí −60 %? Obchodu zbyl přebytek, tak zlevňuje. A až budeš sám něco prodávat — staré hry, výrobky na jarmarku nebo svůj čas na brigádě —, poznáš podle fronty nebo plného stolu, jestli jsi s cenou moc nízko, nebo moc vysoko."
+        },
+        {
+          "typ": "obrazek",
+          "svg": "<svg viewBox=\"0 0 600 372\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graf nabídky a poptávky: křivky S a D se protínají v bodě E. Při ceně P1 nad rovnovážnou vzniká přebytek zboží, při ceně P2 pod rovnovážnou nedostatek zboží\">\n<defs><marker id=\"ep-rovnovaha-sip\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"currentColor\" /></marker></defs>\n<polygon points=\"262,225.4 253.4,219.7 245.2,214 237.3,208.3 229.8,202.6 222.6,196.8 215.6,191.1 209,185.4 202.6,179.7 196.5,174 190.7,168.3 185.1,162.6 179.7,156.8 174.5,151.1 169.6,145.4 354.4,145.4 349.5,151.1 344.3,156.8 338.9,162.6 333.3,168.3 327.5,174 321.4,179.7 315,185.4 308.4,191.1 301.4,196.8 294.2,202.6 286.7,208.3 278.8,214 270.6,219.7 262,225.4\" fill=\"var(--zlata)\" fill-opacity=\"0.16\" stroke=\"none\" />\n<polygon points=\"262,225.4 255.8,229.4 249.3,233.4 242.7,237.4 235.8,241.4 228.7,245.4 221.4,249.4 213.8,253.4 205.9,257.4 197.8,261.4 189.4,265.4 180.6,269.4 171.5,273.4 162,277.4 152.1,281.4 371.9,281.4 362,277.4 352.5,273.4 343.4,269.4 334.6,265.4 326.2,261.4 318.1,257.4 310.2,253.4 302.6,249.4 295.3,245.4 288.2,241.4 281.3,237.4 274.7,233.4 268.2,229.4 262,225.4\" fill=\"var(--chyba)\" fill-opacity=\"0.16\" stroke=\"none\" />\n<line x1=\"78\" y1=\"145.4\" x2=\"444\" y2=\"145.4\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.5\" />\n<line x1=\"78\" y1=\"225.4\" x2=\"252\" y2=\"225.4\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.5\" />\n<line x1=\"294\" y1=\"225.4\" x2=\"444\" y2=\"225.4\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.5\" />\n<line x1=\"78\" y1=\"281.4\" x2=\"444\" y2=\"281.4\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4 4\" opacity=\"0.5\" />\n<line x1=\"78\" y1=\"326\" x2=\"436\" y2=\"326\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-rovnovaha-sip)\" />\n<line x1=\"78\" y1=\"326\" x2=\"78\" y2=\"28\" stroke=\"currentColor\" stroke-width=\"2\" marker-end=\"url(#ep-rovnovaha-sip)\" />\n<text x=\"72\" y=\"19\" text-anchor=\"end\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">P</text>\n<text x=\"78\" y=\"18\" text-anchor=\"start\" font-size=\"12.5\" fill=\"currentColor\">cena</text>\n<text x=\"442\" y=\"350\" text-anchor=\"end\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">Q</text>\n<text x=\"424\" y=\"349\" text-anchor=\"end\" font-size=\"12.5\" fill=\"currentColor\">množství</text>\n<path d=\"M112,44 C150,160 262,246 412,296\" fill=\"none\" stroke=\"var(--info)\" stroke-width=\"3.5\" stroke-linecap=\"round\" />\n<path d=\"M112,296 C262,246 374,160 412,44\" fill=\"none\" stroke=\"var(--akcent-svetly)\" stroke-width=\"3.5\" stroke-linecap=\"round\" />\n<text x=\"421\" y=\"304\" text-anchor=\"start\" font-size=\"19\" font-weight=\"bold\" fill=\"var(--info)\">D</text>\n<text x=\"421\" y=\"54\" text-anchor=\"start\" font-size=\"19\" font-weight=\"bold\" fill=\"var(--akcent-svetly)\">S</text>\n<line x1=\"169.6\" y1=\"145.4\" x2=\"354.4\" y2=\"145.4\" stroke=\"var(--zlata)\" stroke-width=\"5\" stroke-linecap=\"round\" />\n<circle cx=\"169.6\" cy=\"145.4\" r=\"4.5\" fill=\"var(--zlata)\" stroke=\"currentColor\" stroke-width=\"1.2\" />\n<circle cx=\"354.4\" cy=\"145.4\" r=\"4.5\" fill=\"var(--zlata)\" stroke=\"currentColor\" stroke-width=\"1.2\" />\n<line x1=\"152.1\" y1=\"281.4\" x2=\"371.9\" y2=\"281.4\" stroke=\"var(--chyba)\" stroke-width=\"5\" stroke-linecap=\"round\" />\n<circle cx=\"152.1\" cy=\"281.4\" r=\"4.5\" fill=\"var(--chyba)\" stroke=\"currentColor\" stroke-width=\"1.2\" />\n<circle cx=\"371.9\" cy=\"281.4\" r=\"4.5\" fill=\"var(--chyba)\" stroke=\"currentColor\" stroke-width=\"1.2\" />\n<text x=\"262\" y=\"133.4\" text-anchor=\"middle\" font-size=\"14.5\" font-weight=\"bold\" fill=\"var(--zlata)\">Přebytek zboží</text>\n<text x=\"262\" y=\"304.4\" text-anchor=\"middle\" font-size=\"14.5\" font-weight=\"bold\" fill=\"var(--chyba)\">Nedostatek zboží</text>\n<circle cx=\"262\" cy=\"225.4\" r=\"6.5\" fill=\"var(--uspech)\" stroke=\"currentColor\" stroke-width=\"2\" />\n<text x=\"276\" y=\"231.4\" text-anchor=\"start\" font-size=\"18\" font-weight=\"bold\" fill=\"var(--uspech)\">E</text>\n<text x=\"66\" y=\"150.4\" text-anchor=\"end\" font-size=\"16\" font-weight=\"bold\" fill=\"var(--zlata)\">P<tspan dy=\"4\" font-size=\"11\">1</tspan></text>\n<text x=\"66\" y=\"230.4\" text-anchor=\"end\" font-size=\"16\" font-weight=\"bold\" fill=\"var(--uspech)\">P<tspan dy=\"4\" font-size=\"11\">0</tspan></text>\n<text x=\"66\" y=\"286.4\" text-anchor=\"end\" font-size=\"16\" font-weight=\"bold\" fill=\"var(--chyba)\">P<tspan dy=\"4\" font-size=\"11\">2</tspan></text>\n<text x=\"452\" y=\"142.4\" text-anchor=\"start\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--zlata)\">vyšší než rovnovážná</text>\n<text x=\"452\" y=\"158.4\" text-anchor=\"start\" font-size=\"12.5\" fill=\"currentColor\">⇒ přebytek zboží</text>\n<text x=\"452\" y=\"222.4\" text-anchor=\"start\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--uspech)\">rovnovážná cena</text>\n<text x=\"452\" y=\"238.4\" text-anchor=\"start\" font-size=\"12.5\" fill=\"currentColor\">⇒ trh se vyčišťuje</text>\n<text x=\"452\" y=\"278.4\" text-anchor=\"start\" font-size=\"12.5\" font-weight=\"bold\" fill=\"var(--chyba)\">nižší než rovnovážná</text>\n<text x=\"452\" y=\"294.4\" text-anchor=\"start\" font-size=\"12.5\" fill=\"currentColor\">⇒ nedostatek zboží</text>\n</svg>",
+          "popisek": "Graf ze sešitu: křivka poptávky D klesá, křivka nabídky S stoupá a protínají se v bodě E — tomu odpovídá rovnovážná cena P₀. Při vyšší ceně P₁ sahá křivka S dál doprava než D: nabízí se víc, než se poptává — přebytek zboží (nad bodem E). Při nižší ceně P₂ je to naopak: poptává se víc, než se nabízí — nedostatek zboží (pod bodem E)."
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-rovnovazna-cena-1",
+            "temaId": "rovnovazna-cena",
+            "typ": "doplneni",
+            "obtiznost": 2,
+            "zadani": "Cena P₁ leží v grafu nad bodem E — je vyšší než rovnovážná. Na trhu při ní vzniká ___ zboží. (jedno slovo)",
+            "spravneOdpovedi": [
+              "přebytek",
+              "prebytek",
+              "přebytek zboží",
+              "prebytek zbozi",
+              "nadbytek"
+            ],
+            "vysvetleni": "P₁ je vyšší než rovnovážná cena. Výrobci při ní nabízejí hodně (křivka S je v grafu vpravo), kupující kupují málo (křivka D je vlevo) → zboží zbývá: přebytek zboží. Nedostatek vzniká pod bodem E, při ceně P₂. Trh se vyčišťuje jen při rovnovážné ceně P₀.",
+            "zdroj": "Rovnovážná cena a tržní mechanismus"
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**Tržní mechanismus** = **přizpůsobování trhu při nerovnováze.** Z nedostatku i z přebytku se trh umí dostat sám — reakcemi kupujících a výrobců. Zápisky mají tři případy: A, B a C.\n\n**A. Nedostatek zboží** (cena je nižší než rovnovážná):\n\n- **Vzniká soutěž kupujících.**\n- **Kupují i za vyšší cenu.**\n- **Reakce výrobců:** zvýší ceny, zvýší nabízené množství.\n- **Reakce kupujících:** při vyšší ceně snižují poptávané množství.\n- **Závěr:** nedostatek zboží se postupně snižuje, až zcela zanikne.\n\nPořadí si pohlídej — do písemky se hodí přesně takhle."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Tržní mechanismus při NEDOSTATKU zboží (bod A) — projdi kroky v pořadí ze zápisků. Příklad: nová herní konzole se prodává za 8 000 Kč, což je méně než rovnovážná cena. Zájemců je víc než kusů v obchodech.",
+            "kroky": [
+              {
+                "nazev": "Vzniká soutěž kupujících",
+                "popis": "Konzolí je málo, zájemců hodně. Lidé hlídají e-shopy, stojí fronty a bojí se, že na ně nezbude.",
+                "ikona": "🏃"
+              },
+              {
+                "nazev": "Kupují i za vyšší cenu",
+                "popis": "Kdo konzoli opravdu chce, připlatí si — třeba 10 000 Kč u přeprodejce.",
+                "ikona": "💸"
+              },
+              {
+                "nazev": "Reakce výrobců",
+                "popis": "Zvýší ceny a zvýší nabízené množství — při vyšší ceně se vyplatí vyrobit a dodat víc kusů.",
+                "ikona": "🏭"
+              },
+              {
+                "nazev": "Reakce kupujících",
+                "popis": "Při vyšší ceně snižují poptávané množství: část zájemců si koupi rozmyslí nebo ji odloží.",
+                "ikona": "🛒"
+              },
+              {
+                "nazev": "Závěr",
+                "popis": "Nabízí se víc a poptává se méně — nedostatek zboží se postupně snižuje, až zcela zanikne.",
+                "ikona": "✅"
+              },
+              {
+                "nazev": "Rovnovážná cena",
+                "popis": "Trh je v rovnováze (bod C ze zápisků): nepůsobí síly ke změně stavu.",
+                "ikona": "⚖️"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "text",
+          "obsah": "**B. Přebytek zboží** (cena je vyšší než rovnovážná):\n\n- **Vzniká soutěž prodávajících.**\n- **Reakce výrobců:** snižují ceny, sníží se nabízené množství.\n- **Reakce kupujících:** při nižší ceně se zvýší poptávané množství.\n- **Závěr:** přebytek zboží se snižuje, až zcela zanikne.\n\n**C. Rovnovážná cena:**\n\n- **Nepůsobí síly ke změně stavu.** Nikdo nemá důvod zdražovat ani zlevňovat.\n\nVšimni si zrcadla: při **nedostatku** soutěží **kupující** a cena jde **nahoru**. Při **přebytku** soutěží **prodávající** a cena jde **dolů**. V obou případech se trh vrací k rovnováze."
+        },
+        {
+          "typ": "widget",
+          "widgetId": "prubeh-procesu",
+          "parametry": {
+            "zadani": "Tržní mechanismus při PŘEBYTKU zboží (bod B) — projdi kroky v pořadí ze zápisků. Příklad: výrobce uvedl limonádu s novou příchutí za 45 Kč, což je víc než rovnovážná cena. Regály jsou plné a lahve se neprodávají.",
+            "kroky": [
+              {
+                "nazev": "Vzniká soutěž prodávajících",
+                "popis": "Zboží je víc než zájemců. Prodejci se přetahují o zákazníky — každý chce prodat dřív než konkurence.",
+                "ikona": "🏪"
+              },
+              {
+                "nazev": "Reakce výrobců",
+                "popis": "Snižují ceny (akce 45 → 30 Kč) a sníží se nabízené množství — vyrábět tolik lahví se už nevyplatí.",
+                "ikona": "🏭"
+              },
+              {
+                "nazev": "Reakce kupujících",
+                "popis": "Při nižší ceně se zvýší poptávané množství: za 30 Kč limonádu zkusí i ti, komu byla drahá.",
+                "ikona": "🛒"
+              },
+              {
+                "nazev": "Závěr",
+                "popis": "Nabízí se méně a poptává se víc — přebytek zboží se snižuje, až zcela zanikne.",
+                "ikona": "✅"
+              },
+              {
+                "nazev": "Rovnovážná cena",
+                "popis": "Trh je v rovnováze (bod C ze zápisků): nepůsobí síly ke změně stavu. Nikdo nemá důvod zdražovat ani zlevňovat.",
+                "ikona": "⚖️"
+              }
+            ]
+          }
+        },
+        {
+          "typ": "mini-kviz",
+          "otazka": {
+            "id": "mk-rovnovazna-cena-2",
+            "temaId": "rovnovazna-cena",
+            "typ": "vyber",
+            "obtiznost": 3,
+            "zadani": "Na trhu je nedostatek zboží. Kdo podle zápisků začne soutěžit a co se stane s cenou?",
+            "moznosti": [
+              "Soutěží kupující, cena roste",
+              "Soutěží prodávající, cena klesá",
+              "Soutěží kupující, cena klesá",
+              "Soutěží prodávající, cena roste"
+            ],
+            "spravna": 0,
+            "vysvetleni": "Při nedostatku je zboží málo: vzniká soutěž kupujících a kupují i za vyšší cenu, takže výrobci zvýší ceny (a nabízené množství). Soutěž prodávajících a klesající ceny patří k přebytku zboží.",
+            "zdroj": "Rovnovážná cena a tržní mechanismus"
+          }
+        },
+        {
+          "typ": "priklad",
+          "zadani": "Spoj obě tabulky másla do jedné:\n\n- **40 Kč:** poptává se 700 kg, nabízí se 1 800 kg\n- **30 Kč:** poptává se 1 000 kg, nabízí se 1 500 kg\n- **20 Kč:** poptává se 1 700 kg, nabízí se 1 000 kg\n- **10 Kč:** poptává se 2 500 kg, nabízí se 300 kg\n\n**a)** U každé ceny urči, jestli vzniká přebytek, nebo nedostatek — a jak velký.\n\n**b)** Kde leží rovnovážná cena?\n\n**c)** Cena je 20 Kč. Popiš, co se podle tržního mechanismu stane.",
+          "reseni": "**a)** Porovnej nabízené a poptávané množství a menší číslo odečti od většího:\n\n- **40 Kč:** nabízí se víc → 1 800 − 700 = **přebytek 1 100 kg**\n- **30 Kč:** nabízí se víc → 1 500 − 1 000 = **přebytek 500 kg**\n- **20 Kč:** poptává se víc → 1 700 − 1 000 = **nedostatek 700 kg**\n- **10 Kč:** poptává se víc → 2 500 − 300 = **nedostatek 2 200 kg**\n\n**b)** Při 30 Kč je ještě přebytek, při 20 Kč už nedostatek. **Rovnovážná cena leží mezi 20 a 30 Kč** — tam se obě množství rovnají. Přesně ji tabulky neuvádějí.\n\n**c)** Cena 20 Kč je nižší než rovnovážná (jako P₂ v grafu) → **nedostatek 700 kg**. Jede se podle bodu A: vzniká soutěž kupujících, kupují i za vyšší cenu → výrobci zvýší ceny a zvýší nabízené množství → kupující při vyšší ceně snižují poptávané množství → nedostatek se postupně snižuje, až zcela zanikne.\n\nTyhle dopočty v sešitě nemáš — je to procvičení nad oběma tabulkami z hodiny."
+        },
+        {
+          "typ": "karticky",
+          "polozky": [
+            {
+              "predni": "rovnovážná cena",
+              "zadni": "cena, která vyhovuje jak člověku, který vyrábí, tak i tomu, který kupuje; nabídka a poptávka se při ní rovnají (bod E)"
+            },
+            {
+              "predni": "3 znaky rovnovážné ceny",
+              "zadni": "nabídka a poptávka se rovnají (E); nevzniká přebytek ani nedostatek; trh se takzvaně vyčišťuje"
+            },
+            {
+              "predni": "vztah nabídky, poptávky a ceny (A, B)",
+              "zadni": "A) poptávané a nabízené množství je závislé na ceně; B) cena je funkčně závislá na nabídce a poptávce"
+            },
+            {
+              "predni": "cena P₁",
+              "zadni": "nerovnovážná — vyšší než rovnovážná ⇒ přebytek zboží (v grafu nad bodem E)"
+            },
+            {
+              "predni": "cena P₂",
+              "zadni": "nerovnovážná — nižší než rovnovážná ⇒ nedostatek zboží (v grafu pod bodem E)"
+            },
+            {
+              "predni": "E a P₀",
+              "zadni": "E = průsečík křivek S a D, kde se nabídka a poptávka rovnají; P₀ = rovnovážná cena na svislé ose ⇒ trh se vyčišťuje"
+            },
+            {
+              "predni": "tržní mechanismus",
+              "zadni": "přizpůsobování trhu při nerovnováze"
+            },
+            {
+              "predni": "A. nedostatek zboží — kroky",
+              "zadni": "soutěž kupujících → kupují i za vyšší cenu → výrobci zvýší ceny a nabízené množství → kupující sníží poptávané množství → nedostatek zanikne"
+            },
+            {
+              "predni": "B. přebytek zboží — kroky",
+              "zadni": "soutěž prodávajících → výrobci snižují ceny, sníží se nabízené množství → kupující zvýší poptávané množství → přebytek zanikne"
+            },
+            {
+              "predni": "C. rovnovážná cena",
+              "zadni": "nepůsobí síly ke změně stavu"
+            }
+          ]
+        },
+        {
+          "typ": "text",
+          "obsah": "**Shrnutí:**\n\n- **Platí:** A) poptávané a nabízené množství je závislé na ceně; B) cena je funkčně závislá na nabídce a poptávce.\n- **Rovnovážná cena (E, P₀)** vyhovuje výrobcům i kupujícím: nabídka a poptávka se rovnají, nevzniká přebytek ani nedostatek, **trh se vyčišťuje**.\n- **P₁** (vyšší než rovnovážná) ⇒ **přebytek zboží**; **P₂** (nižší než rovnovážná) ⇒ **nedostatek zboží**.\n- **Tržní mechanismus** = přizpůsobování trhu při nerovnováze. **A. nedostatek:** soutěž kupujících → ceny i nabízené množství rostou → poptávané množství klesá. **B. přebytek:** soutěž prodávajících → ceny i nabízené množství klesají → poptávané množství roste.\n- **C. rovnovážná cena:** nepůsobí síly ke změně stavu."
         }
       ]
     },
     {
       "temaId": "zakladni-pojmy",
       "nazev": "Základní ekonomické pojmy",
-      "poradi": 2,
+      "poradi": 5,
       "bloky": [
         {
           "typ": "text",
@@ -551,7 +1167,7 @@
     {
       "temaId": "trh-a-trzni-mechanismus",
       "nazev": "Trh a tržní mechanismus",
-      "poradi": 3,
+      "poradi": 6,
       "bloky": [
         {
           "typ": "text",
@@ -715,7 +1331,7 @@
     {
       "temaId": "podnikani-a-pravni-formy",
       "nazev": "Podnikání a právní formy",
-      "poradi": 4,
+      "poradi": 7,
       "bloky": [
         {
           "typ": "text",
@@ -888,7 +1504,7 @@
     {
       "temaId": "podnik-a-hospodareni",
       "nazev": "Podnik a jeho hospodaření",
-      "poradi": 5,
+      "poradi": 8,
       "bloky": [
         {
           "typ": "text",
@@ -1045,7 +1661,7 @@
     {
       "temaId": "marketing",
       "nazev": "Marketing",
-      "poradi": 6,
+      "poradi": 9,
       "bloky": [
         {
           "typ": "text",
@@ -1224,7 +1840,7 @@
     {
       "temaId": "management",
       "nazev": "Management",
-      "poradi": 7,
+      "poradi": 10,
       "bloky": [
         {
           "typ": "text",
@@ -1370,7 +1986,7 @@
     {
       "temaId": "zamestnanci-a-mzdy",
       "nazev": "Zaměstnanci a mzdy",
-      "poradi": 8,
+      "poradi": 11,
       "bloky": [
         {
           "typ": "text",
@@ -1524,7 +2140,7 @@
     {
       "temaId": "dane-a-pojisteni",
       "nazev": "Daně a pojištění",
-      "poradi": 9,
+      "poradi": 12,
       "bloky": [
         {
           "typ": "text",
@@ -1695,7 +2311,7 @@
     {
       "temaId": "penize-a-financni-trh",
       "nazev": "Peníze a finanční trh",
-      "poradi": 10,
+      "poradi": 13,
       "bloky": [
         {
           "typ": "text",

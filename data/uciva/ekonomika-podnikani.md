@@ -101,6 +101,153 @@ je nehmotný statek sloužící výrobě; čerstvý rohlík na pultu je statek s
 rozvoz pečiva do restaurací a oprava pece jsou věcné služby, kurz pečení pro
 veřejnost služba osobní.
 
+**Zboží** je statek nebo služba určený pro směnu na trhu — tedy na prodej. Má
+dvě vlastnosti: 1. **užitná hodnota** — schopnost uspokojit danou potřebu (auto
+slouží jako dopravní prostředek); 2. **směnná hodnota** — poměr, ve kterém se
+směňuje jedno zboží za jiné zboží. Směnná hodnota vyjádřená v penězích je
+**cena zboží**. Ne všechno, co lidé vyrobí nebo udělají, je zboží: **netržní
+produkce** na trh nejde. Patří do ní a) **naturální výroba** — samozásobitelská
+produkce (zelenina vypěstovaná a spotřebovaná doma) a b) **služby poskytované
+státem** — státní školství, zdravotnictví. Rajče ze zahrádky, které rodina sní
+doma, je statek, ale zboží ne; stejné rajče prodané na farmářském trhu zbožím
+je. Zbožím je i služba na prodej (stříhání u kadeřníka, oprava mobilu
+v servisu). Výuka na státní škole je služba (osobní), ale ne zboží.
+
+## Poptávka
+
+**Poptávka** je množství zboží, které jsou kupující ochotni koupit za určitou
+cenu. Člení se na: 1. **individuální** (poptávka jednoho kupujícího);
+2. **dílčí** (poptávka po jednom druhu výrobku); 3. **agregátní** (celková
+poptávka).
+
+Tabulka poptávky po másle (ze sešitu):
+
+| Cena zboží v Kč | Poptávané množství v kg |
+|---|---|
+| 40 | 700 |
+| 30 | 1 000 |
+| 20 | 1 700 |
+| 10 | 2 500 |
+
+V grafu je na svislé ose **cena P** (price) a na vodorovné ose **poptávané
+množství Q** (quantity). Body tabulky spojuje klesající **poptávková křivka D**
+(demand). **Zákon klesající poptávky**: poptávané množství se mění v opačném
+směru než cena — cena roste, poptávané množství klesá; cena klesá, poptávané
+množství roste. Změna ceny sledovaného zboží proto znamená pohyb **po** křivce
+(ze 40 Kč a 700 kg na 30 Kč a 1 000 kg); křivka sama se neposouvá.
+
+**Důchod** znamená v ekonomii příjem: mzda, kapesné, úrok, stipendium.
+
+**Faktory ovlivňující klesající tvar křivky** jsou dva: 1. **důchodový efekt** —
+je-li důchod daný, při nižší ceně si koupím větší množství zboží (kapesné
+600 Kč stačí při ceně 200 Kč na tři lístky do kina, při 150 Kč na čtyři);
+2. **substituční efekt** — zdraží-li se zboží, je nahrazeno jiným levnějším
+zbožím, které uspokojí stejnou potřebu.
+
+**Jiné faktory křivku posouvají nebo mění její tvar** — při stejné ceně se pak
+kupuje víc (poptávka roste, křivka se posune doprava), nebo méně (poptávka
+klesá, posun doleva):
+
+- **demografické změny** — změny v počtech a charakteristikách kupujících;
+- **změny velikosti důchodů** — mzdy zaměstnanců, úroky a zisky vlastního
+  kapitálu;
+- **změny v preferencích** — zvyky, móda, změny potřeb;
+- **změny cen jiných zboží** — **substituty** (zboží, které může nahradit
+  sledované zboží: jablka – hrušky) a **komplementy** (zboží, které doplňuje
+  při použití zboží sledované: auto – benzín).
+
+U substitutů a komplementů je vždy třeba říct, čí cena se změnila a po čem se
+mění poptávka: zdraží-li jablka, roste poptávka po hruškách (lidé jablka
+nahrazují); zlevní-li auta a kupuje se jich víc, roste poptávka po benzínu,
+a naopak zdražení aut poptávku po benzínu snižuje. Cena sledovaného zboží mezi
+faktory posunu nepatří. V sešitě stojí ve stejném výčtu i věta „zvýší-li se
+cena zboží, poptávané množství klesá a naopak“ — ta platí, ale popisuje pohyb
+po křivce (zákon klesající poptávky), ne její posun: zdraží-li máslo, poptávané
+množství másla klesne a křivka zůstává na místě.
+
+## Nabídka
+
+**Nabídka** je množství zboží, které jsou výrobci (prodejci) ochotni prodat za
+určitou cenu. Člení se stejně jako poptávka: **individuální** (nabídka jednoho
+výrobce), **dílčí** (nabídka jednoho výrobku) a **agregátní** (celková).
+
+Tabulka prodeje másla (ze sešitu):
+
+| Cena zboží v Kč | Nabízené množství v kg |
+|---|---|
+| 40 | 1 800 |
+| 30 | 1 500 |
+| 20 | 1 000 |
+| 10 | 300 |
+
+V grafu (svisle cena P, vodorovně nabízené množství Q) spojuje body tabulky
+stoupající **nabídková křivka S** (anglicky supply): čím vyšší cena, tím větší
+množství jsou výrobci ochotni prodat — opačně než u poptávky.
+
+**Faktory, které ovlivňují stoupající tvar křivky**: výrobci mohou změnit
+strukturu výroby a vyrobit více výrobku, který jde na odbyt, na úkor ostatních;
+při vyšší ceně mohou do odvětví přistoupit výrobci, kteří předtím nedosahovali
+zisku.
+
+**Faktory, které posouvají křivku nebo mění její tvar**:
+
+- **náklady výroby a obchodu** — dražší suroviny a energie, zvyšování mezd
+  apod. nabídku snižují (křivka se posune doleva); snižování nákladů zaváděním
+  nejnovějších technologií, snižování mezd apod. nabídku naopak zvyšují (posun
+  doprava);
+- **změny vnějších podmínek podnikání** — např. změny klimatických podmínek
+  (změny počasí) mohou ovlivnit nabídku produktů zemědělců, změny daní (např.
+  vyšší odvody daní státu) mohou nabídku firem snížit.
+
+Změna ceny zboží samotného křivku neposouvá — je to jen pohyb po křivce
+(z 20 Kč a 1 000 kg na 30 Kč a 1 500 kg). Mzdy se v látce objevují dvakrát: pro
+firmu jsou nákladem (jejich růst nabídku snižuje), pro zaměstnance důchodem
+(jejich růst zvyšuje poptávku). Obecně: poptávku posouvá to, co se děje
+kupujícím, nabídku to, co se děje výrobcům.
+
+## Rovnovážná cena a tržní mechanismus
+
+**Vztah nabídky, poptávky a ceny.** Platí: A) poptávané a nabízené množství je
+závislé na ceně; B) cena je funkčně závislá na nabídce a poptávce.
+
+Zakreslíme-li křivky S a D do jednoho grafu (svisle P, vodorovně Q), protnou se
+v bodě **E**. **Rovnovážná cena** je cena, která vyhovuje jak člověku, který
+vyrábí, tak i tomu, který kupuje: cena, při níž se nabídka a poptávka rovnají (E; na ose
+ji značíme **P₀**), nevzniká ani přebytek, ani nedostatek a trh se takzvaně
+vyčišťuje.
+
+**Nerovnovážné ceny**: cena **P₁** je vyšší než rovnovážná ⇒ **přebytek
+zboží** (v grafu nad bodem E — nabízí se víc, než se poptává); cena **P₂** je
+nižší než rovnovážná ⇒ **nedostatek zboží** (pod bodem E — poptává se víc, než
+se nabízí); cena P₀ je rovnovážná ⇒ trh se vyčišťuje.
+
+**Tržní mechanismus** je přizpůsobování trhu při nerovnováze.
+
+**A. Nedostatek zboží:** vzniká soutěž kupujících; kupují i za vyšší cenu;
+reakce výrobců — zvýší ceny, zvýší nabízené množství; reakce kupujících — při
+vyšší ceně snižují poptávané množství; závěr — nedostatek zboží se postupně
+snižuje, až zcela zanikne.
+
+**B. Přebytek zboží:** vzniká soutěž prodávajících; reakce výrobců — snižují
+ceny, sníží se nabízené množství; reakce kupujících — při nižší ceně se zvýší
+poptávané množství; závěr — přebytek zboží se snižuje, až zcela zanikne.
+
+**C. Rovnovážná cena:** nepůsobí síly ke změně stavu.
+
+Procvičení nad oběma tabulkami másla (dopočet — v sešitě není):
+
+| Cena v Kč | Poptávané množství v kg | Nabízené množství v kg | Stav trhu |
+|---|---|---|---|
+| 40 | 700 | 1 800 | přebytek 1 100 kg |
+| 30 | 1 000 | 1 500 | přebytek 500 kg |
+| 20 | 1 700 | 1 000 | nedostatek 700 kg |
+| 10 | 2 500 | 300 | nedostatek 2 200 kg |
+
+Rovnovážná cena másla tedy leží mezi 20 a 30 Kč (přesně ji tabulky neuvádějí).
+Při ceně 20 Kč by tržní mechanismus běžel podle bodu A (nedostatek 700 kg →
+soutěž kupujících → růst ceny), při ceně 30 Kč podle bodu B (přebytek 500 kg →
+soutěž prodávajících → pokles ceny).
+
 ## Základní ekonomické pojmy
 
 Ekonomie zkoumá, jak společnost využívá omezené zdroje k uspokojování potřeb.

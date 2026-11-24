@@ -3,9 +3,10 @@
 // doplň i/y). Tady se volí banka (jen banky profilu s aspoň MIN_BLESKOVYCH
 // bleskovými otázkami; předvolená aktivní), témata (čipy, víc najednou;
 // výchozí „Vše“ = míchané kolo — doporučené) se zvládnutím a délka 10 / 20.
-// Parametry /blesk?predmet=<id>&tema=<temaId> předvyberou. Běžící test má
-// přednost — stránka přesměruje na /test (i po „⚡ Spustit“: kolo se založí
-// a o přechod se postará přesměrování, takže Zpět nevede zpátky sem).
+// Parametry /blesk?predmet=<id>&tema=<temaId> předvyberou. Po „⚡ Spustit“
+// se kolo založí a stránka přesměruje na /test (replace — Zpět nevede zpátky
+// sem). Rozehraný test z dřívějška (i z jiné banky) start NEUNÁŠÍ: jen se
+// nabídne k pokračování a nové kolo ho nahradí.
 // Čisté výpočty jsou v testy/blesk.ts a testy/bleskStart.ts.
 import { useMemo, useState } from 'react';
 import { Link, Navigate, useSearchParams } from 'react-router-dom';
@@ -31,6 +32,7 @@ import {
   platnaTemata,
   pocetDostupnychOtazek,
   prepniTemaVyberu,
+  rozehranyTest,
   slovyBleskoveOtazky,
   temataProKolo,
   vychoziBankaBlesku,
@@ -126,6 +128,8 @@ export default function Blesk() {
   const [vyberTemat, setVyberTemat] = useState<{ predmetId: string; temata: string[] } | null>(null);
   const [pocet, setPocet] = useState<PocetBlesk>(10);
   const [nejdeSpustit, setNejdeSpustit] = useState(false);
+  // Přesměrování na /test patří jen kolu, které student spustil TADY.
+  const [spusteno, setSpusteno] = useState(false);
 
   const temata = predmetId ? (temataBank[predmetId] ?? []) : [];
   const vybrana = platnaTemata(
@@ -137,8 +141,10 @@ export default function Blesk() {
         : [],
   );
 
-  // Běžící test (i právě založené kolo) má přednost.
-  if (aktualniTest) return <Navigate to="/test" replace />;
+  // Právě založené kolo → rovnou do něj. Dřív rozehraný test (i nedohrané
+  // kolo) sem jen přidá upozornění s „Pokračovat“ — nikdy nepřesměrovává.
+  if (spusteno && aktualniTest) return <Navigate to="/test" replace />;
+  const rozehrany = rozehranyTest(aktualniTest);
 
   if (!predmetId) {
     if (!obsahNacten) {
@@ -174,6 +180,7 @@ export default function Blesk() {
       temataId: temataProKolo(temata, vybrana),
     });
     setNejdeSpustit(!povedlo);
+    if (povedlo) setSpusteno(true);
   };
 
   return (
@@ -184,6 +191,20 @@ export default function Blesk() {
           Rychlý dril: doplň, co chybí. Dvě minuty denně a rozhodneš se za vteřinu.
         </p>
       </div>
+
+      {rozehrany && (
+        <div className="panel blesk-start__rozehrany" role="status">
+          <p>
+            {rozehrany.jeBlesk ? 'Máš rozehrané kolo bleskovek' : 'Máš rozehraný test'} —{' '}
+            <span aria-hidden="true">{ikonaPredmetu(rozehrany.predmetId)}</span>{' '}
+            {nazevPredmetu(rozehrany.predmetId, banky[rozehrany.predmetId]?.nazev)} (
+            {rozehrany.zodpovezeno}/{rozehrany.celkem}). Nové kolo ho ukončí.
+          </p>
+          <Link to="/test" className="tlacitko">
+            Pokračovat v něm
+          </Link>
+        </div>
+      )}
 
       <div className="panel blesk-start__panel">
         {dostupne.length > 1 ? (

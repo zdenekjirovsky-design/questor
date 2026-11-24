@@ -25,12 +25,13 @@ import {
   platnaTemata,
   pocetDostupnychOtazek,
   prepniTemaVyberu,
+  rozehranyTest,
   slovyBleskoveOtazky,
   temataProKolo,
   vychoziBankaBlesku,
 } from '../src/testy/bleskStart';
 import { temataBlesku } from '../src/testy/blesk';
-import { inicializujBlesk } from '../src/testy/engine';
+import { inicializujBlesk, inicializujTest } from '../src/testy/engine';
 import Blesk, { BleskBezBanky } from '../src/stranky/Blesk';
 import Vysledek from '../src/stranky/Vysledek';
 import Test from '../src/stranky/Test';
@@ -462,11 +463,53 @@ describe('stránka /blesk', () => {
     expect(html).not.toContain('První kolo dne = truhla');
   });
 
-  it('běžící test má přednost — start nic nevykreslí a přesměruje na /test', () => {
+  it('rozehrané kolo start NEUNESE — ukáže se upozornění s pokračováním a start jde dál použít', () => {
     const stav = inicializujBlesk(PRAVOPIS, { predmetId: 'pravopis', pocetOtazek: 10 }, {}, () => 0, new Date().toISOString());
     pouzijStav.setState({ aktualniTest: stav });
-    expect(vykresli(<Blesk />, '/blesk')).toBe('');
-    expect(nactiZdroj('stranky/Blesk.tsx')).toContain('if (aktualniTest) return <Navigate to="/test" replace />;');
+    const html = vykresli(<Blesk />, '/blesk');
+    expect(html).toContain('Máš rozehrané kolo bleskovek');
+    expect(html).toContain('(0/10)');
+    expect(html).toContain('Pokračovat v něm');
+    expect(html).toContain('href="/test"');
+    expect(html).toContain('Spustit');
+    // Přesměrování na /test patří jen kolu spuštěnému tady (dřív ho vyvolal
+    // JAKÝKOLI rozehraný test — nedohraný test z jiné banky tak bleskovky unesl).
+    const zdroj = nactiZdroj('stranky/Blesk.tsx');
+    expect(zdroj).toContain('if (spusteno && aktualniTest) return <Navigate to="/test" replace />;');
+    expect(zdroj).not.toContain('if (aktualniTest) return <Navigate');
+  });
+
+  it('rozehraný běžný test z jiné banky se jen nabídne k pokračování', () => {
+    const stav = inicializujTest(
+      NEMCINA,
+      { predmetId: 'nemecky-jazyk', rezim: 'standard', pocetOtazek: 5 },
+      {},
+      () => 0,
+      new Date().toISOString(),
+    );
+    pouzijStav.setState({ aktualniTest: stav });
+    const html = vykresli(<Blesk />, '/blesk');
+    expect(html).toContain('Máš rozehraný test');
+    expect(html).toContain('Německý jazyk');
+    expect(html).toContain('Nové kolo ho ukončí.');
+    // Předvolená banka bleskovek zůstává podle pravidel startu, ne podle testu.
+    expect(html).toContain('⚡');
+    expect(html).toContain('Spustit');
+  });
+
+  it('rozehranyTest popíše běžící test i kolo a ignoruje dokončený', () => {
+    expect(rozehranyTest(null)).toBeNull();
+    const kolo = inicializujBlesk(PRAVOPIS, { predmetId: 'pravopis', pocetOtazek: 10 }, {}, () => 0, new Date().toISOString());
+    expect(rozehranyTest(kolo)).toEqual({ jeBlesk: true, predmetId: 'pravopis', zodpovezeno: 0, celkem: 10 });
+    expect(rozehranyTest({ ...kolo, dokonceno: true })).toBeNull();
+    const test = inicializujTest(
+      NEMCINA,
+      { predmetId: 'nemecky-jazyk', rezim: 'standard', pocetOtazek: 5 },
+      {},
+      () => 0,
+      new Date().toISOString(),
+    );
+    expect(rozehranyTest(test)).toMatchObject({ jeBlesk: false, predmetId: 'nemecky-jazyk', zodpovezeno: 0 });
   });
 
   it('bez vhodné banky čeká na načtení obsahu, pak ukáže přátelský prázdný stav', () => {

@@ -64,6 +64,24 @@
   font-size: 0.85rem;
 }
 
+/* Upozornění na rozehraný test — nabídne pokračování, start nepřesměruje. */
+.panel.blesk-start__rozehrany {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-bottom: 14px;
+  padding: 12px 16px;
+  border-color: var(--zlata);
+}
+
+.blesk-start__rozehrany p {
+  margin: 0;
+  flex: 1 1 220px;
+  font-size: 0.95rem;
+}
+
 /* Čip banky / tématu: název + zvládnutí. */
 .blesk-cip {
   display: inline-flex;

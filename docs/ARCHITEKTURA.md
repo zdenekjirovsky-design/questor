@@ -566,7 +566,9 @@ nemění a veškerá logika žije v aplikaci jako čisté funkce
   opravy (kvůli „Další kolo“). Rozehrané kolo se persistuje jako test.
 - **UI**: start `stranky/Blesk.tsx` na líné routě `/blesk`
   (`?predmet=<id>&tema=<temaId>` předvyberou; nabízí jen banky profilu
-  s bleskovkami, předvolená aktivní; běžící test → přesměrování na `/test`),
+  s bleskovkami, předvolená aktivní; na `/test` přesměruje JEN kolo spuštěné
+  na téhle stránce — dřív rozehraný test nebo kolo, i z jiné banky, se pouze
+  nabídne k pokračování (`rozehranyTest`) a nové kolo ho nahradí),
   průběh `testy/BleskPrubeh.tsx` (vykreslí ho `stranky/Test.tsx`, když
   `aktualniTest.blesk`), výsledek ve `stranky/Vysledek.tsx` (tempo
   `tempoZaMinutu` z čistého času nad otázkami, výpis chyb `chybyBlesku`,

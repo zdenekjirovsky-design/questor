@@ -80,6 +80,10 @@ trenažér** (`pravopis`) a rychlý režim **⚡ Bleskovky**. Typecheck 4/4, tes
 - NABÍDKA BANKY: registr umí `nabidnoutK` — Pravopis se sám nabídne na
   Domů profilům s češtinou (karta „Přidat mezi moje banky“); dlaždice
   ⚡ Bleskovky je na Domů, když má bleskovky kterákoli banka profilu.
+- v0.8.1 (2026-11-24): start `/blesk` už NEPŘESMĚROVÁVÁ na dřív rozehraný
+  test (nedohraný test z jiné banky „unášel“ bleskovky — vypadalo to jako
+  přepnutí do Ekonomiky); rozehraný test se jen nabídne k pokračování,
+  na `/test` přesměruje pouze kolo spuštěné na téhle stránce.
 - V přehledu rodiny se kola bleskovek ukazují jako Rozcvička (server jiný
   režim nezná). Neověřeno na skutečném telefonu (iOS safe-area u startu,
   dvojí ťuknutí), ve Firefoxu a se čtečkou.

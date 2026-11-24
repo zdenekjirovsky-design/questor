@@ -5,6 +5,7 @@
 import type { BankaOtazek, TestVysledek } from '@questor/sdilene';
 import { seradPredmety } from '../data/predmety';
 import { jeKoloBleskovek, maBleskovky, type TemaBlesku } from './blesk';
+import { planovanyPocetOtazek, type TestStav } from './engine';
 
 /**
  * Banky, které start bleskovek nabízí: JEN studijní banky profilu, které
@@ -133,4 +134,33 @@ export function pocetDostupnychOtazek(
   return temata
     .filter((t) => vyber === undefined || vyber.includes(t.id))
     .reduce((s, t) => s + t.pocet, 0);
+}
+
+/** Rozehraný test nebo kolo, na které start bleskovek upozorní. */
+export interface RozehranyTest {
+  /** Je to kolo bleskovek (jinak běžný test)? */
+  jeBlesk: boolean;
+  predmetId: string;
+  /** Kolik otázek už má odpověď. */
+  zodpovezeno: number;
+  /** Kolik otázek test celkem plánuje. */
+  celkem: number;
+}
+
+/**
+ * Popis rozehraného testu pro upozornění na startu bleskovek (null = nic
+ * neběží). Start kvůli němu NEPŘESMĚROVÁVÁ: nedohraný test (třeba dny starý,
+ * z úplně jiné banky) nesmí studentovi bleskovky „unést“ — jen se nabídne
+ * k pokračování a nové kolo ho nahradí stejně jako nově spuštěný test.
+ */
+export function rozehranyTest(
+  stav: Pick<TestStav, 'blesk' | 'konfigurace' | 'odpovedi' | 'otazky' | 'pool' | 'dokonceno'> | null,
+): RozehranyTest | null {
+  if (!stav || stav.dokonceno) return null;
+  return {
+    jeBlesk: stav.blesk !== undefined,
+    predmetId: stav.konfigurace.predmetId,
+    zodpovezeno: stav.odpovedi.length,
+    celkem: planovanyPocetOtazek(stav as TestStav),
+  };
 }

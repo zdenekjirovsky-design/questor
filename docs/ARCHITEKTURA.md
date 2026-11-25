@@ -373,9 +373,9 @@ ověřování. Kontrakt (`stav/profilySlice.ts`):
 Registr předmětů: `data/predmety.ts` drží ručně psaná metadata VŠECH
 očekávaných předmětů (`PREDMETY`: id, nazev, ikona — určují názvy, ikony
 a pořadí v UI; volitelně `nabidnoutK` + `popisNabidky` — komu se banka
-nabídne na Domů, viz Bleskovky › Nabídka banky; aktuálně 15 předmětů —
-13 z 1. ročníku oboru, Pravopis — trenažér `pravopis` (nadstavba k českému
-jazyku, banka pro bleskovky) + Základy
+nabídne na Domů, viz Bleskovky › Nabídka banky; aktuálně 16 předmětů —
+13 z 1. ročníku oboru, Pravopis — trenažér `pravopis` a Literatura —
+trenažér `literatura` (nadstavby k českému jazyku, banky pro bleskovky) + Základy
 profesionálního vaření `zaklady-vareni`, obecný předmět mimo obor) a lazy načítání obsahu ze souborů
 `data/predmety/<predmetId>.banka.json` / `<predmetId>.vyuka.json` přes
 `import.meta.glob` BEZ eager (každý JSON = samostatný async chunk, počáteční
@@ -474,7 +474,8 @@ potřeby, `chovaniPosunu` hlídá reduced motion), `testy/ochranaKliku.ts`
 
 ### Bleskovky (rychlý dril)
 
-Rychlé kolo nad otázkami s krátkými možnostmi (hlavně pravopis: doplň i/y):
+Rychlé kolo nad otázkami s krátkými možnostmi (pravopis: doplň i/y; literatura:
+poznej pojem, žánr, rým nebo trop z krátké otázky či ukázky):
 10 nebo 20 otázek, velké zadání s místem k doplnění, správná odpověď sama
 posune dál, chyba ukáže proč. Jede STEJNÝM enginem a stavem jako test
 (`aktualniTest` s polem `blesk`) — typy ve `sdilene` se kvůli bleskovkám
@@ -482,7 +483,9 @@ nemění a veškerá logika žije v aplikaci jako čisté funkce
 (`testy/blesk.ts`, `testy/bleskStart.ts`, `testy/bleskOvladani.ts`).
 
 - **Blesková otázka** (`jeBleskova`): typ `vyber`, 2–3 možnosti, každá po
-  oříznutí mezer nejvýš 12 znaků. Žádný příznak v datech — rozhoduje tvar
+  oříznutí mezer nejvýš 15 znaků (`MAX_DELKA_MOZNOSTI_BLESK`; do verze
+  0.8.1 to bylo 12 — 15 pojme i „řečnická otázka“ a „autobiografický“
+  z banky Literatura). Žádný příznak v datech — rozhoduje tvar
   otázky, takže bleskovky dostane každá banka, která takové otázky má
   (třeba členy der/die/das). Banka je má v nabídce od `MIN_BLESKOVYCH` = 10
   bleskových otázek (`maBleskovky`), konec lekce od `MIN_BLESKOVYCH_TEMATU`
@@ -616,7 +619,9 @@ nemění a veškerá logika žije v aplikaci jako čisté funkce
   nabídku skryje per profil v localStorage (`questor-nabidka-banky:<profilId>`,
   jen na tomhle zařízení, mimo persist i sync; když zápis selže, skrytí si
   do zavření stránky pamatuje modul). V registru: `pravopis`
-  (Pravopis — trenažér) se nabízí studentům `cesky-jazyk`.
+  (Pravopis — trenažér) a `literatura` (Literatura — trenažér) se nabízejí
+  studentům `cesky-jazyk`; karta ukáže vždy jen PRVNÍ vhodnou v pořadí
+  registru (nejdřív Pravopis, po jeho přidání nebo skrytí Literaturu).
 
 ### Sync (offline-first)
 

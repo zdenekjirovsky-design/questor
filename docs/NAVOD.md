@@ -391,8 +391,9 @@ připojenou rodinu (jako každý duel) a server s podporou duelu odkazem
 
 Aplikace je **offline-first** a plně funkční úplně bez serveru:
 
-- Kompletní obsah — 15 předmětů (1. ročník + Základy profesionálního
-  vaření + Pravopis — trenažér), každý s bankou otázek i výukou —
+- Kompletní obsah — 16 předmětů (1. ročník + Základy profesionálního
+  vaření + Pravopis — trenažér + Literatura — trenažér), každý s bankou
+  otázek i výukou —
   je zabalený přímo v aplikaci ve složce `aplikace/src/data/predmety/`
   (kopie souborů z `data/banky/` a `data/vyuka/` 1:1; konvence názvů
   `<predmetId>.banka.json` / `<predmetId>.vyuka.json`, viz README v té
@@ -417,14 +418,18 @@ Aplikace je **offline-first** a plně funkční úplně bez serveru:
 
 ## 7. Předměty a přidání nového (i dalšího ročníku)
 
-Aktuálně bundlovaných 15 předmětů — 13 z 1. ročníku (obor Ekonomika
+Aktuálně bundlovaných 16 předmětů — 13 z 1. ročníku (obor Ekonomika
 a podnikání): Ekonomika a podnikání, Písemná a elektronická komunikace,
 Informatika, Český jazyk a literatura, Anglický jazyk, Německý jazyk,
 Matematika, Dějepis, Občanská nauka, Fyzika, Chemie, Biologie a ekologie,
 Zbožíznalství — plus Základy profesionálního vaření (`zaklady-vareni`,
 předmět mimo obor: QUESTOR je obecný, učí se v něm i dospělí členové
-rodiny) a Pravopis — trenažér (`pravopis`: poučky místo vzorů a drilové
-položky pro Bleskovky, kap. 12; studentům češtiny se sám nabídne na Domů).
+rodiny), Pravopis — trenažér (`pravopis`: poučky místo vzorů a drilové
+položky pro Bleskovky, kap. 12) a Literatura — trenažér (`literatura`:
+literární pojmy, druhy, žánry, rým, tropy a figury, starověk, středověk,
+karty děl a „Jak na knihu, když nečteš“ — skoro celá banka jsou bleskovky;
+tiskový tahák `docs/tahak-literatura.pdf`). Obě nadstavby se studentům
+češtiny samy nabídnou na Domů (nejdřív Pravopis, pak Literatura).
 Volba předmětu je první krok při konfiguraci testu
 (modal „Nová výprava“ na Domů i rychlý start na /test); „Učit se“
 a Témata ve Statistikách jsou členěné per předmět. Nabízejí se přitom
@@ -619,10 +624,11 @@ vrátí 400):
 
 ## 12. Bleskovky — rychlý dril
 
-Bleskovky jsou dvouminutový dril: velké zadání s vynechaným místem, dvě
-nebo tři velká tlačítka (typicky **i / y**), správná odpověď hned posune
-dál, chyba ukáže správné znění a proč. Jsou stavěné hlavně pro banku
-**Pravopis — trenažér**, ale dostane je každá banka, která má aspoň
+Bleskovky jsou dvouminutový dril: velké zadání (věta s vynechaným místem,
+krátká otázka nebo ukázka), dvě nebo tři velká tlačítka (**i / y**, nebo
+třeba **balada / romance**), správná odpověď hned posune dál, chyba ukáže
+správné znění a proč. Jsou stavěné pro banky **Pravopis — trenažér**
+a **Literatura — trenažér**, ale dostane je každá banka, která má aspoň
 10 „bleskových“ otázek (níž).
 
 ### Pro studenta
@@ -679,7 +685,7 @@ takové otázky je pětinové ze stejného důvodu.
 
 Žádné zvláštní pole v bance není — otázka je blesková, když má tenhle tvar:
 
-- typ **`vyber`** se **2 nebo 3 možnostmi**, každá **nejvýš 12 znaků**
+- typ **`vyber`** se **2 nebo 3 možnostmi**, každá **nejvýš 15 znaků**
   (delší možnost nebo čtvrtá možnost = běžná testová otázka);
 - místo k doplnění napiš v zadání **jedním podtržítkem `_`**:
   `"Na louce rostly léčivé b_liny."` Aplikace z něj udělá políčko a po
@@ -696,6 +702,16 @@ takové otázky je pětinové ze stejného důvodu.
   zůstaly na svých místech). Zobrazují se v pořadí z dat, takže tlačítko
   „i“ je pořád vlevo — NEdávej správnou odpověď na první místo, správnou
   určuje jen `spravna`. Delší možnosti (slova) aplikace míchá sama;
+- **slovní bleskovky** (banka Literatura): zadání smí být i krátká otázka
+  bez podtržítka („Krátká satirická báseň s pointou?“) nebo ukázka v
+  uvozovkách, verše odděluj ` / ` (zadání do ~125 znaků, s verši do ~190).
+  Možnosti jsou celá slova ze STEJNÉ kategorie (žánr mezi žánry, trop mezi
+  tropy) ve stejném tvaru — aplikace je míchá a na mobilu dává pod sebe.
+  Tvrzení k posouzení má možnosti PŘESNĚ `["ano", "ne"]` v tomhle pořadí
+  (krátké možnosti drží pořadí z dat), nejvýš asi čtvrtina tématu a klíče
+  zhruba napůl. Pozor na nápovědu tvarem: gramatický rod, číslo nebo
+  ustálené spojení („_ pata“ → jen „Achillova“) nesmí prozradit odpověď —
+  u rčení dávej jako možnosti celá rčení;
 - **`vysvetleni` je poučka na jeden řádek** — student ji uvidí jen po chybě
   spolu s názvem tématu: proč je to takhle a jak to poznat příště
   („Bylina je vyjmenované slovo po B.“);

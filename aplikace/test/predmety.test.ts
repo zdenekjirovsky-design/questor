@@ -26,6 +26,7 @@ const OCEKAVANE_ID = [
   'informatika',
   'cesky-jazyk',
   'pravopis',
+  'literatura',
   'anglicky-jazyk',
   'nemecky-jazyk',
   'matematika',

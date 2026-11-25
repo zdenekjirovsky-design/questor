@@ -21,23 +21,28 @@ npm run dev:aplikace   # aplikace na http://localhost:5173
 ```
 
 Aplikace funguje i bez serveru — kompletní obsah je bundlovaný přímo
-v ní: 15 předmětů, každý s bankou otázek i výukovými lekcemi.
+v ní: 16 předmětů, každý s bankou otázek i výukovými lekcemi.
 
-## Předměty (15)
+## Předměty (16)
 
 **1. ročník SŠ, obor Ekonomika a podnikání (13):** Ekonomika
 a podnikání, Písemná a elektronická komunikace, Informatika, Český jazyk
 a literatura, Anglický jazyk, Německý jazyk, Matematika, Dějepis,
 Občanská nauka, Fyzika, Chemie, Biologie a ekologie, Zbožíznalství.
-**Mimo obor (2):** Základy profesionálního vaření (`zaklady-vareni`) —
+**Mimo obor (3):** Základy profesionálního vaření (`zaklady-vareni`) —
 QUESTOR je obecný, učí se v něm i dospělí členové rodiny — a **Pravopis —
 trenažér** (`pravopis`): jednoduché poučky místo skloňování podle vzorů
 (i/y, mě × mně, diktát bez paniky) a 627 drilových položek pro rychlý
 režim **⚡ Bleskovky** (doplň písmeno jedním ťuknutím, hned vidíš proč;
-2 minuty denně). Tiskový tahák: `docs/tahak-pravopis.pdf`.
+2 minuty denně). Tiskový tahák: `docs/tahak-pravopis.pdf`. A **Literatura —
+trenažér** (`literatura`): literární pojmy, druhy a žánry, verš a rým,
+tropy a figury, starověk a středověk, karty děl (Epos o Gilgamešovi,
+Kytice, Romeo a Julie) a „Jak na knihu, když nečteš“ — poznávací znamení
+místo dlouhých definic a bleskovky na pojmy a ukázky. Tiskový tahák:
+`docs/tahak-literatura.pdf`.
 
-Celkem 107 témat, 1604 otázek v bankách, 107 lekcí (215 mini-kvízů,
-118 widgetů).
+Celkem 123 témat, 2830 otázek v bankách, 123 lekcí (247 mini-kvízů,
+135 widgetů).
 
 Názvy, ikony a pořadí předmětů v UI drží registr
 `aplikace/src/data/predmety.ts` (`PREDMETY`); obsah se bundluje jako JSON

@@ -68,6 +68,42 @@ do `ceka` (nebo `chyba` s lidskou zprávou, pokud jde o podklady), nic
 nezveřejňuj napůl. Zaseknutou zásilku (`zpracovava` déle než 3 h) nabídne
 příkaz `fronta` znovu.
 
+## Čeština: zápisky z literatury a seznam četby
+
+Literatura má vedle předmětu `cesky-jazyk` ještě drilovou banku
+`literatura` („Literatura — trenažér", bleskovky). Zásilka z literatury se
+proto zpracuje DVAKRÁT:
+
+1. **`cesky-jazyk`** — jako každá jiná látka (kapitola učiva, otázky, lekce
+   podle DIDAKTIKA).
+2. **`literatura`** — tytéž pojmy jako **bleskové položky** (konvence
+   `docs/NAVOD.md` kap. 12: `vyber`, 2–3 možnosti do 15 znaků, krátké zadání,
+   jednořádkové vysvětlení s poznávacím znamením). Nové pojmy patří do
+   existujícího tématu, kam věcně spadají (`lit-epicke-zanry`,
+   `lit-tropy-figury`…), nová látka (např. další období literární historie)
+   = nové téma `lit-<slug>` s kapitolou v `data/uciva/literatura.md`, lekcí
+   a aspoň 30 bleskovými položkami. **Znění ze sešitu má přednost** před
+   obecným zněním, které v bance bylo dřív — kde se liší, oprav učivo,
+   lekci i položky podle sešitu.
+
+**Seznam četby nebo konkrétní kniha** (student pošle seznam povinné četby,
+fotku zadání čtenářského deníku nebo napíše, co má číst): pro každé dílo,
+které v bance ještě není, založ **kartu díla** — téma `lit-dilo-<slug>`
+v bance `literatura` podle vzoru `lit-dilo-kytice`: kapitola učiva
+(zařazení, postavy, děj v krocích, hlavní myšlenky, „proč je to ten žánr",
+tip na poslech nebo film), lekce (SVG mapa postav nebo děje, `prubeh-procesu`
+s dějem), 15–25 bleskových položek (kdo je kdo, kde, co se stane, žánr)
+a 4–6 běžných otázek. Do zprávy studentovi napiš, kde dílo najde k poslechu
+(kapitola „Jak na knihu, když nečteš"). U děl chráněných autorským právem
+jen vlastní shrnutí děje — žádné citace z textu.
+
+Kontrola je u banky `literatura` přísnější než u běžné látky (chyba v klíči
+drilu se opakuje stokrát): mechanická kontrola tvaru položek, **dvojí slepé
+řešení** nových položek dvěma nezávislými subagenty bez klíče (neshoda =
+položku přepsat nebo vyřadit) a oponent s přístupem na web na fakta o dílech
+a autorech. Verze banky i výuky `literatura` o 1 výš, `zverejni` s
+`--predmety cesky-jazyk,literatura`.
+
 ## Nový předmět
 
 Založ ho podle `docs/NAVOD.md` kap. 7 (registr `aplikace/src/data/predmety.ts`

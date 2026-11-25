@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tahák literatury — pojmy, žánry, rýmy, tropy</title>
+<style>
+  @page { size: A4; margin: 9mm 11mm; }
+  :root { --ink: #16161d; --muted: #5b5d6b; --line: #d5d7e0; --e: #1d4ed8; --l: #be185d; --d: #b45309; --ok: #047857; --bg: #f6f7fb; }
+  * { box-sizing: border-box; }
+  html { font-size: 8.95pt; }
+  body { margin: 0; color: var(--ink); background: #fff; font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.32; }
+  .list { page-break-after: always; break-after: page; }
+  .list:last-child { page-break-after: auto; break-after: auto; }
+  header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2.5px solid var(--ink); padding-bottom: 4px; margin-bottom: 7px; }
+  h1 { font-size: 17pt; margin: 0; letter-spacing: -0.01em; }
+  header span { color: var(--muted); font-size: 9pt; text-align: right; }
+  h2 { font-size: 11.8pt; margin: 0 0 5px; display: flex; align-items: center; gap: 7px; }
+  h2 b { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 10pt; flex: none; }
+  section { border: 1.2px solid var(--line); border-radius: 9px; padding: 5px 10px 6px; margin-bottom: 5px; break-inside: avoid; }
+  p { margin: 0 0 4px; }
+  ul { margin: 0; padding-left: 15px; }
+  li { margin-bottom: 2px; }
+  .e { color: var(--e); font-weight: 700; }
+  .l { color: var(--l); font-weight: 700; }
+  .d { color: var(--d); font-weight: 700; }
+  .ok { color: var(--ok); font-weight: 700; }
+  .muted { color: var(--muted); }
+  .dva { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .tri { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; }
+  .box { background: var(--bg); border-radius: 7px; padding: 5px 8px 6px; }
+  .box h3 { margin: 0 0 3px; font-size: 10.4pt; }
+  .box.ebox { border-left: 4px solid var(--e); }
+  .box.lbox { border-left: 4px solid var(--l); }
+  .box.dbox { border-left: 4px solid var(--d); }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { text-align: left; vertical-align: top; padding: 1.8px 6px; border-bottom: 1px solid var(--line); }
+  tr:last-child td { border-bottom: none; }
+  th { font-size: 8.4pt; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+  td:first-child { white-space: nowrap; font-weight: 700; }
+  .pozor { border: 1.5px dashed var(--ok); border-radius: 7px; padding: 5px 9px; margin-top: 6px; }
+  .rym { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-weight: 700; letter-spacing: 0.12em; }
+  .a { color: var(--e); } .b { color: var(--l); } .c { color: var(--d); }
+  .kroky { display: flex; gap: 6px; flex-wrap: wrap; counter-reset: k; margin-top: 4px; }
+  .kroky span { counter-increment: k; background: var(--bg); border-radius: 999px; padding: 3px 10px 3px 5px; }
+  .kroky span::before { content: counter(k); display: inline-flex; width: 16px; height: 16px; align-items: center; justify-content: center; border-radius: 50%; background: var(--ink); color: #fff; font-size: 8.5pt; margin-right: 5px; }
+  footer { color: var(--muted); font-size: 8.4pt; margin-top: 4px; }
+  @media screen { body { max-width: 820px; margin: 0 auto; padding: 16px; } .list { margin-bottom: 28px; } }
+</style>
+</head>
+<body>
+
+<div class="list">
+<header><h1>Literatura bez paniky</h1><span>Tahák k trenažéru literatury v QUESTORu<br>strana 1 — pojmy, druhy a epické žánry</span></header>
+
+<section>
+  <h2><b>0</b>Literatura, její funkce a literární věda</h2>
+  <div class="dva">
+    <div>
+      <p><b>Literatura</b> = písemnictví (lat. <i>littera</i> = písmeno).</p>
+      <p><b>širší smysl</b> = všechny písemné projevy (odborné, publicistické, umělecké)<br><b>užší smysl</b> = jen umělecká (krásná) literatura + ústní lidová slovesnost</p>
+      <p><b>ULS</b>: šířila se ústně, z generace na generaci, autor neznámý (anonymní) — pohádky, pověsti, písně.</p>
+    </div>
+    <div>
+      <p><b>Funkce</b> — <span class="ok">I–F–E</span>:<br>1. <b>informativní</b> = nové informace · 2. <b>formativní</b> = formuje postoje čtenáře · 3. <b>estetická</b> = pocit krásna</p>
+      <p><b>Literární věda</b> — tři disciplíny:<br><b>teorie</b> = druhy, žánry, struktura díla, jazykové prostředky · <b>historie</b> = vývoj literatury v čase · <b>kritika</b> = hodnocení díla (žánr: <b>recenze</b>)</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><b>1</b>Tři druhy — ptej se v tomhle pořadí</h2>
+  <div class="tri">
+    <div class="box dbox"><h3>1. Je to psané pro jeviště?</h3><p>jména postav + co říkají + poznámky v závorkách → <span class="d">DRAMA</span><br><span class="muted">určeno k předvádění na jevišti</span></p></div>
+    <div class="box ebox"><h3>2. Vypráví to příběh?</h3><p>něco se stane → <span class="e">EPIKA</span><br><span class="muted">má děj, postavy, čas a prostor</span></p></div>
+    <div class="box lbox"><h3>3. Jen pocit a nálada?</h3><p>nic se nestane → <span class="l">LYRIKA</span><br><span class="muted">pocity a nálady, nemá děj; lyrický mluvčí</span></p></div>
+  </div>
+  <p style="margin-top:5px"><span class="l">Lyrika</span> podle toho, co vyjadřuje: osobní · milostná · přírodní · meditativní (úvahy o životě a smrti) · politická. &nbsp; <b>Lyrickoepické</b> žánry = děj potlačen + pocity (balada, romance).</p>
+  <p class="muted">Pozor: verše ještě nejsou lyrika — epos je veršovaný, a přece epika. Děj má i drama, jen ho nikdo nevypráví: postavy ho hrají.</p>
+</section>
+
+<section>
+  <h2><b>2</b><span class="e">Epické žánry</span> — poznávací znamení</h2>
+  <table>
+    <tr><th>žánr</th><th>znamení (jak je to v sešitě)</th><th>pomůcka</th></tr>
+    <tr><td>epos</td><td>rozsáhlá veršovaná skladba, chronologicky (popořadě) zachycuje události; hrdinský (Gilgameš) · rytířský (středověk)</td><td>příběh ve verších o hrdinovi</td></tr>
+    <tr><td>román</td><td>rozsáhlý; různá prostředí, osudy mnoha postav, dlouhý úsek života; děj se větví</td><td>tlustá kniha, hodně postav</td></tr>
+    <tr><td>povídka</td><td>kratší; jednoduchý děj, několik postav, děj probíhá pomaleji</td><td>děj plyne pomalu</td></tr>
+    <tr><td>novela</td><td>kratší; rychlý spád, překvapivý závěr — pointa</td><td>„novinka“, která překvapí</td></tr>
+    <tr><td>romaneto</td><td>fantastická záhada na začátku, na konci rozumově vysvětlena</td><td>strašidlo vysvětlí rozum; Arbes</td></tr>
+    <tr><td>pohádka</td><td>vymyšlená, bez konkrétního času a prostoru; dobro vítězí; čísla (3); často nadpřirozené bytosti</td><td>„Bylo nebylo…“</td></tr>
+    <tr><td>pověst</td><td>jádro pravdivé, zbytek vymyšlený; konkrétní místo a čas</td><td>„pověz, KDE to bylo“</td></tr>
+    <tr><td>báje (mýtus)</td><td>vznik světa, přírodní síly; bohové; řecká a židovská (Bible)</td><td>bohové</td></tr>
+    <tr><td>bajka</td><td>alegorický příběh (alegorie = jinotaj); zvířata jednají jako lidé; ponaučení <span class="muted">(v sešitě i „veršovaný“)</span></td><td>liška a hrozny; Ezop</td></tr>
+    <tr><td>legenda</td><td>život svatých — dobré skutky a mučednická smrt</td><td>život svatého</td></tr>
+    <tr><td>kronika</td><td>dějinné události tak, jak šly za sebou (Kosmova)</td><td>dějiny popořadě</td></tr>
+    <tr><td>cestopis</td><td>poutavé vyprávění o cestě do cizích zemí</td><td>skutečná cesta autora</td></tr>
+    <tr><td>anekdota</td><td>krátká; situace vyústí v nečekanou komickou pointu</td><td>vtip</td></tr>
+  </table>
+  <p style="margin-top:4px"><b>Pohádky sbírali:</b> Němcová, Erben, v Německu bratři Grimmové. <b>Umělá (autorská) pohádka:</b> Karel Čapek. &nbsp; <b>Druhy románů:</b> historický, válečný, utopický, psychologický, detektivní, autobiografický.</p>
+</section>
+
+<section>
+  <h2><b>3</b>Záměny, na kterých se chytá</h2>
+  <p><b>povídka × novela</b> — pomalu a jednoduše × rychlý spád a pointa · <b>pohádka × pověst</b> — bez času a místa × konkrétní místo, pravdivé jádro · <b>pověst × báje</b> — místo × bohové a vznik světa · <b>pověst × legenda</b> — místo × život svatého · <b>báje × bajka</b> — bohové × zvířata a ponaučení · <b>bajka × pohádka</b> — krátká s ponaučením × kouzla, dobro vítězí · <b>epos × román</b> — verše × próza · <b>epos × kronika</b> — verše o hrdinovi × dějiny země · <b>novela × anekdota</b> — obě mají pointu; anekdota je krátká a komická · <b>romaneto × detektivka</b> — „nadpřirozená“ záhada × zločin a pachatel</p>
+</section>
+<footer>U tabule začni zařazením: druh — žánr — forma. „Je to epika, žánrem pověst, psaná prózou.“</footer>
+</div>
+
+<div class="list">
+<header><h1>Básně, drama, rýmy a tropy</h1><span>Tahák k trenažéru literatury v QUESTORu<br>strana 2 — lyrika, drama, rým, jazykové prostředky</span></header>
+
+<section>
+  <h2><b>4</b><span class="l">Lyrické</span> a lyrickoepické žánry</h2>
+  <div class="dva">
+    <table>
+      <tr><th>žánr</th><th>znamení</th></tr>
+      <tr><td>píseň</td><td>určená ke zpěvu; rytmus, rým, sloka, často refrén</td></tr>
+      <tr><td>elegie (žalozpěv)</td><td>smutná báseň <span class="muted">— plná žalu, bez děje</span></td></tr>
+      <tr><td>óda (chvalozpěv)</td><td>oslavná — přátelství, vlast <span class="muted">— „Óóó!“</span></td></tr>
+      <tr><td>hymnus</td><td>patetická (vznešeně slavnostní) báseň</td></tr>
+      <tr><td>epitaf</td><td>náhrobní nápis <span class="muted">— tafos = hrob</span></td></tr>
+      <tr><td>epigram</td><td>krátká satirická báseň s pointou <span class="muted">— Havlíček</span></td></tr>
+      <tr><td>pásmo</td><td>polytematická báseň, metoda asociace</td></tr>
+    </table>
+    <div>
+      <div class="box lbox"><h3>Lyrickoepické — děj potlačen + pocity</h3>
+        <p><b>balada</b> — smutný děj, často tragický konec, rychlý spád, konflikt (Erben: Kytice)</p>
+        <p><b>romance</b> — šťastné zakončení, mívá milostnou tematiku</p>
+        <p class="ok">Balada bolí, romance raduje.</p>
+      </div>
+      <p style="margin-top:5px"><b>Záměny:</b> elegie × balada — elegie nemá děj · óda × hymnus — oslavná × patetická (slova ze sešitu) · epitaf × epigram — nápis na hrobě × satira s pointou · epigram × anekdota — báseň × krátký příběh (vtip) · balada × tragédie — báseň s dějem × divadelní hra</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><b>5</b><span class="d">Drama</span> — určeno k předvádění na jevišti</h2>
+  <div class="dva">
+    <div>
+      <p><b>monolog</b> — postava mluví sama <span class="muted">(mono = jeden)</span></p>
+      <p><b>dialog</b> — dvě <u>nebo více</u> postav spolu hovoří</p>
+      <p><b>repliky</b> — to, co postava říká</p>
+      <p><b>scénář</b> — herci se z něj vše učí · <b>scénické poznámky</b> — v závorce: co mají dělat</p>
+    </div>
+    <div>
+      <p><b>tragédie</b> — vznešená, vážný obsah; hrdina v konfliktu se silami mocnějšími, než je on, v závěru umírá (Hamlet, Romeo a Julie)</p>
+      <p><b>komedie</b> — veselá, slouží k pobavení</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><b>6</b>Próza, poezie, verš a rým</h2>
+  <div class="dva">
+    <div>
+      <p><b>próza</b> — souvislý text ve větách, odstavce a kapitoly<br><b>poezie</b> — psaná ve verších</p>
+      <p><b>verš</b> = jeden řádek básně · <b>sloka (strofa)</b> = víc veršů · verš <b>vázaný</b> × <b>volný</b></p>
+      <p><b>rým</b> = zvuková shoda slabik na konci veršů</p>
+      <p class="muted">Postup: konec 1. verše = a; stejný zvuk = stejné písmeno, nový zvuk = nové písmeno. Stejná poslední slabika ještě není rým (st<b>álo</b> – m<b>álo</b>). Máš-li v sešitě schéma zapsané jinak, do písemky piš to ze sešitu.</p>
+    </div>
+    <table>
+      <tr><th>schéma</th><th>název</th><th>pomůcka</th></tr>
+      <tr><td><span class="rym"><span class="a">a</span><span class="b">b</span><span class="a">a</span><span class="b">b</span></span></td><td>střídavý</td><td>střídají se</td></tr>
+      <tr><td><span class="rym"><span class="a">a</span><span class="a">a</span><span class="b">b</span><span class="b">b</span></span></td><td>sdružený</td><td>sdružují se do dvojic</td></tr>
+      <tr><td><span class="rym"><span class="a">a</span><span class="b">b</span><span class="b">b</span><span class="a">a</span></span></td><td>obkročný</td><td>„a“ obkročí „bb“</td></tr>
+      <tr><td><span class="rym"><span class="a">a</span><span class="b">b</span><span class="c">c</span><span class="b">b</span></span></td><td>přerývaný</td><td>rýmuje se jen 2. a 4. verš</td></tr>
+      <tr><td><span class="rym"><span class="a">a</span><span class="b">b</span><span class="c">c</span> <span class="a">a</span><span class="b">b</span><span class="c">c</span></span></td><td>postupný</td><td>1.–4., 2.–5., 3.–6.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2><b>7</b>Tropy a figury — jak je poznat</h2>
+  <div class="dva">
+    <table>
+      <tr><th>trop</th><th>znamení</th><th>příklad</th></tr>
+      <tr><td>přirovnání</td><td>má „jako“</td><td>rychlý jako blesk</td></tr>
+      <tr><td>metafora</td><td>podobnost, bez „jako“</td><td>zub pily</td></tr>
+      <tr><td>personifikace</td><td>neživé jedná jako člověk</td><td>vítr si hraje</td></tr>
+      <tr><td>metonymie</td><td>souvislost, ne podobnost</td><td>čtu Čapka</td></tr>
+      <tr><td>hyperbola</td><td>nadsázka</td><td>umírám hlady</td></tr>
+      <tr><td>ironie</td><td>říká opak</td><td>„Ty jsi ale šikula!“</td></tr>
+      <tr><td>epiteton</td><td>přívlastek, který jen zdobí</td><td>širé pole</td></tr>
+      <tr><td>oxymóron</td><td>slova se vylučují</td><td>ohlušující ticho</td></tr>
+      <tr><td>eufemismus</td><td>říká jemněji</td><td>zesnul</td></tr>
+    </table>
+    <div>
+      <table>
+        <tr><th>figura</th><th>znamení</th></tr>
+        <tr><td>anafora</td><td>opakování na z<b>a</b>čátku veršů</td></tr>
+        <tr><td>epifora</td><td>opakování na konci veršů (<b>e</b>nd)</td></tr>
+        <tr><td>aliterace</td><td>stejná hláska na začátku slov</td></tr>
+        <tr><td>řečnická otázka</td><td>nikdo nečeká odpověď</td></tr>
+        <tr><td>apostrofa</td><td>oslovení věci, přírody, nepřítomného</td></tr>
+      </table>
+      <div class="pozor"><b>Tři rychlé otázky:</b> Je tam „jako“? → přirovnání. Dělá neživá věc něco lidského? → personifikace. Podobá se to, nebo to spolu souvisí? → metafora × metonymie. <span class="muted">„Stadion jásá“ = lidé na stadionu → metonymie.</span></div>
+    </div>
+  </div>
+</section>
+<footer>Trénuj v QUESTORu: ⚡ Bleskovky → Literatura — trenažér, dvě minuty denně. Znění definic odpovídá školnímu sešitu; tropy a figury jsou obecný základ.</footer>
+</div>
+
+</body>
+</html>

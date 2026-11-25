@@ -48,6 +48,13 @@ export const PREDMETY: PredmetMetadata[] = [
     nabidnoutK: ['cesky-jazyk'],
     popisNabidky: 'Bleskový trénink i/y, 2 minuty denně.',
   },
+  {
+    id: 'literatura',
+    nazev: 'Literatura — trenažér',
+    ikona: '🎭',
+    nabidnoutK: ['cesky-jazyk'],
+    popisNabidky: 'Bleskové poznávačky pojmů, žánrů a děl.',
+  },
   { id: 'anglicky-jazyk', nazev: 'Anglický jazyk', ikona: '🇬🇧' },
   { id: 'nemecky-jazyk', nazev: 'Německý jazyk', ikona: '🇩🇪' },
   { id: 'matematika', nazev: 'Matematika', ikona: '📐' },

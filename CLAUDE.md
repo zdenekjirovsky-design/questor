@@ -42,6 +42,47 @@ psychologickými hooky.
    questor-server :8787).
 7. API klíče a tokeny jen v env / `.env` (v .gitignore), nikdy v kódu.
 
+## Stav (2026-11-25 — Literatura — trenažér, ekonomika k písemce, v0.9.0)
+
+Zadání: „pojď do literatury“ — pomoct s literárními pojmy studentovi, který
+málo čte (navazuje na Pravopis). Vznikl 16. předmět **Literatura —
+trenažér** (`literatura`, ikona 🎭, nabízí se studentům `cesky-jazyk` po
+Pravopisu). `kontrola-integrace` → 16 bank, 16 výuk | 123 témat, 2830 otázek,
+123 lekcí, 247 mini-kvízů, 135 widgetů.
+
+- OBSAH: učivo `data/uciva/literatura.md` (13 kapitol): znění ze školního
+  sešitu tučně + poznávací znamení, pomůcky, kotvy a výslovné „záměny, na
+  kterých se chytá“ — literatura a její funkce, epika × lyrika × drama,
+  epické žánry, lyrické a lyrickoepické žánry, drama, verš a rým, tropy
+  a figury, starověk, středověk, „Jak na knihu, když nečteš“ (poctivé rady:
+  nezkrácená audiokniha, šablona deníku, výtah ani AI za vlastní ne) a tři
+  karty děl (Epos o Gilgamešovi, Kytice, Romeo a Julie). 13 lekcí, banka
+  1175 otázek (1148 bleskovek: slovní možnosti do 15 znaků, ukázky veršů,
+  ano/ne). Tiskový tahák `docs/tahak-literatura.html` (+ `.pdf`, 2× A4).
+- KONTROLA (postup v VYUKA.md): dvě oponentury učiva (sešit a pojmy;
+  fakta s webem — opravily mj. Havlíčkův epigram, Zlatý kolovrat, Ilias bez
+  trojského koně, Husův latinský pravopisný spis), z nich pravidla
+  jednoznačnosti pro autory, dvojí slepé řešení všech bleskovek + třetí
+  na všechny přepsané (0 neshod s klíčem), tři oponentury lekcí. Pracovní
+  soubory (fragmenty, opravy, slepá řešení, nálezy) jsou SOUKROMĚ
+  v `podklady/_literatura-pracovni/` (gitignored) — skripty
+  `sestav_lit.py` (banka/výuka z fragmentů), `opravy_zdroj.py`,
+  `opravy_lekci.py`, `kontrola_lit.py`.
+- BLESKOVKY: limit délky možnosti zvýšen z 12 na 15 znaků
+  (`MAX_DELKA_MOZNOSTI_BLESK`; „řečnická otázka“, „autobiografický“) —
+  žádná otázka jiných bank se tím nepřeřadila. NAVOD kap. 12 má pravidla
+  pro slovní bleskovky (nápověda tvarem slova, ano/ne v pořadí z dat).
+- EKONOMIKA (zásilka 9536ecd0, 24. 11.): lekce Poptávka, Nabídka,
+  Rovnovážná cena a tržní mechanismus + zboží ve Statcích a službách
+  (banka v4, výuka v3, zveřejněno přes `materialy.ts`).
+- Naplánovaná úloha `questor-zpracovani-latky` se 22. a 23. 11. zastavila
+  na dotazu o povolení nástroje (úloha nemá uložený režim povolení) —
+  zásilku z ekonomiky proto zpracovala až ruční session. Nastavit režim
+  povolení úlohy musí správce v aplikaci Claude.
+- Další kroky (nabídnuto): karty dalších děl podle seznamu četby
+  (postup ZPRACOVANI-LATKY › „Čeština: zápisky z literatury a seznam
+  četby“), druhá vlna pravopisného drilu, diktát s hlasem.
+
 ## Stav (2026-11-22 — Pravopis — trenažér a Bleskovky, v0.8.0)
 
 Zadání: trénink pravopisu, který nestojí na vzorech (cílem je rychlé
@@ -67,7 +108,7 @@ trenažér** (`pravopis`) a rychlý režim **⚡ Bleskovky**. Typecheck 4/4, tes
   manžel, anděl, kužel, kněz, ližina, pikat, sirý, hotelích.
 - BLESKOVKY (`aplikace/src/testy/blesk*.ts`, `BleskPrubeh.tsx`,
   `stranky/Blesk.tsx`; kontrakt ARCHITEKTURA › Bleskovky, návod NAVOD
-  kap. 12): „blesková“ otázka = `vyber` se 2–3 možnostmi do 12 znaků, místo
+  kap. 12): „blesková“ otázka = `vyber` se 2–3 možnostmi do 12 (od v0.9.0 15) znaků, místo
   k doplnění `_`, krátké možnosti v kanonickém pořadí z dat. Jedno ťuknutí,
   správně = auto-posun, chyba = správné znění + poučka; výsledek s tempem,
   výpisem chyb a opravným kolem. Jede stejným enginem a stavem jako testy

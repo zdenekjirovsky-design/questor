@@ -55,3 +55,18 @@ lekcí, ať ho generuje Claude, nebo vzniká ručně.
   vedlo k chybě (v lesích × „tvrdá parta píše y“, v zimě × „příbuzné
   slovo s N“), a výjimku napiš výslovně. Tiskový tahák téhož:
   `docs/tahak-pravopis.html` (+ `.pdf`).
+- `literatura` („Literatura — trenažér“) — vzor drilového předmětu z NAUKY
+  (pojmy, žánry, autoři, díla): učivo `data/uciva/literatura.md` drží
+  znění ze školního sešitu (tučně) + POZNÁVACÍ ZNAMENÍ, pomůcky, kotvy
+  a výslovné „záměny, na kterých se chytá“; 13 lekcí včetně tří „karet
+  děl“ (Gilgameš, Kytice, Romeo a Julie) a lekce „Jak na knihu, když
+  nečteš“; banka skoro celá z bleskovek (slovní možnosti do 15 znaků,
+  ukázky, ano/ne). Postup kontroly (závazný i pro další karty děl a
+  literární látku): dvě oponentury učiva (pojmy a věrnost sešitu; fakta
+  s ověřením na webu — našly např. chybně citovaný Havlíčkův epigram
+  a obrácený děj Zlatého kolovratu), z nich PRAVIDLA JEDNOZNAČNOSTI pro
+  autory (óda × hymnus jen slovy ze sešitu, personifikace bez míst
+  a institucí, Kytice rozlišovat postavou nebo motivem, varianty jmen
+  nejsou chyba…), dvojí slepé řešení všech bleskovek (0 neshod; poznámky
+  řešitelů odhalily hlavně nápovědu tvarem slova) a oponentura lekcí.
+  Tiskový tahák `docs/tahak-literatura.html` (+ `.pdf`, 2× A4).

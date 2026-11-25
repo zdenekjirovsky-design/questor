@@ -1,5 +1,5 @@
 // Bleskovky — ČISTÁ logika rychlého drilu nad otázkami s krátkými možnostmi
-// (hlavně pravopis: doplň i/y). Bez Reactu a bez stavu; náhoda se injektuje,
+// (pravopis: doplň i/y; literatura: poznej pojem, žánr, autora). Bez Reactu a bez stavu; náhoda se injektuje,
 // den se předává. Průběh kola řídí testový engine (engine.ts:
 // inicializujBlesk, odpovezVEnginu, vyhodnotTest) — tady jsou jen pravidla
 // nad otázkami, bankami a výsledky.
@@ -15,7 +15,9 @@
 //    běžné (jeKoloBleskovek je pro takový výsledek false).
 //
 // Konvence obsahu (docs/NAVOD.md, „Bleskové otázky“):
-//  - blesková otázka = typ `vyber`, 2–3 možnosti, každá nejvýš 12 znaků,
+//  - blesková otázka = typ `vyber`, 2–3 možnosti, každá nejvýš 15 znaků
+//    (15 = „řečnická otázka“, „autobiografický“ — delší pojem už patří do
+//    běžné testové otázky),
 //  - místo k doplnění se v zadání píše podtržítkem `_` (b_lina) — bere se
 //    PRVNÍ podtržítko (souvislá řada `___` je jedna mezera),
 //  - krátké možnosti (všechny nejvýš 3 znaky: i/y, í/ý, mě/mně, i/y/a) se
@@ -39,7 +41,7 @@ import { zamichaneIndexy } from './komponenty/michani';
 export const MIN_MOZNOSTI_BLESK = 2;
 export const MAX_MOZNOSTI_BLESK = 3;
 /** …a každá má (po oříznutí mezer) nejvýš tolik znaků. */
-export const MAX_DELKA_MOZNOSTI_BLESK = 12;
+export const MAX_DELKA_MOZNOSTI_BLESK = 15;
 /** Do kolika znaků je možnost „písmeno / skupina“ (drží pořadí z dat). */
 export const MAX_DELKA_PISMEN_BLESK = 3;
 /** Od kolika bleskových otázek má banka Bleskovky v nabídce. */
@@ -89,7 +91,7 @@ function delka(text: string): number {
   return Array.from(text.trim().normalize('NFC')).length;
 }
 
-/** Je otázka blesková? Výběr z 2–3 možností, každá 1–12 znaků. */
+/** Je otázka blesková? Výběr z 2–3 možností, každá 1–15 znaků. */
 export function jeBleskova(otazka: Otazka): otazka is OtazkaVyber {
   if (otazka.typ !== 'vyber') return false;
   const pocet = otazka.moznosti.length;

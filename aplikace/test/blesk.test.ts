@@ -145,15 +145,15 @@ describe('jeBleskova', () => {
     expect(jeBleskova(vyber('b', ['a']))).toBe(false);
   });
 
-  it('hranice délky je 12 znaků po oříznutí mezer', () => {
-    expect(jeBleskova(vyber('a', ['dvanáctznaků', 'ne']))).toBe(true); // přesně 12
-    expect(jeBleskova(vyber('b', ['třináct znaků', 'ne']))).toBe(false); // 13
-    expect(jeBleskova(vyber('c', ['  dvanáctznaků  ', 'ne']))).toBe(true); // okraje se nepočítají
+  it('hranice délky je 15 znaků po oříznutí mezer', () => {
+    expect(jeBleskova(vyber('a', ['řečnická otázka', 'ne']))).toBe(true); // přesně 15
+    expect(jeBleskova(vyber('b', ['staroslověnština', 'ne']))).toBe(false); // 16
+    expect(jeBleskova(vyber('c', ['  řečnická otázka  ', 'ne']))).toBe(true); // okraje se nepočítají
   });
 
   it('složené znaky (písmeno + kombinující háček) se počítají jako jeden', () => {
-    const rozlozene = 'dvanáctznaků'.normalize('NFD');
-    expect(rozlozene.length).toBeGreaterThan(12);
+    const rozlozene = 'řečnická otázka'.normalize('NFD');
+    expect(rozlozene.length).toBeGreaterThan(15);
     expect(jeBleskova(vyber('a', [rozlozene, 'ne']))).toBe(true);
   });
 

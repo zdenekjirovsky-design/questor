@@ -63,7 +63,9 @@ je respektováno globálně.
 
 ## Bleskovky (rychlý dril)
 
-Dvouminutový dril nad otázkami s krátkými možnostmi (pravopis: doplň i/y).
+Dvouminutový dril nad otázkami s krátkými možnostmi (pravopis: doplň i/y;
+literatura: poznej pojem, žánr nebo trop — možnosti jsou celá slova do
+15 znaků, na mobilu pod sebou).
 Musí působit jako rychlá arkáda: velké písmo, velká tlačítka, žádné čtení
 navíc. Znak ⚡ a zlatá na štítcích; zelená = správně, červená jen chyba.
 Technický kontrakt: ARCHITEKTURA.md › Bleskovky.

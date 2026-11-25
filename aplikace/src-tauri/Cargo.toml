@@ -3,7 +3,7 @@
 
 [package]
 name = "questor"
-version = "0.8.1"
+version = "0.9.0"
 description = "QUESTOR — herni testovaci system"
 authors = ["Zdenek Jirovsky"]
 edition = "2021"
